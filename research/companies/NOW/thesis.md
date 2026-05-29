@@ -234,3 +234,131 @@ This DIRECTLY REFUTES the CFO-budget-scrutiny migration concern logged in `resea
 No sizing change. Position remains at current 6.9%. The "CFO-budget-scrutiny pipeline-lengthening" risk that was elevated as a watch item is now de-emphasized.
 
 **Augmented note re: $6B AWS pact direction-of-payment correction (added 2026-05-27 post-deep-dive TRACE)**: Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`, the $6B is SNOW PAYING AWS for 5 years of infrastructure (Graviton + GPUs). It is a COST commitment, NOT a revenue floor. The signal for NOW remains valid but the mechanism is different than I initially framed: SNOW's mgmt willingness to commit $1.2B/yr in fixed infrastructure cost is the demand-confidence signal that refutes the S4 (digestion) bear case. The dollar mechanics flow SNOW→AWS, not AWS→SNOW. The cascade implication for NOW is unchanged — enterprise AI budgets demonstrably not throttled — but the framing precision matters for future analytical work on hyperscaler-software-vendor pacts.
+
+---
+
+## Deep dive 2026-05-29 — agent-governance positioning + 3-way differentiation + vector DB question
+
+### Q1 2026 actuals (T1 per [SEC 8-K](https://www.sec.gov/Archives/edgar/data/0001373715/000137371526000054/erq1fy26.htm), reported April 22, 2026)
+
+| Metric | Value | Read |
+|---|---|---|
+| Subscription revenue | $3,671M (+22% YoY; +19% cc) | Beat |
+| Total revenue | $3,770M (+22% YoY) | Beat |
+| **Now Assist customers >$1M ACV** | **+130% YoY** | **STRONG agentic-AI revenue traction** |
+| cRPO | $12.64B (+22.5% YoY) | Strong forward commitment |
+| RPO | $27.7B (+25% YoY) | 4-year-comparison high |
+| Non-GAAP op margin | 32% (beat guide) | Healthy |
+| FCF margin | 44% | Healthy |
+| **Stock reaction** | **-17%** | Despite beat-every-metric per [Money365 T3](https://www.money365.market/articles/servicenow-q1-2026-earnings) |
+
+### THE KEY STRUCTURAL EVENT — AI Control Tower (Knowledge 2026 conference, May 2026)
+
+Per [ServiceNow Newsroom T1](https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-expands-AI-Control-Tower-to-discover-observe-govern-secure-and-measure-AI-deployed-across-any-system-in-the-enterprise/default.aspx) + [ERP Today T3](https://erp.today/servicenow-ai-security-governance-knowledge-2026/) + [cxtoday T3](https://www.cxtoday.com/security-privacy-compliance/servicenow-ai-agent-governance-knowledge-2026/):
+
+**AI Control Tower expanded to discover / observe / govern / secure / measure EVERY AI agent / model / workflow ACROSS the enterprise — INCLUDING those running on AWS / Google Cloud / Azure.**
+
+- 30 new enterprise integrations (AWS + Google + Azure + SAP + Oracle + Workday)
+- **ENFORCEMENT AUTHORITY**: can shut down rogue agents in real time
+- Autonomous Security & Risk launched (Armis + Veza integration) — single platform to govern AI agent identities + permissions + connected assets
+- AI Control Tower enhancements enter Innovation Lab May 2026; **general availability August 2026** — HIGH-CONCRETE CATEGORY EVENT trigger candidate per L14 framework
+
+### Stack consolidation via recent M&A — building the agent governance moat
+
+| Acquisition | What it adds | Status |
+|---|---|---|
+| **Moveworks** (announced Mar 10, 2025) | Enterprise search + AI assistant + front-end | **Closed Dec 15, 2025** |
+| **Veza** (announced) | Identity security for AI agents; access graph | Expected H1 2026 |
+| **Armis** (announced intent) | Security capabilities | Pending |
+
+NOW is buying the EXACT layers needed for full-stack agent governance: search (Moveworks) + identity (Veza) + security (Armis) + workflow (already owned) + GRC (already owned).
+
+### THREE-WAY DIFFERENTIATION: NOW vs SNOW vs ESTC (user's question)
+
+| Stack layer | NOW | SNOW | ESTC |
+|---|---|---|---|
+| **Workflow / orchestration / GRC** | ✓ PRIMARY MOAT | partial (Cortex Agents) | ✗ |
+| **Data platform / warehouse** | partial (uses customer ServiceNow data) | ✓ PRIMARY MOAT | partial |
+| **Search + observability** | partial (Moveworks added 2025) | partial (Cortex Search) | ✓ PRIMARY MOAT |
+| **Vector DB merchant** | ✗ — see vector DB analysis below | ✓ (Cortex Search has vector) | ✓ (ELSER + Search AI Lake) |
+| **Identity for non-human actors** | ✓ (Veza closing H1 2026) | ✗ | ✗ |
+| **Agent governance + security enforcement** | ✓ PRIMARY MOAT (AI Control Tower) | partial (Natoma 2026 acquisition) | ✗ |
+| **Agent workflow embedding in business processes** | ✓ PRIMARY MOAT | ✗ | ✗ |
+| **Cross-cloud governance** (governs agents on AWS/Azure/GCP) | ✓ (30 new integrations Knowledge 2026) | ✗ | ✗ |
+
+**The structural read:** these three are at DIFFERENT layers of the same agentic stack — NOT substitutes; can ALL be held simultaneously without redundancy:
+- **NOW = control plane** (orchestrate WHAT agents SHOULD do + audit AFTER + integrate with business processes + enforce policy)
+- **SNOW = data plane** (unified enterprise data layer that agents READ FROM)
+- **ESTC = search/retrieval plane** (substrate that agents USE to find context + observe behavior)
+
+### Vector DB positioning — user's specific question answered
+
+**Is NOW positioned in the vector DB segment of agent workflows?**
+
+**Answer: NO at the merchant level — NOW is a vector DB CONSUMER, not a PROVIDER.**
+
+Per [ServiceNow docs T1](https://www.servicenow.com/docs/r/zurich/platform-administration/ai-search/ais-rag.html) + [Crossfuze T2](https://servicenowinsights.crossfuze.com/post/102lpvb/rag-in-servicenow):
+
+- NOW has Semantic Index Config + Semantic Fields = vector embeddings ARE used internally
+- Now Assist in AI Search combines platform AI Search with RAG to generate Genius Result answers
+- Hybrid search uses keyword + semantic techniques (Best Match 25 + Dense Passage Retrieval)
+- Different embedding models can be used; fine-tuning own embeddings supported
+
+BUT — these capabilities are **INTERNAL to the ServiceNow platform**, embedding their CUSTOMERS' KNOWLEDGE BASES (ServiceNow data, ITSM tickets, knowledge articles, configuration items). NOW does NOT sell vector DB as a standalone merchant product. They do NOT compete with MDB / ESTC / Pinecone at the merchant vector DB market.
+
+**Strategic implication: NOW is ABSTRACTING ABOVE vector DB.** Vector DB sits BELOW NOW in the stack as substrate; NOW captures the WORKFLOW/GOVERNANCE/AUDIT economics on top. This is structurally SUPERIOR positioning at the agent-governance layer because:
+1. NOW doesn't compete with vector DB vendors → can integrate any vector DB → ecosystem-neutral
+2. NOW captures the high-value governance traffic regardless of which vector DB wins
+3. The Moveworks acquisition added enterprise search (which uses vector internally) — extending the search-layer abstraction without competing as merchant vector DB
+4. Vector DB vendors compete with each other on price/performance; NOW captures the workflow integration that's harder to substitute
+
+### Duration-mismodeling lens applied to NOW specifically
+
+**Consensus DURATION on NOW:** mature workflow-automation incumbent at saturation; ~15-20% growth expected; multiple compressing from high-teens P/S. The -17% Q1 reaction reflects this consensus framing — beat-but-priced-to-perfection.
+
+**Actual DURATION:** if agent governance becomes mandatory (per yesterday's 5 concurrent signals from `signals/cross-source-log/2026-05-28-ai-intelligence-brief.md`) + NOW is the workflow-control layer + AI Control Tower goes GA August 2026 with cross-cloud enforcement → NOW captures workflow-integration-of-agents at every regulated enterprise across all hyperscalers. Multi-year structural category expansion NOT priced today.
+
+**The CATEGORY EVENT alignment per L14 framework:** AI Control Tower GA in August 2026 + cross-cloud integrations (30 new) + ENFORCEMENT AUTHORITY + Autonomous Security & Risk launch = HIGH-CONCRETE CATEGORY EVENT marker. If August 2026 GA delivers as planned, Q3 2026 NOW earnings (October 2026) is a likely L14 N=2 validation candidate at Stage 1-2 (deeply discounted post-Q1 -17% reset).
+
+**Post-Q1 stock reset implications:**
+
+| Metric | Value | Source / Implication |
+|---|---|---|
+| Q1 2026 stock reaction | -17% despite beat | Stage 3-4 expectations were even higher than the beat |
+| Current price reference | ~$102.13 | per `meta/2026-05-26-ath-refresh-and-4092-prediction.md` line 22 |
+| Post-split ATH | $239.62 (Jan 28, 2025) | per same file |
+| Pre-ATH gap | 42.6% — **LARGEST current-business pre-ATH gap in user universe** | per same file |
+
+**At current ~$102.13, the bar has been MATERIALLY RESET LOWER. Stage classification effectively moved from Stage 3-4 (pre-Q1) to Stage 1-2 (post -17% reset).** Same L14 framework refinement category as ESTC — NEAR-TERM-RESET / LONG-TERM-STRONG-STRUCTURAL-MOAT split.
+
+### Bypass-route check (per Critical Rule #9)
+
+Can agents bypass NOW for governance?
+- **Low-risk actions** (chatbot replies, document drafts, internal search): YES — agents self-execute or use Copilot/internal vector search; NOW disintermediated
+- **HIGH-RISK / regulated / change-management actions** (provisioning, deprovisioning, financial transactions, IT changes touching production, security incident response, identity/access modifications): **NO** — must go through workflow + audit + approval + GRC chain → NOW required by structural necessity
+- **Cross-cloud agent oversight** (governing agents running on multiple hyperscalers): NOW is first-mover with 30 enterprise integrations; bypass requires building equivalent governance graph elsewhere — high friction
+
+**Net read:** NOW captures the high-value structurally-required governance traffic. Casual agent actions bypass but represent low economic value.
+
+### Position implication (per Critical Rule #11)
+
+**Position implication:** **HOLD existing ~6.9% NOW position. Consider SIZING UP toward original 10-13% target range** pending one verification gate:
+
+- **Gate**: confirm at next NOW Q2 2026 earnings (July 2026) that (a) Now Assist >$1M ACV growth sustains >100% YoY, (b) AI Control Tower August 2026 GA tracks on schedule with named-enterprise launch partners, (c) Moveworks integration delivers visible revenue contribution
+- **If gate passes**: size up to 10-12% (per existing thesis sizing target) — captures the AI Control Tower August GA CATEGORY EVENT before market reprices
+- **If gate fails**: hold current 6.9% pending Q3 2026 actuals (October 2026)
+
+**Asymmetric setup conditions met:**
+- Largest pre-ATH gap in held universe (42.6%; bar materially reset by -17% Q1 reaction)
+- Now Assist +130% YoY ACV growth = AI revenue traction confirmed
+- AI Control Tower = highest-concrete agent-governance product in market with August 2026 GA
+- Cross-cloud governance moat (30 new integrations) — only NOW has the platform reach to govern agents across AWS+Azure+GCP+SAP+Oracle+Workday
+- Acquisition stack (Moveworks + Veza + Armis) = identity + search + security verticalized into governance platform
+- Per yesterday's digest: 5 concurrent signals reinforce category-creation thesis
+- Bypass-route check: structural necessity for regulated/high-risk agent actions
+
+**Honest hedges:**
+- Salesforce Agentforce remains the named direct competitor at the CSM/Customer Workflow layer (not ITSM core per existing cross-vertical re-evaluation)
+- Microsoft Copilot is COMPLEMENTARY at ITSM (existing thesis) — Copilot Agents with Actions CONNECT TO ServiceNow workflows; this could change if MS commercial relationship deteriorates
+- The -17% Q1 reaction signals that even +22% growth + +130% Now Assist ACV wasn't enough to satisfy embedded expectations — execution must continue to deliver
+- AI Control Tower August 2026 GA timeline must hold — slip would impair the category-creation catalyst
