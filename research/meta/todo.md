@@ -29,40 +29,27 @@
 
 ### P2 — Existing items
 
-- [ ] **P3 / verification / 2026-06-24** [CAL, INDP] — Monitor for N=2+ confirmation of candidate Principle #34 (Supplier-Side Cross-Layer Moat Decomposition) + candidate B38 (demand-side decomposition blind-spot for cross-layer moats)
-  - Origin: SEMCO thesis 2026-05-28 — Principle #33 demand-side decomposition completed analysis but failed to surface integrated-turnkey moat (SEMCO is only merchant vendor at Layer 0 substrate + Layer 1 silicon caps); surfaced only via T3 borrowed analyst framing. User meta-question caught the framework gap. N=1 insufficient to codify per principle #32 premortem.
-  - Scope: at next monthly audit cycle, check if any analyses 2026-05-29 to 2026-06-24 surfaced a structural moat that lives in cross-vendor coverage pattern + customer procurement preference (rather than per-layer position). If N=2+ confirmed → codify Principle #34 + B38. If 30 days pass with no second case → retain as candidate or retire.
-  - Heuristic for detection: any analysis where (a) candidate touches 2+ adjacent binding-constraint layers, (b) demand-side decomposition completed normally, (c) a non-consensus structural moat was surfaced by orthogonal source (analyst note, user framing, external research). If all 3 conditions met → B38 fired retroactively, count toward N=2+.
-  - Linked: `research/companies/SEMCO/thesis.md` (origin case + meta-observation), `research/meta/biases-watchlist.md` B38 (candidate), `research/meta/methodology.md` Principle #34 (candidate row in metadata table), `research/meta/principle-applications-log.md` (3rd application of #33 logged)
-
-- [ ] **P3 / verification / 2026-06-24** [INDP, CAL] — Claim-verification audit cycle (replaces source-reliability audit per principle #23, codified 2026-05-24)
-  - Origin: User correction 2026-05-24 after TrendForce HBF debacle. Bias B25 (source-tracking-over-claim-verification) identified. Source-reliability tracking is sample-size dependent; claim-level orthogonal verification is the actual epistemic discipline.
-  - Scope: Sample N recent claims (target: 15) across thesis files + signals + wiki entries committed in the prior 30 days. For each, verify: (a) the claim's first-order assertion is stripped of interpretation, (b) at least one orthogonal corroboration was logged at ingest (different data-generation process), (c) single-source claims correctly went to `cross-source-log.md` not to thesis files. Flag failures in `harness observations` log (`sector/where-we-are.md`).
-  - Also: re-audit the 6 sources still in the source-reliability queue (MLQ.ai, Sacra, Fortune, Photoncap, TweakTown, The Razor's Edge) — BUT use the claim-verification framing, not source-track-record framing. Output: for each source, sample 3 representative claims and check whether each had orthogonal corroboration at time of citation.
-  - Linked: `research/meta/methodology.md` principle #23, `research/meta/biases-watchlist.md` B25, `research/meta/source-reliability.md` (legacy tracker; keep for cross-reference but no longer primary)
-
-- [ ] **P3 / verification / 2026-06-24** [INDP, CAL] — Codification audit cycle (EXPANDED scope per user 2026-05-28) — FIRST CYCLE
-  - **Scope expansion (added 2026-05-28)**: originally scoped to Principle #32 monthly audit only. User discipline LOOP articulation 2026-05-28 — "spot reasoning inconsistencies → apply fixes → monitor the fixes — see if they actually work" — surfaced that the rapid codification cadence (5 principles + 6 biases in 72 hours since 2026-05-21) created a monitoring gap: only #32 has explicit detectability; #29/#30/#31/#33 + B31-B36 have declarative falsifiers but NO scheduled monitoring. Expanded audit covers ALL recent codifications.
-  - **Audit scope (expanded)** — each of these gets the 3-question test:
-    - Principles: #29 (segmented triangulation), #30 (comp-set verification), #31 (narrative-stage modifier), #32 (pre-action checkpoints), #33 (top-down capability decomposition + 2026-05-28 competition-intensity refinement)
-    - Biases: B31 (cross-segment aggregation triangulation), B32 (comp-set anchoring at valuation), B33 (narrative-stage-blind sizing), B34 (action without verification or premortem), B35 (within-category aggregation), B36 (visible-user-adoption anchoring when embedded)
-  - **3 questions per codification**:
-    1. Has it been APPLIED in any analysis since codification? (Check `principle-applications-log.md` + grep recent commits)
-    2. If applied: classify REAL CATCH / FALSE POSITIVE / WASTED OVERHEAD (per principle #32 detectability framework)
-    3. If NOT applied in 30 days: codification is INERT. Two options — RETIRE per fluidity-footer falsifier OR PROMOTE TO HOOK (deterministic enforcement per "instructions are choices; hooks are enforced")
-  - **Metrics (per codification)**:
-    - Real-catch rate ≥40% (below 20% over 3+ months → over-applying, retire)
-    - False-positive rate <30%
-    - Wasted-overhead rate <30%
-    - Net-positive check (REAL_CATCHES > WASTED_OVERHEADS over 30 days)
-  - **Action items by outcome**:
-    - Metrics pass + applied ≥3 times: confirmed active; continue monitoring
-    - Applied <3 times in 30 days: codification is inert; flag for retirement OR hook promotion
-    - Metrics fail: revise trigger threshold OR retire per fluidity-footer falsifier
-    - New pattern surfaces during audit: codify per standard process
-  - **Failure mode the audit protects against (the user's stated concern)**: rapid codification cadence producing ossified text that's never actually applied = step 1+2 of the loop without step 3 = the most likely OS-degradation pathway given the recent codification velocity
-  - Document audit outcome in `research/meta/principle-applications-log.md` "Monthly audit log" section. Recurring monthly thereafter; this is the FIRST audit.
-  - Linked: `research/meta/methodology.md` (all principles), `research/meta/biases-watchlist.md` (all B-entries), `research/meta/principle-applications-log.md`, recent commit log
+- [ ] **P3 / verification / 2026-06-24** [CAL, INDP, AF] — CONSOLIDATED Monthly Audit Cycle (FIRST CYCLE — merged 3 audits per user 2026-05-29)
+  - **CONSOLIDATION NOTE 2026-05-29**: Previously 3 separate June 24 items (codification audit + claim-verification audit + Principle #34/B38 monitoring). User-directed merge into single audit per "doesn't make sense to have it three times."
+  - **PART A — Codification audit** (expanded scope per 2026-05-28): each gets the 3-question test:
+    - Principles: #29 (segmented triangulation), #30 (comp-set verification), #31 (narrative-stage modifier), #32 (pre-action checkpoints), #33 (top-down capability decomposition + 2026-05-28 competition-intensity refinement), candidate #34 (Supplier-Side Cross-Layer Moat Decomposition — check for N=2+ validation)
+    - Biases: B31 (cross-segment aggregation), B32 (comp-set anchoring at valuation), B33 (narrative-stage-blind sizing), B34 (action without verification or premortem), B35 (within-category aggregation), B36 (visible-user-adoption anchoring when embedded), candidate B38 (demand-side decomposition blind-spot — check for N=2+ validation; promote OR retain candidate OR retire)
+    - **3 questions per codification**: (1) APPLIED since codification? (check `principle-applications-log.md` + grep recent commits); (2) if applied → REAL CATCH / FALSE POSITIVE / WASTED OVERHEAD; (3) if NOT applied in 30 days → INERT → retire OR promote to hook
+    - **Metrics**: Real-catch rate ≥40%; false-positive <30%; wasted-overhead <30%; net-positive (REAL_CATCHES > WASTED_OVERHEADS over 30 days)
+  - **PART B — Claim-verification audit** (per principle #23, codified 2026-05-24 after TrendForce HBF debacle):
+    - Sample 15 recent claims from thesis files + signals + wiki entries committed 2026-05-24 to 2026-06-24
+    - For each, verify: (a) first-order assertion stripped of interpretation, (b) ≥1 orthogonal corroboration at ingest, (c) single-source claims correctly went to `cross-source-log.md` not thesis files
+    - Re-audit 6 sources in legacy reliability queue (MLQ.ai, Sacra, Fortune, Photoncap, TweakTown, The Razor's Edge) using claim-verification framing (sample 3 claims/source; check orthogonal corroboration at citation)
+    - Flag failures in `sector/where-we-are.md` harness observations log
+  - **PART C — Critical Rule #11 detectability check** (added 2026-05-28):
+    - Grep `Position implication:` across thesis files committed 30 days prior
+    - Verify VARIED implications (mix of ENTER / HOLD / TRIM / EXIT / NO ACTION); if 5+ identical "HOLD — no size change" → rule decorative; retire or refine
+  - **Failure mode the audit protects against**: rapid codification cadence producing ossified text that's never actually applied = the most likely OS-degradation pathway given the recent codification velocity (Principles #29 → #34 + B31 → B38 in <40 days)
+  - **Where to document outcome**: `research/meta/principle-applications-log.md` "Monthly audit log" section
+  - **Automation verification** (per user request 2026-05-29): 2 mechanisms confirm this will surface on 2026-06-24:
+    1. `~/.claude/session-start-hook.py` is date-aware — surfaces with 🚨 OVERDUE / ⏰ DUE TODAY / 📅 DUE SOON markers at top of session briefing if user starts a session that day or after
+    2. `.github/workflows/recurring-audit-reminder.yml` runs weekly Monday 9am UTC; creates a GitHub issue when DUE_SOON / DUE_TODAY / OVERDUE fires
+  - **Linked**: `meta/methodology.md` (Principles #29-#34), `meta/biases-watchlist.md` (B31-B38), `meta/principle-applications-log.md`, `meta/recurring-audit-log.md`, recent commit log
 
 - [ ] **P2 / verification / 2026-06-15** [INDP, AF] — Schwab June 2026 AI agent launch — triangulation 3rd-data-point candidate
   - Origin: Robinhood + eToro + Moomoo agentic-trading launches Apr-May 2026 (per `signals/events/2026-05-27-robinhood-agentic-trading.md`). Schwab targeting June 2026 per [WealthManagement.com T3](https://www.wealthmanagement.com/ria-news/schwab-makes-ai-push-with-client-facing-agents-to-roll-out-in-june). If 3rd same-segment data point lands, agentic-brokerage promotes to triangulation per principle #29.
