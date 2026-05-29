@@ -8,7 +8,7 @@
 
 ---
 
-## Recent harness state (non-synthesis pointer — last refreshed 2026-05-28 end of day)
+## Recent harness state (non-synthesis pointer — last refreshed 2026-05-29 mid-session)
 
 This section tracks RECENT HARNESS ACTIVITY that doesn't shift the synthesis above but a new session needs to be aware of. Update when material harness state changes; not a substitute for §"What I changed my mind about" (which tracks SYNTHESIS shifts).
 
@@ -81,6 +81,55 @@ Plus P2 continuous-agent infrastructure category thesis build candidate (from 20
 4. **MDB Q1 FY27 print processing** — already reported (+20%); could backfill as PREDICT/GRADE cycle if codification value to L14, but bounded incremental value.
 
 **User-stated timing:** "wait until tomorrow" for next action. System is clean for pickup; no in-flight uncommitted work.
+
+---
+
+## 2026-05-29 mid-session activity log
+
+**Major analytical artifacts created today:**
+- `companies/SEMCOTECH/thesis.md` (NEW) — French eChuck specialist Semco Technologies SAS / ALSEM.PA identified from holdings snapshot as DISTINCT from existing SEMCO=Samsung Electro-Mechanics reference artifact
+- `companies/ESTC/thesis.md` updated with Q4 FY26 actuals + L14 NEAR-TERM-MISS/LONG-TERM-STRONG-GUIDE refinement; "feature not a business" CEO quote correctly attributed to Aug 2025 (not yesterday)
+- `companies/NOW/thesis.md` deep dive — AI Control Tower as agent-governance moat + 3-way differentiation vs SNOW/ESTC + vector DB positioning (NOW is CONSUMER not PROVIDER); Q1 2026 actuals integrated; Now Assist >$1M ACV +130% YoY
+- `meta/2026-05-29-vector-db-candidate-comparison.md` — research agent (32K subagent tokens) verdict: MDB primary over SNOW (NOW concentration risk) or ESTC (DDOG observability overlap)
+- `meta/2026-05-29-tsem-stm-glw-vs-sumco-revisit.md` — TSEM/STM/GLW revisit + Sumco trade-off; verdict NO TRIM per L3
+- `meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md` — Two-Question Matrix per holding (10/15 Agentic AI CRUCIAL; 4/15 DIRECT robotics tie)
+- `signals/cross-source-log/2026-05-29-ai-intelligence-brief-morning.md` — morning brief (AWS+Cloudflare agent infra rebuild + edge AI acceleration + MSFT AI > human labor cost + code quality 35-50% token multiplier)
+- `signals/cross-source-log/2026-05-29-twitter-cohort-wafer-test-equipment-kioxia.md` — Sumco UBS upgrade + test equipment supply crunch + UBS Kioxia cost report
+
+**Critical Rule #10 cascade discipline observed:** back-refs added to all 14 existing thesis files + DDOG/NOW/ESTC/SNDK/MURATA/HYNIX cascades from cross-source signals.
+
+**L14 candidate framework refinement (4-data-point cohort 2026-05-28 + new categories surfaced):**
+- HIGH-CONCRETE CATEGORY (signed strategic deal): SNOW +37.65%
+- TREND ACCELERATION: MDB +20%
+- LOW-CONCRETE CATEGORY (product launch + partnership): NTAP +10%
+- NEAR-TERM-MISS / LONG-TERM-STRONG-GUIDE: ESTC -8.8% (new category surfaced 2026-05-29)
+- Stage 3-4 + TREND: MRVL -1.96%
+
+**Bottleneck-duration mismodeling thesis EXTENDED — NEW LAYER #5 identified:**
+- Semiconductor test equipment components (FPGAs + driver ICs + Xeon CPUs at 24-52 week lead times)
+- Compound effect: consensus models AI compute capacity normalizing 2027-2028; actual extends through **2028-2030+**
+
+**Continuous-agent / fluid-software-mesh thesis VALIDATED:**
+- AWS + Cloudflare explicitly rebuilding infrastructure for machine-to-machine traffic (today's brief)
+- Mozilla Mythos 271 vulns found at Firefox with "almost no false positives" (production validation)
+- Code quality 35-50% token consumption multiplier quantifies hidden compute cost
+
+**Portfolio snapshot 2026-05-29 update:**
+- Total: €175,033.31 (Degiro €165,033 + N26 HDS ~€10K)
+- 15 active holdings tagged on Agentic AI + Robotics matrix
+- **HYPS (Hyperliquid) likely sold** between 2026-05-26 and 2026-05-29 — flagged for user verification in `portfolio/holdings.md`
+- **ALSEM (Semco Tech SAS)** NEW position at ~3% added between same dates
+- €20K fresh capital deployment ranking unchanged: MDB primary, Sumco secondary, SNDK SIZE UP, NOW SIZE UP (gated)
+
+**Open todos: 11 items.** P1: ESTC verification + 4092 entry-trigger. P2: continuous-agent infra thesis build candidate. P3: monthly audit cycle 2026-06-24.
+
+**Loose ends pending user decision:**
+- MDB thesis file (needed before execution)
+- Sumco thesis file (needed before execution)
+- ALAB SIZE UP execution decision (structural basis confirmed)
+- CPU-heavy exploration (ARM SIZE UP vs Qualcomm new add)
+- ESTC P1 transcript pull (verify transitional vs structural Q1 EPS weakness)
+- HYPS sale confirmation (capital reconciliation)
 
 ---
 

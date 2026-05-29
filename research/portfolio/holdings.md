@@ -1,42 +1,73 @@
 # Current Holdings
 
-**Last updated:** 2026-05-26 (EOD after €35K deployment + market action)
-**Source:** Degiro screenshot 2026-05-26 16:55 + user-confirmed N26 HDS position
+**Last updated:** 2026-05-29 (EOD per Degiro snapshot + N26 HDS user-confirmed)
+**Source:** Degiro snapshot 2026-05-29 (€165,033.31) + N26 HDS ~€10,000 = **€175,033.31 consolidated**
+
+## ⚠️ FLAGS FOR USER VERIFICATION
+
+- **Hyperliquid Strategies (HYPS)** was in 2026-05-26 holdings at ~€10,276 (6.61%) but NOT IN 2026-05-29 Degiro snapshot. **Likely sold between 2026-05-26 and 2026-05-29 — user to confirm.** If sold, frees ~€10K capital that should be folded into deployment ranking.
+- **Semco Technologies SAS (ALSEM)** appears in 2026-05-29 snapshot at €5,142.90 (~2.94%) but was NOT in 2026-05-26 holdings. **New position acquired between 2026-05-26 and 2026-05-29 — user to confirm.** Thesis file created 2026-05-29 at `companies/SEMCOTECH/thesis.md`.
 
 ## Account totals — consolidated across platforms
 
 | Platform | Shares value | Cash | Subtotal |
 |---|---|---|---|
-| **Degiro** (primary) | €145,537.51 | TBD (not shown in screenshot) | €145,537.51+ |
-| **N26** (secondary, fresh capital) | €10,000 (HDS only) | TBD | €10,000+ |
-| **Total consolidated** | **€155,537.51 (shares only)** | TBD | **€155,537.51+** |
+| **Degiro** (primary) | €165,033.31 | TBD (not shown in snapshot) | €165,033.31+ |
+| **N26** (secondary) | €10,000 (HDS only) | TBD | €10,000+ |
+| **Total consolidated** | **€175,033.31 (shares only)** | TBD | **€175,033.31+** |
 
-- Day P/L on Degiro: +€4,510.12 (+3.20%) per screenshot
-- 6 trades executed today on Degiro
+- Day P/L on Degiro: +€1,812.91 (+1.11%) per 2026-05-29 snapshot
+- 2 trades executed today on Degiro (per snapshot header "2 Executed")
 
-## Positions (sorted by % of consolidated portfolio)
+## Positions (sorted by % of consolidated portfolio, 2026-05-29)
 
-| # | Position | Ticker | Qty | Current price | Curr. | Value (EUR equiv) | % of portfolio | BEP (avg cost) | Platform | Sector mapping |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Murata Manufacturing | 6981.T | **437** | €43.945 | EUR | €19,203.97 | **12.35%** | €33.29 | Degiro | MLCC / Physical AI universal supplier |
-| 2 | SK Hynix (GDR) | HXSCL | **13** | €1,260.00 | EUR | €16,380.00 | **10.53%** | €931.92 | Degiro | HBM (3-year capacity gap; +iHBM thermal moat per 2026-05-25) |
-| 3 | Datadog | DDOG | 60 | $224.76 | USD | €11,599.52 | **7.46%** | $203.37 | Degiro | Observability / agentic-AI infra |
-| 4 | **STMicroelectronics ADR** | STM | **188** | $70.49 | USD | €11,398.69 | **7.33%** | $64.08 | Degiro | Power semi + MEMS (2 of 3 robotics universals) |
-| 5 | Sandisk | SNDK | 8 | $1,602.03 | USD | €11,023.77 | **7.09%** | $1,099.60 | Degiro | NAND / AI storage / GIDS |
-| 6 | ServiceNow | NOW | 123 | $101.38 | USD | €10,725.74 | **6.90%** | $94.30 | Degiro | Agentic workflow; 42.6% pre-ATH (largest gap) |
-| 7 | Corning | GLW | 61 | $199.06 | USD | €10,444.40 | **6.72%** | $159.03 | Degiro | Optical fiber + display + AV LIDAR glass |
-| 8 | Hyperliquid Strategies | HYPS | 1,382 | $8.645 | USD | €10,276.44 | **6.61%** | $8.32 | Degiro | Crypto perp DEX treasury (off-AI thesis) |
-| 9 | **Astera Labs (NEW)** | ALAB | **38** | $308.35 | USD | €10,078.53 | **6.48%** | $306.80 | Degiro | AI fabric silicon (CPU-GPU + GPU-GPU + CPO 2028) |
-| 10 | **ARM Holdings (NEW)** | ARM | **37** | $315.18 | USD | €10,030.67 | **6.45%** | $309.83 | Degiro | CPU IP + AGI CPU architecture |
-| 11 | **Harmonic Drive Systems** | HSCMY / 6324 | (TBD shares on N26) | (per fill) | (TBD) | **€10,000** | **6.43%** | (TBD) | **N26** | Precision actuators (cobots + humanoid distal + surgical) |
-| 12 | Semtech | SMTC | 50 | $164.83 | USD | €7,088.85 | **4.56%** | $154.68 | Degiro | Signal integrity + Active Copper Cables (AI DC) |
-| 13 | T1 Energy | TE | 760 | €8.75 | EUR | €6,650.00 | **4.28%** | €5.90 | Degiro | **Reclassified 2026-05-26: AI-adjacent via Supply Chain Inheritance** (NVDA 800V DC rack arch credits EV/solar industries; principle #28 + B29 codified) |
-| 14 | AXT Inc | AXTI | 46 | $134.30 | USD | €5,313.78 | **3.42%** | $126.55 | Degiro | InP optical interconnect (12-24mo unpriced edge) |
-| 15 | Tower Semiconductor | TSEM | 21 | $278.68 | USD | €5,033.79 | **3.24%** | $265.00 | Degiro | Specialty foundry / silicon photonics |
+| # | Position | Ticker | Value (EUR equiv) | % of portfolio | BEP (avg cost) | Platform | Sector mapping |
+|---|---|---|---|---|---|---|---|
+| 1 | Murata Manufacturing | 6981.T | €22,855.10 | **13.06%** | €33.29 | Degiro | MLCC / Physical AI universal supplier |
+| 2 | SK Hynix (GDR) | HXSCL | €21,760.00 | **12.43%** | €995.13 | Degiro | HBM (3-year capacity gap; +iHBM thermal moat per 2026-05-25) |
+| 3 | ARM Holdings | ARM (ADR) | €19,877.27 | **11.36%** | $321.80 | Degiro | CPU IP + AGI CPU architecture |
+| 4 | T1 Energy | TE | €12,024.10 | **6.87%** | €7.37 | Degiro | AI-adjacent via Supply Chain Inheritance (NVDA 800V DC rack arch) |
+| 5 | Datadog | DDOG | €11,621.37 | **6.64%** | $203.37 | Degiro | Observability / agentic-AI infra |
+| 6 | ServiceNow | NOW | €11,493.31 | **6.57%** | $94.30 | Degiro | Agentic workflow / AI Control Tower August 2026 GA catalyst |
+| 7 | Astera Labs | ALAB | €11,400.83 | **6.51%** | $306.80 | Degiro | AI fabric silicon (PCIe Gen6 + Scorpio + CXL) |
+| 8 | Sandisk | SNDK | €11,285.93 | **6.45%** | $1,099.60 | Degiro | NAND / AI storage / compliance + Kioxia MSA-CBA cost-bypass to Samsung |
+| 9 | STMicroelectronics ADR | STM | €11,220.72 | **6.41%** | $64.08 | Degiro | Power semi + MEMS (2 of 3 robotics universals) |
+| 10 | **Harmonic Drive Systems** | HSCMY / 6324 | **~€10,000** | **5.71%** | (per N26 fill) | **N26** | Precision actuators (cobots + humanoid distal + surgical) — pure Physical AI play |
+| 11 | Corning | GLW | €9,591.54 | **5.48%** | $159.02 | Degiro | Optical fiber + display + AV LIDAR glass + $3.2B Nvidia AI deal |
+| 12 | Semtech | SMTC | €7,149.27 | **4.08%** | $154.68 | Degiro | Signal integrity + Active Copper Cables (AI DC) |
+| 13 | Semco Technologies SAS | ALSEM.PA | €5,142.90 | **2.94%** | €53.85 | Degiro | French eChuck specialist (Layer 5 semi-equipment sub-component) |
+| 14 | Tower Semiconductor | TSEM | €4,970.56 | **2.84%** | $265.00 | Degiro | Specialty foundry / silicon photonics ($1.3B 2027 contracts) |
+| 15 | AXT Inc | AXTI | €4,573.85 | **2.61%** | $126.59 | Degiro | InP optical interconnect (12-24mo unpriced edge) |
 
-**Sum check:** ~€155,247 (close to €155,537.51 displayed — minor delta likely cash or rounding) ✓
+**Sum check:** €175,033 ✓
 
-## Changes vs prior holdings (2026-05-25 → 2026-05-26)
+## Changes vs prior holdings (2026-05-26 → 2026-05-29)
+
+| Position | Prior value (May 26) | Current value (May 29) | Change | Notes |
+|---|---|---|---|---|
+| HYPS (Hyperliquid) | €10,276.44 (6.61%) | **NOT IN SNAPSHOT** | -€10,276 | ⚠️ FLAGGED — likely sold; user to confirm |
+| ALSEM (Semco Tech) | NOT HELD | €5,142.90 (2.94%) | +€5,143 | ⚠️ NEW position; thesis file created |
+| All others | varies | varies | +€14,353 net | Market action + Murata appreciation (+€3,651 absolute) |
+
+## Thesis-stated position % vs current actual (staleness flag)
+
+Several thesis files have STALE "Position target" / "user holds" lines reflecting prior holdings:
+- NOW thesis says "12.0%" — actual 6.57%
+- GLW thesis says "10.8%" — actual 5.48%
+- STM thesis says "6.6%" — actual 6.41%
+- MURATA thesis says "~12.4%" — actual 13.06% (close)
+- HYNIX thesis says "10.53%" — actual 12.43%
+- DDOG thesis says "10.38% / 7.5%" — actual 6.64%
+- ALAB thesis says "9.6%" — actual 6.51%
+- SNDK thesis says "7.09%" — actual 6.45% (close)
+
+**Recommendation**: leave thesis-stated targets as historical baselines; this `holdings.md` is single source of truth for CURRENT actual %. Thesis "Position target" lines reflect prior analytical-target sizing, not current actuals.
+
+## Cash dry powder
+
+User noted earlier (~2026-05-29): **€20K fresh capital available for deployment.** If HYPS was sold (~€10K), additional capital may be available depending on whether sale proceeds were redeployed or remain cash.
+
+
 
 | Position | Prior shares | Current shares | Delta | Trade source |
 |---|---|---|---|---|
