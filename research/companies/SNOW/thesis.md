@@ -213,3 +213,11 @@ Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md` (TRACE event file with
 
 **Updated anti-fragility (revised UP from 2.5/5 → 3/5)**: S4 (AI spend digestion) bear case materially weakened by NRR inflection + AWS infrastructure commitment magnitude signaling sustained demand confidence. The structural floor on enterprise AI infrastructure spend through 2031 (via SNOW-AWS multi-year cost commitment) reduces S4 downside magnitude even if scenario occurs.
 
+## Cross-source synthesis — Vector DB candidate comparison (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-vector-db-candidate-comparison.md`: SNOW evaluated as vector DB candidate for user-portfolio addition (user holds DDOG + NOW; considering pure-play vector DB). Research agent verdict: **SNOW structurally DISQUALIFIED as portfolio addition** — Snowflake Intelligence + Cortex Code positions SNOW as DIRECT COMPETITOR to held NOW at agentic-control-plane layer per [Snowflake April 2026 press release](https://www.snowflake.com/en/news/press-releases/snowflake-expands-snowflake-intelligence-and-cortex-code-to-power-the-control-plane-for-the-agentic-enterprise/). Adding SNOW would create portfolio concentration risk on same agentic-orchestration narrative as held NOW.
+
+Cortex Search is feature within Cortex stack, not standalone vector DB product. Vector retrieval is subordinate infrastructure consumed by Snowflake Intelligence + Cortex Agents. SNOW does not meet pure-play vector DB criteria — fundamental positioning is data warehouse + analytics + control plane, not vector DB.
+
+**Position implication (per Critical Rule #11):** **NO POSITION** — SNOW remains NOT held; the vector DB candidate analysis does not change this. SNOW thesis stands on its own data-cloud-incumbency merits (already documented above); the comparison analysis simply confirms SNOW is not the right vehicle for adding pure-play vector DB exposure given existing held NOW.
+

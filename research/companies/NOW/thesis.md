@@ -362,3 +362,17 @@ Can agents bypass NOW for governance?
 - Microsoft Copilot is COMPLEMENTARY at ITSM (existing thesis) — Copilot Agents with Actions CONNECT TO ServiceNow workflows; this could change if MS commercial relationship deteriorates
 - The -17% Q1 reaction signals that even +22% growth + +130% Now Assist ACV wasn't enough to satisfy embedded expectations — execution must continue to deliver
 - AI Control Tower August 2026 GA timeline must hold — slip would impair the category-creation catalyst
+
+## Cross-source synthesis — Vector DB candidate comparison (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-vector-db-candidate-comparison.md`: research agent comparing vector DB candidates surfaced critical strategic-overlap finding directly relevant to NOW thesis.
+
+**KEY FINDING affecting NOW positioning**: SNOW (Snowflake Intelligence + Cortex Code) is explicitly positioning as "control plane for the Agentic Enterprise" per [Snowflake April 2026 press release](https://www.snowflake.com/en/news/press-releases/snowflake-expands-snowflake-intelligence-and-cortex-code-to-power-the-control-plane-for-the-agentic-enterprise/). This is DIRECT COMPETITIVE TENSION with held NOW's AI Control Tower (Knowledge 2026; GA August 2026). ServiceNow + Snowflake maintain a Zero Copy partnership at the data-layer integration level, but at the control-plane positioning level they are competing for the same enterprise wallet/mindshare.
+
+**Implication for NOW thesis:**
+- SNOW is now identified as a NAMED COMPETITOR at control-plane level (not just data-platform peer). Add to falsifier watch list alongside Salesforce Agentforce (CSM layer) + Microsoft Copilot (ITSM).
+- NOW's cross-cloud governance scope (30 enterprise integrations across AWS+Azure+GCP+SAP+Oracle+Workday) remains structurally differentiated from SNOW's data-cloud-centric "control plane" framing — but the competitive narrative is now more crowded than thesis assumed.
+- Distinguishing axis: NOW = workflow-first control plane (orchestrates agents around business processes); SNOW = data-first control plane (orchestrates agents around data). Both could co-exist but compete for enterprise spend.
+- Vector DB candidate analysis recommends MDB as user-portfolio addition (not SNOW) — partly BECAUSE adding SNOW would create concentration risk on NOW's control-plane bet.
+
+**Position implication (per Critical Rule #11):** NO CHANGE to existing HOLD 6.9% / size-up-to-10-12% pending Q2 2026 verification gate. The SNOW competitive overlap is a new watch item, NOT yet a sizing change trigger. Watch: any NOW Q2 2026 commentary on Snowflake's competitive positioning OR named customer wins at control-plane layer where NOW vs SNOW was the explicit competitive decision.

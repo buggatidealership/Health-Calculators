@@ -127,3 +127,18 @@ Per `meta/methodology.md`: ✓ PASS. RAG requests scale with token volume; vecto
 ## Position implication (per Critical Rule #11 — required closing line)
 
 **Position implication:** CONSIDER ENTER at 2-3% Active sizing — **PENDING** primary Q4 FY26 transcript verification of Q1 FY27 EPS weakness as transitional investment vs structural deterioration. If verification confirms transitional (front-loaded investment, sales-pipeline intact): enter 2-3% Active per existing thesis sizing guidance. If verification reveals structural deterioration: stay watchlist with documented exclusion reason. Asymmetric setup is real conditional on verification — Stage 1-2 + LONG-TERM-STRONG-GUIDE + deeply-discounted entry + AI fundamentals intact + market anchored on near-term noise = entry window IF Q1 weakness is what I think it is.
+
+## Cross-source synthesis — Vector DB candidate comparison (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-vector-db-candidate-comparison.md`: ESTC evaluated alongside SNOW + MDB for user-portfolio pure-play vector DB addition. Research agent verdict: **ESTC = speculative secondary**, NOT primary recommendation.
+
+**Reasons ESTC didn't win primary recommendation:**
+- **HIGH overlap with held DDOG**: Elastic Observability + APM + logging directly competes with Datadog in log ingestion + APM (existing thesis blind spot now elevated to portfolio concentration risk)
+- **No vector revenue segmentation** in any SEC filing through Q4 FY26 — no way to track vector thesis progress in quarterly data
+- **-8.8% post-Q4 FY26 beat = market skeptical** of search-native AI re-rating
+- **pgvector commoditization risk MODERATE** as pgvector adds BM25 capabilities
+- Valuation cheap (~3x fwd P/S) but cheap doesn't fix strategic clarity problem
+
+**Agent's recommendation for ESTC specifically:** speculative secondary at sub-$55 with hard stop IF user wants pure-value play AND accepts DDOG observability overlap. Primary recommendation goes to MDB instead (unique Voyage AI vertical integration + orthogonal to DDOG and NOW + autoEmbed catalyst).
+
+**Position implication (per Critical Rule #11):** existing "CONSIDER ENTER 2-3% PENDING transcript verification" stance is now SOFTENED — if user is willing to add only ONE vector DB exposure, MDB is the primary call; ESTC entry is contingent on (a) MDB not being added, (b) sub-$55 entry trigger, (c) explicit acceptance of DDOG overlap. No change to existing thesis sizing math otherwise.

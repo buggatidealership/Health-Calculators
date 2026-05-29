@@ -240,3 +240,11 @@ Per `research/signals/events/2026-05-28-anthropic-mythos-continuous-agent-infras
 **No material thesis change.** Sector-level reinforcement only; per Critical Rule #10 documented for cascade-discipline completeness.
 
 **Position implication (per Critical Rule #11):** HOLD — no size change — Mythos cascade reinforces existing Core thesis (regulatory-binding observability moat); does NOT introduce new sizing math beyond existing 7.5% allocation.
+
+## Cross-source synthesis — Vector DB candidate comparison (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-vector-db-candidate-comparison.md`: agent observability is identified as the sharpest bottleneck-duration mismodeling in the AI software stack (per yesterday's analysis); DDOG is positioned as incumbent at this layer. The comparison flags ESTC's Elastic Observability product as DIRECT product-category competitor to DDOG in log ingestion + APM (HIGH overlap). MDB integrates natively with Datadog for monitoring per [Datadog docs](https://docs.datadoghq.com/integrations/mongodb-atlas/) — MDB is an observed system, not observability provider (zero overlap, complementary). SNOW does not compete in observability.
+
+**Implication for DDOG sizing decision in context of vector DB addition:** if user adds MDB (agent recommendation), DDOG holdings unaffected — MDB is observed-via-DDOG complement. If user adds ESTC instead, observability concentration risk increases — should rationalize DDOG + ESTC sizing combined.
+
+**Position implication:** HOLD existing 7.5% — no change triggered by vector DB candidate analysis.
