@@ -1,6 +1,6 @@
 # To-Do — AI Sector Research OS
 
-**Last updated:** 2026-05-21 (post-DEEP-DIG infrastructure cleanup)
+**Last updated:** 2026-05-29 (cleanup: SUPERSEDED Principle #32 audit removed; closed NVDA stock-reaction item archived; Schwab item formatting fixed)
 **Optimizes for:** rate at which signals become defensible, falsifiable, investable conviction earlier than consensus (per `meta/methodology.md` §Meta-First-Principle).
 
 **SessionStart hook sort order:** P0 → P1 → P2 → P3, within priority: artifact-producing > process, within ties: tag count desc, then date asc.
@@ -35,9 +35,6 @@
   - Heuristic for detection: any analysis where (a) candidate touches 2+ adjacent binding-constraint layers, (b) demand-side decomposition completed normally, (c) a non-consensus structural moat was surfaced by orthogonal source (analyst note, user framing, external research). If all 3 conditions met → B38 fired retroactively, count toward N=2+.
   - Linked: `research/companies/SEMCO/thesis.md` (origin case + meta-observation), `research/meta/biases-watchlist.md` B38 (candidate), `research/meta/methodology.md` Principle #34 (candidate row in metadata table), `research/meta/principle-applications-log.md` (3rd application of #33 logged)
 
-
-- [x] **P2 / verification / 2026-05-22** [CAL] — Stock-reaction grade for NVDA Q1 FY27 (T+24h follow-up) — CLOSED 2026-05-25 per user framing: "resolve purely on numbers, not stock movements because price depends on macro." Numerical grade stands at HIT direction on all 5 axes (revenue/EPS within 0.5%; biggest miss UNDERCALLED Q2 guide by $2.5B because of historical sandbag heuristic that doesn't fit multi-year-contracted-demand environments, per lesson L4). See `predictions/2026-05-20-NVDA-Q1FY27-GRADE.md` final section.
-
 - [ ] **P3 / verification / 2026-06-24** [INDP, CAL] — Claim-verification audit cycle (replaces source-reliability audit per principle #23, codified 2026-05-24)
   - Origin: User correction 2026-05-24 after TrendForce HBF debacle. Bias B25 (source-tracking-over-claim-verification) identified. Source-reliability tracking is sample-size dependent; claim-level orthogonal verification is the actual epistemic discipline.
   - Scope: Sample N recent claims (target: 15) across thesis files + signals + wiki entries committed in the prior 30 days. For each, verify: (a) the claim's first-order assertion is stripped of interpretation, (b) at least one orthogonal corroboration was logged at ingest (different data-generation process), (c) single-source claims correctly went to `cross-source-log.md` not to thesis files. Flag failures in `harness observations` log (`sector/where-we-are.md`).
@@ -68,17 +65,15 @@
   - Linked: `research/meta/methodology.md` (all principles), `research/meta/biases-watchlist.md` (all B-entries), `research/meta/principle-applications-log.md`, recent commit log
 
 - [ ] **P2 / verification / 2026-06-15** [INDP, AF] — Schwab June 2026 AI agent launch — triangulation 3rd-data-point candidate
+  - Origin: Robinhood + eToro + Moomoo agentic-trading launches Apr-May 2026 (per `signals/events/2026-05-27-robinhood-agentic-trading.md`). Schwab targeting June 2026 per [WealthManagement.com T3](https://www.wealthmanagement.com/ria-news/schwab-makes-ai-push-with-client-facing-agents-to-roll-out-in-june). If 3rd same-segment data point lands, agentic-brokerage promotes to triangulation per principle #29.
+  - Scope: verify Schwab launch date + scope + tech stack; if launched, promote agentic-brokerage cluster to triangulation.md; cascade to DDOG (regulatory observability mandate validation) + SNDK (compliance NAND demand validation). Also: apply Principle #33 top-down capability decomposition to Schwab as 2nd application of the framework — validation criterion for the principle.
+  - Linked: `signals/events/2026-05-27-robinhood-agentic-trading.md`, `companies/DDOG/thesis.md`, `companies/SNDK/thesis.md`, `meta/methodology.md` principle #33
 
 - [ ] **P2 / research / 2026-06-05** [INDP] — Back-fill China sovereignty cluster TRACE event (verification catch 2026-05-28)
   - Origin: 2026-05-28 verification step caught that `signals/events/2026-05-26-china-ai-sovereignty-cluster.md` does NOT exist despite my session-memory claim. The cluster's prior signals (Huawei LogicFolding May 25 + China talent restrictions May 26 + DeepSeek V4 State AI Fund May 16) exist only as scattered cross-references across ARM thesis + Google I/O event + 13F analysis. Today's "China 9 chips certified" (May 28) signal would be 3rd-4th data point if cluster were properly documented.
   - Scope: (a) Read prior signals from ARM thesis cross-refs, Google I/O event file, 13F analysis to extract verified facts; (b) cross-verify Huawei LogicFolding announcement details + China talent restriction scope via independent T1/T2 sources; (c) consolidate into proper TRACE event file at `signals/events/2026-05-26-china-ai-sovereignty-cluster.md`; (d) IF cluster has 3+ verified same-segment data points within 90 days, promote to `signals/triangulation.md` as 2nd segmented-triangulation entry (advanced-packaging EMIB-T was 1st).
   - **Discipline catch this represents**: per principle #32 + the user's discipline LOOP (spot/fix/monitor), this is a "fix" step that was incomplete on 2026-05-27 — I referenced a TRACE event without committing it. The verification step today caught the gap.
   - Linked: `companies/ARM/thesis.md` (existing cross-refs), `signals/events/2026-05-20-google-io-2026.md`, `meta/2026-05-26-positional-strength-duration.md`, `signals/cross-source-log.md` (today's China 9 chips entry)
-  - Origin: Robinhood + eToro + Moomoo agentic-trading launches Apr-May 2026 (per `signals/events/2026-05-27-robinhood-agentic-trading.md`). Schwab targeting June 2026 per [WealthManagement.com T3](https://www.wealthmanagement.com/ria-news/schwab-makes-ai-push-with-client-facing-agents-to-roll-out-in-june). If 3rd same-segment data point lands, agentic-brokerage promotes to triangulation per principle #29.
-  - Scope: verify Schwab launch date + scope + tech stack; if launched, promote agentic-brokerage cluster to triangulation.md; cascade to DDOG (regulatory observability mandate validation) + SNDK (compliance NAND demand validation). Also: apply Principle #33 top-down capability decomposition to Schwab as 2nd application of the framework — validation criterion for the principle.
-  - Linked: `signals/events/2026-05-27-robinhood-agentic-trading.md`, `companies/DDOG/thesis.md`, `companies/SNDK/thesis.md`, `meta/methodology.md` principle #33
-
-- [ ] **[SUPERSEDED by expanded audit above]** ~~P3 / verification / 2026-06-24 — Principle #32 monthly audit~~ — REMOVED 2026-05-29 per audit cleanup (already superseded by expanded codification audit above)
 
 
 ### P3 — Foundational wiki entries (planned, not yet built)
