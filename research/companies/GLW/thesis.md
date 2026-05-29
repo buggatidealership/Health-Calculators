@@ -427,3 +427,7 @@ Per `research/meta/2026-05-29-tsem-stm-glw-vs-sumco-revisit.md`: GLW revisited t
 **Trade-off vs Sumco**: GLW is multi-narrative large-cap with $3.2B catalyst delivered; Sumco is small-cap single-layer raw material with upcoming catalyst (Aug 2026). Different risk profiles; different portfolio roles.
 
 **Position implication (per Critical Rule #11):** HOLD at 6.72% — NO TRIM. $3.2B Nvidia deal materially strengthens thesis; per L3, no falsifier fired. Could SIZE UP modestly given AWS + Cloudflare infrastructure rebuild reinforces fiber demand vector — but not required by trade-off math (Sumco entry funded from fresh capital, not from GLW trim).
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: GLW tagged **Agentic AI CRUCIAL — YES** (optical fiber at hyperscaler agent infrastructure per $3.2B Nvidia deal + glass at advanced packaging) + **Robotics INDIRECT** (automotive LIDAR glass for AVs). Recent cascade: STRONGLY REINFORCED via $3.2B Nvidia deal + AWS+Cloudflare infra rebuild = more optical fiber demand. No sizing change required.

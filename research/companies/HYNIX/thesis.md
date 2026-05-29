@@ -316,3 +316,7 @@ Per `research/signals/events/2026-05-28-emib-t-substrate-cluster.md`: HYNIX name
 2. HBM LTA pricing power evolution — memory makers are ABANDONING long fixed contracts in favor of shorter 3-5yr LTAs that allow price-appreciation capture per [TrendForce T3](https://www.trendforce.com/news/2026/04/09/news-from-annual-deals-to-3-5-year-ltas-samsung-and-sk-hynix-reportedly-reset-big-tech-memory-contracts/). HYNIX pricing power structurally confirmed.
 
 **No tier change. No sizing change. 12.5% Core position remains correct.** The cluster strengthens existing thesis on memory pricing power and confirms HYNIX as packaging-format-agnostic beneficiary of all AI-accelerator architectures.
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: HYNIX tagged **Agentic AI CRUCIAL — YES** (HBM is binding constraint for agentic inference compute; multi-year compute lock-ins Anthropic-SpaceX through 2029 confirm) + **Robotics NO direct tie** to physical AI / robotics specifically. Recent cascade: REINFORCED via multi-year compute lock-ins + Kioxia NAND cost-bypass signal (separate but adjacent). No sizing change beyond existing 12.5% Core position.

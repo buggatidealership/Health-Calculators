@@ -280,3 +280,7 @@ Per `research/meta/2026-05-29-tsem-stm-glw-vs-sumco-revisit.md`: TSEM revisited 
 **Trade-off vs Sumco**: TSEM at Layer 2 specialty silicon; Sumco at Layer 4 raw material wafer. Different layers in same value chain = COMPLEMENTARY not substitutes. Sumco entry does NOT require TSEM trim.
 
 **Position implication (per Critical Rule #11):** HOLD at 3.24% — NO TRIM. Per L3 (don't exit on profit alone), no falsifier fired; thesis materially reinforced. **Optional SIZE UP** to 4-5% on silicon photonics catalyst delivery. Stage classification 3-4 (post-rally + ~98% of 52-wk high per `meta/2026-05-26-ath-refresh-and-4092-prediction.md`) — subsequent print reactions may be muted per L14 framework, but structural thesis intact.
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: TSEM tagged **Agentic AI CRUCIAL — YES** (silicon photonics for optical interconnect via $1.3B 2027 contracts signed May 13; analog mixed-signal foundry) + **Robotics INDIRECT** (sensor analog for robotics/AV). Recent cascade: STRONGLY REINFORCED via $1.3B SiPho catalyst + AWS+Cloudflare infrastructure rebuild → more optical interconnect demand. Optional SIZE UP per existing revisit analysis.

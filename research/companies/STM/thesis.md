@@ -270,3 +270,7 @@ Per `research/meta/2026-05-29-tsem-stm-glw-vs-sumco-revisit.md`: STM revisited t
 **Trade-off vs Sumco**: STM is multi-narrative breadth play; Sumco is single-binding-constraint depth play. STM has STRONGER bypass-route competition; Sumco has WEAKER bypass route exists (Shin-Etsu duopoly). Different portfolio roles — both can coexist.
 
 **Position implication (per Critical Rule #11):** HOLD at 7.33% — NO TRIM. Multi-narrative thesis intact; no falsifier fired. STM serves "breadth bet" role in portfolio; adding Sumco doesn't displace this role (Sumco is depth-at-binding-constraint).
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: STM tagged **Agentic AI PARTIAL** (power semi + MEMS at edge layer enabler; not central agentic infra) + **Robotics YES HIGH** (2 of 3 robotics universals per Physical AI primer — power semi + MEMS; BEV 3-5K MLCCs analog). Recent cascade: MODERATELY REINFORCED via Apple Siri edge cycle + Physical AI multi-narrative. No sizing change beyond existing 7.33% position.

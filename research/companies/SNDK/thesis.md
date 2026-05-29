@@ -211,3 +211,7 @@ Per `research/signals/events/2026-05-28-anthropic-mythos-continuous-agent-infras
 **No material sizing change.** Existing 7.09% Active position remains appropriate; the structural-multi-vertical confirmation justifies maintaining position even as supply-wall arrives 2027-2028. The Mythos cascade strengthens the compliance-NAND structural pattern beyond the existing single-vertical thesis.
 
 **Position implication (per Critical Rule #11):** HOLD — no size change — sector-level cascade reinforces existing compliance-NAND thesis at SECOND vertical (cyber); does NOT introduce new sizing math beyond existing 7.09% allocation. **Watch for**: cybersecurity regulatory rulemaking explicitly requiring multi-year AI-decision logging (would confirm N=2 → graduate to triangulation candidate).
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: SNDK tagged **Agentic AI CRUCIAL — YES** (compliance NAND for agent audit trail + AI training data storage; multi-year compute lock-ins confirm sustained demand) + **Robotics INDIRECT** (autonomous system data storage). Recent cascade: STRONGLY REINFORCED via Kioxia MSA-CBA architecture validated externally (TrendForce June 2026 VLSI Symposium); SIZE UP candidate per `signals/cross-source-log/2026-05-29-twitter-cohort-wafer-test-equipment-kioxia.md` pending VLSI validation.

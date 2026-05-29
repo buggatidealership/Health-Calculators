@@ -376,3 +376,7 @@ Per `research/meta/2026-05-29-vector-db-candidate-comparison.md`: research agent
 - Vector DB candidate analysis recommends MDB as user-portfolio addition (not SNOW) — partly BECAUSE adding SNOW would create concentration risk on NOW's control-plane bet.
 
 **Position implication (per Critical Rule #11):** NO CHANGE to existing HOLD 6.9% / size-up-to-10-12% pending Q2 2026 verification gate. The SNOW competitive overlap is a new watch item, NOT yet a sizing change trigger. Watch: any NOW Q2 2026 commentary on Snowflake's competitive positioning OR named customer wins at control-plane layer where NOW vs SNOW was the explicit competitive decision.
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: NOW tagged **Agentic AI CRUCIAL — YES** (agent governance control plane via AI Control Tower GA August 2026; enforcement authority over agents across AWS/Azure/GCP) + **Robotics INDIRECT** (workflow + governance for autonomous systems in regulated industries). Recent cascade: STRONGLY REINFORCED via agent governance category-creation (Moveworks closed Dec 2025 + Veza H1 2026 + Armis pending). SIZE UP candidate pending Q2 2026 verification gate per existing thesis.

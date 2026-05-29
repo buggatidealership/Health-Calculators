@@ -119,3 +119,7 @@ Operating profit +141.5% YoY to ¥6,200M; management humanoid orders "could doub
 - NEW Falsifier added: Semi cap-equipment AI-capex slowdown (e.g., TSMC CoWoS expansion pause OR BESI hybrid bonding order decline) — would compress the 35-40% revenue exposure narrative.
 
 **Meta-lesson per user 2026-05-26:** mistakes are fine if encoded. The corrective action is: (a) B30 codified (customer-share-shift anchoring); (b) principle #28 extended; (c) this thesis update with the corrected framing; (d) HDS sizing unchanged from 6.43% (the corrected framing reinforces, not erodes, the position).
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: HDS tagged **Agentic AI NO direct tie** (robotics precision actuators only; not in agentic compute supply chain) + **Robotics YES DIRECT PRIMARY** (precision actuators are critical for humanoid + cobot deployment; THE pure physical AI play in user portfolio). Recent cascade: NEUTRAL — physical AI thesis not directly affected by today's agentic-AI-specific signals; thesis remains intact per existing 6.43% position. Physical AI inevitability + early-innings positioning = structural patience required.

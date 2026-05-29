@@ -472,3 +472,7 @@ Per `research/signals/events/2026-05-28-anthropic-mythos-continuous-agent-infras
 **No material thesis change.** The MLCC demand cascade is already maximally captured by the existing BOM-deep-dig + Physical AI multi-narrative + Citrini analog reinforcement; Mythos adds a new vertical (cybersecurity continuous agents) but doesn't change per-board MLCC math.
 
 **Position implication (per Critical Rule #11):** HOLD — no size change — sector-level cascade reinforces 12.35% Core position; does NOT introduce new sizing math beyond existing thesis.
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: MURATA tagged **Agentic AI CRUCIAL — YES** (MLCC at EVERY intelligent unit per fluid-software-mesh thesis; ~12,000 MLCCs per Rubin board sustained-load minimum) + **Robotics YES HIGH** (humanoid robots use hundreds-thousands of MLCCs across actuator-control + sensor-fusion + power-management boards). Recent cascade: REINFORCED via edge AI proliferation + fluid-software-mesh thesis amplifies MLCC content per intelligent unit. No sizing change beyond existing 12.35% Core position.

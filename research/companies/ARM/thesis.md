@@ -353,3 +353,7 @@ Per `research/signals/cross-source-log.md` 2026-05-28 entry + The Register (T3) 
 Today's signal validates the empirical mechanism — hyperscaler adoption of Arm is being driven by AI workloads, which is precisely the agentic-orchestration angle the Robinhood top-down trace surfaced. Plus cross-cuts with SNOW $6B AWS pact (Graviton ARM CPUs) signed 2026-05-27 (per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`) — second confirmatory signal in 48 hours.
 
 **No tier change. No sizing change.** 6.45% position remains correct.
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: ARM tagged **Agentic AI CRUCIAL — YES** (CPU IP at every edge cell + ARM-everywhere agentic scale-out; Xeon-displacement bypass per Intel Diamond Rapids delay) + **Robotics YES** (MCUs run ARM Cortex-M family — universal in industrial automation, humanoid robots, AVs). Recent cascade: REINFORCED via edge AI cycle (LiquidAI, StepFun, Apple Siri) + Xeon-displacement signal. No sizing change beyond existing 6.45% position.

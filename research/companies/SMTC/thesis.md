@@ -298,3 +298,7 @@ Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 Per `research/wiki/model-economics-primer.md`:
 
 The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: SMTC tagged **Agentic AI CRUCIAL — YES** (signal integrity + ACC Active Copper Cables for AI fabric scale-out; agent fleet networking density compounds) + **Robotics INDIRECT** (distributed robotics bandwidth). Recent cascade: REINFORCED via AWS+Cloudflare infrastructure rebuild for AI agents = more agent-fleet networking demand. No sizing change beyond existing position.

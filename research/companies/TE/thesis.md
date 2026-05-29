@@ -314,3 +314,7 @@ No automatic tier change. Decision belongs to user pending re-evaluation of how 
 - File updated (this section) reflecting verified-evidence-supported classification
 
 This update supersedes the prior "FLAG FOR USER REVIEW" framing — the evidence supported the reclassification; user permission was not needed for an evidence-driven file update per principle #28 decision-action coupling.
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: TE tagged **Agentic AI PARTIAL** (power for AI datacenters via Supply Chain Inheritance reclassification — NVDA 800V DC rack arch credits EV/solar industries) + **Robotics NO direct tie**. Recent cascade: REINFORCED via hyperscaler capex compounding through 2028-2030 + Europe water+power constraints (datacenter protester labeling). No sizing change beyond existing position.

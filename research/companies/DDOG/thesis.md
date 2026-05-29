@@ -248,3 +248,7 @@ Per `research/meta/2026-05-29-vector-db-candidate-comparison.md`: agent observab
 **Implication for DDOG sizing decision in context of vector DB addition:** if user adds MDB (agent recommendation), DDOG holdings unaffected — MDB is observed-via-DDOG complement. If user adds ESTC instead, observability concentration risk increases — should rationalize DDOG + ESTC sizing combined.
 
 **Position implication:** HOLD existing 7.5% — no change triggered by vector DB candidate analysis.
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: DDOG tagged **Agentic AI CRUCIAL — YES** (agent observability is MANDATORY infrastructure for continuous agents; code quality 35-50% token multiplier validates the category) + **Robotics INDIRECT** (observability for autonomous systems in production). Recent cascade: STRONGLY REINFORCED via continuous-eval mandate signal + Mozilla Mythos 271-vuln production validation. No sizing change beyond existing 7.5% position.

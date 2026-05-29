@@ -270,3 +270,7 @@ The cost/sustainability counterpart to the demand-side test-time-compute event. 
 - AXTI capacity-doubling 2026 + planned double again 2027 (Tongmei $632.5M raise, per Agent 2 — treat as approximate) remains framework-aligned
 - Record $100M InP backlog Q1 CY26 reflects industry-wide demand absorption ahead of Coherent self-supply ramp
 - New falsifier added: Chinese InP qualification at Western tier-1 customer (Lumentum, Marvell) within 12 months; OR Coherent fully self-supplies AND materially reduces AXT volume; OR silicon photonics monolithic light-source breakthrough pre-2028
+
+## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: AXTI tagged **Agentic AI INDIRECT** (InP substrate for optical interconnect = networking layer enabler; Layer 3-4 specialty raw material) + **Robotics NO direct tie** (InP not used in robotics applications). Recent cascade: TANGENTIAL via optical interconnect tightening + test equipment shortage extension. No sizing change beyond existing position.
