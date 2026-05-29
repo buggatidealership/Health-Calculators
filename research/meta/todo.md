@@ -17,27 +17,15 @@
 
 ### P1 — High priority (next session — added 2026-05-28 end of session)
 
-- [ ] **P1 / research / 2026-05-28** [INDP, AF] — ESTC contrarian-asymmetric-opportunity check
-  - Origin: User flag 2026-05-28 — "Elastic is still beat down so recovery or narrative still not proliferated." Verified: ESTC -71% from Nov 2021 ATH $186.78; -10.9% post-Q1 CY26 beat (revenue $450.7M +16% YoY). 2,700+ vector DB customers + 470+ AI customers at $100K+ ACV per prior pull = STRUCTURALLY INTACT. CEO framed vector DB as "a feature, never a business" — REVERSE-CATEGORY mgmt signal (per L14 framework cohort 2026-05-28). Asymmetric setup: structural reality vs market perception gap.
-  - Scope: (a) Primary IR verification — AI revenue as % of total revenue; average ACV per AI customer; gross margin on AI workloads vs traditional search; (b) Distinguish "feature not business" as sandbag (L10 reverse) vs genuine assessment via unit economics; (c) Identify category-event catalysts on horizon (new strategic deals, customer-naming, AI-revenue-segment-disclosure); (d) Build ESTC thesis file if asymmetric setup confirmed.
-  - Linked: `predictions/lessons.md` L14 candidate framework; `signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md` (vector DB infrastructure context); existing `companies/ESTC/thesis.md` (built 2026-05-21 — needs refresh)
-
-- [ ] **P1 / verification / 2026-05-28** [INDP, AF] — 4092 (Nippon Chemical Industrial) entry-trigger watch — ⚠️ **ARCHIVED 2026-05-29 per investability constraint** (Degiro + N26 both lack access to NCI 4092). Thesis retained as reference artifact. Alternative investable BaTiO3 layer candidates: Sakai 4078, TDK 6762, Shoei 4953 pending access verification.
-  - Origin: User correction 2026-05-28 — 2018 ATH ¥5,190 IS the all-time high (broke prior 2000 peak; 18-year resistance breakout). Current ¥4,445 = 85.6% of 2018 ATH, testing back from below after 8-year consolidation. TSE accessibility confirmed (user platforms support direct). News cascade reinforces thesis structurally.
-  - Scope: (a) Monitor for breakout above ¥5,190 = structural rerating confirmation = entry trigger; (b) Rejection at ¥5,190 = stay watchlist; (c) Pullback below ¥4,200 with news cascade intact = potential early entry; (d) Watch TDK Q2 FY27 commentary (Oct-Nov 2026) for JV-capacity-investment disclosure as primary CATEGORY catalyst per L14 framework; (e) Watch NCI Q2 FY27 earnings (Oct 2026) for Functional Products segment disclosure.
-  - Linked: `meta/2026-05-26-ath-refresh-and-4092-prediction.md`; `companies/MURATA/thesis.md` (BaTiO3 upstream supply); `predictions/lessons.md` L14 candidate framework
+(none currently — ESTC and 4092 closed/archived 2026-05-29 per audit)
 
 ### P2 — Medium priority
 
-- [ ] **P2 / research / 2026-05-28** [INDP, AF, BOT] — Continuous-agent infrastructure category thesis build candidate
-  - Origin: 2026-05-28 Mythos cascade analysis surfaced "AWS moment" pre-consensus category (vector DBs + agent observability + identity + orchestration + reserved-capacity pricing). Currently fragmented; not yet priced as unified category. Cybersecurity-first wave forces continuous-agent deployment infrastructure to crystallize.
-  - Scope: (a) Decide if this warrants a dedicated category-thesis file or stays as TRACE event; (b) Map the 3-5 named plays at each infrastructure layer (vector DBs, agent observability, identity, orchestration); (c) Identify which public-investable plays are pre-consensus vs already-priced; (d) Cascade to held positions only if material sizing changes emerge.
-  - Linked: `signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md`; `meta/methodology.md` principle #33; `companies/DDOG/thesis.md` (agent observability incumbent)
-
 - [ ] **P2 / verification / 2026-05-28** [CAL, INDP] — L14 candidate N=2 validation watch (next eligible Stage 2-3 + CATEGORY EVENT case)
   - Origin: 2026-05-28 4-data-point same-day cohort (SNOW +37.65%, MDB +20%, NTAP +10%, ESTC -10.9%, MRVL -1.96% prior) produced refined framework distinguishing HIGH-CONCRETE / LOW-CONCRETE / TREND / REVERSE-CATEGORY events. But same-day cohort = mostly coincident (possible common-cause AI rerating wave); needs independent N=2+ across different days/events.
+  - **Update 2026-05-29**: NTAP Q4 FY26 print added as N=3 application (LOW-CONCRETE + Stage 3-4 + 10% reaction = framework match). HPE Q2 FY26 prediction (resolution 2026-06-01) is the next independent cross-day validation point.
   - Scope: monitor next earnings cycle for Stage 2-3 names with potential CATEGORY EVENT markers (signed strategic deal, metric baseline-break, mgmt narrative shift to leading indicators). When found, run PREDICT with explicit L14 application; resolve at GRADE to validate or falsify magnitude calibration. If 2+ independent cases validate framework → codify L14 at next monthly audit 2026-06-24. If 2+ falsify → retire to candidate-archive.
-  - Linked: `predictions/lessons.md` L14 candidate; `meta/methodology.md` principle #31 (narrative-stage modifier — being refined by L14)
+  - Linked: `predictions/lessons.md` L14 candidate; `predictions/2026-05-29-HPE-Q2FY26.md` (next test point); `companies/NTAP/thesis.md` (N=3 application logged)
 
 ### P2 — Existing items
 
@@ -90,16 +78,7 @@
   - Scope: verify Schwab launch date + scope + tech stack; if launched, promote agentic-brokerage cluster to triangulation.md; cascade to DDOG (regulatory observability mandate validation) + SNDK (compliance NAND demand validation). Also: apply Principle #33 top-down capability decomposition to Schwab as 2nd application of the framework — validation criterion for the principle.
   - Linked: `signals/events/2026-05-27-robinhood-agentic-trading.md`, `companies/DDOG/thesis.md`, `companies/SNDK/thesis.md`, `meta/methodology.md` principle #33
 
-- [ ] **[SUPERSEDED by expanded audit above]** ~~P3 / verification / 2026-06-24 — Principle #32 monthly audit~~ — see expanded codification audit cycle above (now covers principles #29-33 + B31-B36)
-  - Origin: User constraint 2026-05-27 on codifying principle #32 — "as long as changes, if turned out to be rigid or working against expected net positive improvement, are detectable if they do not work, then yes [codify]." Audit is the detectability mechanism.
-  - Scope: Read `research/meta/principle-applications-log.md`. Compute three metrics over the prior 30 days:
-    (a) Real-catch rate = REAL_CATCHES / TOTAL_APPLICATIONS. Target ≥40%. If <20% → over-applying, raise threshold.
-    (b) False-positive rate = FALSE_POSITIVES / TOTAL. Target <30%.
-    (c) Wasted-overhead rate = WASTED_OVERHEADS / TOTAL. Target <30%.
-    Plus: net-positive check (REAL_CATCHES > WASTED_OVERHEADS over 30 days).
-  - Action if any metric fails: revise principle #32 trigger threshold OR raise threshold OR retire per fluidity-footer falsifiers. Document audit outcome in principle-applications-log.md "Monthly audit log" section.
-  - Recurring item: re-evaluate monthly thereafter; this is the FIRST audit. SessionStart hook surfaces via "audit cycle" pattern matching.
-  - Linked: `research/meta/methodology.md` principle #32, `research/meta/biases-watchlist.md` B34, `research/meta/principle-applications-log.md`
+- [ ] **[SUPERSEDED by expanded audit above]** ~~P3 / verification / 2026-06-24 — Principle #32 monthly audit~~ — REMOVED 2026-05-29 per audit cleanup (already superseded by expanded codification audit above)
 
 
 ### P3 — Foundational wiki entries (planned, not yet built)
@@ -118,6 +97,18 @@
 ## Archive (completed process items without permanent artifact)
 
 (Items that DID produce a permanent artifact are deleted — the artifact replaces the to-do. The artifact location is noted in case future Claude needs to find it.)
+
+- [x] **2026-05-29** [INDP, AF] — ESTC contrarian-asymmetric-opportunity check — CLOSED per artifact production
+  - Reason: substantial analysis produced + committed to `companies/ESTC/thesis.md` (Q4 FY26 actuals + temporal anchoring correction on "feature not a business" Aug 2025 quote + L14 framework NEAR-TERM-MISS/LONG-TERM-STRONG-GUIDE classification + position implication CONSIDER ENTER 2-3% pending Q4 FY26 transcript verification). Remaining transcript-pull step is conditional on user decision to act on entry; no longer requires a P1 task slot.
+  - Artifact retained: `companies/ESTC/thesis.md` (updated 2026-05-29)
+
+- [x] **2026-05-29** [INDP, AF] — 4092 (Nippon Chemical Industrial) entry-trigger watch — ARCHIVED per investability constraint
+  - Reason: Degiro + N26 both lack access to NCI 4092 (user confirmed 2026-05-29). Same pattern as LGI archive 2026-05-28 (KRX inaccessibility). Small/mid-cap Japanese specialty ticker outside platform universe.
+  - Artifact retained: `meta/2026-05-26-ath-refresh-and-4092-prediction.md` as reference for BaTiO3 supply chain analysis (status banner added). Alternative investable BaTiO3 candidates: Sakai 4078 + TDK 6762 + Shoei 4953 (Shoei confirmed inaccessible; Sakai/TDK access verification pending).
+
+- [x] **2026-05-29** [INDP, AF, BOT] — Continuous-agent infrastructure category thesis build candidate — CLOSED per artifact production
+  - Reason: Substantial sector-level analysis lives in `signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md` (continuous-agent infrastructure cascade + fluid-software-mesh thesis + named plays at each layer + falsifiers). 2026-05-29 AWS+Cloudflare infrastructure-rebuild signal (per `signals/cross-source-log/2026-05-29-ai-intelligence-brief-morning.md`) validated the category at hyperscaler-primary level. Decision: TRACE event file serves the analytical purpose; standalone dedicated category-thesis file deferred as redundant.
+  - Artifact retained: `signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md` + cross-source-log validation
 
 - [x] **2026-05-28** [INDP, AF] — LG Innotek (KRX: 011070) deeper dig — ARCHIVED NOT COMPLETED
   - Reason: User confirmed 2026-05-28 that LGI is not directly investable on either of the platforms they use (KRX direct access not supported; no sponsored ADR available — only unsponsored pink-sheet listings most platforms block). Investability-first discipline: no point completing deeper research on uninvestable name.
