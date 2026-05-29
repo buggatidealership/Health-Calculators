@@ -1,8 +1,24 @@
 # AXT Inc (AXTI) — Thesis with Pass 2 Earnings-vs-Multiple Decomposition
 
-**Last updated:** 2026-05-21 (Pass 2 decomposition)
-**Tier:** Active with TRIM RECOMMENDATION (held position at Stage 4-5 multiple risk)
-**Position target:** 2–3% (user holds ~4.8% per `research/portfolio/holdings.md` — TRIM RECOMMENDED)
+**Last updated:** 2026-05-29 (POSITION EXITED today)
+**Tier:** EXITED (was Active with TRIM RECOMMENDATION; user confirmed FULL EXIT 2026-05-29)
+**Position target:** 0% (was 2-3% trim band; user confirmed FULL SELL 2026-05-29 — freed €4,573.85 for software rebalance)
+
+## Position exit 2026-05-29
+
+User confirmed 2026-05-29: **AXTI position fully closed**. Cash proceeds €4,573.85 (per `portfolio/holdings.md` pre-exit snapshot) freed for redeployment toward MDB/NOW/DDOG software rebalance.
+
+**Exit rationale** (per session conviction analysis 2026-05-29):
+- Bear case P=40% > Bull case P=30% per thesis lines 107-116
+- Base case has negative expected return (multiple compression > earnings growth near-term)
+- Forward FY26 P/E ~340x (per thesis lines 62-68) structurally extreme
+- ~70x already realized (per thesis lines 46-50) = massive gains locked
+- 2.61% position too small to compound meaningfully even in bull case
+- Cleaner asymmetric deployment available: MDB ENTER, DDOG SIZE UP (UNDER-WEIGHTED per `companies/DDOG/thesis.md:5`), NOW SIZE UP
+
+**Position implication (per Critical Rule #11):** EXIT — sold 2026-05-29 — bear-case P>bull-case per thesis own probability math + multiple compression risk dominant + better asymmetric deployments available in software layer.
+
+
 **Anti-fragility:** 3/5 — structural thesis wins in S1, S2, S3 (optical interconnect demand persists); but Stage 4-5 multiple risk dominates near-term return profile
 **Foundation:** `research/wiki/optical-interconnect-primer.md`
 

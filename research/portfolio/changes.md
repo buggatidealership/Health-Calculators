@@ -128,3 +128,56 @@ Combined intentional deployment 2026-05-26 (across both platforms): €35K plann
 - Net change: +€15,275 attributable to (a) day P/L +€4,510, (b) fresh capital injection (~€10-15K), (c) market action on existing positions
 - 4 planned trades EXECUTED: HDS (N26) + STM (Degiro) + ALAB (Degiro) + ARM (Degiro)
 - 2 unplanned adds detected: Murata + SK Hynix on Degiro — pending user confirmation
+
+---
+
+## 2026-05-29 Trade activity
+
+### SUMCO entry — €9,000
+- **Direction:** BUY
+- **Amount:** €9,000 deployed
+- **Ticker:** 3436.T (Sumco Corporation, Tokyo Stock Exchange)
+- **Platform:** Degiro
+- **Rationale:** Per `signals/cross-source-log/2026-05-29-twitter-cohort-wafer-test-equipment-kioxia.md` Sumco UBS upgrade SELL→NEUTRAL PT raise JPY 1,050→3,100 + equipment shortage cascade thesis extending production-capacity binding through 2028-2030
+- **Thesis:** `companies/SUMCO/thesis.md` (existed since 2026-05-25; updated 2026-05-29 with position-acquisition)
+- **Approximate % of portfolio post-buy:** ~5.1%
+- **Cascade applied:** Layer 0 substrate gap (per `meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`) now filled
+
+### ALSEM (SEMCOTECH) entry — €5,142.90
+- **Direction:** BUY
+- **Amount:** €5,142.90 deployed (per Degiro snapshot)
+- **Ticker:** ALSEM.PA (Semco Technologies SAS, Euronext Growth Paris)
+- **Platform:** Degiro
+- **BEP:** €53.85/share
+- **Rationale:** French eChuck specialist; Layer 5 semi-equipment sub-component; thesis built 2026-05-29 at `companies/SEMCOTECH/thesis.md`; customer-funnel triangulation done same day (17 serial + 6 prototyping + 10 qualification per `companies/SEMCOTECH/facts.md`)
+- **Approximate % of portfolio:** ~2.94%
+
+### AXTI exit — €4,573.85 freed
+- **Direction:** SELL (FULL position closure)
+- **Amount:** €4,573.85 cash proceeds
+- **Ticker:** AXTI (AXT Inc)
+- **Platform:** Degiro
+- **BEP:** $126.59
+- **Rationale:** Per session conviction analysis 2026-05-29:
+  - Bear case P=40% > Bull case P=30% per `companies/AXTI/thesis.md:107-116`
+  - Base case has negative expected return
+  - Forward FY26 P/E ~340x structurally extreme per thesis lines 62-68
+  - ~70x already realized per thesis lines 46-50
+  - 2.61% position too small to compound meaningfully even in 30% bull case
+- **Thesis updated:** `companies/AXTI/thesis.md` — tier changed to EXITED; Position implication EXIT
+
+## Net 2026-05-29 activity
+
+- **Cash deployed:** €9,000 (SUMCO) + €5,143 (ALSEM) = €14,143 net new positions
+- **Cash freed:** €4,574 (AXTI exit)
+- **Net cash deployed:** ~€9,569 net
+- **Remaining for Monday 2026-06-01 deployment:** AXTI €4,574 + fresh capital ~€11K (€20K originally - €9K SUMCO) = **~€15.5K available for MDB/NOW/DDOG**
+
+## Planned Monday 2026-06-01 execution
+
+| Action | Ticker | Amount | New % | Rationale |
+|---|---|---|---|---|
+| BUY (new entry) | MDB | €6,000 | ~3.3% | Active tier initial; thesis at `companies/MDB/thesis.md`; Q1 FY27 cRPO +69% leading indicator |
+| BUY (SIZE UP) | DDOG | €5,000 | 6.64% → ~9.0% | Closes "UNDER-WEIGHTED" gap per `companies/DDOG/thesis.md:5`; toward 8-12% target |
+| BUY (SIZE UP) | NOW | €4,500 | 6.57% → ~8.7% | Toward 10-13% target per `companies/NOW/thesis.md:5`; AI Control Tower August 2026 GA catalyst |
+| **Total** | | **€15,500** | | |

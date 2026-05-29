@@ -8,7 +8,7 @@
 - **Hyperliquid Strategies (HYPS)** was in 2026-05-26 holdings at ~€10,276 (6.61%) but NOT IN 2026-05-29 Degiro snapshot. **Likely sold between 2026-05-26 and 2026-05-29 — user to confirm.** If sold, frees ~€10K capital that should be folded into deployment ranking.
 - **Semco Technologies SAS (ALSEM)** appears in 2026-05-29 snapshot at €5,142.90 (~2.94%). **User confirmed 2026-05-29: bought TODAY (2026-05-29).** Thesis file created 2026-05-29 at `companies/SEMCOTECH/thesis.md`; customer-funnel triangulation added same day (17 serial + 16 pipeline) at `companies/SEMCOTECH/facts.md`.
 - **Sumco Corporation (3436.T)** entered TODAY 2026-05-29 at **€9,000** (~5.1% of post-entry portfolio). Thesis at `companies/SUMCO/thesis.md` updated with position-acquisition. Per `signals/cross-source-log/2026-05-29-twitter-cohort-wafer-test-equipment-kioxia.md`: UBS upgrade SELL→NEUTRAL PT JPY 1,050→3,100 + equipment shortage cascade thesis.
-- **AXTI**: SELL recommended per session conviction analysis (bear P=40% > bull P=30% per thesis; forward FY26 P/E ~340x; ~70x already realized) — frees €4,574 for software rebalance. User decision pending.
+- **AXTI**: **SOLD 2026-05-29 — user confirmed.** Freed €4,573.85 for software rebalance. Combined with fresh capital ~€20K minus €9K SUMCO = **€15.5K available for MDB/NOW/DDOG deployment Monday 2026-06-01.**
 - **MDB**: ENTER recommended at 3-4% (€5-6K initial) per `meta/2026-05-29-vector-db-candidate-comparison.md` + new `companies/MDB/thesis.md`. Q1 FY27 cRPO +69% leading indicator; least overlap with NOW + DDOG of 3 vector-DB candidates evaluated.
 
 ## Account totals — consolidated across platforms
@@ -40,7 +40,7 @@
 | 12 | Semtech | SMTC | €7,149.27 | **4.08%** | $154.68 | Degiro | Signal integrity + Active Copper Cables (AI DC) |
 | 13 | Semco Technologies SAS | ALSEM.PA | €5,142.90 | **2.94%** | €53.85 | Degiro | French eChuck specialist (Layer 5 semi-equipment sub-component) |
 | 14 | Tower Semiconductor | TSEM | €4,970.56 | **2.84%** | $265.00 | Degiro | Specialty foundry / silicon photonics ($1.3B 2027 contracts) |
-| 15 | AXT Inc | AXTI | €4,573.85 | **2.61%** | $126.59 | Degiro | InP optical interconnect (12-24mo unpriced edge) |
+| ~~15~~ | ~~AXT Inc~~ | ~~AXTI~~ | **EXITED 2026-05-29** | — | $126.59 | Degiro | Position closed: bear P=40% > bull P=30% per `companies/AXTI/thesis.md:107-116`; +€4,573.85 cash freed |
 
 **Sum check:** €175,033 ✓
 
