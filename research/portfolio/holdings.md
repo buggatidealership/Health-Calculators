@@ -6,7 +6,7 @@
 ## ⚠️ FLAGS FOR USER VERIFICATION
 
 - **Hyperliquid Strategies (HYPS)** was in 2026-05-26 holdings at ~€10,276 (6.61%) but NOT IN 2026-05-29 Degiro snapshot. **Likely sold between 2026-05-26 and 2026-05-29 — user to confirm.** If sold, frees ~€10K capital that should be folded into deployment ranking.
-- **Semco Technologies SAS (ALSEM)** appears in 2026-05-29 snapshot at €5,142.90 (~2.94%) but was NOT in 2026-05-26 holdings. **New position acquired between 2026-05-26 and 2026-05-29 — user to confirm.** Thesis file created 2026-05-29 at `companies/SEMCOTECH/thesis.md`.
+- **Semco Technologies SAS (ALSEM)** appears in 2026-05-29 snapshot at €5,142.90 (~2.94%). **User confirmed 2026-05-29: bought TODAY (2026-05-29).** Thesis file created 2026-05-29 at `companies/SEMCOTECH/thesis.md`; customer-funnel triangulation added same day (17 serial + 16 pipeline) at `companies/SEMCOTECH/facts.md`.
 
 ## Account totals — consolidated across platforms
 
