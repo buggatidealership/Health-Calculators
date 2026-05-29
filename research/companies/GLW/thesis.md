@@ -413,3 +413,17 @@ These contracts SECURE volume through the CPO-transition window even if rack-lev
 - The fiber TAM compression is more 2030+ than 2028 — GLW thesis runway intact
 
 **Falsifier reinforcement:** US tariff policy reversal; Springboard plan execution slip below $11B incremental annualized 2028; CPO pull-forward beyond Feynman timing materially compressing rack-level fiber demand.
+
+## Cross-source synthesis — Revisit with evolved framework (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-tsem-stm-glw-vs-sumco-revisit.md`: GLW revisited through evolved framework in context of user €20K deployment + opportunity-cost vs adding Sumco.
+
+**Key Q1 2026 actuals**: sales $4.35B (+18% YoY); EPS $0.70 (+30%); op margin 20.2%; FCF $188M. Q2 guide revenue ~$4.6B (+14% YoY); EPS $0.73-0.77 (+25%). Q1 solar revenues +80% YoY. **MAJOR CATALYST: $3.2B Nvidia deal for optical connectivity for AI datacenters** = HIGH-CONCRETE CATEGORY EVENT per L14 framework.
+
+**Bypass-route check (per Critical Rule #9):** moderate at optical fiber (OFS/Furukawa, Prysmian, Sterlite — GLW incumbent at premium AI tier); weak at specialty glass (AGC/NEG/SCHOTT alternatives); strong moat at display glass.
+
+**Framework evolution impact**: STRONGLY REINFORCED — $3.2B Nvidia deal catalyst-derisked; AWS + Cloudflare infrastructure rebuild for AI agents per `signals/cross-source-log/2026-05-29-ai-intelligence-brief-morning.md` = MORE optical fiber demand at hyperscaler primary level; hyperscaler capex compounding through 2028-2030 per duration-mismodeling thesis.
+
+**Trade-off vs Sumco**: GLW is multi-narrative large-cap with $3.2B catalyst delivered; Sumco is small-cap single-layer raw material with upcoming catalyst (Aug 2026). Different risk profiles; different portfolio roles.
+
+**Position implication (per Critical Rule #11):** HOLD at 6.72% — NO TRIM. $3.2B Nvidia deal materially strengthens thesis; per L3, no falsifier fired. Could SIZE UP modestly given AWS + Cloudflare infrastructure rebuild reinforces fiber demand vector — but not required by trade-off math (Sumco entry funded from fresh capital, not from GLW trim).

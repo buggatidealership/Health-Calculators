@@ -268,3 +268,15 @@ The cost/sustainability counterpart to the demand-side test-time-compute event. 
 Per `research/wiki/advanced-packaging-primer.md`:
 
 Adjacent positioning — Tower's silicon photonics foundry capability includes some advanced packaging for photonics-integrated chips. Less direct than HBM-side packaging (BESI + ASMPT) but the TPU 8i 19.2 Tb/s + CoWoS-L + SoIC ramp drives multiple-layer demand. The packaging primer's "TSMC CoWoS sold out through 2027" framing reinforces optical-interconnect via CPO transition cascading from packaging capacity expansion. No tier change.
+
+## Cross-source synthesis — Revisit with evolved framework (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-tsem-stm-glw-vs-sumco-revisit.md`: TSEM revisited through evolved framework (L14 + bottleneck-duration mismodeling + fluid-software-mesh + test-equipment cascade + agent-governance) in context of user €20K deployment + opportunity-cost vs adding Sumco (3436.T) at Layer 4 raw material.
+
+**Key Q1 2026 actuals** (T1 verified per [StockTitan T2](https://www.stocktitan.net/news/TSEM/tower-semiconductor-announces-first-quarter-2026-financial-results-mdymyytydcu5.html)): revenue $413.63M (+15% YoY); 62% net profit growth; Q2 guide $455M (+22% YoY) = company record. **MAJOR CATALYST: $1.3B silicon photonics revenue contracts signed for 2027** per [StocksToTrade T3](https://stockstotrade.com/news/tower-semiconductor-ltd-tsem-news-2026_05_13-2/) — this is HIGH-CONCRETE CATEGORY EVENT per L14 framework.
+
+**Framework evolution impact**: REINFORCED on multiple dimensions — silicon photonics contracts catalyst-derisked; AWS+Cloudflare AI agent infrastructure rebuild drives optical interconnect demand; edge AI proliferation drives specialty silicon demand; test equipment shortage cascade increases specialty foundry capacity value.
+
+**Trade-off vs Sumco**: TSEM at Layer 2 specialty silicon; Sumco at Layer 4 raw material wafer. Different layers in same value chain = COMPLEMENTARY not substitutes. Sumco entry does NOT require TSEM trim.
+
+**Position implication (per Critical Rule #11):** HOLD at 3.24% — NO TRIM. Per L3 (don't exit on profit alone), no falsifier fired; thesis materially reinforced. **Optional SIZE UP** to 4-5% on silicon photonics catalyst delivery. Stage classification 3-4 (post-rally + ~98% of 52-wk high per `meta/2026-05-26-ath-refresh-and-4092-prediction.md`) — subsequent print reactions may be muted per L14 framework, but structural thesis intact.

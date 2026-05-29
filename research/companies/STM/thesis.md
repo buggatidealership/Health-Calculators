@@ -256,3 +256,17 @@ Per `research/signals/events/2026-05-12-citrini-supply-chain-inheritance.md` + m
 - Overall STM multi-narrative (6+/5 per Physical AI primer + NXP MEMS) duration: Long 3-4 years intact
 - STM's moat is NOT SiC exclusivity — it's MEMS + power + auto ADAS + industrial + AI-RAN + edge breadth
 - Planned €5K add 2026-05-26 framework-aligned BUT the duration of pricing-power on the SiC sub-leg has been re-scoped vs the most aggressive prior framing
+
+## Cross-source synthesis — Revisit with evolved framework (added 2026-05-29, per Critical Rule #10)
+
+Per `research/meta/2026-05-29-tsem-stm-glw-vs-sumco-revisit.md`: STM revisited through evolved framework in context of user €20K deployment + opportunity-cost vs adding Sumco.
+
+**Key Q1 2026 actuals** (T1 verified per [Quiver Quant T2](https://www.quiverquant.com/news/STMicroelectronics+jumps+as+Q1+results+top+outlook+midpoint+and+Q2+revenue+guide+comes+in+strong)): revenue $3.10B (+23% YoY; -7% sequential); gross margin 33.8%; op income $70M. Q2 guide $3.45B midpoint = sequential growth. Stock +11.4% post-earnings.
+
+**Bypass-route check (per Critical Rule #9):** STRONG BYPASS across all STM segments — SiC (Wolfspeed/Infineon/onsemi/Rohm), power semi (Infineon/TI/ADI/ON Semi), MEMS (Bosch dominant, TDK competing), auto MCUs (NXP/Infineon/Renesas/TI). STM's moat is multi-narrative breadth NOT single-product binding constraint.
+
+**Framework evolution impact**: MODERATELY REINFORCED — Apple iOS 27 Siri overhaul + edge AI acceleration per `signals/cross-source-log/2026-05-29-ai-intelligence-brief-morning.md` reinforces MEMS demand; Physical AI multi-narrative intact. CAUTION: Q1 sequential -7% is single-quarter yellow flag; SiC commoditization risk persists per existing thesis.
+
+**Trade-off vs Sumco**: STM is multi-narrative breadth play; Sumco is single-binding-constraint depth play. STM has STRONGER bypass-route competition; Sumco has WEAKER bypass route exists (Shin-Etsu duopoly). Different portfolio roles — both can coexist.
+
+**Position implication (per Critical Rule #11):** HOLD at 7.33% — NO TRIM. Multi-narrative thesis intact; no falsifier fired. STM serves "breadth bet" role in portfolio; adding Sumco doesn't displace this role (Sumco is depth-at-binding-constraint).
