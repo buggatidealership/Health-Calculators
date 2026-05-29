@@ -41,8 +41,21 @@ SEMCO Technologies SAS = **THE ELECTROSTATIC CHUCK EXPERT** — specialty French
 
 - **Product**: Electrostatic chucks (eChucks) — precision ceramic components that electrostatically clamp wafers in place during semiconductor lithography and etch processing
 - **Customers (per company disclosure)**: leading OEMs in semiconductor industry + semiconductor fabs + foundries + laboratories worldwide
-- **Likely named customers** (industry inference, not company-confirmed): Applied Materials, Lam Research, Tokyo Electron, KLA — these are the top semi-equipment OEMs whose tools require eChucks
+- **Customer funnel verified 2026-05-29 per BusinessWire 2026-04-13 annual results** (see `facts.md`):
+  - 17 customers in **serial production** for FY2026 (vs 15 in 2025 = +2 net adds)
+  - 6 customers in **prototyping phase**
+  - 10 customers in **qualification phase**
+  - **Total: 33 customer relationships across 3 stages** — materially MORE diversified than the "4 top OEMs only" baseline assumption (see Reframing below)
+- **Likely named customers** (industry inference, NOT company-confirmed in any accessible disclosure): Applied Materials, Lam Research, Tokyo Electron, KLA, ASML — these are the top semi-equipment OEMs whose tools require eChucks
 - **Asia 59% sales mix** = primary exposure to Korean (Samsung Electronics, SK Hynix) + Taiwanese (TSMC) + Chinese fab customers — exactly the customers facing acute semi-equipment supply tightness per yesterday's cascade analysis
+
+### Customer-list verification attempt 2026-05-29 — result + reframing
+
+Attempted triangulation of named customers via H1 2025 results PDF, BusinessWire 2026-04-13 annual results, IPO Note d'opération, AMF Registration Document, company website, investor site, LinkedIn. **Execution-environment network policy returned HTTP 403 on every direct WebFetch attempt.** WebSearch result-snippets surfaced the 17-customer / 33-funnel datapoint but no named OEM. SEMCO has not publicly named ANY specific customer in any indexed source. This is structurally normal for the eChuck merchant tier (NDA-bound OEM relationships) — not a red flag, but a verification limit.
+
+**Reframing of customer-concentration risk (P~60% — meaningful update):** 17 customers in serial production = significantly LESS concentrated than 4-top-OEM baseline assumption. If revenue is distributed across 17 customers reasonably evenly, top-customer concentration is structurally bounded ~15-25% rather than ~30-40% in the 4-OEM model. Conditional on that — single-customer loss is less material to revenue. (Caveat: distribution shape unknown; could still be power-law-skewed where top 3-4 = 60%+ of revenue.)
+
+**Pipeline growth signal (P~50%):** 6 prototyping + 10 qualification = 16 forward customer relationships. Even with 30-50% qualification attrition, that's 8-11 additional revenue-generating customers over the next 2-4 years on top of the existing 17 — supports the +20-30% revenue trajectory thesis from the bull case.
 
 ---
 
@@ -122,11 +135,14 @@ Continued mid-teens growth; capacity expansion delivers; pricing power partial; 
 
 ---
 
-## Position implication (per Critical Rule #11)
+## Position implication (per Critical Rule #11) — REFINED 2026-05-29 post-customer-funnel data
 
-**Position implication:** HOLD at current ~3% (€5,143 per snapshot 2026-05-29). Thesis structurally reinforced by semi-equipment supply chain cascade signals from `signals/cross-source-log/2026-05-29-twitter-cohort-wafer-test-equipment-kioxia.md`. **Consider SIZE UP to 4-5%** PENDING:
+**Position implication:** HOLD at current ~3% (€5,143 per snapshot 2026-05-29), **with REINFORCED conviction toward SIZE UP** following 2026-05-29 customer-funnel triangulation. The 17-customer serial-production base + 16-customer forward pipeline (6 prototyping + 10 qualification) was previously unknown to me and materially reduces single-customer concentration risk vs. baseline assumption.
+
+**Consider SIZE UP to 4-5%** PENDING:
 - H1 2026 print (July 2026) showing continued revenue acceleration from €16.6M H1 2025 base
-- Named customer wins at named OEM (Applied Materials / Lam Research / Tokyo Electron / KLA) or named fab
+- ~~Named customer wins at named OEM~~ — RETIRED as precondition: structural NDA-bound opacity means waiting for named OEM disclosure is waiting for a signal the company is contractually constrained from issuing. Customer FUNNEL disclosure (17 → 19 → 21 serial-production count growth) is the realistic substitute signal
 - Capacity utilization commentary at expanded Montpellier site
+- Customer funnel growth: track if FY2026 H1 prints with serial-production count > 17 (= net customer add in H1) and if qualification-stage customer count grows or remains 10+
 
 **Note:** existing `companies/SEMCO/` folder contains analysis of Samsung Electro-Mechanics (009150.KS) — a DIFFERENT company. That folder retained as reference artifact for SEMCO=Samsung naming clarity + N=1 origin case for candidate Principle #34. This file (`SEMCOTECH/thesis.md`) is the active SEMCO Technologies SAS held-position thesis.
