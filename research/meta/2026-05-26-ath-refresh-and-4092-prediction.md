@@ -1,5 +1,7 @@
 # 2026-05-26 — Live ATH refresh + 4092 capacity-gap prediction
 
+**Status update 2026-05-29:** ⚠️ **NCI (4092) is NOT INVESTABLE on user's platforms (Degiro + N26 both confirmed lacking access; user confirmed 2026-05-29).** Same pattern as LGI (Korean KRX archive 2026-05-28). Small/mid-cap Japanese specialty ticker outside platform universe. Thesis retained as REFERENCE ARTIFACT for BaTiO3 supply chain analysis; the structural thesis remains valid + cross-references material; entry-trigger watch P1 archived. Alternative investable BaTiO3 layer plays to verify access on: **Sakai Chemical (4078.T)** larger cap so more likely accessible; **TDK (6762.T)** large-cap direct play via parent of TDK-NCI JV; **Shoei Chemical (4953.T)** Ni paste consumables angle pending platform access verification.
+
 **Purpose:** Per user instruction 2026-05-26: (1) re-verify ATHs using Yahoo Finance + TradingView as primary sources (user flagged SK Hynix as potentially past ATH); (2) compute probability of 4092 mgmt capacity-gap statement using cross-domain adjacent data instead of waiting for direct statement.
 
 ## Part 1: Live ATH re-verification (Yahoo + TradingView primary)
