@@ -59,7 +59,71 @@ Per `meta/methodology.md`: ✓ PASS. RAG requests scale with token volume; vecto
 - Specific agentic-workflow customer stories (named or aggregated?)
 - Most important blind spot: the **DDOG overlap** — user holds DDOG; ESTC's observability segment is a peer-competitor
 
-## Cross-references
-- `research/wiki/agentic-ai-enterprise.md` — 88% pilot failure / 12% breakthrough patterns
-- `research/wiki/agentic-workload-scaling.md` — workload demand math
-- `research/companies/DDOG/thesis.md` — held position with overlap on observability
+## Q4 FY26 + FY27 guidance update (added 2026-05-29 — corrects yesterday's incorrect "feature-not-business" framing)
+
+**Critical reframe of the "feature not a business" timing:** the CEO Ash Kulkarni quote framing vector DB as "feature not business" is from [Q1 FY26 earnings call August 28, 2025](https://aimmediahouse.com/market-industry/elastic-ceo-says-vector-databases-were-never-a-business-amid-pinecone-sale-talks) — strategic positioning against Pinecone-acquisition narrative rumors ("Elastic doesn't need to be acquired; pure-play vector DB isn't a real business"). **NOT a current commoditizing-own-AI-story signal.** Yesterday's L14 candidate classification of ESTC as "REVERSE-CATEGORY mgmt signal" was based on anchoring this 9-month-old quote to yesterday's earnings event — corrected.
+
+**Q4 FY26 actuals (T1 per [SEC 8-K](https://www.sec.gov/Archives/edgar/data/0001707753/000170775326000008/a26q4erex991.htm) + T2 [StockTitan summary](https://www.stocktitan.net/news/ESTC/elastic-reports-fourth-quarter-and-fiscal-2026-financial-x0rwklhjst95.html), announced 2026-05-28):**
+
+| Metric | Value | Context |
+|---|---|---|
+| Q4 FY26 revenue | $451M (+16% YoY) | Beat consensus |
+| FY26 full-year revenue | $1.739B (+17% YoY) | In line / slight beat |
+| Q4 subscription revenue | $422M (+17% YoY) | |
+| Q4 sales-led subscription | $375M (+19% YoY) | |
+| Q4 CRPO | $1.2B (+20% YoY) | Strong |
+| Q4 RPO | $1.98B (+28% YoY constant currency) | **HIGHEST YoY growth in 4 years** — material acceleration in committed forward revenue |
+| FY26 non-GAAP operating margin | 16.4% | Healthy |
+| AI customer count | 600+ using AI capabilities | +500 basis points contribution to customer growth |
+
+**FY27 guidance (T1 per same 8-K + T2 [Investing.com](https://www.investing.com/news/earnings/elastic-shares-tumble-nearly-9-on-weakerthanexpected-q1-earnings-guidance-93CH-4715593) + T3 [Stock Observer](https://www.thestockobserver.com/2026/05/28/elastic-nyseestc-releases-fy-2027-earnings-guidance.html)):**
+
+| Metric | Guide | Consensus | Read |
+|---|---|---|---|
+| FY27 revenue | $1.985B–$2.000B | $1.97B | In line / slight beat |
+| **FY27 non-GAAP EPS** | **$3.21–$3.29** | **$2.28** | **+40% ABOVE consensus** |
+| **Q1 FY27 non-GAAP EPS** | **$0.57–$0.59** | **$0.63** | **-7.9% BELOW consensus** |
+
+**Stock reaction:** -8.8% per [Investing.com](https://www.investing.com/news/earnings/elastic-shares-tumble-nearly-9-on-weakerthanexpected-q1-earnings-guidance-93CH-4715593); -10.9% per [StockStory T3](https://markets.financialcontent.com/stocks/article/stockstory-2026-5-28-elastics-nyseestc-q1-cy2026-sales-beat-estimates-but-stock-drops-109). Stock down -71% from Nov 2021 ATH $186.78; down -43% from 52-week high per [TIKR T3](https://www.tikr.com/blog/elastic-stock-is-down-43-from-its-52-week-high-q4-earnings-tomorrow-could-change-that).
+
+## L14 framework re-application (corrected diagnostic per 2026-05-29 deep dive)
+
+**Stage:** 1-2 (deeply discounted: -71% from Nov 2021 ATH; -43% from 52-week high)
+
+**Beat type — NEW CATEGORY for L14 candidate framework:** **NEAR-TERM-MISS / LONG-TERM-STRONG-GUIDE split**. Q1 FY27 EPS guide miss anchors market reaction; FY27 full-year EPS guide +40% above consensus is the structural upside the market hasn't priced. This is structurally different from "REVERSE-CATEGORY" (mgmt actively suppressing own narrative) — ESTC mgmt is NOT suppressing AI story; they're investing front-loaded with back-loaded P&L benefit.
+
+**Implied market reaction pattern:** Stage 1-2 + BEAT + NEAR-TERM-MISS + LONG-TERM-STRONG-GUIDE → stock drops on near-term anchor; structural thesis intact = asymmetric setup IF long-term guide proves real.
+
+**Asymmetric setup conditions met:**
+- Deep discount (-71% from ATH, -43% from 52-week high)
+- Strong long-term guide (FY27 EPS +40% above consensus)
+- Strong forward-revenue commitment (RPO +28% YoY = 4-year high)
+- Market anchored on near-term noise (Q1 EPS miss)
+- AI fundamentals intact (600+ AI customers; AI features contributing 500bp to customer growth)
+
+## Edge attribution (per structural-theses-graded.md format)
+
+- **Primary harness component:** L14-refined diagnostic (NEAR-TERM-MISS / LONG-TERM-STRONG-GUIDE asymmetric split) + multi-narrative scoring (search + observability + security + vector unified bundle, not pure-play vector)
+- **Specific edge claim:** ESTC is MULTI-FUNCTION agentic-workflow substrate (search + obs + security + vector); market mispriced it as pure-play vector DB compression target while FY27 EPS guide is +40% above consensus
+- **Consensus position at thesis date 2026-05-29:** "mid-teens growth = boring software; vector DB compression risk"
+- **Falsifier:** FY27 actual EPS comes in below $2.50 (vs $3.21-3.29 guide); OR FY27 revenue growth slows below mid-teens; OR DDOG/MDB displace ESTC at AI-customer accounts; OR RPO growth decelerates back to <15% in next 2 quarters
+
+## Unverified gating question (must resolve before sizing decision)
+
+**Q1 FY27 EPS weakness is TRANSITIONAL INVESTMENT or STRUCTURAL DETERIORATION?**
+
+- If TRANSITIONAL (front-loaded R&D for AI + sales-conversion timing + SBC timing): asymmetric setup is real; enter
+- If STRUCTURAL (sales-cycle deterioration; competitive pressure compressing pricing): FY27 full-year guide gets revised down mid-year; thesis breaks
+
+**Verification path:** pull primary [Q4 FY26 Motley Fool transcript](https://www.fool.com/earnings/call-transcripts/2026/05/28/elastic-estc-q4-2026-earnings-transcript/) to extract mgmt commentary on Q1 vs full-year shape. Specifically look for: (a) explicit "front-loaded investment" language, (b) sales-pipeline commentary, (c) commentary on customer-pricing trends, (d) AI customer ACV trajectory.
+
+## Cross-references (added 2026-05-29)
+
+- `signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md` — fluid-software-mesh thesis directly relevant; ESTC search + observability + vector positions at mesh layer
+- `predictions/lessons.md` L14 candidate — new "NEAR-TERM-MISS / LONG-TERM-STRONG-GUIDE" category surfaced by ESTC
+- `companies/MDB/thesis.md` (when built) — vector DB competitive context; MDB momentum signal contrasts with ESTC contrarian setup
+- `companies/DDOG/thesis.md` — observability overlap (existing blind spot per thesis line 60); sizing decision must rationalize DDOG (held ~7.5%) + ESTC (potential entry 2-3%)
+
+## Position implication (per Critical Rule #11 — required closing line)
+
+**Position implication:** CONSIDER ENTER at 2-3% Active sizing — **PENDING** primary Q4 FY26 transcript verification of Q1 FY27 EPS weakness as transitional investment vs structural deterioration. If verification confirms transitional (front-loaded investment, sales-pipeline intact): enter 2-3% Active per existing thesis sizing guidance. If verification reveals structural deterioration: stay watchlist with documented exclusion reason. Asymmetric setup is real conditional on verification — Stage 1-2 + LONG-TERM-STRONG-GUIDE + deeply-discounted entry + AI fundamentals intact + market anchored on near-term noise = entry window IF Q1 weakness is what I think it is.
