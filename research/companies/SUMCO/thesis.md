@@ -1,11 +1,18 @@
-# Sumco Corporation (3436.T) — Thesis stub
+# Sumco Corporation (3436.T) — Thesis
 
-**Last updated:** 2026-05-25 (initial Phase 1 build — deep dive per user request)
-**Tier:** Active candidate (Phase 1 surfaced — #2 global 300mm silicon wafer; structural-recovery + AI-grade mix shift)
-**Position target:** 1-3% if entered (user holds 0%)
+**Last updated:** 2026-05-29 (position acquired today — €9K initial entry)
+**Tier:** Active (held position; structural-recovery + AI-grade mix shift)
+**Position target:** 5-6% (user holds €9K today acquired 2026-05-29; ~5.1% of consolidated portfolio)
 **Anti-fragility:** 3/5 scenarios (wins on AI-grade 300mm + sub-3nm + HBM cycles; loses on hyperscaler-capex compression OR Chinese supply scale; neutral on power/regulatory)
 
 **Foundation:** `research/wiki/hbm-primer.md`, `research/wiki/memory-cycle-primer.md`, `research/wiki/advanced-packaging-primer.md`, `research/wiki/model-economics-primer.md`
+
+## Position acquired 2026-05-29
+
+User confirmed 2026-05-29: **€9,000 position entered today (3436.T on TSE via Degiro).** Position thesis aligned with:
+- Twitter cohort signal cluster 2026-05-29 — Sumco UBS upgrade SELL→NEUTRAL with PT raised JPY 1,050→3,100 per `signals/cross-source-log/2026-05-29-twitter-cohort-wafer-test-equipment-kioxia.md`
+- Equipment shortage cascade extending production-capacity binding through 2028-2030
+- Per `meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md` Layer 0 substrate exposure not yet filled in portfolio
 
 ## TL;DR
 
@@ -236,6 +243,10 @@ But under the framework discipline applied this session:
 - `research/companies/RIGAKU/thesis.md` — metrology adjacent (Rigaku inspects wafers Sumco supplies)
 - `research/meta/methodology.md` principle #16 (5-dimension framework applied above)
 - `research/meta/methodology.md` principle #26 (binding-constraint test — hybrid case)
+
+## Position implication (per Critical Rule #11) — added 2026-05-29
+
+**Position implication:** ENTER — entered today €9K at ~5.1% — semi-equipment supply chain binding through 2028-2030 cascade reinforced by Twitter cohort signal (Sumco UBS upgrade SELL→NEUTRAL PT raise JPY 1,050→3,100 per `signals/cross-source-log/2026-05-29-twitter-cohort-wafer-test-equipment-kioxia.md`); fills Layer 0 substrate gap identified in `meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`. **Position target now 5-6%** (initial entry); **SIZE UP candidate** to 6-7% pending Q2 FY26 print (July-Aug 2026) confirming 200mm exit on track + AI-grade 300mm mix shift filling capacity.
 
 ## User 2026-05-25 deep-dive request acknowledgment
 

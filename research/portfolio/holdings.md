@@ -1,12 +1,15 @@
 # Current Holdings
 
-**Last updated:** 2026-05-29 (EOD per Degiro snapshot + N26 HDS user-confirmed)
-**Source:** Degiro snapshot 2026-05-29 (€165,033.31) + N26 HDS ~€10,000 = **€175,033.31 consolidated**
+**Last updated:** 2026-05-29 (mid-session update: SUMCO €9K entered today; MDB ENTER candidate; AXTI SELL recommended)
+**Source:** Degiro snapshot 2026-05-29 (€165,033.31) + N26 HDS ~€10,000 + SUMCO €9K acquired today = **~€184,033 consolidated post-SUMCO**
 
 ## ⚠️ FLAGS FOR USER VERIFICATION
 
 - **Hyperliquid Strategies (HYPS)** was in 2026-05-26 holdings at ~€10,276 (6.61%) but NOT IN 2026-05-29 Degiro snapshot. **Likely sold between 2026-05-26 and 2026-05-29 — user to confirm.** If sold, frees ~€10K capital that should be folded into deployment ranking.
 - **Semco Technologies SAS (ALSEM)** appears in 2026-05-29 snapshot at €5,142.90 (~2.94%). **User confirmed 2026-05-29: bought TODAY (2026-05-29).** Thesis file created 2026-05-29 at `companies/SEMCOTECH/thesis.md`; customer-funnel triangulation added same day (17 serial + 16 pipeline) at `companies/SEMCOTECH/facts.md`.
+- **Sumco Corporation (3436.T)** entered TODAY 2026-05-29 at **€9,000** (~5.1% of post-entry portfolio). Thesis at `companies/SUMCO/thesis.md` updated with position-acquisition. Per `signals/cross-source-log/2026-05-29-twitter-cohort-wafer-test-equipment-kioxia.md`: UBS upgrade SELL→NEUTRAL PT JPY 1,050→3,100 + equipment shortage cascade thesis.
+- **AXTI**: SELL recommended per session conviction analysis (bear P=40% > bull P=30% per thesis; forward FY26 P/E ~340x; ~70x already realized) — frees €4,574 for software rebalance. User decision pending.
+- **MDB**: ENTER recommended at 3-4% (€5-6K initial) per `meta/2026-05-29-vector-db-candidate-comparison.md` + new `companies/MDB/thesis.md`. Q1 FY27 cRPO +69% leading indicator; least overlap with NOW + DDOG of 3 vector-DB candidates evaluated.
 
 ## Account totals — consolidated across platforms
 
