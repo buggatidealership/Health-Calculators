@@ -21,6 +21,28 @@
 
 ### P2 — Medium priority
 
+- [ ] **P2 / research / 2026-05-31** [INDP, AF, POS] — Deep dive: Synaptics (SYNA) edge AI candidate — Astra SR80 + Google Coral NPU
+  - Origin: 2026-05-30 evening session subagent surfaced as best fit for Meta AI pendant + Google Gemini Spark signals tonight. Direct match: Astra SR80 NPU targets always-on wearable/AR-glasses far-edge market.
+  - **Personal-computing + mobile-phone filter (user criteria added 2026-05-30)**: SYNA also major touch controller for AI PCs + Android smartphones = fits PC + mobile replacement-cycle filter
+  - Scope: latest Q3 FY26 earnings + AI PC/wearable design wins + sell-side coverage thinness + investability check; **use ONLY data from past 30 days (no staler than April 30 2026 articles per user discipline catch 2026-05-30)**
+  - Linked: `signals/cross-source-log/2026-05-30-overlooked-candidates-deep-dive.md` (to be created)
+
+- [ ] **P2 / research / 2026-05-31** [INDP, AF, POS] — Deep dive: Ambarella (AMBA) edge vision AI candidate — STRUCTURAL CYCLE RESET pattern
+  - Origin: 2026-05-30 evening session subagent surfaced; user observation: **chart hasn't reached ATH since 2015 + sideways trading = similar structural pattern to SUMCO pre-2007 ATH**. Multi-year sideways = potential early-recognition-stage pick like SUMCO was.
+  - **Personal-computing + mobile-phone filter check**: AMBA is auto + security cameras + drones = does NOT fit user's PC + mobile filter cleanly. Despite that, the chart pattern asymmetry justifies deep dive.
+  - Scope: AI = 75%+ revenue per Q1 FY26; CV3 SoC AV pivot vs legacy "GoPro chip" narrative; revenue trajectory + secular cycle inflection vs cyclical noise; investability; **most-recent-quarter data only**
+  - Linked: `signals/cross-source-log/2026-05-30-overlooked-candidates-deep-dive.md`
+
+- [ ] **P2 / research / 2026-05-31** [INDP, AF, POS] — Deep dive: Camtek (CAMT) HBM + advanced packaging inspection candidate
+  - Origin: 2026-05-30 evening session — CAMT surfaced INDEPENDENTLY in 2 of 3 parallel subagents (inference infrastructure + memory bottleneck) = highest cross-confirmation signal of the night. User flagged "Camtek might also benefit outside of just edge AI, and it's still a relatively small company."
+  - Scope: HBM inspection Hawk platform + Eagle G5; 2026-2027 HBM bookings detail; broader AI chip volume exposure (beyond just edge AI); competitive position vs Onto Innovation + KLA; investability; **most-recent-quarter data only**
+  - Linked: `signals/cross-source-log/2026-05-30-overlooked-candidates-deep-dive.md`
+
+- [ ] **P2 / research / 2026-05-31** [INDP, AF, POS] — Deep dive: Lattice Semiconductor (LSCC) REFRESH from May 27 thesis
+  - Origin: 2026-05-30 evening session — subagent re-surfaced LSCC as "overlooked." User flagged LSCC already in harness per `companies/LSCC/thesis.md` (created 2026-05-27 as Active-candidate). Need REFRESH not new build.
+  - Scope: update LSCC thesis with last 3 days of news (any new design wins for edge AI / NVIDIA Halos Lab Holoscan Sensor Bridge); test personal-computing + mobile-phone filter (LSCC FPGAs serve broader edge incl. PC + mobile AI co-processors); reconcile new evening-brief Edge AI cluster with existing thesis; check AMI close timing
+  - Linked: `companies/LSCC/thesis.md` + `signals/cross-source-log/2026-05-30-overlooked-candidates-deep-dive.md`
+
 - [ ] **P2 / verification / 2026-05-30** [AF, POS] — DISCO 6146.T ENTRY decision pending capital allocation post-Monday execution
   - Origin: Surfaced via Citrini MLCC discussion 2026-05-30 → pivoted to Sumco-bypass-route thesis per `signals/cross-source-log/2026-05-30-citrini-mlcc-tier-rotation.md` discussion. User-confirmed investability 2026-05-30 (DISCO accessible alongside TEL 8035.T + Screen Holdings 7735.T also accessible).
   - Existing thesis: `companies/DISCO/thesis.md` (May 25 build; anti-fragility 5/5; 70-80% global market share dicing/grinding; near-monopoly moat) + 2026-05-30 Sumco-bypass cross-source synthesis appended.

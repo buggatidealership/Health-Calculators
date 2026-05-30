@@ -290,3 +290,21 @@ Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patte
 **DDOG-specific**: \$500M mystery enterprise Claude bill UPGRADED from Reddit T3 to Tom's Hardware T2 verification = Inference Entry #1 confidence BUMP to ~70% per `predictions/inference-log.md`. GitHub Copilot pricing pivot + DeepMind Gram sabotage detection both validate agent-fleet-observability category being productized at major-vendor scale.
 
 **Position implication:** HOLD pending Monday SIZE UP per committed plan; signal STRONGLY REINFORCES Inference Entry #1 thesis but no sizing change beyond pre-planned Monday.
+
+## CORRECTION: Microsoft Agent 365 competitive analysis (added 2026-05-30 — refining prior framing)
+
+**Prior framing in this turn was WRONG**: I claimed Microsoft Agent 365 GA May 1, 2026 = "validation of agent supervision category that DDOG benefits from." User catch 2026-05-30 forced verification.
+
+**Verified competitive overlap** per [Microsoft Learn T1 — Agent 365 Observability](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/monitor-agents) + [Microsoft Security Blog T1](https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/) + [Devoteam T2](https://www.devoteam.com/expert-view/microsoft-agent-365/):
+
+| Layer | Microsoft Agent 365 | DDOG |
+|---|---|---|
+| Observability | OpenTelemetry-based; Defender + Azure Log Analytics + Application Insights | Cross-cloud unified per-span billing |
+| Identity governance | **NATIVE via Entra Agent ID** (no external SSO required) | Requires external SSO integration |
+| Ecosystem | **Microsoft 365 E5-native** (seamless for E5 customers) | Cross-cloud / multi-provider |
+
+**Honest read**: For ~40-50% of enterprises heavily on Microsoft 365 E5, Microsoft Agent 365 = default agent observability + governance choice. DDOG remains dominant for cross-cloud / multi-provider / hyperscaler-agnostic enterprises. This maps directly to existing thesis falsifier #4 ("Splunk-Cisco bundle takes share at enterprise tier") — Microsoft Agent 365 is the same competitive risk pattern from a different vendor.
+
+**Inference log Entry #1 confidence correction**: BUMPED to ~70% was based on incomplete analysis (treated Microsoft Agent 365 as pure validation). REFINED back to ~60-62% — the agent-supervision category IS being productized but Microsoft is one of the productizers, not just an enabler for DDOG.
+
+**Position implication:** HOLD pending Monday SIZE UP per `portfolio/changes.md` committed plan — Microsoft Agent 365 competitive risk is real but bounded (cross-cloud + multi-provider TAM intact); thesis falsifier #4 NOT yet fired (Microsoft Agent 365 = feature launch, not customer-share-shift evidence). Monday SIZE UP plan stands. WATCH item: any DDOG customer publicly switching to Microsoft Agent 365 for cross-cloud observability would materially escalate competitive risk.
