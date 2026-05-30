@@ -378,3 +378,23 @@ Per `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.m
 **ARM-specific implications**: N1/N1X = NVDA's first serious PC processor entry, ARM-licensed. New royalty stream at PC-scale volume. NVDA brand + market power = will drive PC OEM (Dell, HP, Lenovo, Surface) adoption faster than Qualcomm Snapdragon X has. ARM's 5th narrative added (AI PC) on top of existing 4 (mobile + datacenter Neoverse + AGI CPU + edge).
 
 **Position implication:** HOLD at 11.36% — N1/N1X signal materially reinforces existing structural thesis at the largest hardware position; SIZE UP candidate but already near top of typical position-target band; defer SIZE UP decision pending Computex 2026 confirmation next week + post-Monday capital allocation.
+
+## ARM AGI CPU deep dive (added 2026-05-30 from 3 parallel subagent research, per `signals/cross-source-log/2026-05-30-arm-agi-cpu-deep-dive.md`)
+
+**Strategic shift verified**: ARM launched **AGI CPU on March 24, 2026** at San Francisco event — first proprietary silicon in ARM's 35-year history (not just IP licensing — full chip product). Technical: 136 Neoverse V3 cores at 3.7 GHz, two-die chiplet, Armv9.2-A, 3nm, 300W TDP, DDR5-8800 12-channel. Datacenter-only.
+
+**Commercial traction**: Meta lead co-developer + 8 named launch customers (OpenAI, Cloudflare, SAP, Cerebras, F5, Positron, Rebellions, SK Telecom) + OEM partners (Supermicro, Lenovo, Quanta, ASRock Rack). Demand doubled $1B → $2B+ FY27-28 between March 24 launch and May 6 Q4 FY26 earnings. Supply-capped at ~$1B FY27-28 (TSMC 3nm).
+
+**Revenue model bimodal**:
+- Traditional Cortex/Neoverse royalty ~1-2% per socket at ~98% GM
+- AGI CPU merchant silicon $500-$2,000/socket at ~**50% GM** per CFO Jason Child to CNBC
+- Haas guided ~$15B annual AGI CPU revenue by FY31
+
+**ARM is winning at substrate + merchant simultaneously**: 4 of 4 hyperscaler CPU programs use ARM IP (Graviton, Axion, Cobalt, Meta Graviton5); 0 of 4 hyperscaler accelerator programs (Trainium, TPU, Maia, MTIA) are ARM-based. CPU layer = ARM-dominant; accelerator layer = contested.
+
+**3 RISKS I previously under-weighted**:
+1. **Margin dilution**: 50% AGI CPU GM vs 98% IP licensing GM = each $1B AGI CPU revenue dilutes blended GM by ~5-10pp at scale
+2. **FTC antitrust probe opened May 2026** investigating whether ARM degrading/denying architecture licenses to rivals it now competes with
+3. **Stage 4 narrative (per principle #31)**: stock +84% YTD 2026; sell-side PTs $220-300 = limited upside priced in
+
+**Position implication (refined 2026-05-30)**: **HOLD at 11.36%** — AGI CPU deep dive confirms structural thesis but surfaces 3 risks; **SIZE UP to Core tier (12-13%) PREMATURE** until Q2/Q3 FY27 earnings quantify AGI CPU revenue + blended margin trajectory + FTC probe direction clarifies + Computex June 2-5 confirms N1/N1X royalty stream details.
