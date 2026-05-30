@@ -318,3 +318,9 @@ This update supersedes the prior "FLAG FOR USER REVIEW" framing — the evidence
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: TE tagged **Agentic AI PARTIAL** (power for AI datacenters via Supply Chain Inheritance reclassification — NVDA 800V DC rack arch credits EV/solar industries) + **Robotics NO direct tie**. Recent cascade: REINFORCED via hyperscaler capex compounding through 2028-2030 + Europe water+power constraints (datacenter protester labeling). No sizing change beyond existing position.
+
+## Cross-source synthesis — May 29-30 brief cluster (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: xAI Colossus 2 = first single-coherent gigawatt training cluster (Memphis ~200K H100/H200 + ~30K GB200 NVL72 per SemiAnalysis T2) = power demand thesis CONFIRMED at hyperscaler-primary level. Amazon multi-gigawatt Trainium expansion = additional gigawatt-scale power demand.
+
+**Position implication:** HOLD at 6.87% — gigawatt-cluster confirmation reinforces Supply-Chain-Inheritance thesis (NVDA 800V DC rack arch crediting EV/solar suppliers). No sizing change.

@@ -386,3 +386,15 @@ Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`:
 Per `signals/cross-source-log/2026-05-30-openai-codex-windows-computer-use.md`: OpenAI Codex Windows computer-use launch creates NEW enforcement surface for AI Control Tower. Enterprise IT teams will demand audit/policy controls over Windows-resident agents (clicking buttons, typing across desktop applications). Workflow-integration moat extends to Windows-agent-orchestration layer — same dynamic as ITSM workflow moat per existing thesis lines 28-32.
 
 **Position implication:** HOLD pending Monday 2026-06-01 SIZE UP to ~€15,993 (~8.7%) per `portfolio/changes.md` 2026-05-29 plan — reinforces August 2026 AI Control Tower GA catalyst; no sizing change to Monday plan.
+
+## Cross-source synthesis — May 29-30 brief cluster (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: **MIXED signal** for NOW:
+
+**Reinforcing:** Mystery enterprise $500M Claude in one month (Reddit T3) + Anthropic Cowork agent built in 10 days = enterprise governance gap MASSIVE; NOW AI Control Tower category-creation positioning strengthens at the workflow + governance layer.
+
+**Competitive threat:** Salesforce rebuilt Slackbot as full AI agent per VentureBeat T2 = direct competition at the workflow-agent layer. This is a step toward NOW thesis falsifier #4 ("Salesforce Agentforce takes CSM share aggressively") firing, but **NOT yet quantified** — no specific revenue/share impact data; Slackbot launch is feature announcement, not customer-win disclosure.
+
+**Per principle #29 + #31**: Salesforce competes in customer-facing agent capabilities (CRM context) vs NOW's strength in internal workflows + IT service management + cross-system orchestration (450+ integrations per industry research). Different architectural angles; not a direct head-to-head substitute at the IT workflow layer where NOW dominates. **Per `companies/NOW/thesis.md:29` non-consensus finding**: Microsoft Copilot is COMPLEMENTARY-not-displacement at ITSM core; same pattern likely holds for Salesforce.
+
+**Position implication:** HOLD pending Monday 2026-06-01 SIZE UP to ~€15,993 (~8.7%) per existing plan; **NO downsize triggered** by Slackbot signal alone (feature announcement, not customer-win shift). Watch item for Q2 NOW print (late July 2026) — if mgmt addresses Salesforce competitive dynamics directly. If user prefers more concentrated DDOG SIZE UP instead of NOW SIZE UP given this competitive flag, reallocation is defensible — see chat analysis 2026-05-30.

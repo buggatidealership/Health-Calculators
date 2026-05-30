@@ -484,3 +484,9 @@ Per `signals/cross-source-log/2026-05-30-citrini-mlcc-tier-rotation.md`: Citrini
 **Citrini's directional call (logged separately as INFERENCE per `predictions/inference-log.md` Entry #2):** MLCC equipment + raw material suppliers will outperform MLCC producers from here on asymmetric basis. This is a TIER ROTATION call within the same supply chain, NOT a "Murata bad" call.
 
 **Position implication:** HOLD at 13.06% — Citrini cross-validates existing thesis; structural growth confirmed; asymmetric upside compressed for producer tier but not breaking. Do NOT trim. Next-step research: MLCC equipment + raw material layer adds as PARALLEL exposure (not rotation), pending investability verification.
+
+## Cross-source synthesis — Edge AI cluster May 29-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: Edge AI proliferation cluster met SEGMENTED-TRIANGULATION threshold. Apple Gemini on Siri + Liquid AI 8B MoE + StepFun + ByteDance custom CPU = every edge device gets AI-grade compute. Fluid-software-mesh thesis amplifies MLCC content per cell.
+
+**Position implication:** HOLD at 13.06% — edge AI cluster amplifies existing MLCC density thesis at every endpoint. No sizing change.

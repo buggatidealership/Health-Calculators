@@ -260,3 +260,13 @@ Per `signals/cross-source-log/2026-05-30-openai-codex-windows-computer-use.md`: 
 **INFERENCE flag (per `predictions/inference-log.md` Entry #1, added 2026-05-30):** the connection from Codex Windows announcement → DDOG benefits is a LOGICAL EXTRAPOLATION chain (~60% confidence), NOT signal extracted from the announcement itself. The announcement says nothing about observability. Chain: agents click around Windows endpoints → enterprises need supervision → DDOG positioned at agent-fleet-observability layer. **Resolution: DDOG Q2 CY26 print (~2026-08-05) — does mgmt mention agent-supervision / Codex / Windows-agent observability in customer wins or product roadmap.**
 
 **Position implication:** HOLD pending Monday 2026-06-01 SIZE UP to ~€16,621 (~9.0%) per `portfolio/changes.md` 2026-05-29 plan — INFERENCE entry logged for resolution tracking; no sizing change beyond pre-planned Monday SIZE UP.
+
+## Cross-source synthesis — May 29-30 brief cluster (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: Mystery enterprise $500M Claude in one month (Reddit T3 — needs orthogonal verification but signal magnitude noteworthy) = direct validation of agent-supervision thesis. Enterprises accidentally losing $500M because employee licenses had no usage caps = EXACTLY the observability gap DDOG monetizes. Compounds Salesforce Slackbot rebuilt as full AI agent (more agent volume = more observability spend).
+
+Also: AWS RNG datacenter network (33% throughput up, 40% power down, 69% devices down per Tom's Hardware T2) = AI fabric architecture shift; observability requirement on AI fabric scales with each new architecture (network changes = MORE observability needed during transition).
+
+**Inference log Entry #1 (DDOG agent-supervision) now has additional resolution-tracking signal**: $500M mystery enterprise is the most extreme version of the supervision gap Entry #1 predicts will drive DDOG demand.
+
+**Position implication:** HOLD pending Monday 2026-06-01 SIZE UP to ~€16,621 (~9.0%) per existing plan; no change. Signal REINFORCES Entry #1 inference confidence — would update from ~60% to ~65% IF Reddit $500M story orthogonally verified within 2 weeks.

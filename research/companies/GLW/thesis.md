@@ -431,3 +431,9 @@ Per `research/meta/2026-05-29-tsem-stm-glw-vs-sumco-revisit.md`: GLW revisited t
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: GLW tagged **Agentic AI CRUCIAL — YES** (optical fiber at hyperscaler agent infrastructure per $3.2B Nvidia deal + glass at advanced packaging) + **Robotics INDIRECT** (automotive LIDAR glass for AVs). Recent cascade: STRONGLY REINFORCED via $3.2B Nvidia deal + AWS+Cloudflare infra rebuild = more optical fiber demand. No sizing change required.
+
+## Cross-source synthesis — AWS RNG architecture May 29-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: AWS RNG datacenter architecture (May 30, Tom's Hardware T2) + xAI Colossus 2 gigawatt cluster (May 29, SemiAnalysis T2) = hyperscaler optical fiber demand sustains regardless of device count reduction. Optical fiber bandwidth scales with per-device throughput; fewer devices + more throughput per device = same or HIGHER total fiber-meters demand.
+
+**Position implication:** HOLD at 5.48% — optical fiber thesis confirmed at the hyperscaler-primary level. No sizing change.

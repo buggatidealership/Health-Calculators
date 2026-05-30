@@ -320,3 +320,15 @@ Per `research/signals/events/2026-05-28-emib-t-substrate-cluster.md`: HYNIX name
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: HYNIX tagged **Agentic AI CRUCIAL — YES** (HBM is binding constraint for agentic inference compute; multi-year compute lock-ins Anthropic-SpaceX through 2029 confirm) + **Robotics NO direct tie** to physical AI / robotics specifically. Recent cascade: REINFORCED via multi-year compute lock-ins + Kioxia NAND cost-bypass signal (separate but adjacent). No sizing change beyond existing 12.5% Core position.
+
+## Cross-source synthesis — Custom silicon cluster May 29-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: Custom silicon / NVDA-share-compression cluster met SEGMENTED-TRIANGULATION threshold (chip-and-foundry segment, ≥4 sources):
+- Amazon multi-gigawatt Trainium expansion with Anthropic targeting 60% of cloud profits (SemiAnalysis T2)
+- ByteDance custom AI CPUs (Tom's Hardware T2)
+- Groq pivot from chips to inference + $650M raise (TechCrunch T2)
+- Apple Silicon bypass of NVDA for Siri (Ars Technica T2)
+
+**HBM is the indispensable substrate across ALL custom silicon programs** — Trainium uses HBM, Apple Silicon uses LPDDR/HBM, ByteDance CPUs use HBM. SK Hynix benefits regardless of WHICH custom Si wins. Reinforces existing 3-year HBM capacity gap + iHBM thermal moat thesis.
+
+**Position implication:** HOLD at 12.43% — custom silicon proliferation = HBM demand sustained. No sizing change; existing structural thesis confirmed.

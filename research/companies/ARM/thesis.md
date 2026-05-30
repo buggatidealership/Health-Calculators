@@ -357,3 +357,16 @@ Today's signal validates the empirical mechanism — hyperscaler adoption of Arm
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: ARM tagged **Agentic AI CRUCIAL — YES** (CPU IP at every edge cell + ARM-everywhere agentic scale-out; Xeon-displacement bypass per Intel Diamond Rapids delay) + **Robotics YES** (MCUs run ARM Cortex-M family — universal in industrial automation, humanoid robots, AVs). Recent cascade: REINFORCED via edge AI cycle (LiquidAI, StepFun, Apple Siri) + Xeon-displacement signal. No sizing change beyond existing 6.45% position.
+
+## Cross-source synthesis — Edge AI cluster May 29-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: Edge AI proliferation cluster met SEGMENTED-TRIANGULATION threshold per principle #29 (consumer-AI / edge-model segment, ≥3 same-segment sources within 90 days):
+- Apple distilling Gemini for on-device Siri (May 30, Ars Technica T2)
+- Liquid AI LFM2.5-8B-A1B MoE 38T tokens trained (May 29)
+- StepFun Step 3.7 Flash MoE running on 128GB RAM (prior 2026-05-29 brief)
+- LiquidAI matching NVDA Nemotron 3 Nano at higher inference speeds (prior brief)
+- ByteDance custom AI CPUs (May 29 — likely ARM-licensed)
+
+**Apple Silicon (ARM IP) is THE substrate for on-device Gemini distillation.** Bypasses NVDA for inference. Direct ARM IP royalty implication.
+
+**Position implication:** HOLD at 11.36% — edge AI thesis structurally REINFORCED; ARM at largest concentrated position (alongside Hynix + Murata) already capturing this thesis. No sizing change but conviction reinforced.

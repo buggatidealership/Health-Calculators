@@ -302,3 +302,9 @@ The cost/sustainability counterpart to the demand-side test-time-compute event. 
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: SMTC tagged **Agentic AI CRUCIAL — YES** (signal integrity + ACC Active Copper Cables for AI fabric scale-out; agent fleet networking density compounds) + **Robotics INDIRECT** (distributed robotics bandwidth). Recent cascade: REINFORCED via AWS+Cloudflare infrastructure rebuild for AI agents = more agent-fleet networking demand. No sizing change beyond existing position.
+
+## Cross-source synthesis — AWS RNG architecture May 29-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: AWS Resilient Network Graphs (May 30) + xAI Colossus 2 gigawatt cluster signals = AI fabric architecture rebuilds compound; signal integrity + Active Copper Cable demand at high-density tier benefits even as total device count decreases. Less devices + more bandwidth per device = each fabric link does MORE.
+
+**Position implication:** HOLD at 4.08% — pending AWS RNG architecture verification on which layer captures the value shift. No sizing change.

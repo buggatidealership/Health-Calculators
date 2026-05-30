@@ -151,3 +151,9 @@ This thesis file references the orthogonality finding from `meta/2026-05-29-vect
 Per `signals/cross-source-log/2026-05-30-openai-codex-windows-computer-use.md`: OpenAI Codex Windows computer-use launch creates per-Windows-user agent state retention demand (chats, project context, action history, mobile-desktop sync state). MDB Atlas + Voyage AI integrated stack positioned at this operational-data + retrieval layer. Reinforces integrated embedding-to-retrieval moat thesis (5-7yr structural durability per `meta/2026-05-29-vector-db-candidate-comparison.md:96-100`).
 
 **Position implication:** ENTER as planned — Monday 2026-06-01 €6,000 initial at ~3.3% per `portfolio/changes.md` 2026-05-29 plan; this signal **reinforces entry conviction** by demonstrating real-time agent-state-layer demand growth at agentic-endpoint deployment.
+
+## Cross-source synthesis — Edge AI cluster May 29-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: Edge AI proliferation cluster + agentic adoption at scale ($500M Claude mystery enterprise) = agent state retention demand scales with every on-device + cloud agent deployment. MDB Atlas + Voyage AI integrated stack remains positioned at the operational data + retrieval layer regardless of agent execution location.
+
+**Position implication:** ENTER as planned Monday €4K (~2.2% per Option C / D recalibration), pending capital allocation; signal REINFORCES entry conviction.

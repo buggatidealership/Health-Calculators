@@ -298,3 +298,11 @@ Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`: ALAB named in 4th/3rd
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: ALAB tagged **Agentic AI CRUCIAL — YES** (PCIe Gen6 + Scorpio fabric at GPU-CPU connectivity = agentic tool-call binding constraint per principle #33 top-down decomposition) + **Robotics INDIRECT** (robotics distributed processing benefits from same fabric IP). Recent cascade: STRONGLY REINFORCED via AWS+Cloudflare infrastructure rebuild for AI agents + agent complexity → PCIe bandwidth thesis. User-flagged for SIZE UP consideration 2026-05-29 — structural basis sound per agentic-complexity-cascade.
+
+## Cross-source synthesis — AWS RNG architecture May 29-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: AWS Resilient Network Graphs architecture (May 30, Tom's Hardware T2) = 33% higher throughput, 40% network power reduction, 69% fewer devices, default for most AWS workloads. **Surface-read concern**: 69% fewer devices = fewer network endpoints, potentially reducing total fabric-silicon TAM. **Deeper read (1st-2nd order analysis)**: fewer devices but each does MORE = high-tier fabric vendors (ALAB Aries + Scorpio at PCIe Gen6 + scale-up) likely BENEFICIARIES as AWS architecture shift consolidates spend on higher-density, higher-tier silicon. xAI Colossus 2 gigawatt cluster = additional fabric demand confirmation.
+
+**Verification needed**: AWS RNG architecture details on which fabric layer aggregates the device reduction (high-tier vs low-tier silicon). Pending.
+
+**Position implication:** HOLD at 6.51% pending architecture detail verification; AWS RNG signal LIKELY REINFORCED but requires deeper validation before declaring directionally positive.

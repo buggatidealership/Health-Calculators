@@ -274,3 +274,9 @@ Per `research/meta/2026-05-29-tsem-stm-glw-vs-sumco-revisit.md`: STM revisited t
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: STM tagged **Agentic AI PARTIAL** (power semi + MEMS at edge layer enabler; not central agentic infra) + **Robotics YES HIGH** (2 of 3 robotics universals per Physical AI primer — power semi + MEMS; BEV 3-5K MLCCs analog). Recent cascade: MODERATELY REINFORCED via Apple Siri edge cycle + Physical AI multi-narrative. No sizing change beyond existing 7.33% position.
+
+## Cross-source synthesis — Edge AI cluster May 29-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: Apple Gemini on Siri + Liquid AI edge model + ByteDance CPU = mobile/edge AI density accelerating. STM power semi + MEMS at the mobile + edge layer benefit at every device-cycle refresh.
+
+**Position implication:** HOLD at 6.41% — edge AI cluster reinforces existing thesis (2-of-3 robotics universals: power semi + MEMS). No sizing change.
