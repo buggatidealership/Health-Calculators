@@ -476,3 +476,11 @@ Per `research/signals/events/2026-05-28-anthropic-mythos-continuous-agent-infras
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: MURATA tagged **Agentic AI CRUCIAL — YES** (MLCC at EVERY intelligent unit per fluid-software-mesh thesis; ~12,000 MLCCs per Rubin board sustained-load minimum) + **Robotics YES HIGH** (humanoid robots use hundreds-thousands of MLCCs across actuator-control + sensor-fusion + power-management boards). Recent cascade: REINFORCED via edge AI proliferation + fluid-software-mesh thesis amplifies MLCC content per intelligent unit. No sizing change beyond existing 12.35% Core position.
+
+## Cross-source synthesis — Citrini MLCC tier-rotation call (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-citrini-mlcc-tier-rotation.md`: Citrini's note 2026-05-30 cross-validates MURATA's AI-server-MLCC structural growth thesis (AI server MLCC 80%+ CAGR; $600M 2025 base; Murata named as Tier 1 capacity expander). Critical Rule #8 check: **no falsifier fires** — Murata is building capacity to serve the demand; blended ASP flat is consistent with mix-shift offsetting consumer decline.
+
+**Citrini's directional call (logged separately as INFERENCE per `predictions/inference-log.md` Entry #2):** MLCC equipment + raw material suppliers will outperform MLCC producers from here on asymmetric basis. This is a TIER ROTATION call within the same supply chain, NOT a "Murata bad" call.
+
+**Position implication:** HOLD at 13.06% — Citrini cross-validates existing thesis; structural growth confirmed; asymmetric upside compressed for producer tier but not breaking. Do NOT trim. Next-step research: MLCC equipment + raw material layer adds as PARALLEL exposure (not rotation), pending investability verification.
