@@ -143,3 +143,19 @@ User's logic verified:
 User-articulated thesis verbatim: *"if both Bessie and SMPT win or any future iteration of packaging, right, like, let's say, the next iterations of packaging that you mentioned, right, between, like, twenty twenty eight to twenty thirty and then twenty thirty to twenty thirty two, owning a company. And, again, I don't know. This is an unverified assumption, but if DISCO wins across the entire chain, then you would logically rather own that company that wins regardless of who wins at the top."*
 
 **Verification verdict per principle #14 (question even user inputs):** The hypothesis is STRUCTURALLY VALIDATED with hard data — DISCO has 70-80% market share with 4x lead, consumables annuity for installed base, KLA-Corporation-comparable choke-point profile. The "wins regardless of who wins at the top" logic holds at the grinding/polishing/dicing layer that ALL bonding technologies require as upstream input. Trade-off acknowledged: lower per-catalyst leverage in exchange for structural-safety positioning across the entire packaging cascade.
+
+## Cross-source synthesis — Sumco-bypass-route activation (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-citrini-mlcc-tier-rotation.md` discussion thread + `signals/cross-source-log/2026-05-29-twitter-cohort-wafer-test-equipment-kioxia.md` UBS Sumco upgrade SELL→NEUTRAL with PT JPY 1,050→3,100:
+
+**The Sumco capacity-expansion thesis activates a NEW N-th order chain for DISCO:**
+- 1st order (P>80%): AI wafer demand outpaces Sumco + Shin-Etsu current capacity (UBS confirmed "Wafer shortages now a possibility" 2026-05-29)
+- 2nd order (P~60%): Wafer makers MUST order dicing/grinding equipment to expand capacity
+- 3rd order (P~40%): DISCO 70-80% share captures most of order surge; equipment lead times extend; pricing power tightens
+- 4th order (P~20%): Market recognizes the bypass-route + reraces DISCO valuation
+
+**This is DIFFERENT from the existing thesis tailwinds** (which focused on advanced packaging cascade + SiC power semi + chip fab back-end processing). Sumco-bypass is the WAFER-MAKING-FRONT-END expansion specifically. Adds to existing 5/5 anti-fragility, doesn't replace.
+
+**User-confirmed investability 2026-05-30:** DISCO 6146.T accessible on user's platform (alongside TEL 8035.T + Screen Holdings 7735.T also confirmed accessible).
+
+**Position implication:** ENTRY CANDIDATE now active per discussion 2026-05-30 — recommended 3-5% (€5-10K depending on remaining capital post-Monday MDB/DDOG/NOW execution). Cleaner bypass-route bet than Komatsu parent (diluted by 91% mining/construction). Inference log Entry #3 tracks Sumco-bypass-specific thesis resolution per `predictions/inference-log.md`.

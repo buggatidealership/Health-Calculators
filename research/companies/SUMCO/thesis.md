@@ -259,3 +259,11 @@ User-articulated framing verbatim: *"The company is called Sunco. It hasn't reac
 - How crucial is the layer? **Critically crucial** but with multiple competitors — chokepoint at industry level, not at Sumco-specific level. Anti-fragility 3/5 reflects this.
 
 **User's 2007 all-time-high observation is structurally meaningful** — pre-GFC peak under PRE-AI semiconductor cycle dynamics. Current recovery under POST-AI structural shift = potentially different cycle profile (per principle #26 binding-constraint test). The "slowly but steadily" approach is consistent with multi-year recovery + early recognition stage.
+
+## Cross-source synthesis — DISCO bypass-route thesis (added 2026-05-30, per Critical Rule #10)
+
+Per `companies/DISCO/thesis.md` (new 2026-05-30): DISCO Corporation 6146.T identified as the cleanest investable bypass-route bet on SUMCO's capacity-expansion thesis. Bypass-route logic per Critical Rule #9: as wafer demand outpaces SUMCO + Shin-Etsu current capacity, those wafer makers MUST order dicing/grinding equipment to expand; DISCO holds ~75% global market share in that equipment niche per [Senrigan T2](https://senrigan.tech/en/report/6146_20250906) + [SemiAnalysis T2](https://newsletter.semianalysis.com/p/disco-corporation-the-world-leader).
+
+**SUMCO + DISCO = complementary vertical-stack play** (upstream material + equipment for capacity expansion = two layers of the same AI wafer expansion thesis). NOT redundant.
+
+**Position implication:** HOLD SUMCO at ~5.1% — no change to SUMCO thesis; DISCO ENTER candidate at 3-5% becomes complementary position covering the equipment-bypass layer of the same thesis. DISCO investability confirmed by user 2026-05-30; entry sizing pending capital allocation post-Monday execution.

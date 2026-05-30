@@ -10,6 +10,7 @@
 - **Sumco Corporation (3436.T)** entered TODAY 2026-05-29 at **€9,000** (~5.1% of post-entry portfolio). Thesis at `companies/SUMCO/thesis.md` updated with position-acquisition. Per `signals/cross-source-log/2026-05-29-twitter-cohort-wafer-test-equipment-kioxia.md`: UBS upgrade SELL→NEUTRAL PT JPY 1,050→3,100 + equipment shortage cascade thesis.
 - **AXTI**: **SOLD 2026-05-29 — user confirmed.** Freed €4,573.85 for software rebalance. Combined with fresh capital ~€20K minus €9K SUMCO = **€15.5K available for MDB/NOW/DDOG deployment Monday 2026-06-01.**
 - **MDB**: ENTER recommended at 3-4% (€5-6K initial) per `meta/2026-05-29-vector-db-candidate-comparison.md` + new `companies/MDB/thesis.md`. Q1 FY27 cRPO +69% leading indicator; least overlap with NOW + DDOG of 3 vector-DB candidates evaluated.
+- **DISCO 6146.T**: NEW ENTER candidate surfaced 2026-05-30 (existing thesis May 25 build cross-validated via Sumco-bypass-route discussion). 70-80% global market share dicing/grinding equipment; anti-fragility 5/5; complementary to held SUMCO. User-investability-confirmed 2026-05-30 (also confirmed: TEL 8035.T + Screen Holdings 7735.T). Recommended 3-5% entry (€5-10K depending on post-Monday capital). Inference log Entry #3 tracks Sumco-bypass-specific thesis resolution.
 
 ## Account totals — consolidated across platforms
 
