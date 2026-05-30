@@ -21,6 +21,13 @@
 
 ### P2 — Medium priority
 
+- [ ] **P2 / verification / 2026-05-30** [AF, POS] — DISCO 6146.T ENTRY decision pending capital allocation post-Monday execution
+  - Origin: Surfaced via Citrini MLCC discussion 2026-05-30 → pivoted to Sumco-bypass-route thesis per `signals/cross-source-log/2026-05-30-citrini-mlcc-tier-rotation.md` discussion. User-confirmed investability 2026-05-30 (DISCO accessible alongside TEL 8035.T + Screen Holdings 7735.T also accessible).
+  - Existing thesis: `companies/DISCO/thesis.md` (May 25 build; anti-fragility 5/5; 70-80% global market share dicing/grinding; near-monopoly moat) + 2026-05-30 Sumco-bypass cross-source synthesis appended.
+  - Scope: After Monday 2026-06-01 MDB/DDOG/NOW execution settles, confirm remaining capital + decide DISCO entry sizing (recommended 3-5% = €5-10K). Resolve via Monday post-execution capital check.
+  - Tracked separately in `predictions/inference-log.md` Entry #3 (~65% confidence, highest of 3 open inferences).
+  - Linked: `companies/DISCO/thesis.md`, `companies/SUMCO/thesis.md`, `predictions/inference-log.md`
+
 - [ ] **P2 / verification / 2026-05-28** [CAL, INDP] — L14 candidate N=2 validation watch (next eligible Stage 2-3 + CATEGORY EVENT case)
   - Origin: 2026-05-28 4-data-point same-day cohort (SNOW +37.65%, MDB +20%, NTAP +10%, ESTC -10.9%, MRVL -1.96% prior) produced refined framework distinguishing HIGH-CONCRETE / LOW-CONCRETE / TREND / REVERSE-CATEGORY events. But same-day cohort = mostly coincident (possible common-cause AI rerating wave); needs independent N=2+ across different days/events.
   - **Update 2026-05-29**: NTAP Q4 FY26 print added as N=3 application (LOW-CONCRETE + Stage 3-4 + 10% reaction = framework match). HPE Q2 FY26 prediction (resolution 2026-06-01) is the next independent cross-day validation point.
