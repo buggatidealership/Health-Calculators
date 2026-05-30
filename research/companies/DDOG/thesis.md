@@ -255,6 +255,8 @@ Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`:
 
 ## Cross-source synthesis — OpenAI Codex Windows + Mobile (added 2026-05-30, per Critical Rule #10)
 
-Per `signals/cross-source-log/2026-05-30-openai-codex-windows-computer-use.md`: OpenAI Codex now has computer-use on Windows (2026-05-29) + mobile app supervision pattern (2026-05-14). Mobile-supervises-desktop bi-directional agent activity stream = direct observability category signal. Cross-cloud unified observability remains the moat: any AI provider's agent on any user OS = DDOG. **Reinforces** workload-volume-amplification thesis at the agentic-endpoint layer (Windows ~70%+ enterprise endpoint share, previously Mac/Linux-only).
+Per `signals/cross-source-log/2026-05-30-openai-codex-windows-computer-use.md`: OpenAI Codex now has computer-use on Windows (2026-05-29) + mobile app supervision pattern (2026-05-14).
 
-**Position implication:** HOLD pending Monday 2026-06-01 SIZE UP to ~€16,621 (~9.0%) per `portfolio/changes.md` 2026-05-29 plan — conviction **+5% directional reinforced** by this signal; no sizing change to Monday plan.
+**INFERENCE flag (per `predictions/inference-log.md` Entry #1, added 2026-05-30):** the connection from Codex Windows announcement → DDOG benefits is a LOGICAL EXTRAPOLATION chain (~60% confidence), NOT signal extracted from the announcement itself. The announcement says nothing about observability. Chain: agents click around Windows endpoints → enterprises need supervision → DDOG positioned at agent-fleet-observability layer. **Resolution: DDOG Q2 CY26 print (~2026-08-05) — does mgmt mention agent-supervision / Codex / Windows-agent observability in customer wins or product roadmap.**
+
+**Position implication:** HOLD pending Monday 2026-06-01 SIZE UP to ~€16,621 (~9.0%) per `portfolio/changes.md` 2026-05-29 plan — INFERENCE entry logged for resolution tracking; no sizing change beyond pre-planned Monday SIZE UP.
