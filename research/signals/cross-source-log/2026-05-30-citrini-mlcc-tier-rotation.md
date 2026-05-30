@@ -5,6 +5,19 @@
 **Source validity:** T3 analyst note, HIGH credibility per `meta/source-reliability.md` track record + prior Citrini work (Korea Unlocked, Supply Chain Inheritance frameworks per `signals/events/2026-05-12-citrini-supply-chain-inheritance.md`)
 **Segment classification per principle #29:** advanced-packaging + memory-and-storage adjacent (MLCC supply chain = passive components serving compute infrastructure). Single-source signal; logged here for cross-source tracking; NOT promoted to triangulation alone.
 
+## ⚠️ INVESTABILITY-BLOCKED RESOLUTION (added 2026-05-30 after user investability confirmation)
+
+**Cleanest bypass-route bet (Sakai Chemical 4078.T for BaTiO3) = NOT ACCESSIBLE on user's platform.** Same pattern as LGI / NCI 4092 / Shoei 4953 archives per investability filter.
+
+**Accessible alternatives evaluated + REJECTED:**
+- TDK 6762.T = parallel producer exposure; recreates "too similar to Murata" concern user flagged 2026-05-29
+- Komatsu 6301.T = MLCC equipment exposure too diluted by mining + construction revenue
+- Modec 6269.T = wrong company (FPSO offshore oil, not MLCC equipment); identification error
+
+**Resolution: HOLD MURATA — Citrini thesis cross-validates existing MURATA position; producer-tier exposure already captured via 13.06% MURATA holding. Citrini's own note flags "OEM contracts have not seen large price hikes YET" implying producer margin tailwind still coming when contracts renew.**
+
+**No new portfolio action. Sakai 4078 archived as reference artifact for future-accessibility re-evaluation (same pattern as LGI/NCI/Shoei).**
+
 ---
 
 ## Citrini's claims extracted

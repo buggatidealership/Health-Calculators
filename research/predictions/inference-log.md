@@ -45,7 +45,7 @@ This log fixes both: explicit inference tag + explicit resolution criterion + re
 | # | Date made | Ticker(s) | Inference (1-line) | Type | Confidence | Resolution date | Outcome |
 |---|---|---|---|---|---|---|---|
 | 1 | 2026-05-30 | DDOG | OpenAI Codex Windows → enterprise need agent supervision → DDOG positioned to benefit at agent-fleet-observability layer | LOGICAL EXTRAPOLATION | ~60% | DDOG Q2 CY26 print (~2026-08-05) + interim signals (competitor launches, customer wins) | PENDING |
-| 2 | 2026-05-30 | MURATA (held) vs MLCC equipment/raw material universe (TDK, Komatsu, Sakai, others TBD) | Citrini directional call: MLCC equipment + raw material suppliers outperform MLCC producers from here on asymmetric basis (producers rerated; bypass-route via capex tailwind for suppliers-to-producers) | PATTERN INFERENCE (propagating Citrini's analyst call + my own bypass-route logic per Critical Rule #9) | ~55% | 3-6mo relative performance check + Murata Q2 + Q3 prints | PENDING |
+| 2 | 2026-05-30 | MURATA (held) vs MLCC equipment/raw material universe (TDK, Komatsu, Sakai, others TBD) | Citrini directional call: MLCC equipment + raw material suppliers outperform MLCC producers from here on asymmetric basis (producers rerated; bypass-route via capex tailwind for suppliers-to-producers) | PATTERN INFERENCE (propagating Citrini's analyst call + my own bypass-route logic per Critical Rule #9) | ~55% | 3-6mo relative performance check (track Sakai 4078.T relative to Murata even though inaccessible — source-reliability data) + Murata Q2 + Q3 prints | PENDING — INVESTABILITY-BLOCKED for portfolio action (Sakai not accessible; TDK/Komatsu reject per thesis-clarity); resolution still tracked for Citrini source-reliability calibration |
 
 ---
 
@@ -133,3 +133,21 @@ When I write any directional "reinforces X" claim that isn't grounded in (a) inl
 **Notes:**
 - This inference resolves a different way than Entry #1: Entry #1 = "DDOG benefits" (single-direction call); Entry #2 = "X outperforms Y" (relative-performance call). Resolution mechanism is comparable returns over a window, not a binary outcome.
 - Per user 2026-05-30 discipline catch ("don't default to print as resolution"): primary resolution is 3-6mo relative performance, not the Murata Q2 print specifically.
+
+---
+
+## Entry #2 INVESTABILITY-BLOCKED UPDATE (2026-05-30)
+
+**User investability confirmation 2026-05-30:** Sakai Chemical 4078.T NOT accessible on user's platforms (Degiro / N26). TDK 6762.T + Komatsu 6301.T + Modec 6269.T are accessible.
+
+**Resolution path update:**
+- TDK rejected: parallel producer exposure recreates user's earlier "too similar to Murata" concern (flagged 2026-05-29)
+- Komatsu rejected: MLCC equipment exposure too diluted by mining + construction revenue dominance
+- Modec disqualified: ticker identification error (FPSO offshore oil, not MLCC equipment)
+- Sakai 4078.T archived as reference artifact per LGI / NCI 4092 / Shoei 4953 investability-blocked pattern
+
+**Portfolio action: NONE — HOLD MURATA at 13.06% as the producer-tier exposure capturing the structural growth Citrini's note validates.** Citrini's own note flags "OEM contracts have not seen large price hikes YET" — producer margin tailwind still coming.
+
+**Inference resolution tracking continues** despite no portfolio action: track relative performance of Sakai 4078.T vs Murata over 3-6mo as a source-reliability calibration data point for Citrini. If Citrini's call materializes (equipment + raw materials outperform), it adds to Citrini's track record even though we can't act on it from this platform; if it doesn't materialize, downgrades Citrini's tier-rotation-call track record. Either way the inference grades for FUTURE Citrini-call calibration.
+
+**Lesson candidate (provisional):** an inference can be RIGHT (analytically valid) and yet NON-ACTIONABLE (no investable expression on the user's platform). The harness should still track these for source-reliability + future-accessibility re-evaluation, not discard them. Add to `predictions/lessons.md` if pattern repeats N=2+.
