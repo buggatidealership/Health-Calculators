@@ -332,3 +332,11 @@ Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`:
 **HBM is the indispensable substrate across ALL custom silicon programs** — Trainium uses HBM, Apple Silicon uses LPDDR/HBM, ByteDance CPUs use HBM. SK Hynix benefits regardless of WHICH custom Si wins. Reinforces existing 3-year HBM capacity gap + iHBM thermal moat thesis.
 
 **Position implication:** HOLD at 12.43% — custom silicon proliferation = HBM demand sustained. No sizing change; existing structural thesis confirmed.
+
+## Cross-source synthesis — NVDA+MSFT+ARM AI PC tease 2026-05-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.md`: NVIDIA + Microsoft + ARM coordinated social media tease ("a new era of PC" + Taipei coordinates) on May 29-30, 2026 ahead of Computex 2026 next week. Axios scoop confirms Microsoft will debut local AI agent software for Windows alongside reveal. Rumored NVDA N1/N1X ARM-based laptop processors = first NVDA serious PC chip entry. Microsoft Agent 365 already at GA May 1, 2026 manages locally-running AI agents on Windows endpoints.
+
+**HYNIX-specific implications**: NVDA Blackwell-based GPU on N1/N1X = LPDDR/HBM PC tier demand. Less direct than datacenter HBM but additive.
+
+**Position implication:** HOLD at 12.43% — reinforces existing thesis.

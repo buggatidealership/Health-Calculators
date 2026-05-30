@@ -157,3 +157,11 @@ Per `signals/cross-source-log/2026-05-30-openai-codex-windows-computer-use.md`: 
 Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: Edge AI proliferation cluster + agentic adoption at scale ($500M Claude mystery enterprise) = agent state retention demand scales with every on-device + cloud agent deployment. MDB Atlas + Voyage AI integrated stack remains positioned at the operational data + retrieval layer regardless of agent execution location.
 
 **Position implication:** ENTER as planned Monday €4K (~2.2% per Option C / D recalibration), pending capital allocation; signal REINFORCES entry conviction.
+
+## Cross-source synthesis — NVDA+MSFT+ARM AI PC tease 2026-05-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.md`: NVIDIA + Microsoft + ARM coordinated social media tease ("a new era of PC" + Taipei coordinates) on May 29-30, 2026 ahead of Computex 2026 next week. Axios scoop confirms Microsoft will debut local AI agent software for Windows alongside reveal. Rumored NVDA N1/N1X ARM-based laptop processors = first NVDA serious PC chip entry. Microsoft Agent 365 already at GA May 1, 2026 manages locally-running AI agents on Windows endpoints.
+
+**MDB-specific implications**: AI PC agent state retention scales with local agent proliferation; per-user persistent context across desktop + cloud.
+
+**Position implication:** ENTER as planned Monday per committed plan; reinforces entry conviction.

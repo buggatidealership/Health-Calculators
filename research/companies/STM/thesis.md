@@ -280,3 +280,11 @@ Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`:
 Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: Apple Gemini on Siri + Liquid AI edge model + ByteDance CPU = mobile/edge AI density accelerating. STM power semi + MEMS at the mobile + edge layer benefit at every device-cycle refresh.
 
 **Position implication:** HOLD at 6.41% — edge AI cluster reinforces existing thesis (2-of-3 robotics universals: power semi + MEMS). No sizing change.
+
+## Cross-source synthesis — NVDA+MSFT+ARM AI PC tease 2026-05-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.md`: NVIDIA + Microsoft + ARM coordinated social media tease ("a new era of PC" + Taipei coordinates) on May 29-30, 2026 ahead of Computex 2026 next week. Axios scoop confirms Microsoft will debut local AI agent software for Windows alongside reveal. Rumored NVDA N1/N1X ARM-based laptop processors = first NVDA serious PC chip entry. Microsoft Agent 365 already at GA May 1, 2026 manages locally-running AI agents on Windows endpoints.
+
+**STM-specific implications**: power semi + MEMS at PC density; AI PC adoption = new content cycle at PC volume.
+
+**Position implication:** HOLD at 6.41% — reinforces existing thesis.

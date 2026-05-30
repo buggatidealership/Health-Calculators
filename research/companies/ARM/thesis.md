@@ -370,3 +370,11 @@ Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`:
 **Apple Silicon (ARM IP) is THE substrate for on-device Gemini distillation.** Bypasses NVDA for inference. Direct ARM IP royalty implication.
 
 **Position implication:** HOLD at 11.36% — edge AI thesis structurally REINFORCED; ARM at largest concentrated position (alongside Hynix + Murata) already capturing this thesis. No sizing change but conviction reinforced.
+
+## Cross-source synthesis — NVDA+MSFT+ARM AI PC tease 2026-05-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.md`: NVIDIA + Microsoft + ARM coordinated social media tease ("a new era of PC" + Taipei coordinates) on May 29-30, 2026 ahead of Computex 2026 next week. Axios scoop confirms Microsoft will debut local AI agent software for Windows alongside reveal. Rumored NVDA N1/N1X ARM-based laptop processors = first NVDA serious PC chip entry. Microsoft Agent 365 already at GA May 1, 2026 manages locally-running AI agents on Windows endpoints.
+
+**ARM-specific implications**: N1/N1X = NVDA's first serious PC processor entry, ARM-licensed. New royalty stream at PC-scale volume. NVDA brand + market power = will drive PC OEM (Dell, HP, Lenovo, Surface) adoption faster than Qualcomm Snapdragon X has. ARM's 5th narrative added (AI PC) on top of existing 4 (mobile + datacenter Neoverse + AGI CPU + edge).
+
+**Position implication:** HOLD at 11.36% — N1/N1X signal materially reinforces existing structural thesis at the largest hardware position; SIZE UP candidate but already near top of typical position-target band; defer SIZE UP decision pending Computex 2026 confirmation next week + post-Monday capital allocation.

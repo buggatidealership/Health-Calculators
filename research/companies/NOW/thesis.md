@@ -398,3 +398,11 @@ Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`:
 **Per principle #29 + #31**: Salesforce competes in customer-facing agent capabilities (CRM context) vs NOW's strength in internal workflows + IT service management + cross-system orchestration (450+ integrations per industry research). Different architectural angles; not a direct head-to-head substitute at the IT workflow layer where NOW dominates. **Per `companies/NOW/thesis.md:29` non-consensus finding**: Microsoft Copilot is COMPLEMENTARY-not-displacement at ITSM core; same pattern likely holds for Salesforce.
 
 **Position implication:** HOLD pending Monday 2026-06-01 SIZE UP to ~€15,993 (~8.7%) per existing plan; **NO downsize triggered** by Slackbot signal alone (feature announcement, not customer-win shift). Watch item for Q2 NOW print (late July 2026) — if mgmt addresses Salesforce competitive dynamics directly. If user prefers more concentrated DDOG SIZE UP instead of NOW SIZE UP given this competitive flag, reallocation is defensible — see chat analysis 2026-05-30.
+
+## Cross-source synthesis — NVDA+MSFT+ARM AI PC tease 2026-05-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.md`: NVIDIA + Microsoft + ARM coordinated social media tease ("a new era of PC" + Taipei coordinates) on May 29-30, 2026 ahead of Computex 2026 next week. Axios scoop confirms Microsoft will debut local AI agent software for Windows alongside reveal. Rumored NVDA N1/N1X ARM-based laptop processors = first NVDA serious PC chip entry. Microsoft Agent 365 already at GA May 1, 2026 manages locally-running AI agents on Windows endpoints.
+
+**NOW-specific implications**: enterprise workflow agents running on individual employee PCs = MORE enforcement surface for AI Control Tower governance. Microsoft Agent 365 manages Windows endpoint agents — overlap/competition watch point at the endpoint-management layer.
+
+**Position implication:** HOLD pending Monday SIZE UP per committed plan; reinforces governance thesis at endpoint tier.

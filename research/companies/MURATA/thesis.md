@@ -490,3 +490,11 @@ Per `signals/cross-source-log/2026-05-30-citrini-mlcc-tier-rotation.md`: Citrini
 Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: Edge AI proliferation cluster met SEGMENTED-TRIANGULATION threshold. Apple Gemini on Siri + Liquid AI 8B MoE + StepFun + ByteDance custom CPU = every edge device gets AI-grade compute. Fluid-software-mesh thesis amplifies MLCC content per cell.
 
 **Position implication:** HOLD at 13.06% — edge AI cluster amplifies existing MLCC density thesis at every endpoint. No sizing change.
+
+## Cross-source synthesis — NVDA+MSFT+ARM AI PC tease 2026-05-30 (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.md`: NVIDIA + Microsoft + ARM coordinated social media tease ("a new era of PC" + Taipei coordinates) on May 29-30, 2026 ahead of Computex 2026 next week. Axios scoop confirms Microsoft will debut local AI agent software for Windows alongside reveal. Rumored NVDA N1/N1X ARM-based laptop processors = first NVDA serious PC chip entry. Microsoft Agent 365 already at GA May 1, 2026 manages locally-running AI agents on Windows endpoints.
+
+**MURATA-specific implications**: AI PC = higher MLCC density per device than traditional PC (NPU + power management + multiple voltage rails). NVDA N1/N1X PC adoption = new content tailwind at PC volume scale.
+
+**Position implication:** HOLD at 13.06% — structural thesis reinforced.
