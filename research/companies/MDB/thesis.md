@@ -145,3 +145,9 @@ This thesis file references the orthogonality finding from `meta/2026-05-29-vect
 - `companies/DDOG/thesis.md` — observability layer monitoring MDB Atlas
 - `research/wiki/agentic-ai-enterprise.md` — agent data-layer demand thesis
 - `meta/methodology.md` Principle #33 Layer 0-5 framework
+
+## Cross-source synthesis — OpenAI Codex Windows + Mobile (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-openai-codex-windows-computer-use.md`: OpenAI Codex Windows computer-use launch creates per-Windows-user agent state retention demand (chats, project context, action history, mobile-desktop sync state). MDB Atlas + Voyage AI integrated stack positioned at this operational-data + retrieval layer. Reinforces integrated embedding-to-retrieval moat thesis (5-7yr structural durability per `meta/2026-05-29-vector-db-candidate-comparison.md:96-100`).
+
+**Position implication:** ENTER as planned — Monday 2026-06-01 €6,000 initial at ~3.3% per `portfolio/changes.md` 2026-05-29 plan; this signal **reinforces entry conviction** by demonstrating real-time agent-state-layer demand growth at agentic-endpoint deployment.

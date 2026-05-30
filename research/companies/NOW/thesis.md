@@ -380,3 +380,9 @@ Per `research/meta/2026-05-29-vector-db-candidate-comparison.md`: research agent
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: NOW tagged **Agentic AI CRUCIAL — YES** (agent governance control plane via AI Control Tower GA August 2026; enforcement authority over agents across AWS/Azure/GCP) + **Robotics INDIRECT** (workflow + governance for autonomous systems in regulated industries). Recent cascade: STRONGLY REINFORCED via agent governance category-creation (Moveworks closed Dec 2025 + Veza H1 2026 + Armis pending). SIZE UP candidate pending Q2 2026 verification gate per existing thesis.
+
+## Cross-source synthesis — OpenAI Codex Windows + Mobile (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-openai-codex-windows-computer-use.md`: OpenAI Codex Windows computer-use launch creates NEW enforcement surface for AI Control Tower. Enterprise IT teams will demand audit/policy controls over Windows-resident agents (clicking buttons, typing across desktop applications). Workflow-integration moat extends to Windows-agent-orchestration layer — same dynamic as ITSM workflow moat per existing thesis lines 28-32.
+
+**Position implication:** HOLD pending Monday 2026-06-01 SIZE UP to ~€15,993 (~8.7%) per `portfolio/changes.md` 2026-05-29 plan — reinforces August 2026 AI Control Tower GA catalyst; no sizing change to Monday plan.

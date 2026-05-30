@@ -252,3 +252,9 @@ Per `research/meta/2026-05-29-vector-db-candidate-comparison.md`: agent observab
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: DDOG tagged **Agentic AI CRUCIAL — YES** (agent observability is MANDATORY infrastructure for continuous agents; code quality 35-50% token multiplier validates the category) + **Robotics INDIRECT** (observability for autonomous systems in production). Recent cascade: STRONGLY REINFORCED via continuous-eval mandate signal + Mozilla Mythos 271-vuln production validation. No sizing change beyond existing 7.5% position.
+
+## Cross-source synthesis — OpenAI Codex Windows + Mobile (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-openai-codex-windows-computer-use.md`: OpenAI Codex now has computer-use on Windows (2026-05-29) + mobile app supervision pattern (2026-05-14). Mobile-supervises-desktop bi-directional agent activity stream = direct observability category signal. Cross-cloud unified observability remains the moat: any AI provider's agent on any user OS = DDOG. **Reinforces** workload-volume-amplification thesis at the agentic-endpoint layer (Windows ~70%+ enterprise endpoint share, previously Mac/Linux-only).
+
+**Position implication:** HOLD pending Monday 2026-06-01 SIZE UP to ~€16,621 (~9.0%) per `portfolio/changes.md` 2026-05-29 plan — conviction **+5% directional reinforced** by this signal; no sizing change to Monday plan.
