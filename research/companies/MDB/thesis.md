@@ -177,3 +177,11 @@ Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patte
 **MDB-specific**: GitHub Copilot pricing pivot = industry-wide confirmation of usage-meter monetization model (Brad Gerstner "token flow" thesis materializing at Microsoft itself). Atlas usage-based pricing benefits from same dynamic.
 
 **Position implication:** ENTER as planned Monday per committed plan; reinforces entry thesis.
+
+## Cross-source synthesis — IBM Master's Vault Search competitive layer (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-camt-pricing-gap-and-ibm-q1-pattern-synthesis.md`: IBM Master's Vault Search = enterprise vector retrieval via watsonx + Granite SLMs per [Futurum T2](https://futurumgroup.com/insights/ibm-q1-fy-2026-earnings-show-software-growth-and-mainframe-ai-monetization/). Layered competition at enterprise tier (IBM Fortune 500 customer base overlaps with MDB Atlas customers).
+
+**Distinguishing angle**: MDB Atlas Vector + Voyage AI = self-serve developer-friendly integrated stack. IBM watsonx = consulting-led + slower deployment but deeper enterprise integration. Different go-to-market motions; some customer-level competition but layered rather than head-to-head substitution.
+
+**Position implication:** ENTER as planned Monday €6,000 per committed plan; IBM competitive overlap is real but DIFFERENT GTM motion = layered competition rather than substitution.

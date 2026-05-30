@@ -410,3 +410,9 @@ Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patte
 **ARM-specific**: Meta AI pendant + Gemini Spark 24/7 = 5+ data point edge AI segmented-triangulation cluster compounds. Multi-narrative score reinforced (mobile + datacenter + AGI CPU + edge + AI PC + now: always-on consumer wearables).
 
 **Position implication:** HOLD at 11.36% — refined HOLD recommendation per ARM AGI CPU deep dive 2026-05-30 stands; edge AI compounding reinforces structural thesis but FTC + margin + Stage 4 risks gate SIZE UP.
+
+## Cross-source synthesis — IBM Granite SLMs (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-camt-pricing-gap-and-ibm-q1-pattern-synthesis.md`: IBM Granite small language models = open + on-device adjacent; 6th data point in today's cumulative edge AI cluster (Apple Siri + Liquid AI + StepFun + NVDA N1/N1X + IBM Granite). Edge model ecosystem expanding across major vendors.
+
+**Position implication:** HOLD at 11.36% per refined Position implication from ARM AGI CPU deep dive 2026-05-30 — edge AI cluster compounding reinforces multi-narrative thesis; FTC + margin + Stage 4 risks gate SIZE UP.

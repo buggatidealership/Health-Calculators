@@ -308,3 +308,9 @@ Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patte
 **Inference log Entry #1 confidence correction**: BUMPED to ~70% was based on incomplete analysis (treated Microsoft Agent 365 as pure validation). REFINED back to ~60-62% — the agent-supervision category IS being productized but Microsoft is one of the productizers, not just an enabler for DDOG.
 
 **Position implication:** HOLD pending Monday SIZE UP per `portfolio/changes.md` committed plan — Microsoft Agent 365 competitive risk is real but bounded (cross-cloud + multi-provider TAM intact); thesis falsifier #4 NOT yet fired (Microsoft Agent 365 = feature launch, not customer-share-shift evidence). Monday SIZE UP plan stands. WATCH item: any DDOG customer publicly switching to Microsoft Agent 365 for cross-cloud observability would materially escalate competitive risk.
+
+## Cross-source synthesis — IBM watsonx bookings DOUBLED YoY (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-camt-pricing-gap-and-ibm-q1-pattern-synthesis.md`: IBM Q1 2026 reported watsonx generative AI bookings DOUBLED YoY per [Tech-Insider T2](https://tech-insider.org/ibm-q1-2026-earnings-revenue-software-growth/) + [Investing.com transcript T2](https://www.investing.com/news/transcripts/earnings-call-transcript-ibm-q1-2026-beats-earnings-expectations-93CH-4630972) = 3rd-party validation of enterprise AI deployment accelerating at major-vendor scale. IBM customer cohort = Fortune 500 overlap with DDOG customer base.
+
+**Position implication:** HOLD pending Monday SIZE UP per committed plan. Validates underlying workload-driven thesis but no specific DDOG-customer signal; cumulative pattern adds to Inference Entry #1 + #5 supporting evidence.

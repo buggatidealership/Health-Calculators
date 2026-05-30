@@ -418,3 +418,11 @@ Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patte
 **NOW-specific**: GitHub Copilot pivot to token-based billing is industry signal worth tracking — could pressure NOW's traditional subscription tier model BUT NOW's bundled-AI approach (Now Assist baked into commercial tiers per existing thesis line 31) is differentiated. Watch item, not action item.
 
 **Position implication:** HOLD pending Monday SIZE UP per committed plan; competitive-watch item logged.
+
+## Cross-source synthesis — IBM Q1 2026 + competitive watch density (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-camt-pricing-gap-and-ibm-q1-pattern-synthesis.md`: IBM Q1 2026 (reported April 24, 2026) revealed watsonx Orchestrate + AI agents on Granite SLMs = direct workflow-agent overlap with NOW per [Motley Fool transcript T2](https://www.fool.com/earnings/call-transcripts/2026/04/22/ibm-ibm-q1-2026-earnings-call-transcript/). IBM joins Salesforce Slackbot + Microsoft Agent 365 = 3rd workflow-agent competitor surfaced in last 7 days. **Falsifier #4 ("Salesforce takes CSM share aggressively") has NOT yet fired** but competitive-watch density is increasing rapidly.
+
+**Distinguishing angle**: IBM watsonx Orchestrate = consulting-led + Fortune 500 anchor relationship (2/3 of IBM AI book = Consulting). Different angle from NOW's workflow-execution-led approach. Many enterprises use multiple platforms; IBM watsonx may capture deployments where consulting depth matters (regulated industries, complex integrations) rather than displacing NOW at IT workflow core.
+
+**Position implication:** HOLD pending Monday SIZE UP per committed plan. Competitive-watch density elevated but no falsifier fired. Q2 FY27 NOW print (~late July 2026) needs explicit address of IBM watsonx Orchestrate competitive dynamics + any customer share data.
