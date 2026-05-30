@@ -28,6 +28,16 @@
   - Tracked separately in `predictions/inference-log.md` Entry #3 (~65% confidence, highest of 3 open inferences).
   - Linked: `companies/DISCO/thesis.md`, `companies/SUMCO/thesis.md`, `predictions/inference-log.md`
 
+- [ ] **P2 / research / 2026-06-06** [INDP, POS, AF] — Computex 2026 post-event INGEST brief (Computex June 2-5; NVIDIA GTC Taipei keynote June 1)
+  - Origin: User commitment 2026-05-30 to deliver brief after Computex ends, synthesizing keynote announcements + cross-portfolio cascade
+  - Scope: (a) Verify NVDA N1/N1X PC processor specs + ARM partnership terms post-keynote; (b) Confirm Microsoft local AI agent software details; (c) Catch other portfolio-relevant announcements; (d) Update ARM AGI CPU thesis with Computex confirmation/falsification; (e) Cascade to held theses per Critical Rule #10
+  - Linked: `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.md`, `signals/cross-source-log/2026-05-30-arm-agi-cpu-deep-dive.md`, `companies/ARM/thesis.md`
+
+- [ ] **P2 / verification / 2026-08-15** [CAL, AF, POS] — ARM Q2/Q3 FY27 earnings verification — AGI CPU revenue contribution + blended margin trajectory + FTC probe direction
+  - Origin: 2026-05-30 ARM AGI CPU deep dive surfaced 3 risks under-weighted in prior coverage: (1) margin dilution (50% AGI CPU GM vs 98% IP licensing GM per CFO Jason Child to CNBC), (2) FTC antitrust probe opened May 2026 investigating ARM degrading/denying architecture licenses to competing licensees, (3) Stage 4 priced-to-perfection (+84% YTD)
+  - Scope: At ARM Q2 FY27 print (~Aug 2026), evaluate (a) AGI CPU revenue contribution % of total, (b) blended GM trajectory, (c) FTC probe status update, (d) any additional named customer wins (AWS / Google / Microsoft transition from "supportive" to actual customers). If all 4 favorable → SIZE UP to Core tier (12-13%) actionable. If any unfavorable → maintain HOLD at 11.36% or reassess.
+  - Linked: `signals/cross-source-log/2026-05-30-arm-agi-cpu-deep-dive.md`, `companies/ARM/thesis.md` AGI CPU section
+
 - [ ] **P2 / verification / 2026-05-28** [CAL, INDP] — L14 candidate N=2 validation watch (next eligible Stage 2-3 + CATEGORY EVENT case)
   - Origin: 2026-05-28 4-data-point same-day cohort (SNOW +37.65%, MDB +20%, NTAP +10%, ESTC -10.9%, MRVL -1.96% prior) produced refined framework distinguishing HIGH-CONCRETE / LOW-CONCRETE / TREND / REVERSE-CATEGORY events. But same-day cohort = mostly coincident (possible common-cause AI rerating wave); needs independent N=2+ across different days/events.
   - **Update 2026-05-29**: NTAP Q4 FY26 print added as N=3 application (LOW-CONCRETE + Stage 3-4 + 10% reaction = framework match). HPE Q2 FY26 prediction (resolution 2026-06-01) is the next independent cross-day validation point.
