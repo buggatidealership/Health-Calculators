@@ -398,3 +398,15 @@ Per `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.m
 3. **Stage 4 narrative (per principle #31)**: stock +84% YTD 2026; sell-side PTs $220-300 = limited upside priced in
 
 **Position implication (refined 2026-05-30)**: **HOLD at 11.36%** — AGI CPU deep dive confirms structural thesis but surfaces 3 risks; **SIZE UP to Core tier (12-13%) PREMATURE** until Q2/Q3 FY27 earnings quantify AGI CPU revenue + blended margin trajectory + FTC probe direction clarifies + Computex June 2-5 confirms N1/N1X royalty stream details.
+
+## Cross-source synthesis — May 30 Evening Brief (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patterns identified in May 30 evening brief (83 sources):
+1. Token-flow thesis MATERIALIZING (GitHub Copilot pivots to token-based billing; OpenRouter $113M; $500M Claude mystery UPGRADED to T2 via Tom's Hardware)
+2. Memory bottleneck thesis EXTERNALLY VALIDATED (XCENA $135M @ $570M valuation explicitly arguing memory is binding constraint)
+3. Continuous-agent / 24/7 deployment cluster (Gemini Spark + Meta AI pendant + DeepMind Gram = 3rd-4th data point)
+4. Edge AI proliferation 5+ data point segmented-triangulation cluster compounding (Meta pendant + Gemini Spark + earlier today's Apple/Liquid AI/StepFun/NVDA N1)
+
+**ARM-specific**: Meta AI pendant + Gemini Spark 24/7 = 5+ data point edge AI segmented-triangulation cluster compounds. Multi-narrative score reinforced (mobile + datacenter + AGI CPU + edge + AI PC + now: always-on consumer wearables).
+
+**Position implication:** HOLD at 11.36% — refined HOLD recommendation per ARM AGI CPU deep dive 2026-05-30 stands; edge AI compounding reinforces structural thesis but FTC + margin + Stage 4 risks gate SIZE UP.

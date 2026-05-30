@@ -278,3 +278,15 @@ Per `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.m
 **DDOG-specific implications**: Microsoft Agent 365 GA May 1, 2026 already manages locally-running AI agents on Windows endpoints = the EXACT category Inference Entry #1 predicted. NVDA + MSFT AI PC software extends this enterprise local-agent-supervision category. **Bumps Entry #1 confidence to ~65%** per `predictions/inference-log.md` resolution-criteria TERTIARY (enterprise product naming agent-supervision category publicly).
 
 **Position implication:** HOLD pending Monday SIZE UP per `portfolio/changes.md` committed plan; signal validates existing thesis — no sizing change beyond planned.
+
+## Cross-source synthesis — May 30 Evening Brief (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patterns identified in May 30 evening brief (83 sources):
+1. Token-flow thesis MATERIALIZING (GitHub Copilot pivots to token-based billing; OpenRouter $113M; $500M Claude mystery UPGRADED to T2 via Tom's Hardware)
+2. Memory bottleneck thesis EXTERNALLY VALIDATED (XCENA $135M @ $570M valuation explicitly arguing memory is binding constraint)
+3. Continuous-agent / 24/7 deployment cluster (Gemini Spark + Meta AI pendant + DeepMind Gram = 3rd-4th data point)
+4. Edge AI proliferation 5+ data point segmented-triangulation cluster compounding (Meta pendant + Gemini Spark + earlier today's Apple/Liquid AI/StepFun/NVDA N1)
+
+**DDOG-specific**: \$500M mystery enterprise Claude bill UPGRADED from Reddit T3 to Tom's Hardware T2 verification = Inference Entry #1 confidence BUMP to ~70% per `predictions/inference-log.md`. GitHub Copilot pricing pivot + DeepMind Gram sabotage detection both validate agent-fleet-observability category being productized at major-vendor scale.
+
+**Position implication:** HOLD pending Monday SIZE UP per committed plan; signal STRONGLY REINFORCES Inference Entry #1 thesis but no sizing change beyond pre-planned Monday.

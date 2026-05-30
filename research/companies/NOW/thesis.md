@@ -406,3 +406,15 @@ Per `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.m
 **NOW-specific implications**: enterprise workflow agents running on individual employee PCs = MORE enforcement surface for AI Control Tower governance. Microsoft Agent 365 manages Windows endpoint agents — overlap/competition watch point at the endpoint-management layer.
 
 **Position implication:** HOLD pending Monday SIZE UP per committed plan; reinforces governance thesis at endpoint tier.
+
+## Cross-source synthesis — May 30 Evening Brief (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patterns identified in May 30 evening brief (83 sources):
+1. Token-flow thesis MATERIALIZING (GitHub Copilot pivots to token-based billing; OpenRouter $113M; $500M Claude mystery UPGRADED to T2 via Tom's Hardware)
+2. Memory bottleneck thesis EXTERNALLY VALIDATED (XCENA $135M @ $570M valuation explicitly arguing memory is binding constraint)
+3. Continuous-agent / 24/7 deployment cluster (Gemini Spark + Meta AI pendant + DeepMind Gram = 3rd-4th data point)
+4. Edge AI proliferation 5+ data point segmented-triangulation cluster compounding (Meta pendant + Gemini Spark + earlier today's Apple/Liquid AI/StepFun/NVDA N1)
+
+**NOW-specific**: GitHub Copilot pivot to token-based billing is industry signal worth tracking — could pressure NOW's traditional subscription tier model BUT NOW's bundled-AI approach (Now Assist baked into commercial tiers per existing thesis line 31) is differentiated. Watch item, not action item.
+
+**Position implication:** HOLD pending Monday SIZE UP per committed plan; competitive-watch item logged.

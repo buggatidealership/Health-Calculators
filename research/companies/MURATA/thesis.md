@@ -498,3 +498,15 @@ Per `signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.m
 **MURATA-specific implications**: AI PC = higher MLCC density per device than traditional PC (NPU + power management + multiple voltage rails). NVDA N1/N1X PC adoption = new content tailwind at PC volume scale.
 
 **Position implication:** HOLD at 13.06% — structural thesis reinforced.
+
+## Cross-source synthesis — May 30 Evening Brief (added 2026-05-30, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patterns identified in May 30 evening brief (83 sources):
+1. Token-flow thesis MATERIALIZING (GitHub Copilot pivots to token-based billing; OpenRouter $113M; $500M Claude mystery UPGRADED to T2 via Tom's Hardware)
+2. Memory bottleneck thesis EXTERNALLY VALIDATED (XCENA $135M @ $570M valuation explicitly arguing memory is binding constraint)
+3. Continuous-agent / 24/7 deployment cluster (Gemini Spark + Meta AI pendant + DeepMind Gram = 3rd-4th data point)
+4. Edge AI proliferation 5+ data point segmented-triangulation cluster compounding (Meta pendant + Gemini Spark + earlier today's Apple/Liquid AI/StepFun/NVDA N1)
+
+**MURATA-specific**: Edge AI cluster (Meta pendant + Gemini Spark + cumulative 2026-05-30 cluster) = MLCC density at every new edge device.
+
+**Position implication:** HOLD at 13.06% — edge AI cluster amplifies existing density thesis.
