@@ -213,3 +213,50 @@ This is the most important Buffett-style stress-test:
 - `research/wiki/power-for-ai-primer.md` — power layer cost drivers
 - `research/wiki/hbm-primer.md` — HBM supply + pricing dynamics
 - `research/meta/methodology.md` principle #24 — recursive bottoms-up worldview discovery
+
+## AI Cycle vs 2001 Dot-Com — Structural Differences + New Failure Modes (added 2026-05-30 per user discussion)
+
+**User-articulated thesis 2026-05-30**: 2001 dot-com framework doesn't fully apply to 2025+ AI cycle because end-user access is INSTANT (5B+ smartphones already deployed) vs 2001 where broadband + PC adoption had to scale BEFORE app monetization could happen. History rhymes; doesn't repeat. Look for NEW signals, not 2001 signals.
+
+### Structural differences (1999 vs 2025+)
+
+| Dimension | 1999 dot-com / telecom buildout | 2025+ AI cycle |
+|---|---|---|
+| End-user access | Required broadband buildout + PC adoption to use apps | **Instant — 5B+ smartphones already deployed; every PC enables AI use day-1** |
+| Infrastructure financing | Leveraged debt (telcos) | Cash-funded by trillion-dollar tech (debt/equity 0.23 for AMZN/GOOG/MSFT/META — per earlier section) |
+| App vendor profitability | Burning cash, equity-raise dependent | Anthropic profitable (per public reports); OpenAI ~$13B+ ARR (needs orthogonal verification) |
+| Capex-to-revenue payback | Multi-year wait for end users | Immediate cycle (model API → app → end user same-quarter) |
+| Demand visibility | Speculative (build-it-and-they-will-come) | Customer-funded multi-year compute lock-ins (Anthropic-SpaceX through 2029) |
+| Supply concentration | Many small telcos competing for fiber routes | Top 5 hyperscalers ~85% of capex |
+| Failure mechanism | Infrastructure → no end users → revenue cliff → bankruptcy cascade | Different (must find new pattern) |
+
+### Structurally similar (Cisco-style risks still apply)
+
+1. **Multiple compression at peak-cycle suppliers** — NVDA + HYNIX + advanced packaging names at high fwd P/S vulnerable to multiple-down even if revenue grows
+2. **Capex concentration** — Top 5 hyperscalers ~85% means digestion is correlated
+3. **Vendor-financing dynamics** — MSFT → OpenAI → buys Azure compute = circular flow that can unwind
+4. **Top-of-cycle margin assumptions** — extrapolating peak-cycle margins forward is the 2001 trap
+
+### NEW failure modes to track (per user methodology: find new signals over time)
+
+| Failure mode | Signal to watch | Where to log when surfaced |
+|---|---|---|
+| **Agent ROI failure at scale** | If 88% pilot failure rate extends INTO PRODUCTION (12% breakthrough rate plateaus or declines) | `signals/cross-source-log/` + watch DDOG/NOW customer-win disclosures |
+| **Model commoditization** | If frontier-model performance gap narrows + token prices race to zero | Existing token pricing tracker in this primer |
+| **Regulatory data-access remedy** | If EU AI Act + FTC actions restrict training-data access → moat erosion at top labs | New signal candidate; not 2001-analogous |
+| **Vendor-financing unwinding** | MSFT-OpenAI / GOOG-Anthropic financial stress = circular flow breaks | Lab Watch in news briefs |
+| **Power/grid binding constraint instead of compute** | Per `wiki/power-for-ai-primer.md`: 75.8 GW (2026) → 134 GW (2030). Bypass routes (behind-the-meter generation via Bloom Energy fuel cells / GEV gas turbines / SMR; off-grid stranded-power sites; liquid cooling for higher density per watt; algorithmic efficiency reducing compute per task). Non-consensus beneficiaries: BE, VRT, VST, GEV; held TE partially captures via Supply Chain Inheritance | Existing power primer |
+| **End-user fatigue / agent backlash** | Consumer/enterprise pushback on agent autonomy (security incidents, autonomous trade losses) | Cross-source-log |
+| **Agent stickiness asymmetry** | OPPOSITE direction signal — agent retention rates > SaaS retention rates would CONFIRM resilience thesis | `predictions/inference-log.md` Entry #5 + this primer's earlier sections |
+
+### Methodological note
+
+Per user 2026-05-30: *"It's not about denying that there won't be a crash. It's about looking at signals that are different to the ones that... people then retroactively looked at in the 2001 dot-com crash, and finding the new patterns as to what are the dynamics that will create this crash. Right? As in history, rhymes, but it doesn't exactly repeat. And that you'd only do over time by digesting a lot of content, which, in essence, is just data."*
+
+This IS the harness's core mechanism. Every news brief + analyst note + tweet ingested = pattern-recognition surface expansion. The discipline is to flag candidate new failure modes when they surface AND empirically test them as signal density accumulates.
+
+**Cross-references:**
+- `predictions/inference-log.md` Entries #4 + #5 — diminishing-returns + agent stickiness thesis tracking
+- `wiki/agentic-ai-enterprise.md` — agent stickiness asymmetry section (parallel artifact)
+- `wiki/power-for-ai-primer.md` — power constraint bypass routes
+- `signals/cross-source-log/` — accumulating signal corpus

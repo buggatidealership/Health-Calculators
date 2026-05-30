@@ -199,3 +199,87 @@ When I write any directional "reinforces X" claim that isn't grounded in (a) inl
 - This inference SUPERSEDES Entry #2 for portfolio action purposes: Entry #2 (Citrini MLCC tier-rotation) is investability-blocked; Entry #3 (DISCO Sumco-bypass) is investability-confirmed AND structurally stronger thesis.
 - Entry #3 confidence ~65% > Entry #2 ~55% > Entry #1 ~60% — DISCO is the highest-conviction inference of the three because the supporting data is hardest + the moat is verified.
 - Per user 2026-05-30 discipline catch ("don't default to print as resolution"): primary resolution is DISCO backlog disclosure + Sumco capex disclosure; secondary/tertiary are interim signal markers; not gated on a single print event.
+
+---
+
+## Entry #4 — Software resilience to semi capex compression via agentic workload growth
+
+**Date made:** 2026-05-30
+**Ticker(s):** DDOG, NOW, MDB (held + Monday entry); also indirectly held: ARM, HYNIX (semi side that would compress in this scenario)
+**Source signal:** User-articulated thesis 2026-05-30 verbatim during cross-portfolio discussion: software companies more resilient than semis in capex digestion scenario because they monetize agentic workload (usage meter) not capex; agents run 24/7 on existing hardware base; decoupled from new chip purchases
+**Type:** PATTERN INFERENCE (user-articulated framework + my synthesis of supporting evidence from `wiki/agentic-ai-enterprise.md` + `companies/DDOG/thesis.md` workload-driven framing)
+
+**Inference chain (each step labeled):**
+1. **FACT** (`companies/DDOG/thesis.md:33`): LLM Observability span volume tripled QoQ in Q1 2026; agent framework adoption doubled YoY
+2. **EXTRAPOLATION**: agents that drive span volume are TIED TO DEPLOYED AGENT COUNT, not new hardware purchases
+3. **EXTRAPOLATION**: in a capex compression scenario, NEW hardware orders slow but EXISTING hardware base continues serving agent workloads
+4. **DOMAIN INFERENCE**: usage-meter SaaS revenue depends on workload, not hardware purchases; therefore software companies (DDOG/NOW/MDB) more resilient to capex digestion than semi suppliers (HYNIX/ARM)
+5. **CONCLUSION**: software allocation (target 21% post-Monday) is anti-fragile to semi cycle compression specifically
+
+**Confidence:** ~50-55% directional (MEDIUM-LOW). Multi-step extrapolation chain; depends on hidden assumption that capex compression is driven by hardware-side digestion (compute satiation) rather than by agent-ROI failure (which would compress software too).
+
+**Resolution criteria:**
+- **PRIMARY (12-24mo)**: in next semi capex compression event (TBD timing), compare DDOG/NOW/MDB revenue growth deceleration vs HYNIX/MURATA/ARM revenue growth deceleration. If software materially less compressed → user's thesis correct.
+- **SECONDARY (rolling)**: DDOG/NOW/MDB quarterly gross retention metrics — if retention HOLDS during any softening capex period, software-resilience signal validates.
+- **TERTIARY**: Agent ROI signal — does the 12% breakthrough rate per `wiki/agentic-ai-enterprise.md` hold or grow?
+
+**Resolution date:** Rolling 12-24 months (no single event)
+
+**Could be WRONG if:**
+1. Capex compression is symptom of agent-ROI failure (not compute satiation) → software ALSO compresses
+2. Enterprise IT budget compression hits ALL line items proportionally regardless of usage-meter vs subscription model
+3. Agent commoditization reduces per-span pricing faster than agent count grows
+4. DDOG/NOW lose deployed-agent SHARE to competitors (workload preserved but DDOG/NOW revenue compressed)
+5. Macro recession compresses enterprise software broadly (2001-style despite different mechanism)
+
+**Outcome:** PENDING (rolling 12-24mo resolution)
+
+**Cross-references:**
+- `wiki/model-economics-primer.md` "AI Cycle vs 2001 Dot-Com" section (added same day)
+- `wiki/agentic-ai-enterprise.md` Agent Stickiness Asymmetry section (parallel framework)
+- `companies/DDOG/thesis.md`, `companies/NOW/thesis.md`, `companies/MDB/thesis.md`
+
+---
+
+## Entry #5 — Agent Stickiness Asymmetry (deployed-agent revenue floor thesis)
+
+**Date made:** 2026-05-30
+**Ticker(s):** DDOG, NOW, MDB (primary beneficiaries if thesis validates)
+**Source signal:** User-articulated thesis 2026-05-30 verbatim: "once you have an agent in an enterprise, [removal] makes zero sense... the agent actually creates a new flow. So for the fifteen percent or whatever the percentages of companies that have deployed agents and that have seen a positive ROI, those achieved a new flow. So it's never gonna go below fifteen percent again."
+**Type:** PATTERN INFERENCE (user-articulated framework + structural analogy reasoning)
+
+**Inference chain (each step labeled):**
+1. **DOMAIN INFERENCE**: Agents run continuous workflows (vs SaaS which runs periodic tasks)
+2. **DOMAIN INFERENCE**: Continuous workflows create operational state — agent memory + integrations + learned patterns
+3. **EXTRAPOLATION**: Removing the agent = redesigning the workflow that depends on agent outputs = HIGH removal cost
+4. **EXTRAPOLATION**: Asymmetric impact — adding agent creates value; removing agent destroys value MORE than adding it created
+5. **CONCLUSION**: The 12% breakthrough rate per `wiki/agentic-ai-enterprise.md` becomes a STRUCTURAL FLOOR (not just leading indicator) — even in cost-cutting cycles, deployed agents stay
+6. **INVESTMENT IMPLICATION**: DDOG/NOW/MDB revenue floors are SET by deployed-agent count, not by new-enterprise sign-ups
+
+**Confidence:** ~60% directional (MEDIUM). User's structural argument is intuitive but empirically untested at scale. Counter-arguments exist (commoditization substitution, post-deployment agent failure, regulatory removal).
+
+**Resolution criteria:**
+- **PRIMARY (6-12mo)**: DDOG / NOW / MDB Q2-Q4 FY27 gross retention disclosures (typically buried in 10-Q). If gross retention >95% in agent-product-tier specifically → user's thesis validates
+- **SECONDARY (rolling)**: Sell-side case studies of enterprises that REMOVED an agent + the operational cost
+- **TERTIARY (rolling)**: McKinsey / BCG / Gartner annual enterprise AI surveys — specifically agent stickiness questions
+- **QUATERNARY**: Per `wiki/agentic-ai-enterprise.md` 12% breakthrough rate — track over 4+ quarters
+
+**Resolution date:** Rolling 6-12mo (initial signal from FY27 Q2-Q3 prints)
+
+**Could be WRONG if:**
+1. Commoditization substitution — enterprise replaces agent with cheaper competitor; deployed-agent count stable but per-agent revenue compresses
+2. Post-deployment failure rate higher than 12% pilot → agent count actually decreases
+3. Compliance / regulatory removals more common than expected
+4. Agent stickiness exists but DOESN'T translate to specific incumbent (DDOG/NOW/MDB) — workload moves to competitors
+
+**Outcome:** PENDING (rolling 6-12mo)
+
+**Notes:**
+- This is a STRONGER version of Entry #4 (software resilience). If Entry #5 validates, Entry #4 follows automatically. If Entry #5 falsifies, Entry #4 weakens.
+- N=1 codification origin per principle #32 premortem. Promote to formal principle (Candidate #35: Agent Stickiness Asymmetry) only after N=2+ empirical validation.
+- The framework is captured in `wiki/agentic-ai-enterprise.md` Agent Stickiness Asymmetry section.
+
+**Cross-references:**
+- `wiki/agentic-ai-enterprise.md` Agent Stickiness Asymmetry section
+- `predictions/inference-log.md` Entry #4 (related framework — software resilience)
+- `companies/DDOG/thesis.md`, `companies/NOW/thesis.md`, `companies/MDB/thesis.md`

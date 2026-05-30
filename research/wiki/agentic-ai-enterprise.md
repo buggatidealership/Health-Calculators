@@ -148,3 +148,50 @@ Failed agentic deployments fail one or more of these. Klarna failed at "narrow s
 - [Cursor enterprise adoption — tech-insider](https://tech-insider.org/cursor-60-billion-valuation-anysphere-ai-coding-2026/)
 - [Cursor stats — Panto AI](https://www.getpanto.ai/blog/cursor-ai-statistics)
 - [Harvey + M365 Copilot — Harvey blog](https://www.harvey.ai/blog/agent-platform-and-microsoft-365-copilot)
+
+## Agent Stickiness Asymmetry (user-articulated 2026-05-30 — candidate framework)
+
+**User-articulated thesis verbatim 2026-05-30:** *"once you have an agent in an enterprise, it should not make a lot of... it makes zero sense or, like, there is a... I don't know in which scenario. There's probably a very small percentage in... of scenarios in which it would make sense to remove it or to stop it, but there is a way high probability in my unverified assumption that the agent actually creates a new flow. So for the fifteen percent or whatever the percentages of companies that have deployed agents and that have seen a positive ROI, those achieved a new flow. So it's never gonna go below fifteen percent again."*
+
+**The structural argument:**
+
+| Dimension | Traditional SaaS | Deployed agentic AI |
+|---|---|---|
+| Usage pattern | Periodic (humans log in, perform task) | Continuous (24/7 workflow execution) |
+| Replacement cost | Workflow rebuild + data migration + retraining | Workflow REDESIGN — agent IS the workflow |
+| State accumulation | User data (transferable) | Agent memory + learned patterns + tool integrations (semi-transferable but lossy) |
+| Removal impact | Manageable (humans take over manually) | Severe (the new operational pattern depends on agent outputs) |
+| Switching pattern | Vendor-swap possible (data export) | Vendor-swap requires re-validating + re-integrating + re-training every connected system |
+| Churn rate analog | ~5-15% annual enterprise SaaS (my inference; needs verification) | Plausibly LOWER once deployed-and-ROI-positive |
+
+**The asymmetric impact pattern:**
+- ADDING an agent = creates new flow (positive upside)
+- REMOVING an agent = breaks existing flow (severe operational disruption + cost to rebuild)
+- Therefore: economically rational to KEEP agent even in cost-cutting cycles
+- Therefore: the 12% breakthrough rate (per this primer's earlier section) becomes a STRUCTURAL FLOOR, not just a leading-indicator
+
+**Investment implication:**
+- DDOG / NOW / MDB monetize the 12% — their revenue floor is SET by deployed-agent count
+- Even if enterprise IT capex compresses, the deployed agent base doesn't shrink (high removal cost)
+- This is a STRONGER version of the "software resilience to capex compression" framing tracked in `predictions/inference-log.md` Entry #4
+- Resilience mechanism: gross retention at usage-meter SaaS where the meter measures agent-deployed-workload
+
+**Counter-arguments worth testing empirically:**
+1. **Commoditization substitution** — enterprise might switch to CHEAPER agent vendor (not remove agent, but replace). DDOG/NOW/MDB lose share, not absolute deployed-agent count. Mitigation: integration depth + data lock-in.
+2. **Agent failure post-deployment** — the 12% breakthrough rate could decline if currently-running agents fail at scale. Mitigation: observability (DDOG specifically catches this; failures get patched, not removed).
+3. **Compliance/regulatory removal** — agent removed because of audit failure, security incident, or regulatory mandate. Risk concentrated in regulated industries (financial services, healthcare).
+
+**Empirical verification path (N=2 codification candidate):**
+- Gross retention rates of agent-tier SaaS in DDOG / NOW / MDB Q2-Q4 FY27 prints (Aug-Nov 2026)
+- Customer surveys on agent stickiness vs SaaS stickiness — McKinsey, BCG, Gartner annual reports
+- Specific case studies of enterprises that REMOVED an agent + the cost
+- DDOG specifically: LLM Observability span volume per existing customer = direct measure of deployed-agent persistence
+
+**Codification status:** N=1 origin (user articulation 2026-05-30); CANDIDATE only. Promote to formal principle (#35?) only after N=2+ empirical validation per principle #32 premortem. Currently tracked via `predictions/inference-log.md` Entry #5.
+
+**Cross-references:**
+- `predictions/inference-log.md` Entry #5 — agent stickiness asymmetry tracking
+- `predictions/inference-log.md` Entry #4 — software resilience to capex compression (related framework)
+- `companies/DDOG/thesis.md` — gross retention disclosure tracking
+- `companies/NOW/thesis.md` — Now Assist gross retention
+- `companies/MDB/thesis.md` — Atlas customer retention
