@@ -115,6 +115,22 @@ The most anti-fragile substrate layer of all: every chip company in the AI unive
 
 - **Lattice Semiconductor (LSCC)** — dominant supplier of low-power small-form-factor FPGAs at server BMC / security root-of-trust / power-sequencing / thermal-management sockets. Chokepoint is BROADER than AI — every modern server, networking switch, industrial system, automotive platform needs these chips to boot. AI is demand amplifier, not source. Q1 2026 +42% YoY; Q2 guide +~50% YoY (per [Q1 2026 transcript T1](https://www.fool.com/earnings/call-transcripts/2026/05/04/lattice-lscc-q1-2026-earnings-transcript/)). $1.65B AMI acquisition closes Q3 2026 — transformational firmware-platform pivot (per [EE Times T2](https://www.eetimes.com/fpga-makers-strategic-pivot-into-firmware-world/)). Anti-fragility 4/5 (revised UP from agent's 3.5/5 after chokepoint-breadth analysis 2026-05-27). Valuation: 3-layer build-up fair value $130-190 range (per principle #30 chokepoint comp set, NOT FPGA cyclical anchor). Currently ~$140 — in upper-middle of fair value range, not elevated. Stage 2-3 transition. **Status: ACTIVE-CANDIDATE** at 1.5-3% initial sizing if entered. Full thesis: `companies/LSCC/thesis.md`. Two consecutive high-quality CEOs (Anderson 2018-2024 grew rev $398M → $737M; Tamer 2024+ executing recovery + AMI bet).
 
+### SoC building-block layer (added 2026-05-31)
+
+Surfaced by deeper-layer analysis of NVDA N1X SoC architecture (per `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`). Inputs to every AI chip — EDA tools + IP blocks + test equipment. Fully convergent across edge AI + datacenter AI. Strong moat, low displacement, multi-quarter earnings momentum.
+
+- **Synopsys (SNPS)** — EDA tool oligopoly leader (~46% market share post-Ansys acquisition per [MarketsandMarkets T2](https://www.marketsandmarkets.com/ResearchInsight/ai-eda-companies.asp)). Every SoC tape-out uses SNPS tools. Recurring license model. AI EDA market 24.4% CAGR 2026-2032 per same. Investability: US-listed, accessible. **Status: ACTIVE-CANDIDATE pending deep-dive + valuation check.**
+
+- **Cadence Design Systems (CDNS)** — EDA oligopoly partner (~30% market share). Q1 2026 core EDA +18% YoY; IP business +22% YoY per [Cadence 8-K T1](https://www.sec.gov/Archives/edgar/data/0000813672/000081367226000044/cdns04272026ex9901.htm). Investability: US-listed, accessible. **Status: ACTIVE-CANDIDATE pending deep-dive + valuation check.**
+
+- **Advantest (6857.T)** — SoC test oligopoly leader; share rose to 66% (from 56%) in CY25 per [Data Gravity T2](https://www.datagravity.dev/p/the-chip-testing-bottleneck). FY25 operating margin 29.3% → 44.2% (1,490bp expansion). Revenue $7.5B (+47% YoY USD). Ramping to 10,000 SoC test systems/yr. Inside Blackwell Ultra + AMD MI400 pipeline. Investability: Japan TSE accessible per `CLAUDE.md` investability filter. **Status: ACTIVE-CANDIDATE pending deep-dive.**
+
+- **Teradyne (TER)** — SoC test duopoly partner. Q1 2026 revenue +87% YoY to $1.282B; AI = 70% of Q1 sales (up from 60% Q4 2025) per [Phemex T3](https://phemex.com/news/article/teradyne-q1-2026-revenue-soars-87-on-ai-chip-testing-demand-80628). First multisystem GPU production orders shipping Q2. Full-year revenue growth 22-31% projected. Caveat: stock fell 19% post-print despite beat per [TIKR T2](https://www.tikr.com/blog/teradyne-falls-19-after-record-q1-2026-earnings-was-that-a-buying-opportunity) — high expectations. Investability: US-listed. **Status: ACTIVE-CANDIDATE pending deep-dive + valuation check.**
+
+- **Arteris IP (AIP)** — NoC interconnect IP at the SoC integration layer. Customers include Samsung, AMD, TI, Rambus, Renesas per [Wikipedia T3](https://en.wikipedia.org/wiki/Arteris). Smaller cap; specialized. Less consensus coverage. **Status: WATCHLIST pending size + financial profile review.**
+
+- **Alphawave Semi (AWE.L)** — SerDes IP (PCIe 5.0 / USB4). UK-listed, smaller cap. **Status: WATCHLIST pending UK exchange investability check.**
+
 ## Promotion criteria
 
 A watchlist name gets a full `companies/{TICKER}/` folder when:

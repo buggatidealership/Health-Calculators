@@ -31,3 +31,9 @@ BUT: RMBS is a smaller business compared to AVGO/MRVL. The MRDIMM ramp is anchor
 ## Cross-references
 - `research/wiki/hbm-primer.md` §7 Tier 3
 - `research/wiki/optical-interconnect-primer.md`
+
+## Cross-source synthesis — SoC building-block layer analysis 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`: RMBS positioned in memory PHY IP layer at the SoC building-block tier. Recent verified products: LPDDR5X SOCAMM2 server module chipset + industry's fastest HBM4E memory controller IP per [Rambus 8-K Q1 2026 T1](https://www.sec.gov/Archives/edgar/data/0000917273/000119312526182076/rmbs-ex99_1.htm). RMBS plays at BOTH edge (LPDDR5X for SoC + module) and datacenter (HBM4E controller IP) layers = partially convergent.
+
+**Position implication:** HOLD WATCHLIST at 1-2% target if entered — RMBS unchanged from existing thesis; 2026-05-31 deeper-layer analysis surfaces 4 NEW SoC building-block candidates (SNPS, CDNS, Advantest, Teradyne) where moat + earnings momentum metrics are stronger than RMBS at current snapshot. RMBS remains Watchlist priority but the new EDA + test names may rank higher in formal portfolio comparison if deep-dives confirm metrics.

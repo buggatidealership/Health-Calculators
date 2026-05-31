@@ -66,6 +66,18 @@
   - Scope: monitor next earnings cycle for Stage 2-3 names with potential CATEGORY EVENT markers (signed strategic deal, metric baseline-break, mgmt narrative shift to leading indicators). When found, run PREDICT with explicit L14 application; resolve at GRADE to validate or falsify magnitude calibration. If 2+ independent cases validate framework → codify L14 at next monthly audit 2026-06-24. If 2+ falsify → retire to candidate-archive.
   - Linked: `predictions/lessons.md` L14 candidate; `predictions/2026-05-29-HPE-Q2FY26.md` (next test point); `companies/NTAP/thesis.md` (N=3 application logged)
 
+### P2 — SoC building-block layer deep-dives (added 2026-05-31)
+
+- [ ] **P2 / research / 2026-06-02** [INDP, AF, POS] — Deep-dive: Synopsys (SNPS) + Cadence (CDNS) — EDA oligopoly at SoC building-block layer
+  - Origin: 2026-05-31 NVDA N1X SoC architecture analysis surfaced these as fully-convergent (edge + datacenter) beneficiaries with strong moat + low displacement + multi-quarter beat probability per `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
+  - Scope: full thesis build for both — moat depth (EDA oligopoly mechanics), AI EDA market trajectory, competitive positioning vs Siemens EDA + Keysight + Zuken, Synopsys Ansys integration execution, Cadence IP segment +22% YoY momentum, valuation check, bottoms-up earnings build per principle #1, falsifier list, anti-fragility scoring
+  - Linked: `watchlist/candidates.md` § SoC building-block; `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
+
+- [ ] **P2 / research / 2026-06-02** [INDP, AF, POS] — Deep-dive: Advantest (6857.T) + Teradyne (TER) — SoC test duopoly
+  - Origin: 2026-05-31 SoC architecture analysis — Advantest 66% share (+10pp YoY), op margin expanded 1,490bp to 44.2%; Teradyne Q1 2026 +87% YoY, AI = 70% of revenue per `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
+  - Scope: full thesis build — duopoly moat mechanics, cyclical vs structural test demand, Blackwell Ultra + AMD MI400 + Apple + NVDA N1X pipeline, Advantest 10K systems/yr ramp, Teradyne stock-reaction-vs-fundamentals gap (Q1 2026 stock fell 19% on print), valuation check, investability confirm (6857.T = Japan TSE, accessible per `CLAUDE.md`)
+  - Linked: `watchlist/candidates.md` § SoC building-block; `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
+
 ### P2 — Existing items
 
 - [ ] **P3 / verification / 2026-06-24** [CAL, INDP, AF] — CONSOLIDATED Monthly Audit Cycle (FIRST CYCLE — merged 3 audits per user 2026-05-29)
