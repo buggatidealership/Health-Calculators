@@ -383,3 +383,26 @@ Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md`:
 Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.md`: unbiased flow-of-funds places HYNIX in DRAM tri-vendor cluster (Hynix + Micron + Samsung) at 1st-order P>80% HIGH conviction — 128 GB LPDDR5X @ 8,533 MT/s per premium N1X SKU. Pro-rata split across the three; HYNIX participates. Resilient bypass-route position: even if N1X execution slips, alternative AI PC silicons (Snapdragon X, Apple M, Intel Lunar Lake, AMD Strix) all use LPDDR5X = HYNIX demand silicon-agnostic at AI PC tier.
 
 **Position implication:** HOLD at 12.43% — incrementally additive but datacenter HBM/HBM4 core thesis driver remains dominant. No sizing change.
+
+## Cross-source synthesis — Goldman Sachs outer-year revision 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+User-shared 2026-05-31 evening: Goldman Sachs raised SK Hynix operating profit forecasts materially in outer years. User explicit framing: *"not sharing because you need to confirm but to understand what is going on outside of our sessions"* — borrowed framing, NOT load-bearing data; processed per B37 + analyst-PT-context-hook discipline as **consensus convergence signal**, not as new structural information.
+
+Directional read (numbers taken as borrowed framing per user's no-verify directive):
+- FY26 OP revision: ~+3.7% (modest near-term)
+- FY27 OP revision: **~+21.4%** (material outer-year)
+- FY28 OP revision: **~+24.0%** (material outer-year)
+- Critical breakdown: **NAND segment OP revised +31-37% YoY** vs DRAM +19-22% — Goldman signaling NAND structural reset is MORE pronounced than DRAM, validating the agentic-AI-state thesis tied to `companies/SNDK/thesis.md`
+
+**Structural meaning (per Principle #35 top-down theme first)**:
+- Top-down memory binding constraint for AI compute thesis = UNCHANGED
+- This is sell-side consensus CATCHING UP to the structural view, not new information
+- Citrini frontier model training table (`signals/cross-source-log/2026-05-31-citrini-frontier-model-training-cost-fact-check.md`) IMPLICITLY required this revision — 200-300B active param MoE at 200-400T tokens = exactly the demand profile driving outer-year OP higher
+
+**Narrative-stage modifier (per Principle #31)**: HYNIX moves from Stage 2-3 (becoming mainstream) toward Stage 3-4 (mainstream consensus aligning with structural bull). Other sell-side desks (Morgan Stanley, JPM, Daiwa) typically follow major Goldman calls within weeks → potential industry-wide rerating wave.
+
+**Bypass-route check (Critical Rule #9)**: rerating likely benefits HBM tri-vendor (Hynix + Samsung + Micron) pro-rata; HYNIX retains the HBM iHBM thermal moat but the rerating becomes industry-wide not name-specific. Non-consensus bypass beneficiaries unchanged (PIM, CXL pooling, XCENA in-memory).
+
+**Discipline catch (B39 post-rally complacency)**: the mid-wit failure mode here is "Goldman bullish + HYNIX rallied → upside exhausted." Right-side framing: structural memory binding constraint is multi-year; Goldman raising outer-year estimates is EARLY consensus convergence, not END.
+
+**Position implication:** HOLD at 12.43% — Stage 3-4 narrative-stage modifier per Principle #31 says NO ADD at current size; per L3 (don't sell on profit, falsification is signal), no exit. The Goldman revision is sell-side catching up to our existing thesis = directionally supportive but does NOT change the sizing case. Position grows naturally via price appreciation if rerating wave materializes.

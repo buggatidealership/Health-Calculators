@@ -215,3 +215,17 @@ Per `research/signals/events/2026-05-28-anthropic-mythos-continuous-agent-infras
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: SNDK tagged **Agentic AI CRUCIAL — YES** (compliance NAND for agent audit trail + AI training data storage; multi-year compute lock-ins confirm sustained demand) + **Robotics INDIRECT** (autonomous system data storage). Recent cascade: STRONGLY REINFORCED via Kioxia MSA-CBA architecture validated externally (TrendForce June 2026 VLSI Symposium); SIZE UP candidate per `signals/cross-source-log/2026-05-29-twitter-cohort-wafer-test-equipment-kioxia.md` pending VLSI validation.
+
+## Cross-source synthesis — Goldman SK Hynix outer-year revision adjacent read 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+User-shared 2026-05-31 evening (situational awareness, NOT verified): Goldman raised SK Hynix FY27/FY28 OP forecasts materially. **Critical cross-read for SNDK**: Goldman's NAND segment OP revision (+31% FY27 / +37% FY28) is materially STRONGER than DRAM (+19% / +22%). Goldman is signaling NAND structural reset is MORE pronounced than DRAM in outer years.
+
+**Why this matters for SNDK specifically**: SNDK is the cleanest US-listed NAND-for-inference pure-play. If Goldman is leading sell-side toward stronger NAND outer-year framing, the read-through to SNDK is directly positive. The compliance-NAND + agentic-state thesis built into existing SNDK position is being validated by the same structural mechanism Goldman is now modeling for Hynix.
+
+**Narrative-stage modifier (per Principle #31)**: SNDK current Stage 1-2 (Aschenbrenner-validated, early-recognition). If other sell-side desks (Morgan Stanley, JPM, Daiwa) follow Goldman's NAND revision pattern within 4-8 weeks, SNDK rerates from Stage 1-2 toward Stage 2-3 = early-mainstream-recognition phase. This is the Stage transition where asymmetric upside historically materializes per principle #31.
+
+**Bypass-route check (Critical Rule #9)**: NAND structural reset benefits the duopoly (SanDisk + Kioxia); bypass routes for buyers needing storage capacity = Samsung NAND + Micron NAND (both also benefit at the segment level). No clean non-consensus bypass exists outside the duopoly; SNDK retains structural position.
+
+**Right-side-of-Belka framing reinforced (per Principle #35 candidate)**: SNDK at 5/5 right-side conditions — surface (commodity NAND), structural (agentic-state + AI training corpora), moat (Kioxia duopoly), binding-constraint (storage for 200-400T-token training + compliance retention), consensus-lag (still Stage 1-2 = consensus catching up). Goldman's revision is the FIRST major-bank signal of consensus convergence on NAND structural framing.
+
+**Position implication:** HOLD at ~10.8% (per holdings) — Goldman revision is sell-side catching up to existing structural thesis = directionally supportive. Per Principle #35 + B39 discipline, do NOT re-anchor on Goldman's specific numbers; do note the consensus shift. Existing SIZE UP candidate framing per VLSI validation watch unchanged. If Stage 2-3 transition confirmed by additional sell-side follow-through Q3 2026, SIZE UP becomes more defensible (currently gated on Kioxia VLSI confirmation per existing thesis).
