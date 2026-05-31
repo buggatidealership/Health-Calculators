@@ -406,3 +406,17 @@ Directional read (numbers taken as borrowed framing per user's no-verify directi
 **Discipline catch (B39 post-rally complacency)**: the mid-wit failure mode here is "Goldman bullish + HYNIX rallied → upside exhausted." Right-side framing: structural memory binding constraint is multi-year; Goldman raising outer-year estimates is EARLY consensus convergence, not END.
 
 **Position implication:** HOLD at 12.43% — Stage 3-4 narrative-stage modifier per Principle #31 says NO ADD at current size; per L3 (don't sell on profit, falsification is signal), no exit. The Goldman revision is sell-side catching up to our existing thesis = directionally supportive but does NOT change the sizing case. Position grows naturally via price appreciation if rerating wave materializes.
+
+## Cross-source synthesis — Probability recalibration 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-goldman-hynix-probability-recalibration.md`: user-directed probability computation surfaced that the IF I'd flagged (MS/JPM/Daiwa following Goldman in 4-8 weeks) was ALREADY MET — Morgan Stanley + KB Securities + Shinhan + Nomura + SK Securities had ALL already published NAND-stronger-than-DRAM or structural-rerating revisions BEFORE Goldman's call.
+
+**Critical reclassification**:
+- HYNIX is at ATH 2,379,000 KRW (May 29, 2026); stock up **~900% in past year**; **$1 trillion market cap**; 70% HBM share for NVIDIA Vera Rubin; multiple analysts saying "priced beyond perfection"; BTIG flagging KOSPI concentration risk
+- Narrative-stage corrected: **Stage 4** (priced-to-perfection), NOT Stage 3-4 transition. My prior 2026-05-31 cascade understated sell-side capitulation depth.
+
+**Stage 4 sizing modifier per Principle #31**: NO ADD. The asymmetric entry window was 6+ months ago. L3 lesson holds: don't sell on profit, falsification is the signal. Existing position has captured the +900% YTD appreciation.
+
+**Falsifier watch**: HBM4 ramp delay, Samsung supply normalization, demand softening, Korean macro / KOSPI concentration unwind. None fired; thesis intact.
+
+**Position implication:** HOLD at 12.43% — Stage 4 reclassification confirms NO ADD; existing +900% YTD gain captured; monitor falsifiers; do NOT exit on profit per L3.

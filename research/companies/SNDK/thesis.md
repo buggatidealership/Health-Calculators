@@ -229,3 +229,24 @@ User-shared 2026-05-31 evening (situational awareness, NOT verified): Goldman ra
 **Right-side-of-Belka framing reinforced (per Principle #35 candidate)**: SNDK at 5/5 right-side conditions — surface (commodity NAND), structural (agentic-state + AI training corpora), moat (Kioxia duopoly), binding-constraint (storage for 200-400T-token training + compliance retention), consensus-lag (still Stage 1-2 = consensus catching up). Goldman's revision is the FIRST major-bank signal of consensus convergence on NAND structural framing.
 
 **Position implication:** HOLD at ~10.8% (per holdings) — Goldman revision is sell-side catching up to existing structural thesis = directionally supportive. Per Principle #35 + B39 discipline, do NOT re-anchor on Goldman's specific numbers; do note the consensus shift. Existing SIZE UP candidate framing per VLSI validation watch unchanged. If Stage 2-3 transition confirmed by additional sell-side follow-through Q3 2026, SIZE UP becomes more defensible (currently gated on Kioxia VLSI confirmation per existing thesis).
+
+## Cross-source synthesis — Probability recalibration 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-goldman-hynix-probability-recalibration.md`: user-directed probability computation surfaced that SNDK Stage 1-2 → 2-3 transition has ALREADY OCCURRED in late May 2026 (NOT pending):
+- Mizuho raised PT to $1,825 (May 28, from $1,625)
+- Barclays raised PT to $2,300 (May 27)
+- Susquehanna raised PT to $3,250 (from $2,000) — street-high
+- Consensus PT $1,543 across 18 analysts (range $1,000-$3,250); Buy consensus
+
+User SNDK entry $1,099.60 per holdings → consensus PT $1,543 = +40% upside; Susquehanna street-high +195% if right.
+
+**Narrative-stage corrected**: **Stage 2-3 ALREADY** (mainstream recognition emerging via simultaneous US sell-side raises), NOT "Stage 1-2 → 2-3 transition pending Goldman/Korean-sell-side follow-through." My prior 2026-05-31 cascade understated the existing US sell-side capitulation depth.
+
+**SIZE UP framing recalibration**: existing SIZE UP candidate framing partially-resolved — the asymmetric window is narrowed but not closed. Susquehanna $3,250 street-high suggests upside framing exists but is concentrated in one desk. Watch:
+- Kioxia VLSI Symposium June 2026 (technology proof-point)
+- SNDK Q2 print late July (could push to Stage 3-4 if guidance is strong)
+- Additional desks moving toward Susquehanna's $3,250 framing
+
+SIZE UP only justified if Q2 print shows EXTREME upside surprise (Susquehanna-tier framing materializing); otherwise existing 10.8% position captures the structural thesis adequately.
+
+**Position implication:** HOLD at ~10.8% — Stage 2-3 already classification confirms structural thesis intact; existing SIZE UP candidate framing partially resolved (asymmetric window narrowed); SIZE UP gated on EXTREME Q2 print upside surprise; otherwise existing sizing captures the thesis.
