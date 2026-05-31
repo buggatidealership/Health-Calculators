@@ -81,6 +81,16 @@
   - Linked: `watchlist/candidates.md` § SoC building-block; `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`; `signals/cross-source-log/2026-05-31-soc-building-block-durability-matrix.md`
 
 - [ ] **P2 / research / 2026-06-02** [INDP, AF, POS] — Deep-dive: Alphawave Semi (AWE.L) — SerDes IP at high-speed interconnect layer + M&A status verification
+
+- [ ] **P2 / research / 2026-06-04** [INDP, AF, POS] — Deep-dive: Seagate (STX) + Western Digital (WDC) — NAND-supply-constraint bypass plays at HDD cold-compliance tier
+  - Origin: V2 NAND demand model 2026-05-31 (`signals/cross-source-log/2026-05-31-nand-demand-model-v2-verified.md`) — IDC NAND supply growth ~17% YoY 2026 below historical norms; EU AI Act 10yr retention enforcement Aug 2026 creates compliance pressure; HDD = cold-tier bypass beneficiary
+  - Scope: full thesis build — HDD cold-compliance demand growth model, vs SSD substitution risk, AI-driven HDD demand vectors (training corpora cold storage, compliance retention), valuation, bottoms-up earnings, falsifiers, anti-fragility scoring
+  - Linked: `watchlist/candidates.md` § NAND supply-constraint bypass plays
+
+- [ ] **P2 / research / 2026-06-04** [INDP, AF, POS] — Deep-dive: Pure Storage (PSTG) — AI-storage software bypass play
+  - Origin: V2 NAND demand model 2026-05-31 — NAND tightness creates value capture for flash-tier optimization + AI-native storage software
+  - Scope: full thesis build — flash array competitive position vs Dell + NetApp + VAST Data, AI-storage product roadmap, valuation
+  - Linked: `watchlist/candidates.md` § NAND supply-constraint bypass plays
   - Origin: 2026-05-31 SoC architecture analysis surfaced Alphawave at SerDes IP layer (PCIe 5.0 / USB4). User-flagged 2026-05-31 as potentially asymmetric (no parabolic move yet)
   - **CRITICAL FIRST STEP**: verify current status of Qualcomm £1.8B acquisition announced June 2025 (per [BusinessCloud T2](https://businesscloud.co.uk/news/qualcomm-to-acquire-alphawave-in-1-8bn-mega-deal/)) — if PENDING then this is M&A arbitrage, not structural thesis; if APPROVED/CLOSED then no longer trades as independent equity. User's "no parabolic move yet" observation may simply reflect the takeover-price pin
   - Scope: M&A status FIRST; only if Alphawave remains independent or arb-spread is wide enough → full thesis build (SerDes IP moat, customer wins, revenue trajectory, comp set vs Synopsys + Cadence SerDes IP)

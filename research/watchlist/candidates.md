@@ -131,6 +131,16 @@ Surfaced by deeper-layer analysis of NVDA N1X SoC architecture (per `signals/cro
 
 - **Alphawave Semi (AWE.L)** — SerDes IP (PCIe 5.0 / USB4). UK-listed, smaller cap. **Status: WATCHLIST pending UK exchange investability check.**
 
+### NAND supply-constraint bypass plays — Right-Side-of-Belka (added 2026-05-31)
+
+Surfaced by v2 bottoms-up NAND demand model (`signals/cross-source-log/2026-05-31-nand-demand-model-v2-verified.md`). IDC reports NAND bit supply growth ~17% YoY 2026 BELOW historical norms while AI demand is primary upside driver. EU AI Act Article 18 mandates 10-year retention for high-risk AI model artifacts (Aug 2026 enforcement). Compliance retention pressure + NAND supply tightness creates bypass-route opportunity for HDD + storage software.
+
+- **Seagate (STX)** — Cyclical HDD surface; structurally is the COLD-COMPLIANCE-RETENTION TIER as NAND tightens. Multi-year regulatory retention mandates (FINRA 6yr, SOX 7yr, HIPAA 6yr, EU AI Act 10yr) create structural HDD demand for cold-tier AI compliance data. **Status: ACTIVE-CANDIDATE pending deep-dive 2026-06-04.** Right-side-of-Belka score TBD; investability: US-listed.
+
+- **Western Digital (WDC, post-Sandisk-spin)** — HDD-only following Sandisk spin-off Feb 2025. Same structural read as STX. **Status: ACTIVE-CANDIDATE pending deep-dive 2026-06-04.** Investability: US-listed.
+
+- **Pure Storage (PSTG)** — Flash array vendor; AI-storage software/compression captures value from NAND tightness via flash-tier optimization + AI-native storage features. **Status: ACTIVE-CANDIDATE pending deep-dive 2026-06-04.** Investability: US-listed.
+
 ## Promotion criteria
 
 A watchlist name gets a full `companies/{TICKER}/` folder when:

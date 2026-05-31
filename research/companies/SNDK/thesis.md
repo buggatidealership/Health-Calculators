@@ -273,3 +273,19 @@ Per `signals/cross-source-log/2026-05-31-nand-demand-bottoms-up-model.md`: user-
 5. Replication factor (3× current; could grow to 5-10× on data sovereignty)
 
 **Position implication:** HOLD at ~10.8% — bottoms-up model VALIDATES the structural thesis quantitatively; existing position adequately captures the structural demand growth. SIZE UP only justified by extreme upside materialization (multimodal dominance OR indefinite compliance retention OR ultra-bull token growth). The pricing power being captured by NAND vendors is empirically grounded in demand math, not just sell-side narrative.
+
+## Cross-source synthesis — V2 NAND demand model with verified inputs 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-nand-demand-model-v2-verified.md`: 2 parallel research subagents tightened the two highest-leverage unverified assumptions from the v1 model.
+
+**Tightened outputs (V2 base case):**
+- 2026 incremental AI NAND demand: **1.4% of global NAND** (vs v1 0.4-0.6%) at mixed retention
+- 2028 base: **6.3% of global NAND** (vs v1 4-18%) at mixed retention
+- 2028 bull (30× scaling + 30% multimodal + 9.5yr retention): **31% of global NAND**
+- Boundary case flagged: full raw retention mathematically exceeds global NAND capacity → forces NAND density scaling + HDD bypass + retention strategy compression
+
+**Key verified inputs:**
+- Multimodal expansion ratio: 50-200× token-stream / 100-1,000× raw retention / 200× blended enterprise working number (vs v1 100× = floor)
+- Compliance retention: EU AI Act Article 18 = **10 years for high-risk model artifacts** (Aug 2026 enforcement); weighted average **7.3 yr 2026 / 8.8-9.5 yr 2028**
+
+**Position implication:** HOLD at ~10.8% — V2 model REINFORCES structural thesis with tightened bull-case ranges; existing position captures structural demand growth. SIZE UP gate unchanged (Q1 print late July + Kioxia VLSI June). The pricing power being captured (75% NAND hike per MS) is empirically grounded.
