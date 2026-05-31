@@ -112,12 +112,56 @@ Inference log Entry #4 (software resilience to capex compression) confidence unc
 
 ---
 
+## Addendum 2026-05-31 — Background subagent academic base rate + analog cases (integrated)
+
+Background subagent returned substantive evidence that adds nuance to the recalibration above.
+
+### Academic herding base rates
+
+- **Welch (2000), Journal of Financial Economics 58(3)**: next-2-analysts following recent revisions; herding effect short-lived; stronger in bull markets. Per [JFE T1](https://ideas.repec.org/a/eee/jfinec/v58y2000i3p369-396.html)
+- **Clement & Tse (2005), Journal of Finance 60(1)**: bold forecasts by experienced analysts at large brokerages (Goldman profile) get followed; magnitude positively associated with speed of follow-on. Per [J Finance T1](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6261.2005.00731.x)
+- **Guedj & Bouchaud (2005), arXiv**: analysts agree with each other 5-10× more than with actual outcomes
+- **De Bondt & Forbes (1999), European Financial Management**: clustering within 4-6 weeks of initiating bold revision
+
+### Refined empirical base rates (subagent calibrated)
+
+- P(at least 1 of {MS, JPM, Daiwa} follows in 4-8 weeks) = **65-75%** (academic base rate; empirically already resolved >95% via MS/KB/Shinhan/etc. moves preceding Goldman)
+- P(all 3 follow in 4-8 weeks) = **20-35%** (desk schedules + bandwidth constrain simultaneity)
+- P(other desks adopt Goldman's specific segmentation framework in 4-8 weeks) = **<30%** (DIRECTIONAL follow-on ≠ framework adoption)
+
+### Three analog cases (all weaken the "Goldman causes consensus shift" framing)
+
+**Analog A — Goldman Oct 2025 SK Hynix upgrade (Neutral → Buy, KRW 300K → 700K)**: MS was already reversing independently (March 2025 close of Underweight, Sept 2025 Overweight = PRE-dated Goldman by 2 months). JPM + Nomura lagged by months, triggered by Q1 2026 earnings (April 23, 2026), not Goldman. **4-8 week follow pattern did NOT hold.** Per [Investing.com T2](https://www.investing.com/news/analyst-ratings/goldman-sachs-upgrades-sk-hynix-stock-rating-to-buy-on-ai-memory-demand-93CH-4322326)
+
+**Analog B — Goldman March 2026 SK Hynix target raise (+12.5% PT, +20% 2026 OP)**: Multiple desks moved April-May 2026 but causally driven by Q1 earnings April 23, NOT the Goldman March note. Same direction, but earnings was the trigger. Per [Seoul Eco Daily T2](https://en.sedaily.com/finance/2026/03/12/goldman-sachs-raises-samsung-sk-hynix-targets-on-memory-boom)
+
+**Analog C — MS Sep 2024 SK Hynix Underweight (bold counter-consensus)**: Rest of the street did NOT follow; MS forced to close call March 2025 after 6 months of unconfirmed thesis. **Demonstrates analyst dissent CAN persist** — base rate can be ZERO in a specific window. Per [Korea Times T2](https://www.koreatimes.co.kr/www/biz/2024/09/175_382843.html)
+
+### Critical refined finding
+
+**The Goldman revision is mostly INFORMATIONAL (preview of where consensus is heading), NOT CAUSAL (does not drive consensus shift).** Korean domestic brokers (Mirae, KB, SK Securities, Korea Investment) revise within 1-5 business days of EARNINGS prints, not following inter-quarter notes from foreign desks. Foreign desks (MS, JPM, Nomura) move on Q-print catalysts.
+
+### The real catalyst inside our 4-8 week window
+
+**SK Hynix Q2 2026 earnings: July 29, 2026** = ~9 weeks from May 31, right at the edge of the 4-8 week window per [Finbox T2](https://finbox.com/DB:HY9H/explorer/next_earnings_date/).
+
+Implication: the actual stage-transition resolver for HYNIX + SNDK is the **July 29 print** (HYNIX) + **SNDK late-July Q1 print** (per `companies/SNDK/thesis.md` calendar), NOT analyst follow-through to Goldman.
+
+### Methodology refinement candidate
+
+Principle #31 (narrative-stage modifier) should be paired with a **causal-vs-informational signal-classification step**: when a sell-side desk publishes a revision, classify as (a) leading the wave (genuine new information), (b) confirming the wave (informational), or (c) following the wave (lagging confirmation). Goldman's May 31 revision = type (c), per analog evidence.
+
+If this pattern of single-signal stage-classification recurs (N=2+), Principle #31 needs the causal-vs-informational classification refinement.
+
+---
+
 ## Cross-references
 
 - `companies/HYNIX/thesis.md` — Stage 4 reclassification cascade added
 - `companies/SNDK/thesis.md` — Stage 2-3 already classification + US sell-side data cascade added
 - `signals/cross-source-log/2026-05-31-citrini-frontier-model-training-cost-fact-check.md` — Citrini compute regime that implicitly requires this rerating
-- `meta/methodology.md` Principle #31 — narrative-stage modifier (refinement opportunity: verification step before stage assignment)
+- `meta/methodology.md` Principle #31 — narrative-stage modifier (refinement opportunity: verification step + causal-vs-informational classification)
 - `meta/methodology.md` Principle #35 (candidate) — companion test (narrative-stage verification) needed
 - `meta/biases-watchlist.md` B37 — analyst-PT framing discipline (applied properly; verified across pool not just single signal)
 - `predictions/inference-log.md` — Entry #4 unchanged
+- Academic sources: Welch (2000) JFE 58(3); Clement & Tse (2005) J Finance 60(1); Guedj & Bouchaud (2005) arXiv; De Bondt & Forbes (1999) European Financial Management
