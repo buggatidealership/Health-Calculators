@@ -19,6 +19,7 @@ Dated chronological log of NVDA-specific events. Append-only.
   - Methodology change: SBC included in non-GAAP starting Q1 FY27
   - Rubin samples shipping per Colette Kress
 - **2026-01-25** — End of fiscal year FY26.
+- **2026-05-31** — N1X / N1 laptop chip spec leak confirmed across 4+ T2 sources (VideoCardz, OC3D, Notebookcheck, Tom's Guide). Full N1X = GB10 silicon from DGX Spark repackaged for 45-80W laptop envelope: 20 ARM cores (10× Cortex-X925 perf + 10× Cortex-A725 efficiency), 48-SM Blackwell GPU (6,144 CUDA cores, RTX 5070-class shader count), 128 GB LPDDR5X @ 8,533 MT/s unified memory, ~1 PFLOP FP4 AI compute. N1 mainstream variant at 18-45W with 10-12 cores + 16-20 SMs. OEM partners confirmed/teased: Dell XPS (embargoed launch 2026-05-31), Lenovo (multiple SKUs), Asus ProArt, Microsoft Surface, MSI. Jensen Huang Computex keynote 2026-06-01 11am Taipei time = official reveal. See `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md` for full dissection.
 
 ## 2025
 

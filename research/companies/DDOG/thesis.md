@@ -330,3 +330,16 @@ Per `signals/cross-source-log/2026-05-31-morning-brief.md`: Two compounding sign
 **Inference log Entry #1 confidence update**: NO change yet (remains ~60-62%). Both signals = CATEGORY-LEVEL validation, NOT customer-share-shift evidence. Would tick to ~65% if a named DDOG enterprise customer publicly cites agent-observability + cost-rationing tooling on an earnings call or case study within 60 days.
 
 **Position implication:** HOLD pending Monday SIZE UP per `portfolio/changes.md` committed plan (€5,000). Brief signals REINFORCE the structural thesis but do not alter the pre-committed sizing.
+
+## Cross-source synthesis — N1X / N1 spec dissection 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md`: N1X laptop chips deliver ~1 PFLOP FP4 AI compute at consumer hardware tier (same compute as GB10 / DGX Spark per [NVIDIA T1](https://www.nvidia.com/en-us/products/workstations/dgx-spark/)) = first time 70B-class local model inference becomes viable on shipping laptop hardware. Multi-OEM Windows-on-ARM launch (Dell, Lenovo, Asus, Surface, MSI) means scale arrives Q3-Q4 2026.
+
+**DDOG-specific implications (3rd-order, P~40%)**:
+- Local AI inference at PC creates a NEW observability category — AI-agent endpoint observability — separate from cloud APM where DDOG dominates. Latent positive IF DDOG ships AI-agent endpoint primitives; latent risk if Microsoft Agent 365 endpoint observability primitives capture this category natively on the N1X Windows stack
+- N1X laptops likely default to Microsoft Agent 365 runtime (May 1 GA per existing CORRECTION section) = Microsoft-ecosystem agent stickiness compounds at the endpoint layer
+- Bypass-route check (Critical Rule #9): for cross-cloud / multi-provider enterprises, DDOG remains category default; for Microsoft-only-stack enterprises that adopt N1X + Agent 365 end-to-end, Microsoft captures the observability layer natively — already-documented competitive risk per existing falsifier #4
+
+**Inference log Entry #1 confidence update**: NO change yet (remains ~60-62%). N1X enables a new failure-mode surface but no DDOG product confirmation. WATCH for DDOG endpoint-observability product announcement Q3-Q4 2026 to confirm category capture.
+
+**Position implication:** HOLD pending Monday SIZE UP per `portfolio/changes.md` committed plan (€5,000). N1X dissection does NOT alter the pre-committed sizing; surfaces latent opportunity (new observability category) + latent risk (Microsoft Agent 365 endpoint observability on N1X) — both require Q3-Q4 2026 product evidence before any thesis modification.

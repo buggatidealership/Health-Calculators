@@ -366,3 +366,14 @@ Per `signals/cross-source-log/2026-05-31-morning-brief.md`: Two compounding dema
 - Bypass-route check (Critical Rule #9): if HYNIX HBM4 ramp slips, Samsung/Micron capture share at the substrate level — HYNIX is the consensus + dominant beneficiary, NOT a bypass-route play; the bypass routes (PIM, CXL pooling, XCENA in-memory compute) all USE HBM/DRAM upstream so HYNIX benefits regardless
 
 **Position implication:** HOLD at 12.43% — both vectors REINFORCE structural HBM/DRAM demand thesis; consumer AI PC tier is incrementally additive but not material at current scale; no sizing change.
+
+## Cross-source synthesis — N1X / N1 spec dissection 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md`: N1X full config confirmed at 128 GB LPDDR5X @ 8,533 MT/s unified CPU+GPU memory (same as GB10 / DGX Spark per [VideoCardz T2](https://videocardz.com/newz/nvidia-n1x-n1-laptop-chip-specifications) + [NVIDIA DGX Spark page T1](https://www.nvidia.com/en-us/products/workstations/dgx-spark/)).
+
+**HYNIX-specific implications**:
+- Premium PC tier LPDDR5X 8,533 MT/s demand step-up — HYNIX/Micron/Samsung tri-vendor split roughly stable at this DRAM tier; HYNIX participates pro-rata
+- Premium PC adopts next-gen LPDDR cadence earlier (LPDDR5X → LPDDR6 transition pulled forward at top of laptop stack) = positive product-mix shift over 12-24 months
+- Bypass-route check (Critical Rule #9): if N1X execution slips, Qualcomm Snapdragon X / Apple M / Intel Lunar Lake / AMD Strix all also use LPDDR5X — HYNIX LPDDR5X demand resilient to which silicon wins at AI PC tier
+
+**Position implication:** HOLD at 12.43% — N1X is incrementally additive to LPDDR5X demand at premium PC tier but NOT material relative to datacenter HBM/HBM4 core thesis driver. No sizing change.

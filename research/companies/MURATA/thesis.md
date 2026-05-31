@@ -510,3 +510,14 @@ Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patte
 **MURATA-specific**: Edge AI cluster (Meta pendant + Gemini Spark + cumulative 2026-05-30 cluster) = MLCC density at every new edge device.
 
 **Position implication:** HOLD at 13.06% — edge AI cluster amplifies existing density thesis.
+
+## Cross-source synthesis — N1X / N1 spec dissection 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md`: N1X full config confirmed at 45-80W package envelope with integrated 20-core ARM CPU + Blackwell 48-SM GPU + LPDDR5X unified memory in single laptop package. OEM partners confirmed/teased: Dell XPS, Lenovo, Asus ProArt, Microsoft Surface, MSI.
+
+**MURATA-specific implications**:
+- Premium PC tier MLCC density step-up — single 45-80W package with multi-rail power delivery + NPU + integrated GPU + LPDDR5X high-frequency interface = materially higher MLCC content per unit vs commodity laptop
+- 5 major Windows PC OEMs launching N1X-class devices simultaneously = first time Windows-on-ARM gets coordinated premium-tier MLCC volume across the Windows OEM stack
+- Bypass-route check (Critical Rule #9): if N1X execution slips, Qualcomm Snapdragon X / Apple M / Intel Lunar Lake / AMD Strix all converge on integrated NPU + iGPU + high-bandwidth memory = MLCC density at AI PC tier rises regardless of which silicon wins; MURATA is structural beneficiary
+
+**Position implication:** HOLD at 13.06% — N1X is additive to existing AI PC MLCC density thesis; structural reinforcer not core driver. No sizing change.

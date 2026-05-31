@@ -430,3 +430,17 @@ Per `signals/cross-source-log/2026-05-31-morning-brief.md`: **Dell confirmed XPS
 **Inference Entry #1 (DDOG agent-fleet-observability)** + Entry #5 (agent stickiness) NOT directly affected; this signal feeds ARM-specific royalty trajectory, not the agent-observability thesis.
 
 **Position implication:** HOLD at 11.36% — N1X consumer ship CONFIRMS the May 29-30 tease and the AI PC royalty trajectory. SIZE UP candidate strengthened but still GATED on (a) Computex June 2-5 design-win + royalty-detail confirmation, (b) Q2/Q3 FY27 earnings quantifying AGI CPU margin + royalty mix, (c) FTC antitrust probe direction clarification. No sizing change before Computex.
+
+## Cross-source synthesis — N1X / N1 spec dissection 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md` — 4-source convergent spec verification (VideoCardz + OC3D + Notebookcheck + Tom's Guide T2). Key findings:
+
+**The structural insight for ARM**: N1X CPU cores are **off-the-shelf ARM Cortex-X925 (10× perf @ 4.0 GHz) + Cortex-A725 (10× efficiency @ 2.8 GHz)** — Armv9.2-A reference cores under ARM's standard IP license, NOT custom NVDA cores under architectural license. This means **full Armv9 royalty rate (~2× v8) at PC laptop volume from FY27 H2 onward**. The royalty mechanism is the same as Mediatek / Samsung pay for Cortex IP — recurring per-chip royalty, not flat architectural license.
+
+**Confirms N1X full config = GB10 silicon from DGX Spark** (already in production Q4 2025) repackaged for laptop thermal envelope. Zero new silicon risk; time-to-market = packaging + Windows-on-ARM driver work, not silicon design risk.
+
+**5-leg ARM narrative now has concrete shipping product** at the 5th leg (AI PC), adding to: (1) mobile (95% share), (2) datacenter Neoverse (50% hyperscaler), (3) AGI CPU (own silicon), (4) edge AI (Apple Siri / Liquid AI / StepFun cluster), (5) AI PC (N1X PC OEM volume).
+
+**Bypass-route check (Critical Rule #9)**: even if NVDA N1X execution slips on app compatibility / pricing / thermal, the bypass routes within ARM IP ecosystem (Qualcomm Snapdragon X, Apple M-series, Mediatek) all benefit ARM at the IP layer — ARM is structurally positioned at PC AI tier regardless of which silicon implementation wins.
+
+**Position implication:** HOLD at 11.36% — N1X spec confirmation pre-Computex IS the highest-quality pre-event read; if Computex June 1 keynote confirms ARM royalty-rate framing + ships volume forecast, that's the trigger for SIZE UP consideration. No sizing change before Computex; Computex post-event brief 2026-06-06 per `meta/todo.md` is the next checkpoint.
