@@ -250,3 +250,26 @@ User SNDK entry $1,099.60 per holdings → consensus PT $1,543 = +40% upside; Su
 SIZE UP only justified if Q2 print shows EXTREME upside surprise (Susquehanna-tier framing materializing); otherwise existing 10.8% position captures the structural thesis adequately.
 
 **Position implication:** HOLD at ~10.8% — Stage 2-3 already classification confirms structural thesis intact; existing SIZE UP candidate framing partially resolved (asymmetric window narrowed); SIZE UP gated on EXTREME Q2 print upside surprise; otherwise existing sizing captures the thesis.
+
+## Cross-source synthesis — Bottoms-up NAND demand model 2026-05-31 (added 2026-05-31, per Critical Rule #10 + Principle #1 bottoms-up)
+
+Per `signals/cross-source-log/2026-05-31-nand-demand-bottoms-up-model.md`: user-directed bottoms-up model decomposes AI-driven NAND demand from first principles (token volume × bytes/token × retention × replication) across 6 use cases. Verified inputs include global daily token volume ~200T (OpenAI 21T + China 140T + others ~40T) and global NAND demand ~800 EB/year.
+
+**Model outputs (with explicit hedges)**:
+- 2026 incremental AI-driven NAND demand: **0.4-0.6% of global NAND** (base case 3.3-5 EB/year)
+- 2028 incremental: **4-18% of global NAND** (base case 100-150 EB/year at 30× workload growth)
+- Bull case (multimodal dominance + indefinite retention): up to **40-60% of global NAND by 2028**
+
+**SNDK-specific structural validation**:
+- The inference logs + agentic reasoning traces + compliance retention components of the model are concentrated EXACTLY in SNDK's positioning per existing thesis
+- Pricing power being captured (75% NAND price hike per MS revision) is supported by the demand math, NOT just analyst narrative
+- Multimodal transition is the biggest upside leverage — if video/image inference becomes dominant, NAND demand step-up is non-linear
+
+**Sensitivity (variables that move the model most)**:
+1. Multimodal token-to-byte ratio (~100× vs text) — highest leverage
+2. Compliance retention length (FINRA 7yr → EU AI Act potentially indefinite)
+3. Production agent count (11-14% pilot-to-prod conversion is current bottleneck)
+4. Token volume per agent (10× range across use cases)
+5. Replication factor (3× current; could grow to 5-10× on data sovereignty)
+
+**Position implication:** HOLD at ~10.8% — bottoms-up model VALIDATES the structural thesis quantitatively; existing position adequately captures the structural demand growth. SIZE UP only justified by extreme upside materialization (multimodal dominance OR indefinite compliance retention OR ultra-bull token growth). The pricing power being captured by NAND vendors is empirically grounded in demand math, not just sell-side narrative.
