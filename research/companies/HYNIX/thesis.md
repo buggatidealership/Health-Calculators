@@ -352,3 +352,17 @@ Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patte
 **HYNIX-specific**: XCENA \$135M @ \$570M valuation = third-party validation of "memory is THE binding constraint" thesis. Bypass routes (per Critical Rule #9): PIM (processing-in-memory), CXL pooling (ALAB Aries), HBM4E/5 generational scaling, in-memory compute (XCENA's pitch). HYNIX benefits as primary supplier at the binding-constraint layer; XCENA = third-party capital validating thesis at startup capital level.
 
 **Position implication:** HOLD at 12.43% — structural HBM thesis externally validated; no sizing change.
+
+## Cross-source synthesis — May 31 Morning Brief: SoftBank 5 GW France + Dell XPS N1X consumer ship (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-morning-brief.md`: Two compounding demand vectors:
+
+1. **SoftBank €75B / 5 GW French data center commitment** (TechCrunch T2) — 3rd consecutive day of gigawatt-scale infra commitment news; each gigawatt of AI compute capacity consumes HBM at the GPU/accelerator layer + DRAM at the system layer
+2. **Dell XPS laptop with NVDA N1X confirmed ship** (VideoCardz T2) — first CONSUMER AI PC with ARM-based NVDA silicon; LPDDR/HBM PC-tier demand begins materializing at consumer volume
+
+**HYNIX-specific implications**:
+- Datacenter HBM demand: 5 GW of incremental AI compute capacity = additional HBM3E/HBM4 procurement; HYNIX remains primary supplier via iHBM thermal moat + 3-year capacity gap thesis
+- Consumer AI PC LPDDR/HBM tier: less unit-economics-attractive per package than datacenter HBM but additive volume layer; PC-tier memory demand is incremental, not core to the thesis
+- Bypass-route check (Critical Rule #9): if HYNIX HBM4 ramp slips, Samsung/Micron capture share at the substrate level — HYNIX is the consensus + dominant beneficiary, NOT a bypass-route play; the bypass routes (PIM, CXL pooling, XCENA in-memory compute) all USE HBM/DRAM upstream so HYNIX benefits regardless
+
+**Position implication:** HOLD at 12.43% — both vectors REINFORCE structural HBM/DRAM demand thesis; consumer AI PC tier is incrementally additive but not material at current scale; no sizing change.

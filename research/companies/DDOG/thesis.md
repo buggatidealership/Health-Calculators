@@ -314,3 +314,19 @@ Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patte
 Per `signals/cross-source-log/2026-05-30-camt-pricing-gap-and-ibm-q1-pattern-synthesis.md`: IBM Q1 2026 reported watsonx generative AI bookings DOUBLED YoY per [Tech-Insider T2](https://tech-insider.org/ibm-q1-2026-earnings-revenue-software-growth/) + [Investing.com transcript T2](https://www.investing.com/news/transcripts/earnings-call-transcript-ibm-q1-2026-beats-earnings-expectations-93CH-4630972) = 3rd-party validation of enterprise AI deployment accelerating at major-vendor scale. IBM customer cohort = Fortune 500 overlap with DDOG customer base.
 
 **Position implication:** HOLD pending Monday SIZE UP per committed plan. Validates underlying workload-driven thesis but no specific DDOG-customer signal; cumulative pattern adds to Inference Entry #1 + #5 supporting evidence.
+
+## Cross-source synthesis — May 31 Morning Brief: WSJ corporate AI rationing + CUDA silent failures (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-morning-brief.md`: Two compounding signals validate Inference Entry #1 (agent-fleet observability):
+
+1. **WSJ corporate AI rationing** (T2) — finance teams imposing usage quotas + approval processes on employee AI tool access. Concrete enterprise demand surface for cost attribution + governance tooling at agent-fleet level. Compounds the $500M Claude mystery enterprise (May 29-30 briefs).
+2. **NVIDIA AI-generated CUDA kernels failing silently in production** (Reddit T3, SOL-ExecBench) — top-ranked AI-generated CUDA from DeepSeek/Qwen/Gemma benchmarks break training+inference subtly. NEW failure surface specific to AI-generated code requiring runtime observability that human-code-trained APM doesn't naturally cover.
+
+**DDOG-specific implications**:
+- WSJ rationing = enterprises lack the tooling DDOG sells; demand surface confirmed at major-publication level
+- CUDA silent failures = AI-generated-code observability emerging as adjacent category to APM; DDOG positioned to capture if it ships AI-code-specific observability primitives (no public DDOG product announcement to confirm — WATCH)
+- Bypass-route check (Critical Rule #9): Microsoft Agent 365 (GA May 1) remains the primary Microsoft-ecosystem competitor per existing CORRECTION section; for cross-cloud / multi-provider enterprises, DDOG remains category default
+
+**Inference log Entry #1 confidence update**: NO change yet (remains ~60-62%). Both signals = CATEGORY-LEVEL validation, NOT customer-share-shift evidence. Would tick to ~65% if a named DDOG enterprise customer publicly cites agent-observability + cost-rationing tooling on an earnings call or case study within 60 days.
+
+**Position implication:** HOLD pending Monday SIZE UP per `portfolio/changes.md` committed plan (€5,000). Brief signals REINFORCE the structural thesis but do not alter the pre-committed sizing.

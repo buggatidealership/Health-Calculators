@@ -324,3 +324,11 @@ Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`:
 Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: xAI Colossus 2 = first single-coherent gigawatt training cluster (Memphis ~200K H100/H200 + ~30K GB200 NVL72 per SemiAnalysis T2) = power demand thesis CONFIRMED at hyperscaler-primary level. Amazon multi-gigawatt Trainium expansion = additional gigawatt-scale power demand.
 
 **Position implication:** HOLD at 6.87% — gigawatt-cluster confirmation reinforces Supply-Chain-Inheritance thesis (NVDA 800V DC rack arch crediting EV/solar suppliers). No sizing change.
+
+## Cross-source synthesis — May 31 Morning Brief (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-morning-brief.md`: SoftBank commits €75B to French data centers — up to 5 GW capacity, framed as "one of the largest single-country infrastructure commitments in AI history" per TechCrunch T2. 3rd consecutive day of gigawatt-scale infra commitment news (xAI Colossus 2 + Amazon Trainium + now SoftBank France).
+
+**TE-specific implications**: European 5 GW commitment compounds the Supply Chain Inheritance thesis — TE's solar/battery/power-conversion physical supply base overlaps with the supply base feeding hyperscaler 800V DC rack architecture (per principle #28 + NVDA 2025 technical blog credit to EV/solar industries). The European-specific demand benefits TE indirectly via shared physical supply chain (European power-equipment supply chain density), not via direct hyperscaler procurement. Bypass-route check (Critical Rule #9): if US-listed power infra fails to absorb European 5 GW demand, European players (Schneider, ABB) benefit directly; TE benefits at the upstream shared-supply-base tier regardless of geographic split.
+
+**Position implication:** HOLD at 6.87% — 3rd consecutive day of gigawatt commitment news reinforces structural thesis but the European geographic skew of this specific deal limits TE direct upside vs. domestic US power infra names; no sizing change.

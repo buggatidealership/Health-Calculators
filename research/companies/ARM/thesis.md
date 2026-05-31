@@ -416,3 +416,17 @@ Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patte
 Per `signals/cross-source-log/2026-05-30-camt-pricing-gap-and-ibm-q1-pattern-synthesis.md`: IBM Granite small language models = open + on-device adjacent; 6th data point in today's cumulative edge AI cluster (Apple Siri + Liquid AI + StepFun + NVDA N1/N1X + IBM Granite). Edge model ecosystem expanding across major vendors.
 
 **Position implication:** HOLD at 11.36% per refined Position implication from ARM AGI CPU deep dive 2026-05-30 — edge AI cluster compounding reinforces multi-narrative thesis; FTC + margin + Stage 4 risks gate SIZE UP.
+
+## Cross-source synthesis — May 31 Morning Brief: Dell XPS N1X consumer ship CONFIRMED (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-morning-brief.md`: **Dell confirmed XPS laptop with NVDA N1X** per VideoCardz T2 — described as "essentially bring[ing] DGX Spark GB10 capabilities to laptops running Windows," marking NVDA's "first consumer-grade deployment of its enterprise AI silicon." This is the SHIP CONFIRMATION following the May 29-30 NVDA+MSFT+ARM coordinated AI PC tease (`signals/cross-source-log/2026-05-30-nvda-msft-arm-coordinated-ai-pc-tease.md`).
+
+**ARM-specific implications**:
+- N1X is the productized ARM-licensed PC laptop silicon — Neoverse-derived (GB10/DGX Spark lineage)
+- Royalty stream materializes at PC OEM tier with the largest US PC OEM (Dell) shipping; HP / Lenovo / Surface follow likely within 6-12 months (1st order P>80%)
+- 5th narrative (AI PC) of the 5 ARM narratives (mobile + datacenter Neoverse + AGI CPU + edge + AI PC) now has concrete consumer hardware shipping, not just teases
+- Bypass-route check (Critical Rule #9): if NVDA N1X execution slips, Qualcomm Snapdragon X / Apple M-series / Mediatek capture AI PC tier — bypass routes are within the same ARM IP ecosystem; ARM benefits at IP layer regardless of which silicon implementation wins
+
+**Inference Entry #1 (DDOG agent-fleet-observability)** + Entry #5 (agent stickiness) NOT directly affected; this signal feeds ARM-specific royalty trajectory, not the agent-observability thesis.
+
+**Position implication:** HOLD at 11.36% — N1X consumer ship CONFIRMS the May 29-30 tease and the AI PC royalty trajectory. SIZE UP candidate strengthened but still GATED on (a) Computex June 2-5 design-win + royalty-detail confirmation, (b) Q2/Q3 FY27 earnings quantifying AGI CPU margin + royalty mix, (c) FTC antitrust probe direction clarification. No sizing change before Computex.
