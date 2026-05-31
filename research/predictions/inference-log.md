@@ -1,7 +1,40 @@
 # Inference Log — Directional Calls Made From Reasoning Chains (Not Earnings Predictions)
 
-**Last updated:** 2026-05-30
+**Last updated:** 2026-05-31 (calibration tracker section added)
 **Purpose:** Track directional inferences I make where the conclusion is derived from a REASONING CHAIN extrapolated from a signal, not from the signal itself. Separate from `grading-log.md` (which tracks earnings/event predictions) because the resolution mechanism is different: inferences resolve via subsequent prints, customer-win disclosures, competitor moves, or category emergence — not a specific event date.
+
+## Calibration Tracker (added 2026-05-31)
+
+**Purpose:** Empirically test whether my probability claims actually track outcomes over time. Without this, miscalibration drifts unmeasured.
+
+**Discipline (codified 2026-05-31 evening per user directive):** Every probability claim (P~X%, ~X-Y% probability, etc.) made in any artifact MUST have:
+1. A resolution date (when the criterion crystallizes)
+2. A resolution criterion (what observable outcome resolves it)
+3. After resolution: outcome appended to the calibration band tracker below
+
+**Monthly aggregation (first audit cycle 2026-06-24):** compute hit-rate by claimed probability band:
+- Claims at 80%+ should resolve TRUE at ~80%+ rate
+- Claims at 60-79% should resolve TRUE at ~60-70% rate
+- Claims at 40-59% should resolve TRUE at ~40-50% rate
+- Systematic over- or under-confidence surfaces as a candidate calibration bias
+
+### Calibration band tracker
+
+| Claimed P band | N claims | N resolved | N TRUE | Empirical hit rate | Calibration delta |
+|---|---|---|---|---|---|
+| 80-100% (HIGH conviction) | 0 | 0 | 0 | n/a | n/a (no data yet) |
+| 60-79% (MEDIUM-HIGH) | 0 | 0 | 0 | n/a | n/a |
+| 40-59% (MEDIUM) | 0 | 0 | 0 | n/a | n/a |
+| 20-39% (MEDIUM-LOW) | 0 | 0 | 0 | n/a | n/a |
+| 0-19% (LOW conviction) | 0 | 0 | 0 | n/a | n/a |
+
+**First monthly audit (2026-06-24):** cycle through all Entries with `Outcome: PENDING`. If any have crystallized via interim signals, mark resolved + update band tracker. If empirical hit rate diverges from claimed band by >15pp, codify as candidate calibration bias.
+
+**Retirement trigger for this tracker:** if after 3 monthly audits (Sept 2026) fewer than 5 entries have resolved (resolution criteria aren't crystallizing), the discipline isn't generating data → revisit resolution-criteria specificity or retire.
+
+**Companion enforcement (added 2026-05-31):** `~/.claude/reasoning-tagging-hook.py` enforces that every probability claim in assistant output carries a source-tier label OR explicit hedge OR cross-reference to this file. Hook fires when probability claims lack tagging discipline.
+
+---
 
 ## Why this file exists
 
