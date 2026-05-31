@@ -868,6 +868,42 @@ When applying Principle #33 to a candidate touching 2+ adjacent binding-constrai
 
 ---
 
+### B39 — Post-rally complacency bias (treating price-rally history as proof of asymmetry exhaustion) [CANDIDATE — N=1, awaiting N=2+ validation]
+
+**Origin:** 2026-05-31 AIP deep-dive. After 3-subagent research returned data showing AIP at $36.28 vs 52-week low $7.14 (5× rerated), I concluded "no asymmetry left." User pushed back: *"how do you verify that there's no more asymmetry left?"* — exposing that I had anchored on RALLY HISTORY rather than running a proper bottoms-up upside-vs-current-price test. When I actually ran Stream 2's bottoms-up bull case 2028 ($175M × 15-20x = $2.6-3.5B) vs current $1.75B, the conclusion shifted: not "no asymmetry" but "moderately asymmetric, +50-100% bull / +20-50% base / -50% bear, expected value ~+16.5% over 2-3 years."
+
+**Pattern:** Conflating "stock has rallied substantially" with "no asymmetric upside remains." The truth is that price-rally history and forward-asymmetry are INDEPENDENT — a stock can be at ATH AND still have unincorporated information; a stock at 52-week low can have NO asymmetry if the floor is structural. The correct test is bottoms-up upside vs current price, NOT rally history.
+
+**Specific manifestations to watch:**
+- "Stock has X-bagged from low" framing used as primary evidence against entry
+- "Market has surfaced the catalyst" as a hand-wave without testing whether SPECIFIC catalysts in next 6-12 months are priced in
+- Skipping bottoms-up bull/base/bear → multiple range → expected-value calc when stock is at ATH
+- Using "Stage 3-4 narrative" framing (principle #31) as a binary EXIT signal rather than as a SIZING modifier
+
+**Correction (candidate — pending validation):**
+For any candidate where rally history is being cited as evidence against entry, mandatorily run the 5-test asymmetry verification framework BEFORE concluding:
+1. **Bottoms-up bull case implied return**: build bull/base/bear revenue × multiple range → compare to current. Asymmetric = bull ≥ +200% AND base ≥ +50%; symmetric/exhausted = bull ≤ +50% and base ≈ flat
+2. **Multiple sustainability**: is upside driven by multiple expansion OR revenue compounding at constant multiple? Multiple-dependent = narrative risk
+3. **Catalyst density × probability**: count specific catalysts in next 6-12 months × P each × magnitude
+4. **Consensus delta**: compare bottoms-up to sell-side consensus (gauge informational edge, NOT anchor)
+5. **Downside floor distance**: bear-case revenue × low multiple = floor. Asymmetric requires upside >>> distance to floor (3-5:1 = asymmetric; 1-2:1 = moderate; <1:1 = exhausted)
+
+The verdict is GRADIENT not binary: SCREAMING ASYMMETRIC vs MODERATELY ASYMMETRIC vs SYMMETRIC vs NEGATIVE EV.
+
+**Distinction from related biases:**
+- **B33** (narrative-stage-blind sizing): operates at Stage 3-4 priced-to-perfection at the sizing step. B39 operates at the asymmetry-verification step BEFORE sizing.
+- **B23** (sell-side aggregation drift): operates at forecast step. B39 operates at the upside-vs-price step.
+- **B28** (cyclical-vs-structural mis-classification): operates at the analyst-PT framing step. B39 operates at the "stock has rallied" framing step.
+- **B37** (analyst-PT framing as default-bearish): operates at the analyst-PT step. B39 operates at the rally-history step. Both are price-history-anchoring failure modes but at different steps in the workflow.
+
+**Detectability (per principle #32):**
+- Track applications where rally history (e.g., "stock has X-bagged", "Stage 3-4 priced-in", "market has surfaced") is cited as evidence against entry. Question 1: did the analyst run the 5-test framework? Question 2: did they compute expected value across bull/base/bear with explicit probabilities and multiples? If NO to both AND a moderately-asymmetric structural thesis was wrongly dismissed, B39 has fired retroactively.
+- N=2+ confirmation pattern would justify codification. Until then: CANDIDATE.
+
+**Codification origin meta-pattern**: this is the SECOND time in 96 hours that user push-back surfaced a price-history anchoring failure mode in me (the first being the B37/analyst-PT-context-hook codification 2026-05-28 on IBIDEN). The pattern is recurring. If a third instance surfaces within 30 days, this should be promoted from CANDIDATE to permanent + paired with a Stop hook.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

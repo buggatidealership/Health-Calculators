@@ -102,6 +102,55 @@ Stock holds current range ±20% over 12-18 months. Steady ACV growth + 1 hypersc
 
 User's "asymmetric setup not yet priced in" hypothesis NOT confirmed at current price — stock has 5× rerated; market has surfaced the catalyst. The structural thesis is genuinely strong (AMD validation + hyperscaler win + chiplet additive), but the entry timing is poor. Best risk-adjusted action: WATCH + wait for pullback or higher-conviction catalyst.
 
+## CORRECTION 2026-05-31 — Asymmetry calibration revised after user push-back
+
+**User challenge 2026-05-31 verbatim:** *"how do you verify that there's no more asymmetry left?"*
+
+This exposed B39 (post-rally complacency bias) in my prior framing. The original "no asymmetry left" conclusion was anchored on rally history (5× from $7.14 → $36.28) without running the proper 5-test bottoms-up asymmetry verification framework. After running it:
+
+### Test 1 — Bottoms-up implied return vs current $1.75B mkt cap
+
+| Scenario | 2028 rev (per Stream 2 bottoms-up) | Multiple | Implied mkt cap | Return |
+|---|---|---|---|---|
+| Bull | $175M | 15x | $2.6B | **+50%** |
+| Bull | $175M | 20x | $3.5B | **+100%** |
+| Base | $145M | 12x | $1.74B | **0%** |
+| Base | $145M | 15x | $2.18B | **+25%** |
+| Bear | $95-110M | 8x | $760-880M | **-50 to -57%** |
+| 2030 Bull | $230M | 15-20x | $3.45-4.6B | **+97 to +163%** (4yr) |
+
+### Test 2 — Multiple sustainability
+Even bull case is at reasonable multiple vs ARM (~30x sales) / CDNS (~25-30x). Upside is driven by revenue compounding at constant or compressing multiple, NOT multiple expansion. Defensible.
+
+### Test 3 — Catalyst density (next 6-12 months)
+- Named hyperscaler program reaching royalty production — P~30%, magnitude +20-40% rerating
+- Q2/Q3 2026 print continuing 60%+ royalty growth — P~50%, magnitude +10-20%
+- CFO replacement from credible semi background — P~70%, magnitude neutral-to-+5%
+- Acquisition by SNPS/CDNS — P~10%, magnitude +30-50% premium
+- Additional AMD-tier customer announcement — P~25%, magnitude +15-25%
+- Cycuity earnout target ($12M bookings) hit — P~50%, magnitude neutral
+
+### Test 4 — Consensus delta
+GAP IN MY ANALYSIS — would need to pull sell-side 2028 consensus to gauge informational edge. Stream 2's $145M 2028 base may or may not be above consensus; if consensus is ~$110-120M, real edge exists.
+
+### Test 5 — Downside floor distance
+Bear: -50% (large). Upside (+50 to +100%). Ratio ~1-2:1 = MODERATE not screaming asymmetric (3-5:1 = asymmetric).
+
+### Expected value calc
+EV = 0.30 × (+75%) + 0.40 × (+15%) + 0.30 × (-40%) = +22.5% + 6% - 12% = **+16.5% over 2-3 years**. Positive EV, NOT a fat pitch.
+
+### Revised verdict
+
+**Calibrated answer:** AIP is **moderately asymmetric, NOT exhausted.** My earlier "no asymmetry left" claim was over-confident — caught the B39 post-rally complacency bias in real time.
+
+- The TRULY asymmetric entry window was $7-15 (the rerating window). That CLOSED.
+- What remains is **quality compounder at fair valuation with moderate forward asymmetry** gated on specific catalysts — not deep-value contrarian play, but not exhausted either.
+- WATCHLIST stance UNCHANGED but entry-trigger logic is now MORE actionable: any single high-conviction catalyst (named hyperscaler royalty production confirmation, additional AMD-tier customer announcement) shifts +16.5% EV to potentially +30-50% EV.
+
+### Position implication (revised)
+
+**Position implication:** WATCHLIST at 1-2% if entered, **but with active monitoring** of catalyst density rather than passive "wait for pullback." If Q2 2026 print (~late July 2026) shows continued +60% royalty growth + additional named hyperscaler engagement disclosure, ENTRY at 1-1.5% becomes justified even without price pullback. Pullback to <$28 + thesis intact = ADD on weakness. Bear case downside floor at $760-880M mkt cap (-50%) limits maximum loss to ~$200-400 on a 1-1.5% position = acceptable risk.
+
 ---
 
 ## Cross-references
