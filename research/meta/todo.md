@@ -71,11 +71,25 @@
 - [ ] **P2 / research / 2026-06-02** [INDP, AF, POS] — Deep-dive: Synopsys (SNPS) + Cadence (CDNS) — EDA oligopoly at SoC building-block layer
   - Origin: 2026-05-31 NVDA N1X SoC architecture analysis surfaced these as fully-convergent (edge + datacenter) beneficiaries with strong moat + low displacement + multi-quarter beat probability per `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
   - Scope: full thesis build for both — moat depth (EDA oligopoly mechanics), AI EDA market trajectory, competitive positioning vs Siemens EDA + Keysight + Zuken, Synopsys Ansys integration execution, Cadence IP segment +22% YoY momentum, valuation check, bottoms-up earnings build per principle #1, falsifier list, anti-fragility scoring
-  - Linked: `watchlist/candidates.md` § SoC building-block; `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
+  - **Refinement 2026-05-31 (user-directed)**: both already at ATH; deep-dive must address WHICH has higher probability of CONTINUED above-average return; primary durability variable = locked-in forward revenue visibility (SNPS $11.3B backlog ~47% in next 12mo; CDNS $8.0B record backlog $4.0B in next 12mo)
+  - Linked: `watchlist/candidates.md` § SoC building-block; `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`; `signals/cross-source-log/2026-05-31-soc-building-block-durability-matrix.md` (to be created in same commit)
 
 - [ ] **P2 / research / 2026-06-02** [INDP, AF, POS] — Deep-dive: Advantest (6857.T) + Teradyne (TER) — SoC test duopoly
   - Origin: 2026-05-31 SoC architecture analysis — Advantest 66% share (+10pp YoY), op margin expanded 1,490bp to 44.2%; Teradyne Q1 2026 +87% YoY, AI = 70% of revenue per `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
   - Scope: full thesis build — duopoly moat mechanics, cyclical vs structural test demand, Blackwell Ultra + AMD MI400 + Apple + NVDA N1X pipeline, Advantest 10K systems/yr ramp, Teradyne stock-reaction-vs-fundamentals gap (Q1 2026 stock fell 19% on print), valuation check, investability confirm (6857.T = Japan TSE, accessible per `CLAUDE.md`)
+  - **Refinement 2026-05-31 (user-directed)**: both already at ATH but hardware order book gives quarter-to-quarter visibility ONLY ("limited visibility" per Teradyne 10-Q); deep-dive must address whether AI test cycle extends into 2027 OR peaks 2026; Advantest 44.2% op margin is near structural ceiling = MARGIN RUNWAY SHRINKING question is central
+  - Linked: `watchlist/candidates.md` § SoC building-block; `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`; `signals/cross-source-log/2026-05-31-soc-building-block-durability-matrix.md`
+
+- [ ] **P2 / research / 2026-06-02** [INDP, AF, POS] — Deep-dive: Arteris IP (AIP) — NoC interconnect at SoC integration layer
+  - Origin: 2026-05-31 SoC architecture analysis surfaced Arteris as under-covered NoC IP play; user-flagged 2026-05-31 as potentially asymmetric because mid-cap + low analyst coverage + recent N1X announcement may not have priced in. Founded 2003, IPO'd 2021 (per [SEC S-1 T1](https://www.sec.gov/Archives/edgar/data/0001667011/000119312521289866/d52087ds1.htm)) — NOT a fresh IPO but structurally under-followed
+  - Scope: investability check (US-listed NASDAQ confirmed); revenue model (royalty per chip licensed); customer concentration (Samsung, AMD, TI, Rambus, Renesas per Wikipedia T3); 2026 customer wins disclosed/undisclosed; competitive positioning vs Synopsys + Cadence NoC IP; royalty-revenue trajectory; valuation (forward EV/sales + EV/EBITDA); falsifier list; anti-fragility scoring; bottoms-up earnings model; analyst coverage thinness as edge condition; Cycuity acquisition Q4 2026 integration risk
+  - Linked: `watchlist/candidates.md` § SoC building-block; `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
+
+- [ ] **P2 / research / 2026-06-02** [INDP, AF, POS] — Deep-dive: Alphawave Semi (AWE.L) — SerDes IP at high-speed interconnect layer + M&A status verification
+  - Origin: 2026-05-31 SoC architecture analysis surfaced Alphawave at SerDes IP layer (PCIe 5.0 / USB4). User-flagged 2026-05-31 as potentially asymmetric (no parabolic move yet)
+  - **CRITICAL FIRST STEP**: verify current status of Qualcomm £1.8B acquisition announced June 2025 (per [BusinessCloud T2](https://businesscloud.co.uk/news/qualcomm-to-acquire-alphawave-in-1-8bn-mega-deal/)) — if PENDING then this is M&A arbitrage, not structural thesis; if APPROVED/CLOSED then no longer trades as independent equity. User's "no parabolic move yet" observation may simply reflect the takeover-price pin
+  - Scope: M&A status FIRST; only if Alphawave remains independent or arb-spread is wide enough → full thesis build (SerDes IP moat, customer wins, revenue trajectory, comp set vs Synopsys + Cadence SerDes IP)
+  - Investability: UK-listed (LSE main market under "AWE"); confirm Degiro access
   - Linked: `watchlist/candidates.md` § SoC building-block; `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
 
 ### P2 — Existing items
