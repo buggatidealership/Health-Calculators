@@ -306,3 +306,11 @@ Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`:
 **Verification needed**: AWS RNG architecture details on which fabric layer aggregates the device reduction (high-tier vs low-tier silicon). Pending.
 
 **Position implication:** HOLD at 6.51% pending architecture detail verification; AWS RNG signal LIKELY REINFORCED but requires deeper validation before declaring directionally positive.
+
+## Cross-source synthesis — N1X unbiased money-flow analysis 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.md`: unbiased flow-of-funds analysis on the NVDA N1X / N1 PC laptop chip surfaced ALAB as a 1st-order beneficiary at PC tier (beyond existing datacenter Aries CXL thesis). N1X spec sheet confirms 12 lanes PCIe 5.0 + 5 lanes PCIe 4.0 per laptop SKU — unusually high lane count for laptop form factor. PCIe retimer / redriver demand at PC tier becomes a 2nd vector adjacent to the datacenter thesis.
+
+**Bypass-route check (Critical Rule #9)**: ALAB is one of the few names where N1X-specific demand is structurally additive (not silicon-agnostic) because the 12-lane PCIe 5.0 spec is unusual at laptop tier. Alternative AI PC silicons (Snapdragon X, Apple M, Intel Lunar Lake) generally ship fewer PCIe lanes; if N1X execution succeeds, ALAB sees a PC-tier retimer category that doesn't exist for other AI PC silicons.
+
+**Position implication:** HOLD at 6.51% — N1X PC-tier PCIe retimer vector is incremental/additive but not yet quantified; ALAB SIZE UP consideration per user 2026-05-29 flag still pending architecture detail verification on AWS RNG + Computex N1X volume forecast. No sizing change today.

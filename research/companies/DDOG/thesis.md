@@ -343,3 +343,9 @@ Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md`:
 **Inference log Entry #1 confidence update**: NO change yet (remains ~60-62%). N1X enables a new failure-mode surface but no DDOG product confirmation. WATCH for DDOG endpoint-observability product announcement Q3-Q4 2026 to confirm category capture.
 
 **Position implication:** HOLD pending Monday SIZE UP per `portfolio/changes.md` committed plan (€5,000). N1X dissection does NOT alter the pre-committed sizing; surfaces latent opportunity (new observability category) + latent risk (Microsoft Agent 365 endpoint observability on N1X) — both require Q3-Q4 2026 product evidence before any thesis modification.
+
+## Cross-source synthesis — N1X unbiased money-flow analysis 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.md`: unbiased flow-of-funds places DDOG in latent 2nd-order edge AI runtime + observability category (P~60% the category emerges; no clear public leader yet). Money flow contested between Microsoft Agent 365 (endpoint-native), DDOG (cloud-extension), Splunk-Cisco (enterprise-extension), net-new entrants. Gated on actual product launch 2026-2027. Unbiased read: DDOG is NOT the consensus winner here — Microsoft has the endpoint-native advantage on N1X devices.
+
+**Position implication:** HOLD pending Monday SIZE UP per pre-committed plan; unbiased read does NOT alter sizing but confirms Microsoft Agent 365 competitive risk is structurally real at endpoint observability tier; WATCH for DDOG endpoint-observability product announcement Q3-Q4 2026.

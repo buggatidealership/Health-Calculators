@@ -444,3 +444,9 @@ Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md` 
 **Bypass-route check (Critical Rule #9)**: even if NVDA N1X execution slips on app compatibility / pricing / thermal, the bypass routes within ARM IP ecosystem (Qualcomm Snapdragon X, Apple M-series, Mediatek) all benefit ARM at the IP layer — ARM is structurally positioned at PC AI tier regardless of which silicon implementation wins.
 
 **Position implication:** HOLD at 11.36% — N1X spec confirmation pre-Computex IS the highest-quality pre-event read; if Computex June 1 keynote confirms ARM royalty-rate framing + ships volume forecast, that's the trigger for SIZE UP consideration. No sizing change before Computex; Computex post-event brief 2026-06-06 per `meta/todo.md` is the next checkpoint.
+
+## Cross-source synthesis — N1X unbiased money-flow analysis 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.md`: unbiased flow-of-funds analysis re-confirms ARM as 1st-order P>80% beneficiary at HIGH conviction. Quoted from unbiased artifact: *"This is the biggest near-term concrete cash-flow improvement of any IP company in the AI cycle."* Royalty mechanism is contractual (per-chip on standard Armv9 IP license), not narrative-dependent.
+
+**Position implication:** HOLD at 11.36% — unbiased analysis VALIDATES current sizing as well-positioned for N1X tailwind; SIZE UP gate remains Computex keynote (June 1) + Q2/Q3 FY27 earnings + FTC clarity. No sizing change today.

@@ -521,3 +521,9 @@ Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md`:
 - Bypass-route check (Critical Rule #9): if N1X execution slips, Qualcomm Snapdragon X / Apple M / Intel Lunar Lake / AMD Strix all converge on integrated NPU + iGPU + high-bandwidth memory = MLCC density at AI PC tier rises regardless of which silicon wins; MURATA is structural beneficiary
 
 **Position implication:** HOLD at 13.06% — N1X is additive to existing AI PC MLCC density thesis; structural reinforcer not core driver. No sizing change.
+
+## Cross-source synthesis — N1X unbiased money-flow analysis 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.md`: unbiased flow-of-funds places MURATA in MLCC + passives cluster (Murata + TDK + SEMCO + Yageo + Taiyo Yuden) at 1st-order P~70% MEDIUM conviction — premium PC content uplift. Bypass-route check: MURATA's position is silicon-agnostic (content density rises regardless of which AI PC silicon wins) = structurally resilient.
+
+**Position implication:** HOLD at 13.06% — N1X additive to existing density thesis. No sizing change.

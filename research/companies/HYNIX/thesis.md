@@ -377,3 +377,9 @@ Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md`:
 - Bypass-route check (Critical Rule #9): if N1X execution slips, Qualcomm Snapdragon X / Apple M / Intel Lunar Lake / AMD Strix all also use LPDDR5X — HYNIX LPDDR5X demand resilient to which silicon wins at AI PC tier
 
 **Position implication:** HOLD at 12.43% — N1X is incrementally additive to LPDDR5X demand at premium PC tier but NOT material relative to datacenter HBM/HBM4 core thesis driver. No sizing change.
+
+## Cross-source synthesis — N1X unbiased money-flow analysis 2026-05-31 (added 2026-05-31, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.md`: unbiased flow-of-funds places HYNIX in DRAM tri-vendor cluster (Hynix + Micron + Samsung) at 1st-order P>80% HIGH conviction — 128 GB LPDDR5X @ 8,533 MT/s per premium N1X SKU. Pro-rata split across the three; HYNIX participates. Resilient bypass-route position: even if N1X execution slips, alternative AI PC silicons (Snapdragon X, Apple M, Intel Lunar Lake, AMD Strix) all use LPDDR5X = HYNIX demand silicon-agnostic at AI PC tier.
+
+**Position implication:** HOLD at 12.43% — incrementally additive but datacenter HBM/HBM4 core thesis driver remains dominant. No sizing change.
