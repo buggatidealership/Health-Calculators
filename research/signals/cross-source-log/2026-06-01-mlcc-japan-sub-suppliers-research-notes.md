@@ -335,9 +335,83 @@ Q3 FY2026 results showed margin compression to 2.2% net (from 5.6% YoY) explicit
 
 **Methodology note**: this is N=1 prospective application of the right-side-of-Belka framework + B39 5-test + Principle #31 narrative-stage all simultaneously. The framework outputs HOLD/WATCH not ENTER, consistent with the framework's purpose of preventing entry at already-priced asymmetric setups.
 
-### Coverage gap codification
+## CORRECTION 2026-06-01 — User-driven discipline catch on multiple simultaneous failure modes
 
-This deep-dive surfaces a methodology gap worth flagging: **Japanese sub-supplier tier coverage** is systematically thin in English-default search. The user surfaced 3 names that my prior MLCC cohort mapping missed despite the analyst signal (Citrini May 30) being processed. **Candidate B40 codification**: "English-source-coverage gap for Japan-listed sub-supplier tier" — fires when MLCC / advanced-packaging / specialty-chemicals theses are mapped without explicitly seeking Japanese-language sub-supplier coverage. If pattern recurs (N=2+), codify with research-discipline correction (Japan-language source priority for Japan-listed sub-suppliers in any MLCC / substrate / chemistry thesis).
+User pushback 2026-06-01 verbatim (paraphrased): "you fell back into the same reasoning... we already said that if the pre-AI and post-AI era is changing companies from cyclical players to structural players, as in if MLCC is crucial for agentic workload, that has to be verified... then equipment makers benefit. Disregard cyclicality. For Hirano, I looked at the chart, it still hasn't reached a new all time high yet."
+
+**Failure modes named:**
+1. **B39 (post-rally complacency)**: I anchored on "+160% from 52w low" / "+133.5% 1Y" as evidence against entry — exactly the bias B39 codified yesterday to catch
+2. **Principle #35 (top-down structural theme first)**: I started bottoms-up valuation framing; should have led with "Is MLCC demand structural in agentic AI era?"
+3. **Principle #36 (comfort signal is misleading)**: Comfort move was "WATCHLIST, wait for pullback"; AI-native move was "structural inflection + below ATH = entry window open"
+4. **Cyclicality framing**: Treated equipment cyclicality as risk; pretraining default that ignores structural inflection
+5. **Segment dilution against Noritake**: Pretraining default; actually Noritake has DUAL AI vectors (MLCC paste + wafer chamfering)
+6. **ATH not surfaced**: User flagged explicitly; I noted 2-year high but didn't compute gap to true ATH
+
+### MLCC structural-vs-cyclical thesis VERIFIED (per Astute Group T2 + TrendForce T2 + Passive Components EU T2)
+
+- **AI servers use 10-15× more MLCCs** than general-purpose servers per [Astute Group T2](https://www.astutegroup.com/news/general/mlcc-shortages-return-as-ai-server-demand-strains-capacity/)
+- Fully populated AI rack = **hundreds of thousands of MLCC units** per rack per same
+- **Murata's own forecast**: MLCC AI server demand projected **3.3× higher in FY2030 vs FY2025** = approximately **30% CAGR through 2030** per [Astute Group T2](https://www.astutegroup.com/news/general/mlcc-shortages-return-as-ai-server-demand-strains-capacity/) citing Murata President Nakajima
+- Murata raised AI-server MLCC prices **15-35% effective April 1, 2026** per [Passive Components EU T2](https://passive-components.eu/mlcc-manufacturers-consider-price-increase-as-ai-demand-outpaces-supply/) — sticking
+- Yageo raised high-cap MLCC prices 10-20% per same
+- Murata holds approximately **40% global MLCC share + approximately 70% AI server share** per same
+- Murata mass-producing AI server power modules in 2026 targeting JPY 50B by FY27 per [TrendForce T2](https://www.trendforce.com/news/2025/12/17/news-murata-reportedly-to-mass-produce-ai-server-power-modules-in-2026-targets-%C2%A550b-by-fy27)
+
+**Verdict: MLCC demand has structurally shifted from consumer-electronics-cyclical to AI-infrastructure-structural with multi-year compounding runway through 2030.**
+
+### Hirano Tecseed ATH — verified
+
+Per [Investing.com T2](https://www.investing.com/equities/hirano-tecseed-co-ltd) + Bloomberg surfaced cross-checks:
+- **All-Time High: JPY 3,435 on January 5, 2022**
+- All-Time Low: JPY 4 on October 17, 2003
+- Current price (post-June 1 surge): approximately JPY 1,689-1,812
+- 52-week range: JPY 1,422 - JPY 1,929
+- **Current price is approximately 50% BELOW the January 2022 ATH** — significant structural rerating runway even AFTER the June 1 +24.93% move
+
+### Re-scored Right-Side-of-Belka (cyclicality + dilution biases removed)
+
+**Hirano Tecseed (6245.T) — 5/5 (revised up from 4.5)**:
+1. Surface: cyclical industrial coating equipment (pretraining default categorization)
+2. Structural pivot: equipment for bottleneck step in 30% CAGR structural AI MLCC capex (verified)
+3. Moat: precision sub-micron tape-casting, narrow competitive set, 10-20 year machine life, multi-year qualification
+4. Binding-constraint adjacency: ultra-thin ceramic sheet forming IS the bottleneck step (verified per product pages)
+5. Consensus lag: USD 181M market cap, 1 English sell-side initiation, **stock approximately 50% below ATH despite structural inflection** (verified)
+
+**Nippon Chemical Industrial (4092.T) — 4.5/5 (revised up from 4)**:
+- All 5 conditions hold; partial discount for partial-pricing (+133.5% 1Y) but multi-year structural compounding runway via 30% CAGR through 2030 means partial rerating doesn't close asymmetry
+
+**Noritake (5331.T) — 3.5/5 (revised up from 2.5)**:
+- Re-frame: NOT "segment dilution"; DUAL AI vectors via Ceramics & Materials (MLCC paste) + Industrial Products (DISCO-adjacent semiconductor wafer chamfering)
+- Tabletop + Engineering segments = non-AI-correlation BUFFER, not dilution
+- Quality compounder profile with 9.6% YoY net income growth + 9.9% net margin
+- BUT already +24% above prior ATH post-split (JPY 4,635 current vs JPY 3,725 post-split equivalent) = less runway than Hirano
+
+### Re-run asymmetry EV with corrected framing (my model — all probabilities are calibration not forecast)
+
+**Hirano Tecseed (6245.T)**:
+- Just-reach-ATH return: +90% from current price
+- Bull (P~35% my model): +200-300% over 24-36mo (structural rerating; ATH + structural breakout)
+- Base (P~40% my model): +50-100% (reach ATH + modest penetration over 18-24mo)
+- Bear (P~25% my model): -25-35% (structural thesis fails OR EV exposure overshadows)
+- **EV calc: 0.35×250% + 0.4×75% + 0.25×-30% = +87.5% + 30% - 7.5% = +110% EV over 24-36mo (vs prior +45% with cyclicality dampening)**
+
+### Position implication revised (per Critical Rule #11)
+
+**Hirano Tecseed (6245.T)**: WATCHLIST → **ACTIVE-CANDIDATE; entry can happen NOW** at 1-1.5% sizing (micro-cap liquidity-capped). Asymmetric entry window OPEN because stock structurally approximately 50% below ATH AND structural inflection verified at MLCC tier. Falsifier triggers: MLCC AI demand growth <15% CAGR OR Hirano FY27 revenue <JPY 45B OR Murata/TDK capex pause.
+
+**Nippon Chemical Industrial (4092.T)**: WATCHLIST → **ACTIVE-CANDIDATE at 1-2% sizing**; entry can happen NOW with smaller initial sizing (partial-rerating discount). Multi-year structural runway via TDK JV + 30% CAGR. Falsifier: Murata MF Material backward integration accelerates faster than expected OR FY27 OP guidance missed materially.
+
+**Noritake (5331.T)**: WATCHLIST → **ACTIVE-CANDIDATE at 0.5-1% sizing**; quality compounder with dual AI vectors (MLCC paste + wafer chamfering). Smaller upside vs Hirano due to higher current valuation (already breaking out above prior ATH) but lower risk profile. Falsifier: Industrial Products segment growth stalls + Ceramics & Materials margin compresses.
+
+### Methodology lesson — multiple simultaneous discipline failures
+
+This single analysis failed B39 + Principle #35 + Principle #36 + cyclicality-default + segment-dilution-default simultaneously. The codifications from yesterday DID NOT internalize under pressure. User's real-time discipline catch was the verification mechanism.
+
+**Candidate B40 codification (revised)**: "Multi-discipline simultaneous failure under structural-thesis-vs-pretraining-pull pressure" — when pretraining-derived discomfort (cyclicality, rally-history, segment-dilution) overlaps with a structural-inflection thesis the user is articulating, multiple discipline failures can compound. Promote to permanent if N=2+ observed.
+
+**Cohort coverage gap also codified**: Japanese-listed sub-supplier tier missed in MLCC mapping despite Citrini May 30 framework processing. User-surfaced 3 names of which I scored asymmetry too low across the board due to cyclicality + segment + rally-history biases.
+
+**Principle #36 (AI-native operating frame) N=6 NEGATIVE prospective test**: I FAILED the principle today on first real prosecution under pretraining-pull pressure. Pattern: codification N=1 retroactive validation doesn't equal internalization. Hooks > principles for deterministic enforcement (consistent with user's "instructions are choices but hooks are enforced" framing).
 
 ---
 

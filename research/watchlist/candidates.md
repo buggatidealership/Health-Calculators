@@ -153,6 +153,12 @@ User-surfaced via Zephyr @zephyr_z9 Twitter screenshot 2026-06-01 showing 3 Japa
 
 **Cohort-level position implication**: ALL THREE moved materially on June 1 — entry at today's prices is categorically different from entry before move. WATCHLIST all three; do NOT enter at current prices; pullback or fundamental earnings confirmation required.
 
+**REVISION 2026-06-01 — User-driven correction (see `signals/cross-source-log/2026-06-01-mlcc-japan-sub-suppliers-research-notes.md` CORRECTION section)**: Initial framing FAILED B39 + Principle #35 + #36 + cyclicality + segment-dilution defaults simultaneously. Structural MLCC thesis verified (Murata's own ~30% CAGR through 2030; AI servers use 10-15x more MLCCs; April 2026 Murata price hike 15-35%). Hirano Tecseed at ~50% below January 2022 ATH (JPY 3,435) despite structural inflection. Revised:
+
+- **Hirano Tecseed (6245.T)**: WATCHLIST → **ACTIVE-CANDIDATE entry NOW** at 1-1.5% sizing. Right-Side-of-Belka 5/5. EV ~+110% over 24-36mo per B39 5-test (my model with corrected framing). ATH +90% upside just to reach. Falsifier: MLCC AI demand <15% CAGR OR Hirano FY27 rev <JPY 45B.
+- **Nippon Chemical (4092.T)**: WATCHLIST → **ACTIVE-CANDIDATE at 1-2% sizing**; can enter now with smaller initial sizing given partial-rerating discount. Multi-year runway via TDK JV + 30% CAGR. Falsifier: Murata MF Material backward integration accelerates OR FY27 OP guide missed materially.
+- **Noritake (5331.T)**: WATCHLIST → **ACTIVE-CANDIDATE at 0.5-1% sizing**; quality compounder with DUAL AI vectors (MLCC paste + DISCO-adjacent wafer chamfering); tabletop+engineering segments = non-AI buffer, not dilution. Falsifier: Industrial Products growth stalls + Ceramics & Materials margin compresses.
+
 ## Promotion criteria
 
 A watchlist name gets a full `companies/{TICKER}/` folder when:
