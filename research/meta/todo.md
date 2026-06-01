@@ -17,7 +17,17 @@
 
 ### P1 — High priority (next session — added 2026-05-28 end of session)
 
-(none currently — ESTC and 4092 closed/archived 2026-05-29 per audit)
+- [ ] **P1 / harness / 2026-06-08** [INFRA, CAL] — Two-bracket LLM-native enforcement experiment week-1 check
+  - Origin: 2026-06-01 user authorized live install of `llm-native-priming-hook.py` (UserPromptSubmit) + `structural-output-hook.py` (Stop). Two-bracket architecture: priming biases sampling distribution pre-generation; Stop hook companion enforces structural-output requirements post-generation.
+  - **30-day experiment framing**: Track structural-output-hook fire rate week-by-week to distinguish:
+    - **H1 (P~70% my model)**: pretraining gravity dominates → fires plateau or stay flat → retire both hooks
+    - **H2 (P~20% my model)**: priming materially shifts default mode → fires DECREASE over 4 weeks → keep
+    - **H3 (P~10% my model)**: architecture wrong; behavioral discipline higher leverage → fires INCREASE or stay flat AND user reports no qualitative shift → conclude H3, retire hooks
+  - Week-1 check 2026-06-08: count structural-output-hook fires in past 7 days, log to `meta/recurring-audit-log.md`. Initial baseline expected ~30%+ fire rate; target trajectory toward <10% by end of 4 weeks.
+  - Falsifier (immediate rollback): if priming-hook injection appears to produce WORSE outputs (rigid formulaic responses, naturalness collapse) on first 1-2 sessions, roll back same-day rather than wait 30 days.
+  - Linked: `meta/alt-data-probabilistic-prediction-framework.md`, `meta/hooks/llm-native-priming-hook.py`, `meta/hooks/structural-output-hook.py`, `CLAUDE.md` Enforcement hooks section
+
+
 
 ### P2 — Medium priority
 

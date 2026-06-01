@@ -12,6 +12,17 @@
                 ]
             }
         ],
+        "UserPromptSubmit": [
+            {
+                "matcher": "",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "~/.claude/llm-native-priming-hook.py"
+                    }
+                ]
+            }
+        ],
         "Stop": [
             {
                 "matcher": "",
@@ -47,12 +58,34 @@
                     {
                         "type": "command",
                         "command": "~/.claude/antifragility-mn-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/analyst-pt-context-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/signal-ingest-cascade-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/reasoning-tagging-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/llm-native-reasoning-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/structural-output-hook.py"
                     }
                 ]
             }
         ]
     },
     "permissions": {
-        "allow": ["Skill"]
+        "allow": [
+            "Skill"
+        ]
     }
 }
