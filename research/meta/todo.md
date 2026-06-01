@@ -37,12 +37,6 @@
   - Scope: latest Q3 FY26 earnings + AI PC/wearable design wins + sell-side coverage thinness + investability check; **use ONLY data from past 30 days (no staler than April 30 2026 articles per user discipline catch 2026-05-30)**
   - Linked: `signals/cross-source-log/2026-05-30-overlooked-candidates-deep-dive.md` (to be created)
 
-- [ ] **P2 / research / 2026-05-31** [INDP, AF, POS] — Deep dive: Ambarella (AMBA) edge vision AI candidate — STRUCTURAL CYCLE RESET pattern
-  - Origin: 2026-05-30 evening session subagent surfaced; user observation: **chart hasn't reached ATH since 2015 + sideways trading = similar structural pattern to SUMCO pre-2007 ATH**. Multi-year sideways = potential early-recognition-stage pick like SUMCO was.
-  - **Personal-computing + mobile-phone filter check**: AMBA is auto + security cameras + drones = does NOT fit user's PC + mobile filter cleanly. Despite that, the chart pattern asymmetry justifies deep dive.
-  - Scope: AI = 75%+ revenue per Q1 FY26; CV3 SoC AV pivot vs legacy "GoPro chip" narrative; revenue trajectory + secular cycle inflection vs cyclical noise; investability; **most-recent-quarter data only**
-  - Linked: `signals/cross-source-log/2026-05-30-overlooked-candidates-deep-dive.md`
-
 - [ ] **P2 / research / 2026-05-31** [INDP, AF, POS] — Deep dive: Camtek (CAMT) HBM + advanced packaging inspection candidate
   - Origin: 2026-05-30 evening session — CAMT surfaced INDEPENDENTLY in 2 of 3 parallel subagents (inference infrastructure + memory bottleneck) = highest cross-confirmation signal of the night. User flagged "Camtek might also benefit outside of just edge AI, and it's still a relatively small company."
   - Scope: HBM inspection Hawk platform + Eagle G5; 2026-2027 HBM bookings detail; broader AI chip volume exposure (beyond just edge AI); competitive position vs Onto Innovation + KLA; investability; **most-recent-quarter data only**

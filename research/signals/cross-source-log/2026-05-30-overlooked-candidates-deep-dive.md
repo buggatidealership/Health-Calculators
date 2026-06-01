@@ -88,3 +88,36 @@ COHU + CAMT + RMBS — COHU + RMBS already known to harness per user. CAMT cross
 - `predictions/inference-log.md` Entry #1 — confidence correction from ~70% to ~60-62% pending update
 - `signals/cross-source-log/2026-05-30-evening-brief.md` — tonight's brief that triggered candidate surface
 - `meta/todo.md` — 4 deep-dive items added (2026-05-31 SYNA + AMBA + CAMT + LSCC refresh)
+
+---
+
+## CORRECTIONS APPENDED 2026-06-01 (per 4-subagent AMBA deep-dive)
+
+This file contained 4+ factual errors regarding AMBA that the 4-subagent LLM-native deep-dive surfaced. Logging corrections here for record:
+
+1. **ATH date WRONG**: claimed "no ATH since 2015 + sideways trading = SUMCO-pre-2007 pattern analog"
+   - **Verified actual ATH: December 2021 at ~$227.59 intraday / $216.84 closing** (T2: MacroTrends + multiple)
+   - The 2015 ~$129 peak was a LOCAL GoPro-era peak, NOT the structural high
+   - Current ~$72 = **-68.4% from Dec 2021 ATH**, NOT -44% from 2015 $129
+   - This materially changes the SUMCO-pre-2007 analog; 2021 ATH was speculative bubble premium, subsequent drawdown was correct de-rating, current $72 is post-bubble-deflation WITH real revenue support
+
+2. **"AI = 75%+ revenue" claim — misleading conflation**
+   - Verified: AMBA does NOT report "AI revenue" as a formal segment line item
+   - The 80% figure is for "Edge AI SoCs as % of total revenue" (FY2026, T1 verbatim 8-K)
+   - The 75% figure is IoT segment share (different metric)
+   - Conflating these in a thesis is an error
+
+3. **"4th consecutive record AI quarter" claim — period-misplaced**
+   - Verified: 4th consecutive was Q1 FY2026 (Apr 2025); 6th consecutive Q3 FY2026; Q1 FY2027 was "automotive all-time quarterly record" (different framing)
+
+4. **"Aurora" trucking customer reference — WRONG**
+   - Verified actual: **Kodiak Robotics** is the autonomous trucking design win (CV3-AD685 selected; >300K miles on prior CV2)
+   - Aurora Innovation is a separate AV company; no T1/T2 source confirms AMBA/Aurora link
+
+Additional risks NOT in the original surfacing:
+- **WT Microelectronics 70% distributor concentration** (T1 10-K) — operational single-point-of-failure
+- **Hanwha LTA is framework agreement** (no binding minimum purchase disclosed) — moat caveat
+- **Hisilicon market share recovery risk under-researched** — biggest surveillance bear
+
+Full corrected facts + thesis: `companies/AMBA/`
+Full 4-subagent synthesis: see commit message of 2026-06-01 commit creating `companies/AMBA/`
