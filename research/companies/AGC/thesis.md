@@ -113,13 +113,27 @@ AGC is the highest-ranked of the 3-way PTFE supplier comparison (4/5 Right-Side-
 
 ---
 
-## Position implication (Critical Rule #11)
+## Position implication (Critical Rule #11) — REVISED 2026-06-01 post alt-data trial
 
-**Position implication: WATCHLIST — 0% position — NO ACTION until named trigger fires.** Thesis has 4/5 RSoB + multi-vector AI exposure, but asymmetry ratio (~1.5-2:1) below the 3:1+ threshold for high-conviction sizing. Named triggers for upgrade:
-- (a) public announcement of M10/Rubin PTFE qualification win for AGC/Taconic/Nelco materials, OR
-- (b) FY2026 H2 Electronics segment OP recovers above JPY 30B annualized with explicit semiconductor materials attribution.
+**Position implication: ENTER at 2% portfolio sizing NOW** (Quarter-Kelly on full EV scenario set; revised from prior 0% WATCHLIST).
 
-Either trigger warrants revisiting at 3-5% portfolio sizing.
+**Rationale per `signals/cross-source-log/2026-06-01-agc-m10-alt-data-probability-trial.md`:**
+- P(AGC named qualified M10 supplier publicly within 12 months) = 22% ± 14% (my model; base rate fragile N=4-6)
+- EUV photomask blank vector (>59% global share, JPY 40B FY2024) is INDEPENDENT of M10 qualification — standalone thesis justifies position by itself
+- Prior thesis erroneously conflated two separate vectors (EUV + PTFE CCL) into single binary trigger
+- Quarter-Kelly on blended EV +17.85% (my model) yields ~2% sizing
+- Full Kelly on narrow bull case (P=15%, b=3.0) = NEGATIVE -0.13 → 2% reflects discipline not maximum upside
+
+**CRITICAL FINDING from alt-data trial:** AGC's "M10 testing participant" framing in `facts.md` may be overstated. Authoritative analyst sourcing (Ming-Chi Kuo + Tianfeng Securities) specifically names **Shengyi Technology + Taiwan Union Technology** as M10 testing participants — AGC/Taconic/Nelco NOT in that authoritative shortlist. T2 trade press (UGPCB) names PTFE broadly as a tested class, not AGC specifically. This is the single highest-value data gap.
+
+**Upgrade triggers:**
+- 3.5% sizing if: explicit Kuo/Digitimes-grade naming of AGC OR Q2 FY2026 mgmt commentary on PTFE CCL AI qualification OR METEORWAVE ELL Df<0.002 spec confirmation
+- 5% sizing if: qualification announced publicly
+
+**Stop-loss (falsifier-based):**
+1. M10 qualification awarded to Shengyi + TUC exclusively, no AGC mention by Q4 2026 → EXIT
+2. AGC Q3/Q4 FY2026 Electronics segment OP stays below JPY 10B annualized → REASSESS
+3. JPY appreciates sustainably below 140 vs USD → REASSESS (FX tail risk)
 
 ---
 
