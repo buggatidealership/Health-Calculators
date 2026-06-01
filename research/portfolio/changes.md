@@ -1,6 +1,6 @@
 # Portfolio Changes Log
 
-**Last updated:** 2026-05-25
+**Last updated:** 2026-06-01
 
 Append-only log of buys, sells, sizing changes. Format:
 
@@ -9,6 +9,8 @@ Append-only log of buys, sells, sizing changes. Format:
 ```
 
 ## Log
+
+[2026-06-01] BUY MDB (MongoDB) — NEW POSITION entered at ~€10,000 (user-confirmed verbal report). Aligned with `companies/MDB/thesis.md` (2026-05-29 build): integrated embedding-to-retrieval moat post-Voyage AI acquisition; cRPO +69% YoY Q1 FY27 leading indicator (per [MDB 8-K T1 SEC](https://www.sec.gov/Archives/edgar/data/0001441816/000162828026013199/mdb-13126xex991xrelease.htm)); vector customers "nearly doubled YoY" per CEO; least overlap with held NOW + DDOG of 3 vector-DB candidates evaluated. **Sizing note**: original recommendation was 3-4% (€5-6K initial) per thesis file with SIZE UP gated to 5-7% on Q2 FY27 print (Sept 2026); €10K execution = ~5.7% of consolidated portfolio = above initial recommendation, within SIZE UP band. User decision to upweight at entry vs gated post-Q2 raise. BEP / share count pending Degiro confirmation.
 
 [2026-05-25] PORTFOLIO REBALANCE (per user screenshot @5c01b086-23484.jpg)
 
