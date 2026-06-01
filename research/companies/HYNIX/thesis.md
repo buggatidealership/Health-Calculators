@@ -420,3 +420,9 @@ Per `signals/cross-source-log/2026-05-31-goldman-hynix-probability-recalibration
 **Falsifier watch**: HBM4 ramp delay, Samsung supply normalization, demand softening, Korean macro / KOSPI concentration unwind. None fired; thesis intact.
 
 **Position implication:** HOLD at 12.43% — Stage 4 reclassification confirms NO ADD; existing +900% YTD gain captured; monitor falsifiers; do NOT exit on profit per L3.
+
+## Cross-source synthesis — Jensen Computex 2026-06-01 keynote INGEST (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-jensen-computex-keynote-ingest.md` + [Korea Herald T2](https://www.koreaherald.com/article/10761132): Jensen explicitly confirmed **Vera Rubin uses Korean memory** with **1.2 TB/s LPDDR5X ECC per rack**. Vera Rubin is in **full production NOW** with mass production H2 2026. HYNIX 70% HBM share for Vera Rubin per existing thesis confirmed via OEM channel (Dell, HPE, Supermicro, Lenovo named as server manufacturers).
+
+**Position implication:** HOLD at 12.43% — Stage 4 priced-to-perfection holds; explicit Korean memory naming + Vera Rubin full production = thesis structurally intact and reinforced. No sizing change; L3 holds (don't sell on profit, falsification is signal).

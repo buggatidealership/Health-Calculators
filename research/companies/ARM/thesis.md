@@ -431,6 +431,26 @@ Per `signals/cross-source-log/2026-05-31-morning-brief.md`: **Dell confirmed XPS
 
 **Position implication:** HOLD at 11.36% — N1X consumer ship CONFIRMS the May 29-30 tease and the AI PC royalty trajectory. SIZE UP candidate strengthened but still GATED on (a) Computex June 2-5 design-win + royalty-detail confirmation, (b) Q2/Q3 FY27 earnings quantifying AGI CPU margin + royalty mix, (c) FTC antitrust probe direction clarification. No sizing change before Computex.
 
+## Cross-source synthesis — Jensen Computex 2026-06-01 keynote INGEST (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-jensen-computex-keynote-ingest.md`: Jensen formally revealed both Vera Rubin AND RTX Spark (consumer brand for N1X). **All 5 ARM narrative legs now have CONFIRMED production silicon**:
+
+| Leg | Product | Status |
+|---|---|---|
+| Mobile (95% share) | Cortex IP | Decades-running |
+| Datacenter Neoverse (50% hyperscaler) | Neoverse V3 in Vera CPU | Full production |
+| AGI CPU | ARM in-house datacenter chip | Q4 FY27 production |
+| Edge AI | Cortex + Mali in everything | Compounding (9+ data point cluster) |
+| **AI PC** | **N1X / RTX Spark** | **OEM ships Fall 2026** |
+
+**Critical detail from keynote**: RTX Spark CPU was **custom-designed by MediaTek** (per [CNBC T2](https://www.cnbc.com/2026/05/31/nvidias-new-chip-to-power-fresh-line-of-windows-laptops-by-dell-hp.html)) — MediaTek licenses ARM IP, so ARM royalty stream materializes via MediaTek subcontract, NOT direct NVDA license. Royalty flow is intact (per-chip on standard Armv9 IP license) regardless of which entity NVDA contracted with for the CPU design.
+
+**Vera CPU** (datacenter Vera Rubin) is ARM-licensed direct to NVIDIA per existing thesis. Both flows = ARM royalty captured.
+
+**5-leg ARM narrative now fully validated with confirmed production silicon at every leg.** This is the strongest single-keynote confirmation of the thesis since AGI CPU launch March 2026.
+
+**Position implication:** HOLD at 11.36% — Stage 4 priced-to-perfection per Principle #31 + B39 discipline holds; no ADD at current size. **L3 lesson reinforced**: don't sell on profit. Thesis structurally intact. Watch for Q2/Q3 FY27 earnings + FTC antitrust probe direction.
+
 ## Cross-source synthesis — N1X / N1 spec dissection 2026-05-31 (added 2026-05-31, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md` — 4-source convergent spec verification (VideoCardz + OC3D + Notebookcheck + Tom's Guide T2). Key findings:

@@ -314,3 +314,15 @@ Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.m
 **Bypass-route check (Critical Rule #9)**: ALAB is one of the few names where N1X-specific demand is structurally additive (not silicon-agnostic) because the 12-lane PCIe 5.0 spec is unusual at laptop tier. Alternative AI PC silicons (Snapdragon X, Apple M, Intel Lunar Lake) generally ship fewer PCIe lanes; if N1X execution succeeds, ALAB sees a PC-tier retimer category that doesn't exist for other AI PC silicons.
 
 **Position implication:** HOLD at 6.51% — N1X PC-tier PCIe retimer vector is incremental/additive but not yet quantified; ALAB SIZE UP consideration per user 2026-05-29 flag still pending architecture detail verification on AWS RNG + Computex N1X volume forecast. No sizing change today.
+
+## Cross-source synthesis — Jensen Computex 2026-06-01 keynote INGEST (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-jensen-computex-keynote-ingest.md`: **Vera Rubin platform is the first MGX rack with PCIe Gen6 at 1.4 TB/s bandwidth** per [SiliconANGLE T2](https://siliconangle.com/2026/06/01/nvidia-ramps-production-vera-rubin-foundation-next-generation-ai-factories/). Mass production H2 2026.
+
+**This is the strongest single ALAB datapoint of 2026.** ALAB Aries (PCIe Gen6 retimer) + Scorpio (scale-up fabric) are precisely positioned for Vera Rubin's 1.4 TB/s PCIe Gen6 fabric. Combined with N1X PC-tier 12 PCIe 5.0 lanes per laptop SKU = **dual-vector ALAB demand**:
+- Datacenter tier (Vera Rubin Gen6 retimers + Scorpio scale-up)
+- PC tier (N1X laptop 12-lane PCIe 5.0 retimers per existing thesis)
+
+**350+ supply chain partners across 30 countries** for Vera Rubin = massive deployment breadth; ALAB Gen6 retimer demand scales with rack count, not chip count.
+
+**Position implication:** HOLD at 6.51% — SIZE UP candidate framing per user 2026-05-29 flag MATERIALLY STRENGTHENED by Vera Rubin Gen6 explicit naming. SIZE UP gate now: (a) AWS RNG architecture detail (existing flag), (b) Vera Rubin H2 2026 mass production confirmation in NVDA Q2/Q3 prints, (c) any ALAB customer-win disclosure for Vera Rubin retimers. Consider revisiting SIZE UP sizing post-NVDA next earnings print.
