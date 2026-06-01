@@ -413,6 +413,55 @@ This single analysis failed B39 + Principle #35 + Principle #36 + cyclicality-de
 
 **Principle #36 (AI-native operating frame) N=6 NEGATIVE prospective test**: I FAILED the principle today on first real prosecution under pretraining-pull pressure. Pattern: codification N=1 retroactive validation doesn't equal internalization. Hooks > principles for deterministic enforcement (consistent with user's "instructions are choices but hooks are enforced" framing).
 
+## Japanese-language sources surfaced 2026-06-01 (after user-directed multilingual search)
+
+Applied user-directed correction: "if the company is Japanese, then you can do searches in Japanese." Japanese-language queries surfaced sources English-default search missed:
+
+### Sell-side initiation reports (Japanese, at Hirano's own IR page)
+
+- [Hirano Tecseed Initiation Report Dec 2025 JP version T1 IR](https://www.hirano-tec.co.jp/mt_asset/InitiationReport_08_12_25_JP.pdf)
+- [Hirano Tecseed Initiation Report June 2025 JP version T1 IR](https://www.hirano-tec.co.jp/mt_asset/InitiationReport_17_06_25_JP.pdf)
+
+These reports were NOT surfaced in English-only research; available on company IR page in Japanese only.
+
+### Japanese-source financial data (revenue discrepancy worth flagging)
+
+Japanese sources ([Nikkei Disclosure T1](https://www.nikkei.com/nkd/disclosure/tdnr/20250804529370/) + [Minkabu T2](https://minkabu.jp/stock/6245/settlement) + [Yahoo Finance Japan T2](https://finance.yahoo.co.jp/quote/6245.T/financials)) report:
+- Sales declined 33.2% to JPY 32.285 billion (fiscal period from Japanese coverage)
+- Net profit +45.0% to JPY 1.313 billion (revised contract terms)
+- Q1 (April-June) operating profit +95% to JPY 473 million
+- Q3 cumulative ordinary profit JPY 1,841 million
+- Electronic materials segment: film-forming equipment for MLCC + transparent polyimide film declined due to US tariff policy caution + weak customer investment appetite
+- Company actively pursuing market share expansion in MLCC as target market
+
+**DISCREPANCY vs initial English subagent**: Prior subagent cited FY2026 revenue JPY 48,355M (Investing.com aggregate); Japanese source cites JPY 32.285B for fiscal period covered. Likely different fiscal year framing (FY2025 actual vs FY2026 forward; Hirano FY ends March 31). **Both figures should be treated as PENDING RECONCILIATION** — the specific period each source refers to needs verification against actual annual report.
+
+### DISCO adjacency clarification — Hirano is NOT DISCO-adjacent
+
+User asked "if it's adjacent to DISCO" — verification:
+- **Hirano Tecseed**: coating/laminating equipment (tape-casting for ceramic sheets) → NOT DISCO-adjacent
+- **DISCO**: wafer grinding / dicing / cutting equipment
+- Different layers of semiconductor/electronics manufacturing equipment stack
+- **DISCO adjacency is a NORITAKE property** (grinding wheels for semiconductor wafer chamfering), not Hirano
+
+This means the "safer because DISCO-adjacent" framing applies to Noritake, not Hirano. Hirano is safer-because-MLCC-tape-casting-chokepoint; Noritake adds DISCO adjacency.
+
+## LLM-native-reasoning hook codified 2026-06-01
+
+Per user 2026-06-01 verbatim: "before you spit out an output, you have to go back and check if you are ruling too much on your human based pretraining data and are actually applying LLM native reasoning and research principles."
+
+Built `~/.claude/llm-native-reasoning-hook.py` (12th live Stop hook) with source mirror at `research/meta/hooks/llm-native-reasoning-hook.py`. Triggers on 4 pretraining-default patterns:
+1. Cyclicality framed as risk without structural-vs-cyclical test
+2. Rally history as entry evidence without B39 5-test asymmetry verification
+3. Non-Western-listed ticker (.T, .KS, .TW, .HK, .KQ) without native-language source reference
+4. Segment dilution critique without multi-vector AI exposure test
+
+Generous exemptions: meta-discussion, explicit structural framing, hedge tags, native-language source citations, ATH-distance language, multi-vector AI framing.
+
+Retirement trigger: fires <3x/month over 3 consecutive months → inert, retire. Monthly audit 2026-06-24 reviews activation log.
+
+**Bias addressed**: extends Principle #36 candidate (AI-native operating frame) deterministic enforcement layer. Catches the multi-discipline simultaneous failure mode (B40 candidate) where pretraining-pull overrides codified principles under pressure.
+
 ---
 
 ## Nippon Chemical Industrial (TSE: 4092) — Verified facts
