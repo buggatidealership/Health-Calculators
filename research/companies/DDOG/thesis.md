@@ -349,3 +349,13 @@ Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md`:
 Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.md`: unbiased flow-of-funds places DDOG in latent 2nd-order edge AI runtime + observability category (P~60% the category emerges; no clear public leader yet). Money flow contested between Microsoft Agent 365 (endpoint-native), DDOG (cloud-extension), Splunk-Cisco (enterprise-extension), net-new entrants. Gated on actual product launch 2026-2027. Unbiased read: DDOG is NOT the consensus winner here — Microsoft has the endpoint-native advantage on N1X devices.
 
 **Position implication:** HOLD pending Monday SIZE UP per pre-committed plan; unbiased read does NOT alter sizing but confirms Microsoft Agent 365 competitive risk is structurally real at endpoint observability tier; WATCH for DDOG endpoint-observability product announcement Q3-Q4 2026.
+
+## Cross-source synthesis — May 31 Evening Brief: Netflix open-sources AI cost optimization tool (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-evening-brief.md`: Netflix open-sourced internal AI cost optimization tool — major enterprise-scale company publicly admitting cost pressure → tooling now public per [The Register T2]. This is the **5th data point in the enterprise AI cost crisis cluster** within 7 days (joining WSJ corporate rationing + $500M Claude mystery + GitHub Copilot token billing pivot + agentic CUDA silent failures). Category emergence event confirmed at major-enterprise level.
+
+**Inference Entry #1 confidence**: ticks up incrementally from ~60-62% to **~63-65%** (per `predictions/inference-log.md`; my model). Reasoning: category emergence is materializing at scale (5 data points in 7 days) even if vendor-share question remains open. Resolution criterion update: if any DDOG enterprise customer publicly cites Netflix-style cost optimization workflow within 60 days → confidence ticks to ~70%.
+
+**Bypass-route check (Critical Rule #9)** unchanged: Microsoft Agent 365 remains the primary Microsoft-ecosystem competitor; DDOG retains cross-cloud / multi-provider category default position.
+
+**Position implication:** HOLD — Monday SIZE UP per pre-committed plan unchanged (€5,000 add). Brief reinforces structural thesis but does NOT alter the pre-committed sizing.

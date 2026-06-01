@@ -332,3 +332,9 @@ Per `signals/cross-source-log/2026-05-31-morning-brief.md`: SoftBank commits €
 **TE-specific implications**: European 5 GW commitment compounds the Supply Chain Inheritance thesis — TE's solar/battery/power-conversion physical supply base overlaps with the supply base feeding hyperscaler 800V DC rack architecture (per principle #28 + NVDA 2025 technical blog credit to EV/solar industries). The European-specific demand benefits TE indirectly via shared physical supply chain (European power-equipment supply chain density), not via direct hyperscaler procurement. Bypass-route check (Critical Rule #9): if US-listed power infra fails to absorb European 5 GW demand, European players (Schneider, ABB) benefit directly; TE benefits at the upstream shared-supply-base tier regardless of geographic split.
 
 **Position implication:** HOLD at 6.87% — 3rd consecutive day of gigawatt commitment news reinforces structural thesis but the European geographic skew of this specific deal limits TE direct upside vs. domestic US power infra names; no sizing change.
+
+## Cross-source synthesis — May 31 Evening Brief: SoftBank French DC commitment upsized to $87B (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-evening-brief.md`: SoftBank commitment for French AI data centers reported at **up to $87B** per Tom's Hardware T2 (vs €75B framing in May 31 morning brief — could be roughly equivalent at exchange rates OR represent revised upper-bound figure). Brief explicitly emphasizes France's nuclear grid capacity advantage over US sites. 4th consecutive day of gigawatt-scale infra commitment news.
+
+**Position implication:** HOLD at 6.87% — incremental reinforcement; no sizing change. European geographic skew limits TE direct upside vs domestic US power infra; Supply Chain Inheritance thesis remains intact via shared supply-base (per principle #28).

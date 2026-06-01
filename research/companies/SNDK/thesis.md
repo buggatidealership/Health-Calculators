@@ -289,3 +289,9 @@ Per `signals/cross-source-log/2026-05-31-nand-demand-model-v2-verified.md`: 2 pa
 - Compliance retention: EU AI Act Article 18 = **10 years for high-risk model artifacts** (Aug 2026 enforcement); weighted average **7.3 yr 2026 / 8.8-9.5 yr 2028**
 
 **Position implication:** HOLD at ~10.8% — V2 model REINFORCES structural thesis with tightened bull-case ranges; existing position captures structural demand growth. SIZE UP gate unchanged (Q1 print late July + Kioxia VLSI June). The pricing power being captured (75% NAND hike per MS) is empirically grounded.
+
+## Cross-source synthesis — May 31 Evening Brief: Connecticut AI notification law (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-05-31-evening-brief.md`: Connecticut signed AI employee notification law per Bloomberg Law T2 — adds to state-level regulatory patchwork (joins NYC LL144, Illinois AIVFA, Colorado ECDIS). Each new state mandate = incremental compliance retention demand vector. Per V2 NAND demand model: weighted-average retention duration trajectory toward 8.8-9.5 yr by 2028 incrementally reinforced.
+
+**Position implication:** HOLD at ~10.8% — incremental reinforcement; no sizing change. Structural compliance NAND thesis continues to accumulate confirmation data points; SIZE UP gate unchanged.
