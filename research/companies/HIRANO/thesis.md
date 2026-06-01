@@ -168,7 +168,11 @@ Hirano Tecseed makes ceramic sheet-forming machines — the most technically dem
 
 **Entry mechanics:** Limit orders only; target JPY 1,600-1,900 range; avoid chasing above JPY 1,929 (52w high). Spread/commission on Degiro TSE ~EUR 5/trade + 0.1% FX (acceptable at 1-1.5% size).
 
-**Upgrade trigger:** Q1 FY2027 results (Aug 6, 2026) confirming criteria — revenue >JPY 9B OR explicit MLCC commentary OR upward guidance revision attributed to MLCC. Consider sizing up toward 2% on confirmation (still liquidity-bounded).
+**SIZING REFINEMENT 2026-06-01 (user critique):** Initial entry capped at 1.5% by per-trade liquidity reality (thin float ~15M shares; estimated EUR 100-300K daily volume). **Target position can be higher than initial entry** via phased entry over 4-8 weeks using limit orders below market. **Revised target: 2.5-3% over phased entry** — reflecting that Hirano has HIGHER conviction than AGC (38% vs 22% computed P; direct chokepoint vs multi-vector dilution) and Kelly math exceeds liquidity cap on both proxy-conditioned and full-thesis bases.
+
+**DEMAND-ENVIRONMENT ADJUSTMENT 2026-06-01 (user critique):** The 2018 base rate analog (Murata smartphone+auto capex → Hirano JPY 18B backlog) is backward-looking and likely under-models today's demand environment. In 2018: no ChatGPT, no agentic AI workloads, hyperscaler capex ~$100B, no AI server MLCC 10-15x intensity. In 2026: $660-690B FY26 hyperscaler capex, agentic AI workloads continuous (not bursty), Goldman MLCC 4.3× demand 2025-2030, Murata management framing as multi-year structural cycle. Demand-environment uplift ~+8% to base rate → revised P ~40-45% (my model, NOT statistically derived — qualitative adjustment with explicit hedge). Position remains 1.5% initial → 2.5-3% phased target.
+
+**Upgrade trigger:** Q1 FY2027 results (Aug 6, 2026) confirming criteria — revenue >JPY 9B OR explicit MLCC commentary OR upward guidance revision attributed to MLCC. Consider scale toward 3% on confirmation (still liquidity-bounded; use patient limit orders).
 
 **Stop-loss (falsifier-based, not price-based):**
 1. Q1 + Q2 FY2027 both come in below JPY 8B/quarter AND no MLCC commentary → MLCC inflection thesis materially deferred

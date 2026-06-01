@@ -68,11 +68,10 @@
 
 ### P2 — SoC building-block layer deep-dives (added 2026-05-31)
 
-- [ ] **P2 / research / 2026-06-02** [INDP, AF, POS] — Deep-dive: Synopsys (SNPS) + Cadence (CDNS) — EDA oligopoly at SoC building-block layer
-  - Origin: 2026-05-31 NVDA N1X SoC architecture analysis surfaced these as fully-convergent (edge + datacenter) beneficiaries with strong moat + low displacement + multi-quarter beat probability per `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
-  - Scope: full thesis build for both — moat depth (EDA oligopoly mechanics), AI EDA market trajectory, competitive positioning vs Siemens EDA + Keysight + Zuken, Synopsys Ansys integration execution, Cadence IP segment +22% YoY momentum, valuation check, bottoms-up earnings build per principle #1, falsifier list, anti-fragility scoring
-  - **Refinement 2026-05-31 (user-directed)**: both already at ATH; deep-dive must address WHICH has higher probability of CONTINUED above-average return; primary durability variable = locked-in forward revenue visibility (SNPS $11.3B backlog ~47% in next 12mo; CDNS $8.0B record backlog $4.0B in next 12mo)
-  - Linked: `watchlist/candidates.md` § SoC building-block; `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`; `signals/cross-source-log/2026-05-31-soc-building-block-durability-matrix.md` (to be created in same commit)
+- [x] **DROPPED 2026-06-01** — Deep-dive: Synopsys (SNPS) + Cadence (CDNS) — EDA oligopoly at SoC building-block layer
+  - **Reason dropped (user-directed 2026-06-01)**: IP licensing business cannot achieve same physical-scarcity moat as physical chokepoints (Murata MLCC, Sandisk NAND, Micron HBM, Hirano tape-casters). Moat type is contractual/legal/switching-cost, not capacity-constrained. Different moat type → outside scope of alt-data probabilistic prediction framework (which is built for physical chokepoint identification). User unverified hypothesis: "IP licensing from unit economics, they can never achieve that type of scarcity that a Sandisk or a Micron or a Murata can." Hypothesis acknowledged as unverified but structurally consistent with Right-Side-of-Belka physical-scarcity principle. Revisit if hypothesis later falsified.
+  - Original origin: 2026-05-31 NVDA N1X SoC architecture analysis surfaced these as fully-convergent (edge + datacenter) beneficiaries with strong moat + low displacement + multi-quarter beat probability per `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
+  - Linked: `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
 
 - [ ] **P2 / research / 2026-06-02** [INDP, AF, POS] — Deep-dive: Advantest (6857.T) + Teradyne (TER) — SoC test duopoly
   - Origin: 2026-05-31 SoC architecture analysis — Advantest 66% share (+10pp YoY), op margin expanded 1,490bp to 44.2%; Teradyne Q1 2026 +87% YoY, AI = 70% of revenue per `signals/cross-source-log/2026-05-31-soc-building-block-layer-analysis.md`
