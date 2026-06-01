@@ -43,7 +43,7 @@ The brief saying "DDR5" vs yesterday's "LPDDR5X" is a potential transcription in
 
 ### Pattern 1: Enterprise AI cost rationing INTENSIFIES (THE biggest signal of brief)
 
-- **Netflix open-sources AI cost optimization tool** — major enterprise-scale company publicly admitting cost pressure → tooling now public
+- **Netflix open-sources AI cost optimization tool (Headroom)** — major enterprise-scale company publicly admitting cost pressure → tooling now public
 - Compounds prior signals:
   - WSJ corporate AI rationing per `2026-05-31-morning-brief.md` (May 31 morning)
   - $500M Claude mystery enterprise bill per `2026-05-30-evening-brief.md` (May 29-30)
@@ -51,13 +51,33 @@ The brief saying "DDR5" vs yesterday's "LPDDR5X" is a potential transcription in
   - Bain $200B AI spend gap forecast (general industry framing)
 - This is now a **5+ data-point cluster** in the "enterprise AI cost crisis" segmented theme over past 7 days
 
-**N-th order cascade:**
-- 1st order (P>80%): enterprise demand for AI cost-attribution + governance tooling at agent-fleet level accelerates
-- 2nd order (P~60%): cloud LLM API providers face pricing pressure as enterprises seek architectural optimizations (Netflix's tool example); shift toward usage-meter pricing accelerates
-- 3rd order (P~40%): observability category (DDOG, Microsoft Agent 365, Splunk-Cisco) compete to capture the budget enterprises ARE willing to spend on governance
-- 4th order (P~20%): vendor consolidation accelerates — enterprises consolidate AI spend on fewer platforms to simplify cost attribution
+### CORRECTION 2026-06-01 (user-driven precision pass)
 
-**Bypass-route check (Critical Rule #9):** if DDOG cross-cloud observability fails to capture Microsoft-ecosystem enterprises, Microsoft Agent 365 bypasses DDOG natively via Entra Agent ID + Defender. Non-consensus beneficiary if cross-cloud observability loses share = fragmentation across MSFT + Splunk + Datadog + ServiceNow (no clean alternative). DDOG remains category default for cross-cloud / multi-provider per existing CORRECTION 2026-05-30.
+**Initial framing was imprecise.** I called Netflix's tool a data point "reinforcing DDOG observability thesis" — that conflates two architecturally distinct layers.
+
+**Headroom is NOT a DDOG competitor** — they sit at different layers:
+- **Headroom** = OPTIMIZATION layer (pre-API-call token pruning proxy). Compresses payloads before LLMs see them. Per [The Register T2](https://www.theregister.com/ai-ml/2026/05/31/netflix-wiz-creates-app-to-slash-ai-bills-then-open-sources-it/5248702) + [Let's Data Science T2](https://letsdatascience.com/news/netflix-engineer-open-sources-headroom-to-cut-ai-token-costs-8f10c68d): drop-in LLM proxy, AST/DOM/JSON compressors, statistical "squashers" for relevance, $700K savings claimed by early adopters, 90% of tokens claimed redundant.
+- **DDOG LLM Observability** = OBSERVABILITY layer (post-call tracking). Captures prompts, completions, token usage, cost data. Does NOT block requests or enforce budgets.
+
+**User pushback 2026-06-01**: *"you need to observe before you can optimize."* Architecturally correct in most enterprise systems. Observability is PREREQUISITE to optimization — to know what to compress, optimization tools need to identify which prompt/model/agent is expensive. So both layers can grow together; substitution risk only exists if optimization tools embed their own telemetry (Headroom likely does for reporting savings, but cost-only telemetry vs APM/agent-reliability telemetry are different products).
+
+**Revised competitive landscape for DDOG observability** (DDOG's actual competitors, not Headroom):
+- Langfuse (open-source LLM observability)
+- Helicone (zero-code-change LLM tracking)
+- Microsoft Agent 365 (endpoint-native, Microsoft-ecosystem only — already documented as primary competitive risk per 2026-05-30 DDOG thesis CORRECTION)
+- CloudZero + Finout (FinOps platform layer; overlapping at cost-attribution tier)
+
+**Per AI Vyuh FinOps comparison T2**: "Datadog is an observability platform first; it provides cost dashboards and alerting, but does NOT block requests when budgets are exceeded or apply hierarchical budget logic at the request layer." → that's the enforcement gap Headroom-class tools fill.
+
+**Calibration note for Calibration Tracker (per `predictions/inference-log.md`)**: my initial Inference Entry #1 confidence tick from ~60-62% → ~63-65% was based on imprecise framing. Revised: **confidence stays at ~60-62%** because (a) the cost crisis category emergence IS real (5 data points in 7 days), but (b) not every data point cleanly accrues to DDOG observability layer specifically. Pending verification: subagent research on Netflix-DDOG relationship + observability-vs-optimization architecture (in progress 2026-06-01).
+
+**N-th order cascade (revised post-correction):**
+- 1st order (P>80%): enterprise demand for AI cost-attribution + governance tooling at agent-fleet level accelerates → BOTH observability AND optimization layers grow
+- 2nd order (P~60%): cloud LLM API providers face pricing pressure as enterprises seek architectural optimizations (Headroom example); shift toward usage-meter pricing accelerates; OpenAI/Anthropic margins compress at consumer tier
+- 3rd order (P~40%): observability category (DDOG, Langfuse, Helicone, Microsoft Agent 365) competes for budget enterprises ARE willing to spend on governance; meanwhile optimization category (Headroom-class, AI Vyuh, nOps) competes for the SEPARATE budget enterprises are willing to spend on enforcement
+- 4th order (P~20%): vendor consolidation accelerates — enterprises consolidate AI spend on fewer platforms; one of three patterns dominates: (a) observability vendors add optimization (DDOG ships Headroom-equivalent), (b) optimization vendors add observability (Headroom adds tracking dashboards), (c) FinOps platforms absorb both (CloudZero / Finout)
+
+**Bypass-route check (Critical Rule #9, revised):** if DDOG cross-cloud observability fails to capture Microsoft-ecosystem enterprises → Microsoft Agent 365 bypasses (already documented). If DDOG fails to enter the optimization layer → Headroom-class tools (Helicone, AI Vyuh, nOps) capture the spend. **Non-consensus beneficiary if DDOG loses the optimization-layer race = potentially Pure Storage (PSTG) or net-new vendors that consolidate observability+optimization+FinOps under one platform.** Watching the consolidation pattern.
 
 ### Pattern 2: Edge AI proliferation cluster compounds
 

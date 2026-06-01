@@ -359,3 +359,23 @@ Per `signals/cross-source-log/2026-05-31-evening-brief.md`: Netflix open-sourced
 **Bypass-route check (Critical Rule #9)** unchanged: Microsoft Agent 365 remains the primary Microsoft-ecosystem competitor; DDOG retains cross-cloud / multi-provider category default position.
 
 **Position implication:** HOLD — Monday SIZE UP per pre-committed plan unchanged (€5,000 add). Brief reinforces structural thesis but does NOT alter the pre-committed sizing.
+
+## CORRECTION 2026-06-01 — Headroom is NOT DDOG competition (architecture clarification)
+
+User-directed precision pass 2026-06-01 morning: prior framing of Netflix's Headroom tool as "5th data point validating DDOG observability category" was imprecise. **Headroom is at the OPTIMIZATION layer (pre-API-call token pruning), NOT the OBSERVABILITY layer where DDOG plays.** They are architecturally distinct and likely COMPLEMENTARY in enterprise workflows (observe → identify expensive calls → optimize via Headroom-class proxy).
+
+Per [The Register T2](https://www.theregister.com/ai-ml/2026/05/31/netflix-wiz-creates-app-to-slash-ai-bills-then-open-sources-it/5248702) + [AI Weekly T2](https://aiweekly.co/alerts/netflix-headroom-proxy-cuts-llm-api-bills-by-90): Headroom = drop-in LLM proxy with AST/DOM/JSON compressors + statistical "squashers"; claims 90% of tokens redundant; $700K savings reported by early adopters.
+
+**DDOG's actual competitive landscape (revised per [Datadog product T1](https://www.datadoghq.com/product/ai/llm-observability/) + [Uptrace alternatives T2](https://uptrace.dev/comparisons/datadog-alternatives) + [AI Vyuh FinOps T2](https://finops.aivyuh.com/compare/ai-cost-tracking-tools/)):**
+- Langfuse (open-source LLM observability — direct competitor)
+- Helicone (zero-code-change LLM tracking — direct competitor)
+- Microsoft Agent 365 (endpoint-native; Microsoft-ecosystem only — per existing CORRECTION 2026-05-30)
+- CloudZero / Finout (FinOps layer; overlapping cost-attribution tier)
+
+**Key limitation of DDOG (per AI Vyuh comparison)**: "Datadog is an observability platform first; it provides cost dashboards and alerting, but does NOT block requests when budgets are exceeded or apply hierarchical budget logic at the request layer." → that's the ENFORCEMENT gap Headroom-class tools fill.
+
+**Architecturally**: observability is typically PREREQUISITE to optimization. To know what to compress, optimization tools need to identify which prompt/model/agent is expensive. DDOG observation + Headroom optimization can run in sequence. The substitution risk exists only if Headroom-class tools embed their own observability layer sufficient to bypass DDOG — which seems unlikely for full enterprise APM/agent-reliability use cases (Headroom is cost-specific telemetry, not application performance).
+
+**Inference Entry #1 confidence recalibration (per `predictions/inference-log.md` Calibration Tracker, my model)**: prior tick from ~60-62% → ~63-65% based on Netflix tool was IMPRECISE. **Revised: confidence stays at ~60-62%**. The cost crisis category emergence IS real (5 data points in 7 days), but not every data point cleanly accrues to DDOG observability specifically. Pending: subagent verification (in progress 2026-06-01) on whether Netflix uses DDOG + whether observability-vs-optimization architecture is sequential or substituted.
+
+**Position implication:** HOLD — Monday SIZE UP per pre-committed plan unchanged (€5,000 add). Calibration correction is informational; does NOT alter the pre-committed sizing. The structural observability thesis remains intact but the layer-distinction discipline matters for future signal interpretation.
