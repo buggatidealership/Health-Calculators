@@ -1,0 +1,132 @@
+# AGC Inc (5201.T) — Thesis
+
+**Last updated:** 2026-06-01 (LLM-native deep-dive subagent + harness synthesis)
+**Tier:** WATCHLIST (upgrade trigger: named M10/Rubin PTFE qualification win OR FY2026 Electronics segment margin recovery >15% sustained)
+**Position target:** 0% currently; 3-5% on trigger event
+**Anti-fragility:** 3/5 scenarios (wins in S1 + S2 + partial S3; flat S5; loses S4)
+**Foundation:** `signals/cross-source-log/2026-06-01-ptfe-3way-ranking-cc-daikin-agc.md`, `wiki/optical-interconnect-primer.md`
+
+---
+
+## TL;DR
+
+AGC is the highest-ranked of the 3-way PTFE supplier comparison (4/5 Right-Side-of-Belka) with two confirmed independent AI vectors: (1) **EUV photomask blanks** — global dominant share >59%, JPY 40B target hit 1 YEAR EARLY in FY2024, duopoly with HOYA; (2) **PTFE CCL via Taconic/Nelco**, M10 testing participant for Rubin Ultra platform, UL2809 first-mover PTFE certification (Dec 2025). A third vector (glass core substrates / TGV) is early-stage optionality. At ~JPY 6,300 the stock sits **~30% below ATH of JPY 9,030** (Jan 2006). Valuation undemanding at **6.38x EV/EBITDA, 14.45x fwd P/E, 0.85x PBR**. However the glass segment (Architecture + Auto ~45-48% of revenue) is a persistent drag and the AI narrative is partially priced via 2023-2026 rerating (+50-60% off 2023 lows). **Asymmetry ~1.5-2:1, NOT 3:1+**. WATCHLIST with named trigger.
+
+---
+
+## Multi-Vector AI Exposure Table
+
+| Vector | Product | Revenue Contribution | AI Demand Driver | Status | Competitive Position |
+|---|---|---|---|---|---|
+| 1 | PTFE CCL (Taconic/Nelco) | Undisclosed sub-segment of Chemicals/Electronics | Rubin Ultra orthogonal backplane, M10 material testing | M10 testing in progress; qualification window open H1 2026 | #3-4 globally behind Rogers + Shengyi (estimate; T3) |
+| 2 | EUV photomask blanks | ~JPY 40B of Electronics segment (FY2024) | AI/HPC chip volume → EUV wafer starts | JPY 40B target hit 1yr early; capacity +30% online Jan 2024 | >59% global share; duopoly with HOYA (93% combined) |
+| 3 (optionality) | Glass core substrates (TGV) | Negligible current; early sampling | Advanced packaging chiplet/CPO | CES 2026 showcase; U. Tokyo collaboration Jun 2025 | 1 of 4 global low-CTE glass providers (w/ SCHOTT, Corning, NEG) |
+
+---
+
+## Right-Side-of-Belka Score: 4/5
+
+| Condition | Score | Evidence |
+|---|---|---|
+| 1. Confirmed product in growing end-market | 1/1 | PTFE CCL M10 testing confirmed; EUV blanks >59% share; both in AI demand pull |
+| 2. Capacity investment committed and funded | 1/1 | JPY 35B Chiba fluorochemical Q2 2025 start (T1); EUV capacity +30% Jan 2024 (T1) |
+| 3. Structural tailwind independent of cycle | 1/1 | AI capex supercycle + 3M PFAS exit ($300-500M est. displaced) + EUV wafer-starts secular |
+| 4. Geographic moat (allied-nation production) | 1/1 | Fluoropolymers: Japan + Belgium + US; NO China dependency on high-value lines |
+| 5. Valuation discount | 0/1 | PBR 0.85x cheap on book; 6.38x EV/EBITDA undemanding BUT stock +50-60% off 2023 lows; AI narrative partially priced |
+
+---
+
+## B39 5-Test Asymmetry Verification (my model)
+
+| Scenario | Thesis | JPY target | Return | P (my model) | EV contribution |
+|---|---|---|---|---|---|
+| Bull | M10/Rubin PTFE named win + EUV blanks 12-15% CAGR + glass core substrate sampling wins + JPY 145-150 vs USD | 11,000-12,000 | +75-90% | 15% | +1,650-1,800 |
+| Base | AI materials grow per consensus; partial 3M share capture; EUV flat-grow 10%; glass flat/mild recovery; FX neutral | 7,500-8,500 | +19-35% | 55% | +4,125-4,675 |
+| Bear | Glass cycle deepens; JPY → 130-140 (reverses FX tailwind); Life Sci losses persist; AI CCL wins go elsewhere | 4,000-5,000 | -21-37% | 25% | +1,000-1,250 |
+| Deep bear | PFAS regulatory shock specific to fluoropolymers + deep EU recession + Life Sci requires capital | 2,500-3,000 | -52-60% | 5% | +125-150 |
+
+**Blended EV ~JPY 6,900-7,875. Current ~JPY 6,300. Implied EV +9.5-25% over 3yr. Asymmetry ratio ~1.5-2:1** — respectable but NOT high-conviction 3:1+. Glass drag + partial pre-rerating compress upside.
+
+---
+
+## Bull case (P=15%, my model)
+
+- M10/Rubin Ultra PTFE qualification win announced publicly by AGC by H1 2027 (within open window)
+- EUV mask blank market CAGR sustains 12-15%+ through FY2028 via TSMC N2/N1.4 + Samsung SF2 ramp
+- Chiba JPY 35B expansion delivering semi-grade PTFE + broader fluoropolymers; captures 3M exit gap
+- Glass core substrate first commercial design win 2027-2028 (chiplet application)
+- JPY stays 145-155 vs USD (no reversion headwind)
+- Architecture Glass OP recovers toward JPY 25-30B as EU construction normalizes
+- Expected return: +75-90% over 24-36 months → JPY 11,000-12,000
+
+## Bear case (P=25%, my model)
+
+- JPY appreciates to 130-140 (BOJ normalization); reverses Q1 FY2026 FX tailwind (~JPY 28B/quarter)
+- Architecture Glass structurally challenged through FY2027 (EU stagnation + Korean/Chinese competition)
+- M10 PTFE qualification awarded to Rogers + Shengyi exclusively → AGC excluded from Rubin Ultra supply chain
+- Life Science requires additional restructuring capital
+- AI narrative overhang: Rubin Ultra timeline slips to H1 2028, qualification revenue shifts out 18mo
+- Expected loss: -21-37% → JPY 4,000-5,000
+
+## Base case (P=55%, my model)
+
+- AI materials grow per disclosed trajectories; no Rubin Ultra contract win explicitly confirmed within 12mo
+- Chiba expansion operating; pricing gains partially offset by mix
+- Electronics+Chemicals reach ~50-52% of revenue by FY2026 vs ~46% FY2024
+- Architecture Glass modest recovery (JPY 20B guidance met)
+- Auto Glass OP sustains JPY 25-30B range
+- FX neutral (JPY 145-155)
+- Expected return: +19-35% over 24mo → JPY 7,500-8,500
+
+---
+
+## Falsifiers (mandatory)
+
+1. **M10/Rubin PTFE qualification awarded exclusively to Rogers + Shengyi** — AGC absent from production qualification list by H2 2026. Eliminates Vector 1 entirely. Watch: Digitimes / PCB007 / EE Times Asia for supplier qualification announcements Q3-Q4 2026.
+
+2. **Architecture Glass OP extends at or below JPY 15B through FY2027 (two full years depressed)** — confirms structural not cyclical drag; mix-shift rerating permanently impaired. Watch: FY2026 H2 Architecture Glass OP vs JPY 20B guide.
+
+3. **JPY appreciates sustainably to 130-140 vs USD** — reverses FX tailwind that drove 48.8% Q1 FY2026 OP lift; exposes underlying glass weakness. Watch: BOJ policy rate decisions + USD/JPY monthly closes.
+
+4. **PFAS regulatory tightening explicitly names AGC fluoropolymers as restricted** (EU removes semi essential-use exemption earlier than 2030) — directly impacts fluoropolymer revenue and Chiba ROI. Watch: ECHA PFAS restriction process updates.
+
+5. **Life Science segment loss persists above JPY 15B annual through FY2027** — signals CDMO structural impairment requiring capital injection, crowding out Electronics/Chemicals investment. Watch: quarterly Life Science OP disclosures.
+
+---
+
+## Exposure to Causal Chains
+
+- **PTFE supply chain cascade** (from `signals/cross-source-log/2026-06-01-ptfe-3way-ranking-cc-daikin-agc.md`): AGC 1st-order beneficiary of Rubin Ultra PTFE demand + 3M PFAS exit. **1st order (P>80%)** that PTFE qualification orders flow Q3 2026-Q1 2027. **2nd order (P~60%)** that AGC captures share given M10 testing + allied-nation preference.
+
+- **EUV photomask blank secular growth** (from `sector/bottlenecks.md`): EUV wafer-start growth tied directly to AI chip volume — TSMC N3/N2 ramp + Samsung SF2 = direct pull for AGC mask blanks. Secular (not cyclical) while AI compute demand sustains.
+
+- **Optical-attached LPDDR memory pools signal** (from `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`): AGC indirect knock-on beneficiary via EUV mask blank demand growth proportional to AI compute chip volume; glass core substrate optionality benefits if 2027+ packaging architecture incorporates optical waveguides.
+
+- **Scenario exposure (per `sector/scenarios.md`):**
+  - S1 (NVDA dominant, 33%): WINS — EUV + PTFE both benefit from NVDA GPU volume
+  - S2 (Custom Si fragments, 30%): WINS — more advanced chips = more EUV; custom Si uses same tools
+  - S3 (Power binds, 25%): NEUTRAL — power constraint affects DC builds, EUV fab utilization less directly
+  - S4 (Digestion, 6%): LOSES — semiconductor demand contraction reduces EUV + CCL orders
+  - S5 (Regulatory shock, 6%): NEUTRAL-TO-WINS — PFAS regulation of Chinese competitors is net positive for AGC; broader regulatory shock negative
+
+**Anti-fragility: 3/5 scenarios**
+
+---
+
+## Position implication (Critical Rule #11)
+
+**Position implication: WATCHLIST — 0% position — NO ACTION until named trigger fires.** Thesis has 4/5 RSoB + multi-vector AI exposure, but asymmetry ratio (~1.5-2:1) below the 3:1+ threshold for high-conviction sizing. Named triggers for upgrade:
+- (a) public announcement of M10/Rubin PTFE qualification win for AGC/Taconic/Nelco materials, OR
+- (b) FY2026 H2 Electronics segment OP recovers above JPY 30B annualized with explicit semiconductor materials attribution.
+
+Either trigger warrants revisiting at 3-5% portfolio sizing.
+
+---
+
+## Cross-references
+
+- `signals/cross-source-log/2026-06-01-ptfe-3way-ranking-cc-daikin-agc.md` — 3-way PTFE supplier ranking artifact
+- `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md` — indirect 2nd-order via EUV
+- `wiki/optical-interconnect-primer.md` — CPO transition baseline
+- `companies/TSEM/thesis.md` — competing/complementary silicon photonics foundry
+- `companies/HYNIX/thesis.md` — HBM partner via EUV-enabled chips

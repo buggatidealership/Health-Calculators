@@ -444,3 +444,9 @@ Per `signals/cross-source-log/2026-06-01-morning-brief.md`: Intel announced **Cr
 Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction has AMBIGUOUS impact on HYNIX — HBM still required next to GPU, but LPDDR pool architecture grows TOTAL memory consumption per cluster (more LPDDR units). Net likely positive given LPDDR + HBM both grow in absolute terms; partial substitution risk if HBM share-of-wallet compresses relative to LPDDR pool spend.
 
 **Position implication:** HOLD — net likely positive but with non-zero substitution risk; monitor whether HYNIX LPDDR share is competitive vs Samsung + Micron in pool-architecture wins.
+
+## Cross-source synthesis — AGC (5201.T) EUV photomask blanks deep-dive (added 2026-06-01, per Critical Rule #10)
+
+Per `companies/AGC/thesis.md` LLM-native deep-dive 2026-06-01: AGC's EUV photomask blank dominance (>59% global share, JPY 40B FY2024 target hit 1 YEAR EARLY) is the upstream supplier for the EUV-enabled chips that drive HBM stack-height demand. EUV wafer starts at TSMC N3/N2 + Samsung SF2 = direct AI compute chip volume = downstream HBM demand for HYNIX. Secular not cyclical relationship while AI compute demand sustains.
+
+**Position implication:** HOLD — AGC deep-dive REINFORCES HBM secular growth thesis via shared EUV-wafer-start driver; HYNIX is 2nd-order beneficiary of EUV mask blank ramp Visual at AGC.

@@ -533,3 +533,9 @@ Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.m
 Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction implies 4th-order MURATA benefit (P~20%) via optical-electrical conversion boundary passives + MLCC demand-per-rack indirectly reinforced as disaggregated optical-heavy systems require more passive components.
 
 **Position implication:** HOLD — 4th-order signal; speculative reinforcement of MLCC-per-rack expansion thesis.
+
+## Cross-source synthesis — Hirano Tecseed (6245.T) equipment supplier deep-dive (added 2026-06-01, per Critical Rule #10)
+
+Per `companies/HIRANO/thesis.md` LLM-native deep-dive 2026-06-01: Hirano Tecseed is plausible (NOT confirmed) primary supplier of ceramic sheet-forming machines for Murata MLCC production. Murata's JPY 80B additional MLCC capex (JPY 40B FY2026 + JPY 40B FY2027) announced with "urgency" per President Nakajima drives 1st-order Hirano order book — equipment lead times 18-24 months suggest Q1-Q2 FY2027 order intake reflects this capex. Murata Izumo building (10-floor, ~70,000 sqm, completed April 2026, JPY 47B total investment incl equipment) is the most concrete capacity datapoint that flows to Hirano equipment orders.
+
+**Position implication:** HOLD — Hirano deep-dive REINFORCES Murata MLCC AI capex urgency thesis (Murata 30% CAGR 2025-2030; AI server MLCC 3.3× FY2030 vs FY2025); upstream equipment order flow to Hirano validates the AI MLCC capex cycle is real not aspirational.

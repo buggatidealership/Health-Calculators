@@ -267,3 +267,9 @@ Per `companies/DISCO/thesis.md` (new 2026-05-30): DISCO Corporation 6146.T ident
 **SUMCO + DISCO = complementary vertical-stack play** (upstream material + equipment for capacity expansion = two layers of the same AI wafer expansion thesis). NOT redundant.
 
 **Position implication:** HOLD SUMCO at ~5.1% — no change to SUMCO thesis; DISCO ENTER candidate at 3-5% becomes complementary position covering the equipment-bypass layer of the same thesis. DISCO investability confirmed by user 2026-05-30; entry sizing pending capital allocation post-Monday execution.
+
+## Cross-source synthesis — AGC + Hirano LLM-native deep-dives (added 2026-06-01, per Critical Rule #10)
+
+Per `companies/AGC/thesis.md` + `companies/HIRANO/thesis.md` LLM-native deep-dives 2026-06-01: SUMCO is 3rd-order beneficiary of AGC's EUV photomask blank ramp (more EUV wafer starts at TSMC/Samsung = more silicon wafer demand = SUMCO direct benefit). Hirano deep-dive validates parallel structural inflection at MLCC equipment tier — different segment same AI capex thread.
+
+**Position implication:** HOLD — both deep-dives REINFORCE SUMCO's wafer-supply structural shortage thesis via parallel AI capex inflections at advanced packaging (AGC) + MLCC equipment (Hirano) tiers.

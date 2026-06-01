@@ -290,3 +290,9 @@ Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`:
 Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: anonymous T3 architectural prediction names Nvidia 2-3yr / Broadcom+Marvell 3-5yr away from optically-attached disaggregated LPDDR memory pools at scale. TSEM is named 1st-order beneficiary (P>80%) — silicon photonics foundry at chip-manufacturing layer for the optical interconnect this architecture requires. $1.3B 2027 contracts + $290M customer prepayments already locked = customer commitment happening NOW for this exact architecture per thesis lines 13-17.
 
 **Position implication:** HOLD — architectural signal reinforces existing thesis; no size change today (T3 signal alone insufficient for upweight). Trigger to revisit upweight: T1/T2 confirmation from NVDA/AVGO/MRVL publicly naming optical-attached memory pool architecture in roadmap.
+
+## Cross-source synthesis — AGC (5201.T) silicon photonics + EUV blanks deep-dive (added 2026-06-01, per Critical Rule #10)
+
+Per `companies/AGC/thesis.md` LLM-native deep-dive 2026-06-01: AGC is direct competitive cohort peer in silicon-photonics / advanced-packaging adjacency. AGC operates at GLASS CORE SUBSTRATE / TGV (Through Glass Via) tier for advanced packaging (3rd vector, early-stage); TSEM operates at SILICON PHOTONICS FOUNDRY tier. Complementary rather than competing within current product mix. AGC's EUV photomask blank dominance (>59% global share, JPY 40B target hit 1 year early) drives EUV wafer-start demand that TSEM specialty foundry indirectly benefits from (more advanced packaging substrates demanded as EUV-enabled chips ramp).
+
+**Position implication:** HOLD — AGC deep-dive REINFORCES the broader optical-interconnect + advanced-packaging cluster thesis that TSEM is positioned within; downstream EUV wafer-start growth supports TSEM silicon photonics ramp.
