@@ -379,3 +379,39 @@ Per [The Register T2](https://www.theregister.com/ai-ml/2026/05/31/netflix-wiz-c
 **Inference Entry #1 confidence recalibration (per `predictions/inference-log.md` Calibration Tracker, my model)**: prior tick from ~60-62% → ~63-65% based on Netflix tool was IMPRECISE. **Revised: confidence stays at ~60-62%**. The cost crisis category emergence IS real (5 data points in 7 days), but not every data point cleanly accrues to DDOG observability specifically. Pending: subagent verification (in progress 2026-06-01) on whether Netflix uses DDOG + whether observability-vs-optimization architecture is sequential or substituted.
 
 **Position implication:** HOLD — Monday SIZE UP per pre-committed plan unchanged (€5,000 add). Calibration correction is informational; does NOT alter the pre-committed sizing. The structural observability thesis remains intact but the layer-distinction discipline matters for future signal interpretation.
+
+## V2 Competitive Landscape — 3-Layer Stack + Scoped Risk (added 2026-06-01)
+
+Per `signals/cross-source-log/2026-05-31-evening-brief.md` + 2 subagent verifications 2026-06-01 (Netflix-DDOG architecture + ServiceNow positioning). The enterprise AI cost stack stratifies into FOUR layers:
+
+| Layer | Function | Tools | DDOG plays? |
+|---|---|---|---|
+| Gateway / enforcement | Budget caps, routing, compression | Headroom, Portkey, LiteLLM, Bifrost | NO (different buyer) |
+| **LLM observability** | Token-level cost attribution, traces, evals | **Langfuse (ClickHouse-owned Jan 2026), Helicone, DDOG LLM Obs** | YES (contested) |
+| Infra APM | Cross-service correlation, infra cost | **Datadog**, New Relic, Honeycomb | YES (dominant core) |
+| Workflow governance | Agent discovery, kill switches, policy | ServiceNow AI Control Tower (via Traceloop), Microsoft Agent 365 | NO (different buyer) |
+
+Sources: [Getmaxim T2](https://www.getmaxim.ai/articles/5-tools-for-llm-cost-controls-in-enterprises/), [Menlo Ventures State of GenAI 2025 T2](https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/), [DDOG own blog T1](https://www.datadoghq.com/blog/optimize-ai-proxies-with-datadog/)
+
+### Scoped competitive risk for DDOG (the corrected framing)
+
+- **NOT at infra APM core**: DDOG dominant; New Relic/Honeycomb don't materially threaten
+- **AT LLM observability module**: Langfuse (open-source, ClickHouse-owned since Jan 2026) + Helicone (zero-code-change) compete directly. Per [DDOG Q1 2026 preview T2](https://www.heygotrade.com/en/blog/datadog-ddog-q1-2026-earnings-preview-ai-observability/), LLM Observability expected to "materially contribute to billings" from Q1 2026 — if Langfuse/Helicone commoditize this module (both open-source), the growth rate of LLM add-on slows but base APM survives
+- **AT workflow governance tier (separate buyer)**: NOW AI Control Tower via Traceloop acquisition (Mar 2026, ~$60-80M per [Calcalist T2](https://www.calcalistech.com/ctechnews/article/sjghwiqf11e)) + MSFT Agent 365 — different buyer (IT/HR/ops workflow owner vs DevOps), but same telemetry-capture activity. Cross-buyer leakage risk.
+
+### Calibration correction (Netflix tool framing)
+
+**My prior framing**: "Headroom validates DDOG observability category"
+**Correction**: Headroom and DDOG serve DIFFERENT enterprise budget lines and DIFFERENT buyer personas. Headroom does NOT generate demand for DDOG instrumentation. Per [DDOG's own blog T1](https://www.datadoghq.com/blog/optimize-ai-proxies-with-datadog/): LLM proxies create "visibility gaps" that DDOG complements. **Architecturally Headroom requires ZERO DDOG integration to function** (no OpenTelemetry exporter, no DDOG hook, no Langfuse/Helicone integration). Observe-then-optimize is the COMMERCIAL pattern for governance, not an ARCHITECTURAL requirement.
+
+### Netflix-DDOG (verified)
+
+LOW-MEDIUM conviction probable usage at infrastructure layer only. Netflix's internal observability stack (Atlas/Mantis/Lumen) dominates per [Netflix TechBlog T1](https://netflixtechblog.com/lessons-from-building-observability-tools-at-netflix-7cfafed6ab17). DDOG case study pages do NOT list Netflix (T1 absence notable for marquee name). LinkedIn signal from Jeff Storey (Netflix Resilience Eng Manager + former DDOG employee) suggests some usage per [LinkedIn T2](https://www.linkedin.com/posts/storeyjeff_netflix-datadog-activity-7283210135353589760-9rbA). **Do NOT model Netflix as DDOG anchor customer.**
+
+### Inference Entry #1 confidence (final, post-verification)
+
+Per `predictions/inference-log.md` Calibration Tracker (my model): **confidence stays at ~60-62%** for DDOG agent-fleet observability category. The cost crisis category emergence IS real (5 data points in 7 days), but architectural layer-distinction means category-level signals don't cleanly accrue to DDOG observability layer. The REAL DDOG competitive scope is the LLM observability MODULE growth rate (not the APM core), which faces Langfuse/Helicone open-source competition.
+
+### Position implication
+
+**Position implication:** HOLD — Monday SIZE UP per pre-committed plan unchanged (€5,000 add). V2 competitive landscape confirms DDOG is structurally positioned in the right layers (LLM observability + infra APM) with scoped risk to LLM module growth rate from Langfuse/Helicone. The Headroom-class optimization tier is NOT a DDOG competitor. ServiceNow workflow-governance tier is a different buyer (potentially additive to enterprise AI spend, not zero-sum vs DDOG). Watch trigger for thesis impairment: Langfuse/Helicone surpass DDOG LLM Obs in market share OR DDOG Q-print shows LLM Obs growth rate <30% YoY.

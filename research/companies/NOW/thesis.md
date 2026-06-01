@@ -426,3 +426,62 @@ Per `signals/cross-source-log/2026-05-30-camt-pricing-gap-and-ibm-q1-pattern-syn
 **Distinguishing angle**: IBM watsonx Orchestrate = consulting-led + Fortune 500 anchor relationship (2/3 of IBM AI book = Consulting). Different angle from NOW's workflow-execution-led approach. Many enterprises use multiple platforms; IBM watsonx may capture deployments where consulting depth matters (regulated industries, complex integrations) rather than displacing NOW at IT workflow core.
 
 **Position implication:** HOLD pending Monday SIZE UP per committed plan. Competitive-watch density elevated but no falsifier fired. Q2 FY27 NOW print (~late July 2026) needs explicit address of IBM watsonx Orchestrate competitive dynamics + any customer share data.
+
+## Cross-source synthesis — Traceloop acquisition + AI Control Tower verification 2026-06-01 (added 2026-06-01, per Critical Rule #10)
+
+Per subagent verification 2026-06-01 (user-directed precision research on enterprise AI cost stack positioning), NOW positioning materially STRONGER than previously modeled:
+
+### Traceloop acquisition (March 2026, ~$60-80M)
+
+Per [Calcalist T2](https://www.calcalistech.com/ctechnews/article/sjghwiqf11e) + [Traceloop blog T1](https://traceloop.com/blog/traceloop-is-joining-servicenow): NOW acquired Traceloop in March 2026 for ~$60-80M. Traceloop built **OpenLLMetry** — open-source LLM observability framework grounded in OpenTelemetry. This capability is now embedded inside **AI Control Tower** under the "Observe" pillar.
+
+**Material implication**: NOW now has BOTH workflow orchestration AND LLM observability natively. This shifts NOW from "pure workflow play" to "governed enterprise AI control plane with integrated observability." DDOG positioning at the infra-APM layer is unaffected (different buyer); NOW competes at the governance-tier workflow observability layer (IT/HR/ops workflow owners).
+
+### AI Control Tower 5-pillar (GA August 2026)
+
+Per [ServiceNow Newsroom T1](https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-expands-AI-Control-Tower-to-discover-observe-govern-secure-and-measure-AI-deployed-across-any-system-in-the-enterprise/default.aspx):
+
+| Pillar | Function |
+|---|---|
+| **Discover** | Finds AI assets across AWS, GCP, Azure, SAP, Oracle, Workday (30+ new integrations) |
+| **Observe** | Traceloop-powered runtime LLM call tracing |
+| **Govern** | Policy enforcement, least-privilege access, kill switches |
+| **Secure** | Identity verification, audit trails |
+| **Measure** | Business impact metrics vs governance standards |
+
+### Action Fabric (Knowledge 2026)
+
+Per [ServiceNow Newsroom T1](https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-opens-its-full-system-of-action-to-every-AI-Agent-in-the-enterprise/default.aspx): NOW opens action surface to external agents (Claude, Copilot, homegrown) via MCP Server — included in every Now Assist + AI Native SKU. **This is a platform infrastructure play**: NOW positions as "we don't care who builds the agents; every enterprise agent should run through NOW to execute governed work."
+
+### Verified Q1 2026 financials + raised FY26 guide
+
+- Q1 2026 revenue: **$3.77B (+22% YoY)** per [Fortune T2](https://fortune.com/2026/05/05/servicenow-knowledge-2026-autonomous-workforce-microsoft-nvidia-ai-announcements/)
+- FY26 subscription revenue guidance raised to **$15.74-15.78B** per same
+- Gartner ranked NOW **#1 in Building and Managing AI Agents** 2025 Critical Capabilities report
+
+### Customer outcomes cited at Knowledge 2026 (per [Fortune T2](https://fortune.com/2026/05/05/servicenow-knowledge-2026-autonomous-workforce-microsoft-nvidia-ai-announcements/))
+
+- City of Raleigh: **-66% IT service desk costs**
+- Honeywell: **-75% compliance attestation time**
+- Avalara: **800 hours/month saved**
+
+### Now Assist pricing model (hybrid)
+
+Per [Redress Compliance T2](https://redresscompliance.com/servicenow-now-assist-ai-pricing-guide.html): **$25-75/fulfiller/month** depending on tier (Foundation/Advanced/Prime) + token consumption pools. **25-45% premium over base ITSM SKU** per same.
+
+### Pre-call optimization GAP (potential acquisition target)
+
+NOW has **NO Headroom-equivalent product** — no pre-call token compression / prompt pruning capability. Per subagent assessment: this is a medium-term product opportunity or acquisition target (alongside Moveworks-style acqui-build moves). Watch for NOW M&A in the gateway-layer space (Portkey, LiteLLM, Bifrost).
+
+### Portfolio overlap verification (DDOG + NOW + MDB)
+
+Per subagent: three positions occupy GENUINELY DIFFERENT layers:
+- DDOG = infrastructure + APM telemetry ("what is the AI doing technically?")
+- NOW = workflow orchestration + governance ("can the AI actually do the approved work?")
+- MDB = data persistence ("where does the AI get the data to act on?")
+
+**Real overlap risk for NOW: Microsoft Copilot Studio in Teams-native shops, NOT Datadog.** This is consistent with existing thesis falsifier #4 monitoring (Microsoft Agent 365 + Copilot Studio).
+
+### Position implication
+
+**Position implication:** HOLD pending Monday SIZE UP per committed plan (€4,500 add); thesis materially STRENGTHENED post-verification — Traceloop acquisition + 5-pillar AI Control Tower + Action Fabric MCP Server + raised FY26 guide + Gartner #1 ranking all confirm NOW is structurally positioned at the workflow-governance + cross-system orchestration layer with integrated observability. Pre-committed €4,500 sizing remains correct; **may revisit SIZE UP further once Q2 FY27 print (~late July 2026) shows actual AI Control Tower revenue contribution + customer count**. Falsifier #4 monitoring stance unchanged.
