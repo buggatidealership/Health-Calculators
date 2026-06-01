@@ -1,6 +1,6 @@
 # Grading Log — Open + Resolved Predictions
 
-**Last updated:** 2026-05-28
+**Last updated:** 2026-06-01
 
 ## TL;DR
 
@@ -8,9 +8,9 @@ Index of every prediction made by the system. Each row resolves to "pending" or 
 
 ## Pending
 
-| Date made | Resolution | Ticker | Event | Prediction file |
-|---|---|---|---|---|
-| 2026-05-29 | 2026-06-01 (fundamental) + 2026-06-02 (stock-reaction T+24h) | HPE | Q2 FY26 earnings + Q3 guide + FY26 outlook (2ND application Supply-Chain-Cohort Calibration framework) | `2026-05-29-HPE-Q2FY26.md` |
+| Date made | Resolution | Ticker | Event | Prediction file | GRADE status |
+|---|---|---|---|---|---|
+| 2026-05-29 | 2026-06-01 (fundamental) + 2026-06-02 (stock-reaction T+24h) | HPE | Q2 FY26 earnings + Q3 guide + FY26 outlook (2ND application Supply-Chain-Cohort Calibration framework) | `2026-05-29-HPE-Q2FY26.md` | **PRE-POSITIONED 2026-06-01 morning** at `2026-06-01-HPE-Q2FY26-GRADE.md`; awaiting actuals AMC June 1 |
 
 ## Graded
 
