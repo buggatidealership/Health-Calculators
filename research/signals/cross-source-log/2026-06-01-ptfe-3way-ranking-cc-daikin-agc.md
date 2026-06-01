@@ -86,9 +86,114 @@ Doosan won exclusive Rubin-era CCL supply after Elite Material failed GB300 qual
 
 ---
 
-## Subagent 2 (Chemours CC) — PENDING
+## Subagent 2 (Chemours CC) — COMPLETE
 
-(Will be appended when subagent completes)
+### A. Current state baseline
+
+| Metric | Value | Source tier |
+|---|---|---|
+| Market cap | ~$3.4-3.6B | T2 |
+| Share price (late May 2026) | ~$22-23 | T2 |
+| 52-week range | $9.13 - $28.67 | T2 |
+| **ATH (Oct 2017)** | **$41.56** | T2 |
+| **ATH-distance** | **~46% below ATH** (BUT old ATH misleading: structurally more debt/PFAS overhang today vs 2017) | Calculated |
+| YTD/LTM stock | ~+57% LTM | T2 |
+| FY2025 Total Revenue | ~$5.8B | T2 |
+| TiO2 (Titanium Technologies) | ~$2.6B (45% of revenue) | T2 |
+| TSS (Thermal & Specialized Solutions) | ~$2.0B (34%) | T2 |
+| **APM (Advanced Performance Materials)** | **~$1.3B (21-22%)** | T2 |
+| APM FY2025 Net Sales | ~$1.3B, -5% YoY | T2 |
+| Q1 2026 EPS | $0.05 vs -$0.04 consensus (beat) | T2 |
+| Global PTFE market share | **~38%** (MarketsandMarkets) | T2 |
+
+**AI-PTFE specific exposure**: NOT disclosed by Chemours at product level. APM ~$1.3B; AI-exposed sub-segment (PFA semi + electronics PTFE) estimated **$150-300M today** (rough triangulation; not confirmed by company).
+
+### B. PTFE strategic push — CRITICAL PRODUCT DISTINCTION SURFACED
+
+**CONFIRMED**:
+1. **Chemours is the ONLY US-based manufacturer of Teflon PFA** per [Manufacturing Dive T2](https://www.manufacturingdive.com/news/chemours-plans-teflon-pfa-forever-chemicals-plant-expansion-west-virginia/724609/) — CHIPS Act-aligned product
+2. **Washington Works (Parkersburg WV) expansion** — ribbon-cutting October 2024; new Teflon PFA production line commissioned
+3. Wastewater permit received March 2024 → commercial H2 2024
+4. **Q1 2026 unplanned outage** (winter weather): APM sales -17% YoY; APM EBITDA -84% YoY to $5M for Q1
+5. Management guided Q2 APM net sales +30-35% sequentially as facilities normalized
+6. Yellow flag: single-site concentration risk
+
+### CRITICAL — PFA vs PTFE distinction (Chemours' product is DIFFERENT from GF thesis)
+
+**Per subagent finding**: "The PTFE-for-AI-PCB thesis (Teflon-based CCL laminates for high-speed server boards) is structurally DIFFERENT from Chemours' disclosed semiconductor strategy (PFA for fab equipment/tool liners/semiconductor wet processing). Chemours' documented AI push is in **PFA-for-fabs, not commodity PTFE-for-PCB-laminates**."
+
+| Product | Use case | Chemours position |
+|---|---|---|
+| **PFA (perfluoroalkoxy)** | Fab tooling, wet etch, wafer carriers, CMP slurry — HIGHER MOAT, lower volume, higher ASP | **Only US producer; CHIPS Act-aligned; structural pricing power** |
+| **PTFE for PCB laminates** | High-frequency CCL substrate (the GF Securities Rubin Ultra thesis) | Higher-volume, lower-margin, Chinese competition (Dongyue, SINOCHEM) competes aggressively |
+
+**Chemours' AI-PTFE thesis fit**: STRONG at fab tooling tier (CHIPS Act + Intel Ohio + TSMC Arizona pull); WEAKER at PCB laminate tier (where GF Securities thesis lives — Rubin Ultra orthogonal backplane).
+
+**This is a critical disambiguation**: investing in Chemours for the GF Rubin Ultra thesis is partial; investing in Chemours for the broader CHIPS Act fab capex cycle is more direct.
+
+**3M PFAS exit share capture**: ~$1.3B total PFAS revenue + ~$200M EBIT removed from market end-2025. Chemours + Daikin named as primary Western beneficiaries per [MarketsandMarkets T3]. Magnitude not disclosed but structurally positive.
+
+### C. Geopolitical positioning — STRONGEST OF THE 3
+
+| Factor | Assessment |
+|---|---|
+| HQ | Wilmington, DE — US-allied dominant |
+| Production | Washington Works WV (PFA); DeLisle MS + Edge Moor DE (TiO2); Dordrecht NL; Kuan Yin Taiwan SOLD Jan 2026 ($300M proceeds) |
+| **Only US Teflon PFA producer** | **STRUCTURAL ADVANTAGE under US hyperscaler de-Sinicization scenario** |
+| CHIPS Act alignment | EXPLICIT; capacity expansion timed to fab ramp (Intel Ohio, TSMC AZ Phase 1) |
+| Tariff exposure | BENEFICIARY of Chinese PTFE tariffs; EU TiO2 exposure |
+| Export control risk | LOW (fluoropolymers not on critical export control lists) |
+
+**The clearest structural advantage in the 3-way ranking. Sole-source US PFA + CHIPS Act pull + de-Sinicization preference = not priced in at current multiples (stock still perceived primarily as TiO2/refrigerant company).**
+
+### D. Forward trajectory modeling (5-year; my model)
+
+| Segment | 2025E | 2030P (base) | 2030P (bull) |
+|---|---|---|---|
+| Titanium Technologies | $2.6B | $2.8B (+1.5% CAGR) | $3.0B |
+| TSS (refrigerants HFO) | ~$2.0B | $2.6B (+5% CAGR) | $3.0B |
+| APM (total) | $1.3B | $2.0B (+9% CAGR) | $2.8B |
+| — of which AI-PTFE/PFA | ~$200M | ~$650M (+27% CAGR) | ~$1.0B |
+| **Total** | **~$5.8B** | **~$7.4B** | **~$8.8B** |
+| **AI-PTFE % of total** | **~3-4%** | **~9%** | **~11%** |
+
+**Mix-shift trigger for narrative rerating**: AI-PTFE >15% of total + APM >20% annual growth → "specialty materials" multiple instead of "diversified chemicals." Per subagent model: 2028-2030 range in bull scenario.
+
+### Right-Side-of-Belka score: 2.5/5
+
+| Condition | Score | Reasoning |
+|---|---|---|
+| 1. Structural demand tailwind | 1/1 | PFA tied to fab capex; CHIPS Act real |
+| 2. Supply constraint / pricing power | 0.5/1 | Only US PFA producer; Chinese PTFE limits commodity pricing |
+| 3. Market underestimation | 0.5/1 | Stock +57% LTM (partial rerating); TiO2 overhang persists |
+| 4. Management / execution alignment | 0.5/1 | New CEO Dignam mid-2024; APM outage + 2023-24 accounting governance issues |
+| 5. Balance sheet can support growth | **0/1** | **Gross debt $4.2B / EBITDA ~$742M = ~5.7x leverage = HIGH** |
+
+### E. Asymmetry verification (B39 5-test, my model)
+
+| Scenario | P | 3-year target | EV contribution |
+|---|---|---|---|
+| Bull (AI-PTFE + 3M share + PFA ramp + TiO2 recovery) | 20% | $45 | $9.00 |
+| Base (gradual AI-PTFE growth, TiO2 flat, debt serviced) | 45% | $30 | $13.50 |
+| Bear (PFAS escalates, debt refinancing stress, TiO2 down) | 25% | $12 | $3.00 |
+| Deep bear (PFAS black swan + recession) | 10% | $5 | $0.50 |
+| **EV @ ~$22 current** | | | **$26.00** |
+
+**EV/current ~1.18x = THIN asymmetry**. Not 2-3x asymmetry typical of high-conviction AI plays. Debt + PFAS compress upside ratio.
+
+### Key upside lever (not in base case)
+
+**TiO2 divestiture / spinoff** would crystallize APM/TSS multiple independently. $300M Kuan Yin proceeds Jan 2026 show willingness to monetize. A pure-play fluoropolymers+refrigerants business would trade at meaningfully higher multiple. **Event-driven thesis, not pure AI-PTFE flow thesis.**
+
+### F. Honest hedges + uncertainty flags
+
+1. **PFAS litigation**: NJ $875M settlement (PV ~$500M shared); $4B MOU cap with ~$1.3B headroom; residual risk = claims outside MOU
+2. **Leverage 5.7x EBITDA** is HIGH; cyclical TiO2 downturn creates refinancing risk — Chemours is a LEVERAGED play on industrial recovery, NOT pure-play AI materials
+3. **TiO2 cycle noise (~45% revenue)** tied to housing/construction/paint; dominates P&L until portfolio shift
+4. **APM electronics sub-segment disclosure gap**: cannot precisely size AI exposure without it
+5. **PFA-for-fabs vs PTFE-for-PCB-laminates distinction**: Chemours edge in PFA, not directly in GF Securities Rubin Ultra PCB laminate thesis
+6. No direct hyperscaler/Shengyi/Rogers contracts publicly disclosed
+7. Whether on qualified supplier list for Samsung/TSMC/Intel directly — not confirmed
 
 ---
 
