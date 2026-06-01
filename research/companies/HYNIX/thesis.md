@@ -426,3 +426,15 @@ Per `signals/cross-source-log/2026-05-31-goldman-hynix-probability-recalibration
 Per `signals/cross-source-log/2026-06-01-jensen-computex-keynote-ingest.md` + [Korea Herald T2](https://www.koreaherald.com/article/10761132): Jensen explicitly confirmed **Vera Rubin uses Korean memory** with **1.2 TB/s LPDDR5X ECC per rack**. Vera Rubin is in **full production NOW** with mass production H2 2026. HYNIX 70% HBM share for Vera Rubin per existing thesis confirmed via OEM channel (Dell, HPE, Supermicro, Lenovo named as server manufacturers).
 
 **Position implication:** HOLD at 12.43% — Stage 4 priced-to-perfection holds; explicit Korean memory naming + Vera Rubin full production = thesis structurally intact and reinforced. No sizing change; L3 holds (don't sell on profit, falsification is signal).
+
+## Cross-source synthesis — Intel Crescent Island LPDDR5X datacenter demand vector (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-morning-brief.md`: Intel announced **Crescent Island inference GPU (Xe3P) with 480GB LPDDR5X** — explicitly targets memory-bound AI inference, pitched as cost-effective HBM alternative. Per Tom's Hardware T2.
+
+**Net impact: REINFORCED with caveat at HBM subset.**
+
+- **NEW DEMAND VECTOR**: LPDDR5X at DATACENTER inference tier (not just edge/mobile/PC). HYNIX sells both LPDDR5X AND HBM — tri-vendor (Hynix + Micron + Samsung) all benefit pro-rata at LPDDR5X server tier. Net positive at company level.
+- **HBM moat narrows at memory-bound inference subset**: NVDA Blackwell HBM-based inference may face Intel Crescent Island LPDDR5X competition at workloads where capacity > bandwidth (large context, vector retrieval, RAG). Doesn't affect training (HBM still binding) or compute-bound inference.
+- **V2 NAND demand model implication**: my bottoms-up model (per `signals/cross-source-log/2026-05-31-nand-demand-model-v2-verified.md`) likely UNDER-estimated datacenter LPDDR5X demand at memory-bound inference. Worth re-examining at monthly audit 2026-06-24.
+
+**Position implication:** HOLD at 12.43% — Stage 4 priced-to-perfection holds; Crescent Island net positive at company level; HBM moat narrows at inference-memory-bound subset but training HBM thesis intact. No sizing change.

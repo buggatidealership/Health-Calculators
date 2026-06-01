@@ -451,6 +451,22 @@ Per `signals/cross-source-log/2026-06-01-jensen-computex-keynote-ingest.md`: Jen
 
 **Position implication:** HOLD at 11.36% — Stage 4 priced-to-perfection per Principle #31 + B39 discipline holds; no ADD at current size. **L3 lesson reinforced**: don't sell on profit. Thesis structurally intact. Watch for Q2/Q3 FY27 earnings + FTC antitrust probe direction.
 
+## Cross-source synthesis — Intel 18A FIRST SHIP competitive watch (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-morning-brief.md`: Intel announced **three coordinated competitive moves** in same brief — Clearwater Forest (288-core Xeon 6+ on 18A NOW), Diamond Rapids (192-core Xeon 7 2027 on 18A-P with PCIe 6.0 + 2× memory bandwidth, kills SMT), Crescent Island (Xe3P inference GPU with 480GB LPDDR5X for memory-bound inference).
+
+**Material for ARM falsifier #3** ("Hyperscaler CPU share declines from 50%"). Intel 18A actually shipping at 288-core scale = foundry credibility step from "perpetually-delayed" to "shipping at advanced node." **Falsifier #3 NOT fired** but **watch density rises** materially.
+
+**Bypass-route check (Critical Rule #9)**: if Intel returns to merchant server-CPU competitiveness, hyperscalers DON'T reverse course on custom Si investment. They continue building ARM-based custom Si (AWS Graviton, Google Axion, Microsoft Cobalt, Meta MTIA) — bypass route is in-house ARM Si design, NOT merchant Intel x86. **ARM IP licensing flow intact via hyperscaler custom Si tier**; ARM **merchant Neoverse share** at competitive tier compresses. Non-consensus beneficiary if Intel x86 succeeds = Synopsys / Cadence (EDA used by all chips regardless of architecture) + Advantest / Teradyne (test).
+
+**ARM-specific competitive implications**:
+- Hyperscaler custom ARM Si tier: UNAFFECTED — Intel resurgence doesn't reverse Graviton/Axion/Cobalt programs
+- Merchant Neoverse server tier: COMPETITIVE PRESSURE — Intel 288-core x86 + 192-core Diamond Rapids 2027 + dropped SMT = renewed performance competitiveness at merchant server CPU
+- AGI CPU (ARM in-house datacenter chip Q4 FY27): less directly affected — different segment (AI inference orchestration vs general-purpose server)
+- N1X / RTX Spark royalty: UNAFFECTED — Intel doesn't compete at AI PC tier
+
+**Position implication:** HOLD at 11.36% — Stage 4 priced-to-perfection holds; competitive watch density rises but falsifier #3 NOT fired. Track Intel datacenter revenue trajectory + hyperscaler custom Si commentary in NVDA/AWS/GOOG earnings prints over next 4-8 weeks. If hyperscaler CPU share commentary signals share loss > 5pp YoY, falsifier triggers.
+
 ## Cross-source synthesis — N1X / N1 spec dissection 2026-05-31 (added 2026-05-31, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md` — 4-source convergent spec verification (VideoCardz + OC3D + Notebookcheck + Tom's Guide T2). Key findings:

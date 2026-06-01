@@ -295,3 +295,17 @@ Per `signals/cross-source-log/2026-05-31-nand-demand-model-v2-verified.md`: 2 pa
 Per `signals/cross-source-log/2026-05-31-evening-brief.md`: Connecticut signed AI employee notification law per Bloomberg Law T2 — adds to state-level regulatory patchwork (joins NYC LL144, Illinois AIVFA, Colorado ECDIS). Each new state mandate = incremental compliance retention demand vector. Per V2 NAND demand model: weighted-average retention duration trajectory toward 8.8-9.5 yr by 2028 incrementally reinforced.
 
 **Position implication:** HOLD at ~10.8% — incremental reinforcement; no sizing change. Structural compliance NAND thesis continues to accumulate confirmation data points; SIZE UP gate unchanged.
+
+## Cross-source synthesis — Mozilla Mythos = compliance-NAND cybersecurity N=2 cluster (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-morning-brief.md` + Ars Technica T2: **Mozilla Mythos AI bug-finder achieved 271 vulnerabilities with "almost no false positives"**; Firefox developer states "completely bought in" on AI-assisted vulnerability discovery.
+
+**This is N=2 same-segment cluster confirmation** for compliance-NAND cybersecurity vertical thesis per principle #29:
+- N=1 origin: Anthropic Mythos GA continuous-agent cybersecurity per `signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md` (May 28)
+- N=2: Mozilla Mythos production-scale validation (June 1)
+
+Per principle #29 segmented-triangulation rule: ≥3 same-segment sources within 90 days = promote to triangulation.md. Currently at N=2; **need 1 more cybersecurity vertical AI-agent-production-deployment data point** (e.g., a healthcare AI vuln tool, a regulated-industry continuous AI agent deployment) to graduate to triangulation candidate.
+
+**Structural NAND implication**: Production-scale AI vuln finders generate massive log data (every vuln decision logged with reasoning trace per regulatory expectation). 271 vulns × per-decision metadata × multi-year retention × replication = material NAND demand at cybersecurity vertical. Per V2 NAND model: this is the kind of vertical-specific compliance retention that compounds the bottoms-up demand math.
+
+**Position implication:** HOLD at ~10.8% — N=2 cluster strengthens structural compliance-NAND thesis; watch for N=3 in cybersecurity OR healthcare H2 2026 per existing thesis. If N=3 confirmed → triangulation promotion + reconsider SIZE UP case.
