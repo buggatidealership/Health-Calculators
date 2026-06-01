@@ -141,6 +141,18 @@ Surfaced by v2 bottoms-up NAND demand model (`signals/cross-source-log/2026-05-3
 
 - **Pure Storage (PSTG)** — Flash array vendor; AI-storage software/compression captures value from NAND tightness via flash-tier optimization + AI-native storage features. **Status: ACTIVE-CANDIDATE pending deep-dive 2026-06-04.** Investability: US-listed.
 
+### MLCC Japan sub-supplier tier — Right-Side-of-Belka cohort (added 2026-06-01)
+
+User-surfaced via Zephyr @zephyr_z9 Twitter screenshot 2026-06-01 showing 3 Japanese MLCC sub-suppliers moving +11-25% same day. All three deep-researched via 3 parallel subagents 2026-06-01 (full notes: `signals/cross-source-log/2026-06-01-mlcc-japan-sub-suppliers-research-notes.md`).
+
+- **Hirano Tecseed (TSE: 6245)** — MLCC tape-casting + ceramic sheet forming equipment. Right-Side-of-Belka score **4.5/5** (highest of cohort). EV ~+45% over 24-36mo per B39 5-test (my model). FY2026 revenue approximately JPY 48.4B (approximately USD 320M est); approximately JPY 27.3B market cap (approximately USD 181M est). Operating margin 3.5%; net margin 2.2% TTM (EV battery cyclicality compressing). June 1 +24.93% likely on May 12 FY26 beat + FY27 guidance. EV battery exposure dilutes MLCC purity. Investability: Degiro accessible. **Status: WATCHLIST.** Entry trigger: pullback to JPY 1,400-1,500 OR August FY27 Q1 guidance confirmation. Sizing if entered: 1-1.5% (micro-cap illiquidity).
+
+- **Nippon Chemical Industrial (TSE: 4092)** — Primary BaTiO3 (barium titanate) MLCC dielectric supplier. Right-Side-of-Belka score **4/5**. EV ~+23.5% over 18-24mo per B39 5-test (my model). FY2026 revenue approximately JPY 40.2B (approximately USD 266M est); approximately JPY 48.45B market cap (approximately USD 321M est). Operating margin 6.0% (-27.7% YoY). TDK-NCI Advanced Materials JV (April 1, 2026; TDK 51% / NCI 49%) = strategic anchor. Murata partial backward integration risk via MF Material JV (Fuji Titanium / Murata / Ishihara, capacity ~2027). +133.5% 1-year prior, +48.5% 1-month prior, +14.17% June 1. Investability: Degiro accessible. **Status: WATCHLIST — Stage 3-4 transition.** Entry trigger: August 12, 2026 earnings confirmation of FY27 +15.9% operating profit guidance OR pullback to JPY 4,500-5,000. Sizing if entered: 1-2%.
+
+- **Noritake (TSE: 5331)** — Electronic paste (thick film) for MLCC internal electrodes + grinding wheels (DISCO-adjacent semiconductor wafer chamfering). Right-Side-of-Belka score **2.5/5** (diluted by 4-segment business mix). EV ~+11% over 18-24mo per B39 5-test (my model). FY2026 revenue approximately JPY 142.9B (approximately USD 955M est); approximately JPY 255B market cap (approximately USD 1.7B est). 9.6% YoY net income growth (highest profitability of cohort). +160% from 52w low post-split; +17.8% June 1 close-to-close on no specific catalyst (narrative trigger likely). Investability: Degiro accessible. **Status: WATCHLIST — lowest priority of three.** Lowest MLCC purity due to 4-segment dilution (35-40% Industrial Products / 25-30% Ceramics & Materials / 15-20% Engineering / 10-15% Tabletop). Sizing if entered: 0.5-1%.
+
+**Cohort-level position implication**: ALL THREE moved materially on June 1 — entry at today's prices is categorically different from entry before move. WATCHLIST all three; do NOT enter at current prices; pullback or fundamental earnings confirmation required.
+
 ## Promotion criteria
 
 A watchlist name gets a full `companies/{TICKER}/` folder when:
