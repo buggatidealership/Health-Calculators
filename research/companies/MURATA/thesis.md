@@ -527,3 +527,9 @@ Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md`:
 Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.md`: unbiased flow-of-funds places MURATA in MLCC + passives cluster (Murata + TDK + SEMCO + Yageo + Taiyo Yuden) at 1st-order P~70% MEDIUM conviction — premium PC content uplift. Bypass-route check: MURATA's position is silicon-agnostic (content density rises regardless of which AI PC silicon wins) = structurally resilient.
 
 **Position implication:** HOLD at 13.06% — N1X additive to existing density thesis. No sizing change.
+
+## Cross-source synthesis — Optical-attached LPDDR memory pools signal (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction implies 4th-order MURATA benefit (P~20%) via optical-electrical conversion boundary passives + MLCC demand-per-rack indirectly reinforced as disaggregated optical-heavy systems require more passive components.
+
+**Position implication:** HOLD — 4th-order signal; speculative reinforcement of MLCC-per-rack expansion thesis.

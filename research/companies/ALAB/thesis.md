@@ -326,3 +326,9 @@ Per `signals/cross-source-log/2026-06-01-jensen-computex-keynote-ingest.md`: **V
 **350+ supply chain partners across 30 countries** for Vera Rubin = massive deployment breadth; ALAB Gen6 retimer demand scales with rack count, not chip count.
 
 **Position implication:** HOLD at 6.51% — SIZE UP candidate framing per user 2026-05-29 flag MATERIALLY STRENGTHENED by Vera Rubin Gen6 explicit naming. SIZE UP gate now: (a) AWS RNG architecture detail (existing flag), (b) Vera Rubin H2 2026 mass production confirmation in NVDA Q2/Q3 prints, (c) any ALAB customer-win disclosure for Vera Rubin retimers. Consider revisiting SIZE UP sizing post-NVDA next earnings print.
+
+## Cross-source synthesis — Optical-attached LPDDR memory pools signal (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction names ALAB as 1st-order beneficiary (P>80%) — AI fabric silicon (PCIe Gen6 + CXL + Scorpio) is the connectivity layer disaggregation REQUIRES; Scorpio product explicitly targets memory disaggregation use cases per ALAB disclosures.
+
+**Position implication:** HOLD — architectural signal reinforces Scorpio-specific memory disaggregation thesis. Trigger to revisit upweight: explicit hyperscaler design win on Scorpio for memory pool architecture publicly disclosed.

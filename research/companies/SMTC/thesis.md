@@ -308,3 +308,9 @@ Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`:
 Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: AWS Resilient Network Graphs (May 30) + xAI Colossus 2 gigawatt cluster signals = AI fabric architecture rebuilds compound; signal integrity + Active Copper Cable demand at high-density tier benefits even as total device count decreases. Less devices + more bandwidth per device = each fabric link does MORE.
 
 **Position implication:** HOLD at 4.08% — pending AWS RNG architecture verification on which layer captures the value shift. No sizing change.
+
+## Cross-source synthesis — Optical-attached LPDDR memory pools signal (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction reinforces SMTC as 1st-order beneficiary (P>80%) — FiberEdge TIAs needed in every optical module connecting compute to memory pool; CopperEdge ACCs for short-distance pool tier. Double-counted beneficiary status at the optical-electrical conversion boundary which is non-bypassable in the predicted architecture.
+
+**Position implication:** HOLD — architectural signal reinforces existing thesis. User considering "free-up" review: this signal explicitly removes SMTC from "free-up" candidate set.

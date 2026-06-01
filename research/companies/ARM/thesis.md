@@ -486,3 +486,9 @@ Per `signals/cross-source-log/2026-05-31-nvda-n1x-n1-laptop-chip-dissection.md` 
 Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.md`: unbiased flow-of-funds analysis re-confirms ARM as 1st-order P>80% beneficiary at HIGH conviction. Quoted from unbiased artifact: *"This is the biggest near-term concrete cash-flow improvement of any IP company in the AI cycle."* Royalty mechanism is contractual (per-chip on standard Armv9 IP license), not narrative-dependent.
 
 **Position implication:** HOLD at 11.36% — unbiased analysis VALIDATES current sizing as well-positioned for N1X tailwind; SIZE UP gate remains Computex keynote (June 1) + Q2/Q3 FY27 earnings + FTC clarity. No sizing change today.
+
+## Cross-source synthesis — Optical-attached LPDDR memory pools signal (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction implies 2nd-order ARM benefit (P~60%) via memory-controller IP relevance — disaggregated architectures need new memory controllers + interconnect IP that Neoverse + AGI CPU architecture targets.
+
+**Position implication:** HOLD — 2nd-order signal; reinforces AGI CPU architecture relevance to next-gen disaggregated systems.

@@ -438,3 +438,9 @@ Per `signals/cross-source-log/2026-06-01-morning-brief.md`: Intel announced **Cr
 - **V2 NAND demand model implication**: my bottoms-up model (per `signals/cross-source-log/2026-05-31-nand-demand-model-v2-verified.md`) likely UNDER-estimated datacenter LPDDR5X demand at memory-bound inference. Worth re-examining at monthly audit 2026-06-24.
 
 **Position implication:** HOLD at 12.43% — Stage 4 priced-to-perfection holds; Crescent Island net positive at company level; HBM moat narrows at inference-memory-bound subset but training HBM thesis intact. No sizing change.
+
+## Cross-source synthesis — Optical-attached LPDDR memory pools signal (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction has AMBIGUOUS impact on HYNIX — HBM still required next to GPU, but LPDDR pool architecture grows TOTAL memory consumption per cluster (more LPDDR units). Net likely positive given LPDDR + HBM both grow in absolute terms; partial substitution risk if HBM share-of-wallet compresses relative to LPDDR pool spend.
+
+**Position implication:** HOLD — net likely positive but with non-zero substitution risk; monitor whether HYNIX LPDDR share is competitive vs Samsung + Micron in pool-architecture wins.

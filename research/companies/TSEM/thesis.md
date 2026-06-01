@@ -284,3 +284,9 @@ Per `research/meta/2026-05-29-tsem-stm-glw-vs-sumco-revisit.md`: TSEM revisited 
 ## Cross-source synthesis — Portfolio matrix tagging (added 2026-05-29, per Critical Rule #10)
 
 Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`: TSEM tagged **Agentic AI CRUCIAL — YES** (silicon photonics for optical interconnect via $1.3B 2027 contracts signed May 13; analog mixed-signal foundry) + **Robotics INDIRECT** (sensor analog for robotics/AV). Recent cascade: STRONGLY REINFORCED via $1.3B SiPho catalyst + AWS+Cloudflare infrastructure rebuild → more optical interconnect demand. Optional SIZE UP per existing revisit analysis.
+
+## Cross-source synthesis — Optical-attached LPDDR memory pools signal (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: anonymous T3 architectural prediction names Nvidia 2-3yr / Broadcom+Marvell 3-5yr away from optically-attached disaggregated LPDDR memory pools at scale. TSEM is named 1st-order beneficiary (P>80%) — silicon photonics foundry at chip-manufacturing layer for the optical interconnect this architecture requires. $1.3B 2027 contracts + $290M customer prepayments already locked = customer commitment happening NOW for this exact architecture per thesis lines 13-17.
+
+**Position implication:** HOLD — architectural signal reinforces existing thesis; no size change today (T3 signal alone insufficient for upweight). Trigger to revisit upweight: T1/T2 confirmation from NVDA/AVGO/MRVL publicly naming optical-attached memory pool architecture in roadmap.

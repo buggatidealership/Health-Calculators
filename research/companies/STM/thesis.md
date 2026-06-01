@@ -300,3 +300,9 @@ Per `signals/cross-source-log/2026-05-30-evening-brief.md`: 4 cross-source patte
 **STM-specific**: Edge AI cluster compounds — power semi + MEMS at PC + wearable + 24/7 device density.
 
 **Position implication:** HOLD at 6.41% — reinforces existing 2-of-3 robotics-universals thesis.
+
+## Cross-source synthesis — Optical-attached LPDDR memory pools signal (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction implies 3rd-order STM benefit (P~40%) via RF/Optical Communications segment (+33.9% YoY Q1 2026 per thesis file) supplying optical components.
+
+**Position implication:** HOLD — 3rd-order signal reinforces multi-vector AI exposure thesis; RF/Optical segment is one of 4 AI vectors STM exposes.

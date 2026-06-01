@@ -415,3 +415,9 @@ Per `predictions/inference-log.md` Calibration Tracker (my model): **confidence 
 ### Position implication
 
 **Position implication:** HOLD — Monday SIZE UP per pre-committed plan unchanged (€5,000 add). V2 competitive landscape confirms DDOG is structurally positioned in the right layers (LLM observability + infra APM) with scoped risk to LLM module growth rate from Langfuse/Helicone. The Headroom-class optimization tier is NOT a DDOG competitor. ServiceNow workflow-governance tier is a different buyer (potentially additive to enterprise AI spend, not zero-sum vs DDOG). Watch trigger for thesis impairment: Langfuse/Helicone surpass DDOG LLM Obs in market share OR DDOG Q-print shows LLM Obs growth rate <30% YoY.
+
+## Cross-source synthesis — Optical-attached LPDDR memory pools signal (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction implies 3rd-order DDOG benefit (P~40%) — disaggregated systems generate more telemetry per workload (workload-scaling math per `wiki/agentic-workload-scaling.md`); more components + more interconnects + remote memory state = more monitored entities per deployed cluster.
+
+**Position implication:** HOLD — 3rd-order signal reinforces workload-scaling thesis.

@@ -437,3 +437,9 @@ Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`:
 Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`: AWS RNG datacenter architecture (May 30, Tom's Hardware T2) + xAI Colossus 2 gigawatt cluster (May 29, SemiAnalysis T2) = hyperscaler optical fiber demand sustains regardless of device count reduction. Optical fiber bandwidth scales with per-device throughput; fewer devices + more throughput per device = same or HIGHER total fiber-meters demand.
 
 **Position implication:** HOLD at 5.48% — optical fiber thesis confirmed at the hyperscaler-primary level. No sizing change.
+
+## Cross-source synthesis — Optical-attached LPDDR memory pools signal (added 2026-06-01, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction implies 2nd-order GLW benefit (P~60%) via optical fiber demand expansion — every memory-pool connection = more fiber.
+
+**Position implication:** HOLD — 2nd-order signal; reinforces existing optical fiber AI demand thesis.
