@@ -143,15 +143,42 @@ Hirano Tecseed makes ceramic sheet-forming machines — the most technically dem
 
 ---
 
-## Position implication (Critical Rule #11)
+## Position implication (Critical Rule #11) — CONFIRMED 2026-06-01 post alt-data trial
 
 **Position implication: ENTER at 1.0-1.5% sizing — LIMIT ORDERS ONLY; NO market orders given micro-cap illiquidity.**
 
-Rationale: Stock ~47-51% below ATH despite verified structural inflection (Murata 30% CAGR, JPY 80B urgent capex, Goldman Sachs 4.3× demand 2025-2030). Revenue trough likely in FY2026-FY2027; structural recovery toward FY2028. Entry at JPY 1,689-1,929 represents asymmetric setup even after June 1 +24.93% move. EV exposure is real drag but declining share of thesis as MLCC AI cycle accelerates. Micro-cap liquidity caps sizing at 1-1.5% maximum.
+**Alt-data probability trial validation (per `signals/cross-source-log/2026-06-01-hirano-mlcc-alt-data-probability-trial.md`):**
+- P(Hirano MLCC order acceleration confirmed by November 2026) = **38% ± 16%** (my model, base rate fragile N=7)
+- Quarter-Kelly on proxy-conditioned (6mo) payoffs: 3.7% → liquidity-binding at 1.5% cap
+- Quarter-Kelly on full 24-36mo thesis: 4.2% → liquidity-binding at 1.5% cap
+- **Both Kelly fractions EXCEED 1.5% liquidity cap** → sizing is liquidity-binding, not Kelly-binding
+- Trial CONFIRMS prior 1.0-1.5% sizing; does NOT suggest sizing increase
 
-**Entry mechanics:** Limit orders only; target JPY 1,600-1,900 range; avoid chasing above JPY 1,929 (52-week high). Spread/commission on Degiro TSE estimated EUR 5 flat per trade + 0.1% FX conversion (T2: BrokerChooser) — acceptable at 1-1.5% size above EUR 1,500.
+**Strongest signal from trial: 2018 analog (load-bearing)**
+- Hirano backlog reached **JPY 18B against JPY 9B annual capacity** during prior Murata MLCC capex cycle (T3: [Kabutan June 21 2018](https://kabutan.jp/news/marketnews/?b=n201806210568)). 2-year customer wait time.
+- Direct structural analog: same company, same product, same customer base
+- Surfaced via Japanese-language search; English-only research would have missed entirely
 
-**Watch for:** Q1 FY2027 results (expected August 2026) as first data point on MLCC order recovery. If revenue above JPY 9B/quarter AND management commentary mentions MLCC order intake improving, consider sizing up toward 2%.
+**Bottoms-up timing alignment (my model):**
+- Murata JPY 80B "urgent" capex announced April 30, 2026
+- Equipment lead times 18-24mo → orders Q1-Q2 FY2027 → delivery Q3 FY2028-Q2 FY2029
+- Revenue recognition (Japanese GAAP percentage-of-completion): first hits Q2-Q4 FY2027
+- Hirano Q1 FY2027 results August 6, 2026; Q2 results November 2026
+- Target window aligns PRECISELY with first-order appearance
+
+**Entry mechanics:** Limit orders only; target JPY 1,600-1,900 range; avoid chasing above JPY 1,929 (52w high). Spread/commission on Degiro TSE ~EUR 5/trade + 0.1% FX (acceptable at 1-1.5% size).
+
+**Upgrade trigger:** Q1 FY2027 results (Aug 6, 2026) confirming criteria — revenue >JPY 9B OR explicit MLCC commentary OR upward guidance revision attributed to MLCC. Consider sizing up toward 2% on confirmation (still liquidity-bounded).
+
+**Stop-loss (falsifier-based, not price-based):**
+1. Q1 + Q2 FY2027 both come in below JPY 8B/quarter AND no MLCC commentary → MLCC inflection thesis materially deferred
+2. Murata announces in-house tape-casting capability (Falsifier #2 thesis.md)
+3. Chinese MLCC equipment makers qualified at Murata/TDK (Falsifier #3 thesis.md)
+
+**Watch points:**
+- August 6, 2026: Q1 FY2027 results (first MLCC order data point)
+- November 2026: Q2 FY2027 results (Murata capex pull-through confirmation window)
+- Hirano backlog (受注残高) disclosure if available
 
 ---
 
