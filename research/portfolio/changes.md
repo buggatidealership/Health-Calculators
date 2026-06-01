@@ -183,3 +183,7 @@ Combined intentional deployment 2026-05-26 (across both platforms): €35K plann
 | BUY (SIZE UP) | DDOG | €5,000 | 6.64% → ~9.0% | Closes "UNDER-WEIGHTED" gap per `companies/DDOG/thesis.md:5`; toward 8-12% target |
 | BUY (SIZE UP) | NOW | €4,500 | 6.57% → ~8.7% | Toward 10-13% target per `companies/NOW/thesis.md:5`; AI Control Tower August 2026 GA catalyst |
 | **Total** | | **€15,500** | | |
+
+[2026-06-01] SELL ALSEM (Semco Technologies SAS) — EXITED ~€5,143 position (~2.94% prior). User-confirmed verbal report 2026-06-01. Proceeds redirected to MDB entry same day. Note: prior session note had mistakenly recorded "SUMCO sold" — corrected 2026-06-01 (SUMCO is still held at €9,563.68 +6.44%).
+
+[2026-06-01] PORTFOLIO SNAPSHOT — Degiro €190,463.41 + N26 ~€10K = ~€200,463 consolidated. Day P/L +€8,581.39 (+5.14%). Largest 3 Degiro positions: Murata 13.42%, ARM 12.87%, SK Hynix 11.80%. Underwater names: TE -7.18%, ALAB -4.74%, TSEM -4.13%, Corning -3.52%, Semtech -2.89%, STM -1.18%, MDB ~flat. Best YTD: ARM +16.86%, Datadog +11.91%, ServiceNow +9.11%, Murata +8.33%, SUMCO +6.44%, Hynix +6.03%, Sandisk +4.01%.
