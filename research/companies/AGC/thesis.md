@@ -148,3 +148,7 @@ AGC is the highest-ranked of the 3-way PTFE supplier comparison (4/5 Right-Side-
 ## Cross-source synthesis — Computex 2026 Day 1 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: Korean CCL import prices up 74.5% YoY March 2026 ($20,728/ton vs $11,880 prior year) per [Atlas PCB T2](https://www.atlaspcb.com/news/news-ccl-market-korea-import-prices-surge-74-percent-ai-demand-2026/) + TrendForce. CCL lead times hit 6 months with quota systems imposed (T2 Digitimes); CCL expansion equipment lead times extending up to 2 YEARS (T2 Digitimes). Taiwan EMC + TUC Q2 price increase >10%. M9 quartz fiber supply gap 10-20% in 2026 (T2 Digitimes Nov 2025). AGC's PTFE + low-loss resin CCL role confirmed via AGC T1 official sources. **Gap unchanged**: AGC NOT explicitly named for M9/Rubin Ultra PTFE CCL qualification at Computex Day 1 — open-source verification gap remains the load-bearing falsifier item. **Position implication:** HOLD at 1.76% — Computex Day 1 validates the materials shortage thesis direction; M9 qualification specific confirmation gap is the next trigger to watch.
+
+## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — Alphabet $80B raise reinforces PTFE CCL demand for AI server PCBs; EU Pax Silica alliance membership (T2 Euronews) strengthens allied-nation fluoropolymer supply chain geopolitical moat — directly aligns with AGC PTFE Taconic/Nelco positioning.

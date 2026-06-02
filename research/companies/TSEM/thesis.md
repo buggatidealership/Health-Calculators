@@ -300,3 +300,7 @@ Per `companies/AGC/thesis.md` LLM-native deep-dive 2026-06-01: AGC is direct com
 ## Cross-source synthesis — Computex 2026 Day 1 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: TSEM demonstrated 400 Gbps/lane silicon photonics modulator in production-ready SiPh process with Coherent — targeting 3.2T optical transceivers (T1 TSEM IR + Globenewswire). TSEM scaling AI infrastructure with silicon photonics for 1.6T modules designed for NVDA networking protocols (T1 SEC 6-K). TSEM + LightIC Technologies partnership for FMCW LiDAR (Physical AI robotics + automotive). NVDA Spectrum-X Photonics uses TSMC 3nm + SPIL + TFC Communication + Lumentum + Coherent — TSMC vertical integration into CPO supply chain is a real RISK to TSEM's positioning (gap acknowledged: TSEM not explicitly named at Computex Day 1). Net read: TSMC does NVDA switch die; TSEM captures NVDA-adjacent transceiver/CPO die — bifurcation, not zero-sum. **Position implication:** HOLD at 2.20%; position sized too small for signal strength; consider size-up evaluation at next review pending TSMC-vs-TSEM market split clarity.
+
+## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — Alphabet $80B raise = silicon photonics foundry demand floor reinforced; Spectrum-X CPO + 1.6T optical transition validated.

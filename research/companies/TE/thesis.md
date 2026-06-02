@@ -342,3 +342,7 @@ Per `signals/cross-source-log/2026-05-31-evening-brief.md`: SoftBank commitment 
 ## Cross-source synthesis — Computex 2026 Day 1 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: **5 parallel subagents found NO hyperscaler direct PPA for T1 Energy** at Computex 2026 nor in adjacent supply-chain announcements. T1 Energy 900 MW Treaty Oak deal + Austin G2 cell fab H2 2026 confirmed (T1 PV Magazine), but datacenter-renewable connection remains unconfirmed. Corning solar wafer supply relationship with T1 exists (T1 IR), but no hyperscaler-side PPA. **Free-up review rationale CONFIRMED** by 5-subagent absence-of-evidence triangulation — TE remains the weakest AI-adjacent position in the portfolio per user articulation 2026-06-01. **Position implication:** MONITOR — no Computex-day catalyst to change assessment; if G2 Austin begins production H2 2026 and T1 announces any utility/hyperscaler PPA, thesis could validate; until then, free-up review remains active.
+
+## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: NEUTRAL — Alphabet $80B equity raise for AI infrastructure (T1) contains NO hyperscaler-renewable-PPA reference; T1 Energy free-up review rationale unchanged. 6th data point (across Computex Day 1 5 subagents + morning brief) confirming no datacenter PPA catalyst pathway.

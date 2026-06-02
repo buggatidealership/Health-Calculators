@@ -127,3 +127,7 @@ Per `research/meta/2026-05-29-portfolio-snapshot-agentic-ai-robotics-matrix.md`:
 ## Cross-source synthesis — Computex 2026 Day 1 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: NVDA Isaac GR00T Reference Humanoid announced at Computex — Unitree H2+ chassis, 31 degrees of freedom, Sharpa 5-finger hands, Jetson AGX Thor T5000 (Blackwell GPU + 128GB unified memory), late 2026 availability via Unitree (T1 NVDA Newsroom). 9 named humanoid robot partners: 1X Technologies, Agility Robotics, Apptronik, Boston Dynamics, Figure AI, Fourier Intelligence, Sanctuary AI, Unitree, XPENG Robotics. Foxconn Nurabot nursing robot co-developed with Taichung Veterans General Hospital + Kawasaki Heavy Industries; Foxconn Houston humanoid plant Q1 2026 target. NVDA's "useful AI has arrived" framing + agentic systems = embodied AI thesis underpinning HDS is on schedule. **Position implication:** HOLD at ~5% on N26 (Harmonic Drive Systems 6324.T); precision actuator demand thesis 1st-order validated by 9-partner humanoid ecosystem + Isaac GR00T reference platform.
+
+## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — NVDA Cosmos 3 omnimodal world models (T2 HuggingFace) reinforces physical AI / humanoid platform demand; Cosmos 3 + Isaac GR00T cascade validates humanoid actuator demand floor.

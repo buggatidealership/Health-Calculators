@@ -113,3 +113,19 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md` — mo
 | S5 Regulatory shock | 6% | 5% | Taiwan ecosystem integration depth reduces geopolitical bifurcation speed |
 
 Sum: 32+30+27+6+5 = 100. Directional only — formal reweight pending Days 2-5 + morning brief.
+
+---
+
+## 2026-06-02 Morning Brief incremental update
+
+Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`:
+
+| Scenario | Pre-brief (post-Computex Day 1) | Post-morning-brief (my model) | Driver |
+|---|---|---|---|
+| S1 NVDA dominant | 32% | 31% | Alphabet $80B raise = partial shift to custom Si (Trillium TPU); -1pp |
+| S2 Custom Si fragments | 30% | 32% | Alphabet TPU ramp + OpenAI multi-cloud + Anthropic Cowork = fragmentation +2pp |
+| S3 Power binds | 27% | 27% | Unchanged |
+| S4 Digestion | 6% | 5% | Alphabet $80B equity raise = structural buildout signal; -1pp |
+| S5 Regulatory shock | 5% | 5% | Florida v OpenAI directional but state-level only; no shift |
+
+Sum: 31+32+27+5+5 = 100. Directional only.

@@ -177,3 +177,7 @@ This thesis built from 4 parallel LLM-native subagents on non-overlapping aspect
 ## Cross-source synthesis — Computex 2026 Day 1 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: AMBA NOT explicitly named at Computex Day 1 for ADAS/security camera/robotics/edge AI catalysts. NVDA DRIVE Hyperion expansion (Foxconn Taiwan L4, VinFast SE Asia, Uber, HUMAIN Saudi) — incremental competitive pressure at L3+/L4 robotaxi tier where AMBA was never primarily positioned. NVDA Isaac GR00T platform = ecosystem advantage for NVDA-based robotics over AMBA N1 SoC humanoid roadmap. Broader edge AI structural narrative supportive but no specific positive catalyst for AMBA. **Position implication:** HOLD at 1.5-2% Active sizing — no thesis-changing catalyst at Computex Day 1; Q2 FY2027 earnings (Aug 2026) remains the upgrade trigger for discrete CV3 revenue attribution + 2nd Tier-1 OEM design win.
+
+## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: NEUTRAL — no specific AMBA catalyst in morning brief. NVDA Cosmos 3 omnimodal world models (T2 HuggingFace) and DRIVE Hyperion expansion reinforce broader edge AI narrative supportive but not specific to AMBA's ADAS/security/robotics positioning. Q2 FY2027 (Aug 2026) trigger remains pending.

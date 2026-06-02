@@ -336,3 +336,7 @@ Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md
 ## Cross-source synthesis — Computex 2026 Day 1 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: **STRONGEST single-week validation in ALAB OS history — triple simultaneous product validations**: (1) Scorpio X-Series 320-Lane Smart Fabric Switch first public demo at Computex (June 3); industry's largest open memory-semantic fabric switch; H2 2026 production ramp; (2) **Leo CXL Smart Memory Controllers IN PRODUCTION on Microsoft Azure M-Series VMs** — commercial hyperscaler deployment, not lab demo (T1 Astera Labs IR); (3) COSMOS PCIe 6 scale-up optics first public demo. CXL memory pool architecture in Azure production = direct hardware anchor for the 2026-06-01 optical-memory-pool signal; memory disaggregation thesis is no longer speculative but in commercial hyperscaler deployment. NVDA ICMS optical-attached KV cache architecture (announced GTC Taipei) further validates the ALAB CXL + fabric switch direction. **Position implication:** HOLD reinforced; size-up watch active — triple validation strengthens prior thesis materially; pre-Computex sizing rationale upgraded.
+
+## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — Alphabet $80B raise = CXL memory expansion + fabric switch demand floor at hyperscaler #1; Leo CXL Azure production cascade compounds.
