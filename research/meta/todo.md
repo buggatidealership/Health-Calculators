@@ -1,6 +1,6 @@
 # To-Do — AI Sector Research OS
 
-**Last updated:** 2026-05-29 (cleanup: SUPERSEDED Principle #32 audit removed; closed NVDA stock-reaction item archived; Schwab item formatting fixed)
+**Last updated:** 2026-06-02 (HPE Q2 FY26 GRADE completed; L14 CODIFIED at N=2 — removed L14 validation watch item; L15 NEW + L16 CANDIDATE added to lessons.md)
 **Optimizes for:** rate at which signals become defensible, falsifiable, investable conviction earlier than consensus (per `meta/methodology.md` §Meta-First-Principle).
 
 **SessionStart hook sort order:** P0 → P1 → P2 → P3, within priority: artifact-producing > process, within ties: tag count desc, then date asc.
@@ -64,12 +64,6 @@
   - Scope: At ARM Q2 FY27 print (~Aug 2026), evaluate (a) AGI CPU revenue contribution % of total, (b) blended GM trajectory, (c) FTC probe status update, (d) any additional named customer wins (AWS / Google / Microsoft transition from "supportive" to actual customers). If all 4 favorable → SIZE UP to Core tier (12-13%) actionable. If any unfavorable → maintain HOLD at 11.36% or reassess.
   - Linked: `signals/cross-source-log/2026-05-30-arm-agi-cpu-deep-dive.md`, `companies/ARM/thesis.md` AGI CPU section
 
-- [ ] **P2 / verification / 2026-05-28** [CAL, INDP] — L14 candidate N=2 validation watch (next eligible Stage 2-3 + CATEGORY EVENT case)
-  - Origin: 2026-05-28 4-data-point same-day cohort (SNOW +37.65%, MDB +20%, NTAP +10%, ESTC -10.9%, MRVL -1.96% prior) produced refined framework distinguishing HIGH-CONCRETE / LOW-CONCRETE / TREND / REVERSE-CATEGORY events. But same-day cohort = mostly coincident (possible common-cause AI rerating wave); needs independent N=2+ across different days/events.
-  - **Update 2026-05-29**: NTAP Q4 FY26 print added as N=3 application (LOW-CONCRETE + Stage 3-4 + 10% reaction = framework match). HPE Q2 FY26 prediction (resolution 2026-06-01) is the next independent cross-day validation point.
-  - Scope: monitor next earnings cycle for Stage 2-3 names with potential CATEGORY EVENT markers (signed strategic deal, metric baseline-break, mgmt narrative shift to leading indicators). When found, run PREDICT with explicit L14 application; resolve at GRADE to validate or falsify magnitude calibration. If 2+ independent cases validate framework → codify L14 at next monthly audit 2026-06-24. If 2+ falsify → retire to candidate-archive.
-  - Linked: `predictions/lessons.md` L14 candidate; `predictions/2026-05-29-HPE-Q2FY26.md` (next test point); `companies/NTAP/thesis.md` (N=3 application logged)
-
 ### P2 — SoC building-block layer deep-dives (added 2026-05-31)
 
 - [x] **DROPPED 2026-06-01** — Deep-dive: Synopsys (SNPS) + Cadence (CDNS) — EDA oligopoly at SoC building-block layer
@@ -107,6 +101,9 @@
   - **PART A — Codification audit** (expanded scope per 2026-05-28): each gets the 3-question test:
     - Principles: #29 (segmented triangulation), #30 (comp-set verification), #31 (narrative-stage modifier), #32 (pre-action checkpoints), #33 (top-down capability decomposition + 2026-05-28 competition-intensity refinement), candidate #34 (Supplier-Side Cross-Layer Moat Decomposition — check for N=2+ validation)
     - Biases: B31 (cross-segment aggregation), B32 (comp-set anchoring at valuation), B33 (narrative-stage-blind sizing), B34 (action without verification or premortem), B35 (within-category aggregation), B36 (visible-user-adoption anchoring when embedded), candidate B38 (demand-side decomposition blind-spot — check for N=2+ validation; promote OR retain candidate OR retire)
+    - L14 (CODIFIED 2026-06-02): verify 2+ applications post-codification; confirm Stage 3-4 CATEGORY override is correctly applied in new PRO predictions
+    - L15 (NEW 2026-06-02): verify corporate-event check discipline has been applied to any EPS prediction in first 30 days; confirm checklist is not wasted overhead
+    - L16 (CANDIDATE 2026-06-02): check if N=2 accumulation-vs-conversion case has surfaced; promote or retain candidate
     - **3 questions per codification**: (1) APPLIED since codification? (check `principle-applications-log.md` + grep recent commits); (2) if applied → REAL CATCH / FALSE POSITIVE / WASTED OVERHEAD; (3) if NOT applied in 30 days → INERT → retire OR promote to hook
     - **Metrics**: Real-catch rate ≥40%; false-positive <30%; wasted-overhead <30%; net-positive (REAL_CATCHES > WASTED_OVERHEADS over 30 days)
   - **PART B — Claim-verification audit** (per principle #23, codified 2026-05-24 after TrendForce HBF debacle):
@@ -117,10 +114,10 @@
   - **PART C — Critical Rule #11 detectability check** (added 2026-05-28):
     - Grep `Position implication:` across thesis files committed 30 days prior
     - Verify VARIED implications (mix of ENTER / HOLD / TRIM / EXIT / NO ACTION); if 5+ identical "HOLD — no size change" → rule decorative; retire or refine
-  - **Failure mode the audit protects against**: rapid codification cadence producing ossified text that's never actually applied = the most likely OS-degradation pathway given the recent codification velocity (Principles #29 → #34 + B31 → B38 in <40 days)
+  - **Failure mode the audit protects against**: rapid codification cadence producing ossified text that's never actually applied = the most likely OS-degradation pathway given the recent codification velocity (Principles #29 → #34 + B31 → B38 + L14-L16 in <45 days)
   - **Where to document outcome**: `research/meta/principle-applications-log.md` "Monthly audit log" section
   - **Automation verification** (per user request 2026-05-29): 2 mechanisms confirm this will surface on 2026-06-24:
-    1. `~/.claude/session-start-hook.py` is date-aware — surfaces with 🚨 OVERDUE / ⏰ DUE TODAY / 📅 DUE SOON markers at top of session briefing if user starts a session that day or after
+    1. `~/.claude/session-start-hook.py` is date-aware — surfaces with OVERDUE / DUE TODAY / DUE SOON markers at top of session briefing if user starts a session that day or after
     2. `.github/workflows/recurring-audit-reminder.yml` runs weekly Monday 9am UTC; creates a GitHub issue when DUE_SOON / DUE_TODAY / OVERDUE fires
   - **Linked**: `meta/methodology.md` (Principles #29-#34), `meta/biases-watchlist.md` (B31-B38), `meta/principle-applications-log.md`, `meta/recurring-audit-log.md`, recent commit log
 
@@ -152,6 +149,10 @@
 ## Archive (completed process items without permanent artifact)
 
 (Items that DID produce a permanent artifact are deleted — the artifact replaces the to-do. The artifact location is noted in case future Claude needs to find it.)
+
+- [x] **2026-06-02** [CAL, INDP] — HPE Q2 FY26 GRADE + L14 N=2 validation — COMPLETED per artifact production
+  - Reason: Grade completed; L14 CODIFIED at N=2 (Stage 3-4 CATEGORY EVENT override validated by HPE +29-36% T+24h); L15 NEW (corporate event INPUT checklist); L16 CANDIDATE (accumulation vs conversion cohort sub-mechanism). Supply-Chain-Cohort Calibration framework: REFINE verdict (direction correct; magnitude under-predicted due to H3C INPUT gap + DELL sub-mechanism mismatch). Pending grade item removed from Pending table in grading-log.md.
+  - Artifacts: `predictions/2026-06-01-HPE-Q2FY26-GRADE.md` (GRADED), `predictions/lessons.md` (L14 codified + L15 + L16 added), `predictions/grading-log.md` (HPE moved to Graded), `meta/todo.md` (this archive entry)
 
 - [x] **2026-05-29** [INDP, AF] — ESTC contrarian-asymmetric-opportunity check — CLOSED per artifact production
   - Reason: substantial analysis produced + committed to `companies/ESTC/thesis.md` (Q4 FY26 actuals + temporal anchoring correction on "feature not a business" Aug 2025 quote + L14 framework NEAR-TERM-MISS/LONG-TERM-STRONG-GUIDE classification + position implication CONSIDER ENTER 2-3% pending Q4 FY26 transcript verification). Remaining transcript-pull step is conditional on user decision to act on entry; no longer requires a P1 task slot.
@@ -264,26 +265,22 @@
 
 - [x] **2026-05-21** [INDP, CAL] — Source-reliability framework expansion + first-pass audit (10 sources)
   - Origin: User calibration 2026-05-21 — "source reliability has reasoning impact, not just portfolio decision impact. Reliable = green flag amplifier, unreliable = red flag discount or potentially contrarian signal."
-  - Artifact: `research/meta/source-reliability.md` rewritten with 5-dimensional framework (tier + track record + bias direction + signal-use 🟢/🟡/🔴/🟣 + best/worst use case)
-  - Sources audited: SemiAnalysis 🟢, Aschenbrenner 🟢, WSJ/Bloomberg 🟢, Sherwood News 🟢 (with COI flag), TrendForce 🟢 (memory-specific), Digitimes 🟡 (predictive vs factual), Tom's Hardware 🟢/🟡, Benzinga 🟢, TradingKey 🟡, 24/7 Wall St 🟡/🔴, Motley Fool 🟢 (transcripts only), BeyondSPX 🟡, WCCFTech 🔴
+  - Artifact: `research/meta/source-reliability.md` rewritten with 5-dimensional framework (tier + track record + bias direction + signal-use + best/worst use case)
+  - Sources audited: SemiAnalysis, Aschenbrenner, WSJ/Bloomberg, Sherwood News (COI flag), TrendForce (memory-specific), Digitimes, Tom's Hardware, Benzinga, TradingKey, 24/7 Wall St, Motley Fool (transcripts only), BeyondSPX, WCCFTech
   - Monthly cadence item created for remaining 6 sources
 
 - [x] **2026-05-21** [INFRA, INDP] — Date-aware SessionStart hook + recurring-audit-log + GitHub Action reminder
   - Origin: User request 2026-05-21 — "ensure the source-reliability monthly audit happens; remind me; update me if done while I'm away"
-  - Artifacts: `~/.claude/session-start-hook.py` (date-aware elevation with 🚨/⏰/📅 markers) + `research/meta/recurring-audit-log.md` (autonomous-completion trail) + `.github/workflows/recurring-audit-reminder.yml` + `.github/scripts/check-recurring-todos.py` (weekly cron, creates GitHub issue when items DUE/OVERDUE) + `research/meta/hooks/` mirror
-  - Tested with mocked dates: all three states (DUE_TODAY, OVERDUE, DUE_SOON) elevate correctly
+  - Artifacts: `~/.claude/session-start-hook.py` (date-aware elevation with markers) + `research/meta/recurring-audit-log.md` + `.github/workflows/recurring-audit-reminder.yml` + `.github/scripts/check-recurring-todos.py` + `research/meta/hooks/` mirror
 
 - [x] **2026-05-21** [INFRA, BOT, INDP] — Networking primer with first-principles + extrapolation framework
-  - Origin: P3 wiki entry + user calibration 2026-05-21 — "everything should start from first principles, build a layered understanding of the most critical components, then use first principles to extrapolate patterns humans haven't found"
-  - Artifact: `research/wiki/networking-primer.md` — 8 sub-layers decomposed, generational deltas (51.2T→102.4T switch + 8→16 optical engines per switch), 10 non-consensus extrapolations including DPU-as-mandatory layer, NVLink scale-up moat structural durability, Ultra Ethernet threat to NVDA InfiniBand revenue, switch liquid cooling cascade, network spend as % of compute rising not flat
-  - Cascade: 8 thesis files updated with back-references (AIXTRON, AVGO, AXTI, GLW, HYNIX, MRVL, SMTC, VRT) per Rule #10; cascade hook verified exit 0
-  - Side-effect: `meta/methodology.md` core principle #13 added — "First-principles + layered + extrapolation discipline on every wiki" with explicit structure requirement (first principles → sub-layer decomposition → generational deltas → ≥5 extrapolations → cross-stack cascade → falsifiers)
+  - Artifact: `research/wiki/networking-primer.md`
+  - Cascade: 8 thesis files updated with back-references per Rule #10; cascade hook verified exit 0
+  - Side-effect: `meta/methodology.md` core principle #13 added
 
 - [x] **2026-05-21** [INDP] — Re-verify VICR 2nd gen VPD specs at primary source
-  - Origin: BeyondSPX (T4) had previously been the only source for "5 A/mm² + 24× current gain" claim
-  - Finding: BeyondSPX numbers DISPROVEN. Vicor CEO Vinciarelli on Q1 2026 earnings call (2026-04-21) disclosed 3 A/mm² + 40× current multiplication (NOT 5 A/mm² + 24× current gain). Triangulated across Investing.com transcript, Insider Monkey transcript, Photoncap synthesis of call.
-  - Artifacts updated: `companies/VICR/facts.md` (primary-source section added), `companies/VICR/thesis.md` (bull case section corrected with verified numbers), `meta/source-reliability.md` (BeyondSPX downgraded to 🔴 RED FLAG for specific technical claims after confirmed inaccuracy)
-  - Lead customer identified as Cerebras (wafer-scale-engine framing from call); narrows hyperscaler/NVDA design-win argument
+  - Finding: BeyondSPX numbers DISPROVEN per Vicor CEO Q1 2026 call. Corrected to 3 A/mm2 + 40x current multiplication.
+  - Artifacts updated: `companies/VICR/facts.md`, `companies/VICR/thesis.md`, `meta/source-reliability.md`
 
 ## How to use this file
 
