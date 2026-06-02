@@ -268,3 +268,30 @@ Surfaced via user-shared Kioxia IR slide + 3-subagent verification per `signals/
 - `meta/todo.md` — P1 Kioxia VLSI Jun 14-18 watch + P1 SNDK Q2 FY27 print as L17 forward-application N=1+N=2 test cases
 
 **Decision pending:** user go/no-go on split ratio. Options: confirm SPLIT (H1), pivot to ALL-IN KIOXIA (H2), or pivot to ALL-IN SNDK (H3). No execution at Degiro/N26 yet.
+
+[2026-06-02 EVENING — UPDATED] **3-WAY SPLIT proposal replaces prior 2-way as NEW RECOMMENDED option** — triggered by Spectrum-X CPO PRODUCTION verification per `signals/cross-source-log/2026-06-02-hbm-2027-pricing-trendforce-and-spectrum-x-cpo-production.md` + Murphy keynote claims verification. NVDA Spectrum-X Ethernet Photonics is "ramping into full production" with CPO switches "now in production" per [NVDA T1 June 1 2026](https://www.globenewswire.com/news-release/2026/06/01/3303979/0/en/NVIDIA-Vera-Rubin-Ramps-Into-Full-Production-to-Power-Agentic-AI-Factories-Worldwide.html); prior harness framing was "H2 2026 TARGET" per `wiki/optical-interconnect-primer.md`. TSEM (silicon photonics foundry) catalyst is now production-confirmed not theoretical — SIZE UP candidate escalated.
+
+**REVISED PROPOSED ALLOCATIONS (my model, awaiting user decision):**
+
+| H | Allocation | SNDK | Kioxia | TSEM | Total | Rationale |
+|---|---|---|---|---|---|---|
+| **H1 (NEW RECOMMENDED — 40% my model)** | 3-way split | **€4K** | **€3K** | **€3K** | **€10K** | Captures all three L14 forward-application catalyst exposures (SNDK Q2 FY27 print late July + Kioxia VLSI Symposium Jun 14-18 + TSEM Spectrum-X production verified); TSEM 3% → ~4.5%; SNDK 5.2% → ~7%; Kioxia 0% → ~1.5%; diversifies single-name risk |
+| H2 (35% my model) | Prior 2-way split | €5-6K | €4-5K | — | €10K | Previously recommended; TSEM stays at ~3% (just sized up €2.2K same day) |
+| H3 (25% my model) | Reallocate | — | €5K | €5K | €10K | Drops SNDK SIZE UP this round; TSEM has freshest verified catalyst (NVDA T1 June 1 production); SNDK L17 test runs at Q2 FY27 print without needing additional capital |
+
+**Why H1 became RECOMMENDED:**
+- Spectrum-X CPO production verification = TSEM catalyst REAL not theoretical; TSEM is currently undersized vs SIZE UP candidate framing
+- 3-way split captures BOTH HBM 2027 indirect benefit via HYNIX held position AND direct catalyst exposure on TSEM Spectrum-X cascade
+- TSEM Stage 3-4 + CATEGORY EVENT (Spectrum-X production confirmation) per L14 framework warrants +20-30% magnitude window (my model)
+- Falsifier: if TSEM doesn't surface silicon photonics segment revenue growth >30% YoY at mid-July 2026 print, the production-confirmed catalyst was over-attributed and H1 was premature
+
+**Bypass-route check per Critical Rule #9 (CPO transition):**
+- TSEM benefits from BOTH NVDA Spectrum-X AND AVGO Tomahawk 6-Davisson CPO ramps (both need silicon photonics foundry capacity); not single-vendor lock-in
+- Substitution risk only if TSMC vertically integrates silicon photonics foundry (bifurcation framing mitigates per `companies/TSEM/thesis.md` Day 1 cascade)
+
+**Cross-references:**
+- `signals/cross-source-log/2026-06-02-hbm-2027-pricing-trendforce-and-spectrum-x-cpo-production.md` — 3-subagent verification
+- `companies/TSEM/thesis.md` — Spectrum-X cascade entry + SIZE UP escalation
+- `companies/HYNIX/thesis.md` — TrendForce HBM 2027 +70-100% Mizuho cascade
+- `companies/MRVL/thesis.md` — Murphy keynote claims clarification ($36B platform-spend not M&A)
+- `sector/where-we-are.md` — HBM 2027 + Spectrum-X CPO PRODUCTION new-signal block
