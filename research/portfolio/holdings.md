@@ -1,97 +1,79 @@
 # Current Holdings
 
-**Last updated:** 2026-06-01 18:51 (Degiro snapshot screenshot ingested; ALSEM SOLD; MDB ENTERED ~€10K; SUMCO HELD; AXTI SOLD)
-**Source:** Degiro snapshot 2026-06-01 (€190,463.41) + N26 HDS ~€10,000 = **~€200,463 consolidated**
+**Last updated:** 2026-06-02 20:26 (Degiro screenshot ingested; AGC + Hirano ENTERED 2026-06-02; quantities verified)
+**Source:** Degiro snapshot 2026-06-02 (€204,062.73 portfolio incl AGC + Hirano) + N26 HDS ~€10,000 = **~€214,063 consolidated**
 
-## ⚠️ CHANGES SINCE 2026-05-29
+## ⚠️ CHANGES SINCE 2026-06-01
 
-- **ALSEM (Semco Technologies SAS)** SOLD between 2026-05-29 and 2026-06-01 — user-confirmed 2026-06-01. Was €5,142.90 (~2.94%). Freed capital reallocated to MDB.
-- **MDB (MongoDB)** ENTERED 2026-06-01 at **~€9,896.46** (BEP $396.48). New position at ~5.20% Degiro / ~4.94% consolidated. Above original 3-4% recommendation; within SIZE UP 5-7% band per `companies/MDB/thesis.md:135` gated discipline.
-- **SUMCO Corp (3436.T)** STILL HELD at €9,563.68 (+€578.92 / +6.44% from €9K entry 2026-05-29).
-- **AXTI** SOLD 2026-05-29 (already reflected).
-- **T1 Energy (TE)** UNDERWATER -7.18% / -€835.90 — user considering EXIT (free-up decision pending; see "Free-up review" below).
-- **ARM Holdings** appreciated to €24,505.31 / +16.86% — now 2nd-largest Degiro position (12.87%).
-- **Murata** remains LARGEST Degiro position at €25,564.50 (13.42%).
-- **SK Hynix** 3rd-largest at €22,480.00 (11.80%).
+- **AGC Inc (5201.T)** ENTERED 2026-06-02 — **100 shares** at BEP JPY 7,098 = cost basis ~€3,816 (my model). Current price JPY 7,006; position value €3,765.79 per screenshot. Within 2% recommended sizing per `companies/AGC/thesis.md`. Entry above 52w high JPY 6,959 = user adapted to post-analysis price rally rather than waiting for retracement.
+- **Hirano Tecseed (6245.T)** ENTERED 2026-06-02 — **300 shares** at BEP JPY 2,500 = cost basis ~€4,032 (my model). Current price JPY 2,506; position value €4,040.99 per screenshot. Within 1.5-2% recommended sizing per `companies/HIRANO/thesis.md`. BEP ~32% above my recommended limit-order range JPY 1,600-1,900 (my model: 2500/1900-1) — user chose to chase the post-June 1 +24.93% surge continuation rather than wait for limit fills.
 
-## Account totals — consolidated across platforms (2026-06-01)
+## Account totals — consolidated across platforms (2026-06-02)
 
-| Platform | Shares value | Day P/L | Subtotal |
-|---|---|---|---|
-| **Degiro** (primary) | €190,463.41 | +€8,581.39 (+5.14%) | €190,463.41 |
-| **N26** (secondary) | €10,000 (HDS only) | TBD | €10,000+ |
-| **Total consolidated** | **€200,463.41** | — | **~€200,463+** |
-
-## Positions (sorted by Degiro % of consolidated portfolio, 2026-06-01)
-
-| # | Position | Ticker | Value (EUR equiv) | % consolidated | BEP | P/L EUR | P/L % | Sector mapping |
-|---|---|---|---|---|---|---|---|---|
-| 1 | Murata Manufacturing | 6981.T | €25,564.50 | **12.75%** | €33.29 | +1,966.50 | +8.33% | MLCC / Physical AI universal supplier |
-| 2 | ARM Holdings | ARM (ADR) | €24,505.31 | **12.22%** | $321.80 | +3,592.26 | +16.86% | CPU IP + AGI CPU architecture |
-| 3 | SK Hynix (GDR) | HXSCL | €22,480.00 | **11.21%** | $995.31 | +1,280.00 | +6.03% | HBM (3-year capacity gap; +iHBM thermal moat) |
-| 4 | ServiceNow | NOW | €14,357.63 | **7.16%** | $94.30 | +1,233.89 | +9.11% | Agentic workflow / AI Control Tower August 2026 GA |
-| 5 | Datadog | DDOG | €14,286.66 | **7.13%** | $203.37 | +1,554.55 | +11.91% | Observability / agentic-AI infra |
-| 6 | Sandisk | SNDK | €12,132.21 | **6.05%** | $1,099.60 | +499.22 | +4.01% | NAND / AI storage / Kioxia MSA-CBA cost-bypass |
-| 7 | STMicroelectronics ADR | STM | €11,075.99 | **5.52%** | $64.08 | -102.62 | -1.18% | Multi-vector AI (MEMS + power + embedded + RF/optical) |
-| 8 | **T1 Energy** | **TE** | **€10,802.40** | **5.39%** | **€7.37** | **-835.90** | **-7.18%** | **AI-adjacent via Supply Chain Inheritance (weakest tier; free-up candidate)** |
-| 9 | Astera Labs | ALAB | €10,675.07 | **5.33%** | $306.80 | -501.91 | -4.74% | AI fabric silicon (PCIe Gen6 + Scorpio + CXL) |
-| 10 | **Harmonic Drive Systems** | HSCMY / 6324 | **~€10,000** | **~4.99%** | (per N26 fill) | TBD | TBD | Precision actuators (Physical AI universal) |
-| 11 | **MongoDB** | **MDB** | **€9,896.46** | **4.94%** | **$396.48** | **-23.68** | **(flat)** | **Vector DB + agentic data layer (NEW 2026-06-01)** |
-| 12 | Sumco Corporation | 3436.T | €9,563.68 | **4.77%** | JPY 21.69 | +578.92 | +6.44% | Wafer supplier (equipment shortage cascade thesis) |
-| 13 | Corning | GLW | €9,171.05 | **4.57%** | $159.03 | -309.39 | -3.52% | Optical fiber + display + AV LIDAR glass + Nvidia AI |
-| 14 | Semtech | SMTC | €6,371.05 | **3.18%** | $154.68 | -172.15 | -2.89% | Signal integrity + Active Copper Cables (AI DC) |
-| 15 | Tower Semiconductor | TSEM | €4,419.93 | **2.20%** | $265.00 | -178.26 | -4.13% | Specialty foundry / silicon photonics ($1.3B 2027 contracts) |
-
-**Sum check (Degiro only):** €190,463.41 ✓
-
-## Free-up review — TE candidate
-
-Per user statement 2026-06-01: "T1 Energy might just be not the one that is sort of part of our portfolio... I can't really value how they can grow well — most of their business [it's unclear] AI is actually pushing them."
-
-Per `companies/TE/thesis.md`:
-- Anti-fragility 2/5 (weakest in portfolio)
-- AI exposure = **Supply Chain Inheritance only** (T7 theme), NOT direct product fit
-- Own thesis flags execution risk + policy risk (IRA rollback)
-- Aschenbrenner validation modest ($43.9M position, small for him)
-- Current -7.18% / -€835.90 underwater
-
-**Architectural signal coherence check (per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`)**: TE is NOT named in the N-th order cascade for optical-memory-pool architecture (1st-4th order). No reinforcement from current most-active thesis thread.
-
-**Free-up decision pending user**: EXIT at -7.18% → frees ~€10,802 capital + tax-loss harvest -€835.90 (offsetable). Alternative: HOLD with explicit Q2 2026 production-tracking falsifier (3.1+ GW pace) as 60-day check-in.
-
-## Tier classification summary (post-MDB entry, pre-TE decision)
-
-**By thesis cluster:**
-
-| Cluster | Names | % consolidated |
+| Platform | Value | Source |
 |---|---|---|
-| Physical AI / Robotics | Murata + Harmonic Drive + STM (MEMS portion) + partial ARM | ~30% |
-| Memory / HBM / Storage | SK Hynix + Sandisk + (HBM-adjacent SUMCO) | ~22% |
-| Agentic Software / Data | ServiceNow + Datadog + MongoDB | ~19% |
-| AI Compute IP | ARM (CPU IP majority) | ~12% |
-| Datacenter Optical Interconnect | Astera Labs + Corning + Semtech + Tower | ~15% |
-| AI-Adjacent (weakest tier) | T1 Energy (Supply Chain Inheritance only) | ~5% |
+| **Degiro** (primary, with AGC+Hirano added) | €204,062.73 | per screenshot 2026-06-02 8:26 PM |
+| **N26** (secondary) | ~€10,000 (HDS only) | per prior `portfolio/holdings.md` |
+| **Total consolidated** | **~€214,063** | my model, sum |
 
-**Concentration risk check**: Physical AI cluster ~30% (largest); AI-Adjacent weakest tier ~5% (TE only). Datacenter Optical Interconnect cluster reinforced by optical-memory-pool signal (TSEM + SMTC + ALAB + GLW all 1st-2nd order beneficiaries).
+Day P/L per screenshot: -€2,662.36 (-1.29%)
 
-## Cash dry powder
+## Positions (sorted by Degiro position value 2026-06-02)
 
-If TE exited: ~€10,802 freed. Combined with prior ALSEM exit redirected to MDB, current dry powder = ~€0 ex-TE / ~€10,800 post-TE-exit.
+| # | Position | Ticker | Qty | BEP | Current Price | Value (EUR) | % consolidated (my model) | Sector mapping |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Murata Manufacturing | 6981.T | 437 | €33.29 | €56.10 | €24,515.70 | 11.45% | MLCC / Physical AI |
+| 2 | ARM Holdings | ARM | 69 | $321.80 | $408.83 | $24,215.32 | ~10.5% | CPU IP / AGI CPU |
+| 3 | SK Hynix (GDR) | HXSCL | 16 | $995.31 | €1,355.00 | €21,680.00 | 10.13% | HBM |
+| 4 | ServiceNow | NOW | 123 | $94.30 | $135.86 | $14,344.82 | ~6.2% | Agentic workflow |
+| 5 | Datadog | DDOG | 60 | $203.37 | $277.54 | $14,294.70 | ~6.2% | Observability |
+| 6 | Sandisk | SNDK | 50 | $1,099.60 | $1,760.00 | $12,086.50 | ~5.2% | NAND / AI storage |
+| 7 | T1 Energy | TE | 1,286 | €7.37 | €8.95 | €11,509.70 | 5.38% | Solar / Supply Chain Inheritance |
+| 8 | STMicroelectronics | STM | 188 | $64.08 | $69.01 | $11,137.00 | ~4.85% | Multi-vector AI |
+| 9 | Astera Labs | ALAB | 38 | $306.80 | $320.215 | $10,445.36 | ~4.55% | AI fabric silicon |
+| 10 | MongoDB | MDB | 29 | $396.48 | $403.58 | $10,046.76 | ~4.38% | Vector DB / agentic data |
+| 11 | **Harmonic Drive Systems** | HSCMY / 6324 | TBD | TBD | TBD | ~€10,000 | ~4.67% | Precision actuators (N26) |
+| 12 | Sumco Corp | 3436.T | 415 | JPY 21.69 | EUR 22.85 | €9,482.75 | 4.43% | Wafer supplier |
+| 13 | Corning | GLW | 61 | $159.03 | $176.63 | $9,248.95 | ~4.03% | Optical fiber + AI |
+| 14 | Semtech | SMTC | 50 | $154.68 | $149.625 | $6,422.03 | ~2.80% | Signal integrity |
+| 15 | Tower Semiconductor | TSEM | 21 | $265.00 | $252.695 | $4,555.27 | ~1.99% | Silicon photonics foundry |
+| 16 | **Hirano Tecseed** | **6245.T** | **300** | **JPY 2,500** | **JPY 2,506** | **€4,040.99** | **~1.89%** | **MLCC tape-casting equipment (NEW 2026-06-02)** |
+| 17 | **AGC Inc** | **5201.T** | **100** | **JPY 7,098** | **JPY 7,006** | **€3,765.79** | **~1.76%** | **PTFE CCL + EUV blanks (NEW 2026-06-02)** |
 
-## Thesis-stated position % vs current actual (staleness flag)
+**Sum check (Degiro only)**: ~€204,063 per screenshot ✓
 
-Several thesis files have STALE "Position target" / "user holds" lines reflecting prior holdings:
-- NOW thesis says "12.0%" — actual 7.16%
-- GLW thesis says "10.8%" — actual 4.57%
-- STM thesis says "6.6%" — actual 5.52%
-- MURATA thesis says "~12.4%" — actual 12.75%
-- HYNIX thesis says "10.53%" — actual 11.21%
-- DDOG thesis says "10.38% / 7.5%" — actual 7.13%
-- ALAB thesis says "9.6%" — actual 5.33%
-- SNDK thesis says "7.09%" — actual 6.05%
-- TE thesis says "4.82%" — actual 5.39%
-- TSEM thesis says "5.4%" — actual 2.20%
-- SMTC thesis says "0%" — actual 3.18% (NEW entry not yet reflected in thesis)
-- MDB thesis says "Active candidate; user evaluating 3-4% initial stake" — actual NOW HELD at 4.94%
+## Sizing verification — AGC + Hirano (within recommendation)
 
-**Recommendation**: leave thesis-stated targets as historical baselines; this `holdings.md` is single source of truth for CURRENT actual %.
+| Position | Cost basis (my model) | % of consolidated (my model) | Recommendation per thesis | Variance |
+|---|---|---|---|---|
+| AGC | ~€3,816 | ~1.78% | 2% Active per `companies/AGC/thesis.md` | **Within (slightly under target)** |
+| Hirano | ~€4,032 | ~1.88% | 1.5-2% initial per `companies/HIRANO/thesis.md` | **Within (at upper bound of initial range)** |
+
+**Verdict**: Sizing discipline CONFIRMED. Both positions within recommended bands.
+
+## Entry-price discipline note — Hirano variance
+
+| Position | My recommended entry | User actual BEP | Variance vs limit range |
+|---|---|---|---|
+| AGC | Near current ~JPY 6,300 | JPY 7,098 | ~12.7% above target (my model) |
+| Hirano | LIMIT JPY 1,600-1,900 | JPY 2,500 | **~32% above max limit (my model)** |
+
+**Implication**: Hirano position has compressed asymmetry from entry-price chase. Revised EV ~+36% over 24-36mo (my model) vs +52% at lower entry basis previously modeled. Still positive expected value but tighter risk/reward. **Not a thesis-falsifying issue** at 1.88% sizing.
+
+## Cluster summary (post AGC + Hirano)
+
+| Cluster | Names | Approx % consolidated (my model) |
+|---|---|---|
+| Physical AI / Robotics | Murata + HDS + STM (MEMS) + partial ARM | ~28% |
+| Memory / HBM / Storage | SK Hynix + Sandisk + SUMCO | ~20% |
+| Agentic Software / Data | NOW + DDOG + MDB | ~17% |
+| AI Compute IP | ARM (CPU IP majority) | ~10.5% |
+| Datacenter Optical Interconnect | ALAB + GLW + SMTC + TSEM | ~13% |
+| **PTFE/EUV materials + MLCC equipment (NEW)** | **AGC + Hirano** | **~3.6%** |
+| AI-Adjacent (weakest tier) | T1 Energy | ~5.4% |
+
+**New cluster created**: PTFE-CCL/EUV-blanks materials + MLCC tape-casting equipment cohort. Combined ~3.6% exposure to the supply-chain chokepoint thesis surfaced via 2026-06-01 cross-source-log + alt-data probability framework.
+
+## Outstanding question (T1 Energy)
+
+T1 Energy position now showing **0.00% day P/L per screenshot** at €11,509.70 vs prior -7.18% / -€835.90. Either appreciated significantly today or the day P/L resets are different. **Free-up review still pending** per 2026-06-01 holdings.md flag — user noted "T1 Energy might just be not the one that is sort of part of our portfolio."
