@@ -135,3 +135,33 @@ Anti-fragility 3/5 + H1 P=35% = Active tier (not Core).
 - `companies/CRWV/thesis.md` — paired-trade complement
 - `sector/where-we-are.md` — capacity-constrained thesis
 - `wiki/power-for-ai-primer.md` — power binds S3
+
+## User Reasoning Captured 2026-06-02 (post comparative deep-dive review)
+
+Per user articulation on receiving the joint-state matrix output:
+
+> "Nebula seems more interesting, especially if they have access to ClickHouse and have access to some of those data labeling... companies that label data, that structure data that are gonna be crucial for Agentic AI. So it does make Nebula a lot more interesting. It also gives us a bit more European exposure. I think from that perspective, it's probably better. Even if there's a wind down in compute demand, over time if there's an unwind, they're probably going to unwind slower than [CoreWeave] because if [CoreWeave] was still sitting on their piles of debt, that might not strike that well. So [Nebius] just gives you the same play as [CoreWeave], but in addition you also get exposure to stakes and to data related to companies."
+
+**User's investment reasoning structurally maps to (my model)**:
+
+| Element | User logic | Maps to harness hypothesis |
+|---|---|---|
+| ClickHouse access + data labeling for Agentic AI | Subsidiary optionality with thematic alignment to held NOW/DDOG/MDB agentic stack | H6 Subsidiary Optionality (P=25% my model) |
+| European exposure | Geographic diversification + EU AI Act compliance moat | H5 Geographic/EU Sovereign (P=20% my model) |
+| Cleaner unwind under S4 compute digestion vs CRWV's debt | Capital structure asymmetry | H3 Capital Structure (P=35% my model) |
+| "Same play as [CRWV] plus extras" | Bypass-route observation: NBIS captures CRWV exposure WITHOUT CRWV's leverage failure mode | Bypass-route alignment per Critical Rule #9 |
+
+**Alignment with Bayesian-weighted top 3 reasons (my model)**: User's articulated reasoning maps exactly to H3 (35%) + H6 (25%) + H5 (20%) — the same three dominant factors I inferred for Aschenbrenner's 4.6× larger NBIS position. **This is convergent reasoning between user + Aschenbrenner + my-model inference on the same 3 vectors.**
+
+## User Position Decision Status 2026-06-02
+
+**LEAN**: Nebius preferred over CoreWeave for any future entry. NBIS thesis upgraded from neutral-between-the-two to **user-preferred neocloud candidate**.
+
+**DECISION DEFERRED**: T1 Energy rotation allocation (€11,509.70 freed) NOT yet decided as of 2026-06-02. User also notes ~€10K fresh capital pending allocation. Total deployable capital ~€21.5K.
+
+**Three rotation candidates competing for that capital (per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md` + this thesis)**:
+- 5 Computex Day 1 size-ups (GLW + SNDK + ALAB + STM + TSEM)
+- NBIS initial position on 15% pullback to ~$205-210
+- Other emerging cascade beneficiaries from inbound news briefs
+
+**Next decision trigger**: incoming AI news brief (per user statement 2026-06-02) — user wants full cascade + ledger update before deciding allocation.

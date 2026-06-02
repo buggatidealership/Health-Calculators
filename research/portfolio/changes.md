@@ -213,3 +213,15 @@ Combined intentional deployment 2026-05-26 (across both platforms): €35K plann
 [2026-06-01] SELL ALSEM (Semco Technologies SAS) — EXITED ~€5,143 position (~2.94% prior). User-confirmed verbal report 2026-06-01. Proceeds redirected to MDB entry same day. Note: prior session note had mistakenly recorded "SUMCO sold" — corrected 2026-06-01 (SUMCO is still held at €9,563.68 +6.44%).
 
 [2026-06-01] PORTFOLIO SNAPSHOT — Degiro €190,463.41 + N26 ~€10K = ~€200,463 consolidated. Day P/L +€8,581.39 (+5.14%). Largest 3 Degiro positions: Murata 13.42%, ARM 12.87%, SK Hynix 11.80%. Underwater names: TE -7.18%, ALAB -4.74%, TSEM -4.13%, Corning -3.52%, Semtech -2.89%, STM -1.18%, MDB ~flat. Best YTD: ARM +16.86%, Datadog +11.91%, ServiceNow +9.11%, Murata +8.33%, SUMCO +6.44%, Hynix +6.03%, Sandisk +4.01%.
+
+[2026-06-02 USER DECISION STATUS UPDATE] T1 Energy rotation allocation NOT yet decided. ~€11,509.70 freed from TE exit pending + ~€10K fresh capital = ~€21.5K total deployable capital pending allocation decision.
+
+User articulated lean toward NBIS as preferred neocloud candidate (over CRWV) per `companies/NBIS/thesis.md` "User Reasoning Captured 2026-06-02" section. User logic: (a) ClickHouse + data labeling subsidiaries align with Agentic AI thesis, (b) European exposure diversification, (c) cleaner unwind under S4 compute digestion vs CRWV's debt load.
+
+But user has NOT decided whether the ~€21.5K capital deploys into:
+- (a) 5 Computex Day 1 size-ups (GLW + SNDK + ALAB + STM + TSEM) per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`
+- (b) NBIS initial position on 15% pullback to ~$205-210
+- (c) Mix of (a) + (b)
+- (d) Hold for incoming news brief cascade signals
+
+Per user 2026-06-02: "I need to now think... I'm gonna now share the latest news brief with you as well so you can cascade that and update the entire ledger." — decision deferred pending news brief INGEST.
