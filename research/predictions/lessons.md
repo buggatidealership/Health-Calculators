@@ -1,6 +1,6 @@
 # Lessons — Mandatory Pre-Read Before Any New Prediction
 
-**Last updated:** 2026-05-27
+**Last updated:** 2026-06-02
 
 ## TL;DR
 
@@ -31,45 +31,89 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 
 ## Lessons (most recent first)
 
-### L14 (CANDIDATE — NOT codified at N=1; awaiting N=2 per principle #32 premortem)
+### L16 (CANDIDATE — N=1; awaiting N=2 per principle #32 premortem)
 
-**Pattern:** Distinguish CATEGORY EVENTS from TREND EVENTS in earnings-driven stock reactions. Expect 50-100% larger T+0-to-T+48h moves on CATEGORY events vs TREND events at the same narrative stage.
+**Origin:** HPE Q2 FY26 GRADE 2026-06-02. Predicted AI backlog $7-9B using DELL's +19% sequential backlog accumulation pattern as anchor. Actual: $5.9B (+18% sequential). The percentage sequential growth rate was nearly identical between my anchor and the actual — but the absolute dollar level was $1.1B below my low band because I anchored the dollar level on DELL's higher baseline rather than HPE's lower baseline, AND I incorrectly applied DELL's backlog-accumulation sub-mechanism to HPE, which was in a backlog-conversion (rapid shipment) mode.
 
-**Markers of CATEGORY EVENT:**
-- New strategic relationship disclosed (SNOW Q1 FY27: $6B AWS pact)
-- Baseline-break in previously-stable metric (SNOW: NRR baseline 125% stable for 4 quarters → 126% break)
-- Management metric reframe (SNOW: dropped Cortex $ run rate → shifted to volume metrics per L10)
-- New customer-category disclosure or TAM expansion
+**Pattern:** When applying a cohort's backlog signal, the cohort company and the target company may be in DIFFERENT operational modes relative to the same demand environment. DELL was in ACCUMULATION mode (orders >> shipments, backlog building); HPE was in CONVERSION mode (strong shipments chewing through prior backlog faster than new orders added to it). Same AI server demand environment; opposite backlog dynamics.
 
-**Markers of TREND EVENT:**
+**Generalizable lesson:** For future predictions involving AI backlog metrics using a cohort signal, explicitly specify the sub-mechanism being modeled:
+- **ACCUMULATION mode** (orders > shipments): apply cohort % sequential growth rate AND use cohort's absolute scale as a proportion of the target's established backlog. Expect backlog to grow sequentially.
+- **CONVERSION mode** (shipments >> incremental orders): backlog grows more modestly even in strong demand, because the company is executing through prior commitments. The primary signal of conversion mode: management language about "delivery pacing," "shipment acceleration," "AI systems bookings converting to revenue."
+
+**Infer the mode from:** (a) prior-quarter management commentary on delivery timing; (b) whether the company is guided to grow revenue faster than orders (conversion signal) or guided revenue < orders (accumulation signal); (c) whether the company discloses "cumulative bookings" language (implies they track the conversion funnel).
+
+**Calibration adjustment:** In CONVERSION mode, expect backlog growth of 10-25% sequential even in strong AI demand; in ACCUMULATION mode, expect backlog growth of 20-50%+ sequential from the same demand environment.
+
+**Layer failed:** REASONING — the cohort sub-mechanism was applied without checking which mode the target was in.
+
+**Falsification criterion:** if next 2+ AI backlog predictions correctly classify ACCUMULATION vs CONVERSION mode and produce calibrated band estimates, L16 is confirmed. If mode classification proves unpredictable, retire L16 and accept AI backlog as low-confidence metric.
+
+**Re-eval trigger:** monthly audit 2026-06-24 OR next earnings prediction involving AI server backlog metric.
+
+---
+
+### L15 — Check pending corporate transactions before any EPS prediction (INPUT checklist discipline)
+
+**Origin:** HPE Q2 FY26 GRADE 2026-06-02. Non-GAAP EPS $0.79 vs my $0.57 point estimate (+38% gap). Primary driver: H3C divestiture completion May 28, 2026 — 3 days before HPE's Q2 print. HPE received total pretax consideration ~$3.5B for its H3C stake (most recently ~$1.357B received in Q2 alone per SEC 8-K T1). This was a PUBLIC SEC filing prior to my prediction date (2026-05-29) but I did not check it. H3C monetization was the single largest gap in my EPS model.
+
+**Layer failed:** INPUT — the data was publicly available at prediction time; I failed to run the corporate-event check as a standard step.
+
+**Generalizable lesson:** Before any EPS prediction for a company with known pending corporate restructuring (M&A, divestiture, JV exit, asset sale), explicitly check SEC EDGAR (or company investor page) for:
+- Any announced-but-not-yet-closed M&A transaction
+- Any pending divestiture with known Q-level timing
+- Any asset monetization with Q-specific cash recognition scheduled
+
+These are PUBLIC data points that cause material EPS deviations from operations-only models. The failure mode is treating the company as a pure operating entity when a balance-sheet event is about to close with Q-level cash impact.
+
+**Calibration adjustment:** Add "corporate event check" as a MANDATORY pre-prediction input validation step. Specifically: before finalizing any EPS estimate, check the target company's most recent 8-K filings in the prior 90 days for: "divestiture," "acquisition closing," "asset sale," "proceeds received," "consideration received." If any is pending or recently closed, model the non-operating EPS impact as a SEPARATE LINE in the EPS model (non-GAAP note: some companies exclude these; GAAP includes them — verify the treatment convention for the specific company before adding).
+
+**Distinction from L1/L4:** L1 says build bottoms-up before consensus. L4 says apply smaller sandbag in contracted-demand environments. L15 adds: the bottoms-up INPUT layer must explicitly include pending corporate transactions, not just the operating segment model. Even a perfect operations-only model will systematically miss EPS when a divestiture closes in the quarter.
+
+**Falsification criterion:** if next 3 EPS predictions include the corporate-event check AND produce calibrated EPS calls (no material non-operating EPS gap unexplained), L15 is confirmed as a workflow discipline. If the corporate-event check becomes a wasted step (no companies have pending transactions at prediction time), the checklist item is low-cost overhead — keep it.
+
+---
+
+### L14 (CODIFIED 2026-06-02 at N=2 — upgraded from CANDIDATE)
+
+**N=2 data point:** HPE Q2 FY26 (Stage 3-4 + CATEGORY EVENT) → +29-36% T+24h. This is the independent cross-day validation required to codify. MRVL was N=1 (Stage 3-4 + TREND ACCELERATION → -2%). HPE confirms the CATEGORY-vs-TREND distinction holds AND extends the framework: a CATEGORY EVENT can override Stage 3-4 suppression when the structural change is large enough.
+
+**Pattern (codified):** Distinguish CATEGORY EVENTS from TREND EVENTS in earnings-driven stock reactions. Stage classification alone under-predicts magnitude when CATEGORY EVENT compounds with stage positioning. CATEGORY EVENT at any stage produces 50-100%+ larger T+0-to-T+48h moves than TREND EVENT at the same stage.
+
+**Markers of CATEGORY EVENT (codified):**
+- New strategic relationship disclosed (SNOW Q1 FY27: signed $6B AWS pact)
+- Baseline-break in previously-stable metric (SNOW: NRR 125% → 126%; HPE: revenue growth +18% YoY → +40% YoY in a single quarter)
+- Multi-year guidance FRAMEWORK INTRODUCTION (HPE: FY27 framework with 8-12% revenue / 12-16% EPS / FCF ≥$4.5B — NEW baseline, not a continuation)
+- Balance-sheet transformation via asset monetization at >10% market cap scale (HPE: $3.5B H3C exit)
+- Management metric reframe to leading indicators (SNOW: dropped Cortex $ run rate → volume metrics per L10)
+
+**Markers of TREND EVENT (codified):**
 - Incremental beat-and-raise within existing framework
-- Outlook upgrade (extending existing trend)
+- Outlook upgrade extending existing trend (no new framework, no new vintage)
 - No new strategic relationships, metric reframe, or baseline-break
 
-**Origin data (N=1, plus same-day cohort 2026-05-28):**
-- SNOW Q1 FY27 (Stage 2-3 + HIGH-CONCRETE CATEGORY EVENT: signed $6B AWS pact + NRR baseline-break + L10 reframe) → +37.65% T+24h per `2026-05-27-SNOW-Q1FY27-GRADE.md` Stock-Reaction section
-- MRVL Q1 FY27 (Stage 3-4 + TREND ACCELERATION) → -1.96% pre-market faded from +5.07% AH per `2026-05-27-MRVL-Q1FY27-GRADE.md`
-- **MDB Q1 FY27 (Stage 2-3 + TREND ACCELERATION with some category elements)** → ~+20% post-print per [Gurufocus T3](https://www.gurufocus.com/news/8889811/mongodb-mdb-reports-strong-q1-results-shares-surge-over-20). Revenue $687.6M (+25% YoY) per [SEC 8-K T1](https://www.sec.gov/Archives/edgar/data/0001441816/000162828026038798/mdb-043026xex991xrelease.htm); EPS $1.32 vs $1.18 consensus; FY27 raised to $2.86B-$2.90B (16-18% YoY); Atlas +29% YoY. Vector search story prominent + Voyage AI integration ongoing — but no NEW high-concrete category event (no new strategic deal of $6B AWS pact magnitude).
-- **NTAP Q4 FY26 (Stage 2-3 + LOW-CONCRETE CATEGORY EVENT)** → ~+10% per [Gurufocus T3](https://www.gurufocus.com/news/8889514/netapp-ntap-surges-10-following-strong-q4-earnings-report). Revenue $1.95B (+12% YoY) per [SEC 8-K T1](https://www.sec.gov/Archives/edgar/data/0001002047/000119312526245196/ntap-ex99_1.htm); All-flash array $1.2B (+18% YoY). NEW: NVIDIA co-engineered AI Data Engine + EF50/EF80 AI-focused hardware launches — CATEGORY markers but press-release-grade not signed-contract-grade.
-- **ESTC Q1 CY26 (Stage 1-2 deeply discounted + BEAT + MGMT-NARRATIVE-SUPPRESSION)** → -10.9% per [FinancialContent T3](https://markets.financialcontent.com/stocks/article/stockstory-2026-5-28-elastics-nyseestc-q1-cy2026-sales-beat-estimates-but-stock-drops-109). Revenue $450.7M (+16% YoY) beat expectations. Stock down 71% from Nov-2021 ATH $186.78. CEO publicly framed vector DB as "a feature, never a business" — REVERSE-CATEGORY mgmt signal commoditizing own AI story.
+**Full codified framework table:**
 
-**Refined framework (post 4-data-point cohort 2026-05-28):**
-
-| Stage | Beat type | Mgmt narrative | T+24h move | Origin case |
+| Stage | Beat type | Mgmt narrative | T+24h move | Origin case(s) |
 |---|---|---|---|---|
-| Stage 2-3 | HIGH-CONCRETE CATEGORY (signed strategic deal + metric baseline-break + leading-indicator reframe) | Bullish, embraces story | **~+37%** | SNOW |
-| Stage 2-3 | TREND ACCELERATION (incremental beat + guidance raise + no new strategic relationship) | Bullish, embraces story | **~+20%** | MDB |
-| Stage 2-3 | LOW-CONCRETE CATEGORY (new product launch + co-engineering partnership announcement; no signed multi-year deal) | Bullish, embraces story | **~+10%** | NTAP |
-| Stage 1-2 (deep discount) | BEAT with intact fundamentals | **NEGATIVE — mgmt commoditizing own category** | **~-11%** (stock drops on beat) | ESTC |
-| Stage 3-4 | TREND ACCELERATION | Bullish | **~-2%** (Stage premium dominates) | MRVL |
+| Stage 2-3 | HIGH-CONCRETE CATEGORY (signed strategic deal + metric baseline-break + leading-indicator reframe) | Bullish | **~+37%** | SNOW Q1 FY27 |
+| Stage 2-3 | TREND ACCELERATION (incremental beat + guidance raise) | Bullish | **~+20%** | MDB Q1 FY27 |
+| Stage 2-3 | LOW-CONCRETE CATEGORY (new product + co-engineering; no signed deal) | Bullish | **~+10%** | NTAP Q4 FY26 |
+| Stage 1-2 (deep discount) | BEAT with intact fundamentals | NEGATIVE — mgmt commoditizing own category | **~-11%** | ESTC Q1 CY26 |
+| Stage 3-4 | TREND ACCELERATION | Bullish | **~-2%** (Stage premium dominates) | MRVL Q1 FY27 |
+| **Stage 3-4** | **CATEGORY EVENT (multi-year framework intro + revenue baseline-break + balance-sheet transformation)** | **Bullish** | **~+29-36%** | **HPE Q2 FY26 (N=2 codification)** |
 
-**Generalizable lesson (if codified at N=2):** principle #31 narrative-stage modifier needs CATEGORY-vs-TREND axis as additional input. Stage classification alone under-predicts magnitude when CATEGORY EVENT compounds with stage positioning.
+**Key refinement from N=2 (HPE):** A CATEGORY EVENT can overcome Stage 3-4 positioning headwinds. The threshold for Stage 3-4 CATEGORY override appears to be: multi-year guidance framework introduction OR revenue growth acceleration >20pp YoY OR balance-sheet transformation >10% of market cap. When any of these materialize, expect +25-40% reactions at Stage 3-4 (not +1-5% TREND suppression).
 
-**Calibration adjustment:** when running PREDICT on Stage 2-3 names with multi-layered positive setup (e.g., MDB tonight if mgmt discloses new strategic deal + metric reframe + customer-category expansion), apply L14 candidate to expect explosive T+0-to-T+48h move; size sandbag-haircut lower than standard Stage 2-3 calibration.
+**Calibration adjustment:** When running PREDICT on any Stage 3-4 name, explicitly classify the expected print as CATEGORY vs TREND before assigning the stock-reaction band. If CATEGORY markers are present, override Stage 3-4 suppression and use +20-40% stock-reaction band instead of +1-5%.
 
-**Falsification criterion:** if next 2+ Stage 2-3 names with CATEGORY EVENT setup produce moves within the standard Stage 2-3 expected range (NOT 50-100% larger), L14 was over-fit to SNOW single data point — retire.
+**Generalizable lesson:** Stage 3-4 stock-reaction discount is CATEGORY-EVENT-CONDITIONAL, not stage-only. Principle #31 narrative-stage modifier now requires CATEGORY-vs-TREND axis as additional input for stock-reaction prediction.
 
-**Re-eval trigger:** next monthly audit cycle 2026-06-24 OR first eligible Stage 2-3 + CATEGORY EVENT case for N=2 validation.
+**Falsification criterion (updated at N=2):** if next 2+ Stage 3-4 names with CATEGORY EVENT setup produce moves in the +1-5% range (Stage 3-4 suppression dominates despite CATEGORY markers), the CATEGORY override at Stage 3-4 was over-fit to HPE single cross-day N=2 data point. Current N=2 is sufficient for codification per principle #32 but insufficient for high confidence — active monitoring required.
+
+**Origin cases:** SNOW Q1 FY27 (N=1 origin, Stage 2-3), MRVL Q1 FY27 (Stage 3-4 TREND baseline), MDB/NTAP/ESTC (same-day cohort 2026-05-28), HPE Q2 FY26 (N=2, Stage 3-4 CATEGORY codification).
+
+---
 
 ### L13 — When predicting management commentary upgrades, model the VINTAGE choice as a separate probability distribution
 
@@ -81,6 +125,10 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 
 **Validation criterion:** Apply to next 2+ predictions involving management multi-year commentary. If vintage-distribution framing produces calibrated calls, L13 confirmed.
 
+**HPE Q2 FY26 validation note (2026-06-02):** L13 vintage-distribution was applied to HPE Target 5. Predicted FY26 raise (45% probability) AND positive FY27 commentary (50% probability). Both materialized, and at the most concrete form (specific FY27 growth framework). L13 validation criteria met across both MRVL (N=1) and HPE (N=2) applications. L13 confirmed as codified.
+
+---
+
 ### L12 — When stating YoY growth %, ALWAYS verify the year-ago base independently
 
 **Origin:** MRVL Q1 FY27 GRADE 2026-05-28. Predicted datacenter +42-47% YoY based on sequential math (Q4 FY26 $1.65B + 10% sequential = $1.815B). Actual +27% YoY ($1.833B). The DOLLAR forecast was right within 1%; the YoY % framing was wrong because I never checked the Q1 FY26 base (~$1.443B implied) — I implicitly conflated sequential math with YoY math.
@@ -91,6 +139,8 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 
 **Falsification:** if next 3+ predictions stating YoY % do so with explicit year-ago citation AND remain calibrated, L12 has become habit.
 
+---
+
 ### L11 — When revenue beat is small (<1% above consensus), EPS magnification flow-through is muted, not amplified
 
 **Origin:** MRVL Q1 FY27 GRADE 2026-05-28. L6 said apply MORE sandbag-reduction at EPS line than revenue in contracted-demand. Predicted $0.82 EPS; actual $0.80 (in line with consensus high end). L6 over-applied because revenue beat itself was small (~0.3% above consensus) → multi-layer flow-through (revenue × margin × tax × shares) did NOT compound the way L6 assumed.
@@ -100,6 +150,8 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 **Calibration adjustment:** L6 is now CONDITIONAL — apply only when revenue forecast itself exceeds consensus by >1%. Otherwise revert to bottoms-up EPS without amplification overlay.
 
 **Falsification:** if next 2+ EPS predictions in contracted-demand environments show consistent EPS magnification beyond revenue magnitude regardless of revenue beat size, L11 was over-fit to MRVL single data point.
+
+---
 
 ### L10 — When management RE-FRAMES metrics, infer from the TYPE of metric chosen
 
@@ -113,6 +165,8 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 **Calibration adjustment:** Flip the default. When mgmt SHIFTS to leading indicators after dropping a $ metric, treat as MORE bullish than the missing dollar number suggests, not less. My SNOW base-case predicted "optics dilemma" framing was systematically too bearish on this dimension.
 
 **Validation criterion:** Apply to next 3 earnings predictions where mgmt drops a dollar metric. If pattern holds (leading-indicator reframes = bullish; lagging-indicator reframes = bearish), L10 is confirmed.
+
+---
 
 ### L9 — Elastic demand response to pricing cuts can outpace ASP compression WITHIN the same quarter for AI/SaaS products with PMF
 
@@ -129,6 +183,8 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 
 **Falsification criterion:** If next 2+ AI/SaaS pricing-cut events show volume response taking 2-3 quarters per traditional model, L9 was over-applied to this single SNOW case.
 
+---
+
 ### L8 — Structural-acceleration thesis on AI cooling CONFIRMED (positive lesson)
 
 **Origin:** MOD Q4 FY26 GRADE 2026-05-27. DC sub-segment +158% YoY at Modine validates the bypass-route framework — from chip-cooling (Vertiv/Asetek/LiquidStack territory) to facility-cooling (Modine + Vertiv) per the original thesis. The $4B Airedale deal disclosed 2026-05-26 is now PROVEN as forward-bookings visibility, not just announcement noise. Multi-quarter beat-and-raise streak confirms cyclical-to-structural transition per principle #26.
@@ -138,6 +194,8 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 **Generalizable lesson:** Cyclical-to-structural transitions per principle #26 produce DC-style sub-segment growth rates (>100% YoY) when the structural-rerating moment arrives. Watch for analogous patterns: SNDK datacenter SSD +233% pattern; HYNIX HBM stack-height crowding-out; LSCC server platform control +85% YoY FY2025; MRVL custom Si Trainium ramp. The signature of structural transition: sub-segment growth materially exceeds total-company growth + accelerates over multiple quarters.
 
 **Calibration adjustment:** Continue applying principle #26's binding-constraint test to all candidates surfacing >100% YoY sub-segment growth signals. When confirmed, the multiple deserves chokepoint comp-set treatment per principle #30, not cyclical comp-set treatment.
+
+---
 
 ### L7 — Management margin-recovery guides are HOPES, not contracts
 
@@ -151,6 +209,8 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 
 **Calibration adjustment:** For future predictions involving mgmt margin-recovery guides, apply 30-50% haircut to the guided magnitude. Verify by tracking next 3 predictions where mgmt gives a specific bps recovery guide — if pattern holds, L7 is confirmed.
 
+---
+
 ### L6 — L4's smaller-sandbag-adjustment applies MORE aggressively at the EPS/margin line than at the revenue line
 
 **Origin:** Same pattern recurring across two graded predictions:
@@ -163,6 +223,10 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 
 **Validation criterion:** if next 3+ predictions in contracted-demand environments show direction-right + magnitude-undercall on EPS, L6 is confirmed. If EPS predictions become consistently too aggressive after applying L6, L6 needs revision.
 
+**Important interaction with L15 (added 2026-06-02):** L6 EPS amplification applies to OPERATING EPS upside. When a non-operating EPS event (divestiture proceeds, acquisition gain) is present, it must be modeled SEPARATELY per L15. Do not attempt to amplify non-operating EPS using L6 — the mechanism is different (balance sheet, not income statement leverage).
+
+---
+
 ### L5 — Check the supply-chain reality before classifying a name as "non-AI"
 **Origin:** TE classification GRADE 2026-05-26. The earlier US duration-of-relevance agent classified TE as "this name should NOT be in an AI-sector investing universe" based on TE's marketed business label (solar/battery manufacturer). I accepted at face value. Then Citrini Research "Semis Memo" 2026-05-12 surfaced the Supply Chain Inheritance thesis — citing NVDA's own May 2025 technical blog crediting 800V DC rack architecture to "the electric vehicle and solar industries." The physical supply chain TE participates in OVERLAPS with AI data center infrastructure. The "NOT AI" classification was a surface-level call that missed the underlying supply-chain reality.
 
@@ -173,6 +237,8 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 **Calibration adjustment:** Any future "non-AI" classification must explicitly cite the supply-chain-reality test result, not just the marketed label. If only the label was checked, the classification is provisional and incomplete. See principle #28 + B29 in `meta/biases-watchlist.md`.
 
 **Meta-lesson about accepting agent verdicts:** When I receive a classification from a subagent, the discipline is principle #14 (question own framings) applied to the subagent — not face-value acceptance. The TE miss compounded because I accepted "NOT AI" without independent verification.
+
+---
 
 ### L4 — In a multi-year-contracted-demand environment, historical guide-sandbag heuristics over-discount
 **Origin:** NVDA Q1 FY27 GRADE 2026-05-20. My prediction called Q2 guide midpoint $88.5B by applying a 4-5% sandbag haircut to an internal-expectation model of $92.7B. Actual guide: $91.0B ± 2% (per [NVIDIA 8-K via StockTitan](https://www.stocktitan.net/sec-filings/NVDA/8-k-nvidia-corp-reports-material-event-56086a88bbb4.html)). My internal-expectation model was nearly right ($92.7B vs $91B = within $1.7B); the sandbag haircut was the error.
