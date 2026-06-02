@@ -237,3 +237,34 @@ Per user 2026-06-02: "I need to now think... I'm gonna now share the latest news
 - Fresh capital remaining: ~€10,000 (held for post-AVGO-print processing + cascade signals from next 24-48h)
 - T1 Energy proceeds: NO LONGER AVAILABLE (user keeping position)
 - Active deployment candidates pending: NBIS (15% pullback to ~$205-210 trigger); GLW/SNDK/ALAB size-ups; AVGO post-Jun 3 print entry decision
+
+[2026-06-02 EVENING — PENDING USER EXECUTION] **Kioxia (285A.T) + SNDK reshuffling proposals** — NOT YET EXECUTED at Degiro/N26; awaiting user go/no-go decision.
+
+Surfaced via user-shared Kioxia IR slide + 3-subagent verification per `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md`. User pushback challenged "size up SNDK only" framing with strong arguments: (a) Japan diversification via Japan-listed name with same shortage thesis, (b) Kioxia FY27 Q1 guide ¥869B NP = 48× YoY profit jump per Nikkei Asia T1, (c) Kioxia Forward P/E 6.24× cyclical compression vs SNDK ~10-12×, (d) lead-time + book-to-bill concern partially neutralized by NCNR contracts now industry-standard per `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md`.
+
+**PROPOSED SPLIT (my model, awaiting user decision):**
+
+| Action | Ticker | Amount | New approx % consolidated | Rationale |
+|---|---|---|---|---|
+| **BUY (SIZE UP)** | SNDK | **€5-6K** | 5.2% → ~7.5% | Closes ~half the gap to 8-12% Active-Core target; Stage 2-3 + HIGH-CONCRETE CATEGORY EVENT markers ($42B backlog + Vera Rubin 1,152 TB SSD content + MSA-CBA VLSI Jun 14-18 imminent); L17 forward-application test N=2 candidate |
+| **BUY (NEW ENTRY)** | Kioxia (285A.T) | **€4-5K** | 0% → ~2% | Japan diversification (TSE concentration 19.5% → ~21.5%, below 31% flag); same NAND shortage thesis exposure with Forward P/E 6.24×; VLSI Symposium Jun 14-18 = imminent CATEGORY EVENT catalyst within 12-day window; L17 forward-application test N=1 candidate |
+| **Total deployed** | | **€10K (full fresh capital)** | | Splits L14 forward-application catalyst exposure across two correlated names with distinct Stage positioning |
+| **Residual dry powder** | | ~€0 | | Acceptable given imminent catalyst proximity; user can rebuild dry powder via T1 Energy SELL if/when that decision is re-opened |
+
+**Alternative allocations considered (per `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md` H1/H2/H3):**
+- **H1 (P=45% my model) — SPLIT €5-6K SNDK + €4-5K Kioxia (RECOMMENDED above)** — captures L14 forward-application catalyst exposure across both names
+- **H2 (P=35% my model) — ALL-IN KIOXIA €10K** — full Japan diversification + 48× YoY profit jump + cheapest forward P/E; pure-play single-vector risk; €0 residual; Japan TSE concentration 19.5% → 24.2%
+- **H3 (P=20% my model) — ALL-IN SNDK SIZE UP €10K** — SNDK reaches ~9.5% (within 8-12% target); single-name conviction concentration
+
+**Falsifier for proposed split:** If Kioxia drops >10% pre-VLSI Symposium June 14-18, the split entry timing was wrong AND the allocation should have favored SNDK heavier. If AVGO Jun 3 print materially disappoints, both NAND-direct names benefit from cash rotation away from custom Si trade — could re-rank toward higher Kioxia/SNDK allocation.
+
+**Bypass-route check per Critical Rule #9 (NAND shortage):** No clean bypass route exists at NAND-tier supply constraint through 2028 — Goldman 28-39% structural shortfall + lead times >40 weeks + capex 16× Kioxia ramp insufficient. Consensus suppliers (SNDK + Kioxia + Samsung + Micron + SK Hynix) retain pricing power BECAUSE no bypass exists. SNDK's compliance-NAND vertical capture (EU AI Act Article 18 retention mandates) is the closest thing to a bypass-DIFFERENTIATED edge within the cluster.
+
+**Cross-references:**
+- `companies/KIOXIA/thesis.md` — full Kioxia thesis (NEW 2026-06-02)
+- `companies/SNDK/thesis.md` — SNDK Kioxia cascade entry (updated 2026-06-02)
+- `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md` — 3-subagent verification
+- `sector/where-we-are.md` — NAND VOLUME SHOCK signal added as distinct from PRICING SHOCK
+- `meta/todo.md` — P1 Kioxia VLSI Jun 14-18 watch + P1 SNDK Q2 FY27 print as L17 forward-application N=1+N=2 test cases
+
+**Decision pending:** user go/no-go on split ratio. Options: confirm SPLIT (H1), pivot to ALL-IN KIOXIA (H2), or pivot to ALL-IN SNDK (H3). No execution at Degiro/N26 yet.
