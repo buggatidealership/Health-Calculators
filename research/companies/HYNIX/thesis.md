@@ -458,3 +458,13 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: **CRI
 ## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — Alphabet $80B equity raise (T1) explicitly cited 'demand exceeding supply' at hyperscaler #1; HBM4 demand floor reinforced. Errata: RTX Spark 600 GB/s = NVLink not LPDDR5X memory bandwidth — LPDDR5X cascade direction positive but magnitude per AI PC slightly lower than 600 GB/s implied.
+
+## Cross-source synthesis — Kioxia VOLUME SHOCK signal (added 2026-06-02 evening, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md` + `companies/KIOXIA/thesis.md`: Kioxia IR slide projected NAND volume shock vector (NAND lead times >40 weeks; per AI server NAND ~8× traditional per Goldman; Vera Rubin 1,152 TB SSD/platform). Cross-verified directionally on supply-demand <100% through Q4 2027; SK Hynix Q1 2026 call confirmed "3-year demand exceeds supply capacity" framing.
+
+**HYNIX-specific implication:** Kioxia + SNDK signal is REINFORCEMENT of held HYNIX thesis (NAND shortage parallels HBM shortage at memory tier broadly) but **NOT a new CATEGORY EVENT for HYNIX specifically** — HYNIX is Stage 4 priced-to-perfection already per prior cascades. The volume-shock signal compounds the demand-side for HBM (multi-modal AI inference workloads) but HYNIX's stock already discounts the shortage thesis at its current valuation.
+
+**HYNIX-specific NAND share context:** HYNIX has NAND business (post-Solidigm) but is differentiated by HBM dominance (~70% Vera Rubin). The Kioxia/SNDK cascade is more directly relevant to SNDK (Stage 2-3 NAND-pure) than HYNIX (Stage 4 HBM-dominant).
+
+**Position implication:** HOLD at 10.13% — no incremental sizing action; Kioxia/SNDK volume-shock cascade reinforces but does not change HYNIX thesis. Watch HBM4E mass-production share for Rubin Ultra H2 2027 as next falsifier event (separately tracked). Memory-cluster concentration after potential SNDK + Kioxia adds = ~22% post-add; HYNIX as anchor Core position retained.

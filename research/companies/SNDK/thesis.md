@@ -317,3 +317,24 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: **Tri
 ## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — Alphabet $80B raise reinforces AI factory storage tier demand; Vera BlueField-4 STX cascade compounds.
+
+## Cross-source synthesis — Kioxia $320B NAND projection + lead-time + capex deep-dive (added 2026-06-02 evening, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md` + `companies/KIOXIA/thesis.md`: User-shared Kioxia IR slide (Q2 2026) citing Tech Insights NAND Market Report projects NAND revenue $80B (2025) → $320B (2026E) → $470B (2027E) + supply-demand <100% through Q4 2027. 3-subagent verification:
+
+- **$320B 2026E claim DIRECTIONALLY-WRONG** (-54%): TrendForce $147B, Gartner $93.8B, Coherent $77.8B; $320B implausible vs WSTS total memory $294.8B
+- **$470B 2027E VERIFIED-WITH-MAGNITUDE-VARIANCE**: TrendForce $379B within ~24%
+- **Supply-demand <100% through Q4 2027 VERIFIED-DIRECTIONALLY**: Micron + SK Hynix + Samsung + SNDK all confirm structural undersupply
+- **ASP shock direction VERIFIED but magnitude 2-2.5×** (not Kioxia's 3-5×): Micron NAND ASPs high-70% QoQ; Samsung 146% ASP jump flagged; SNDK Q3 FY26 rev +97% QoQ
+
+**SNDK-specific implications:**
+
+1. **VOLUME SHOCK signal (NEW, distinct from prior PRICING SHOCK tracking):** Per AI server NAND consumption ~8× traditional server per Goldman; NVDA Vera Rubin 1,152 TB SSD per platform = 10× Blackwell content; NAND lead times >40 weeks per [Blocks & Files T2](https://www.blocksandfiles.com/flash/2026/05/12/the-storage-refresh-that-outlives-the-flash-cycle/). Q1/Q2 2026 procurement binds 2027 deployments. SNDK + Kioxia JV combined 2026 capex ~$4.5B +41% YoY per [TrendForce T2](https://www.trendforce.com/news/2026/06/01/news-japan-u-s-nand-alliance-steps-up-investment-as-kioxia-sandisk-capex-reportedly-rises-40-yoy/). Prior V2 NAND demand model tracked PRICING power; volume × pricing compounding adds material upside vector NOT yet modeled.
+
+2. **$42B backlog durability VERIFIED-WITH-CAVEATS:** NCNR (Non-Cancellable Non-Returnable) contracts now standard per Samsung Q4 2025+ deals per [Tom's Hardware T2](https://www.tomshardware.com/pc-components/ddr4/samsung-to-delay-its-planned-ddr4-end-of-life-due-to-signing-a-long-term-non-cancellable-non-returnable-contract-with-key-customer-agreement-will-not-alleviate-consumer-shortage-supply-earmarked-for-server-clients); SNDK $11B financial guarantees cover ~26% of $42B notional (enforceability untested in court). Backlog durability structurally HARDER than 2018/2022-cycle contracts but NOT bulletproof.
+
+3. **L17 forward-application test (per L14 framework codified 2026-06-02 at N=2 HPE + N=3 MRVL):** SNDK is Stage 2-3 with HIGH-CONCRETE CATEGORY EVENT markers ($42B backlog disclosed + Vera Rubin 1,152 TB SSD + MSA-CBA architecture validation imminent at VLSI Symposium June 14-18 + Vera BlueField-4 STX GIDS mandate). Per L14 framework: Stage 2-3 + CATEGORY → +25-40% per next catalyst event. **VLSI Symposium June 14-18 = imminent N=1 forward-application test of L17 candidate within 12-day window.**
+
+4. **Kioxia parallel-name framing:** Kioxia (285A.T) added as WATCHLIST candidate per `companies/KIOXIA/thesis.md` — same NAND shortage thesis exposure but Japan-listed (geographic diversification); FY27 Q1 guide ¥869B NP = 48× YoY profit jump per [Nikkei Asia T1](https://asia.nikkei.com/business/tech/semiconductors/japan-s-kioxia-forecasts-48-fold-quarterly-profit-jump-on-ai-demand); Forward P/E 6.24× = extreme cyclical compression. SNDK + Kioxia outcomes are correlated via shared MSA-CBA JV architecture but distinct Stage positioning (SNDK Stage 2-3 better asymmetry; Kioxia Stage 3 mid-melt-up but cheaper forward).
+
+**Position implication:** **SIZE UP candidate** — recommended €5-6K SNDK SIZE UP (5.2% → ~7.5%) parallel to Kioxia €4-5K initial entry (~2% Japan diversification); splits the L14 forward-application catalyst exposure across two names with correlated NAND shortage thesis. Closes ~half the gap to 8-12% Active-Core SNDK target while preserving some residual dry powder. **Triggers for full target (8-12%) closure:** (a) SNDK Q2 FY27 print (late July 2026) materially exceeds Q4 FY26 $7.75-8.25B guide; (b) NCNR enforceability validated by first court test; (c) Vera Rubin mass production confirmed at 1,152 TB SSD content per platform.
