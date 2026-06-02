@@ -36,7 +36,7 @@ Day P/L per screenshot: -€2,662.36 (-1.29%)
 | 12 | Sumco Corp | 3436.T | 415 | JPY 21.69 | EUR 22.85 | €9,482.75 | 4.43% | Wafer supplier |
 | 13 | Corning | GLW | 61 | $159.03 | $176.63 | $9,248.95 | ~4.03% | Optical fiber + AI |
 | 14 | Semtech | SMTC | 50 | $154.68 | $149.625 | $6,422.03 | ~2.80% | Signal integrity |
-| 15 | Tower Semiconductor | TSEM | 21 | $265.00 | $252.695 | $4,555.27 | ~1.99% | Silicon photonics foundry |
+| 15 | Tower Semiconductor | TSEM | 21 + add | $265.00 (initial) | $252.695 | $4,555.27 + ~€2,200 add 2026-06-02 ≈ ~$6,931 (~€6,432, my model at EUR/USD ~1.08) | **~2.95% post add (my model)** | **Silicon photonics foundry — SIZED UP 2026-06-02 post Computex Day 1+2 cascade (NVDA Spectrum-X CPO + 3.2T target H2 2026)** |
 | 16 | **Hirano Tecseed** | **6245.T** | **300** | **JPY 2,500** | **JPY 2,506** | **€4,040.99** | **~1.89%** | **MLCC tape-casting equipment (NEW 2026-06-02)** |
 | 17 | **AGC Inc** | **5201.T** | **100** | **JPY 7,098** | **JPY 7,006** | **€3,765.79** | **~1.76%** | **PTFE CCL + EUV blanks (NEW 2026-06-02)** |
 
@@ -76,4 +76,17 @@ Day P/L per screenshot: -€2,662.36 (-1.29%)
 
 ## Outstanding question (T1 Energy)
 
-T1 Energy position now showing **0.00% day P/L per screenshot** at €11,509.70 vs prior -7.18% / -€835.90. Either appreciated significantly today or the day P/L resets are different. **Free-up review still pending** per 2026-06-01 holdings.md flag — user noted "T1 Energy might just be not the one that is sort of part of our portfolio."
+**2026-06-02 USER DECISION — KEEP T1 Energy for now.** Rationale: user wants energy/clean-energy play in the portfolio; T1 Energy is the only energy-adjacent name held. Open to reconsider at later stage. **Free-up review DEFERRED — not selling at present.** ~€11,509.70 position retained.
+
+T1 Energy position now showing **0.00% day P/L per screenshot** at €11,509.70 vs prior -7.18% / -€835.90. Either appreciated significantly today or the day P/L resets are different.
+
+## Capital deployment status (2026-06-02 post TSEM size-up)
+
+| Capital bucket | Amount | Status |
+|---|---|---|
+| Fresh capital deployed today | €2,200 → TSEM size-up | **Deployed 2026-06-02** |
+| Fresh capital remaining | ~€10,000 | **Available — pending Computex Day 2 cascade + AVGO Jun 3 print processing** |
+| T1 Energy proceeds (deferred) | €11,509.70 | **Held in T1 — user decision 2026-06-02 to keep for energy exposure** |
+| Total deployable capital | ~€10,000 fresh | (T1 proceeds no longer available; user keeping position) |
+
+**STM kept at initial ~€10K** position per user 2026-06-02 — no size change today.

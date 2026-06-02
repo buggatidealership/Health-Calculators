@@ -225,3 +225,15 @@ But user has NOT decided whether the ~€21.5K capital deploys into:
 - (d) Hold for incoming news brief cascade signals
 
 Per user 2026-06-02: "I need to now think... I'm gonna now share the latest news brief with you as well so you can cascade that and update the entire ledger." — decision deferred pending news brief INGEST.
+
+[2026-06-02 EVENING] **TSEM SIZED UP +€2,200** — BUY add to Tower Semiconductor existing position. New size approximately €6,432 (~2.95% consolidated, my model). Rationale: TSEM flagged as Computex Day 1/2 beneficiary per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md` (silicon photonics foundry; NVDA Spectrum-X CPO 3.2T H2 2026 target ramp; MRVL 1.6T 2nm coherent + 51.2T CPO + 102.4T T100 announcements compound the optical silicon foundry demand). User context: TSEM was under-sized at ~€4,555 (~2.0% consolidated) given the Day 2 cascade strength — size-up brings to mid-Active tier ~3%.
+
+[2026-06-02 EVENING] **STM KEPT at initial ~€10K** — no size change. User assessment: existing position sized appropriately at initial allocation; not adding despite Computex Day 1/2 cascade signal because (a) STM is broader-exposure name (MEMS for physical AI + 800V power infra + automotive) and already at intended size, (b) signal asymmetry favors TSEM (pure-play silicon photonics foundry) over STM (multi-theme but less direct Computex catalyst).
+
+[2026-06-02 EVENING] **T1 ENERGY KEPT** — DEFERRED SELL DECISION. User retains T1 Energy at €11,509.70 position. Rationale: user wants energy/clean-energy exposure in portfolio; T1 is the only energy-adjacent holding. NOT a thesis-validated holding but kept for diversification/category-coverage reasons. **Open to reconsider at later stage** — user explicitly flagged "we can reconsider at a later stage." No new falsifier fired today; macro-environment rationale prevails for now.
+
+[2026-06-02 EVENING] **Capital deployment status:**
+- Deployed today: €2,200 to TSEM
+- Fresh capital remaining: ~€10,000 (held for post-AVGO-print processing + cascade signals from next 24-48h)
+- T1 Energy proceeds: NO LONGER AVAILABLE (user keeping position)
+- Active deployment candidates pending: NBIS (15% pullback to ~$205-210 trigger); GLW/SNDK/ALAB size-ups; AVGO post-Jun 3 print entry decision
