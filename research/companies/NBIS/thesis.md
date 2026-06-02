@@ -1,154 +1,137 @@
 # Nebius (NBIS) — Thesis
 
-**Last updated:** 2026-05-21
-**Tier:** Active candidate, Stage 2-3 recognition
-**Position target:** 3–5% if entered (none currently held per `research/portfolio/holdings.md`)
-**Anti-fragility:** 2.5/5 — wins strongly in S1, S2, S3; loses in S4
-**Foundation:** `research/wiki/power-for-ai-primer.md`, `research/wiki/agentic-workload-scaling.md`, `research/signals/triangulation.md` (capacity-constrained signal)
+**Last updated:** 2026-06-02 (REFRESHED post-Aschenbrenner Q2 13G + Q1 2026 SEC 6-K; verified by 3-subagent comparative deep-dive 2026-06-02; supersedes 2026-05-21 baseline which was materially stale on market cap, revenue trajectory, and Aschenbrenner position)
+**Tier:** Active candidate (Aschenbrenner 5.6% 13G stake = consensus signal); Stage 3 recognition (post +529% 1yr)
+**Position target:** 1.5-2.5% small entry on 15% pullback to ~$205-210; 3-5% on second pullback or quarterly catalyst confirmation
+**Anti-fragility:** 3/5 scenarios (wins S1 + S2 + S3; partial S4; neutral S5)
+**Foundation:** `signals/cross-source-log/2026-06-02-nbis-crwv-aschenbrenner-comparative-deep-dive.md`
 
 ---
 
 ## TL;DR
 
-NBIS is the most pure-play public inference cloud beneficiary of the capacity-constrained narrative. Q1 2026 revenue $399M (+684% YoY) per [SEC 6-K](https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm). Microsoft contract worth $17.4-19.4B over 5 years (New Jersey datacenter) per [Blockonomi](https://blockonomi.com/coreweave-vs-nebius-comparing-two-ai-cloud-infrastructure-stocks-in-2026/). Combined Meta + Microsoft commitments ~$46B. Forward guidance: $7-9B annualized revenue by year-end 2026 per same.
-
-3.5GW contracted power capacity, raising to 4GW year-end target (per SEC 6-K). Missouri gigawatt-scale + 1.2GW Pennsylvania expansion. **NBIS is being literally CONTRACTED by hyperscalers, even while hyperscalers compete with it** — the non-zero-sum dynamic per `research/sector/where-we-are.md` non-default read #5.
-
-Valuation context: $25.2B market cap, ~47x trailing sales, ~7-8x forward sales per Blockonomi. Deeply unprofitable currently ($518M net loss 2025) but path to scale economics if execution sustains.
-
-**Position recommendation:** 3-5% entry — smaller than AVGO (which is 5-8%) because (a) NBIS is more execution-dependent, (b) higher beta to the capacity-constrained narrative, (c) Stage 2-3 recognition with binary upside / downside.
+Nebius is the EU-headquartered, lower-leverage, subsidiary-optionality-rich neocloud complement to CoreWeave. Q1 2026: $399M revenue (+684% YoY), $129.5M Adj EBITDA (~32% margin), $3.0-3.4B FY26 revenue guide, ~$50B backlog per T1 SEC 6-K. **Aschenbrenner Q2 13G (May 27 2026)**: 12,410,060 Class A shares = 5.6% stake (~$2.6B my model) — **4.6× larger than his Q1 13F CRWV position of $556.1M** per [Stocktitan 13G T1](https://www.stocktitan.net/sec-filings/NBIS/schedule-13g-nebius-group-n-v-passive-investment-disclosure-5-9efcbda66f9c.html). Stock at $244.05 = **AT ATH** per [Investing.com](https://www.investing.com/news/company-news/nebius-group-nv-stock-reaches-alltime-high-at-24405-usd-93CH-4719516); +529% 1yr per T4 [WallStreetZen]. Market cap ~$58B. Subsidiary optionality: ClickHouse 28% (~$4.2B implied) + Avride 83% (~$2.2-2.3B post-money) + Toloka (Bezos lead, ~$400-500M) + TripleTen = ~$6.5-7B embedded options. NBIS D/E 2.1x vs CRWV 10.7x. EU AI Act compliance moat CRWV cannot serve. NVDA equity investor.
 
 ---
 
-## The business
+## What NBIS Actually Is
 
-Nebius (NBIS) is the spun-out AI cloud business of Yandex N.V. (Russian internet co). Listed on NASDAQ. Operates inference clouds + Token Factory (their proprietary inference product). Customers: hyperscalers buying overflow capacity (MSFT, Meta), AI labs (Anthropic-class), enterprise AI deployments.
+Holdings company with 5 distinct AI businesses:
 
-Key segments:
-- **Nebius AI cloud** — primary; Q1 2026 revenue $389.7M (+841% YoY) per SEC 6-K
-- **Other businesses** — smaller; collectively ~$10M residual
+1. **Nebius AI Cloud** (core): GPU IaaS + managed AI platform layer ABOVE CRWV's bare-metal. Finland Lappeenranta 310MW + Mäntsälä 75MW + France Lille 240MW + US Missouri 1GW + Pennsylvania 1.2GW
+2. **ClickHouse** (~28% stake): real-time analytics database — dominant open-source. $15B valuation per T2; IPO 2027 target
+3. **Avride** (~83% stake): autonomous driving — Uber strategic $375M; post-money $2.7-2.8B; Physical AI vector
+4. **Toloka**: AI data labeling — Bezos Expeditions LEAD investor at $600-700M valuation per [Nebius IR T1](https://nebius.com/newsroom/nebius-welcomes-bezos-expeditions-as-lead-investor-in-ai-data-business-toloka)
+5. **TripleTen**: edtech (smallest)
 
-## Recent financials
+Corporate: Netherlands HQ Amsterdam; NASDAQ-listed post-Yandex divestiture (2024); Volozh 52% voting / 11% economic per [TipRanks T2](https://www.tipranks.com/stocks/nbis/risk-factors) dual-class structure.
 
-Per [SEC 6-K](https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm) and [Blockonomi analysis](https://blockonomi.com/coreweave-vs-nebius-comparing-two-ai-cloud-infrastructure-stocks-in-2026/):
+## Verified Financials Q1 2026 (T1 SEC)
 
-| Metric | Q1 2026 | Source |
+| Metric | Value | Source |
 |---|---|---|
-| Total revenue | $399.0M (+684% YoY) | SEC 6-K |
-| Nebius AI cloud revenue | $389.7M (+841% YoY) | SEC 6-K |
-| Forward guidance (year-end 2026 ARR) | $7-9B annualized | Blockonomi citing company guidance |
-| Cash position | $3.7B | Blockonomi |
-| 2025 net loss | $518M | Blockonomi |
+| Q1 revenue | $399.0M (+684% YoY) | T1 [SEC 6-K](https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm) |
+| Q1 Adj EBITDA | $129.5M (~32% margin) | T1 |
+| Q1 GAAP net income | +$621.2M (incl $780.6M equity revaluation gain) | T1 |
+| Q1 adjusted net loss | -$100.3M | T1 |
+| Q1 capex | $2,472.9M | T1 |
+| FY26 revenue guide | $3.0-3.4B | T1 |
+| FY26 EBITDA margin guide | ~40% | T1 |
+| FY26 capex guide | $20-25B | T1/T2 |
+| Backlog | ~$50B | T2 |
+| Cash end-2025 | $3.7B | T1 + T2 |
+| March 2026 capital raise | $4.3B convertibles (1.25-2.625% coupon) + NVDA equity = $6.3B total | T2 |
+| Net cash Q1 2026 close | ~$867M positive | derived |
+| D/E ratio | 2.1x | T2 |
+| Power contracted | 3.5 GW (→ 4 GW) | T1/T2 |
+| ClickHouse stake | 28% of $15B = ~$4.2B implied | T2 |
+| Avride stake | 83% of ~$2.7-2.8B = ~$2.2-2.3B | T2 |
+| Toloka stake | Bezos lead at $600-700M; ~$400-500M | T1 |
+| Subsidiary value sum | ~$6.5-7B | derived |
+| Top customers | Meta $27B + MSFT $19.4B + Brave + Recraft + CentML | T1/T2 |
+| Spot ARR | ~$550M | T2 |
+| **Stock (June 1 2026)** | **$244.05 AT ATH** | T2 |
+| ATH-distance | 0% (at peak) | derived |
+| 1-year return | ~+529% | T4 |
+| Market cap | ~$58B | T2 |
+| EV | ~$58B (net cash neutral) | derived |
+| EV/2026 Revenue | ~17-19x | derived (my model) |
 
-## Power capacity (the key asset)
+## Aschenbrenner Position (NEW DATA — Q2 13G)
 
-Per SEC 6-K and `research/wiki/power-for-ai-primer.md`:
-- Contracted power: 3.5GW (exceeded prior 3GW target)
-- Year-end 2026 target: 4GW
-- Missouri: gigawatt-scale AI factory site (broken ground)
-- Pennsylvania: 1.2GW expansion (land + power secured)
-
-This is HUGE in context of `wiki/power-for-ai-primer.md`. Total US data center power demand 2026: 75.8 GW. NBIS represents ~4-5% of total US data center power capacity by year-end 2026. For a single neocloud.
-
-## Key contracts (per Blockonomi + cross-referenced)
-
-| Customer | Value | Term | Notes |
-|---|---|---|---|
-| Microsoft | $17.4-19.4B | 5-year | New Jersey datacenter |
-| Meta | (combined with MSFT = ~$46B total) | Multi-year | Per Blockonomi |
-| Others (Anthropic, enterprise) | Various | — | Smaller |
-
-**Customer concentration is REAL** — MSFT + Meta dominate. Renewal risk + competitive risk are top concerns.
-
-## vs CoreWeave (CRWV) — the pair-trade analysis
-
-Per [Blockonomi](https://blockonomi.com/coreweave-vs-nebius-comparing-two-ai-cloud-infrastructure-stocks-in-2026/) and [Motley Fool comparison](https://www.fool.com/investing/2026/05/14/better-datacenter-stock-coreweave-or-nebius/):
-
-| Metric | NBIS | CRWV |
+| Field | Detail | Source |
 |---|---|---|
-| Q1 2026 revenue | $399M | $2.1B |
-| YoY growth | +684% | +112% |
-| Contracted backlog | $46B+ (MSFT + Meta) | ~$100B |
-| Debt | Low (cash $3.7B net positive) | $14B outstanding |
-| 2026 capex | (smaller — implied by scale) | $30-35B planned |
-| Market cap | $25.2B | (larger) |
+| Filing type | Schedule 13G (passive) | T1 SEC |
+| Filing date | 2026-05-27 | T1 |
+| Filer | Situational Awareness LP + affiliates | T1 |
+| Co-filer | Carl Shulman (AI safety researcher) | T1 |
+| Shares | 12,410,060 Class A | T1 |
+| Ownership | 5.6% (of 220,406,311 outstanding) | T1 |
+| Approx value | ~$2.6B (my model: 12.41M × ~$208 at disclosure) | derived |
+| Q1 status | NOT in Q1 13F → entirely Q2 2026 add | T1 |
+| Size vs CRWV | 4.6× larger than Q1 13F CRWV $556.1M | derived |
 
-**Synthesis:** CRWV is the larger, more leveraged, faster-deployed version. NBIS is the smaller, cleaner-balance-sheet, faster-percentage-growth version. The pair-trade is essentially a question of execution speed vs leverage tolerance.
+## Why Aschenbrenner Chose NBIS at 4.6× CRWV (Bayesian, my model)
 
-## Duration × Magnitude × Pricing × Recognition × Execution Quality
-
-### Duration of constraint (capacity-constrained for inference)
-Per `research/signals/triangulation.md` 2026-05-20 entry: Altman's "capacity-constrained for some time" + multi-year forward contracts. **Duration: 3-5 years** at minimum.
-
-### Magnitude
-- Year-end 2026 ARR target: $7-9B (from $399M Q1)
-- That's ~+200% growth required to hit guide midpoint
-- $46B contracted backlog provides visibility
-- If guide hit: market cap to forward-revenue multiple compresses from 47x trailing to ~3-4x forward
-
-### Pricing power
-Capacity-constrained environment + multi-year locked contracts = HIGH. NBIS sells what hyperscalers can't build fast enough. But — long-term, hyperscalers will build their own (Google-Blackstone $5B venture per [Investing.com](https://www.investing.com/news/stock-market-news/coreweave-nebius-shares-drop-as-blackstone-and-google-launch-5b-ai-cloud-venture-4698388)), compressing the spread.
-
-### Recognition Stage
-- 12 months ago: Stage 1-2 (early; Yandex spin-out)
-- 6 months ago: Stage 2-3 (capacity-constrained narrative emerging)
-- Today (2026-05-21): **Stage 2-3** — major run on Q1 print + Altman commentary, but still under-covered relative to broader AI names. Some Wall St coverage, multiples expanded but not extreme
-
-### Execution Quality
-| Sub-criterion | Score | Reasoning |
+| H | Frame | P (my model) |
 |---|---|---|
-| Moat type | 3/5 | Capacity is the moat; not a structural moat once others build |
-| Management track record | 3/5 | Post-Yandex spin-out leadership; less long track record |
-| Technical innovation cadence | 3.5/5 | Token Factory + multi-deployment pace |
-| Customer relationships | 4/5 | Microsoft + Meta locked in long-term |
+| **H3** | **Capital structure: NBIS D/E 2.1x vs CRWV D/E 10.7x — addresses internal coherence with $8.7B chip-puts portfolio (CRWV extreme leverage overlaps with S4 puts; NBIS de-risks long book)** | **35%** |
+| **H6** | **Subsidiary optionality: ~$6.5-7B embedded options on Physical AI (Avride) + analytics (ClickHouse) + RLHF data (Toloka)** | **25%** |
+| **H5** | **Geographic/EU sovereign AI: Finland + France + NL HQ + EU AI Act compliance = uncorrelated demand CRWV cannot serve** | **20%** |
+| H1 | MSFT concentration de-risking (partial — both MSFT-exposed) | 20% |
+| H2 | Software stack value-add (managed platform vs bare-metal) | 15% |
+| H8 | Biographical / Yandex pedigree / Carl Shulman AGI-race framework | 10% |
+| H4 | Valuation discount (FAILS standalone — NBIS premium to CRWV) | 10% |
+| H7 | Customer base quality (weakest — both MSFT+Meta dominated) | 5% |
 
-**Execution Quality: 3.4/5** — adequate, not exceptional. Compare to AVGO's 4.75/5 — meaningfully lower.
+## Right-Side-of-Belka Score: 4/5
 
-## Anti-fragility scoring
+| Dimension | Score |
+|---|---|
+| Confirmed product in growing end-market | PASS — 684% YoY |
+| Capacity investment funded | PASS — ~$867M net cash + lower-cost convertibles |
+| Structural tailwind | PASS — AI inference + EU AI Act compliance |
+| Geographic moat | PASS — NL HQ + Finland/France data centers |
+| Valuation discount | **FAIL — at ATH; +529% 1yr; no entry-price asymmetry** |
 
-| Scenario | Weight | NBIS result |
+## Parallel Hypotheses
+
+| H | Frame | P (my model) |
 |---|---|---|
-| S1 NVDA dominant (33%) | | WIN — NBIS hosts NVDA chips |
-| S2 Custom Si fragments (30%) | | WIN — NBIS hosts custom Si too |
-| S3 Power binds (25%) | | STRONG WIN — NBIS's power capacity IS the moat |
-| S4 Digestion (6%) | | LOSS — high-multiple capex-heavy name |
-| S5 Regulatory shock (6%) | | MIXED — US-listed but Yandex spin-out historic Russian exposure |
+| H1: Subsidiary monetization (ClickHouse IPO 2027 + Avride scale) + EU sovereign inflects | 35% |
+| H2: Hyperscaler in-housing 2027-2028 compresses neocloud multiples; flat-to-modest | 35% |
+| H3: At-ATH entry + heavy capex burn + Volozh dual-class compress multiple; -25-40% pullback | 30% |
 
-**Anti-fragility score: 2.5/5** (strong win in S3; modest wins in S1/S2; loss in S4; mixed in S5)
+Bull return (H1): +60-100% over 24-36mo. Bear loss (H3): -25-40%. Anti-fragility 3/5.
 
-## Bull case (P = 40%)
+## N-th Order Cascade (computed, my model)
 
-NBIS hits $7-9B ARR guidance. Capacity-constrained dynamic persists through 2028. Microsoft + Meta contracts deliver. Stock re-rates from 47x trailing to ~30x trailing as scale economics improve. **Expected return: +60% to +120% over 18-24 months.**
+- **1st order (P>80%)**: Q1 +684% YoY + Aschenbrenner 13G validates NBIS as Tier 1 neocloud
+- **2nd order (P~55%)**: ClickHouse IPO 2027 monetizes ~$4.2B+ stake → SOTP recognized
+- **3rd order (P~35%)**: Avride scales via Uber commitment → Physical AI optionality crystallizes
+- **4th order (P~20%)**: Toloka exit (Bezos signal) + EU sovereign AI deployments scale → "AI Berkshire" pattern emerges
 
-## Bear case (P = 30%)
+## Falsifiers
 
-S4 plays or hyperscaler-build-out (Google-Blackstone style) compresses NBIS pricing power. Customer concentration hits via renegotiation or non-renewal. Execution stumbles on capacity buildout (Missouri/Pennsylvania). **Expected loss: -40% to -60%.**
+1. **Aschenbrenner Q2 13F (Aug 2026) shows NBIS position TRIMMED below 4%** → rotation thesis activated
+2. ClickHouse 2027 IPO postponed/cancelled → H1 catalyst removed
+3. Microsoft or Meta reduces $19.4B + $27B commitments → revenue trajectory compressed
+4. Volozh exercises supermajority voting for non-shareholder-friendly action (dual-class governance)
+5. EU AI Act enforcement softens → H5 vector neutralized
 
-## Base case (P = 30%)
+## Position Implication (Critical Rule #11)
 
-Revenue grows ~+150% in 2026 (impressive but below the high end of guidance). Multiple compresses materially as growth decelerates. Stock flat to +20%.
+**Position implication: ACTIVE WATCHLIST at 0% — defer entry pending 15%+ pullback to ~$205-210**. At ATH $244.05, no entry-price asymmetry. Three trigger scenarios:
+- (a) 15% pullback to ~$205 area on macro noise → enter 1.5-2% Active
+- (b) Q2 13F (mid-Aug 2026) shows Aschenbrenner held/added → enter 1.5-2% even at higher entry on validated thesis
+- (c) ClickHouse IPO filing → SOTP catalyst trigger; size up to 3-4% within 1-2 weeks
 
-## Falsifiers — mandatory
-
-1. **Q3 2026 revenue tracking below $1.2B (implied trajectory for $7B+ year-end ARR).** Would suggest guidance is unreachable.
-2. **MSFT or Meta announces NBIS contract renegotiation or reduction.** Customer concentration risk materializes.
-3. **Hyperscaler captive cloud build-outs accelerate materially.** Google-Blackstone $5B venture is the model; if MSFT/AMZN/AWS follow suit on similar scale, neocloud TAM compresses.
-4. **NBIS Pennsylvania or Missouri capacity buildout delays >6 months.** Execution slip damages the buildout narrative.
-
-## Position recommendation
-
-**3-5% if entered.** Smaller than AVGO (5-8%) because:
-- More execution-dependent (capacity buildout vs design partnership)
-- Higher beta to S3 specifically (binary on power-binds scenario)
-- Stage 2-3 means runway exists but less de-risked than AVGO
-- Customer concentration risk warrants smaller sizing
-
-**Pair consideration:** CoreWeave (CRWV) is the larger, more leveraged alternative. The pair-trade question: which one wins more in capacity-constrained scenario? My read: NBIS faster percentage growth + cleaner balance sheet makes it the "smaller, more asymmetric" play. CRWV is the "larger, more direct" play. Either is defensible.
+Anti-fragility 3/5 + H1 P=35% = Active tier (not Core).
 
 ## Cross-references
 
-- `research/wiki/power-for-ai-primer.md` — NBIS's power capacity is the foundation
-- `research/wiki/agentic-workload-scaling.md` — demand model
-- `research/signals/triangulation.md` — capacity-constrained triangulated signal
-- `research/sector/where-we-are.md` non-default read #5 — neocloud non-zero-sum dynamic
-- `research/portfolio/recommendations.md` — could be GLW-trim destination
+- `signals/cross-source-log/2026-06-02-nbis-crwv-aschenbrenner-comparative-deep-dive.md` — load-bearing
+- `signals/events/2026-05-21-aschenbrenner-q1-13f.md` — Q1 baseline
+- `companies/CRWV/thesis.md` — paired-trade complement
+- `sector/where-we-are.md` — capacity-constrained thesis
+- `wiki/power-for-ai-primer.md` — power binds S3
