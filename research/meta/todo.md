@@ -1,6 +1,6 @@
 # To-Do — AI Sector Research OS
 
-**Last updated:** 2026-06-02 (HPE Q2 FY26 GRADE completed; L14 CODIFIED at N=2 — removed L14 validation watch item; L15 NEW + L16 CANDIDATE added to lessons.md)
+**Last updated:** 2026-06-02 PM (post Citrini-Lotte ingest + Mitsui 4-subagent deep-dive; added Co-Tech 8358.TW investability check P1 + Mitsui entry trigger watch P2; HPE Q2 FY26 GRADE completed earlier today)
 **Optimizes for:** rate at which signals become defensible, falsifiable, investable conviction earlier than consensus (per `meta/methodology.md` §Meta-First-Principle).
 
 **SessionStart hook sort order:** P0 → P1 → P2 → P3, within priority: artifact-producing > process, within ties: tag count desc, then date asc.
@@ -16,6 +16,23 @@
 ## Open
 
 ### P1 — High priority (next session — added 2026-05-28 end of session)
+
+- [ ] **P1 / research / 2026-06-02** [INDP, AF, POS] — Co-Tech Development (8358.TW) investability check + bypass-route deep-dive
+  - Origin: Mitsui Mining 4-subagent deep-dive 2026-06-02 surfaced Co-Tech as ONLY qualified HVLP4 2nd source globally per Goldman; HVLP3+ share projected 5%(2025)→53%(2028); gross profit mix 8%→77%; capacity 200→400 t/mo HVLP3/4 by YE2026. Goldman initiated Buy NT$900.
+  - Scope: (a) Confirm Taiwan TWSE 8358 investability on user's Degiro + N26 brokerages; (b) if investable, run full thesis with Workflow 8 DEEP-DIG quality bar (≥2 indep sources for capacity, ≥1 supply response, ≥3 tickers cross-stack, ≥1 LOSER, specific falsifier); (c) compare against Mitsui Stage 3-4 entry penalty — Co-Tech at Stage 1-2 likely better Kelly bet
+  - Linked: `companies/MITSUI/thesis.md`, `signals/cross-source-log/2026-06-02-citrini-lotte-hvlp-mitsui-deepdive.md`, `watchlist/candidates.md`
+
+- [ ] **P2 / research / 2026-06-02** [INDP, AF, POS] — Mitsui Mining (5706.T) entry-trigger watch
+  - Origin: Mitsui 4-subagent deep-dive 2026-06-02 → WATCHLIST status; Stage 3-4 priced-to-perfection at JPY 54,220 (+10.8× over 12mo); trading +35% above consensus PT JPY 40,178
+  - Scope: Monitor for entry triggers: (a) pullback to JPY 43,000-46,000 (~-15-20%), (b) HVLP5 customer disclosure naming hyperscaler, (c) FY27 H1 mid-year proof point Oct 2026 that strips non-recurring metals roll-off cleanly + shows Functional Materials segment OP +15%+ YoY. If trigger fires, enter 1-2% Quarter-Kelly.
+  - Falsifiers (per `companies/MITSUI/thesis.md`): Co-Tech achieves >40% HVLP3+ share by 2027; Functional Materials OP <15% YoY at FY27 H1; pricing power breaks (rollback of +12% MicroThin hike); HVLP5 has no named customer wins by Q4 FY27
+  - Linked: `companies/MITSUI/thesis.md`, `signals/cross-source-log/2026-06-02-citrini-lotte-hvlp-mitsui-deepdive.md`
+
+- [ ] **P2 / research / 2026-06-02** [INDP, AF, POS] — Furukawa Electric (5801.T) HVLP4 thesis
+  - Origin: Mitsui deep-dive surfaced Furukawa as HVLP4-class incumbent (HA-V2S, HST-HA), Japan TSE investable, less crowded valuation than Mitsui
+  - Scope: Establish dedicated thesis if HVLP4 exposure is desired without Mitsui Stage 3-4 entry penalty. Check FY26 actuals + FY27 guidance + HVLP segment contribution + capacity disclosures + analyst PTs
+  - Linked: `watchlist/candidates.md`
+
 
 - [ ] **P1 / harness / 2026-06-08** [INFRA, CAL] — Two-bracket LLM-native enforcement experiment week-1 check
   - Origin: 2026-06-01 user authorized live install of `llm-native-priming-hook.py` (UserPromptSubmit) + `structural-output-hook.py` (Stop). Two-bracket architecture: priming biases sampling distribution pre-generation; Stop hook companion enforces structural-output requirements post-generation.

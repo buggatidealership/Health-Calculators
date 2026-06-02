@@ -72,6 +72,8 @@ Plus P2 continuous-agent infrastructure category thesis build candidate (from 20
 - Supply-Chain-Cohort Calibration framework — N=1 partial validation: MRVL
 - L14 (CATEGORY vs TREND events; refined framework) — N=1 same-day cohort: SNOW/MDB/NTAP/ESTC/MRVL; **CODIFIED 2026-06-02 at N=2 (HPE Q2 FY26 Stage 3-4 + CATEGORY EVENT → +29-36% T+24h); REAL-TIME N=3 VALIDATION same day at MRVL Computex Day 2 keynote (Stage 3-4 + CATEGORY EVENT → +24% pre-mkt) per `companies/MRVL/thesis.md` 2026-06-02 cascade entry**
 
+**NEW HARNESS LAYER (2026-06-02 evening):** HVLP copper foil layer for AI server PCBs newly mapped via Citrini-shared Lotte article + 4-subagent verification per `signals/cross-source-log/2026-06-02-citrini-lotte-hvlp-mitsui-deepdive.md`. Layer sits at Materials Layer 2 (copper foil within CCL), upstream of CCL (AGC PTFE + Doosan finished) and downstream of mining/refining. Primary candidates added to `watchlist/candidates.md`: Mitsui Mining & Smelting (5706.T, ~98% global VSP share, capacity 620→1,200 t/mo Sep 2028, Stage 3-4 priced-to-perfection); Furukawa Electric (5801.T, HVLP4 incumbent #2 Japan-investable); Co-Tech (8358.TW, only qualified HVLP4 2nd source per Goldman, Stage 1-2 bypass-route asymmetric play). Goldman models 28-39% supply shortfall through 2028 per [BigGo T2](https://finance.biggo.com/news/J84_RZ4BX0tZvRTvZP2h). Korean trade press "Mitsui stalled" claim DIRECTIONALLY-WRONG per Japanese primary IR.
+
 **Pending grades:** ZERO. All 4 predictions in last 8 days now graded (NVDA/MOD/SNOW/MRVL).
 
 **Where to pick up tomorrow** (in order of leverage):

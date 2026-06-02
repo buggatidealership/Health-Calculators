@@ -152,3 +152,13 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: Korea
 ## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — Alphabet $80B raise reinforces PTFE CCL demand for AI server PCBs; EU Pax Silica alliance membership (T2 Euronews) strengthens allied-nation fluoropolymer supply chain geopolitical moat — directly aligns with AGC PTFE Taconic/Nelco positioning.
+
+## Cross-source synthesis — Mitsui HVLP4 deep-dive cascade (added 2026-06-02, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-citrini-lotte-hvlp-mitsui-deepdive.md` + `companies/MITSUI/thesis.md`: HVLP copper foil layer NEWLY MAPPED in harness as binding-constraint sub-layer of CCL. Mitsui (~98% AI-server-grade VSP share) + Furukawa Electric + Co-Tech (only qualified HVLP4 2nd source per Goldman) confirmed as primary HVLP4 suppliers; Goldman models 28-39% supply shortfall through 2028.
+
+**Cross-thesis implication for AGC:** PTFE resin + HVLP copper foil = the TWO main ingredients of CCL (Copper Clad Laminate). They are COMPLEMENTARY, not substitutes — every PCB lamination uses both. The Mitsui HVLP foil pricing power (+12% MicroThin Apr 2026) + Goldman 28-39% shortfall through 2028 = same Rubin BOM pull-through validates AGC PTFE CCL thesis from the orthogonal supply-chain direction. If Mitsui can charge +12% on HVLP because of Rubin BOM compounding, AGC can charge structurally higher prices on Taconic/Nelco PTFE for the same Rubin BOM. The two theses TRIANGULATE on the same demand signal from independent supply-side angles.
+
+**No tier change** but thesis RE-CONFIRMED. AGC's M10/Rubin PTFE qualification still the load-bearing data gap; the Mitsui cascade provides ADDITIONAL evidence that the demand side is structurally tight (independent of AGC-specific naming).
+
+**Position implication:** HOLD at 1.76% — Mitsui HVLP4 deep-dive REINFORCES the AGC PTFE CCL thesis via complementary-ingredient demand signal but does NOT close the AGC-specific M10 qualification naming gap. No size change today; trigger conditions per prior cross-references remain.

@@ -1,6 +1,6 @@
 # Watchlist Candidates
 
-**Last updated:** 2026-05-20
+**Last updated:** 2026-06-02 (added Mitsui + Furukawa + Co-Tech HVLP copper foil cluster post Citrini-shared Lotte article 4-subagent deep-dive verification)
 
 Names surfaced by signals / causal chains, not yet covered by full thesis. Promoted to `companies/{TICKER}/` when conviction warrants.
 
@@ -20,6 +20,25 @@ Status: research / paper position / promote / archive
 - **MRVL** — linked to `causal-maps/inference-takes-over.md` (custom Si partner for AWS Trainium + Meta MTIA + networking ASICs) and `bottlenecks.md` (CPO play). Anti-fragile multi-theme exposure. **High priority for full thesis.**
 - **COHR, LITE** — optical interconnect / CPO direct beneficiaries. Lower priority — niche names with binary outcomes.
 - **CIEN** — optical networking, AI back-end. Worth understanding the AI revenue mix.
+
+### HVLP Copper Foil / AI Server PCB Materials (NEW 2026-06-02)
+- **Mitsui Mining & Smelting (5706.T) — added 2026-06-02**
+  - Source signal: Citrini-shared Korean trade press on Lotte NVDA supply; 4-subagent verification per `signals/cross-source-log/2026-06-02-citrini-lotte-hvlp-mitsui-deepdive.md`
+  - Linked causal chain: HVLP copper foil layer NEWLY MAPPED; binding-constraint elevation per `sector/bottlenecks.md`
+  - Why interesting: ~98% global AI-server-grade VSP share; capacity 620→1,200 t/mo Sep 2028 (3 upsizes in 12mo); +12% MicroThin price hike Apr 2026; 2030 plan copper foil profit 2× FY26
+  - Status: **WATCHLIST — full thesis at `companies/MITSUI/thesis.md`; Stage 3-4 priced-to-perfection (+10.8× in 12mo); entry trigger = pullback to JPY 43-46k OR HVLP5 customer disclosure**
+
+- **Furukawa Electric (5801.T) — added 2026-06-02**
+  - Source signal: HVLP4-class incumbent surfaced via Mitsui competitive landscape analysis
+  - Linked causal chain: HVLP4 copper foil #2 supplier — Japan TSE bypass route
+  - Why interesting: HA-V2S + HST-HA HVLP4 grades; one of only 3-4 names that can run HVLP4 reliably; less crowded valuation than Mitsui
+  - Status: WATCHLIST — needs dedicated thesis; conservative Japan-TSE alternative if HVLP4 exposure desired without Stage 3-4 entry penalty
+
+- **Co-Tech Development (8358.TW) — added 2026-06-02**
+  - Source signal: Goldman initiated Buy NT$900 flagging as ONLY qualified HVLP4 2nd source globally
+  - Linked causal chain: HVLP4 supply expansion + hyperscaler share gain
+  - Why interesting: Goldman HVLP3+ share 5%(2025)→53%(2028); gross profit mix 8%→77%; capacity 200→400 t/mo HVLP3/4 by YE2026; arguably best Kelly bet in HVLP4 cluster (Stage 1-2 vs Mitsui Stage 3-4)
+  - Status: **WATCHLIST — P1 investability check pending (Taiwan TWSE — confirm Degiro/N26 access)**; if investable, full thesis warranted as bypass-route asymmetric play
 
 ### Power, Electrical, Cooling
 - **GEV (GE Vernova)** — turbines + electrical equipment. Linked to T2 + sovereign AI buildouts. **High priority for full thesis.**
