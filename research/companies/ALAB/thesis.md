@@ -340,3 +340,20 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: **STR
 ## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — Alphabet $80B raise = CXL memory expansion + fabric switch demand floor at hyperscaler #1; Leo CXL Azure production cascade compounds.
+
+## Cross-source synthesis — Computex 2026 Day 2 MRVL keynote competitive amplification (added 2026-06-02, per Critical Rule #10)
+
+Per `companies/MRVL/thesis.md` 2026-06-02 cascade entry: MRVL announced Teralynx T100 (102.4 Tbps switch — parity with AVGO Tomahawk 6), 51.2T CPO switch first reveal, 1.6T 2nm coherent optics, NVDA $2B stake amplified with Jensen Huang on-stage "next $1T company" endorsement; MRVL +24% pre-mkt per [TipRanks T2](https://www.tipranks.com/news/why-is-marvell-technology-mrvl-stock-soaring-today-june-2-2026).
+
+**Competitive pressure on ALAB:**
+- MRVL Teralynx T100 + 51.2T CPO switch competes at the same scale-up fabric switching layer where Scorpio X is positioned (320-lane open memory-semantic fabric switch). The MRVL CPO reveal partially neutralizes ALAB's pre-Computex Day 1 narrative advantage where Scorpio was the only public 320-lane fabric switch.
+- NVDA $2B stake amplified at Jensen keynote = ALAB existing "largest single competitive risk" falsifier intensified. NVLink Fusion partnership now publicly endorsed by NVDA's CEO.
+
+**Mitigating factors that PRESERVE ALAB thesis:**
+- Leo CXL is IN PRODUCTION on Microsoft Azure M-Series VMs (T1 Astera Labs IR) — MRVL has NO comparable commercial hyperscaler CXL memory controller deployment disclosed
+- ALAB Vera Rubin PCIe Gen6 retimer thesis (Vera Rubin first MGX rack with 1.4 TB/s PCIe Gen6 per 2026-06-01 cascade) is silicon-photonics-independent — MRVL CPO competes at switch ASIC layer, not at PCIe Gen6 retimer layer where ALAB Aries dominates
+- ALAB N1X PC-tier retimer thesis (12 PCIe 5.0 lanes per laptop SKU) is structurally distinct from MRVL custom Si content
+
+**Net read:** ALAB thesis NOT falsified, but MRVL Day 2 keynote materially closes the competitive gap at scale-up fabric switching. The dual-vector thesis (PCIe Gen6 retimers + Leo CXL Azure production) remains the durable structure — MRVL competes only at the third vector (Scorpio fabric switching) where it now has comparable silicon.
+
+**Position implication:** HOLD at 6.51% — SIZE UP gate NOT yet cleared; MRVL Day 2 competitive intensification is a marginal negative on the Scorpio leg but does NOT change the dual-vector core thesis. Watch: (a) AVGO Jun 3 earnings for further competitive context, (b) ALAB Q2 print for Vera Rubin retimer customer-win disclosures, (c) any Leo CXL second-hyperscaler deployment announcement to differentiate further from MRVL.

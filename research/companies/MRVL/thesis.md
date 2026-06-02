@@ -1,6 +1,6 @@
 # Marvell (MRVL) — Thesis (Compact)
 
-**Last updated:** 2026-05-27 (cohort calibration data + Stage 3-4 narrative modifier added)
+**Last updated:** 2026-06-02 (Computex Day 2 keynote + Jensen $1T endorsement + Teralynx T100 + 1.6T 2nm coherent optics + L14 N=3 real-time validation)
 **Tier:** Active candidate (multi-theme: custom Si + networking + memory + CXL)
 **Position target:** 3–5% if entered (user holds 0%) — **but apply principle #31 Stage 3-4 modifier: -25 to -35% discount to standard sizing**; effective 2-3.5% if entered today
 **Narrative Stage:** 3-4 transition (per principle #31) — stock +100-130% YTD 2026; consensus PT $162 vs current ~$196 = market run THROUGH analyst targets; options implying 11-14% earnings move; priced-to-raise positioning. Surprise capacity partially exhausted.
@@ -114,3 +114,22 @@ Per `research/predictions/2026-05-27-MRVL-Q1FY27-GRADE.md`:
 **Lessons added (L11 + L12 + L13):** see `predictions/lessons.md`. L11 conditional-EPS-amplification refinement to L6; L12 sequential-vs-YoY discipline; L13 management-commentary vintage-distribution framing.
 
 **Supply-Chain-Cohort Calibration framework status:** PARTIALLY VALIDATED at N=1. NOT codified yet. Refinement notes documented for N=2 application at Schwab June 2026 launch.
+
+## Cross-reference — Computex 2026 Day 2 keynote + Jensen Huang $1T endorsement (added 2026-06-02, per Critical Rule #10)
+
+**Day 2 event:** CEO Matt Murphy's Computex keynote with Jensen Huang on stage calling MRVL "the next trillion-dollar company"; +24% pre-market move per [TipRanks T2](https://www.tipranks.com/news/why-is-marvell-technology-mrvl-stock-soaring-today-june-2-2026) and [Bloomberg T2](https://www.bloomberg.com/news/articles/2026-06-02/marvell-surges-after-huang-calls-it-the-next-1-trillion-company). Product family announcements per [Marvell IR press release T1](https://www.marvell.com/company/newsroom/marvell-keynote-computex-2026-future-of-scaling-ai-depends-on-connectivity.html):
+
+- **Teralynx T100** — claimed industry-first 102.4 Tbps AI-optimized switch chip (parity with AVGO Tomahawk 6 — closes the 1-generation gap flagged in 2026-05-21 networking-primer cross-reference)
+- **1.6T 2nm coherent optical** solution — samples this year, production 2027
+- **51.2T CPO switch** — first public reveal; blunts AVGO/NVDA CPO disintermediation risk
+- **100T Ethernet switch** — next-generation roadmap milestone
+- **FY27 revenue guide reaffirmed** at ~$11.5B (+40% YoY)
+- **NVDA $2B stake amplified** + NVLink Fusion partnership expansion (per Jensen co-keynote)
+
+**L14 real-time validation (N=3):** Stage 3-4 + CATEGORY EVENT → +24% pre-mkt is exact L14 codified range (+25-40% per `predictions/lessons.md` L14 framework table, just N=2 codified at HPE 2026-06-02 morning, now N=3 real-time at MRVL same day). CATEGORY markers present: (a) new product family across switch + optics + CPO + Ethernet — multi-product baseline-break, (b) NVDA $2B stake amplified to "next $1T company" framing — strategic relationship reframe, (c) FY27 guide reaffirmed at peak run-rate at Stage 3-4. This is a real-time codification cross-validation — L14 framework holds across HPE (compute-system) and MRVL (chip) verticals same day.
+
+**NEW NEGATIVE signal surfaced (not yet cascaded to thesis):** Digitimes/SemiAnalysis T2 reports that MRVL content on Trainium3/Trainium4 may be limited to interface IP — smaller $-content per chip than Trainium2 per [DigiTimes T2](https://www.digitimes.com/news/a20260213PD201/aws-ai-server-cooling-production-2026.html); MediaTek Computex 2026 announcement raised 2026 DC revenue forecast $1B→$2B targeting 10-15% ASIC market share by 2027 per [MediaTek/ABI T2](https://www.mediatek.com/tek-talk-blogs/mediateks-nvlink-fusion-partnership-pioneering-ai-innovation-with-custom-asic) = direct slot competition with MRVL custom Si. **These are pre-positioned watch items, not yet thesis-falsifying** — but they do compress the FY28 "more than double" custom Si trajectory if confirmed.
+
+**AVGO Jun 3 earnings = load-bearing comparative event:** AVGO Q2 FY26 print tomorrow (June 3) tests the relative MRVL-vs-AVGO custom Si trade. If AVGO custom Si growth > MRVL, the absolute MRVL win at Day 2 keynote partially neutralizes by relative ranking. If AVGO disappoints, MRVL absorbs the custom Si leadership narrative permanently.
+
+**Position implication: NO ACTION — stay at 0% — buying post +24% CATEGORY EVENT move at Stage 3-4 violates entry discipline per principle #31; wait for (a) AVGO Jun 3 print to test relative custom-Si thesis, (b) Trainium3/T4 $-content clarification, (c) Stage 3-4 + CATEGORY EVENT T+24h sustain or fade (per L14 framework expectation +25-40% lasts; if it fades below +15% within 48h, framework partial-falsifier).**

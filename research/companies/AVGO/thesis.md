@@ -180,3 +180,20 @@ Per `research/signals/events/2026-05-20-NVDA-Q1FY27-call-deepdive.md`:
 Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`: AVGO named in 4th-order cascade as **slight competitive headwind**. P~15% confidence (negligible magnitude). Logic: AWS becomes stronger custom-Si showcase platform via deepened SNOW relationship; AVGO competes for custom-Si design wins at Google/Meta/MSFT/OpenAI/Anthropic and AWS-strength narrative is marginally competitive vs that.
 
 **No thesis update warranted (premortem 2026-05-27)**: AVGO has its own diversified custom-Si design wins (Google TPU 8t/8i, Meta MTIA, MSFT Maia, OpenAI Titan, Anthropic) AND networking-layer dominance (Tomahawk 6 102.4T = 1 generation ahead of MRVL Teralynx 51.2T). The SNOW-AWS pact does not change AVGO's competitive positioning materially. AVGO is a 1st-order beneficiary of the broader hyperscaler-AI capex wave that the SNOW pact is one data point in — net positive overall, not negative.
+
+## Cross-source synthesis — MRVL Computex Day 2 + AVGO Q2 FY26 earnings load-bearing flag (added 2026-06-02, per Critical Rule #10)
+
+Per `companies/MRVL/thesis.md` 2026-06-02 cascade: MRVL announced Teralynx T100 (102.4 Tbps switch — closes the prior 1-generation gap with AVGO Tomahawk 6), 51.2T CPO switch first reveal, 1.6T 2nm coherent optics; Jensen Huang on-stage at Murphy keynote endorsed MRVL as "next $1T company"; MRVL +24% pre-mkt per [TipRanks T2](https://www.tipranks.com/news/why-is-marvell-technology-mrvl-stock-soaring-today-june-2-2026).
+
+**Competitive read for AVGO:**
+- **AVGO networking-layer moat narrowed but not closed**: AVGO Tomahawk 6 102.4T has been SHIPPING since earlier 2026 per prior cross-reference; MRVL Teralynx T100 just announced at Day 2 with timing-to-ship undisclosed. AVGO still has the production lead, but the silicon-spec parity removes the "1 generation ahead" framing from prior cross-references. Updating prior network-primer cross-reference (2026-05-21): AVGO now at ~6-12mo production lead, not 1 full generation.
+- **AVGO custom-Si differentiation INTACT**: Jensen's MRVL endorsement was AWS-Trainium-and-NVLink-Fusion-framed, not Google/Meta/MSFT/OpenAI/Anthropic-framed. AVGO retains Google TPU, Meta MTIA, MSFT Maia, OpenAI Titan, Anthropic custom-Si design partnerships — none of which were displaced by MRVL Day 2 announcements.
+- **MediaTek 10-15% ASIC share by 2027 threat** per [MediaTek/ABI T2](https://www.mediatek.com/tek-talk-blogs/mediateks-nvlink-fusion-partnership-pioneering-ai-innovation-with-custom-asic) — competes with BOTH AVGO and MRVL at hyperscaler ASIC slots. New competitive entrant that DILUTES AVGO+MRVL combined custom-Si TAM growth, not zero-sum.
+
+**Q2 FY26 earnings tomorrow (June 3) = LOAD-BEARING comparative event:**
+- AVGO Q2 FY26 print is the immediate comparative test of the MRVL-vs-AVGO custom-Si trade. After MRVL Day 2 keynote validation, AVGO needs to demonstrate (a) custom Si growth rate ≥ MRVL FY27 +40% guide, (b) networking-layer Tomahawk 6 commercial traction (revenue contribution), (c) any new custom-Si design win or expansion at existing hyperscalers
+- If AVGO custom Si growth > MRVL FY27 guide reaffirmed → AVGO retains comparative leadership; 5-8% Active candidate tier reinforced
+- If AVGO custom Si growth ≈ MRVL → relative neutral; entry decision becomes price-dependent
+- If AVGO custom Si disappoints OR MediaTek slot loss disclosed → 5-8% Active candidate tier weakened; consider DOWNGRADE to 3-5%
+
+**Position implication:** NO ACTION on entry decision pre-print — AVGO entry at 0% still pending GLW trim funding + Q2 FY26 print resolution; the Q2 FY26 print specifically tests whether AVGO retains custom-Si comparative leadership against an MRVL that just had its strongest single catalyst day. Hold cash for post-print entry decision tomorrow.

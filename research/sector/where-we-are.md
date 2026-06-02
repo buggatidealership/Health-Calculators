@@ -70,7 +70,7 @@ Plus P2 continuous-agent infrastructure category thesis build candidate (from 20
 - Principle #34 (Supplier-Side Cross-Layer Moat Decomposition) — N=1 origin: SEMCO
 - B38 (demand-side decomposition blind-spot for supplier-side cross-layer moats) — companion to #34
 - Supply-Chain-Cohort Calibration framework — N=1 partial validation: MRVL
-- L14 (CATEGORY vs TREND events; refined framework) — N=1 same-day cohort: SNOW/MDB/NTAP/ESTC/MRVL
+- L14 (CATEGORY vs TREND events; refined framework) — N=1 same-day cohort: SNOW/MDB/NTAP/ESTC/MRVL; **CODIFIED 2026-06-02 at N=2 (HPE Q2 FY26 Stage 3-4 + CATEGORY EVENT → +29-36% T+24h); REAL-TIME N=3 VALIDATION same day at MRVL Computex Day 2 keynote (Stage 3-4 + CATEGORY EVENT → +24% pre-mkt) per `companies/MRVL/thesis.md` 2026-06-02 cascade entry**
 
 **Pending grades:** ZERO. All 4 predictions in last 8 days now graded (NVDA/MOD/SNOW/MRVL).
 
