@@ -192,3 +192,7 @@ Hirano Tecseed makes ceramic sheet-forming machines — the most technically dem
 - `companies/MURATA/thesis.md` — primary downstream customer (cascade)
 - `companies/HYNIX/thesis.md` — adjacent HBM thesis
 - `companies/SUMCO/thesis.md` — wafer-tier complement
+
+## Cross-source synthesis — Computex 2026 Day 1 (added 2026-06-02, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: Murata announced VPD AI server power module mass production starting 2026 (T2 Digitimes Dec 2025) — direct demand driver for tape-casting equipment. Murata 15-35% MLCC price increase + 20-24wk lead times = capacity expansion economics confirmed. MLCC +182% per Vera Rubin rack BOM step-up = downstream demand pull-through to MLCC capacity expansion = upstream equipment orders to Hirano. Taiyo Yuden + Samsung Electro-Mechanics also signaling price increases simultaneously — oligopolistic pricing power means all three MLCC makers profitable enough to fund capex. **Position implication:** HOLD at 1.89% — within sizing recommendation; thesis cascade validated; Q1 FY2027 results August 6, 2026 remains the key near-term confirmation event for MLCC order intake recovery.

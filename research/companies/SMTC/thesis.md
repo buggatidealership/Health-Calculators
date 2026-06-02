@@ -314,3 +314,7 @@ Per `signals/cross-source-log/2026-05-30-evening-may29-morning-may30-briefs.md`:
 Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction reinforces SMTC as 1st-order beneficiary (P>80%) — FiberEdge TIAs needed in every optical module connecting compute to memory pool; CopperEdge ACCs for short-distance pool tier. Double-counted beneficiary status at the optical-electrical conversion boundary which is non-bypassable in the predicted architecture.
 
 **Position implication:** HOLD — architectural signal reinforces existing thesis. User considering "free-up" review: this signal explicitly removes SMTC from "free-up" candidate set.
+
+## Cross-source synthesis — Computex 2026 Day 1 (added 2026-06-02, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: Spectrum-X CPO confirmed at TSMC 3nm with Lumentum lasers + Coherent silicon photonics (T2). 1.6T optical transceiver transition is the structural thesis SMTC participates in. SMTC's AGC silicon photonics at 1.6T serves long-reach scale-out optical interconnect; CPO scale-up (Wiwynn demo + NVDA Spectrum-X) is additive, not competitive. 800G+ optical transceivers projected >60% of total transceiver shipments in 2026 per [EETaiwan T2](https://www.eettaiwan.com/20260327nt21-2026-percentage-of-800g-optical-transceiver-module/). **Position implication:** HOLD at 3.18% — CPO transition validates SMTC's optical signal integrity thesis; SMTC not directly named at Computex but cascade is positive 2nd order.

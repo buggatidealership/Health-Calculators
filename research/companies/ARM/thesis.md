@@ -492,3 +492,7 @@ Per `signals/cross-source-log/2026-05-31-nvda-n1x-unbiased-money-flow-analysis.m
 Per `signals/cross-source-log/2026-06-01-optical-memory-disaggregation-signal.md`: T3 architectural prediction implies 2nd-order ARM benefit (P~60%) via memory-controller IP relevance — disaggregated architectures need new memory controllers + interconnect IP that Neoverse + AGI CPU architecture targets.
 
 **Position implication:** HOLD — 2nd-order signal; reinforces AGI CPU architecture relevance to next-gen disaggregated systems.
+
+## Cross-source synthesis — Computex 2026 Day 1 (added 2026-06-02, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: NVDA RTX Spark uses ARM Arch v9.2 (10× Cortex-X925 + 10× Cortex-A725) — MediaTek co-designed N1X CPU. 8 OEM launches Fall 2026 (MSFT Surface Laptop Ultra + ASUS ProArt P16/P14 + Dell XPS 16 + HP OmniBook + Lenovo Yoga Pro 9n + MSI Prestige + Acer + GIGABYTE). 3-generation roadmap confirmed through 2030 (RTX Spark 2026 → Vera Rubin Spark 2027-28 with LPDDR6 → Rosa Feynman Spark 2029-30 with HBM Next). Plus Qualcomm Dragonfly data center brand (ARM-ISA) + MediaTek Kompanio Ultra 910 (ARM) = 3 distinct royalty vectors confirmed at single event. Intel fell ~6%, AMD fell ~5% on June 1 open — competitive demoralization signal. **Position implication:** HOLD with potential size-up consideration. ARM royalty volume from PC at premium ASP ($3,000-4,000 device per WSJ-cited per T2) = new royalty category that did not exist before June 1, 2026.

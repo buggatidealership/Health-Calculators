@@ -97,3 +97,19 @@ When a SCENARIO-UPDATE fires:
 2. Rescore each name's S1–S5 column
 3. Update tier in `thesis.md` if anti-fragility crossed a threshold
 4. Note the change here with date + trigger event
+
+---
+
+## 2026-06-02 Computex Day 1 weights update (my model, directional)
+
+Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md` — modest reweight based on Day 1 evidence:
+
+| Scenario | Prior | Post-Computex Day 1 | Driver |
+|---|---|---|---|
+| S1 NVDA dominant | 33% | 32% | Rubin Ultra scale validates NVDA dominance but more non-NVDA spend on cooling/power |
+| S2 Custom Si fragments | 30% | 30% | No material change |
+| S3 Power binds | 25% | 27% | Rubin Ultra 2,300W/chip TDP confirmation; aggregate power demand acceleration |
+| S4 Digestion | 6% | 6% | No change |
+| S5 Regulatory shock | 6% | 5% | Taiwan ecosystem integration depth reduces geopolitical bifurcation speed |
+
+Sum: 32+30+27+6+5 = 100. Directional only — formal reweight pending Days 2-5 + morning brief.

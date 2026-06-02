@@ -52,3 +52,25 @@ These are the bets where consensus is not yet positioned. Each has a probability
 - The CoWoS bottleneck of 2023–2024 was visible 18 months before consensus priced it (NVDA earnings call mentions of "supply constraints" in late 2023). Names tied to advanced packaging (specifically TSMC's CoWoS expansion winners) outperformed when consensus caught up.
 - HBM was a similar pattern — SK Hynix's pricing power was visible in their margin trajectory before sell-side fully modeled it.
 - The lesson: the edge is in the 12–24 month forecast, not the 0–6 month consensus pinch.
+
+---
+
+## 2026-06-02 Computex Day 1 update
+
+Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`:
+
+**Current binding** (added 2026-06-02):
+- HBM4 (already in tier): Hynix 70% Vera Rubin / Samsung qualified at 28-30% / Micron 17-18%; 22.2 TB/s per GPU (+10% vs CES spec)
+- CoWoS (already in tier): ~130K wpm exit-2026; 4× capacity vs late-2024
+- **MLCC (NEWLY ELEVATED)**: +182% per Vera Rubin rack vs GB300 per Morgan Stanley/Korea Herald T2; 26-40wk lead times on premium grades; Goldman 4× demand 2025-2030 vs 10%/yr capacity
+
+**6-12 month next binding** (updated):
+- Power infrastructure (already in tier): 800V HVDC adoption + 600kW Rubin Ultra racks
+- **CCL/PCB materials (NEWLY ELEVATED)**: M9 quartz fiber chokepoint; CCL +74.5% YoY Korea prices; 6-month lead times with quota systems; 2-year equipment lead times
+- CPO transition (already in tier): Wiwynn hyperscale-ready demo + NVDA Spectrum-X Photonics
+
+**12-24 months out**:
+- Memory disaggregation + optical interconnect (already in tier) — **NVDA ICMS optical-attached KV memory pool validates this from NVDA itself**
+- Rubin Ultra 600kW per-rack infrastructure (H2 2027)
+
+last_review: 2026-06-02 (Computex Day 1 INGEST)
