@@ -1,6 +1,6 @@
 # Portfolio Changes Log
 
-**Last updated:** 2026-06-01
+**Last updated:** 2026-06-02
 
 Append-only log of buys, sells, sizing changes. Format:
 
@@ -9,6 +9,32 @@ Append-only log of buys, sells, sizing changes. Format:
 ```
 
 ## Log
+
+[2026-06-02 PLANNED] SELL T1 ENERGY (TE) — user decision post Computex 2026 Day 1 wide-research synthesis. Free-up rationale (T1 Energy is weakest AI-adjacent position per repeated review):
+- 5 parallel Computex subagents found NO hyperscaler direct PPA for T1 Energy at Day 1 or in adjacent supply-chain announcements
+- AI exposure = "Supply Chain Inheritance only" per `companies/TE/thesis.md` (T7 theme); weakest tier of AI adjacency in portfolio per user articulation 2026-06-01
+- Anti-fragility 2/5 (lowest in portfolio)
+- User-stated rationale: "T1 Energy might just be not the one that is sort of part of our portfolio... I can't really value how they can grow well most of their business... it's gonna come from why AI is actually pushing them."
+- Computex Day 1 confirms NO catalyst pathway to reverse this assessment
+- Position value ~€11,509.70 per `portfolio/holdings.md` 2026-06-02; day P/L 0.00% at sale decision date
+- Tax-loss harvest: -€835.90 unrealized from prior session (TE was at -7.18% then; June 2 shows 0.00% — possible recovery; verify at execution)
+- Capital freed for rotation into size-up candidates (see below)
+
+[2026-06-02 PLANNED] ROTATION of T1 Energy proceeds into Computex Day 1 cascade beneficiaries — user decision aligned with `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md` Critical Rule #11 position implications. Size-up candidates identified by user post-synthesis:
+- GLW (Corning): NVDA $3.2B partnership + 10× US optical mfg + CPO ecosystem (T1 BusinessWire + Wiwynn PR T1) — currently 4.57% target 5-6%
+- SNDK (Sandisk): NVDA Vera BlueField-4 STX + Kioxia GP-Series JV + 10× SSD content vs Blackwell (T1 NVDA + Kioxia + T2 NAND Research) — currently 6.05% target 6-7%
+- STM (STMicroelectronics): NVDA 800V GaN alliance + AWS multi-year multi-billion datacenter engagement (T1 STM + SEC 6-K) — two T1 datacenter streams; currently 5.52% target 6-7%
+- ALAB (Astera Labs): Scorpio X 320-lane + Leo CXL IN Microsoft Azure production + PCIe 6 optics demo (T1 Astera Labs IR) — currently 5.33% target 6-7%
+- TSEM (Tower Semi): 400 Gbps/lane SiPh with Coherent + NVDA 1.6T partnership + 3.2T roadmap (T1 TSEM IR + SEC 6-K) — currently 2.20% (undersized for signal); target 3-4% (capped by TSMC-vertical-integration risk)
+
+User reasoning on ARM: noted ARM should also be size-up candidate given multi-vector royalty (NVDA RTX Spark 3-gen roadmap + Qualcomm Dragonfly ARM-ISA + MediaTek Kompanio ARM). Counter-balance: ARM already 12.22% Core; Stage 3-4 priced-to-perfection per B37 framing; FTC antitrust probe May 2026 + AGI CPU margin dilution risk remain in existing TODO P2 ARM Q2 FY27 verification trigger. Decision deferred to ARM Q2 FY27 print (~Aug 2026) before further size-up above Core.
+
+Recommended allocation (my model — not binding):
+- Hypothesis H1 (concentrate on triple-validated): GLW €4K + SNDK €4K + ALAB €3.5K = €11.5K
+- Hypothesis H3 (correct undersized signal): ALAB €5K + TSEM €5K + ARM €1.5K = €11.5K
+- Hypothesis H2 (spread thinner across 5): GLW €2.5K + SNDK €2.5K + STM €2K + ALAB €2K + TSEM €2.5K = €11.5K
+
+User decision on specific allocation pending verbal confirmation; this entry captures the strategic rotation decision.
 
 [2026-06-01] BUY MDB (MongoDB) — NEW POSITION entered at ~€10,000 (user-confirmed verbal report). Aligned with `companies/MDB/thesis.md` (2026-05-29 build): integrated embedding-to-retrieval moat post-Voyage AI acquisition; cRPO +69% YoY Q1 FY27 leading indicator (per [MDB 8-K T1 SEC](https://www.sec.gov/Archives/edgar/data/0001441816/000162828026013199/mdb-13126xex991xrelease.htm)); vector customers "nearly doubled YoY" per CEO; least overlap with held NOW + DDOG of 3 vector-DB candidates evaluated. **Sizing note**: original recommendation was 3-4% (€5-6K initial) per thesis file with SIZE UP gated to 5-7% on Q2 FY27 print (Sept 2026); €10K execution = ~5.7% of consolidated portfolio = above initial recommendation, within SIZE UP band. User decision to upweight at entry vs gated post-Q2 raise. BEP / share count pending Degiro confirmation.
 
