@@ -304,3 +304,29 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: TSEM 
 ## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — Alphabet $80B raise = silicon photonics foundry demand floor reinforced; Spectrum-X CPO + 1.6T optical transition validated.
+
+## Cross-source synthesis — Spectrum-X Photonics IN PRODUCTION + Marvell CEO Computex keynote (added 2026-06-02 evening, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-hbm-2027-pricing-trendforce-and-spectrum-x-cpo-production.md`: User-shared Marvell CEO Murphy Computex 2026 keynote + 3-subagent verification surfaced the LOAD-BEARING TSEM catalyst:
+
+**NVDA Spectrum-X Ethernet Photonics is IN PRODUCTION** per [NVDA June 1 2026 press release T1](https://www.globenewswire.com/news-release/2026/06/01/3303979/0/en/NVIDIA-Vera-Rubin-Ramps-Into-Full-Production-to-Power-Agentic-AI-Factories-Worldwide.html): Vera Rubin "ramping into full production"; Spectrum-X Ethernet Photonics "the world's first co-packaged-optics (CPO)-based switches with 200Gb/s SerDes — now in production."
+
+**MATERIAL TIMELINE COMPRESSION vs prior harness modeling:**
+- Prior `wiki/optical-interconnect-primer.md` line 70: "Spectrum-X switch with CPO: 3.2T, **2H 2026 target**"
+- Updated: PRODUCTION confirmed June 1 2026 — ~6 months ahead of prior target framing
+- Prior framing: "2026-2027 initial CPO deployment at hyperscaler scale, coexisting with pluggable"
+- Updated: NVDA Vera Rubin is "ramping into full production" with Spectrum-X CPO as integrated component
+
+**TSEM-specific implications:**
+
+1. **$1.3B 2027 contract window compresses from 2027 to NOW/Q3 2026** — silicon photonics foundry demand IS happening at production scale, not promised for future. TSEM's PH18 process is positioned at exactly the capacity NVDA is consuming via Spectrum-X Photonics + Marvell Coherent optical modules.
+
+2. **Bifurcation framework reinforced (per prior 2026-06-02 Day 1 cascade):** TSMC does NVDA switch die (Davisson-class) per Spectrum-X Photonics announcement; TSEM captures NVDA-adjacent transceiver/CPO die per PH18 process. The bifurcated supply chain is now operating at production volume — not hypothetical.
+
+3. **Marvell CEO ecosystem framing:** Murphy's "CPO transition impossible without Taiwan ecosystem (ASE)" framing per [Digitimes T2](https://www.digitimes.com/news/a20260602VL212/marvell-copper-cpo-data-center-server-rack-computex-2026.html); ASE advanced-packaging sales doubling to $3.2B 2026 on CPO/AI demand per [Digitimes parallel article T2](https://www.digitimes.com/news/a20260602VL211/taiwan-ase-ceo-marvell-computex-2026.html). TSEM is the silicon photonics FOUNDRY layer in this same Taiwan ecosystem — direct beneficiary of the same demand pull-through.
+
+4. **Per principle #31 + L14 framework:** TSEM is Stage 3-4 (~98% of 52-wk high per prior cascades; ~3% sizing post-2026-06-02 PM size-up). With Spectrum-X PRODUCTION confirmation = CATEGORY EVENT marker (multi-product baseline-break + strategic relationship validated + new vintage framework). L17 candidate test for forward-application of L14: if next TSEM print (mid-July 2026 per typical Israel TSE cadence) confirms 1.6T optical transceiver volume capture, expect Stage 3-4 + CATEGORY → +20-30% magnitude window per L14 (my model — slightly bounded vs HPE/MRVL +25-40% because TSEM Stage 3-4 transition less crisp than HPE/MRVL).
+
+**Bypass-route check (Critical Rule #9):** TSEM is the bypass-route name within the Taiwan ecosystem — benefits from EITHER NVDA OR AVGO CPO ramps because BOTH need silicon photonics foundry capacity (NVDA Spectrum-X Photonics + AVGO Tomahawk 6-Davisson). No single-vendor lock-in risk. Substitution risk only if TSMC vertically integrates silicon photonics foundry (acknowledged 2026-06-02 Day 1 cascade gap; bifurcation framing mitigates).
+
+**Position implication:** **SIZE UP candidate ESCALATED from passive watch to ACTIONABLE** — Spectrum-X CPO PRODUCTION confirmation (T1 NVDA press release) is the trigger event prior thesis flagged ("Optional SIZE UP to 4-5% on silicon photonics catalyst delivery"). Catalyst is no longer theoretical. Recommend €3-4K SIZE UP (~3% → ~4.5-5%) as part of 3-way split with SNDK + Kioxia from the ~€10K fresh capital pending entry per `portfolio/changes.md` 2026-06-02 entry (H1 = 3-way split now NEW RECOMMENDED option vs prior 2-way SNDK + Kioxia). FALSIFIER: if TSEM next print mid-July 2026 shows silicon photonics segment revenue growth <30% YoY, the production-confirmed catalyst was over-attributed and SIZE UP was premature.
