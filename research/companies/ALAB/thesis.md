@@ -357,3 +357,40 @@ Per `companies/MRVL/thesis.md` 2026-06-02 cascade entry: MRVL announced Teralynx
 **Net read:** ALAB thesis NOT falsified, but MRVL Day 2 keynote materially closes the competitive gap at scale-up fabric switching. The dual-vector thesis (PCIe Gen6 retimers + Leo CXL Azure production) remains the durable structure — MRVL competes only at the third vector (Scorpio fabric switching) where it now has comparable silicon.
 
 **Position implication:** HOLD at 6.51% — SIZE UP gate NOT yet cleared; MRVL Day 2 competitive intensification is a marginal negative on the Scorpio leg but does NOT change the dual-vector core thesis. Watch: (a) AVGO Jun 3 earnings for further competitive context, (b) ALAB Q2 print for Vera Rubin retimer customer-win disclosures, (c) any Leo CXL second-hyperscaler deployment announcement to differentiate further from MRVL.
+
+## Cross-source synthesis — Today's evening signals consolidated (added 2026-06-02 evening, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-02-hbm-2027-pricing-trendforce-and-spectrum-x-cpo-production.md` + `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md` + `signals/cross-source-log/2026-06-02-citrini-lotte-hvlp-mitsui-deepdive.md`:
+
+**Joint state — ALAB impact from all today's signals:**
+
+| Signal | Direct ALAB cascade | Layer affected | Net direction |
+|---|---|---|---|
+| **NVDA Spectrum-X Photonics IN PRODUCTION** per [NVDA T1 June 1](https://www.globenewswire.com/news-release/2026/06/01/3303979/0/en/NVIDIA-Vera-Rubin-Ramps-Into-Full-Production-to-Power-Agentic-AI-Factories-Worldwide.html) | Vera Rubin "ramping into full production" = PCIe Gen6 1.4 TB/s retimer demand confirmed at production scale (Aries) | Aries PCIe Gen6 retimer | STRONG POSITIVE |
+| **Murphy CEO keynote on copper-to-CPO** per [Digitimes T2](https://www.digitimes.com/news/a20260602VL212/marvell-copper-cpo-data-center-server-rack-computex-2026.html) — "next bottleneck = connectivity"; "10× more optical connections per copper wall step"; "intra-rack = 10× inter-rack connections" | CPO transition mandate validated industry-wide — ALAB Scorpio competes at scale-up fabric switching layer where MRVL/AVGO CPO switches also compete; BUT ALAB Aries PCIe Gen6 retimer is at DIFFERENT layer than CPO (downstream of switch ASIC) — independent vector | Aries (independent layer); Scorpio (competitive pressure) | MIXED — Aries POSITIVE, Scorpio NEGATIVE |
+| **TrendForce HBM 2027 +70-100% YoY** (Mizuho my model — per subagent) | HBM cost inflation forces hyperscalers to extract more value per GPU = memory disaggregation pressure compounds Leo CXL Azure production thesis (memory-bandwidth-bound workloads shift to CXL pooling architecture) | Leo CXL memory pooling | POSITIVE (2nd-order) |
+| **Kioxia NAND VOLUME SHOCK** (1,152 TB SSD per Vera Rubin platform; NAND lead times >40 weeks) | More SSD content per AI rack = more PCIe lanes attached for storage = incremental PCIe retimer demand (small but non-zero) | Aries (marginal) | POSITIVE marginal (3rd-order) |
+| **Citrini Lotte HVLP cascade** (Mitsui/Co-Tech HVLP copper foil) | Orthogonal — HVLP is materials sub-layer of CCL; doesn't affect ALAB PCIe/CXL/fabric switching | None | NEUTRAL |
+| **HPE Q2 FY26 GRADE / L14 codification N=2** | L14 framework (Stage 3-4 + CATEGORY EVENT → +25-40%) now applies forward to ALAB if/when ALAB triggers a CATEGORY EVENT (e.g., second-hyperscaler Leo deployment disclosure, Vera Rubin Aries retimer design-win disclosure) | All layers | NEUTRAL-POSITIVE (framework optionality) |
+| **Murphy "$36B M&A" platform-spend reframe + "Only company" rhetoric flag** | Reduces MRVL competitive intimidation — Murphy keynote claims partially marketing-rhetoric (actual M&A ~$21-23B per Semiconalpha T3); doesn't change underlying competitive map but tempers MRVL's "Day 2 keynote dominance" framing | All layers (sentiment) | SLIGHTLY POSITIVE for ALAB (MRVL bull-case partially deflated) |
+
+**Three parallel hypotheses on ALAB joint impact today (my model):**
+
+| H | Frame | P |
+|---|---|---|
+| **H1: NET MILDLY POSITIVE — Vera Rubin PRODUCTION confirmation is the dominant signal** — Aries PCIe Gen6 retimer demand is production-confirmed (not theoretical); Leo CXL Azure production differentiation preserved + reinforced via HBM 2027 disaggregation pressure; Scorpio competitive pressure from MRVL real but bounded to one of three vectors | **50%** |
+| H2: NET NEUTRAL — Spectrum-X production benefits also flow to MRVL Coherent + AVGO Tomahawk 6-Davisson; ALAB scale-up fabric thesis (Scorpio) faces real competition from MRVL Day 2 reveals; net cross-flow leaves ALAB roughly where it was pre-signals | 35% |
+| H3: NET NEGATIVE — MRVL CEO keynote framing "connectivity is the bottleneck" validates ALAB's role but ALSO validates MRVL's broader competitive scope; if MRVL captures larger share of connectivity TAM via Murphy's CPO ecosystem framing, ALAB Scorpio loses relative positioning | 15% |
+
+**ALAB sub-vector competitive map (post-today):**
+
+| ALAB product | Layer | Direct competitor (post-today) | Today's impact |
+|---|---|---|---|
+| **Aries** | PCIe Gen6 retimer | Credo (limited PCIe presence) | **VERY POSITIVE** — Vera Rubin production confirmed; 1.4 TB/s fabric demand real |
+| **Leo** | CXL memory pooling | None at scale (only Azure-deployed CXL controller commercially) | **POSITIVE** — HBM 2027 pricing pressure compounds memory disaggregation thesis |
+| **Scorpio** | Scale-up fabric switching | MRVL Teralynx T100 102.4 Tbps + 51.2T CPO (Day 2 reveal); AVGO Tomahawk 6 | **NEGATIVE** — Murphy keynote reinforces this layer as Marvell strategic focus + Jensen $2B Marvell stake amplified |
+| **COSMOS** | PCIe 6 scale-up optics | MRVL Coherent modules; AVGO photonics | MIXED — Spectrum-X production validates demand but MRVL Coherent is direct competitor |
+
+**Net read:** ALAB thesis is MILDLY POSITIVE post-today — the production-confirmed Aries demand + Leo CXL differentiation outweighs the Scorpio competitive pressure from MRVL Day 2 announcements. The dual-vector (Aries PCIe + Leo CXL) thesis remains durable because BOTH are at layers independent of CPO switching (where Scorpio competes).
+
+**Position implication:** HOLD at 6.51% — no incremental sizing action today; combined signals net mildly positive but Scorpio competitive pressure from MRVL Day 2 + Murphy CEO framing offsets the Aries production-confirmation and Leo HBM-disaggregation tailwinds. SIZE UP gate still NOT cleared per prior cascades; ALAB Q2 print (mid-August 2026) + AWS RNG architecture detail + any Leo second-hyperscaler deployment disclosure remain the trigger conditions for upweight consideration. Watch tomorrow's AVGO Jun 3 print for the competitive triangulation event that resolves whether MRVL's Day 2 catalyst is durable vs reversible.
