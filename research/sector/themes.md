@@ -8,11 +8,11 @@ Six themes currently active. Each maps to specific names and a specific catalyst
 
 ## Theme list
 
-### T1 — Agentic compute rebalance
+### T1 — Agentic compute rebalance + token consumption compounding (refined 2026-06-03)
 **Status:** Early-to-mid
-**Thesis:** GPU:CPU ratio shifts; inference > training; sustained workloads > bursty
-**Names:** AMD (EPYC), ARM, AMZN (Graviton via AWS), MSFT (custom on Cobalt)
-**Catalyst:** any enterprise reporting >5% agentic productivity uplift; AMD EPYC share gains in DC
+**Thesis:** GPU:CPU ratio shifts; inference > training; sustained workloads > bursty. **CORE MECHANISM (added 2026-06-03):** token consumption compounds faster than per-token price decreases — every agent step generates N more tokens; volume growth overwhelms cost-cuts. Uber AI budget exhausted in 4 months despite unlimited push per [TechCrunch T2](https://techcrunch.com) = N=1 origin signal that consensus is materially under-modeling the volume curve.
+**Names:** AMD (EPYC), ARM, AMZN (Graviton via AWS), MSFT (custom on Cobalt). **Token-consumption beneficiaries (added 2026-06-03):** NVDA + HYNIX (HBM bandwidth) + SNDK (storage for context) + DDOG + NOW (observability + workflow scaling with workload) + ALAB + MRVL (fabric scaling).
+**Catalyst:** any enterprise reporting >5% agentic productivity uplift; AMD EPYC share gains in DC; **enterprise FinOps budget exhaustion stories (Uber-style)**; explicit AI budget over-run line-items in earnings.
 
 ### T2 — Power becomes binding
 **Status:** Mid (partially priced)
@@ -37,6 +37,15 @@ Six themes currently active. Each maps to specific names and a specific catalyst
 **Thesis:** As agents scale, eval / observability / security become non-discretionary
 **Names:** DDOG, CRWD, possibly PLTR (gov-side)
 **Catalyst:** enterprise reporting agent-related incidents → spend shifts to observability; explicit AI line-item in earnings
+
+### T8 candidate — Edge Hardware AI (added 2026-06-03 as CANDIDATE per principle #32 — awaiting N=2+ reinforcement before promotion to active theme)
+**Status:** Candidate (N=1 origin from Microsoft Scout + Surface RTX Spark Dev Box at Build 2026)
+**Thesis:** AI agents move to the endpoint (PCs, mobile, M365-tier devices) in PARALLEL with datacenter deployment. NVDA RTX Spark Fall 2026 OEM ramp + Microsoft Scout always-on M365 agent + Surface RTX Spark Dev Box for agentic Windows dev = empirical signal that consumer/enterprise endpoint agentic transition is happening faster than consensus analysts model. Distinct from T1 (datacenter agentic compute) — T8 is ENDPOINT hardware where user interfaces with agents; distinct from Physical AI/robotics (T9 candidate / wiki/physical-ai-primer.md) — T8 is consumer endpoint NOT humanoid robotics.
+**Names (held in bold):** **ARM** (CPU IP at PC tier), **AMBA** (edge SoC), LSCC (PC tier control), SYNA (watchlist Astra SR80 + Coral NPU), NVDA N1X PC tier (Fall 2026 OEM ramp); reference: AMD AI PC chips, Qualcomm Snapdragon X, Apple Silicon, MediaTek Kompanio Ultra.
+**Catalyst:** RTX Spark Fall 2026 OEM units sold; Microsoft Scout adoption metrics M365-wide; SYNA Astra SR80 design wins; any PC-tier inference workload benchmark surfacing as competitive differentiator.
+**Retirement trigger (per principle #32 premortem):** if T8 doesn't accumulate ≥2 N=2+ reinforcement signals within 60 days → relegate; if dilutes with T1 too much → fold back under T1.
+
+### T7 — Supply Chain Inheritance (existing theme, not modified here)
 
 ### T6 — Sovereign AI (UAE / Saudi / Stargate)
 **Status:** Mid

@@ -494,17 +494,26 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: **NVD
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: MIXED-POSITIVE — Anthropic Cowork desktop agent (T2 VentureBeat) VALIDATES desktop agent governance category that NOW Project Arc references; BUT Salesforce Slackbot rebuild as full AI agent (T2 VentureBeat) is direct competitive threat to NOW workplace AI. Net positive on category validation; competitive watch on enterprise data search overlap.
 
-## Cross-source synthesis — Evening Brief 2026-06-02: Microsoft Build 2026 (added 2026-06-03, per Critical Rule #10)
+## Cross-source synthesis — Evening Brief 2026-06-02: Microsoft Build 2026 (added 2026-06-03, REVISED 2026-06-03 PM per Critical Rule #10)
 
-Per `signals/cross-source-log/2026-06-03-evening-brief-microsoft-build-meta-scale-ai.md`: **NEGATIVE COMPETITIVE THREAT** — Microsoft Scout always-on M365 agent (Outlook + OneDrive + Teams integration) launched at Build 2026 per [TechCrunch T2](https://techcrunch.com). Internal Microsoft documents reveal "make people addicted to the service" framing. This is qualitatively different from prior MSFT Copilot Studio competitive threat — Scout is positioned at the EMPLOYEE-DAILY-WORKFLOW tier (calendar mgmt + expense tracking + admin tasks) where NOW historically dominated enterprise workflow orchestration. Plus Microsoft launched MAI-Thinking-1 + MAI-Code-1-Flash own-frontier models = Microsoft going aggressive on FULL agentic enterprise stack independent of OpenAI.
+**CORRECTION 2026-06-03 PM:** Prior cascade entry over-stated the Microsoft Scout competitive threat as "NEGATIVE" without checking the May 5-7, 2026 Knowledge 2026 governance partnership context. L1/B23 violation by me — outside-view sentiment-anchoring on TechCrunch "make people addicted" framing before bottoms-up verification. Verification subagent surfaced load-bearing context that REVERSES the directional read.
 
-**NOW-specific implication:** Falsifier #4 monitoring stance (Microsoft Agent 365 + Copilot Studio competitive threat) now MATERIALLY ESCALATED. Scout sits at the everyday-workflow layer that was previously NOW's structural advantage via Project Arc + AI Control Tower. MS distribution moat (M365 ~400M+ business seats) is the load-bearing risk.
+Per verification subagent 2026-06-03 + `signals/cross-source-log/2026-06-03-evening-brief-microsoft-build-meta-scale-ai.md`:
 
-**Mitigating factors that PRESERVE NOW thesis:**
-- Project Arc NVDA reference architecture validation (2026-06-02 Computex Day 1 cascade) — workflow GOVERNANCE layer still NOW-positioned
-- Scout is M365-distribution-limited; non-MSFT enterprises (Google Workspace shops, Slack-anchored orgs) still need cross-system orchestration
-- AI Control Tower scope (cross-system governance + safety + audit) is broader than Scout's "personal AI assistant" scope
+**Actual verdict: STRONGLY REINFORCED NOW thesis — not competitive threat.**
 
-**Per L14 framework forward-application (L17 candidate):** Microsoft Scout is a CATEGORY EVENT for the enterprise agentic competitive landscape, NOT for NOW directly. NOW Stage classification per principle #31 should be reassessed: if Scout accelerates Microsoft agentic productization at hyperscale, NOW competitive moat narrows.
+| Finding | Source | Implication |
+|---|---|---|
+| ~95%+ NOW-M365 customer overlap (NOW Fortune 500 concentration + 75% Fortune 500 M365 share per verification subagent my model) | derived | Distribution moat is total on paper |
+| **Knowledge 2026 (May 5-7, 2026): AI Control Tower governs Microsoft Agent 365, Copilot Studio, AI Foundry agents** | [ServiceNow Newsroom T1](https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-expands-AI-agent-governance-through-deeper-integration-with-Microsoft/default.aspx) | **NOW is the GOVERNANCE LAYER OVER Scout — partner not competitor** |
+| **ServiceNow specialists ship INSIDE Microsoft Agent 365 Marketplace as digital employees** | ServiceNow Newsroom T1 | NOW gains distribution INTO Microsoft Agent 365 tenant base — the opposite of being displaced |
+| McDermott framing: "ServiceNow manages everyone else's board" | [Diginomica T2](https://diginomica.com/knowledge-2026-ceo-bill-mcdermott-was-playing-chess-last-year-now-he-says-servicenow-manages) | NOW positioned ABOVE Scout/Copilot at governance/orchestration layer |
+| Microsoft itself is a NOW customer (170K-employee internal helpdesk runs on NOW) | [Microsoft InsideTrack T1](https://www.microsoft.com/insidetrack/blog/modernizing-the-support-experience-with-servicenow-and-microsoft/) | Microsoft will roll out NOW governance to its OWN M365 enterprise base — NOW gets MSFT distribution as MSFT customer = reverse-distribution moat for NOW |
+| ITSM depth gap | TrustRadius T2 + Nortal T2 | Scout = calendar/expense/admin only; NOT CMDB/change mgmt/complex approvals where NOW dominates |
+| Scout rollout SLOW | [Thurrott T2](https://www.thurrott.com/a-i/336926/build-2026-microsoft-unveils-scout-personal-work-agent-and-new-in-house-ai-models) | Frontier preview only, requires GitHub Copilot sub, no GA date — 12-24mo diffusion plausible; gives NOW more time to entrench Control Tower as governance default |
 
-**Position implication:** HOLD at ~12% (at-target) — **but FALSIFIER #4 monitoring escalated**; recommend formal SIZE UP HOLD pending Scout adoption metrics (Q3-Q4 2026 enterprise deployment data) + NOW Q2 FY27 print (~late July 2026) AI Control Tower revenue contribution. **No SIZE UP at this time** despite at-target — competitive overhang from Scout requires additional confirmation before adding to position. Watch: (a) MS Scout deployment metrics; (b) NOW AI Control Tower revenue + customer count at next print; (c) any GOOG/Slack distribution-moat competitor response (CRM/Salesforce Agentforce etc.).
+**Net read:** Microsoft Scout REINFORCES NOW thesis via reverse-distribution: as Microsoft rolls out Scout across its M365 enterprise tenants, every Scout agent action in a NOW-customer tenant flows through AI Control Tower. NOW becomes the dominant governance layer ABOVE the agent execution tier. McDermott's chess-piece framing materially correct.
+
+**Falsifier #4 monitoring stance: UNCHANGED** (NOT escalated as prior cascade claimed). Severe threat: NO. Watch item: YES (in case Microsoft pivots to bypass Control Tower for lightweight Scout actions, the user-tier mindshare erosion risk re-activates).
+
+**Position implication:** HOLD at ~12% (at-target) — Monday SIZE UP plan (€4,500 add) REMAINS APPROPRIATE; thesis materially REINFORCED by verification, not weakened. Watch: (a) Scout adoption metrics + Control Tower governance attach-rate at Q3-Q4 2026 enterprise deployments; (b) NOW Q2 FY27 print AI Control Tower revenue + customer count; (c) any Microsoft pivot to bypass Control Tower for Scout actions = falsifier re-activation.

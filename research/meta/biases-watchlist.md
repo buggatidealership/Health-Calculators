@@ -907,3 +907,31 @@ The verdict is GRADIENT not binary: SCREAMING ASYMMETRIC vs MODERATELY ASYMMETRI
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.
+
+---
+
+### B40 — Temporal-freshness blind-spot (CANDIDATE — N=1 origin 2026-06-03)
+
+**Origin:** 2026-06-03 SemiAnalysis brief recycled the June 12, 2025 Meta-Scale AI deal as if it were a fresh signal in a June 2, 2026 brief. Directionally correct (deal happened) but temporally stale by ~12 months. I propagated the framing through 5 emergent thesis candidates + per-name cascades before verification surfaced the staleness. **Cascade-impact: medium** — multiple thesis files referenced "Meta paid $30B for Scale AI" without checking the underlying timestamp.
+
+**Pattern:** Secondary aggregator sources (SemiAnalysis, weekly briefs, Reddit summaries, Substack posts) frequently recycle older news without explicit recap framing. The signal LOOKS fresh because it's being curated alongside genuinely-new items. Without temporal verification, the harness treats it as a new signal — cascade propagates, position implications get derived, thesis files get updated based on stale evidence.
+
+**Correction (candidate — pending validation):**
+For any secondary-source signal, MANDATORILY verify temporal freshness BEFORE cascade:
+1. **Publication date check** — when was the underlying primary claim published?
+2. **Repackaging check** — is this newly-surfaced fact or recap of older news?
+3. **Market-absorption check** — has the signal already been absorbed by markets (priced in)?
+4. **Aggregator-bias check** — secondary sources that aggregate (SemiAnalysis, Citrini, weekly briefs) MORE likely to recycle older context vs primary sources (10-K, IR releases, earnings transcripts)
+
+**Hook enforcement candidate:** Critical Rule #12 codified 2026-06-03 to enforce this discipline; future Stop hook could deterministically catch "fresh signal" claims without explicit date verification.
+
+**Distinction from related biases:**
+- B11 (uncited numerical claims): operates at the citation step. B40 operates at the temporal-currency step EVEN IF citation is provided
+- B23 (sell-side aggregation drift): operates at the forecast step. B40 operates at the signal-recency step
+- B25 (source-tracking-over-claim-verification): tracks source quality. B40 tracks WHEN the source's claim was made
+
+**Detectability (per principle #32):**
+- Track GRADE cycles where cascade was triggered by stale signal. If retroactive review shows cascade direction was wrong because signal was 6+ months old at time of ingest, B40 has fired.
+- N=2+ confirmation pattern would justify codification. Until then: CANDIDATE.
+
+**Codification origin meta-pattern:** This is the SECOND time in 96 hours that user push-back surfaced a signal-verification failure mode in me (the first being NOW Microsoft Scout over-statement same session — I anchored on TechCrunch "make people addicted" framing without verifying May 2026 Knowledge governance partnership context). The pattern is recurring. If a third instance surfaces within 30 days, this should be promoted from CANDIDATE to permanent + paired with a Stop hook.
