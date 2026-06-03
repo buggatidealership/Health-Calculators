@@ -38,12 +38,11 @@ Six themes currently active. Each maps to specific names and a specific catalyst
 **Names:** DDOG, CRWD, possibly PLTR (gov-side)
 **Catalyst:** enterprise reporting agent-related incidents → spend shifts to observability; explicit AI line-item in earnings
 
-### T8 candidate — Edge Hardware AI (added 2026-06-03 as CANDIDATE per principle #32 — awaiting N=2+ reinforcement before promotion to active theme)
-**Status:** Candidate (N=1 origin from Microsoft Scout + Surface RTX Spark Dev Box at Build 2026)
-**Thesis:** AI agents move to the endpoint (PCs, mobile, M365-tier devices) in PARALLEL with datacenter deployment. NVDA RTX Spark Fall 2026 OEM ramp + Microsoft Scout always-on M365 agent + Surface RTX Spark Dev Box for agentic Windows dev = empirical signal that consumer/enterprise endpoint agentic transition is happening faster than consensus analysts model. Distinct from T1 (datacenter agentic compute) — T8 is ENDPOINT hardware where user interfaces with agents; distinct from Physical AI/robotics (T9 candidate / wiki/physical-ai-primer.md) — T8 is consumer endpoint NOT humanoid robotics.
-**Names (held in bold):** **ARM** (CPU IP at PC tier), **AMBA** (edge SoC), LSCC (PC tier control), SYNA (watchlist Astra SR80 + Coral NPU), NVDA N1X PC tier (Fall 2026 OEM ramp); reference: AMD AI PC chips, Qualcomm Snapdragon X, Apple Silicon, MediaTek Kompanio Ultra.
-**Catalyst:** RTX Spark Fall 2026 OEM units sold; Microsoft Scout adoption metrics M365-wide; SYNA Astra SR80 design wins; any PC-tier inference workload benchmark surfacing as competitive differentiator.
-**Retirement trigger (per principle #32 premortem):** if T8 doesn't accumulate ≥2 N=2+ reinforcement signals within 60 days → relegate; if dilutes with T1 too much → fold back under T1.
+### T8 — Edge Hardware AI (PROMOTED 2026-06-03 from CANDIDATE → VERIFIED-HIGH-CONFIDENCE on N=2+ Microsoft full edge stack within 24 hours of Build 2026)
+**Status:** Verified-high-confidence (N=2+ confirmed within 24h of codification)
+**Thesis:** AI agents move to the endpoint (PCs, mobile, M365-tier devices) in PARALLEL with datacenter deployment. Microsoft is building a FULL edge AI stack on ARM: **Project Solara** (MDEP-based agent OS per [GeekWire T2](https://www.geekwire.com/2026/inside-microsofts-project-solara-a-new-platform-for-devices-that-run-ai-agents-instead-of-apps/) Build 2026) + **Aion 1.0 Instruct + Plan SLMs** (on-device, Windows OS) + **Surface RTX Spark Dev Box** (NVDA Arm-based RTX Spark chips) + **Microsoft Scout** (always-on M365 agent) + **NVDA N1X PC tier**. Distinct from T1 (datacenter agentic compute) — T8 is ENDPOINT hardware. Distinct from Physical AI/robotics — T8 is consumer/enterprise endpoint NOT humanoid robotics.
+**Names (held in bold):** **ARM** (CPU IP — MDEP is Android-on-ARM), **AMBA** (edge SoC), **LSCC** (PC tier control), SYNA (watchlist Astra SR80 + Coral NPU), NVDA N1X PC tier (Fall 2026 OEM ramp); reference: AMD AI PC chips, Qualcomm Snapdragon X, Apple Silicon, MediaTek Kompanio Ultra, Hcompany Holo3.1 (mobile-class VLMs).
+**Catalyst:** Project Solara concept device pilots (AccuWeather + Best Buy + CVS + Levi's + Target — already named); RTX Spark Fall 2026 OEM units sold; Microsoft Scout adoption M365-wide; SYNA Astra SR80 design wins; any PC-tier inference workload benchmark surfacing as competitive differentiator.
 
 ### T7 — Supply Chain Inheritance (existing theme, not modified here)
 

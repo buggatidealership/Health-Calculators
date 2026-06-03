@@ -1432,3 +1432,24 @@ Every news event ingest cascades through:
 3. **Framework-tier cascade** — themes / scenarios / bottlenecks / primers get REINFORCED / WEAKENED / NO-CHANGE / FALSIFIED markers
 4. **Emergent thesis check** — do reinforced frameworks reveal a TWIST that suggests new thesis candidate?
 5. **Unhedged opinion on forward-worldview data** — explicitly state opinion where pretraining cannot help
+
+---
+
+## Tier promotions 2026-06-03 PM (per N=2+ confirmation)
+
+**Promoted from CANDIDATE → VERIFIED-HIGH-CONFIDENCE:**
+
+| Codification | N=1 origin | N=2 confirmation | Promotion date |
+|---|---|---|---|
+| **T8 (Edge Hardware AI)** | Microsoft Scout + Surface RTX Spark Dev Box (2026-06-02 evening) | Project Solara + Aion 1.0 + Holo3.1 mobile (2026-06-03 morning Build 2026) | 2026-06-03 PM |
+| **B40 (Temporal-freshness blind-spot)** | SemiAnalysis recycled June 2025 Meta-Scale as June 2026 fresh (2026-06-03 AM) | Today's brief recycled Trump AI EO + Surface RTX Spark Dev Box (2026-06-03 morning) | 2026-06-03 PM (self-validation within 24h of codification — meta-confirmation that Critical Rule #12 + B40 are working) |
+| **E1 (AI Enterprise FinOps)** | Uber AI budget exhausted in 4 months (2026-06-02 evening) | Cyera $12B at 80x ARR + 7.8% productivity plateau requiring cost-control (2026-06-03 morning) | 2026-06-03 PM |
+| **E3 (Edge-first agentic deployment)** | Microsoft Scout + Surface RTX Spark Dev Box (2026-06-02 evening) | Project Solara + Aion 1.0 + Holo3.1 (2026-06-03 morning) — full MSFT edge stack within 24h | 2026-06-03 PM (paired with T8 promotion) |
+
+**New CANDIDATEs added 2026-06-03 PM:**
+
+| # | Candidate | Origin | Promotion criterion |
+|---|---|---|---|
+| **E6** | AI Agent Security as standalone category | Cyera $12B 80x ARR + Starlette BadHost (325M weekly downloads) + UofT AI worm + Anthropic CVE-Bench (2026-06-02 morning) | N=2+ INDEPENDENT cases beyond current cluster within 60 days |
+| **E7** (REFRAMED per user 2026-06-03 PM) | Productivity-plateau-as-binding-constraint — but operator-curve + measurement-frame caveats per user input | DX 7.8% + METR 19% slower + Stanford HAI 6% EBIT (multi-source corroboration on direction) | N=2+ confirmation of plateau as STRUCTURAL (vs operator-curve transient OR measurement-frame artifact); requires 12-18mo operator-learning-curve maturation data |
+| **B41** | Measurement-frame bias — under-counting intangible AI value | User 2026-06-03 PM articulated on E7 elevation pushback (Anthropic Mythos vulnerability findings unmeasured by PR throughput; non-AI vulnerability-finder would be valued enormously) | N=2+ instances of measurement-frame missing high-intangible-value within 60 days |

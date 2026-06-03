@@ -935,3 +935,30 @@ For any secondary-source signal, MANDATORILY verify temporal freshness BEFORE ca
 - N=2+ confirmation pattern would justify codification. Until then: CANDIDATE.
 
 **Codification origin meta-pattern:** This is the SECOND time in 96 hours that user push-back surfaced a signal-verification failure mode in me (the first being NOW Microsoft Scout over-statement same session — I anchored on TechCrunch "make people addicted" framing without verifying May 2026 Knowledge governance partnership context). The pattern is recurring. If a third instance surfaces within 30 days, this should be promoted from CANDIDATE to permanent + paired with a Stop hook.
+
+---
+
+### B41 — Measurement-frame bias (CANDIDATE — N=1 origin 2026-06-03 PM)
+
+**Origin:** User 2026-06-03 PM articulated, in response to my E7 candidate elevation proposal on productivity plateau: *"the productivity of AI is directly dependent on the operators behind it... in user adoption is very fast, but in terms of productive adoption, it's very different... with AI given that the entire AI community is trying to figure out how to best use AI and how to best leverage AI and how to best work in tandem with them, there is no blueprint that you can easily follow yet... if Mythos is finding all these critical issues in banks and software companies, that is value that we don't have models to quantify yet numerically. This intangible value, but you know the value is tremendous. A non-AI company doing the same would have insanely high evaluation."*
+
+**Pattern:** AI productivity/ROI studies measure WHAT IS EASILY MEASURABLE (PR throughput, time saved, year-1 EBIT impact) and miss WHAT IS HIGH-VALUE BUT INTANGIBLE (security findings, capability-floor-shifts, novel discovery, user-learning-curve-pending future productivity). The measurement frame is BIASED LOW.
+
+**Correction (candidate — pending validation):**
+For any "AI productivity plateau" / "AI ROI bounded" / "AI capex peaks" thesis, MANDATORILY audit:
+1. Does the measurement frame capture intangible value (security/safety findings; capability ceiling shifts; novel discovery)?
+2. Does the measurement frame include operator-learning-curve adjustment (humans figuring out how to use AI optimally — different from SaaS plug-and-play adoption)?
+3. Does the measurement frame compare to comparable non-AI baseline appropriately (a non-AI vulnerability-finder would be valued similarly to Mythos)?
+4. Are intangible-value users (security, compliance, R&D) under-represented in engineering-PR-throughput metrics?
+
+**Distinction from related biases:**
+- B23 (sell-side aggregation drift): operates at forecast step. B41 operates at measurement-frame step
+- B26 (pretraining-as-primary-source): operates at evidence-selection step. B41 operates at value-quantification step
+- B40 (temporal freshness): operates at signal-currency step. B41 operates at signal-completeness step
+- B36 (visible-user-adoption anchoring): related — both about hidden/embedded value, but B36 is about adoption that's invisible; B41 is about VALUE that's invisible
+
+**Hook enforcement candidate:** Future Stop hook could fire on "productivity plateau" / "AI ROI bounded" / "AI capex peaks" language WITHOUT explicit measurement-frame audit (intangible value + operator curve + non-AI baseline).
+
+**Detectability (per principle #32):** N=2+ confirmation pattern would justify promotion. Currently N=1 origin from user 2026-06-03 PM input on E7 candidate.
+
+**Meta-pattern note:** This is the FOURTH bias added in 7 days (B38 candidate 2026-05-28 → B39 candidate 2026-06-01 → B40 candidate 2026-06-03 AM → B41 candidate 2026-06-03 PM). Codification velocity is high. Monthly audit 2026-06-24 should review whether these are catching real failure modes or becoming inert text.

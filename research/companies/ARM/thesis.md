@@ -510,3 +510,25 @@ Per `signals/cross-source-log/2026-06-03-evening-brief-microsoft-build-meta-scal
 **Emergent thesis candidate (E3) flagged in cross-source-log:** Edge-first agentic deployment — Microsoft productizing agentic at BOTH user tier (Scout) AND dev tier (Spark Dev Box) simultaneously = consumer/enterprise endpoint agentic transition happening faster than consensus is modeling.
 
 **Position implication:** HOLD at ~10.5% — Surface Spark Dev Box validates the AGI CPU thesis at dev tier specifically; reinforces existing Computex Day 1 size-up consideration framing. NO incremental sizing today but Edge Hardware AI emergent theme E3 strengthens the "ARM royalty TAM expanding faster than consensus" narrative. Watch: (a) Surface Spark Dev Box pricing + units sold metrics at MSFT Q1 FY27 print, (b) Scout adoption metrics M365-wide.
+
+## Cross-source synthesis — Morning Brief 2026-06-03: Project Solara on MDEP-ARM + Aion 1.0 on-device (added 2026-06-03 PM, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-morning-brief-microsoft-build-solara-productivity-plateau.md`: **STRONG POSITIVE — T8 (Edge Hardware AI) PROMOTED CANDIDATE → VERIFIED-HIGH-CONFIDENCE on N=2+ MSFT full edge stack** per tiered framework codified in `meta/methodology.md`.
+
+**Microsoft full edge AI stack assembled at Build 2026 (June 2-3, 2026):**
+1. **Project Solara** — MDEP (Microsoft Device Ecosystem Platform) is Microsoft's Android variant from Teams Rooms hardware. Android = AOSP = built on **ARM architecture**. Solara is the agent-first OS reference platform per [GeekWire T2](https://www.geekwire.com/2026/inside-microsofts-project-solara-a-new-platform-for-devices-that-run-ai-agents-instead-of-apps/).
+2. **Microsoft Aion 1.0 Instruct + Plan** — next-gen on-device SLMs per r/LocalLLaMA T3
+3. **Surface RTX Spark Dev Box** — NVDA Arm-based RTX Spark chips per [The Verge T2](https://www.theverge.com)
+4. **NVDA N1X PC tier** — Fall 2026 OEM ramp via 8 OEMs (MSFT Surface + ASUS + Dell + HP + Lenovo + MSI + Acer + GIGABYTE) per prior Computex Day 1 cascade
+5. **Microsoft Scout** — always-on M365 agent on M365 tier devices
+
+**ARM-specific implication:**
+- Solara on ARM (via MDEP) = Microsoft explicitly choosing ARM architecture for agent-first OS (not Windows-on-x86)
+- Aion 1.0 on-device SLMs require efficient ARM CPU + NPU silicon
+- NVDA N1X is ARM Arch v9.2 (10× Cortex-X925 + 10× Cortex-A725) per Computex cascade — Microsoft Surface is one of the 8 OEM launches Fall 2026
+- ARM royalty TAM expands beyond datacenter into BOTH consumer-PC + dedicated AI hardware (Solara devices) + M365 tier
+- This is the structural recognition that x86 lost AI endpoint — Intel/AMD x86 PC franchise faces compression 2027+
+
+**Per L14 framework forward-application (L17 candidate):** T8 PROMOTION + Microsoft full edge stack convergence = STRUCTURAL CATEGORY EVENT for ARM royalty TAM. ARM is Stage 3-4 priced-to-perfection per principle #31 — magnitude bounded but direction confirmed.
+
+**Position implication:** HOLD at ~10.5% — Monday SIZE UP consideration UNCHANGED; ARM royalty TAM expansion confirmed via full MSFT edge stack but Stage 3-4 entry discipline holds. Watch: (a) Solara concept device commercial GA timing (AccuWeather + Best Buy + CVS + Levi's + Target pilots); (b) Aion 1.0 design wins on N1X silicon specifically; (c) NVDA N1X Fall 2026 OEM ramp metrics — ARM royalty revenue from premium AI PC ASP becomes measurable Q4 FY27.

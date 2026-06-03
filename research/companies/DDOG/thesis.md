@@ -443,4 +443,22 @@ Per `signals/cross-source-log/2026-06-03-evening-brief-microsoft-build-meta-scal
 
 **Per L14 framework forward-application:** Uber exhaustion is a TREND-confirming signal (validates existing T5 theme), not a CATEGORY EVENT for DDOG specifically. Magnitude of DDOG stock impact bounded; structural thesis reinforcement.
 
+## Cross-source synthesis — Morning Brief 2026-06-03: Cyera 80x ARR + Starlette + Productivity Plateau (added 2026-06-03 PM, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-morning-brief-microsoft-build-solara-productivity-plateau.md`: **STRONG POSITIVE — E1 (AI Enterprise FinOps) PROMOTED to VERIFIED-HIGH-CONFIDENCE** at N=2 (Uber + this brief cluster) per tiered framework codified 2026-06-03 in `meta/methodology.md`.
+
+**DDOG-specific compounding signals:**
+
+1. **Cyera $12B at 80x ARR Series G** per [TechCrunch T1/T2](https://techcrunch.com/2026/06/02/cyera-eyes-12b-valuation-at-80x-arr-multiple-despite-operating-losses/) — $300M round Evolution Equity Partners lead; ARR >$150M; valuation doubled from $9B in 5 months. **Private data-security infra is being repriced at premium multiples vs public comps Varonis (~10-12x revenue) and Rubrik (well below 80x).** Signals broader AI-data-protection-layer rerating that benefits DDOG LLM Observability + agent-fleet observability positioning.
+
+2. **Starlette BadHost vulnerability** per Ars Technica T2 — 325M weekly downloads of Python framework imperils millions of AI agents. **Agent fleet security observability demand validated** — DDOG's natural product roadmap.
+
+3. **University of Toronto AI worm research** — self-propagating AI agents across networked systems = new attack vector. Cascades to E6 candidate (AI Agent Security as standalone category).
+
+4. **7.8% productivity plateau finding** per [DX T2](https://getdx.com/blog/ai-productivity-gains-are-10-percent-not-10x/) — even though productivity gains are modest, enterprises NEED observability to figure out WHICH AI use cases are working and WHICH are fading (66.1% of peak performers regress per DX). **Plateau finding INCREASES demand for observability, not decreases.**
+
+**User input 2026-06-03 PM nuance (B41 candidate):** Productivity plateau may be operator-learning-curve-dependent + measurement-frame-biased; intangible AI value (security findings, capability shifts) is under-counted. DDOG positioning benefits regardless — if plateau is real, enterprises need observability to find what's working; if plateau is measurement-frame artifact, enterprises need observability to capture the intangible value.
+
+**Position implication:** **CONSIDER SIZE UP** toward 8-12% Active-Core target (currently 6.8%, under-weighted per OS framework per thesis header). Monday SIZE UP plan (€5,000 add) UNCHANGED. The Cyera rerating + Starlette + plateau-needs-observability cluster reinforces the under-weighted call. Watch: (a) DDOG Q2 FY27 print LLM Observability module growth rate (>30% YoY threshold); (b) any DDOG product launch in AI FinOps/cost-control category; (c) CRWD competitive response in AI security FinOps.
+
 **Position implication:** HOLD at ~6.8% — Monday SIZE UP plan unchanged (€5,000 add toward 8-12% target). Uber signal validates the under-weighted call. Watch: (a) DDOG Q2 FY27 print LLM Observability module growth rate (>30% YoY threshold), (b) any DDOG product launch in AI FinOps/cost-control category, (c) CRWD competitive response in AI security FinOps.
