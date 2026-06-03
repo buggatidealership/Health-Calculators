@@ -277,6 +277,38 @@ User is logically sharp but not technically deep. Self-doubts as default mode (p
 
 User said 2026-05-20: *"What is always downstream… companies control narratives, but ultimately the earnings calls and the beats magnitude, the guidance magnitude, the operating margin increased magnitude, those are the ones that ultimately drive massive pumps and narrative changes."*
 
+**Empirical N=5 validation cluster appended 2026-06-03 PM** (per `predictions/2026-06-03-AVGO-Q2FY26.md` bottoms-up cohort analysis):
+- SCREEN Holdings 2026-06-03: rev -6.73% MISS + OP -9.7% YoY BUT margins 20.2% vs 18.8% forecast + FY27 +19.7% guide → **+17.94% day move**
+- LITE Q3 FY26 (May 5): Rev +90% YoY but MUTED earnings-day reaction (+16% later on Nasdaq-100 inclusion, not earnings)
+- COHR Q3 FY26 (May 6): Rev +21% YoY but -6.7% AH then +13.25% recovery — MUTED on beat
+- Mitsubishi Electric Q4 FY26: EPS +62.4% beat → pre-AI-narrative rerating
+- Sumitomo Electric FY26: rev +9.2% / earnings +90.7% / guide RAISED → **+11.4% on print**
+
+## Principle #31 REFINEMENT — PRE-AI vs POST-AI narrative axis (added 2026-06-03 PM as CANDIDATE)
+
+Per user 2026-06-03 PM observation: "Already-in-AI-narrative names have higher expectations; new-to-narrative pumps harder."
+
+**Refines existing Principle #31 (Narrative-stage modifier) along NEW axis:**
+- **Axis A** (existing): Stage 1-4 within established narrative
+- **Axis B** (NEW CANDIDATE): PRE-categorized vs POST-categorized within AI investing taxonomy
+
+**Pattern:**
+- **Pre-categorized names** (semi-traditional names being rerated as AI exposure surfaces): SCREEN Holdings, Mitsubishi Electric, Sumitomo Electric — beat-and-pump harder; bigger relative re-rating because narrative not priced in
+- **Already-AI-narrative names** (LITE, COHR, AVGO, NVDA): higher expectations bar; muted initial reaction on beats; upside CAPPED at lower magnitude per L14 framework; need explicit CATEGORY EVENT marker (new vintage / strategic relationship / metric reframe) to drive post-event leg
+
+**N=5 empirical cluster supporting Axis B addition** (origin 2026-06-03 PM): per `predictions/2026-06-03-AVGO-Q2FY26.md` cohort table
+
+**Promotion criterion:** N=2+ INDEPENDENT confirmation cases beyond this cluster → promote to VERIFIED-HIGH-CONFIDENCE per tiered framework (currently CANDIDATE)
+**Retirement trigger:** if next 30 days show no clean PRE vs POST distinction on observed earnings reactions, relegate
+
+**Cross-reference:** L14 framework (Stage 3-4 + CATEGORY EVENT → +25-40%) needs Axis B refinement — already-AI-narrative Stage 3-4 names cap upside at +10-20% per LITE/COHR empirical template, NOT pure +25-40% range.
+
+## B16-style harness-recall miss flagged 2026-06-03 PM
+
+I was about to codify L18 as NEW codification candidate (margins + guidance > revenue level) when this principle was ALREADY in this file from user's 2026-05-20 articulation. This is exactly the failure mode B16 (synthesis without cascade) catches at one tier — applied at the methodology-recall tier here. **Flag for monthly audit 2026-06-24:** harness-recall freshness check should include "grep existing principles + lessons for related framing" BEFORE codifying any new candidate. Candidate for principle #37 or refinement to Critical Rule #10.
+
+---
+
 When a major catalyst hits a megacap (e.g., Anthropic-Broadcom custom Si partnership pulling through to AVGO), the megacap response is *mostly already priced* — consensus has been modeling some version of the demand. The asymmetric trade lives 2–3 layers downstream in the supply chain.
 
 The downstream-supplier-asymmetry setup has FOUR required conditions:
