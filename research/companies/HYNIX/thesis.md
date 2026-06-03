@@ -483,3 +483,15 @@ Per `signals/cross-source-log/2026-06-02-hbm-2027-pricing-trendforce-and-spectru
 **Per principle #31 stage check:** HYNIX is Stage 4 priced-to-perfection (+~900% YTD per prior cascades); +70-100% 2027 ASP shock is the kind of CATEGORY EVENT that could override Stage 4 suppression per L14 framework (codified 2026-06-02 N=2 HPE + N=3 MRVL same day). If Q3 FY26 print (October 2026) confirms HBM4 ASP capture at 2027 contract levels, expect Stage 4 + CATEGORY EVENT magnitude move +15-30% (my model — Stage 4 less asymmetric than Stage 3-4 transition that HPE/MRVL printed).
 
 **Position implication:** HOLD at 10.13% — no incremental sizing today; Mizuho +70-100% 2027 HBM4 ASP forecast REINFORCES Core thesis duration through 2027-2028. Watch (a) Q3 FY26 print October 2026 for HBM4 ASP capture proof point, (b) 2Q26 contract negotiation outcome disclosures from any of SK Hynix + Samsung + Micron, (c) any HBM4E mass production share update for Rubin Ultra H2 2027. NOT a SIZE UP trigger yet because position is at target 10-14% range and Stage 4 modifier applies; but if pullback opportunity emerges OR HBM4 contract settlement materially exceeds Mizuho +70-100% range, reconsider toward 12-14% upper bound.
+
+## Cross-source synthesis — Counterpoint NAND Q1 2026 share data + SK Hynix HBM wafer diversion (added 2026-06-03 PM, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-counterpoint-nand-shares-trendforce-laser-rankings.md`: User-shared Counterpoint NAND market share chart shows SK Hynix NAND share +2pp YoY (16% Q1 2025 → 18% Q1 2026) in a market that grew +246% YoY per chart green annotation. Derived absolute NAND revenue growth ~+289% YoY (my model — share × market growth).
+
+**Strategic context (subagent-verified 2026-06-03 PM):** Native-language Chinese sources confirm "Samsung/SK Hynix diverting wafers to HBM creating supply gap that YMTC fills" per [eet-china + 36kr T2] via subagent. SK Hynix's NAND share lumpiness (16%→20%→18%→22%→18% by quarter) reflects rational capacity allocation toward HBM (more profitable per wafer) while still capturing material NAND revenue growth from market expansion.
+
+**HYNIX-specific implication:** STRONG empirical validation of held thesis. The +289% absolute NAND revenue growth (my model) + 2Q26 negotiation window for 2027 HBM4 contracts (Mizuho +70-100% YoY ASP forecast per prior cascade) = dual revenue inflection compounding. NAND is the secondary growth vector; HBM is primary. Combined picture is materially stronger than thesis previously framed.
+
+**YMTC competitive threat assessment:** YMTC operating in geographic-segmented Chinese domestic AI demand book; SK Hynix unaffected by direct customer displacement per BIS Entity List structural block. Watch 2027+ if YMTC Phase-3 capacity overflows Chinese demand into APAC export.
+
+**Position implication:** HOLD at 10.13% — Core position at-target. No incremental sizing today; Counterpoint data reinforces held position duration through 2027-2028. Same triggers as prior cascade apply.

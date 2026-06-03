@@ -1,6 +1,6 @@
 # Watchlist Candidates
 
-**Last updated:** 2026-06-02 (added Mitsui + Furukawa + Co-Tech HVLP copper foil cluster post Citrini-shared Lotte article 4-subagent deep-dive verification)
+**Last updated:** 2026-06-03 PM (added Sumitomo Electric 5802.T + Mitsubishi Electric 6503.T as EML/CW-DFB LD oligopoly candidates per TrendForce June 2026 ranking)
 
 Names surfaced by signals / causal chains, not yet covered by full thesis. Promoted to `companies/{TICKER}/` when conviction warrants.
 
@@ -196,3 +196,22 @@ A watchlist name gets a full `companies/{TICKER}/` folder when:
 ## Archived (rejected after research)
 
 (none yet)
+
+### Optical laser components (EML + CW-DFB LD) — added 2026-06-03 PM
+
+- **Sumitomo Electric Industries (5802.T Japan TSE) — added 2026-06-03**
+  - Source signal: User-shared TrendForce June 2026 EML/CW-DFB LD supplier capacity ranking T2; verified via `signals/cross-source-log/2026-06-03-counterpoint-nand-shares-trendforce-laser-rankings.md`
+  - Position in ranking: **TOP 3 in Total EML/CW-DFB combined + TIED #1 in CW-DFB LD specifically** (with Broadcom)
+  - Why interesting: CW-DFB LD is binding-constraint tier for CPO + coherent optical applications (Spectrum-X Photonics in production confirms production demand); no bypass route at high-end laser tier; 74% top-3 concentration = oligopoly
+  - Investability: **Japan TSE INVESTABLE** (same path as Murata, Sumco, Hirano, AGC)
+  - User context: already followed on TradingView for some time; never bought; deep-dive flagged for next session per user 2026-06-03 PM
+  - Status: **WATCHLIST — pending dedicated deep dive (binding-constraint analysis of EML + CW-DFB LD categories + Sumitomo's electric power business cyclical drag vs photonics growth segment SOTP)**
+  - Priority: HIGH (Japanese-listed optical-photonics oligopoly + user has prior interest)
+
+- **Mitsubishi Electric (6503.T Japan TSE) — added 2026-06-03**
+  - Source signal: Same TrendForce June 2026 ranking
+  - Position in ranking: **#3 in EML** (pure-play laser for 800G/1.6T PAM4 transceivers); 72% top-3 concentration
+  - Why interesting: EML is binding-constraint tier for 800G+ AI back-end fabric scale-out; Mitsubishi has photonics + power electronics adjacency
+  - Investability: Japan TSE INVESTABLE
+  - Status: **WATCHLIST — secondary priority vs Sumitomo Electric (lower ranking position)**; conglomerate exposure means photonics is small % of total revenue, needs SOTP decomposition before sizing
+  - Priority: MEDIUM

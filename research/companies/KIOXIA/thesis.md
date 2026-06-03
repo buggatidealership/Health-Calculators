@@ -115,3 +115,27 @@ Per L14 framework (codified 2026-06-02 at N=2 HPE + N=3 MRVL same day): Stage 3 
 **Investability:** Japan TSE Prime INVESTABLE; same path as Murata, Sumco, Hirano, AGC; verify Degiro/N26 brokerage access for 285A.T specifically.
 
 **Concentration check:** Adding Kioxia ~2% would push Japan TSE exposure ~19.5% → ~21.5%; below 31% flag from Mitsui consideration. Memory/storage cluster post-add ~22% (HYNIX 10.13% + SNDK 7.5% post-size-up + Sumco 4.43% + Kioxia 2%) — concentrated but defensible for AI-infrastructure thesis.
+
+## Cross-source synthesis — Counterpoint NAND Q1 2026 share data (added 2026-06-03 PM, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-counterpoint-nand-shares-trendforce-laser-rankings.md`: User-shared Counterpoint NAND market share chart shows **Kioxia share LOST 3pp YoY (17% Q1 2025 → 14% Q1 2026)** in a market that grew +246% YoY per chart green annotation. Derived absolute NAND revenue growth ~+185% YoY (my model — share × market growth, weakest among top-6 suppliers).
+
+**Kioxia-specific MILD BEARISH context:**
+
+| Comparison | Q1 2025 → Q1 2026 share change | Derived absolute growth (my model) |
+|---|---|---|
+| Kioxia (this thesis) | 17% → 14% (-3pp) | ~+185% — WEAKEST among top 6 |
+| Samsung | 31% → 29% (-2pp) | ~+224% |
+| SK Hynix | 16% → 18% (+2pp) | ~+289% |
+| Sandisk (JV partner) | 13% → 13% (flat) | ~+246% |
+| YMTC | 8% → 13% (+5pp) | ~+462% — fastest |
+
+Kioxia is losing relative ground vs both SK Hynix (Western HBM-prioritization rebalance) AND YMTC (Chinese geographic-segmented incremental). Two-sided share pressure within an otherwise extraordinary market growth environment.
+
+**Strategic context (per subagent 2026-06-03 PM YMTC verification):** YMTC share gain is ~80% geographic-segmented incremental (Chinese hyperscaler AI buildout structurally blocked from Western suppliers by BIS Entity List) — NOT direct customer displacement of Kioxia. SK Hynix outperformance reflects HBM wafer diversion creating NAND supply gap that competitors fill. Kioxia's relative weakness suggests slower AI-tier customer capture vs SK Hynix despite Yokkaichi + Kitakami capacity ramp.
+
+**This is mild bearish signal vs prior Kioxia thesis framing.** Kioxia's bull case rests on (a) FY27 Q1 NP ¥869B 48× YoY guidance, (b) 2× capacity by FY29, (c) MSA-CBA differentiation. Counterpoint share data shows Kioxia is NOT capturing share gains at the same pace as SK Hynix — execution risk on FY27 forward guidance becomes a watch item.
+
+**Mitigating context:** Kioxia + SanDisk JV (Yokkaichi Fab 6 + MSA-CBA architecture) is shared capacity; SanDisk's share-stable 13% suggests the JV is collectively maintaining ~27% market position. Kioxia's standalone-disclosed share decline may partly reflect JV-output-allocation accounting, not underlying competitiveness loss.
+
+**Position implication:** WATCHLIST at 0% — entry trigger per prior thesis (VLSI Symposium June 14-18 joint MSA-CBA paper validation + Q1 FY27 print confirmation OR -10% pullback) UNCHANGED. Counterpoint share data adds a MONITORING ITEM for Kioxia execution risk vs SK Hynix; if FY27 Q1 actual print materially under-delivers ¥869B NP guidance, the share-decline signal will have been the early indicator. Watch: (a) Kioxia FY27 Q1 print (October 2026) Functional Materials segment OP growth >15% YoY threshold (per prior thesis falsifier); (b) Counterpoint Q2 + Q3 2026 share data — does Kioxia stabilize at 14% or continue declining?

@@ -197,3 +197,31 @@ Per `companies/MRVL/thesis.md` 2026-06-02 cascade: MRVL announced Teralynx T100 
 - If AVGO custom Si disappoints OR MediaTek slot loss disclosed → 5-8% Active candidate tier weakened; consider DOWNGRADE to 3-5%
 
 **Position implication:** NO ACTION on entry decision pre-print — AVGO entry at 0% still pending GLW trim funding + Q2 FY26 print resolution; the Q2 FY26 print specifically tests whether AVGO retains custom-Si comparative leadership against an MRVL that just had its strongest single catalyst day. Hold cash for post-print entry decision tomorrow.
+
+## Cross-source synthesis — TrendForce June 2026 EML/CW-DFB LD ranking — AVGO PHOTONICS MOAT UPGRADE (added 2026-06-03 PM, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-counterpoint-nand-shares-trendforce-laser-rankings.md`: User-shared TrendForce June 2026 EML/CW-DFB LD supplier capacity ranking T2 reveals **AVGO has materially understated photonics moat** in prior harness framing:
+
+| TrendForce ranking | AVGO position | Implication |
+|---|---|---|
+| **Total EML/CW-DFB LD combined** | **#1 (top of 55% top-3 share)** | AVGO is the LEADER in combined laser capacity, not just a participant |
+| EML pure-play (PAM4 for 800G/1.6T transceivers) | **#2** (behind Lumentum; 72% top-3 concentration) | Strong #2 position in PAM4 laser tier |
+| **CW-DFB LD (silicon photonics + coherent)** | **#1 (TIED with Sumitomo Electric)** (74% top-3 concentration) | AVGO at the binding-constraint tier for CPO + coherent transition |
+
+**Why this materially upgrades AVGO thesis:**
+
+1. **Vertical integration via own photonics capacity** — AVGO's Tomahawk 6-Davisson CPO ASIC + own laser supply = dual-moat (switch ASIC dominance + photonics oligopoly). Custom-Si dominance is the FIRST structural moat; photonics is the SECOND structural moat. Prior thesis framed AVGO primarily as custom-Si winner — this verification adds the photonics axis.
+
+2. **Bypass-route check (Critical Rule #9) — AVGO IS the bypass route** — for hyperscalers needing photonics-capable switch silicon WITHOUT vertical-integration risk to NVDA Spectrum-X Photonics, AVGO becomes the natural alternative. Per `wiki/networking-primer.md` + Spectrum-X CPO in-production verified 2026-06-02: AVGO Tomahawk 6-Davisson is the parallel CPO architecture.
+
+3. **74% top-3 concentration in CW-DFB LD** = oligopoly tier; high pricing power; multi-decade engineering moat at InP substrate + EML/CW-DFB precision tier. Combined with AVGO's custom-Si tier (60% AI ASIC design partnership share per `wiki/custom-silicon-primer.md`), AVGO sits at TWO chokepoints in the AI compute stack simultaneously.
+
+4. **Strengthens 5-8% Active candidate tier** that was already approved in prior thesis. With dual-moat verified, the position-target upper bound (8%) becomes more defensible. The Aschenbrenner $1.01B notional put exposure (Stage 4 multiple-compression call) becomes harder to maintain conviction on given AVGO's structural breadth.
+
+**Q2 FY26 earnings (today June 3, 2026) — what to watch for photonics moat validation:**
+- Any commentary on optical/photonics segment revenue contribution
+- AI semiconductor revenue mix breakdown — does photonics show up separately?
+- Forward commentary on Tomahawk 6-Davisson CPO production ramp + customer disclosures
+- Any mention of Sumitomo Electric / Lumentum / Coherent supply chain dependencies (vs in-house capability)
+
+**Position implication:** REINFORCED — AVGO entry case strengthens vs prior thesis framing; 5-8% Active candidate tier validated by dual-moat finding. Q2 FY26 print (today) becomes higher-leverage event — if photonics revenue contribution disclosed and material, this becomes a SIZE UP candidate driver. NO ACTION on entry pre-print, but post-print decision now includes photonics-moat axis (not just custom-Si vs MRVL comparative). Watch: (a) AVGO Q2 FY26 print today for photonics segment commentary; (b) any subsequent disclosure of TomaHawk 6-Davisson CPO customer wins; (c) Sumitomo Electric / Mitsubishi Electric photonics competitive positioning per dedicated deep-dive.
