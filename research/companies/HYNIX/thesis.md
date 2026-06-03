@@ -495,3 +495,35 @@ Per `signals/cross-source-log/2026-06-03-counterpoint-nand-shares-trendforce-las
 **YMTC competitive threat assessment:** YMTC operating in geographic-segmented Chinese domestic AI demand book; SK Hynix unaffected by direct customer displacement per BIS Entity List structural block. Watch 2027+ if YMTC Phase-3 capacity overflows Chinese demand into APAC export.
 
 **Position implication:** HOLD at 10.13% — Core position at-target. No incremental sizing today; Counterpoint data reinforces held position duration through 2027-2028. Same triggers as prior cascade apply.
+
+## Cross-source synthesis — Computex 2026 multilingual 24h deep-dive (added 2026-06-03 PM, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-computex-multilingual-24h-deepdive.md`: **STRONG POSITIVE with single-source CONTRADICTION FLAG (monitoring item)**:
+
+**Multi-language CONVERGENCE (3 languages confirm — high confidence):**
+- **Chairman Chey Tae-won wafer CAPA to 2× in 5 years**; AI memory shortage forecast to 2030, supply >20% below demand — confirmed across Korean (Dealsite T1 + Hankyung T1), Traditional Chinese (Tom's Hardware via Taiwan press T2), and English (Tom's Hardware T2)
+- **SK Hynix HBM4E formally disclosed: 16.0 Gbps / 4.0 TB/s / 48GB (12-Hi)** per [Digital Daily T1](https://www.ddaily.co.kr/page/view/2026060218484642980) + [Dealsite T1](https://dealsite.co.kr/articles/159434)
+- **HBM 2027 pricing convergence**: Macquarie 50%+ via Korean press + prior Mizuho 70-100% via English research = multi-sell-side-house convergence at +50-100% range
+
+**SK Hynix HBF (High Bandwidth Flash) world-first reveal** per [Dealsite T1](https://dealsite.co.kr/articles/159434) — NAND-based HBM-class solution; NEW architecture vector worth monitoring. Single-source Korean — needs T1/T2 multi-language verification.
+
+**⚠️ CONTRADICTION FLAG (Korean-only, monitoring item, single source):**
+
+**SK Hynix HBM4 top-bin (11.7 Gbps) supply decision DEFERRED to year-end** — SKH redesigning sample because earlier yields can't hit 11.7 Gbps cleanly per [Dealsite T1](https://dealsite.co.kr/articles/159434). This is bearish for VR200 supply timing if confirmed.
+
+**Three parallel hypotheses on top-bin yield uncertainty (my model):**
+
+| H | Frame | P |
+|---|---|---|
+| H1: Yield redesign delays VR200 top-bin Q3-Q4 2026; partially offset by Samsung 28-30% qualified share filling gap; Mizuho/Macquarie pricing intact | 45% |
+| H2: Year-end resolution successful; Q1 2027 HBM4 top-bin volume capture intact; thesis unchanged | 35% |
+| H3: Top-bin yield issue cascades into HBM4E ramp 2027 = material execution risk; would force trim consideration | 20% |
+
+**My read:** Contradiction is REAL but BOUNDED. Dual-supplier framework (SK Hynix 60-70% + Samsung 25-30%) absorbs top-bin slippage partially via Samsung qualification. Mizuho/Macquarie +50-100% pricing forecast ASSUMES tight capacity — top-bin uncertainty REINFORCES that pricing assumption rather than contradicts it. Net: HOLD at 10.13%; add WATCH TRIGGER for Q3 FY26 print (Oct 2026) top-bin yield resolution. If yield issue persists into Q3 FY26 print, consider trim toward 8-9% range.
+
+**Samsung competitive escalation (multi-language confirmed):**
+- Samsung HBM5 mockup + HPB thermal + 2nm base die first-disclosed per Korean (ZDNet T1) + Traditional Chinese (TrendForce TW T1) + English (TrendForce EN T1) — tri-language convergence
+- Samsung HBM4E samples shipped May 2026 (3.6 TB/s, 16 Gbps); claiming ~6mo lead over SK Hynix HBM4E (samples 2H26, MP 2027) per [TrendForce T1](https://www.trendforce.com/news/2026/05/29/news-samsung-starts-shipping-industry-first-hbm4e-samples-three-months-after-hbm4-mass-production-performance-up-over-20/)
+- Multi-language consensus on dual-supplier Vera Rubin allocation: SK Hynix ~60-70%, Samsung ~25-30%, Micron remainder
+
+**Position implication:** HOLD at 10.13% — Core position at-target; multi-language confirmation REINFORCES Core sizing direction-wise; Korean-only top-bin yield contradiction adds monitoring item but does NOT trigger resize today. Watch (a) Q3 FY26 print Oct 2026 for top-bin yield resolution; (b) HBM4E mass-production share announcements 2H26; (c) Samsung HBM5 timing competitive pressure 2027-2028; (d) any direct multi-language verification of top-bin issue (currently Korean-only Dealsite T1).

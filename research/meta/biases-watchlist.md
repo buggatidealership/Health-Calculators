@@ -910,7 +910,19 @@ Every 6 months: review all entries, retire ones that have stopped showing up in 
 
 ---
 
-### B40 — Temporal-freshness blind-spot (CANDIDATE — N=1 origin 2026-06-03)
+### B40 — Temporal-freshness blind-spot (PROMOTED to VERIFIED-HIGH-CONFIDENCE 2026-06-03 PM on N=6 within 48h of codification)
+
+**Promotion rationale (per user directive 2026-06-03 PM):** "Data freshness should be an operating rule instead of a candidate." User explicitly elevated B40 from CANDIDATE to operating-rule status. Empirical N=6 confirmation cluster within 48 hours of original codification:
+1. 2026-06-02 PM — SemiAnalysis recycled June 12 2025 Meta-Scale AI deal as "fresh" June 2026 signal
+2. 2026-06-03 AM — Trump AI EO recycled (same June 2 signing rendered as "revised")
+3. 2026-06-03 AM — Surface RTX Spark Dev Box recycled from prior day's evening brief
+4. 2026-06-03 PM — English press repackaging Day 1-2 Computex announcements as Day 3 (per English subagent self-flag in `signals/cross-source-log/2026-06-03-computex-multilingual-24h-deepdive.md`)
+5. 2026-06-03 PM — Marvell T100 Day 3 Taiwan press = amplification of June 1-2 announcement (per Traditional Chinese subagent)
+6. 2026-06-03 PM — AVGO Tomahawk 6 Davisson CPO repackaged at Computex; original March 2026 announcement (per Traditional Chinese subagent)
+
+**Per tiered framework in `meta/methodology.md` (codified 2026-06-03):** N=2+ INDEPENDENT confirmation cases → promote to VERIFIED-HIGH-CONFIDENCE. N=6 within 48h vastly exceeds the threshold. Critical Rule #12 (codified same day) is the enforcement mechanism for B40 as an operating rule.
+
+### B40 ORIGINAL ENTRY (preserved for audit trail):
 
 **Origin:** 2026-06-03 SemiAnalysis brief recycled the June 12, 2025 Meta-Scale AI deal as if it were a fresh signal in a June 2, 2026 brief. Directionally correct (deal happened) but temporally stale by ~12 months. I propagated the framing through 5 emergent thesis candidates + per-name cascades before verification surfaced the staleness. **Cascade-impact: medium** — multiple thesis files referenced "Meta paid $30B for Scale AI" without checking the underlying timestamp.
 

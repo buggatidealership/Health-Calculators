@@ -451,3 +451,18 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: **NVD
 ## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — Alphabet $80B raise = optical interconnect + CPO demand floor reinforced; existing NVDA-Corning $3.2B partnership cascade strengthened.
+
+## Cross-source synthesis — Computex 2026 multilingual 24h deep-dive (added 2026-06-03 PM, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-computex-multilingual-24h-deepdive.md`: **STRONG POSITIVE — Corning explicitly named in Wiwynn CPO ecosystem Day 3 announcement**:
+
+- **Wiwynn CPO partner list (Day 3 NEW, Traditional Chinese T1)**: Ayar Labs + GUC (創意) + Browave (波若威) + **Corning (康寧)** + FOCI (上詮) + Molex + SENKO + TE Connectivity per [鉅亨 T1](https://news.cnyes.com/news/id/6471350) + [經濟日報 T1](https://money.udn.com/money/story/5612/9531473)
+- **NVDA Spectrum-X CPO supply chain Day 3 mapping** (Traditional Chinese T3, source-gap on T1 corroboration): TSMC (COUPE wafers) → ASE → Taicom/TFC (laser die packaging) → Foxconn (system assembly) per [讀懂老黃 T3](https://www.readjensen.com/deep/computex-2026-nvidia-silicon-photonics-cpo/) — implies Corning fiber + optical components are downstream of this CPO supply chain at the AI server interconnect tier
+
+**Jensen quote at Marvell keynote (Traditional Chinese T1)**: "200G per lane is copper's final sufficient generation. Use optics where you must, use copper where you can." per [TVBS T1](https://news.tvbs.com.tw/life/3219556) — official copper-wall thesis confirmation directly benefits Corning fiber-to-the-board scenarios
+
+**Multi-language confirmation that:**
+- NVDA-Corning $3.2B partnership (May 5 2026) is being operationalized at Wiwynn CPO ecosystem level
+- Day 3 limit-up in Taiwan optical names (FOCI 3363 + Browave 3163 + Kuang Sheng 6442) signals Taiwan supplier-chain rerating that may also flow to Corning as upstream beneficiary
+
+**Position implication:** HOLD at 4.03% — Wiwynn CPO ecosystem mention explicitly names Corning Day 3 = first Computex-specific commercial validation of NVDA-Corning partnership; size-up to 5-6% range case strengthens (per prior cascade). Watch: (a) Q3 2026 NVDA-Corning ship/revenue confirmation; (b) any 800V DC or CPO-specific Corning product disclosure; (c) GLW Q2 FY26 print Optical Communications segment revenue trajectory.

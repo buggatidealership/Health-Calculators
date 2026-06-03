@@ -534,3 +534,22 @@ Per `signals/cross-source-log/2026-06-03-morning-brief-microsoft-build-solara-pr
 **Position implication:** HOLD at ~10.5% — Monday SIZE UP consideration UNCHANGED; ARM royalty TAM expansion confirmed via full MSFT edge stack but Stage 3-4 entry discipline holds. Watch: (a) Solara concept device commercial GA timing (AccuWeather + Best Buy + CVS + Levi's + Target pilots); (b) Aion 1.0 design wins on N1X silicon specifically; (c) NVDA N1X Fall 2026 OEM ramp metrics — ARM royalty revenue from premium AI PC ASP becomes measurable Q4 FY27.
 
 **Cross-reference:** See `wiki/edge-hardware-ai-primer.md` (created 2026-06-03 PM) for full Edge Hardware AI category decomposition. ARM is tagged at the **ARM CPU IP** sub-layer with "strongly positive" direction. Primer captures the structural extrapolation that ARM royalty TAM expands beyond datacenter into BOTH consumer-PC + dedicated AI hardware (Solara devices) + M365 tier — this is the new royalty category that didn't exist pre-June 1, 2026.
+
+## Cross-source synthesis — Computex 2026 multilingual 24h deep-dive (added 2026-06-03 PM, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-computex-multilingual-24h-deepdive.md`: **STRONG POSITIVE — NVDA RTX Spark N1X tri-language spec confirmation**:
+
+**TRI-LANGUAGE convergence (high confidence):**
+- **Traditional Chinese**: 中央社 [CNA T1](https://www.cna.com.tw/news/afe/202606010111.aspx) + [中時 T1](https://www.chinatimes.com/realtimenews/20260601003653-260410) confirm TSMC 3nm + 20-core Grace CPU co-designed with MediaTek + Blackwell RTX GPU + NVLink + 128GB unified memory + 1 PFLOPS
+- **English**: [Tom's Hardware T2](https://www.tomshardware.com/laptops/nvidia-unveils-rtx-spark-superchip-at-computex-2026) + [CNBC T1](https://www.cnbc.com/2026/05/31/nvidias-new-chip-to-power-fresh-line-of-windows-laptops-by-dell-hp.html) confirm 20 Arm v9.2 cores + 6,144 CUDA + 128GB LPDDR5X + 300 GB/s + 1 PFLOP AI + Fall 2026 OEM ramp
+- **Japanese**: [ITmedia PC USER T2](https://www.itmedia.co.jp/pcuser/articles/2606/02/news099.html) Q&A walkthrough
+
+**OEM list confirmed multi-language**: Acer + ASUS + Gigabyte + MSI + Dell + HP + Lenovo + Microsoft (Surface Laptop Ultra design win)
+
+**ARM-specific tri-language read:**
+- RTX Spark uses ARM Arch v9.2 (10× Cortex-X925 + 10× Cortex-A725 per prior Computex Day 1 cascade)
+- MediaTek co-designed = ARM royalty flows to BOTH ARM (architecture) AND MediaTek (implementation partner)
+- Surface Laptop Ultra design win = Microsoft full edge AI stack (Solara MDEP + Aion 1.0 + Surface Spark Dev Box + Surface Laptop Ultra) all ARM-architected
+- T8 (Edge Hardware AI) promoted from CANDIDATE → VERIFIED-HIGH-CONFIDENCE per tiered framework — ARM is the primary held beneficiary at ARM CPU IP sub-layer
+
+**Position implication:** HOLD at ~10.5% — multi-language confirmation REINFORCES Core sizing case at-target; tri-language convergence is the highest-confidence empirical validation in the harness today. No resize action; Monday SIZE UP consideration retained but Stage 3-4 entry discipline holds. Watch (a) RTX Spark Fall 2026 OEM unit ramp metrics in MSFT/Dell/HP Q1 FY27 prints; (b) ARM royalty revenue from premium AI PC ASP at next ARM earnings; (c) ARM Q2 FY27 print (Aug 2026) for AGI CPU + AI PC mix disclosure.

@@ -1401,7 +1401,7 @@ This formalizes the existing implicit CANDIDATE → CODIFIED structure into 3 ex
 
 **Where each lives:**
 - **Principles**: #1-#33 + Critical Rules #1-#12 = VERIFIED; #34, #35, #36 = CANDIDATE
-- **Biases**: B1-B37 = VERIFIED; B38, B39, B40 = CANDIDATE
+- **Biases**: B1-B37 = VERIFIED; **B40 PROMOTED TO VERIFIED 2026-06-03 PM** on N=6 within 48h confirmation; B38, B39, B41 = CANDIDATE
 - **Lessons**: L1-L15 = VERIFIED; L16, L17 = CANDIDATE
 - **Themes**: T1-T7 = VERIFIED; T8 (Edge Hardware AI) = CANDIDATE
 - **Emergent theses E1-E5**: see below

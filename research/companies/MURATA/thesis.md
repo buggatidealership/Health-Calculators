@@ -547,3 +547,14 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: **MLC
 ## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — Alphabet $80B equity raise reinforces MLCC demand floor at hyperscaler #1 capex; EU joining Pax Silica chip alliance (T2 Euronews) further strengthens allied-nation MLCC supply chain moat.
+
+## Cross-source synthesis — Computex 2026 multilingual 24h deep-dive (added 2026-06-03 PM, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-computex-multilingual-24h-deepdive.md`: **STRONG POSITIVE — Murata MLCC tight supply confirmed bi-language convergence**:
+
+- **Nikkei T1 (Japanese)**: "村田製作所の株価最高値 MLCCの需給逼迫" — MLCC inquiries running ~2× supply capacity per [Nikkei T1](https://www.nikkei.com/article/DGXZQOFL2815J0Y6A520C2000000/); analyst day evaluation surfaced.
+- **Traditional Chinese (Morgan Stanley via 經濟日報 T1)**: Vera Rubin VR200 memory cost +435% vs GB300 (memory share 9% → 26%); **PCB +233%, MLCC +182%** per [經濟日報 T1](https://money.udn.com/money/story/5607/9538517) — Korean Herald separately confirmed +182% MLCC VR200 vs GB300 per prior Computex Day 1 cascade.
+
+**Bi-language convergence confirms MLCC structural tightness AND VR200-driven +182% per-rack BOM growth.** Triangulates with prior thesis data (Goldman 4× MLCC demand 2025-2030 vs 10%/yr capacity growth + Murata 15-35% pricing power April 2026 + 20-40 week lead times).
+
+**Position implication:** HOLD Core tier at 11.45% — multilingual confirmation REINFORCES Core sizing; no resize action required. Murata is one of the highest-conviction held positions in the harness post-multilingual triangulation. Watch: Murata next earnings (Aug 2026) for MLCC AI segment revenue contribution + capacity additions disclosure.

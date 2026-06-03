@@ -114,3 +114,25 @@ Quality bar met: ≥2 independent sources for capacity figures (Mitsui IR T1 + N
 **Investability:** Japan TSE INVESTABLE; same path as Murata, Sumco, Hirano, AGC.
 
 **Concentration check:** Adding Mitsui at 2% would push Japan TSE exposure to ~31% of consolidated portfolio (cluster risk flag); user should consider whether SUMCO at 4.43% should be trimmed to free sizing.
+
+## Cross-source synthesis — Computex 2026 multilingual 24h deep-dive (added 2026-06-03 PM, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-computex-multilingual-24h-deepdive.md`:
+
+**Japanese primary-source confirmation of VSP foil capex (re-verified Day 3):**
+- Nikkei T1: "三井金属、データセンター向け銅箔を増産 26年9月に月産840トン" — VSP copper foil capacity +45% by Sep 2026, **620 → 840 t/mo** per [Nikkei T1](https://www.nikkei.com/article/DGXZQOUC072NQ0X00C25A8000000/) — DAY 3 RE-VERIFIES prior thesis data
+- Nikkei T1: "三井金属、AI需要で特殊銅箔の利益2倍見込む 30年度向け計画" — 2030 specialty foil profit 2× plan per [Nikkei T1](https://www.nikkei.com/article/DGXZQOUC22BG10S5A221C2000000/)
+
+**Korean trade press multi-source CONFIRMATION of Mitsui's HVLP4 ecosystem positioning:**
+- Lotte Energy Materials NVDA AI circuit foil supply STARTED June 2026 (accelerated from H2 at NVDA request) per [Hankyung Jun 1 T1](https://www.hankyung.com/article/2026060115581); HVLP 4-grade 0.8μm roughness; 3-4× ASP vs EV foil; capacity 3,700t (2026) → 16,000t (2027) = 4.3×
+- Supply chain mapped: **Lotte foil → Doosan CCL → Isu Petasys MLB → NVDA**
+- Doosan Electronics BG capacity utilization 122% Jeungpyeong + 106% Gimcheon Q1; ₩244.4B 2026 capex; Thailand Rayong 73,000m² plant ₩180B MP H2 2028 per [MoneyToday Jun 2 T1](https://www.mt.co.kr/industry/2026/06/02/2026060213302237840)
+
+**Mitsui-specific multi-language implications:**
+- Lotte's accelerated June 2026 ramp + Doosan's >100% capacity utilization = **Mitsui's HVLP4 supply position in Japan TSE-investable form is becoming more strategic, not less** as Korean alternatives ramp into the same demand surge
+- The supply chain (Lotte → Doosan → Isu Petasys → NVDA) confirms HVLP foil layer is HAPPENING at production scale, not theoretical
+- Mitsui (Japan TSE 5706) as the **largest HVLP4 supplier globally per Goldman near-monopoly framing** captures premium positioning vs Lotte's domestic-Korean and Western-fab supply chain build-out
+
+**Stage 3-4 entry discipline retained** — Mitsui priced-to-perfection per principle #31; the Korean supply chain ramp validates DEMAND but doesn't change SK Hynix-style "Stage 3-4 + CATEGORY EVENT override per L14" entry timing for Mitsui specifically.
+
+**Position implication:** WATCHLIST at 0% — entry trigger per prior thesis (pullback to JPY 43,000-46,000 OR confirmed HVLP5 customer disclosure OR FY27 H1 mid-year proof point) UNCHANGED. Multilingual confirmation REINFORCES thesis direction. Per Critical Rule #12: re-verified Day 3 Nikkei VSP foil 620→840 t/mo data is fresh re-confirmation, not stale recycling. Watch (a) Mitsui FY27 Q1 print Oct 2026 for HVLP segment OP growth + customer disclosure; (b) any HVLP5 specific design-win disclosure; (c) Lotte Energy Materials Q2 2026 print (Korean) for HVLP4 ramp execution data — reverse-cascade indicator for Mitsui share.
