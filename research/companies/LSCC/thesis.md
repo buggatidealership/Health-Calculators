@@ -223,3 +223,11 @@ Reference `research/sector/scenarios.md`. Score: **4/5** (revised UP from agent'
 - 2026-05-27: Anti-fragility revised UP from 3.5/5 to 4/5 after chokepoint-breadth re-evaluation (demand source spans modern compute, not just AI)
 - **Position not yet entered.** Decision deferred pending: (a) MOD + SNOW GRADE outcomes today (calibration check), (b) potential pullback to $115-125 range for better entry asymmetry, (c) AMI deal close confirmation Q3 2026
 - Pending hypothesis verification: user's narrative-driven-investment-era hypothesis (agent launched 2026-05-27) may revise the valuation framing further if confirmed
+
+## Cross-source synthesis — Edge Hardware AI primer (T8 promotion, added 2026-06-03 PM, per Critical Rule #10)
+
+Per `wiki/edge-hardware-ai-primer.md` (created 2026-06-03 PM) + `signals/cross-source-log/2026-06-03-morning-brief-microsoft-build-solara-productivity-plateau.md`: T8 (Edge Hardware AI) PROMOTED from CANDIDATE → VERIFIED-HIGH-CONFIDENCE on N=2+ Microsoft full edge stack within 24h of Build 2026.
+
+**LSCC-specific implication:** LSCC is tagged in the primer as PC tier control silicon beneficiary. T8 promotion + Microsoft full edge AI stack (Project Solara + Aion 1.0 + Surface RTX Spark + NVDA N1X Fall 2026 OEM ramp via 8 OEMs) = STRUCTURAL VALIDATION of the LSCC chokepoint thesis at server + PC AI compute platform control layer. Each AI-PC unit shipped Fall 2026+ ($3,000-4,000 device per WSJ-cited per Computex cascade) = LSCC server-platform-control silicon content potential. **LSCC chokepoint thesis materially REINFORCED.**
+
+**Position implication:** Decision DEFERRED pending pullback to $115-125 range and AMI deal close confirmation Q3 2026 (per existing thesis). T8 promotion is **directionally supportive but not a near-term entry trigger** — chokepoint validation strengthens structural case but Stage classification + entry-asymmetry discipline holds. Watch: (a) LSCC Q2 print (Aug 2026) for PC platform-control revenue attribution from AI PC OEM ramp; (b) Surface RTX Spark Fall 2026 unit ramp metrics; (c) AMI close — entry trigger event.

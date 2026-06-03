@@ -181,3 +181,11 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: AMBA 
 ## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: NEUTRAL — no specific AMBA catalyst in morning brief. NVDA Cosmos 3 omnimodal world models (T2 HuggingFace) and DRIVE Hyperion expansion reinforce broader edge AI narrative supportive but not specific to AMBA's ADAS/security/robotics positioning. Q2 FY2027 (Aug 2026) trigger remains pending.
+
+## Cross-source synthesis — Edge Hardware AI primer (T8 promotion, added 2026-06-03 PM, per Critical Rule #10)
+
+Per `wiki/edge-hardware-ai-primer.md` (created 2026-06-03 PM) + `signals/cross-source-log/2026-06-03-morning-brief-microsoft-build-solara-productivity-plateau.md`: T8 (Edge Hardware AI) PROMOTED from CANDIDATE → VERIFIED-HIGH-CONFIDENCE on N=2+ Microsoft full edge stack convergence (Project Solara + Aion 1.0 + Surface RTX Spark + NVDA N1X) within 24h of Build 2026.
+
+**AMBA-specific implication:** AMBA is tagged in the primer as edge SoC silicon beneficiary at endpoint silicon CPU+NPU sub-layer. T8 promotion VALIDATES the broader edge AI structural narrative AMBA participates in via ADAS/security/robotics SoC positioning. However, Microsoft full edge stack focuses on PC + M365 endpoint tier — distinct from AMBA's ADAS/security/robotics tier. T8 thesis is **directionally supportive but NOT specific positive catalyst** for AMBA's discrete CV3 + N1 SoC roadmap.
+
+**Position implication:** HOLD at 1.5-2% Active sizing UNCHANGED — T8 promotion strengthens edge AI category broadly but Q2 FY2027 print (Aug 2026) remains the specific AMBA trigger for discrete CV3 revenue attribution + 2nd Tier-1 OEM design win. No sizing change today.
