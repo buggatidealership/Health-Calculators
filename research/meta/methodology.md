@@ -1,6 +1,6 @@
 # Methodology
 
-**Last updated:** 2026-05-20
+**Last updated:** 2026-06-03 (added tiered framing for theses + frameworks; logged E1-E5 emergent thesis candidates per user 2026-06-03 vision)
 
 ## TL;DR
 
@@ -1384,3 +1384,51 @@ This converts principles from static doctrine into thesis-like artifacts with th
 - `falsified` — invalidation condition fired; principle removed from active set (kept in archive for audit trail)
 
 This table itself has fluidity: it gets re-versioned in commits as principles get reviewed. The git history is the audit log of methodology evolution.
+
+---
+
+## Tiered framing for theses + frameworks (added 2026-06-03 per user vision)
+
+User-articulated 2026-06-03: *"have one that is verified and high confidence and then some that are candidates that will be promoted or [relegated] based on all the data that I share with you."*
+
+This formalizes the existing implicit CANDIDATE → CODIFIED structure into 3 explicit tiers:
+
+| Tier | Definition | Promotion criterion | Relegation criterion |
+|---|---|---|---|
+| **VERIFIED-HIGH-CONFIDENCE** | N=2+ validation, codified, hook-enforced where applicable | already passed criterion; remains until falsifier fires | If falsifier fires (per fluidity metadata re_eval_trigger) → relegate; archive in git history |
+| **CANDIDATE (awaiting validation)** | N=1 origin or first-principles, awaiting N=2+ empirical confirmation | N=2+ INDEPENDENT confirmation case → promote to VERIFIED-HIGH-CONFIDENCE | 30-day INERT (no reinforcement signal) → relegate; OR N=2+ disconfirmation → relegate immediately |
+| **RELEGATED** | Was candidate that didn't validate, OR verified that falsifier fired | (terminal — kept for audit history) | N/A |
+
+**Where each lives:**
+- **Principles**: #1-#33 + Critical Rules #1-#12 = VERIFIED; #34, #35, #36 = CANDIDATE
+- **Biases**: B1-B37 = VERIFIED; B38, B39, B40 = CANDIDATE
+- **Lessons**: L1-L15 = VERIFIED; L16, L17 = CANDIDATE
+- **Themes**: T1-T7 = VERIFIED; T8 (Edge Hardware AI) = CANDIDATE
+- **Emergent theses E1-E5**: see below
+
+---
+
+## Emergent thesis candidates log (added 2026-06-03)
+
+Surfaced via cross-source cascades per user 2026-06-03 vision ("two frameworks reinforced with a twist = new thesis candidate"):
+
+| # | Emergent thesis | Origin cascade | Status | Promotion criterion |
+|---|---|---|---|---|
+| **E1** | AI Enterprise FinOps as standalone category — DDOG + CRWD + MSFT Cost Mgmt cluster, distinct from T5 (observability) sub-element | T1 (agentic compute) + T5 (observability) + Uber 4-month spend exhaustion 2026-06-02 | CANDIDATE | N=2+ enterprise-spend-overrun signals beyond Uber within 60 days |
+| **E2** | **Data infrastructure as strategic-must-have layer with supplier substitutability — NOT binding constraint** (REFRAMED 2026-06-03 post-Meta-Scale temporal staleness verification + NBIS-Toloka verification). Scale + Surge + Mercor + Toloka are substitutable across frontier labs. **TENSION FLAG (user-surfaced 2026-06-03):** if data is binding constraint, compute demand should plateau — but NBIS GPU compute rally suggests opposite. Resolution: data binding at FRONTIER LAB layer (Meta-Scale, Surge for OpenAI/Anthropic); compute binding at INFERENCE DEPLOYMENT layer (hyperscaler capex, NBIS Meta $27B deal). Different layers, not contradictory. | T1 (agentic compute) + Meta-Scale AI June 12, 2025 deal | CANDIDATE | N=2+ hyperscaler data infrastructure deal OR clean public-market pure-play surfaces (Scale/Surge IPO; Mercor IPO) |
+| **E3** | Edge-first agentic deployment — agents move to endpoint (PC + mobile + M365 tier) in parallel with datacenter; NVDA + ARM + LSCC + AMBA + SYNA cluster | T8 candidate + Microsoft Scout + Surface RTX Spark Dev Box 2026-06-02 | CANDIDATE (paired with T8 theme) | N=2+ enterprise endpoint agentic deployment beyond Microsoft Scout |
+| **E4** | TSEM SIZE UP catalyst timing-derisking — silicon photonics foundry demand compresses from "wait for 2027" to Q3-Q4 2026 prints | T3 (networking) + MRVL T100 official silicon launch + NVDA Spectrum-X CPO IN PRODUCTION 2026-06-02 | CANDIDATE | TSEM mid-July 2026 print silicon photonics segment revenue +30% YoY |
+| **E5** | OpenAI exclusivity premium compressing — Microsoft MAI + AWS-OpenAI multi-cloud + ORCL Stargate one-step-removed | OpenAI-AWS morning 2026-06-02 + MSFT MAI evening 2026-06-02 | CANDIDATE | Any further hyperscaler-OpenAI relationship dilution within 90 days |
+
+**Audit frequency:** Monthly (next: 2026-06-24) with same fluidity metadata as principles/biases.
+
+---
+
+## Cascade discipline reminder (per user 2026-06-03 vision)
+
+Every news event ingest cascades through:
+1. **Verify** (directional-verification subagent protocol + Critical Rule #12 temporal freshness check)
+2. **Per-name cascade** (Critical Rule #10)
+3. **Framework-tier cascade** — themes / scenarios / bottlenecks / primers get REINFORCED / WEAKENED / NO-CHANGE / FALSIFIED markers
+4. **Emergent thesis check** — do reinforced frameworks reveal a TWIST that suggests new thesis candidate?
+5. **Unhedged opinion on forward-worldview data** — explicitly state opinion where pretraining cannot help

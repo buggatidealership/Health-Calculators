@@ -17,7 +17,10 @@
 
 ### P1 — High priority (next session — added 2026-05-28 end of session)
 
-- [ ] **P1 / research / 2026-06-02** [INDP, AF, POS] — Co-Tech Development (8358.TW) investability check + bypass-route deep-dive
+- [x] **2026-06-03 — RESOLVED NOT INVESTABLE** Co-Tech Development (8358.TW) investability check
+  - Resolution: Per user direct check 2026-06-03 — Taiwan TWSE 8358 NOT supported by Degiro OR N26 brokerages. Co-Tech moved to REFERENCE ARTIFACT only (similar to KRX names per `CLAUDE.md` investability filter). Thesis analysis remains valid for harness (HVLP4 only qualified 2nd source per Goldman; projected 5%→53% share 2025-2028) but cannot be acted on. Mitsui (5706.T Japan TSE) + Furukawa (5801.T Japan TSE) remain the investable bypass-route names per `companies/MITSUI/thesis.md`.
+
+- [ ] ~~**P1 / research / 2026-06-02** [INDP, AF, POS] — Co-Tech Development (8358.TW) investability check + bypass-route deep-dive~~ — RESOLVED 2026-06-03 (see above)
   - Origin: Mitsui Mining 4-subagent deep-dive 2026-06-02 surfaced Co-Tech as ONLY qualified HVLP4 2nd source globally per Goldman; HVLP3+ share projected 5%(2025)→53%(2028); gross profit mix 8%→77%; capacity 200→400 t/mo HVLP3/4 by YE2026. Goldman initiated Buy NT$900.
   - Scope: (a) Confirm Taiwan TWSE 8358 investability on user's Degiro + N26 brokerages; (b) if investable, run full thesis with Workflow 8 DEEP-DIG quality bar (≥2 indep sources for capacity, ≥1 supply response, ≥3 tickers cross-stack, ≥1 LOSER, specific falsifier); (c) compare against Mitsui Stage 3-4 entry penalty — Co-Tech at Stage 1-2 likely better Kelly bet
   - Linked: `companies/MITSUI/thesis.md`, `signals/cross-source-log/2026-06-02-citrini-lotte-hvlp-mitsui-deepdive.md`, `watchlist/candidates.md`

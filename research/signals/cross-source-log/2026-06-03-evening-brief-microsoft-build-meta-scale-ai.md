@@ -6,6 +6,25 @@
 
 ---
 
+## CORRECTIONS (added 2026-06-03 PM post-verification)
+
+**1. Meta-Scale AI claim TEMPORAL STALENESS:** Verification subagent surfaced that SemiAnalysis brief recycled June 12, 2025 deal as "fresh" June 2026 news. **Actual facts per [CNBC T1](https://www.cnbc.com/2025/06/12/scale-ai-founder-wang-announces-exit-for-meta-part-of-14-billion-deal.html) + [Scale AI T1](https://scale.com/blog/scale-ai-announces-next-phase-of-company-evolution):**
+- Meta cash investment: **$14.3B** (NOT $30B as brief stated)
+- Stake: 49% NON-VOTING economic
+- Implied Scale AI post-money valuation: ~$29B (the $30B in brief was the valuation, not Meta's outlay)
+- Deal closed: June 12, 2025 — **~12 months stale at time of brief**
+- Strategic context: Zuckerberg framed as compute + talent (acqui-hire Alexandr Wang), not pure data
+- Follow-on: OpenAI dropped Scale AI as data provider; Google abandoned ~$200M/yr partnership per [TechCrunch T1](https://techcrunch.com/2025/06/18/openai-drops-scale-ai-as-a-data-provider-following-meta-deal/); Surge AI now dominates RLHF for OpenAI + Anthropic; Surge in talks for $25B valuation per [Bloomberg T1](https://www.bloomberg.com/news/articles/2025-07-30/scale-rival-surge-ai-in-talks-for-funding-at-25-billion-value)
+- Meta operating cash flow FY25: $115.8B per [Meta FY2025 10-K T1](https://www.sec.gov/Archives/edgar/data/0001326801/000162828026003942/meta-20251231.htm) (brief's $100B framing approximates OCF)
+
+**2. E2 REFRAMED:** "Data infrastructure as binding constraint" was over-stated. Reframed to **"Data infrastructure as strategic-must-have layer with supplier substitutability — NOT a single-supplier binding constraint."** Evidence: OpenAI + Google rapidly substituted Surge AI for Scale post-Meta deal = real bypass-route exists. **TENSION FLAG (user-surfaced 2026-06-03 PM):** if data is binding constraint at FRONTIER LABS, compute demand should plateau — but NBIS GPU compute rally suggests opposite. Resolution: data binds at FRONTIER LAB CAPABILITY layer; compute binds at INFERENCE DEPLOYMENT layer. Different layers, not contradictory.
+
+**3. NOW COMPETITIVE THREAT OVER-STATED:** Prior cascade entry labeled Microsoft Scout as "NEGATIVE COMPETITIVE THREAT" — incorrect. Verification subagent surfaced Knowledge 2026 (May 5-7, 2026) governance partnership per [ServiceNow Newsroom T1](https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-expands-AI-agent-governance-through-deeper-integration-with-Microsoft/default.aspx): AI Control Tower now governs Microsoft Agent 365, Copilot Studio, AI Foundry agents. NOW is governance layer ABOVE Scout — partner not competitor. Microsoft itself runs 170K-employee internal helpdesk on NOW. McDermott framing: "ServiceNow manages everyone else's board." **NOW thesis materially REINFORCED, not threatened.** L1/B23 violation by me — propagated TechCrunch sentiment-anchoring before bottoms-up verification. B40 codified candidate same day to catch this pattern.
+
+**4. NBIS-Toloka verification (2026-06-03 PM):** Toloka deconsolidated Q2 2025 post Bezos $72M lead investment; NBIS retained "significant majority economic stake" but T2 analyst marks ~28%; **Volozh explicitly framed Bezos round as letting NBIS "focus on core AI infrastructure business"** = Toloka deprioritized. NBIS stock rally driven by GPU compute deals (Meta $27B March 2026), NOT data infrastructure. Implied Toloka SOTP value $400M-$1.25B vs NBIS ~$25B market cap = not needle-mover. Geopolitical tail risk: Toloka continued work with EU-sanctioned Russian facial-recognition firms (NTechLab, Tevian) per investigative reporting. **NBIS-as-data-infra-exposure is DIRECTIONALLY-WEAK** — directional optionality, not primary play. Per user 2026-06-03 PM direction: NBIS kept on WATCHLIST as only public-market exposure available to data-infra thesis, but framing acknowledges weakness.
+
+---
+
 ## TL;DR (5 highest-impact signals)
 
 1. **Microsoft MAI-Thinking-1 + MAI-Code-1-Flash at Build 2026** (T2 Microsoft AI) — Microsoft hedging OpenAI exclusivity with own frontier reasoning + coding models

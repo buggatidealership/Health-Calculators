@@ -75,3 +75,25 @@ When a private co does something material (raises, partners, launches, gets acqu
 - M&A in private inference clouds → consolidation theme
 
 Update affected `companies/{TICKER}/interpretations.md` and run TRACE if material.
+
+---
+
+## OpenAI exclusivity premium compression (E5 candidate added 2026-06-03)
+
+**Signal cluster:**
+- OpenAI frontier models + Codex now available on AWS (beyond Azure exclusivity) per 2026-06-02 morning brief T1
+- Microsoft launched MAI-Thinking-1 + MAI-Code-1-Flash own-frontier models at Build 2026 (June 2, 2026) per T2 Microsoft AI — hedging OpenAI partnership
+- Combined signal: BOTH Microsoft AND OpenAI hedging the exclusive partnership simultaneously
+
+**Implication:**
+- OpenAI distribution moat (Azure exclusivity premium) compressing in real time
+- ORCL Stargate positioning is one-step-removed-affected — Stargate buildout still happens but OpenAI exclusivity less load-bearing
+- AVGO custom Si partnership with OpenAI (Titan) remains material but less unique vs MSFT-MAI alternative
+- Anthropic positioning STRENGTHENS by comparison (Anthropic kept compute commitments + Surge AI for RLHF; less hyperscaler-dependent for distribution)
+
+**E5 promotion criterion:** Any further hyperscaler-OpenAI relationship dilution within 90 days (e.g., Google adding OpenAI to GCP, OpenAI multi-cloud expansion to Oracle, OpenAI hardware diversification beyond NVDA).
+
+**Affected public-market positioning (per Critical Rule #10):**
+- ORCL Stargate thesis: marginally weakened (Stargate buildout intact but OpenAI exclusivity premium reduced)
+- AVGO custom Si: TITAN program less differentiated vs MSFT in-house alternatives
+- MSFT: strengthened (own-frontier optionality reduces OpenAI dependency)

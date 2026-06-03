@@ -506,6 +506,14 @@ Always check against these before completing any analysis:
 
     **Discipline check (added 2026-05-28):** principle-applications-log.md entries from this discipline are tagged `Rule #11 application` for monthly audit.
 
+12. **ALWAYS VERIFY TEMPORAL FRESHNESS BEFORE CASCADING SECONDARY-SOURCE SIGNALS** (added 2026-06-03). Before propagating any T2/T3 signal through the harness, verify (a) publication date of the underlying primary claim, (b) whether the signal is newly-surfaced fact or repackaged older news, (c) whether market has already absorbed the signal. Secondary aggregator sources (SemiAnalysis, Citrini, weekly briefs, Substack, Reddit summaries) frequently recycle older news without explicit recap framing — the signal LOOKS fresh because curated alongside genuinely-new items.
+
+    **Origin (2026-06-03):** SemiAnalysis recycled June 12, 2025 Meta-Scale AI deal as "fresh" signal in June 2, 2026 brief — directionally correct (deal happened) but temporally stale ~12 months old, market already absorbed. I propagated through 5 emergent thesis candidates + per-name cascades before verification surfaced the staleness. B40 candidate (temporal-freshness blind-spot) codified same day.
+
+    **Enforcement:** Subagent verification protocol now includes explicit temporal-freshness check as first step. Future Stop hook candidate if pattern recurs ≥N=2 within 30 days.
+
+    **Distinction from Critical Rule #6** (segment-classify before triangulating): Rule #6 ensures signals are CATEGORIZED correctly; Rule #12 ensures signals are TEMPORALLY CURRENT before cascade. Both fire at the directional-verification step but at different sub-checks.
+
 ---
 
 ## File Templates

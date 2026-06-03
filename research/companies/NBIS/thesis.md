@@ -157,6 +157,31 @@ Per user articulation on receiving the joint-state matrix output:
 
 **LEAN**: Nebius preferred over CoreWeave for any future entry. NBIS thesis upgraded from neutral-between-the-two to **user-preferred neocloud candidate**.
 
+## Cross-source synthesis — Toloka data infrastructure verification (added 2026-06-03 PM, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-evening-brief-microsoft-build-meta-scale-ai.md` + verification subagent 2026-06-03 PM: NBIS-Toloka exposure to data infrastructure thesis (E2 emergent candidate) verified **DIRECTIONALLY-WEAK**:
+
+| Finding | Source | Implication |
+|---|---|---|
+| Toloka deconsolidated Q2 2025 post Bezos Expeditions $72M lead investment May 2025 | [Nebius press T1](https://nebius.com/newsroom/nebius-welcomes-bezos-expeditions-as-lead-investor-in-ai-data-business-toloka) + [SEC 6-K H1 2025 T1](https://www.sec.gov/Archives/edgar/data/0001513845/000110465925088860/tm2525580d2_ex99-1.htm) | NBIS gave up majority VOTING control of Toloka |
+| NBIS economic stake: "significant majority" per NBIS messaging; T2 analyst marks ~28% | Conflict | Stake materially less than prior "70% subsidiary" framing in harness |
+| **Volozh explicit framing: Bezos round enables NBIS to "focus on core AI infrastructure business"** | NBIS press T1 | Toloka DEPRIORITIZED — not held as strategic moat |
+| Toloka customers: Anthropic + Amazon + Microsoft confirmed; NOT OpenAI/Google | Toloka site T1 issuer + Nebius press T1 | Toloka MISSES the OpenAI exodus that Surge AI captured |
+| Surge AI in talks for $25B valuation July 2025 | [Bloomberg T1](https://www.bloomberg.com/news/articles/2025-07-30/scale-rival-surge-ai-in-talks-for-funding-at-25-billion-value) | Surge AI is the actual Scale-comp; Toloka distant 2nd/3rd |
+| Toloka geopolitical tail risk: continued work with EU-sanctioned Russian facial-recognition firms (NTechLab, Tevian) post-July 2023 sanctions | [Follow the Money investigative T1](https://www.ftm.eu/articles/dutch-yandex-daughter-supplies-russia-with-surveillance-software) + Pulitzer Center T1 | Live procurement/diligence liability for AI-lab customers |
+| **NBIS stock rally driven by GPU compute deals — Meta $27B March 2026 = +14-15% on the news** | [TheStreet T1](https://www.thestreet.com/investing/stocks/nebius-stock-jumps-after-meta-inks-a-stunning-27-billion-ai-deal) | Data-infra is NOT what market is pricing |
+| Implied Toloka stake value ~$400M-$1.25B in NBIS ~$25B market cap | T2 SOTP analyses | NOT a needle-mover; ClickHouse + GPU infra dominate SOTP |
+
+**TENSION FLAG (user-surfaced 2026-06-03 PM):** If data infrastructure is the binding constraint per E2 candidate, why is NBIS GPU compute rallying? Resolution: Data binds at FRONTIER LAB CAPABILITY layer (Meta-Scale, Surge for OpenAI/Anthropic); compute binds at INFERENCE DEPLOYMENT layer (hyperscaler capex, Meta $27B NBIS deal). Different layers, NOT contradictory. The compute rally is the INFERENCE buildout for already-trained models; the data thesis is about closing the FRONTIER capability gap. Both can be true simultaneously.
+
+**Per user 2026-06-03 PM direction:** NBIS kept on WATCHLIST as ONLY public-market exposure available to data infrastructure thesis (Scale + Surge + Mercor all private; Toloka deprioritized within NBIS). Acknowledged that:
+1. Toloka SOTP value is bounded and not stock-rally driver
+2. Volozh-framed deprioritization weakens data-infra leg specifically
+3. NBIS thesis remains valid on GPU COMPUTE leg (Meta $27B + hyperscaler infrastructure deals)
+4. Compute-vs-data tension resolved by recognizing distinct layers (frontier capability vs inference deployment)
+
+**Position implication:** WATCHLIST at 0% — entry trigger per prior thesis (15% pullback to ~$205-210) UNCHANGED. Data infrastructure thesis is OPTIONALITY not primary driver. If entered, NBIS thesis rests on (a) GPU compute hyperscaler deals (Meta $27B + future Microsoft + others), (b) ClickHouse SOTP, (c) Toloka as 3rd-tier optionality. Watch: (a) Surge AI IPO if it happens (would rerate Toloka comp); (b) any additional hyperscaler NBIS compute deal; (c) Toloka deconsolidation impact on NBIS earnings reporting at next 6-K.
+
 **DECISION DEFERRED**: T1 Energy rotation allocation (€11,509.70 freed) NOT yet decided as of 2026-06-02. User also notes ~€10K fresh capital pending allocation. Total deployable capital ~€21.5K.
 
 **Three rotation candidates competing for that capital (per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md` + this thesis)**:
