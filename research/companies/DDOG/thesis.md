@@ -429,3 +429,18 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: NVDA 
 ## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — OpenAI multi-cloud expansion (AWS + Azure) = wider agent observability TAM; LLM agent security findings (CVE-Bench T2 ArXiv) = agent fleet security observability demand validated; Anthropic Cowork desktop agent reinforces observability requirement for autonomous agents.
+
+## Cross-source synthesis — Evening Brief 2026-06-02: Uber AI budget exhaustion (added 2026-06-03, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-evening-brief-microsoft-build-meta-scale-ai.md`: **STRONG POSITIVE — T5 inference observability theme materially reinforced.** Uber exhausted its AI budget in 4 months after encouraging unlimited staff usage, forcing new spending caps per [TechCrunch T2](https://techcrunch.com). The volume growth curve is steeper than ANY consensus analyst is modeling — even unlimited-budget enterprise pilots run out of capital before cost-control infrastructure is in place.
+
+**Emergent thesis candidate (E1) flagged in cross-source-log:** AI Enterprise FinOps as standalone category — DDOG + CRWD + MSFT Cost Management + new candidates cluster. The Uber case is the canonical N=1 origin signal for AI FinOps category emergence (different from observability MODULE growth tracked at L10).
+
+**DDOG-specific implication:** DDOG's LLM Observability module is the structurally-positioned product for the AI FinOps category. Uber exhaustion validates that:
+- Enterprises will increasingly demand observability + cost-control TOGETHER (not as separate tools)
+- DDOG's natural land-grab is the "infrastructure FinOps + AI observability" intersection where existing FinOps tools (CloudHealth, Apptio) lack AI-specific instrumentation
+- Langfuse/Helicone open-source competitive threat unchanged but DDOG enterprise-tier advantage strengthens
+
+**Per L14 framework forward-application:** Uber exhaustion is a TREND-confirming signal (validates existing T5 theme), not a CATEGORY EVENT for DDOG specifically. Magnitude of DDOG stock impact bounded; structural thesis reinforcement.
+
+**Position implication:** HOLD at ~6.8% — Monday SIZE UP plan unchanged (€5,000 add toward 8-12% target). Uber signal validates the under-weighted call. Watch: (a) DDOG Q2 FY27 print LLM Observability module growth rate (>30% YoY threshold), (b) any DDOG product launch in AI FinOps/cost-control category, (c) CRWD competitive response in AI security FinOps.

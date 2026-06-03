@@ -493,3 +493,18 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: **NVD
 ## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: MIXED-POSITIVE — Anthropic Cowork desktop agent (T2 VentureBeat) VALIDATES desktop agent governance category that NOW Project Arc references; BUT Salesforce Slackbot rebuild as full AI agent (T2 VentureBeat) is direct competitive threat to NOW workplace AI. Net positive on category validation; competitive watch on enterprise data search overlap.
+
+## Cross-source synthesis — Evening Brief 2026-06-02: Microsoft Build 2026 (added 2026-06-03, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-evening-brief-microsoft-build-meta-scale-ai.md`: **NEGATIVE COMPETITIVE THREAT** — Microsoft Scout always-on M365 agent (Outlook + OneDrive + Teams integration) launched at Build 2026 per [TechCrunch T2](https://techcrunch.com). Internal Microsoft documents reveal "make people addicted to the service" framing. This is qualitatively different from prior MSFT Copilot Studio competitive threat — Scout is positioned at the EMPLOYEE-DAILY-WORKFLOW tier (calendar mgmt + expense tracking + admin tasks) where NOW historically dominated enterprise workflow orchestration. Plus Microsoft launched MAI-Thinking-1 + MAI-Code-1-Flash own-frontier models = Microsoft going aggressive on FULL agentic enterprise stack independent of OpenAI.
+
+**NOW-specific implication:** Falsifier #4 monitoring stance (Microsoft Agent 365 + Copilot Studio competitive threat) now MATERIALLY ESCALATED. Scout sits at the everyday-workflow layer that was previously NOW's structural advantage via Project Arc + AI Control Tower. MS distribution moat (M365 ~400M+ business seats) is the load-bearing risk.
+
+**Mitigating factors that PRESERVE NOW thesis:**
+- Project Arc NVDA reference architecture validation (2026-06-02 Computex Day 1 cascade) — workflow GOVERNANCE layer still NOW-positioned
+- Scout is M365-distribution-limited; non-MSFT enterprises (Google Workspace shops, Slack-anchored orgs) still need cross-system orchestration
+- AI Control Tower scope (cross-system governance + safety + audit) is broader than Scout's "personal AI assistant" scope
+
+**Per L14 framework forward-application (L17 candidate):** Microsoft Scout is a CATEGORY EVENT for the enterprise agentic competitive landscape, NOT for NOW directly. NOW Stage classification per principle #31 should be reassessed: if Scout accelerates Microsoft agentic productization at hyperscale, NOW competitive moat narrows.
+
+**Position implication:** HOLD at ~12% (at-target) — **but FALSIFIER #4 monitoring escalated**; recommend formal SIZE UP HOLD pending Scout adoption metrics (Q3-Q4 2026 enterprise deployment data) + NOW Q2 FY27 print (~late July 2026) AI Control Tower revenue contribution. **No SIZE UP at this time** despite at-target — competitive overhang from Scout requires additional confirmation before adding to position. Watch: (a) MS Scout deployment metrics; (b) NOW AI Control Tower revenue + customer count at next print; (c) any GOOG/Slack distribution-moat competitor response (CRM/Salesforce Agentforce etc.).

@@ -500,3 +500,13 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`: NVDA 
 ## Cross-source synthesis — Morning Brief 2026-06-02 (added 2026-06-02, per Critical Rule #10)
 
 Per `signals/cross-source-log/2026-06-02-morning-brief-ingest.md`: positive — NVDA AI agent PCs with MSFT+Dell+HP confirms RTX Spark Fall 2026 OEM ramp validating ARM royalty stream. Errata: RTX Spark 600 GB/s = NVLink C2C interconnect speed NOT memory bandwidth per T2 Reddit citing Computex slides; cascade direction unchanged (positive).
+
+## Cross-source synthesis — Evening Brief 2026-06-02: Microsoft Surface RTX Spark Dev Box + Scout (added 2026-06-03, per Critical Rule #10)
+
+Per `signals/cross-source-log/2026-06-03-evening-brief-microsoft-build-meta-scale-ai.md`: **POSITIVE** — Microsoft Surface RTX Spark Dev Box launched at Build 2026 per [Tom's Hardware T2](https://www.tomshardware.com) — NVDA-powered mini-PC for developers building "agentic Windows" applications. This compounds the Computex Day 1 RTX Spark Fall 2026 OEM ramp signal at the DEV TIER (vs consumer tier). MSFT explicitly productizing infrastructure for third-party AI agent development on ARM Arch v9.2 (per Computex Day 1 cascade).
+
+**Plus Microsoft Scout always-on M365 agent** reinforces Edge Hardware AI thesis at USER tier — every M365-tier device becomes an agent endpoint, increasing ARM royalty TAM at both consumer-PC and dev-PC tiers.
+
+**Emergent thesis candidate (E3) flagged in cross-source-log:** Edge-first agentic deployment — Microsoft productizing agentic at BOTH user tier (Scout) AND dev tier (Spark Dev Box) simultaneously = consumer/enterprise endpoint agentic transition happening faster than consensus is modeling.
+
+**Position implication:** HOLD at ~10.5% — Surface Spark Dev Box validates the AGI CPU thesis at dev tier specifically; reinforces existing Computex Day 1 size-up consideration framing. NO incremental sizing today but Edge Hardware AI emergent theme E3 strengthens the "ARM royalty TAM expanding faster than consensus" narrative. Watch: (a) Surface Spark Dev Box pricing + units sold metrics at MSFT Q1 FY27 print, (b) Scout adoption metrics M365-wide.
