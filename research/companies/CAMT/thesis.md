@@ -32,14 +32,53 @@ Camtek is the HBM4 reference tool across all major HBM manufacturers — binding
 | FY26 implied (my model) | ~$580-620M (+17-25% YoY) | derived from Q1+Q2 guide+2H +25% |
 | FY27 implied (my model) | ~$700-780M (+20-25% YoY) | derived from $260M HBM mfg backlog conversion + Hawk doubling |
 
-## Moat — HBM4 reference tool + Hawk technical advantage
+## Moat — HBM4 3D metrology reference + Hawk technical advantage
 
-Per [Kavout T3](https://www.kavout.com/market-lens/is-camtek-positioned-for-sustained-ai-fueled-growth-in-advanced-packaging) + [BeyondSPX T3](https://www.beyondspx.com/quote/CAMT/camtek-s-ai-inspection-moat-why-the-hawk-platform-changes-everything-for-this-5b-semiconductor-enabler-nasdaq-camt):
-- **HBM4 reference tool status across all major HBM manufacturers** — sets industry standard
-- **Hawk ninth-gen white light triangulation** — superior coverage for different bump types vs laser-based KLA / Onto competitors
+Per [Kavout T3](https://www.kavout.com/market-lens/is-camtek-positioned-for-sustained-ai-fueled-growth-in-advanced-packaging) + [BeyondSPX T3](https://www.beyondspx.com/quote/CAMT/camtek-s-ai-inspection-moat-why-the-hawk-platform-changes-everything-for-this-5b-semiconductor-enabler-nasdaq-camt) + [Global Tech Research T3](https://globaltechresearch.substack.com/p/klac-vs-lasertec-vs-onto-vs-camt) + [BigGo T2](https://finance.biggo.com/news/US_KLAC_2026-04-29):
+- **HBM4 3D metrology reference tool across all major HBM manufacturers** — sets industry standard for 3D microbump measurement (clarified 2026-06-04 PM: this applies specifically to 3D metrology role, NOT 2D defect inspection)
+- **Hawk ninth-gen white light triangulation** — superior for different bump types vs laser-based KLA/Onto; "KLA admits it can't match" per Global Tech Research
 - **3D metrology + 2D inspection in single platform** — Hawk + Eagle G5 = 30% of 2025 revenue, expected to DOUBLE in 2026
 - **CoWoS-L wafer inspection** — TSMC capacity expanding 33K→130K wpm 2025-2026 per `wiki/advanced-packaging-primer.md`
 - **HBM5 roadmap** — 1000-layer NAND + HBM5 transition extends inspection complexity
+
+**IMPORTANT CLARIFICATION (added 2026-06-04 PM):** "HBM4 reference tool" applies to the **3D microbump metrology role**. **2D defect inspection is a separate role** within HBM lines where Onto Innovation's Dragonfly G5 has just won displacement at one leading HBM mfg per Onto IR Q1 2026. CAMT dominates 3D; ONTO is gaining 2D at the same customers.
+
+## Competitive landscape (added 2026-06-04 PM — fills prior gap in DEEP-DIG v2)
+
+User-caught gap: original DEEP-DIG named ONTO and KLA in cross-stack table without segment-by-segment competitive analysis. Self-correction below.
+
+| Competitor | Spec focus | HBM/adv-pkg position | Tech approach | Key advantage | Key weakness | 2026 revenue |
+|---|---|---|---|---|---|---|
+| **CAMT (Camtek)** — 0% held | 3D microbump metrology + 2D inspection | HBM4 reference for 3D across all major mfgs | Hawk: white light triangulation 9th gen | Low-cost; "KLA can't match" 3D microbump precision | Smaller R&D budget; Israeli geo tail | ~$580-620M (my model) |
+| **KLAC (KLA Corp)** — 0% held | Broad semicap process control | **~60% of adv pkg process control** | Multi-modal: X-ray + optical + e-beam | Scale; +14pp WLP share gained 2025 | Can't match 3D microbump precision | $635M (2025) → **$1B target FY26 AP** (+57% YoY) per BigGo T2 |
+| **ONTO (Onto Innovation)** — 0% held | Inspection + metrology adv pkg | **Dragonfly G5 DISPLACED CAMT 2D inspection at one leading HBM mfg** per [Onto IR T1](https://investors.ontoinnovation.com/news/news-details/2026/Onto-Innovation-Launches-Dragonfly-G5-Inspection-System/default.aspx) | Dragonfly G5 + 3Di + sub-surface defect inspection; 150nm sensitivity | Raised FY26 guide to >$1.3B revenue, >30% OP margin EOY | Newer in HBM 3D metrology | Q1 2026 $291.9M (+9.5% YoY); FY26 raised >$1.3B |
+| **NVMI (Nova)** — 0% held; **NEW research candidate** | Dimensional metrology, films, materials, chemical | Same Israeli geo + adv DRAM/GAA exposure | Nova Metrion platform | $880M rev FY26, 57.6% GM, **$1.6B war chest** can out-invest CAMT in R&D per Koalagains T3 | Less entrenched in 2D/3D packaging inspection | $880M FY26 |
+| **AMAT, Bruker, ZEISS, Tokyo Electron** | Adjacent segments | Smaller HBM-specific exposure | Various | Established customer relationships | Not focused players in HBM inspection | varies |
+
+## Parallel hypotheses on competitive trajectory (my model)
+
+| H | Description | P |
+|---|---|---|
+| **H1 Segmented co-existence** | CAMT retains 3D metrology moat; ONTO wins 2D; KLA dominates broader; market grows 30%+ fast enough for all 3 | 40% |
+| **H2 Onto displacement broadens** | Dragonfly G5 displacement extends to 2-3 more HBM mfgs by 2027 → CAMT 2D share erodes | 30% |
+| **H3 Hawk upgrade reclaims** | Throughput upgrade reclaims 2D share; CAMT pulls ahead in unified 3D+2D platform | 20% |
+| **H4 Industry consolidation** | KLA acquires CAMT (Israeli tech tuck-in) OR adjacent M&A | 10% |
+
+## Bear case mechanism upgrade (Onto-specific)
+
+Per [Onto IR T1](https://investors.ontoinnovation.com/news/news-details/2026/Onto-Innovation-Launches-Dragonfly-G5-Inspection-System/default.aspx): "A leading HBM manufacturer's successful evaluations resulted in order commitments for double-digit numbers of Dragonfly G5 systems to support the majority of their 2D inspection needs and a similar number of orders for 3Di technology, displacing the previously established tool of record."
+
+Bear-case mechanism upgrade: replaces vague "Onto closes competitive gap" with specific "Dragonfly G5 displacement broadens to 2-3 more HBM mfgs through 2027" → CAMT 2D inspection share erodes → revenue growth decelerates +20-25% YoY (FY26) → +10-15% YoY (FY27). Bear case P=25% unchanged in magnitude, mechanism now concrete.
+
+## Adjacent research candidate: NVMI (Nova) — Israeli twin
+
+Worth flagging as next-session candidate for adjacent play:
+- $880M FY26 revenue (vs CAMT $580-620M)
+- 57.6% gross margin (vs CAMT ~50%)
+- $1.6B war chest = R&D out-investment capacity
+- Just won GAA + advanced DRAM platform adoption Jan 2026
+- Same Israeli geo tail risk as Camtek (not a hedge)
+- Different niche (dimensional metrology, films, chemical) vs CAMT (packaging inspection)
 
 ## Order book + bookings
 
