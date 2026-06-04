@@ -77,6 +77,46 @@ All 4 sources within memory-and-storage segment. Promotes to SEGMENTED-TRIANGULA
 - **Convex hull:** P(LPDDR5X binds AT ALL in 6-18mo) ≈ 85% (my model); P(it's THE dominant bottleneck) ≈ 70% (my model)
 - **Falsification trigger:** HYNIX/Micron Q2/Q3 2026 prints showing LPDDR5X ASP flat or down YoY = thesis broken
 
+## Bypass routes (per Time-to-X framework + Principle #9 + Critical Rule #9)
+
+Consensus suppliers (HYNIX/Micron/Samsung) already named. The edge is in what consumers do when consensus solution fails — bypass-route names.
+
+| Bypass route | Mechanism | Beneficiary | TTQ (Time-to-Qualification) |
+|---|---|---|---|
+| **HBF (High Bandwidth Flash)** | NAND-as-fast-memory substitution for inference workloads | **Kioxia (P1 watch June 14-18)**, SNDK (5.2% held) | 12-18 months; VLSI Symposium June 14-18 is partial proof point |
+| **Hybrid bonding / 3D-stacked DRAM** | Vertical stacking workaround to per-wafer scarcity | **BESI** (Netherlands, Degiro-accessible) — NEW candidate; ASMPT | 18-30 months |
+| **Compute-in-memory** | Eliminate LPDDR ↔ NPU data movement entirely | Rain AI, Mythic, Untether AI (mostly private — not investable) | 36+ months |
+| **Unified memory architecture** | Apple-style coherent pool reduces effective LPDDR per workload | Apple internal; ARM royalty (10.5% held) | LIVE TODAY |
+| **INT4/INT2 quantization** | Software workaround shrinks model memory footprint 4-8× | Not direct equity; helps now | LIVE TODAY |
+| **On-package SRAM scaling** | More cache in NPU silicon | TSMC + NPU designers; Cadence/Synopsys | LIVE TODAY |
+| **LPDDR5T (Samsung tier)** | Premium tier expansion | Samsung (not directly investable for user) | LIVE TODAY |
+| **CXMT (Chinese DRAM)** | Alternative supplier for non-export-controlled markets | CXMT (not investable per user filter) | LIVE TODAY in China |
+| **Edge-cloud tiering** | Small on device, large in cloud (regresses to cloud) | NVDA, AVGO TPU, hyperscalers | LIVE TODAY |
+
+## Most investable bypass-route names
+
+**1. Kioxia (P1 watch June 14-18 VLSI Symposium) — STRONGEST bypass play**
+- HBF positions Kioxia as the LPDDR5X bypass beneficiary ON TOP of pure NAND structural play
+- VLSI Symposium joint Kioxia/SanDisk MSA-CBA paper validates HBF architecture
+- DOUBLE-WIN: benefits if (a) NAND supply tight (direct thesis) + (b) LPDDR5X tight forces HBF substitution (bypass thesis)
+
+**2. BESI — hybrid bonding equipment for 3D memory stacking (NEW candidate)**
+- Less crowded than KLA/Onto in inspection layer
+- Hybrid bonding qualification path for 3D DRAM stacking (HBM-style for consumer DRAM)
+- Investability: Euronext Amsterdam (Degiro accessible — confirmed)
+- Not currently held; new thesis build needed
+
+**3. SNDK (5.2% held) — gains additional bypass-route thesis support**
+- HBF JV with Kioxia means SNDK is dual-positioned (NAND direct + HBF bypass)
+- Existing 5.2% holding already captures partial bypass exposure
+
+## Updated N-th order cascade with bypass-route layer (my model)
+
+- 1st order (P>80%): LPDDR5X ASP rises 50-100% over 12-18mo
+- 2nd order (P~60%): Consensus winners (HYNIX, Micron, Samsung) benefit on ASP + volume
+- 3rd order (P~40%): **BYPASS-ROUTE consumers turn to Kioxia HBF (substitution), BESI hybrid bonding (vertical scaling), INT4 quantization (software workaround)** — Kioxia HBF validated at VLSI Jun 14-18 becomes de facto bypass for premium-tier inference
+- 4th order (P~20%): Compute-in-memory architectures gain investment; 3D-stacked consumer DRAM emerges 2028 as durable bypass
+
 ## Portfolio implication
 
 **Current holdings positioned well for LPDDR5X bottleneck migration:**
