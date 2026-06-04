@@ -131,6 +131,45 @@ The CALL-COMMENTARY-LEVEL variables matter more than headline beat magnitude at 
 
 ---
 
+## Principle #37 candidate — Multi-Variable Contextualized Reasoning Chain (MVCRC)
+
+**Origin:** 2026-06-04 PM user articulation in SYNA DEEP-DIG context: *"Don't read the expectation as a single data point. Ideally, that will feed one into another... using them in isolation does not usually yield the best reasoning chain... systems thinking is what you can excel at if you know how the system looks and what you need to do to keep the system up to date. So every single part of the system can feed into one another to then build a better, bigger holistic view, and then you go from the macro to the micro."*
+
+**Pattern:** Default analyst sequence starts with expectations FIRST (consensus → adjust → conclusion). MVCRC inverts the sequence — expectations are the LAST input. Macro context, company position, competition, events, trajectory, beneficiary classification, obviousness check all FEED INTO each other before expectations layer is applied.
+
+**The 9-step MVCRC sequence:**
+
+| Step | Variable | What it feeds into |
+|---|---|---|
+| 1 | Macro / world vision (AI epoch, scenarios, current bottleneck) | Sets regime context for everything downstream |
+| 2 | Company position (layer in stack, customer base, segment mix) | Anchors candidate evaluation |
+| 3 | Competitive landscape (verified comp set, moat, share dynamics) | Filters structurally weak names |
+| 4 | Event delta (what changed since last earnings — cohort prints, signals, news) | Updates prior since last fundamental check |
+| 5 | AI trajectory mapping (where the puck is going) | Tests forward-relevance |
+| 6 | Beneficiary classification (primary / secondary / indirect / casualty) | Translates exposure to magnitude |
+| 7 | Obviousness check (is consensus already there? structural rerating room?) | Tests asymmetric edge vs consensus |
+| 8 | Expectations overlay (analyst consensus + sell-side commentary — LAST input) | Anchors stock-reaction prediction (NOT fundamentals) |
+| 9 | Probabilistic conclusion (guide direction, beat/miss probability, magnitude band) | Output: actionable PREDICT |
+
+**Key principle:** Each variable feeds into the next; using in isolation produces weak reasoning chain. Direction: macro → micro WITH feedback between variables. LLM-native advantage = hold all variables simultaneously, cross-check, update.
+
+**Integrates with existing framework:**
+- L1 (never start with sell-side and adjust) — formalized at step 8 (expectations last)
+- Principle #2 (N-th order > 1st) — built into steps 4-6 (cascade through events → trajectory → beneficiary)
+- Principle #29 (segment-classify before triangulating) — applied at step 3 (competitive)
+- L22 (beat-analyst-consensus test) — applied at step 8 against consensus from step 7
+- L23 (market-cap-inverse reaction asymmetry) — applied at step 9 conclusion
+
+**Forward validation cases:**
+- SYNA Q4 FY26 PREDICT (Aug 2026) — N=1 forward application
+- NVDA Q2 FY27 PREDICT (Aug 2026) — N=2 forward application
+
+**Falsification trigger:** If MVCRC-derived PREDICTs systematically produce HIGHER error rates than expectations-first PREDICTs over N=4+ applications, MVCRC framework adds overhead without analytical benefit → retire.
+
+**Re-eval trigger:** Each MVCRC-applied PREDICT + monthly codification audit 2026-06-24.
+
+---
+
 ## L14 FIRST FALSIFICATION (added 2026-06-04 from AVGO Q2 FY26 GRADE)
 
 L14 codified at N=2 (NVDA + HPE): "Stage 3-4 + CATEGORY EVENT → +25-40% T+24h."
