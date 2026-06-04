@@ -10,6 +10,26 @@ CloudFlare Radar (T1 primary): bot/agentic traffic = **57.5%** of HTML requests 
 
 **Thesis implication:** ServiceNow's Knowledge 2026 governance partnership thesis (NOW as governance layer above Scout) gets bottoms-up validation. 57.5% of HTML traffic = automated = enterprise demand for agentic workflow governance + observability + audit trails skyrockets. NOW's positioning as governance platform for agentic workflows is structurally validated.
 
+## 2026-06-04 PM (LATER) — Anthropic T1 validation of agentic governance architecture
+
+Per `research/signals/cross-source-log/2026-06-04-anthropic-recursive-self-improvement-T1-verified.md`:
+
+[Anthropic Institute "When AI builds itself" T1](https://www.anthropic.com/institute/recursive-self-improvement) — Marina Favaro + Jack Clark publication. Key signal-load for NOW thesis:
+- ">80% of Anthropic merged code authored by Claude (May 2026)" — production-grade AI-authored code requires production-grade governance
+- "Pyramid of agents per employee" architecture description — EXACT value-prop NOW productizes at enterprise scale
+- "Human review becoming bottleneck" (Amdahl's law signature) — governance/workflow management is the unblocking layer
+- "100-person company doing work of 10,000- or 100,000-person organizations" — enterprise architecture mandate
+
+**This is T1 PRIMARY SOURCE validation from the most credible possible source — Anthropic itself describing the architecture that NOW productizes.** No more credible signal for the NOW thesis exists.
+
+Combined with same-day alt-data validation cluster (Gartner 6% Copilot Studio production rate, LinkedIn NOW demand>supply, FinOps 98% adoption, IDC G1000 30% AI cost overrun by 2027), NOW thesis is now validated by:
+- T1 from the AI lab itself (Anthropic)
+- T2 from independent consultancies (Gartner, IDC)
+- T2 from labor-market signals (LinkedIn)
+- T2 from industry surveys (FinOps Foundation)
+
+**Position implication:** **ADD recommended** — current 6.24% is UNDER-WEIGHTED vs 10-13% Core target; T1 validation reinforces conviction; sizing gap is largest in portfolio after this verification cluster. Recommended ADD €5-8K from €200K cash buffer.
+
 **Position implication:** HOLD at 12.0% (at target 10-13%). Cloudflare crossover elevates conviction in Core thesis.
 
 **Prior last updated:** 2026-05-21
