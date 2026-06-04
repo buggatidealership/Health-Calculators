@@ -15,10 +15,14 @@
 - **Deployment cadence becomes load-bearing decision** — 8-week horizon, regime-confirmation-gated deployments rather than calendar-based
 
 **Open questions for user (not blocking):**
-- Monthly burn rate (€/month living expenses)?
-- Time horizon for no-job period (sabbatical / FIRE / career transition / job search)?
-- Tax jurisdiction (Germany/Netherlands/Spain — capital gains regime differs materially)?
-- Current EUR cash interest rate venue (T-bills / Trade Republic / N26 Flex / DEGIRO)?
+- Monthly burn rate (€/month living expenses)? **ANSWERED 2026-06-04 PM: €5K/month = €60K/year**
+- Time horizon for no-job period (sabbatical / FIRE / career transition / job search)? **ANSWERED 2026-06-04 PM: INDEFINITE — pursuing investor-as-career**
+- Tax jurisdiction (Germany/Netherlands/Spain — capital gains regime differs materially)? **ANSWERED 2026-06-04 PM: Germany (Abgeltungsteuer 25% + Soli 5.5% = 26.375% flat)**
+- Current EUR cash interest rate venue (T-bills / Trade Republic / N26 Flex / DEGIRO)? **ANSWERED 2026-06-04 PM: NONE — €200K sitting at 0%**
+
+**Full FIRE math + deployment framework in `portfolio/constraints.md` (added 2026-06-04 PM).**
+
+**Highest-priority no-regret action (my model recommendation):** move €200K cash from 0% to 3-3.5% income product (Trade Republic / T-bill ETF / German MMF) within 2 weeks. Risk-free €6-7K/yr generated. Covers ~10% of annual burn.
 
 ## ⚠️ CHANGES SINCE 2026-06-01
 
