@@ -15,7 +15,20 @@
 
 ## Open
 
-### P2 — High priority new (added 2026-06-04 PM — architecture-of-tomorrow research)
+### P2 — High priority new (added 2026-06-04 PM — bypass-route + architecture-of-tomorrow research)
+
+- [ ] **P2 / research / 2026-06-05** [INDP, AF, POS, BOT] — Deep dive: BE Semiconductor Industries (BESI) — hybrid bonding equipment for 3D-stacked DRAM bypass route
+  - Origin: 2026-06-04 PM BOTTLENECK-FORECAST surfaced BESI as bypass-route beneficiary when LPDDR5X bottleneck binds. Hybrid bonding is the TTQ-18-30mo qualification path for 3D DRAM stacking (HBM-style for consumer DRAM). Less crowded than KLA/Onto in inspection layer.
+  - Investability: Euronext Amsterdam BESI ticker — Degiro accessible (confirmed)
+  - Scope: full thesis build — hybrid bonding moat vs ASMPT competitor; HBM4 + HBM5 production wins; consumer DRAM 3D-stacking opportunity timing; analyst consensus; post-2026 guidance accelerators; FY27 framework
+  - Key bypass-route question: when LPDDR5X bottleneck forces 3D-stacking workaround at memory mfg level, does BESI capture the equipment spend?
+  - Linked: `signals/cross-source-log/2026-06-04-next-bottleneck-lpddr5x-mobile-dram-forecast.md` bypass-route section; `wiki/advanced-packaging-primer.md`
+
+- [ ] **P2 / research / 2026-06-30** [INDP, AF, POS] — NVDA entry-trigger watch (post Apple-Blackwell + Rubin BOM optimization)
+  - Origin: 2026-06-04 PM Apple-Blackwell cascade surfaced NVDA as REINFORCED thesis (marquee customer Apple confirms inference dominance). Currently 0% held per holdings.md. Need entry framework given L21 sector regime + €200K cash deployment cadence.
+  - Scope: define entry triggers + sizing (recommended 4-6% if entered, per portfolio target band); monitor for L21 regime break OR macro pullback >10% from current
+  - Falsifiers: NVDA Q2 FY27 (August) negative reaction despite BEAT + macro-neutral environment = L21 regime more severe; do not enter
+  - Linked: `companies/NVDA/thesis.md` (updated 2026-06-04 PM with Apple-Blackwell signal); `portfolio/constraints.md` (FIRE math + cash deployment); `predictions/lessons.md` L21
 
 - [ ] **P2 / research / 2026-06-05** [INDP, AF, POS] — Deep dive: Nova Measuring (NVMI) — Israeli twin to Camtek
   - Origin: 2026-06-04 PM Camtek DEEP-DIG v2.1 surfaced NVMI as adjacent Israeli metrology pure-play; $880M FY26 revenue, 57.6% gross margin, $1.6B war chest per Koalagains T3 (already cited in `companies/CAMT/thesis.md`)
