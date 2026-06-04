@@ -12,6 +12,10 @@ Per `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alpha
 
 Per `predictions/2026-06-04-AVGO-Q2FY26-GRADE.md`: AVGO Q3 AI semi $16.0B + Anthropic 5GW from 2027 + multi-gen Google TPU = additional wafer pull (TPU + ASIC + AI networking switches). Net read: REINFORCED. No tier/sizing change.
 
+### Apple-Blackwell back-reference (added 2026-06-04 PM)
+
+Per `research/signals/cross-source-log/2026-06-04-apple-blackwell-siri-rubin-lpddr-cut-verification.md`: Apple Siri on Blackwell = additional NVDA GPU volume = wafer pull at TSMC = SUMCO downstream beneficiary. Net read: amplification, no thesis change.
+
 ---
 
 **Prior last updated:** 2026-05-29 (position acquired today — €9K initial entry)

@@ -12,6 +12,10 @@ Per `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alpha
 
 Per `predictions/2026-06-04-AVGO-Q2FY26-GRADE.md`: AVGO Q3 AI semi guide $16.0B (+200% YoY) + Anthropic 5GW from 2027 + multi-gen Google TPU = direct PCIe retimer pull (TPU rack-scale needs retimers; Anthropic 5GW means thousands of TPU racks). ALAB primary scale-up fabric supplier for AVGO custom silicon. Net read: REINFORCED. No tier/sizing change.
 
+### Apple-Blackwell read-through (added 2026-06-04 PM)
+
+Per `research/signals/cross-source-log/2026-06-04-apple-blackwell-siri-rubin-lpddr-cut-verification.md`: Apple Siri inference moves to NVDA Blackwell B200 via Google Cloud. Blackwell rack-scale (GB200 NVL72) consumes PCIe retimers — ALAB primary supplier. Marquee customer expansion of Blackwell infrastructure = additional retimer pull beyond hyperscaler-internal demand. **Position implication:** HOLD — Apple as marquee Blackwell customer reinforces retimer demand thesis; no sizing change.
+
 ---
 
 **Prior last updated:** 2026-05-21

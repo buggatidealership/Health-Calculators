@@ -72,6 +72,10 @@ Per `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alpha
 
 Per `predictions/2026-06-04-AVGO-Q2FY26-GRADE.md`: AVGO Q3 AI semi guide $16.0B (+200% YoY) + Anthropic 5GW from 2027 + multi-gen Google TPU agreement = additional MLCC pull on custom silicon boards (TPU + AI networking switches). MURATA's MLCC content per AI server-board is 10-30% higher than general-purpose server (my model). Net read: REINFORCED. No tier/sizing change.
 
+### Apple-Blackwell back-reference (added 2026-06-04 PM)
+
+Per `research/signals/cross-source-log/2026-06-04-apple-blackwell-siri-rubin-lpddr-cut-verification.md`: Apple Siri infrastructure expansion to Blackwell B200 = additional MLCC pull (NVDA GB300 ~30K MLCCs per unit per existing MURATA thesis context). Marquee Blackwell customer broadens MLCC demand base. Net read: amplification, no thesis change.
+
 ---
 
 **Prior last updated:** 2026-05-21

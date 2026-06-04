@@ -2,6 +2,22 @@
 
 **Last material synthesis update:** 2026-06-04 (Alphabet $85B capital raise + 2026 capex guidance up to $190B verified T1; Samsung HBM5 mockup with HPB cooling at Computex 2026 verified Korean tri-source — 2028 mass production parity with SK Hynix iHBM, not threat). Prior material update 2026-05-20.
 
+## 2026-06-04 PM — Apple-Blackwell marquee customer + Rubin LPDDR cut (synthesis-level)
+
+**Trigger:** User-shared 2 Twitter signals + 1 text data point verified 2026-06-04 PM. Full detail in `signals/cross-source-log/2026-06-04-apple-blackwell-siri-rubin-lpddr-cut-verification.md`.
+
+**Signal #1 — Apple → NVDA Blackwell via Google Cloud for Siri** (verified T2 × 3 sources): WWDC 2026 reveal June 9-13. Apple (king of vertical integration) chose 3rd-party Blackwell over own M-series silicon because Mac-chip servers were too slow for the model. Strongest inference demand signal at marquee external customer tier.
+
+**Synthesis implication:** NVDA inference dominance extends from hyperscaler-internal to consumer-AI infrastructure tier. Apple's vertical-integration concession suggests the inference compute requirement exceeds even Apple's substantial in-house silicon capacity — load-bearing for "AI inference compute is structurally under-supplied" thesis through 2027+.
+
+**Signal #2 — Rubin NVL72 SOCAMM/LPDDR cut ~55TB → ~28TB per rack** (SemiAnalysis T2, paywalled report; 2-week-old Chinese-leak directionally confirmed): NVDA BOM optimization to manage 485% memory cost surge. HBM capacity UNCHANGED; LPDDR5X capacity per rack halved. Rack cost $7.6M → $6.8M; TCO $4.16/hr/GPU → $3.90/hr/GPU.
+
+**Synthesis implication:** Confirms memory tightness thesis (good for memory suppliers ASP) but also shows NVDA actively managing BOM to protect margin and customer TCO. HYNIX HBM thesis UNAFFECTED; HYNIX LPDDR5X segment mild headwind ~5-10% FY27 revenue (my model, partially offset by ASP surge $8/GB → $13/GB possible).
+
+**Cross-portfolio implication:** Net mildly positive across cohort. NVDA, HYNIX, ALAB, MURATA, SUMCO, SNDK all read positively from Apple-Blackwell signal. Only AVGO has mild competitive read (Apple bypassed TPU at GPU layer) but AVGO TPU thesis intact (Google internal + Anthropic 5GW unchanged).
+
+---
+
 ## 2026-06-04 — Macro confounder context (added per AVGO Q2 GRADE)
 
 **Macro backdrop for any T+24h stock-reaction grade in current period:**

@@ -1,6 +1,25 @@
 # NVDA — Thesis
 
-**Last updated:** 2026-05-20
+**Last updated:** 2026-06-04 PM (Apple-Blackwell marquee customer confirmation + Rubin LPDDR cut BOM optimization)
+
+## 2026-06-04 PM — Apple-Blackwell marquee customer + Rubin LPDDR BOM optimization
+
+Per `research/signals/cross-source-log/2026-06-04-apple-blackwell-siri-rubin-lpddr-cut-verification.md`:
+
+**Apple → NVDA Blackwell B200 via Google Cloud for Siri (verified T2 × 3 sources):**
+- King of vertical integration choosing 3rd-party Blackwell over own M-series silicon = strongest possible inference demand signal at marquee customer tier
+- Confirms NVDA inference dominance extends from hyperscaler-internal demand to consumer-AI infrastructure tier
+- WWDC 2026 (June 9-13) reveal expected
+
+**Rubin NVL72 LPDDR cut ~55TB → ~28TB per rack (SemiAnalysis T2 + 2-week-old Chinese-leak Item):**
+- BOM optimization to manage memory cost surge (485% memory cost rise per Tom's Hardware)
+- Lowers rack cost $7.6M → $6.8M; lowers TCO $4.16/hr/GPU → $3.90/hr/GPU
+- HBM capacity UNCHANGED — primary AI value driver intact
+- Net: gross margin protected via BOM discipline; customer TCO improved = competitive advantage for Rubin uptake
+
+**Net thesis effect:** REINFORCED — Blackwell inference demand confirmed at marquee customer; Rubin BOM optimization protects margin while improving customer economics. **Position implication:** HOLD (not currently held — 0% per holdings.md); watchlist candidate for entry on macro pullback.
+
+**Prior last updated:** 2026-05-20
 **Tier:** Core (with reservation — see scenario exposure)
 **Position target:** 8–12% of portfolio
 **Anti-fragility:** 2.5/5 — wins in S1, partial S3, loses in S2 and S4

@@ -1,6 +1,20 @@
 # Broadcom (AVGO) — Thesis
 
-**Last updated:** 2026-06-04 (Q2 FY26 print resolved — fundamental BEAT + multi-year framing FY27 AI >$100B; stock AH -3 to -13.78% buy-the-rumor-sell-the-news + macro confound; L14 framework first falsification per GRADE)
+**Last updated:** 2026-06-04 PM (Apple-Blackwell competitive context added; Q2 FY26 print resolved earlier today)
+
+## 2026-06-04 PM — Apple chose Blackwell not TPU (mild competitive context)
+
+Per `research/signals/cross-source-log/2026-06-04-apple-blackwell-siri-rubin-lpddr-cut-verification.md`:
+
+Apple's revamped Siri (WWDC 2026 reveal June 9-13) runs on NVDA Blackwell B200 via Google Cloud + Gemini for some requests — Apple bypassed both its own M-series silicon AND Google TPU at the GPU layer. Verified via 3 T2 sources.
+
+**Read for AVGO thesis:**
+- TPU competitive context: Apple-tier consumer brand chose Blackwell over TPU = signals NVDA inference dominance at marquee external customer tier
+- BUT — AVGO TPU thesis intact: Google's INTERNAL Gemini training/inference still on TPU; Anthropic 5GW (verified June 3) still committed; AVGO multi-gen Google TPU contract still in force
+- The Apple deal is Google Cloud INFRASTRUCTURE serving external customer — not Google's internal TPU consumption
+- Net: marginal competitive context — does NOT invalidate AVGO TPU thesis but indicates NVDA Blackwell is the inference default at consumer-AI tier
+
+**Position implication:** NO ACTION — not held; existing entry framework unchanged.
 
 ## 2026-06-04 Q2 FY26 print update
 

@@ -16,6 +16,24 @@
 
 AVGO Q3 AI semi guide $16.0B (+200% YoY) + Anthropic 5GW from 2027 + multi-gen Google TPU agreement = direct HBM pull confirmation. TPU consumes HBM3E + HBM4 per `wiki/custom-silicon-primer.md`. SK Hynix is primary HBM supplier to Google TPU and Anthropic-Broadcom rack-scale. **Fundamental signal: HBM demand acceleration confirmed in Q3 2026 + structural multi-year through 2027.** Stock reaction on AVGO was AH negative but for expectations-exhaustion reasons (not fundamentals) — does NOT affect HYNIX thesis.
 
+### Apple-Blackwell + Rubin LPDDR cut (added 2026-06-04 PM)
+
+Per `research/signals/cross-source-log/2026-06-04-apple-blackwell-siri-rubin-lpddr-cut-verification.md`:
+
+**Apple → NVDA Blackwell B200 via Google Cloud for Siri (verified T2 × 3 sources):**
+- HBM3E/HBM4 in Blackwell = HYNIX direct beneficiary
+- Apple as marquee Blackwell customer = strongest inference demand signal (king of vertical integration choosing 3rd-party hardware)
+- HBM thesis REINFORCED at consumer-AI tier; structural HBM moat extends to consumer + enterprise + hyperscaler concurrent demand
+
+**Rubin NVL72 SOCAMM cut ~55TB → ~28TB per rack (SemiAnalysis T2):**
+- LPDDR5X content per Rubin rack CUT IN HALF
+- 1st order (P>80%): LPDDR5X revenue per Rubin rack halved; volume headwind starting 2H 2026 / 2027 ramp
+- 2nd order (P~60%): ASP surge $8/GB → $13/GB possible per SemiAnalysis Q1 2026 model OFFSETS company-level impact
+- Net for HYNIX: MIXED — LPDDR5X volume cut per rack but ASP surge partially offsets; thesis impact MILD HEADWIND ~5-10% FY27 LPDDR5X revenue (my model estimate)
+- HBM unchanged in Rubin — primary thesis driver UNAFFECTED
+
+**Position implication:** HOLD — no size change — Apple-Blackwell HBM pull-through REINFORCES Core thesis; Rubin LPDDR cut is mild headwind to LPDDR5X segment (small % of revenue mix vs HBM dominant). Net mildly positive.
+
 
 
 ### Samsung HBM5 mockup at Computex 2026 (June 2, 2026) — VERIFIED tri-language
