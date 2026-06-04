@@ -1,6 +1,18 @@
 # Datadog (DDOG) — Thesis
 
-**Last updated:** 2026-05-21
+**Last updated:** 2026-06-04 PM (Cloudflare agentic-traffic crossover REINFORCES agentic observability TAM thesis at operating-condition level)
+
+## 2026-06-04 PM — Agentic traffic crossover empirically verified
+
+Per `research/signals/cross-source-log/2026-06-04-cloudflare-agentic-traffic-crossover-verified.md`:
+
+CloudFlare Radar verified data: **bot/agentic traffic = 57.5% of HTML requests globally** (human 42.5%) — crossover happened late April 2026, 8-12 months earlier than CloudFlare CEO Matthew Prince predicted at SXSW March 2026. AI crawlers = 22% of bot traffic. Per-task multiplier: agent hits 1000-5000× more sites than human per task.
+
+**Thesis implication:** Agentic observability TAM expansion confirmed AT OPERATING-CONDITION LEVEL (not forecast). 57.5% of HTML traffic = automated = massive observability + bot-management + agentic-workflow-monitoring demand. DDOG's agentic-workflow observability product line directly captures this trend.
+
+**Position implication:** HOLD — current 6.2% holding **REMAINS UNDER-WEIGHTED** per OS framework (target 8-12%). Cloudflare crossover signal elevates conviction; consider ADD on macro pullback as cash deployment trigger candidate.
+
+**Prior last updated:** 2026-05-21
 **Tier:** Active — held position, structurally bid harder than software-typical
 **Position target:** 8–12% (user holds ~6.8% per `research/portfolio/holdings.md` — **UNDER-WEIGHTED per OS framework**)
 **Anti-fragility:** 4/5 — wins in all scenarios except a complete AI capex pause
