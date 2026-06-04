@@ -1,117 +1,72 @@
-# Current Holdings
+# Current Holdings — CANONICAL PORTFOLIO REFERENCE
 
-**Last updated:** 2026-06-04 PM (CASH POSITION + NO-INCOME CONSTRAINT added — user disclosure 2026-06-04 PM)
+**Last updated:** 2026-06-04 PM
+**Source:** User-shared portfolio screenshot 2026-06-04 PM (Degiro mobile app)
+**Total value per screenshot:** €205,864.46 (day P/L -€2,643.69 / -1.27%)
 
-## ⚠️ MATERIAL FRAMING UPDATE 2026-06-04 PM
+## ⚠️ CANONICAL REFERENCE RULE (set by user 2026-06-04 PM)
 
-**User disclosure 2026-06-04 PM:** "I have 200k cash and roughly 200k in market. I have no other job just for context."
+> "Here is the most up to date portfolio. Remove any mention of prior ones. This should be the one every future sessions refers back to when talking about 'portfolio'. Only gets changed when I send a new screenshot."
 
-**Implications:**
-- **Total liquid net worth: ~€414K** (€214K invested + ~€200K cash)
-- **Cash allocation ~48%** of total liquid — load-bearing, not residual
-- **No salary income** — all drawdowns funded from same pool; sequence-of-returns risk elevated
-- **Cash also functions as income proxy** via EUR rates ~3-4% on T-bills / Trade Republic / N26 = ~€6-8K/year passive (my model estimate; verify with user)
-- **Concentration on AI cluster** (HYNIX + SNDK + MURATA = 26.78% of invested) = only **13.8% of total liquid** — meaningfully lower than prior framing suggested
-- **Deployment cadence becomes load-bearing decision** — 8-week horizon, regime-confirmation-gated deployments rather than calendar-based
+All prior portfolio snapshots have been removed. This file is the SOLE reference for "portfolio" in future sessions. Will only be updated when user sends a new screenshot.
 
-**Open questions for user (not blocking):**
-- Monthly burn rate (€/month living expenses)? **ANSWERED 2026-06-04 PM: €5K/month = €60K/year**
-- Time horizon for no-job period (sabbatical / FIRE / career transition / job search)? **ANSWERED 2026-06-04 PM: INDEFINITE — pursuing investor-as-career**
-- Tax jurisdiction (Germany/Netherlands/Spain — capital gains regime differs materially)? **ANSWERED 2026-06-04 PM: Germany (Abgeltungsteuer 25% + Soli 5.5% = 26.375% flat)**
-- Current EUR cash interest rate venue (T-bills / Trade Republic / N26 Flex / DEGIRO)? **ANSWERED 2026-06-04 PM: NONE — €200K sitting at 0%**
+## Positions (alphabetical per Degiro display)
 
-**Full FIRE math + deployment framework in `portfolio/constraints.md` (added 2026-06-04 PM).**
-
-**Highest-priority no-regret action (my model recommendation):** move €200K cash from 0% to 3-3.5% income product (Trade Republic / T-bill ETF / German MMF) within 2 weeks. Risk-free €6-7K/yr generated. Covers ~10% of annual burn.
-
-## ⚠️ CHANGES SINCE 2026-06-01
-
-- **AGC Inc (5201.T)** ENTERED 2026-06-02 — **100 shares** at BEP JPY 7,098 = cost basis ~€3,816 (my model). Current price JPY 7,006; position value €3,765.79 per screenshot. Within 2% recommended sizing per `companies/AGC/thesis.md`. Entry above 52w high JPY 6,959 = user adapted to post-analysis price rally rather than waiting for retracement.
-- **Hirano Tecseed (6245.T)** ENTERED 2026-06-02 — **300 shares** at BEP JPY 2,500 = cost basis ~€4,032 (my model). Current price JPY 2,506; position value €4,040.99 per screenshot. Within 1.5-2% recommended sizing per `companies/HIRANO/thesis.md`. BEP ~32% above my recommended limit-order range JPY 1,600-1,900 (my model: 2500/1900-1) — user chose to chase the post-June 1 +24.93% surge continuation rather than wait for limit fills.
-
-## Account totals — consolidated across platforms (2026-06-04 PM update)
-
-| Platform | Value | Source |
-|---|---|---|
-| **Degiro** (primary, with AGC+Hirano added) | €204,062.73 | per screenshot 2026-06-02 8:26 PM |
-| **N26** (secondary) | ~€10,000 (HDS only) | per prior `portfolio/holdings.md` |
-| **INVESTED subtotal** | **~€214,063** | my model, sum |
-| **CASH** (uninvested across platforms) | **~€200,000** | user disclosure 2026-06-04 PM |
-| **TOTAL LIQUID** | **~€414,063** | my model, sum |
-| **CASH % of total liquid** | **~48.3%** | derived |
-| **INVESTED % of total liquid** | **~51.7%** | derived |
-
-Day P/L per screenshot: -€2,662.36 (-1.29%)
-
-## Positions (sorted by Degiro position value 2026-06-02)
-
-| # | Position | Ticker | Qty | BEP | Current Price | Value (EUR) | % consolidated (my model) | Sector mapping |
+| # | Position | Ticker | Qty | Price | Curr | Value | BEP | % of portfolio (my model, USD/EUR ~1.09) |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Murata Manufacturing | 6981.T | 437 | €33.29 | €56.10 | €24,515.70 | 11.45% | MLCC / Physical AI |
-| 2 | ARM Holdings | ARM | 69 | $321.80 | $408.83 | $24,215.32 | ~10.5% | CPU IP / AGI CPU |
-| 3 | SK Hynix (GDR) | HXSCL | 16 | $995.31 | €1,355.00 | €21,680.00 | 10.13% | HBM |
-| 4 | ServiceNow | NOW | 123 | $94.30 | $135.86 | $14,344.82 | ~6.2% | Agentic workflow |
-| 5 | Datadog | DDOG | 60 | $203.37 | $277.54 | $14,294.70 | ~6.2% | Observability |
-| 6 | Sandisk | SNDK | 50 | $1,099.60 | $1,760.00 | $12,086.50 | ~5.2% | NAND / AI storage |
-| 7 | T1 Energy | TE | 1,286 | €7.37 | €8.95 | €11,509.70 | 5.38% | Solar / Supply Chain Inheritance |
-| 8 | STMicroelectronics | STM | 188 | $64.08 | $69.01 | $11,137.00 | ~4.85% | Multi-vector AI |
-| 9 | Astera Labs | ALAB | 38 | $306.80 | $320.215 | $10,445.36 | ~4.55% | AI fabric silicon |
-| 10 | MongoDB | MDB | 29 | $396.48 | $403.58 | $10,046.76 | ~4.38% | Vector DB / agentic data |
-| 11 | **Harmonic Drive Systems** | HSCMY / 6324 | TBD | TBD | TBD | ~€10,000 | ~4.67% | Precision actuators (N26) |
-| 12 | Sumco Corp | 3436.T | 415 | JPY 21.69 | EUR 22.85 | €9,482.75 | 4.43% | Wafer supplier |
-| 13 | Corning | GLW | 61 | $159.03 | $176.63 | $9,248.95 | ~4.03% | Optical fiber + AI |
-| 14 | Semtech | SMTC | 50 | $154.68 | $149.625 | $6,422.03 | ~2.80% | Signal integrity |
-| 15 | Tower Semiconductor | TSEM | 21 + add | $265.00 (initial) | $252.695 | $4,555.27 + ~€2,200 add 2026-06-02 ≈ ~$6,931 (~€6,432, my model at EUR/USD ~1.08) | **~2.95% post add (my model)** | **Silicon photonics foundry — SIZED UP 2026-06-02 post Computex Day 1+2 cascade (NVDA Spectrum-X CPO + 3.2T target H2 2026)** |
-| 16 | **Hirano Tecseed** | **6245.T** | **300** | **JPY 2,500** | **JPY 2,506** | **€4,040.99** | **~1.89%** | **MLCC tape-casting equipment (NEW 2026-06-02)** |
-| 17 | **AGC Inc** | **5201.T** | **100** | **JPY 7,098** | **JPY 7,006** | **€3,765.79** | **~1.76%** | **PTFE CCL + EUV blanks (NEW 2026-06-02)** |
+| 1 | ADR on Arm Holdings PLC | ARM | 69 | $395.93 | USD | $23,509.16 | $321.79 | ~10.5% |
+| 2 | ADR on STMicroelectronics | STM | 189 | $78.53 | USD | $12,704.66 | $64.07 | ~5.7% |
+| 3 | AGC Inc | 5201.T | 100 | ¥8,117.00 | JPY | €4,366.20 | ~¥7,098 | ~2.1% |
+| 4 | Astera Labs Inc | ALAB | 38 | $363.70 | USD | $11,893.14 | (cut off in screenshot) | ~5.3% |
+| 5 | Corning Inc | GLW | 61 | $198.50 | USD | $10,419.81 | $159.03 | ~4.6% |
+| 6 | Datadog Inc Class A | DDOG | 50 | $245.90 | USD | $12,696.36 | $203.37 | ~5.7% |
+| 7 | GDR on SK Hynix Inc | HXSCL | 16 | €1,315.00 | EUR | €21,040.00 | ~€995 | ~10.2% |
+| 8 | Hirano Tecseed Co Ltd | 6245.T | 300 | ¥2,356.00 | JPY | €3,801.93 | ¥2,500 | ~1.8% |
+| 9 | MongoDB Inc Class A | MDB | 29 | $385.25 | USD | $9,614.14 | $396.48 | ~4.3% |
+| 10 | Murata Manufacturing Co Ltd | 6981.T | 437 | €52.50 | EUR | €22,942.50 | €33.28 | ~11.1% |
+| 11 | Sandisk Corp | SNDK | 8 (per screenshot — needs verify, math doesn't fully reconcile) | $1,818.50 | USD | $12,516.34 | ~$1,099 | ~5.6% |
+| 12 | Semtech Corp | SMTC | 50 | $170.48 | USD | $7,335.22 | ~$154 | ~3.3% |
+| 13 | ServiceNow Inc | NOW | 50 | (derived ~$257 from value/qty) | USD | $12,859.24 | (cut off) | ~5.7% |
+| 14 | Sumco Corp | 3436.T | 415 | €23.55 | EUR | €9,767.03 | (cut off) | ~4.7% |
+| 15 | T1 Energy Inc | TE | 1,286 | €10.40 | EUR | €13,374.40 | €7.37 | ~6.5% |
+| 16 | Tower Semiconductor Ltd | TSEM | 31 | $265.53 | USD | $7,083.45 | $266.46 | ~3.2% |
 
-**Sum check (Degiro only)**: ~€204,063 per screenshot ✓
+## Reconciliation notes (flagged for user verification)
 
-## Sizing verification — AGC + Hirano (within recommendation)
+1. **Total per screenshot top:** €205,864.46
+2. **Sum of visible rows (my model, ~1.09 USD/EUR):** ~€185-195K (depending on FX rate assumption) — leaves ~€10-20K gap
+3. **Likely explanation:** Screenshot may be cut off at bottom (Tower Semiconductor is last visible row before nav bar); additional positions may exist below
+4. **Sandisk row anomaly:** Qty 8 × Price $1,818.50 = $14,548 but Value column shows $12,516.34 — math doesn't reconcile. Possible explanations: (a) qty actually different than 8, (b) recent partial sell with mark-to-market discrepancy, (c) screenshot rendering artifact. **Worth confirming with user.**
+5. **HDS (Harmonic Drive Systems) not in this screenshot** — was previously logged as N26 holding ~€10K; user has not confirmed whether still held; not included in this canonical reference per "screenshot = portfolio" directive
+6. **NOW qty 50** (vs prior position size) — user may have trimmed; current sizing ~5.7% which is below Core 10-13% target
 
-| Position | Cost basis (my model) | % of consolidated (my model) | Recommendation per thesis | Variance |
-|---|---|---|---|---|
-| AGC | ~€3,816 | ~1.78% | 2% Active per `companies/AGC/thesis.md` | **Within (slightly under target)** |
-| Hirano | ~€4,032 | ~1.88% | 1.5-2% initial per `companies/HIRANO/thesis.md` | **Within (at upper bound of initial range)** |
+## Cluster summary (my model based on visible positions)
 
-**Verdict**: Sizing discipline CONFIRMED. Both positions within recommended bands.
-
-## Entry-price discipline note — Hirano variance
-
-| Position | My recommended entry | User actual BEP | Variance vs limit range |
-|---|---|---|---|
-| AGC | Near current ~JPY 6,300 | JPY 7,098 | ~12.7% above target (my model) |
-| Hirano | LIMIT JPY 1,600-1,900 | JPY 2,500 | **~32% above max limit (my model)** |
-
-**Implication**: Hirano position has compressed asymmetry from entry-price chase. Revised EV ~+36% over 24-36mo (my model) vs +52% at lower entry basis previously modeled. Still positive expected value but tighter risk/reward. **Not a thesis-falsifying issue** at 1.88% sizing.
-
-## Cluster summary (post AGC + Hirano)
-
-| Cluster | Names | Approx % consolidated (my model) |
+| Cluster | Names | Approx % consolidated |
 |---|---|---|
-| Physical AI / Robotics | Murata + HDS + STM (MEMS) + partial ARM | ~28% |
-| Memory / HBM / Storage | SK Hynix + Sandisk + SUMCO | ~20% |
-| Agentic Software / Data | NOW + DDOG + MDB | ~17% |
-| AI Compute IP | ARM (CPU IP majority) | ~10.5% |
-| Datacenter Optical Interconnect | ALAB + GLW + SMTC + TSEM | ~13% |
-| **PTFE/EUV materials + MLCC equipment (NEW)** | **AGC + Hirano** | **~3.6%** |
-| AI-Adjacent (weakest tier) | T1 Energy | ~5.4% |
+| Memory / HBM / Storage | HYNIX + SNDK + SUMCO | ~20.5% |
+| Physical AI / MLCC / Precision | MUR + AGC + Hirano | ~15.0% |
+| Edge AI + CPU IP | ARM + STM + partial AGC | ~18.3% |
+| AI Compute Fabric / Datacenter | ALAB + GLW + SMTC + TSEM | ~16.8% |
+| Agentic Software / Data | NOW + DDOG + MDB | ~15.7% |
+| Solar / Energy / Supply-Chain Inheritance | T1 Energy | ~6.5% |
 
-**New cluster created**: PTFE-CCL/EUV-blanks materials + MLCC tape-casting equipment cohort. Combined ~3.6% exposure to the supply-chain chokepoint thesis surfaced via 2026-06-01 cross-source-log + alt-data probability framework.
+## Cross-references to other portfolio files
 
-## Outstanding question (T1 Energy)
+- `portfolio/constraints.md` — €200K cash + no-income + €5K/mo burn + Germany Abgeltungsteuer (load-bearing framing — UNCHANGED)
+- `portfolio/changes.md` — transaction log
+- `portfolio/targets.md` — desired sizing per name
+- `companies/{TICKER}/thesis.md` — per-name thesis files
 
-**2026-06-02 USER DECISION — KEEP T1 Energy for now.** Rationale: user wants energy/clean-energy play in the portfolio; T1 Energy is the only energy-adjacent name held. Open to reconsider at later stage. **Free-up review DEFERRED — not selling at present.** ~€11,509.70 position retained.
+## Total liquid framework
 
-T1 Energy position now showing **0.00% day P/L per screenshot** at €11,509.70 vs prior -7.18% / -€835.90. Either appreciated significantly today or the day P/L resets are different.
+Per `portfolio/constraints.md` 2026-06-04 PM disclosure:
+- **Invested per this screenshot:** €205,864.46
+- **Cash uninvested:** ~€200,000 (user disclosed; moving to N26 for yields per same disclosure)
+- **Total liquid:** ~€405,864 (slightly down from prior ~€414K consolidated estimate; ~€10K HDS gap likely accounts for delta if no longer held)
 
-## Capital deployment status (2026-06-02 post TSEM size-up)
+## What I'm flagging for your next session to clarify (low-priority, non-blocking)
 
-| Capital bucket | Amount | Status |
-|---|---|---|
-| Fresh capital deployed today | €2,200 → TSEM size-up | **Deployed 2026-06-02** |
-| Fresh capital remaining | ~€10,000 | **Available — pending Computex Day 2 cascade + AVGO Jun 3 print processing** |
-| T1 Energy proceeds (deferred) | €11,509.70 | **Held in T1 — user decision 2026-06-02 to keep for energy exposure** |
-| Total deployable capital | ~€10,000 fresh | (T1 proceeds no longer available; user keeping position) |
-
-**STM kept at initial ~€10K** position per user 2026-06-02 — no size change today.
+1. Sandisk qty 8 vs price/value math discrepancy
+2. HDS (Harmonic Drive) — still held on N26 or sold?
+3. Whether screenshot has more positions below Tower Semiconductor that were cut off
