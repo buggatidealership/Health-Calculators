@@ -1,10 +1,50 @@
 # Lessons — Mandatory Pre-Read Before Any New Prediction
 
-**Last updated:** 2026-06-04 (L17-v2 refinement + L18 + L19 + L20 from AVGO Q2 FY26 GRADE 2026-06-04 — L14 framework first major falsification)
+**Last updated:** 2026-06-04 PM (L21 NEW from user-articulated sector-regime read + post-AVGO selloff context; April CPI 3.8% hot trigger + broader cohort selloff documented same day)
 
 ## TL;DR
 
 Accumulated calibration memory from graded predictions. Every PREDICT workflow MUST start by reading this file. New lessons are appended via the GRADE workflow.
+
+---
+
+## L21 (NEW candidate — origin 2026-06-04 PM user articulation + same-day market action confirmation)
+
+**Origin:** 2026-06-04 PM user articulation post-AVGO Q2 print resolution: *"the growth numbers are really good, but the expectations from the streets was, like, even higher. So that's why you can now see a lot of the AI companies coming down today... it's down double digits. After that, I assume it's just people and retail, especially, and investors were just looking for more... even higher expectations even though they printed some really good numbers."*
+
+Same-day market action confirmed sector-wide pattern per [Investing.com](https://www.investing.com/news/stock-market-news/nvidia-leads-semiconductor-selloff-after-openai-misses-user-goals-93CH-4641184) + [Seeking Alpha](https://seekingalpha.com/news/4569429-semiconductor-and-ai-software-stocks-see-red-amid-tech-stock-selloff):
+- April CPI 3.8% YoY vs 3.7% expected = killed 2026 Fed cut hopes
+- QCOM -10%, Micron -5%+, MRVL -4%, NVDA traded $221.79
+- Broad AI semi selloff, not AVGO-specific
+
+Pattern confirmed independently via [Investing.com AI valuation reality check](https://www.investing.com/analysis/ai-stocks-lose-altitude-as-earnings-reset-forces-a-valuation-reality-check-200674459) and [Motley Fool "Saaspocalypse"](https://www.fool.com/investing/2026/02/18/the-2026-software-stock-sell-off-ai-disruption-fea/): 2026 has been the "AI sector earnings reset" year — beats can't satisfy because expectations were aggressive going in.
+
+**Pattern:** When sector-wide macro news (CPI, rates, geopolitical) triggers risk-off, Stage 4 AI names with crowded sentiment default to NEGATIVE reaction on BEAT + CATEGORY. The COHORT regime overrides the idiosyncratic signal. Only surprise INPUT (corporate event, M&A, hidden disclosure) or earlier-stage names escape.
+
+**Regime-overlay framework (candidate, my model):**
+
+| Stage | Pre-print rally | Framing | Macro context | Default reaction |
+|---|---|---|---|---|
+| Stage 2-3 | any | any | any | POSITIVE on beat (room to re-rate) |
+| Stage 4 | <8% | FY raise explicit | risk-on | POSITIVE on beat |
+| Stage 4 | <8% | multi-year only | risk-on | NEUTRAL on beat |
+| Stage 4 | >10% | FY raise explicit | risk-on | NEUTRAL on beat |
+| Stage 4 | >10% | multi-year only | risk-on | NEGATIVE on beat |
+| Stage 4 | >10% | multi-year only | **risk-off** | **STRONG NEGATIVE** (AVGO Q2 case) |
+| Stage 4 | any | surprise INPUT (M&A, corporate event) | any | OVERRIDE — POSITIVE on beat |
+
+**Generalizable lesson:** For all future predictions in 2026 H2, add a sector-regime check as the FIRST modifier before applying L14:
+1. Is the sector in regime-default-NEGATIVE state? (Stage 4 + crowded + macro risk-off)
+2. Is there a regime escape condition? (Stage 2-3 OR surprise INPUT)
+3. Reaction prediction = L14 default × regime modifier
+
+**Layer failed (retrospective on AVGO Q2):** REASONING — applied L14 + L14-v2 + L19 (multi-year framing) + L20 (macro confound) AS INDEPENDENT modifiers. Actually they are SECTOR REGIME conditions that COMPOUND multiplicatively, not additively. Sector regime is the higher-level frame.
+
+**Calibration adjustment:** L14 framework is now nested inside a sector-regime check. Default base rate of POSITIVE reaction on BEAT+CATEGORY is no longer 70-80% for Stage 4 AI names — it's ~40-50% (my model) given 2026 regime. Falsifiable via Q3 FY26 earnings season (NVDA Q2 FY27 in August will be the load-bearing test).
+
+**Falsification trigger:** If NVDA Q2 FY27 (August 2026) beats expectations cleanly with FY raise + macro-neutral environment AND stock goes >+10%, L21 regime is intact. If beat + FY raise produces 0% or negative reaction, regime is more severe than modeled.
+
+**Re-eval trigger:** monthly codification audit 2026-06-24 + next Stage 4 AI earnings print (Marvell, OKLO, ANET, NVDA).
 
 ---
 

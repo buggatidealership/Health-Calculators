@@ -1003,3 +1003,37 @@ For any BEAT + CATEGORY EVENT prediction with Stage 3-4 narrative status, MANDAT
 **Falsification trigger:** If next 2 cases with >10% pre-print rally AND BEAT+CATEGORY produce POSITIVE T+24h reaction, B42 is wrong.
 
 **Meta-pattern note:** This is the FIFTH bias added in 8 days (B38 → B39 → B40 → B41 → B42). Codification velocity continues high. Monthly audit 2026-06-24 critical.
+
+---
+
+### B43 — Regime-blindness bias (CANDIDATE — N=1 origin 2026-06-04 PM)
+
+**Origin:** AVGO Q2 FY26 GRADE 2026-06-04 + user-articulated regime read same day + same-day broader AI semi selloff confirmation (April CPI 3.8% hot, QCOM -10%, Micron -5%+, MRVL -4% per Investing.com + Seeking Alpha).
+
+**Pattern:** Cohort calibration framework treats individual earnings prints as INDEPENDENT events. This misses that SECTOR REGIME can flip the BASE rate of reaction direction. The 2026 AI sector has been in "expectations overshoot" mode for months per Motley Fool "Saaspocalypse" + Investing.com valuation reset analysis. Default base rate of positive reaction on BEAT+CATEGORY for Stage 4 names has shifted from ~70-80% (historical) to ~40-50% (my model).
+
+**Anti-pattern manifestation:** Applying L14 (Stage 3-4 + CATEGORY EVENT → +25-40%) at its codified base rate when the regime has already shifted the base rate. L14 was codified N=2 on NVDA Q1 FY27 (May 20) + HPE Q2 FY26 (June 1) — both during macro-relatively-neutral periods. AVGO Q2 (June 3) hit during macro risk-off + hot CPI environment = first regime-shifted application.
+
+**Correction (candidate — pending validation):**
+For any PREDICT workflow on a Stage 3-4 AI name, FIRST check sector-regime state:
+1. Sector ETF (SOXX, SMH, IGV) intraday trend over preceding 5 days
+2. VIX level + 5-day delta
+3. Recent macro releases (CPI, Fed minutes, employment, geopolitical)
+4. Recent T+24h reactions of cohort names to BEAT prints
+
+If regime = expectations-overshoot/risk-off → discount L14 base rate by 30-50%.
+If regime = re-rating/risk-on → L14 applies at codified rate.
+
+**Distinction from related biases:**
+- B23 (sell-side aggregation drift): operates at forecast STEP. B43 operates at REGIME STEP — separately from how forecasts aggregate
+- B42 (expectations-exhaustion): operates at PRE-PRINT RALLY level. B43 operates at SECTOR-WIDE BASE RATE level
+- B28 (cyclical-vs-structural at sell-side): operates at SELL-SIDE classification. B43 operates at MARKET CLASSIFICATION
+- B40 (temporal freshness): operates at SIGNAL CURRENCY. B43 operates at REGIME PHASE
+
+**Hook enforcement candidate:** Future Stop hook could fire on Stage 3-4 PREDICT WITHOUT sector-regime check.
+
+**Detectability (per principle #32):** N=2+ confirmation pattern would justify promotion. AVGO Q2 FY26 is N=1; awaiting next BEAT+CATEGORY in macro risk-off period for N=2 validation. NVDA Q2 FY27 (August 2026) is the load-bearing test.
+
+**Falsification trigger:** If NVDA Q2 FY27 + 1 more Stage 4 BEAT+CATEGORY both produce POSITIVE reactions despite macro risk-off, B43 is wrong / regime hypothesis falsified.
+
+**Meta-pattern note:** This is the SIXTH bias added in 8 days (B38 → B39 → B40 → B41 → B42 → B43). Codification velocity at extreme high. Monthly audit 2026-06-24 critical — if velocity sustains, may indicate genuine regime transition rather than over-codification.
