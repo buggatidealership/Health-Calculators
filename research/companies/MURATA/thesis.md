@@ -1,6 +1,66 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-06-04 (Alphabet $85B + Gemma 4 12B edge-AI back-reference; no thesis change)
+**Last updated:** 2026-06-04 PM (Beat-analyst-consensus framework applied; Q1 FY27 print as L21 falsification test; HOLD decision logged)
+
+## 2026-06-04 PM — Beat-analyst-consensus test (user-articulated framework applied)
+
+User-articulated framework (2026-06-04 PM): "If the tailwind is already reflected in financials/guidance → trim. If the tailwind has NOT yet translated to financials → company can still beat expectations → hold."
+
+Refined by me: the truer test is BEAT ANALYST CONSENSUS (not BEAT own guide), because the stock has already absorbed analysts' uplift above guide.
+
+### The bar Murata must clear in Q1 FY27 print (late July / early August 2026)
+
+| Layer | Number | Source |
+|---|---|---|
+| Murata FY27 OP guide | ¥380B (+35% YoY) | Murata IR + Kabutan via [Kabutan](https://kabutan.jp/news/marketnews/?b=n202605210546) |
+| Murata FY27 revenue guide | ¥1.96T (+7% YoY) | [Investing.com](https://uk.investing.com/news/earnings/murata-manufacturing-exceeds-profit-estimates-announces-share-buyback-93CH-4640883) |
+| **Analyst recurring profit consensus FY27** | **¥422.378B** | [IFIS via Yahoo Japan T2](https://finance.yahoo.co.jp/news/detail/10e5f520e01d06f1812abe10080abcae94762a64) |
+| **Consensus uplift above own guide** | **+8.3%** | derived |
+| Net profit consensus (QUICK) | ¥299.1B vs guide ¥295B | [Investing.com](https://www.investing.com/equities/murata-mfg-co-consensus-estimates) |
+| Net profit consensus (IBES) | ¥307.3B vs guide ¥295B | Investing.com |
+| Average analyst PT | ¥5,691 vs spot ¥4,146 | Investing.com |
+| Japanese major broker PT raise | ¥6,000 | IFIS |
+| US major broker PT raise | ¥6,200 | IFIS |
+
+Analyst-PT framing note: PT is ~37% above spot — this is the "analysts catching up to structural rerating" case per B28, not the "above PT caution" case. MLCC supercycle to 2030 per Goldman supports.
+
+### Post-guidance accelerators (NOT in either guide or consensus)
+
+| Accelerator | Date | Magnitude (my model — estimate) |
+|---|---|---|
+| Anthropic 5GW TPU from 2027 | June 3 2026 AVGO call | ¥12-200B Murata revenue over 2027-2030 ramp |
+| AVGO Q3 AI semi $16B +200% YoY | June 3 2026 | ~¥10-20B FY27 lift (my model) |
+| Gemma 4 12B 16GB laptop deployable | June 3 2026 | Edge AI MLCC density; 2027+ story not Q1 FY27 mover |
+| Goldman "pricing power exceeds expectations" | June 2026 | Partially in PT raises, not in consensus EPS |
+| MLCC cycle extends 2030 vs prior 2028 | Goldman 2026 | Duration extension; multiple expansion |
+
+### Parallel hypotheses on Q1 FY27 print (my model)
+
+- H1 (P=55%) Murata BEATS consensus — accelerators translate to ¥15-30B above consensus FY27 trajectory; stock +5-15%
+- H2 (P=30%) Murata MEETS consensus — accelerators partially translate; consensus already absorbed via PT raises; stock 0% to -5%
+- H3 (P=10%) Murata MISSES — FX/yen/capacity execution drag; regime amplifies; stock -10 to -20%
+- H4 (P=5%) Macro/Iran deal dominates — Iran ceasefire signed; Murata rallies on regime relief regardless
+
+### Expected value calculation
+
+EV ≈ (55% × +10%) + (30% × -2%) + (10% × -15%) + (5% × +10%) = +3.9% over 6-8 weeks (my model). Tight positive.
+
+### Decision: HOLD at 11.45% — no trim
+
+Rationale: Tight EV (+~4%) does not justify breaking the 6-24mo Core thesis for a 6-8 week tactical trim. Analyst bar (+8.3% above guide) already absorbs ~half the post-guidance accelerator upside. The remaining gap is meaningful but not asymmetric enough for trim conviction.
+
+### Falsification windows (when to revisit)
+
+1. **Q1 FY27 print (late July / early August 2026)** — if Murata BEATS consensus and stock STILL drops, L21 regime is dominant for non-Western names too → trim post-print
+2. **NVDA Q2 FY27 print (August 2026)** — load-bearing L21 regime test for AI cohort
+3. **Iran deal binary (next 2-6 weeks)** — if signed, macro lifts and Murata likely benefits regardless
+4. **Interim Japanese monthly MLCC channel checks** — if pricing power materializes faster than expected, P(beat) revises up → potential ADD candidate
+
+**Position implication:** HOLD — 11.45% holding maintained — beat-analyst-consensus EV ~+4% over 6-8 weeks is tight positive; trim would break Core thesis on weak signal.
+
+---
+
+**Prior last updated:** 2026-06-04 (Alphabet $85B + Gemma 4 12B edge-AI back-reference; no thesis change)
 
 ## 2026-06-04 back-reference
 

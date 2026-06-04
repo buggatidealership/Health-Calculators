@@ -48,6 +48,41 @@ Pattern confirmed independently via [Investing.com AI valuation reality check](h
 
 ---
 
+## L22 (NEW candidate — origin 2026-06-04 PM user articulation + Murata test case)
+
+**Origin:** 2026-06-04 PM user articulation in response to my anchored-on-rally trim recommendation: *"If I would be capable, I would use alternative data sources, direct data sources to... look at the previous earnings, and then map out the previous earnings already reflect the tailwind that Murata gets from Agentic AI and the increase of MLCC, and also the Edge AI tailwind that now is coming from Computex when it comes to, uh, laptops being AI CPU native. And if that is the case, if it's already reflecting, then, of course, I think it's worthwhile trimming. If the reflection hasn't really transitioned or translated into financials yet, as in, for example, their price increase, that means they can still beat the expectations that investors have."*
+
+**Pattern:** Rally-based trim decisions without checking the tailwind-vs-financial-reflection gap = anti-bottoms-up (Principle #1 violation). The right test before any rally-based trim is: are the structural tailwinds already in the FINANCIALS / GUIDANCE the analysts are modeling?
+
+**Refinement on user's framework (mine):** The TRUER test is "does the company BEAT ANALYST CONSENSUS" (not "does it beat its own guide"). Reason: stock price already absorbs analysts' uplift above company guide. Analyst consensus is the bar the market actually measures against.
+
+**Generalizable lesson:** Before any rally-based trim decision on a held name, run the 4-step test:
+1. What is the company's own guide for next print?
+2. What is analyst consensus for next print?
+3. What's the gap (analyst consensus above guide = analysts already expect beat)?
+4. What post-guidance accelerators exist that haven't been priced into consensus YET?
+
+If post-guidance accelerators add MORE upside than the analyst-consensus-above-guide gap → BEAT likely → HOLD
+If analyst consensus already absorbs the accelerators → MEET likely → tighter call, consider trim
+If post-guidance HEADWINDS exist that haven't been priced → MISS risk → trim candidate
+
+**Layer it operates at:** This is at the COMPUTATION layer of GRADE (mapping signal flow from guidance → consensus → stock). Combined with L21 (sector regime modifier) at the REASONING layer.
+
+**Calibration adjustment:** Rally magnitude alone CANNOT trigger trim. The bottoms-up tailwind-vs-consensus-gap check is the gate. Otherwise = Principle #1 violation.
+
+**Validation case N=1 (Murata 2026-06-04):**
+- Murata FY27 guide: ¥380B OP / ¥295B NP / ¥1.96T rev
+- Analyst FY27 consensus: ¥422.378B recurring profit (= +8.3% above guide)
+- Post-guidance accelerators: Anthropic 5GW + AVGO Q3 $16B + Gemma 4 12B edge + Goldman pricing-power-exceeds-expectations + MLCC cycle 2030 extension
+- Gap analysis: post-guidance accelerators ADD meaningful upside beyond consensus uplift
+- Conclusion: HOLD, do NOT trim despite +69% rally from BEP
+
+**Falsification trigger:** If Q1 FY27 Murata print (late July / early August 2026) MEETS consensus exactly OR MISSES, L22 framework was over-bullish on post-guidance accelerator translation. If BEATS, L22 validated as the right test (replaces rally-magnitude as primary).
+
+**Re-eval trigger:** Q1 FY27 Murata print + monthly codification audit 2026-06-24.
+
+---
+
 ## L14 FIRST FALSIFICATION (added 2026-06-04 from AVGO Q2 FY26 GRADE)
 
 L14 codified at N=2 (NVDA + HPE): "Stage 3-4 + CATEGORY EVENT → +25-40% T+24h."
