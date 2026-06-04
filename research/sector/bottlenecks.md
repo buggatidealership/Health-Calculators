@@ -1,7 +1,23 @@
 # Bottleneck Forecast — Current, Next, Next-Next
 
-**last_review: 2026-05-20**
-**Next review due: 2026-06-20** (monthly cadence — check at session start)
+**last_review: 2026-06-04** (updated PM session — LPDDR5X / mobile DRAM promoted to 6-18mo next-binding bottleneck)
+**Next review due: 2026-07-04** (monthly cadence — check at session start)
+
+## 2026-06-04 PM update — LPDDR5X / mobile DRAM promoted to 6-18mo next-binding
+
+**Trigger:** User question on next-bottleneck migration; verification via 4-source segmented-triangulation surfaced LPDDR5X as dominant emerging bottleneck. Full BOTTLENECK-FORECAST artifact: `research/signals/cross-source-log/2026-06-04-next-bottleneck-lpddr5x-mobile-dram-forecast.md`.
+
+**Key evidence (Tom's Hardware T2 + IntuitionLabs T3 + Edge AI Vision Alliance T3 + IDC T2):**
+- "Every wafer allocated to an HBM stack for an Nvidia GPU is a wafer denied to the LPDDR5X module of a mid-range smartphone" — Tom's Hardware
+- Data centers consuming 70% of memory chips produced worldwide
+- LPDDR4X + LPDDR5X undersupplied through H2 2027
+- NPU bottleneck is memory-traffic-bound, not compute-bound
+
+**Portfolio beneficiaries (held):** HYNIX 10.13% (direct LPDDR5X), MURATA 11.45% (MLCC for NPU power delivery), SUMCO 4.43% (wafer), ARM 10.5% (NPU royalty), SNDK 5.2% (on-device storage)
+
+**No new entries required** — existing portfolio captures thesis. HOLD all.
+
+---
 
 ## TL;DR
 
