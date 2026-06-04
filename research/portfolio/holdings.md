@@ -1,20 +1,41 @@
 # Current Holdings
 
-**Last updated:** 2026-06-02 20:26 (Degiro screenshot ingested; AGC + Hirano ENTERED 2026-06-02; quantities verified)
-**Source:** Degiro snapshot 2026-06-02 (€204,062.73 portfolio incl AGC + Hirano) + N26 HDS ~€10,000 = **~€214,063 consolidated**
+**Last updated:** 2026-06-04 PM (CASH POSITION + NO-INCOME CONSTRAINT added — user disclosure 2026-06-04 PM)
+
+## ⚠️ MATERIAL FRAMING UPDATE 2026-06-04 PM
+
+**User disclosure 2026-06-04 PM:** "I have 200k cash and roughly 200k in market. I have no other job just for context."
+
+**Implications:**
+- **Total liquid net worth: ~€414K** (€214K invested + ~€200K cash)
+- **Cash allocation ~48%** of total liquid — load-bearing, not residual
+- **No salary income** — all drawdowns funded from same pool; sequence-of-returns risk elevated
+- **Cash also functions as income proxy** via EUR rates ~3-4% on T-bills / Trade Republic / N26 = ~€6-8K/year passive (my model estimate; verify with user)
+- **Concentration on AI cluster** (HYNIX + SNDK + MURATA = 26.78% of invested) = only **13.8% of total liquid** — meaningfully lower than prior framing suggested
+- **Deployment cadence becomes load-bearing decision** — 8-week horizon, regime-confirmation-gated deployments rather than calendar-based
+
+**Open questions for user (not blocking):**
+- Monthly burn rate (€/month living expenses)?
+- Time horizon for no-job period (sabbatical / FIRE / career transition / job search)?
+- Tax jurisdiction (Germany/Netherlands/Spain — capital gains regime differs materially)?
+- Current EUR cash interest rate venue (T-bills / Trade Republic / N26 Flex / DEGIRO)?
 
 ## ⚠️ CHANGES SINCE 2026-06-01
 
 - **AGC Inc (5201.T)** ENTERED 2026-06-02 — **100 shares** at BEP JPY 7,098 = cost basis ~€3,816 (my model). Current price JPY 7,006; position value €3,765.79 per screenshot. Within 2% recommended sizing per `companies/AGC/thesis.md`. Entry above 52w high JPY 6,959 = user adapted to post-analysis price rally rather than waiting for retracement.
 - **Hirano Tecseed (6245.T)** ENTERED 2026-06-02 — **300 shares** at BEP JPY 2,500 = cost basis ~€4,032 (my model). Current price JPY 2,506; position value €4,040.99 per screenshot. Within 1.5-2% recommended sizing per `companies/HIRANO/thesis.md`. BEP ~32% above my recommended limit-order range JPY 1,600-1,900 (my model: 2500/1900-1) — user chose to chase the post-June 1 +24.93% surge continuation rather than wait for limit fills.
 
-## Account totals — consolidated across platforms (2026-06-02)
+## Account totals — consolidated across platforms (2026-06-04 PM update)
 
 | Platform | Value | Source |
 |---|---|---|
 | **Degiro** (primary, with AGC+Hirano added) | €204,062.73 | per screenshot 2026-06-02 8:26 PM |
 | **N26** (secondary) | ~€10,000 (HDS only) | per prior `portfolio/holdings.md` |
-| **Total consolidated** | **~€214,063** | my model, sum |
+| **INVESTED subtotal** | **~€214,063** | my model, sum |
+| **CASH** (uninvested across platforms) | **~€200,000** | user disclosure 2026-06-04 PM |
+| **TOTAL LIQUID** | **~€414,063** | my model, sum |
+| **CASH % of total liquid** | **~48.3%** | derived |
+| **INVESTED % of total liquid** | **~51.7%** | derived |
 
 Day P/L per screenshot: -€2,662.36 (-1.29%)
 
