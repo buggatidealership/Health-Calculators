@@ -91,3 +91,43 @@ Anti-fragile themes (win in ≥3 scenarios): T1, T5, T6.
 **Anti-fragility:** likely wins in S1, S2, S3 (the AI capex story stays intact across compute-winner permutations); neutral in S4 (digestion); loses in S5 (geopolitical shock to global supply chains).
 
 **Falsifier:** TXN / NXPI / Murata announce greenfield capacity expansion (reverses Post-Traumatic Supply Disorder); Chinese analog/power semi qualifies at tier-1 hyperscalers (substitute-path matures); ASP correction >10% within 6 months (cycle proves not structural).
+
+## T8 AI FinOps + Agentic Governance (candidate, added 2026-06-04 PM)
+
+**Source:** 2026-06-04 PM user articulation of token-waste-ratio + alt-data verification cluster:
+- AI spend management at 98% enterprise adoption (up from 31% two years ago) per State of FinOps 2026 [T2](https://data.finops.org/)
+- IDC FutureScape 2026: G1000 organizations face 30% AI cost overrun by 2027
+- Some enterprises now seeing monthly AI bills "in the tens of millions" with agentic workflows running 24/7
+- Token leaderboards + token budgets becoming standard enterprise management tools
+- Only 6% of Microsoft Copilot pilots reach production deployment per Gartner — production-grade agentic governance is HARD
+- Kion June 4 launch of Anthropic Token Spend Management — agentic FinOps is a category not a feature
+- ServiceNow hiring demand exceeds supply through 2026; shift from administrators → "design, govern, run enterprise-scale workflows"
+
+**Thesis:** As tokens become scarce/expensive (Cloudflare 57.5% bot crossover, Uber capping at $1,500/employee, hyperscaler capex compounding), the load-bearing enterprise variable shifts from "is AI growing" to "is AI spend governed efficiently?" Token-waste-ratio is the new optimization metric. Companies that provide production-grade agentic workflow governance + AI FinOps tooling capture the optimization mandate.
+
+**Names that play this theme:**
+- **ServiceNow (NOW)** — held 6.24% (under-weighted vs 10-13% Core target); production-grade agentic workflow governance; 98% renewal rate; Knowledge 2026 governance partnership thesis; 6% Copilot Studio production-conversion rate validates NOW's structural moat
+- **Datadog (DDOG)** — held 6.16% (under-weighted vs 8-12% target); agentic observability TAM expansion confirmed via Cloudflare crossover
+- **MongoDB (MDB)** — held 4.67%; vector DB for agentic memory/RAG queries; mild signal
+- **Coralogix (private, $200M raise June 4 morning brief)** — observability competitor in AI agent monitoring infrastructure
+- **Kion (private, June 4 Anthropic Token Spend Management partnership)** — AI FinOps tooling layer
+- **Wiz / CrowdStrike (CRWD)** — agentic security tooling adjacent
+
+**Anti-fragility:** wins in S1, S2, S3 (token consumption scales with inference; governance demand compounds); neutral S4 (digestion); mixed S5 (regulatory may help via mandatory governance).
+
+**Falsifier:** AI cost overrun crisis resolves via cheap inference (token costs collapse 90%+ faster than agentic workflow proliferation); production-grade Microsoft Copilot Studio displaces NOW at scale (Gartner 6% rate climbs to >40% by 2027); enterprise abandons agentic governance category for in-house solutions.
+
+**Token-waste-ratio as measurable variable (my model):**
+- Industry-level: total token spend / productive-task completion (proxy: Gartner enterprise AI ROI surveys; State of FinOps adoption)
+- Company-level: per-employee AI tool spend cap (Uber $1,500/mo data point)
+- Workflow-level: tokens-per-completed-task ratios (internal LangSmith / Helicone data)
+- Optimization spend layer: $ allocated to AI FinOps tools (Coralogix, DDOG, Kion, Anthropic)
+
+**Independent alt-data validation (run 2026-06-04 PM):**
+- LinkedIn: 31,000+ NOW jobs worldwide; demand > supply
+- Gartner: only 6% Copilot Studio pilots reach production
+- FinOps: 98% AI spend management adoption
+- IDC: 30% AI cost overrun forecast G1000 by 2027
+- Hiring shift toward "design, govern, run enterprise-scale workflows"
+
+**Status: CANDIDATE → expected promotion on N=2+ further empirical validation (token-waste-ratio metrics from NOW Q2 print, DDOG print, or independent enterprise surveys).**
