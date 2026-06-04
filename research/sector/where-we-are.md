@@ -2,6 +2,22 @@
 
 **Last material synthesis update:** 2026-06-04 (Alphabet $85B capital raise + 2026 capex guidance up to $190B verified T1; Samsung HBM5 mockup with HPB cooling at Computex 2026 verified Korean tri-source — 2028 mass production parity with SK Hynix iHBM, not threat). Prior material update 2026-05-20.
 
+## 2026-06-04 PM — Cloudflare agentic-traffic crossover (T1 verified)
+
+**Trigger:** User shared SemiAnalysis-cited claim verified directly via CloudFlare Radar dashboard screenshot. Detail in `signals/cross-source-log/2026-06-04-cloudflare-agentic-traffic-crossover-verified.md`.
+
+**Headline:** Bot/agentic traffic = **57.5%** of HTML requests worldwide (human 42.5%) per CloudFlare Radar. Crossover late April 2026 — 8-12 months EARLIER than CloudFlare CEO Matthew Prince predicted at SXSW March 2026.
+
+**Per Matthew Prince:** "When a person shops for a product, they might visit five websites. An AI agent completing the same task could hit thousands." 1000-5000× multiplier per task.
+
+**Synthesis implication:** This is the BOTTOMS-UP EMPIRICAL CONFIRMATION of the inference-compute-scarcity thesis at operating-condition level — not a forecast but actual measured traffic data. Reinforces every infrastructure-pull thesis already cascaded today (Apple-Blackwell + Rubin LPDDR + LPDDR5X bottleneck + AVGO Anthropic 5GW + Alphabet $190B capex).
+
+**Cross-portfolio amplification:** ALL infrastructure-cohort holdings (HYNIX, MURATA, ALAB, SUMCO, ARM, SNDK) read positively. Software/agentic cohort (DDOG, NOW, MDB) gets agentic TAM expansion confirmed. NVDA watchlist + NET (Cloudflare itself as toll collector) emerge as new candidates.
+
+**Stage transition note:** Multiple synthesis-level signals in 24 hours (Apple-Blackwell + Rubin LPDDR + LPDDR5X bottleneck + Cloudflare agentic crossover) all reinforcing inference-compute-demand thesis. This is unusual signal density — monthly audit 2026-06-24 should review whether the harness is operating in genuinely-confirmatory mode vs over-priming on a single regime read.
+
+---
+
 ## 2026-06-04 PM — Apple-Blackwell marquee customer + Rubin LPDDR cut (synthesis-level)
 
 **Trigger:** User-shared 2 Twitter signals + 1 text data point verified 2026-06-04 PM. Full detail in `signals/cross-source-log/2026-06-04-apple-blackwell-siri-rubin-lpddr-cut-verification.md`.

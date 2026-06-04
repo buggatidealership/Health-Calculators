@@ -1,6 +1,18 @@
 # MongoDB (MDB) — Thesis
 
-**Last updated:** 2026-05-29 (initial thesis build — sized for entry decision)
+**Last updated:** 2026-06-04 PM (Cloudflare agentic-traffic crossover MILD reinforcement for vector DB agentic RAG thesis)
+
+## 2026-06-04 PM — Agentic crossover empirically verified
+
+Per `research/signals/cross-source-log/2026-06-04-cloudflare-agentic-traffic-crossover-verified.md` + user-provided T1 CloudFlare Radar dashboard:
+
+CloudFlare T1: bot/agentic traffic = 57.5% of HTML requests; per-task agent hits 1000-5000× more sites than human. AI crawler share = 22% of bot traffic; Meta-ExternalAgent + GPTBot + ClaudeBot well-represented.
+
+**Thesis implication:** Vector DB for agentic memory + RAG query patterns gets validation. Each agentic web visit = potential vector embedding store + retrieval query. Operating-condition-level evidence that agentic data layer demand is growing fast.
+
+**Position implication:** Entry framework intact — current 0% held; 3-5% initial entry candidate. Cloudflare signal MILD reinforcement (agentic operations confirmed but MDB capture vs Pinecone/Weaviate/etc still requires Q2 FY27 print validation).
+
+**Prior last updated:** 2026-05-29
 **Tier:** Active candidate for ENTRY (no current position; user evaluating 3-4% initial stake)
 **Position target:** 3-5% initial entry; 5-7% if Q2 FY27 confirms trajectory
 **Anti-fragility:** 4/5 — wins in S1, S2, S3, partial S4 (agentic data layer is structural)

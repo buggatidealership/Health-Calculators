@@ -1,6 +1,18 @@
 # ServiceNow (NOW) — Thesis
 
-**Last updated:** 2026-05-21
+**Last updated:** 2026-06-04 PM (Cloudflare agentic-traffic crossover REINFORCES Knowledge 2026 governance thesis)
+
+## 2026-06-04 PM — Agentic crossover empirically verified
+
+Per `research/signals/cross-source-log/2026-06-04-cloudflare-agentic-traffic-crossover-verified.md` + user-provided T1 CloudFlare Radar dashboard screenshot:
+
+CloudFlare Radar (T1 primary): bot/agentic traffic = **57.5%** of HTML requests worldwide (human 42.5%); crossover late April 2026, 8-12 months earlier than CloudFlare CEO Matthew Prince predicted at SXSW March 2026. Per-task multiplier: agent hits 1000-5000× more sites than human.
+
+**Thesis implication:** ServiceNow's Knowledge 2026 governance partnership thesis (NOW as governance layer above Scout) gets bottoms-up validation. 57.5% of HTML traffic = automated = enterprise demand for agentic workflow governance + observability + audit trails skyrockets. NOW's positioning as governance platform for agentic workflows is structurally validated.
+
+**Position implication:** HOLD at 12.0% (at target 10-13%). Cloudflare crossover elevates conviction in Core thesis.
+
+**Prior last updated:** 2026-05-21
 **Tier:** Core (held position, structural agentic-software winner)
 **Position target:** 10–13% (user holds ~12.0% per `research/portfolio/holdings.md` — at target)
 **Anti-fragility:** 4/5 — wins in S1, S2, S3, partial S4
