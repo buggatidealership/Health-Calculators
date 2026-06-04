@@ -15,6 +15,20 @@
 
 ## Open
 
+### P2 — High priority new (added 2026-06-04 PM — architecture-of-tomorrow research)
+
+- [ ] **P2 / research / 2026-06-05** [INDP, AF, POS] — Deep dive: Nova Measuring (NVMI) — Israeli twin to Camtek
+  - Origin: 2026-06-04 PM Camtek DEEP-DIG v2.1 surfaced NVMI as adjacent Israeli metrology pure-play; $880M FY26 revenue, 57.6% gross margin, $1.6B war chest per Koalagains T3 (already cited in `companies/CAMT/thesis.md`)
+  - Scope: full thesis build — competitive positioning vs CAMT (dimensional metrology vs packaging inspection), GAA + advanced DRAM Nova Metrion platform, FY26 financials, analyst consensus, post-guidance accelerators, Israeli geo tail risk overlap (NOT a hedge)
+  - Key question: is NVMI a BETTER architecture-of-tomorrow bet than CAMT?
+  - Linked: `companies/CAMT/thesis.md` competitive section; `predictions/lessons.md` L22
+
+- [ ] **P2 / research / 2026-06-05** [INDP, AF, POS] — Deep dive: Onto Innovation (ONTO) — architecture-of-tomorrow CAMT competitor
+  - Origin: 2026-06-04 PM user articulation — "where's the best chance to win the architecture of tomorrow. Right? Today's winner might lose tomorrow because they're not gonna qualify for the next cycle." Applied to CAMT vs ONTO: P(ONTO wins HBM5)=40% vs P(CAMT extends)=35% (my model)
+  - Scope: full thesis build — Dragonfly G5 + 3Di moat vs Hawk; HBM5 + 1000-layer NAND positioning; FY26 raised guide >$1.3B; 30%+ OP margin EOY 2026 target; investability NYSE
+  - Key question: should portfolio enter ONTO instead of CAMT as architecture-of-tomorrow play?
+  - Linked: `companies/CAMT/thesis.md` competitive section; Onto IR T1
+
 ### P1 — High priority (next session — added 2026-05-28 end of session)
 
 - [x] **2026-06-03 — RESOLVED NOT INVESTABLE** Co-Tech Development (8358.TW) investability check
