@@ -1,6 +1,16 @@
 # Sandisk (SNDK) — Thesis
 
-**Last updated:** 2026-05-21
+**Last updated:** 2026-06-04 (DDR5 spillover back-reference; no thesis change)
+
+## 2026-06-04 back-reference
+
+Per `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alphabet-85b-samsung-hbm5-ddr5-spillover.md` — DDR5 $375/32GB consumer spillover (per Tom's Hardware T2) signals datacenter AI has consumed enough memory capacity to squeeze consumer markets. Parallel pull-through to NAND ASP (premium SSD upcycle). Net read: SNDK thesis REINFORCED for near-term ASP, no tier/sizing change.
+
+**Position implication:** HOLD — no size change — DDR5 spillover confirms memory-tightness backdrop; SNDK at 5.2% holding.
+
+---
+
+**Prior last updated:** 2026-05-21
 **Tier:** Active-Core (held position, Aschenbrenner-validated)
 **Position target:** 8–12% (user holds ~10.8% per `research/portfolio/holdings.md` — at target)
 **Anti-fragility:** 3/5 — wins in S1, S2, S3 modestly; NAND cycle adds volatility

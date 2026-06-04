@@ -508,6 +508,19 @@ Always check against these before completing any analysis:
 
     **AUTO-CASCADE DEFAULT (added 2026-06-03 PM per user directive):** "If anything needs to be updated, instantly update and not wait for permission, unless you are unsure about a given number or a different categorization of the data that you're gonna change or the labeling." Default-cascade discipline: when a signal is unambiguous (clear directional cascade + no numerical/categorical uncertainty), execute the cascade commit without permission-gating. Permission-gating retained ONLY for: (a) uncertain numerical claims, (b) ambiguous categorization changes, (c) thesis tier/sizing changes with material portfolio impact, (d) framework codifications (principles, themes, scenario reweights).
 
+    **AUTO-EXECUTE STRENGTHENING (added 2026-06-04 per user directive verbatim):** *"don't ask. Right? I think just always do whatever you... reason is best as long as you can look back and self correct. As in if you decide to do a, but then you realize that was a mistake, then you correct. But do you have to just... again, like, the weighing is probably more important. Right? Because everything is always in the shades of gray. It's never a hundred percent to zero percent."* Operating implications:
+    1. **Stop asking permission** when probabilistic weighing clearly favors one path. Pick the best-weighted option and act.
+    2. **Self-correct visibly** when a prior choice turns out wrong. Re-examine, state the correction inline, update the affected file with the corrected read.
+    3. **Treat all choices as shades of gray.** No probability claim is 100%/0%. The weighting itself is the load-bearing analytical work; the action follows from weighting.
+    4. **Reduces permission-gated cases (c) above** — material thesis tier/sizing changes still benefit from a moment of pause, but probabilistic weighing alone is no longer cause for asking. Codified self-correction is the safety net.
+    5. **Failure mode addressed:** decision-paralysis at the weighing-vs-asking step. Permission-asking has decay-of-utility — asking 4× per session means I'm not actually carrying the analytical load.
+
+    **Detectability:**
+    - POSITIVE: I execute cascades autonomously, occasionally self-correct (~1-2x per week with explicit acknowledgment in the affected file)
+    - NEGATIVE: I auto-execute cascades but produce material errors that user has to catch + correct
+    - FALSIFIER: ≥3 self-correction events surface user-facing thesis errors that I missed → my weighing calibration is off → revert to permission-asking
+    - RE-EVAL TRIGGER: monthly codification audit 2026-06-24 — grep for "self-correction" surfaces meaningful correction variety AND no thesis-error escalations from user side?
+
 12. **ALWAYS VERIFY TEMPORAL FRESHNESS BEFORE CASCADING SECONDARY-SOURCE SIGNALS** (added 2026-06-03; B40 PROMOTED to VERIFIED-HIGH-CONFIDENCE same day on N=6 within 48h). Before propagating any T2/T3 signal through the harness, verify (a) publication date of the underlying primary claim, (b) whether the signal is newly-surfaced fact or repackaged older news, (c) whether market has already absorbed the signal. Secondary aggregator sources (SemiAnalysis, Citrini, weekly briefs, Substack, Reddit summaries) frequently recycle older news without explicit recap framing — the signal LOOKS fresh because curated alongside genuinely-new items.
 
     **Origin (2026-06-03):** SemiAnalysis recycled June 12, 2025 Meta-Scale AI deal as "fresh" signal in June 2, 2026 brief — directionally correct (deal happened) but temporally stale ~12 months old, market already absorbed. I propagated through 5 emergent thesis candidates + per-name cascades before verification surfaced the staleness. B40 candidate (temporal-freshness blind-spot) codified same day.

@@ -1,6 +1,26 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-05-20 (Google I/O + OpenAI Guaranteed Capacity + Anthropic profit + SemiAnalysis workflow ROI). All events 2026-05-21 to 2026-05-28 have been REINFORCING (per B13 discipline) — no synthesis shift required. See §"Recent harness state" below for non-synthesis updates worth pointer-tracking.
+**Last material synthesis update:** 2026-06-04 (Alphabet $85B capital raise + 2026 capex guidance up to $190B verified T1; Samsung HBM5 mockup with HPB cooling at Computex 2026 verified Korean tri-source — 2028 mass production parity with SK Hynix iHBM, not threat). Prior material update 2026-05-20.
+
+## 2026-06-04 synthesis shift — hyperscaler CapEx NOT decelerating in 2026
+
+**Trigger:** Alphabet announces upsized $84.75B equity raise on June 2 2026 (from initial $80B announcement June 1), $10B private placement to Berkshire Hathaway, 2026 CapEx guidance up to $190B per [Blockonomi](https://blockonomi.com/alphabet-googl-stock-85b-capital-raise-powers-ai-expansion-as-gemini-reaches-900m-users/) + [Alphabet IR](https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx) + [Alphabet 8-K](https://www.sec.gov/Archives/edgar/data/0001652044/000119312526251733/d160205dfwp.htm).
+
+**What changed:** Yesterday's H1 deceleration thesis (P=55% — hyperscaler CapEx growth slope bends down 2027-2028) revised DOWN to P=35-40% (my model). Alphabet committing $190B 2026 capex via equity raise = strongest possible signal that CapEx growth has NOT inflected. Companion signals: DDR5 consumer spillover ($375/32GB per Tom's Hardware) is bottoms-up confirmation cloud-DC has consumed enough memory to squeeze consumer markets; Google-Voltus VPP (MIT Tech Review) is partial confirmation power-binding starting to bite but not yet driving CapEx slowdown.
+
+**What stayed:** Edge AI as the next-wave hardware theme (T8 PROMOTED per `sector/themes.md`) — Gemma 4 12B confirms edge inflection. But edge is ADDITIVE not SUBSTITUTIVE to cloud. The H2 hypothesis (both cloud and edge compound; edge becomes new compounding layer on top) is now the leading thesis at P=50-55% (my model).
+
+**HBM5 competitive landscape:** Samsung HBM5 mockup at Computex (June 2) demonstrates HPB cooling — competitor to SK Hynix's iHBM (disclosed May 25, 2026, FIRST). Both target HBM5 mass production ~2028 per [TrendForce](https://www.trendforce.com/news/2026/06/02/news-samsung-unveils-hbm5-model-for-the-first-time-at-computex-production-reportedly-seen-around-2028/). SK Hynix's 2026-2027 HBM3E/HBM4 leadership is **UNAFFECTED**. Samsung's reliance on in-house 2nm for HBM5 base die adds process-execution risk for them.
+
+**Affected positions:**
+- HYNIX (10.13%) — thesis REINFORCED (capex tailwind + HBM5 timeline parity confirmed); HOLD at target lower band
+- AVGO (PREDICT-active, Q2 print AMC 2026-06-03) — Alphabet $190B capex = strong supporting evidence for H1 BEAT+CATEGORY thesis P=70%; Google TPU is AVGO custom silicon
+
+**Mind change log:** Yesterday I overstated Samsung HBM5 mockup as near-term competitive threat to HYNIX. **Self-corrected today 2026-06-04** — verification revealed 2028 mass production parity for both Samsung HPB and SK Hynix iHBM. Lesson: visual demonstrations at trade shows (mockup at Computex) are 2-3 years ahead of actual product timeline; do not confuse mockup with engineering sample with mass production.
+
+---
+
+
 
 **Purpose:** The single document that holds the CURRENT BEST holistic view. Read this every session before reacting to specific events. If a new event doesn't change the synthesis here, don't restructure the entire OS for it — just log the signal and move on.
 

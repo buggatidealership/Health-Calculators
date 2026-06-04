@@ -1,6 +1,16 @@
 # T1 Energy (TE) — Thesis
 
-**Last updated:** 2026-05-26
+**Last updated:** 2026-06-04 (Google-Voltus VPP back-reference; partial power-binding confirmation; no thesis change)
+
+## 2026-06-04 back-reference
+
+Per `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alphabet-85b-samsung-hbm5-ddr5-spillover.md` — Google-Voltus VPP deal (per MIT Tech Review T2) = "largest virtual power plant deployment for datacenter use in US grid"; Google pays consumers to ramp down during peak AI training. Interpretation: explicit hyperscaler admission of grid-level power binding. Partial confirmation of H3 scenario (cloud CapEx peaks 2027 from physical constraints). For T1 Energy specifically: net flat — T1 is supply-chain-inheritance solar play, not utility-scale or VPP-direct. VPP pull benefits distributed energy names (not held). Net read: T1 thesis UNCHANGED.
+
+**Position implication:** HOLD — no size change — VPP signal benefits distributed-energy plays not held; T1 thesis intact at 5.38%.
+
+---
+
+**Prior last updated:** 2026-05-26
 **Tier:** Active (held position; partial validation from Aschenbrenner; execution-heavy; **NEW 2026-05-26: AI-adjacent via Supply Chain Inheritance — per principle #28 + B29 reclassification, see Update 2026-05-26 below**)
 **Position target:** 4–7% (user holds ~4.82% per `research/portfolio/holdings.md`)
 **Anti-fragility:** 2/5 — wins in S3 strongly; loses or neutral in others (potential upgrade to 3/5 under Supply Chain Inheritance theme T7 — pending more evidence of direct supply-chain flow to AI data center customers)

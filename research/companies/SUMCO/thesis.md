@@ -1,6 +1,16 @@
 # Sumco Corporation (3436.T) — Thesis
 
-**Last updated:** 2026-05-29 (position acquired today — €9K initial entry)
+**Last updated:** 2026-06-04 (Alphabet $85B + DDR5 spillover back-reference; no thesis change)
+
+## 2026-06-04 back-reference
+
+Per `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alphabet-85b-samsung-hbm5-ddr5-spillover.md` — Alphabet $84.75B equity raise (June 1-2 2026) + $190B 2026 capex guidance = incremental wafer pull (TPU + GPU). DDR5 $375/32GB consumer spillover (per Tom's Hardware T2) is bottoms-up confirmation cloud-DC has consumed enough memory capacity to squeeze consumer markets — wafer-tightness consistent with this. Net read: SUMCO thesis REINFORCED, no tier/sizing change.
+
+**Position implication:** HOLD — no size change — Alphabet capex confirms wafer demand acceleration; SUMCO at 4.43%.
+
+---
+
+**Prior last updated:** 2026-05-29 (position acquired today — €9K initial entry)
 **Tier:** Active (held position; structural-recovery + AI-grade mix shift)
 **Position target:** 5-6% (user holds €9K today acquired 2026-05-29; ~5.1% of consolidated portfolio)
 **Anti-fragility:** 3/5 scenarios (wins on AI-grade 300mm + sub-3nm + HBM cycles; loses on hyperscaler-capex compression OR Chinese supply scale; neutral on power/regulatory)

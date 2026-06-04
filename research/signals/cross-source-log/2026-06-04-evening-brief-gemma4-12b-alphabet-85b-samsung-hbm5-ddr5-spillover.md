@@ -3,7 +3,31 @@
 **Source:** User-shared "AI Intelligence Brief, June 3 2026, Evening Edition · 64 sources scanned"
 **Ingested:** 2026-06-04 by Claude
 **Workflow:** INGEST (per CLAUDE.md Workflow 1)
-**Cascade status:** **CROSS-SOURCE-LOG ONLY** — per user direction 2026-06-04 ("I want to share the evening AI brief with you first before acting on anything"). NO thesis cascades executed. Items 2, 11, 12 are load-bearing pending T1 verification.
+**Cascade status:** UPDATED 2026-06-04 — verifications complete + AUTO-CASCADE STRENGTHENING directive received ("don't ask, just act, self-correct"). Items #2 + #12 both VERIFIED. Cascades to HYNIX thesis + sector/where-we-are.md + AVGO PREDICT executed. **Self-correction:** prior-turn Samsung HBM5 read was overstated competitive threat to HYNIX; corrected — HBM5 mass production parity at ~2028 for both Samsung HPB and SK Hynix iHBM; HYNIX 2026-2027 HBM3E/HBM4 leadership UNAFFECTED.
+
+## Verification results (added 2026-06-04 post-WebSearch)
+
+### Item #2 — Alphabet $85B raise — VERIFIED T1
+- $80B announced June 1 2026; upsized to $84.75B priced June 2 2026 per [Alphabet 8-K SEC FWP](https://www.sec.gov/Archives/edgar/data/0001652044/000119312526251733/d160205dfwp.htm) + [Alphabet IR press release](https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx)
+- $30B underwritten + $40B at-the-market (Q3 2026 start) + $10B Berkshire Hathaway private placement
+- Berkshire $10B = $5B Class A @ $351.81 + $5B Class C @ $348.20 — Greg Abel's largest deployment since Buffett succession Jan 2026
+- 2026 CapEx guidance: up to $190B per [Blockonomi citation of Alphabet IR](https://blockonomi.com/alphabet-googl-stock-85b-capital-raise-powers-ai-expansion-as-gemini-reaches-900m-users/)
+- Gemini at 900M MAU per same citation
+- B40 cleared — fresh from June 1-2 2026, not recycled
+
+### Item #12 — Samsung HBM5 mockup with HPB — VERIFIED Korean tri-source
+- Computex 2026 Taipei, June 2 2026 — first physical HBM5 mockup unveiled per [Korea Herald](https://www.koreaherald.com/article/10762419) + [Korea Times](https://www.koreatimes.co.kr/business/tech-science/20260604/cooling-design-emerges-as-battleground-for-next-gen-ai-memory) + [The Elec (English)](https://www.thelec.net/news/articleView.html?idxno=10996) + [The Elec (Korean)](https://www.thelec.kr/news/articleView.html?idxno=57549) + [edaily](https://www.edaily.co.kr/News/Read?newsId=03952406645477784&mediaCodeNo=257) + [ajunews](https://www.ajunews.com/view/20260602142031373) + [sisajournal](https://www.sisajournal.com/news/articleView.html?idxno=375051)
+- HPB (Heat Path Block) cooling — thermal pillars carry heat from inside stack to top/side spreader; targets D2D PHY layer
+- Samsung HBM5 base die uses in-house **2nm process** (down from 4nm for HBM4/HBM4E)
+- 12/16/20-layer DRAM stack configurations being prepared
+- **Mass production target ~2028** per [TrendForce](https://www.trendforce.com/news/2026/06/02/news-samsung-unveils-hbm5-model-for-the-first-time-at-computex-production-reportedly-seen-around-2028/)
+- HBM5 mass production parity with SK Hynix iHBM (also targeting ~2028 per `signals/events/2026-05-25-sk-hynix-ihbm.md`)
+- Net read: PARITY not THREAT; HYNIX 2026-2027 HBM3E/HBM4 leadership UNAFFECTED
+
+### Items still un-verified (not load-bearing for tonight's print)
+- #11 DDR5 $375/32GB — Tom's Hardware T2; will cross-check DRAMeXchange next session if relevant
+- #14 Google-Voltus VPP — MIT Tech Review T2; partial confirmation power-binding starting to bite
+- #7 MSFT-OpenAI competition — B40-confirmed stale (Build 2026 was May 19); skipped cascade
 
 ---
 

@@ -1,6 +1,16 @@
 # Astera Labs (ALAB) — Thesis (Compact)
 
-**Last updated:** 2026-05-21
+**Last updated:** 2026-06-04 (Alphabet $85B back-reference; no thesis change)
+
+## 2026-06-04 back-reference
+
+Per `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alphabet-85b-samsung-hbm5-ddr5-spillover.md` — Alphabet $84.75B equity raise + $190B 2026 capex guidance = incremental AI fabric demand (Google TPU rack-scale = PCIe retimer pull). NVDA AND ASIC both consume retimers per existing thesis. Net read: ALAB thesis REINFORCED, no tier/sizing change.
+
+**Position implication:** HOLD — no size change — Alphabet capex confirms AI fabric demand acceleration; ALAB at 4.55% holding.
+
+---
+
+**Prior last updated:** 2026-05-21
 **Tier:** Active candidate (HBM bypass route + scale-up fabric play)
 **Position target:** 2–4% if entered (user holds 0%)
 **Anti-fragility:** 3.5/5 — wins in S1, S2, S3

@@ -1,10 +1,66 @@
 # SK Hynix — Thesis
 
-**Last updated:** 2026-05-21
+**Last updated:** 2026-06-04 (Samsung HBM5 mockup verification + Alphabet $85B capex anchor; **self-correction** on 2026-06-04 prior-turn overstatement of Samsung HBM5 near-term competitive threat)
 **Tier:** Core — held position, structural moat validated, thesis intact
-**Position target:** 10–14% (user currently holds ~12.5% per `research/portfolio/holdings.md` — at target)
+**Position target:** 10–14% (user currently holds 10.13% per `research/portfolio/holdings.md` 2026-06-02 — at target lower band)
 **Anti-fragility:** 3.5/5 — wins in S1, S2, S3 (HBM consumed regardless of which chip wins)
 **Foundation:** `research/wiki/hbm-primer.md`
+
+## 2026-06-04 update — Samsung HBM5 mockup verification (Korean tri-source) + Alphabet $85B capex anchor
+
+**Trigger artifact:** `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alphabet-85b-samsung-hbm5-ddr5-spillover.md`
+
+### Samsung HBM5 mockup at Computex 2026 (June 2, 2026) — VERIFIED tri-language
+
+Per [Korea Herald](https://www.koreaherald.com/article/10762419) + [Korea Times](https://www.koreatimes.co.kr/business/tech-science/20260604/cooling-design-emerges-as-battleground-for-next-gen-ai-memory) + [The Elec (English)](https://www.thelec.net/news/articleView.html?idxno=10996) + [The Elec (Korean)](https://www.thelec.kr/news/articleView.html?idxno=57549) + [edaily](https://www.edaily.co.kr/News/Read?newsId=03952406645477784&mediaCodeNo=257) + [TrendForce](https://www.trendforce.com/news/2026/06/02/news-samsung-unveils-hbm5-model-for-the-first-time-at-computex-production-reportedly-seen-around-2028/) + [Tom's Hardware](https://www.tomshardware.com/tech-industry/semiconductors/samsung-shows-first-hbm5-mockup-at-computex-with-heat-path-block-cooling):
+
+- Samsung displayed first HBM5 physical mockup at Computex 2026 (Taipei, June 2)
+- Heat Path Block (HPB) cooling structure introduced — thermal pillars carry heat from inside stack to top/side spreader
+- HPB targets the D2D PHY layer (high-power-density link between HBM base die and GPU)
+- Samsung's HBM5 base die uses in-house **2nm process** (down from 4nm for HBM4/HBM4E)
+- 12/16/20-layer stack configurations being prepared
+- **Mass production target ~2028** per TrendForce (NOT 2026 or 2027)
+
+### Self-correction on prior-turn read
+
+Earlier this session I cascaded "Samsung HBM5 mockup narrows HYNIX HBM5 leadership window from 3-4 quarters to 1-2 quarters" with implied near-term 2027 share contention. **This was wrong.**
+
+Corrected interpretation:
+- **HBM5 mass production timeline is ~2028 for BOTH Samsung HPB and SK Hynix iHBM** — they are parity timelines, not Samsung pulling ahead
+- The 2026-2027 HBM3E / HBM4 / HBM4E leadership window for SK Hynix is **UNAFFECTED** by Samsung's HBM5 mockup demonstration
+- Samsung HPB is the cooling competitor to SK Hynix's iHBM (already disclosed May 25, 2026 per `signals/events/2026-05-25-sk-hynix-ihbm.md`). Both target HBM5 (2028+). SK Hynix iHBM was disclosed FIRST — Samsung HPB is the reactive competitive disclosure.
+- Samsung's reliance on in-house 2nm for HBM5 base die introduces **process-execution risk** that could DELAY Samsung HBM5 to 2029+ if 2nm timing slips (Samsung's 2nm execution has been challenging per prior thesis notes)
+
+### Alphabet $85B capital raise (June 1-2, 2026) — VERIFIED T1
+
+Per Alphabet IR + [Alphabet 8-K SEC filing](https://www.sec.gov/Archives/edgar/data/0001652044/000119312526251733/d160205dfwp.htm) + [Alphabet IR press release](https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx) + [Blockonomi](https://blockonomi.com/alphabet-googl-stock-85b-capital-raise-powers-ai-expansion-as-gemini-reaches-900m-users/):
+
+- Equity offering upsized from $80B (June 1 announcement) to $84.75B (June 2 pricing)
+- $30B underwritten public offerings (split $15B common / $15B mandatory convertible preferred)
+- $40B at-the-market offering programme beginning Q3 2026
+- $10B private placement to Berkshire Hathaway (Greg Abel, $5B Class A @ $351.81 + $5B Class C @ $348.20)
+- 2026 CapEx guidance: **up to $190B** per Blockonomi citation
+- Gemini at 900M users per same citation
+
+### Implication for HBM thesis
+
+- 1st order (P>80%, my model): Google CapEx run-rate of up to $190B in 2026 directly pulls HBM (TPU consumes HBM3E + HBM4 from SK Hynix per `wiki/custom-silicon-primer.md`). Customer-requests > 3-year capacity narrative reinforced.
+- 2nd order (P~60%, my model): TPU production volume in H2 2026 likely revises upward vs Q1 baseline; SK Hynix HBM4 customer mix tilts further toward Google-Anthropic-Trainium pull alongside NVDA
+- 3rd order (P~40%, my model): HBM4E (mass production 2027) demand visibility extends; HBM5 (2028+) volume forecasts upgrade
+- 4th order (P~20%, my model): MSFT/META/AWS follow with similar capex acceleration H2 2026; HBM supply gap widens
+
+### Net thesis effect
+
+- **TIER:** Core — unchanged
+- **MOAT:** REINFORCED — iHBM disclosed first (May 25, 2026), Samsung HPB mockup is reactive (June 2)
+- **2026-2027 leadership window:** UNAFFECTED by Samsung HBM5 mockup
+- **2028+ HBM5 competition:** Samsung is timeline-parity (not ahead, not far behind); SK Hynix iHBM-first + 2-3 quarter packaging-process lead retained; Samsung 2nm-process execution risk may extend Hynix lead
+- **Demand-side:** Alphabet $190B 2026 capex = massive incremental HBM pull
+- **Falsifier #1 unchanged:** still "Samsung qualifies at NVDA for HBM4 with material share allocation" — Samsung HBM5 mockup is NOT this falsifier
+
+**Position implication:** HOLD — no size change — Samsung HBM5 verification turned out PARITY not threat; Alphabet $190B capex confirms HBM demand acceleration H2 2026; thesis intact, position at target lower band (10.13% of 10-14% range).
+
+
 
 ---
 

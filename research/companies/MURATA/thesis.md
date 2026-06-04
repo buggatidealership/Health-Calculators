@@ -1,6 +1,16 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-05-21
+**Last updated:** 2026-06-04 (Alphabet $85B + Gemma 4 12B edge-AI back-reference; no thesis change)
+
+## 2026-06-04 back-reference
+
+Per `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alphabet-85b-samsung-hbm5-ddr5-spillover.md` — Alphabet $84.75B equity raise + $190B 2026 capex = MLCC pull from datacenter side (server-board MLCC density); Gemma 4 12B running on 16GB laptops = MLCC pull from edge side (NPU-enabled phones/laptops have ~10-30% higher MLCC content per device, my model). MURATA wins on BOTH cloud and edge axes. Net read: MURATA thesis REINFORCED, no tier/sizing change.
+
+**Position implication:** HOLD — no size change — Alphabet capex + Gemma 4 12B both pull MLCC; MURATA at 11.45% (at target upper band of 10-13%).
+
+---
+
+**Prior last updated:** 2026-05-21
 **Tier:** Core (held position, structural AI passive components winner)
 **Position target:** 10–13% (user holds ~12.4% per `research/portfolio/holdings.md` — at target)
 **Anti-fragility:** 4/5 — wins in S1, S2, S3 cleanly
