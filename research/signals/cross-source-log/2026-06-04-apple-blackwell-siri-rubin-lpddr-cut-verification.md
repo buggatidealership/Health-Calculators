@@ -63,3 +63,5 @@ Key details: WWDC 2026 unveil (June 9-13 expected); runs on Google Cloud; **NVDA
 5. ✅ MURATA/SUMCO/SNDK theses — back-references
 6. ✅ NVDA thesis — Blackwell marquee customer confirmation
 7. ✅ sector/where-we-are.md — synthesis-level NVDA inference dominance entry
+8. ✅ **ARM thesis (added 2026-06-04 PM follow-up)** — Apple-Blackwell proliferation verified positive; Grace CPU = ARM Neoverse V2 per-chip royalty; ARM data center royalty mix shift higher tier
+

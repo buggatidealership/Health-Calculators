@@ -1,6 +1,41 @@
 # ARM Holdings (ARM) — Thesis
 
-**Last updated:** 2026-05-22 (initial build, full framework applied)
+**Last updated:** 2026-06-04 PM (Apple-Blackwell proliferation cascade verified)
+
+## 2026-06-04 PM — Apple-Blackwell proliferation to ARM (verified positive)
+
+Per `research/signals/cross-source-log/2026-06-04-apple-blackwell-siri-rubin-lpddr-cut-verification.md` + verification this turn:
+
+**Verified mechanism:** Apple choosing NVDA Blackwell B200 via Google Cloud for Siri inference = additional Grace CPU shipments. Grace = ARM Neoverse V2 = per-chip royalty (estimated $5-20/chip server-grade, my model based on ARM CSS pricing tier; exact rate confidential). Each Blackwell rack ships with ~36 Grace CPUs.
+
+**Cross-references:**
+- [NVDA Vera Rubin Tom's Hardware T2](https://www.tomshardware.com/pc-components/gpus/nvidia-unveils-details-of-new-88-core-vera-cpus-positioned-to-compete-with-amd-and-intel-new-vera-cpu-rack-features-256-liquid-cooled-chips-that-deliver-up-to-a-6x-gain-in-cpu-throughput) — Vera = 88 custom Olympus cores, ARMv9.2 compatible
+- [ARM stock +14% on Vera announcement Yahoo Finance T2](https://finance.yahoo.com/markets/stocks/articles/arm-surges-nvidias-vera-drives-163315422.html) — market priced the proliferation immediately
+- [ARM FY2026 Q3 6-K T1](https://www.sec.gov/Archives/edgar/data/0001973239/000197323926000005/exhibit992fye26q331-decx25.htm) — data center royalties MORE THAN DOUBLED YoY
+- [Apple <$0.30/chip royalty Tom's Hardware T2](https://www.tomshardware.com/news/apple-pays-arm-less-than-30-cents-per-chip-in-royalties-new-report-says) — Apple perpetual license; Grace per-chip royalty MUCH higher tier
+
+**Why this is asymmetric:**
+- Apple M-series in Macs: <$0.30/chip ARM royalty (perpetual license)
+- NVDA Grace in Blackwell: estimated $5-20/chip (server CSS tier, my model)
+- Apple shifting Siri inference from M-series → Blackwell+Grace = ARM royalty MIX SHIFT to higher-tier server royalties
+
+**Parallel hypotheses on materiality (my model):**
+- H1 (P=55%) Material additive to ARM data center royalty growth (~$2-36M/yr from Apple alone, my model rough estimate)
+- H2 (P=30%) Apple-Blackwell mainly sets precedent; bigger ARM positive from cohort follow (MSFT, Meta, Samsung)
+- H3 (P=10%) Limited proliferation because Apple's perpetual license offsets
+- H4 (P=5%) NVDA Blackwell HGX config bypasses Grace → no proliferation
+
+**N-th order cascade (my model):**
+- 1st order (P>80%): Each Blackwell rack for Apple Siri = 36 Grace CPUs × ARM Neoverse V2 royalty
+- 2nd order (P~60%): Apple deal sets precedent; consumer-AI tier (MSFT/Meta/Samsung) follow → cumulative ARM royalty pull
+- 3rd order (P~40%): Vera CPU ramp 2H 2026 in Rubin = higher-tier ARM CSS royalty; data center royalty trajectory extends 2027-2028
+- 4th order (P~20%): ARM CSS becomes default for hyperscaler custom CPU designs as Apple-Blackwell-Grace template replicates
+
+**Net thesis effect:** REINFORCED — Apple-Blackwell is a confirming signal for the AGI CPU + data center royalty doubling thesis. Marquee external customer effectively validates the structural ARM-in-Blackwell-rack pattern.
+
+**Position implication:** HOLD at 10.5% — proliferation is amplification of existing AGI CPU thesis; no tier or sizing change. Note: this adds to the case for HOLDING through any L21-regime-driven pullbacks rather than trimming.
+
+**Prior last updated:** 2026-05-22 (initial build, full framework applied)
 **Tier:** Active candidate — Portfolio A primary (Structural Safety) with Portfolio B secondary (AGI CPU asymmetric upside)
 **Position target:** 3-6% if entered (user holds 0%)
 **Anti-fragility:** 4/5 — wins in S1, S2, S3 cleanly
