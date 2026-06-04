@@ -6,9 +6,17 @@
 **Anti-fragility:** 3.5/5 — wins in S1, S2, S3 (HBM consumed regardless of which chip wins)
 **Foundation:** `research/wiki/hbm-primer.md`
 
-## 2026-06-04 update — Samsung HBM5 mockup verification (Korean tri-source) + Alphabet $85B capex anchor
+## 2026-06-04 update — Samsung HBM5 mockup verification (Korean tri-source) + Alphabet $85B capex anchor + AVGO Q2 print TPU/Anthropic confirmation
 
-**Trigger artifact:** `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alphabet-85b-samsung-hbm5-ddr5-spillover.md`
+**Trigger artifacts:** 
+- `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alphabet-85b-samsung-hbm5-ddr5-spillover.md`
+- `research/predictions/2026-06-04-AVGO-Q2FY26-GRADE.md`
+
+### AVGO Q2 FY26 print read-through (added 2026-06-04 post-GRADE)
+
+AVGO Q3 AI semi guide $16.0B (+200% YoY) + Anthropic 5GW from 2027 + multi-gen Google TPU agreement = direct HBM pull confirmation. TPU consumes HBM3E + HBM4 per `wiki/custom-silicon-primer.md`. SK Hynix is primary HBM supplier to Google TPU and Anthropic-Broadcom rack-scale. **Fundamental signal: HBM demand acceleration confirmed in Q3 2026 + structural multi-year through 2027.** Stock reaction on AVGO was AH negative but for expectations-exhaustion reasons (not fundamentals) — does NOT affect HYNIX thesis.
+
+
 
 ### Samsung HBM5 mockup at Computex 2026 (June 2, 2026) — VERIFIED tri-language
 

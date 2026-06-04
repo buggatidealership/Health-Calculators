@@ -2,6 +2,21 @@
 
 **Last material synthesis update:** 2026-06-04 (Alphabet $85B capital raise + 2026 capex guidance up to $190B verified T1; Samsung HBM5 mockup with HPB cooling at Computex 2026 verified Korean tri-source — 2028 mass production parity with SK Hynix iHBM, not threat). Prior material update 2026-05-20.
 
+## 2026-06-04 — Macro confounder context (added per AVGO Q2 GRADE)
+
+**Macro backdrop for any T+24h stock-reaction grade in current period:**
+- 2026 Iran war (initiated Feb 28, 2026 — Operation Epic Fury per [Wikipedia](https://en.wikipedia.org/wiki/2026_Iran_war))
+- Israel-Hezbollah war resumed; >1/6 Lebanon population displaced
+- Brent crude $100+ since March 8 2026, peaked $126
+- Strait of Hormuz crisis active (Iran linking reopening to Israeli withdrawal from Lebanon)
+- June 3 specifically: oil rising on Netanyahu/CNBC remarks per [CNBC](https://www.cnbc.com/2026/06/03/oil-prices-trump-pushes-back-on-reports-us-iran-talks-collapsed.html)
+
+**Implication per L20 (new lesson from AVGO Q2 GRADE):** T+24h stock-reaction grades during major geopolitical risk-off events (oil spike + war headlines on print day) should be interpretation-discounted by ~50%. Fundamental grade unaffected; stock-reaction signal-to-noise compressed materially. Current macro tier = RISK-OFF; interpretation weight = 50%.
+
+**Affected forward predictions:** Any earnings print resolving in June 2026 should mark macro context inline. AVGO Q2 already graded with this discount applied.
+
+---
+
 ## 2026-06-04 synthesis shift — hyperscaler CapEx NOT decelerating in 2026
 
 **Trigger:** Alphabet announces upsized $84.75B equity raise on June 2 2026 (from initial $80B announcement June 1), $10B private placement to Berkshire Hathaway, 2026 CapEx guidance up to $190B per [Blockonomi](https://blockonomi.com/alphabet-googl-stock-85b-capital-raise-powers-ai-expansion-as-gemini-reaches-900m-users/) + [Alphabet IR](https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx) + [Alphabet 8-K](https://www.sec.gov/Archives/edgar/data/0001652044/000119312526251733/d160205dfwp.htm).

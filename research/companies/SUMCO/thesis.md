@@ -8,6 +8,10 @@ Per `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alpha
 
 **Position implication:** HOLD — no size change — Alphabet capex confirms wafer demand acceleration; SUMCO at 4.43%.
 
+### AVGO Q2 FY26 print read-through (added 2026-06-04 post-GRADE)
+
+Per `predictions/2026-06-04-AVGO-Q2FY26-GRADE.md`: AVGO Q3 AI semi $16.0B + Anthropic 5GW from 2027 + multi-gen Google TPU = additional wafer pull (TPU + ASIC + AI networking switches). Net read: REINFORCED. No tier/sizing change.
+
 ---
 
 **Prior last updated:** 2026-05-29 (position acquired today — €9K initial entry)

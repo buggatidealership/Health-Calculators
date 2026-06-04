@@ -1,6 +1,27 @@
 # Broadcom (AVGO) — Thesis
 
-**Last updated:** 2026-05-21
+**Last updated:** 2026-06-04 (Q2 FY26 print resolved — fundamental BEAT + multi-year framing FY27 AI >$100B; stock AH -3 to -13.78% buy-the-rumor-sell-the-news + macro confound; L14 framework first falsification per GRADE)
+
+## 2026-06-04 Q2 FY26 print update
+
+Per `predictions/2026-06-04-AVGO-Q2FY26-GRADE.md`:
+- AI semi $10.8B (+143% YoY) = BULLSEYE per `predictions/2026-06-03-AVGO-Q2FY26.md`
+- Total revenue $22.187B; Non-GAAP EPS $2.44; Adj EBITDA 69% margin; FCF $10.262B
+- **Q3 guide $29.4B (+84% YoY)** vs my $23.0-23.8B = under-predicted by 24% — major upside MISS
+- **Q3 AI semi guide $16.0B (+200% YoY)**
+- **Anthropic disclosure: >1 GW in 2026 + 5 GW from 2027** (multi-year TPU compute access)
+- Multi-generation Google TPU agreement confirmed (April deal extended)
+- FY27 AI revenue framing: **>$100B** (vs prior implied ~$50-60B FY26 path)
+
+Stock reaction: AH -3 to -13.78% range. Buy-the-rumor-sell-the-news (pre-print +13.6% / $270B in 5 days) + multi-year framing read as conservatism (no explicit FY26 raise) + macro confound (Iran-Israel oil-spike risk-off June 3).
+
+**Thesis status:** FUNDAMENTAL REINFORCED — Q3 AI semi $16B + Anthropic 5GW + multi-gen Google TPU = structural moat in custom silicon validated. Stock reaction is expectations-exhaustion + framing-mismatch, not fundamentals deterioration.
+
+**Tier:** Active candidate — no change. Position target 5-8% if entered.
+
+**Position implication:** NO ACTION — not currently held. If interested in entry: wait for post-print stabilization (typically 5-10 trading days for buy-the-rumor moves to clear); confirm Hock Tan Q3 commentary on TPU production volume + photonics commentary. Pre-print rally suggests sentiment crowded; mean-reversion likely.
+
+**Prior last updated:** 2026-05-21
 **Tier:** Active candidate (Core if entered at right size); Recognition Stage 3-4
 **Position target:** 5–8% if entered (none currently held per `research/portfolio/holdings.md`)
 **Anti-fragility:** 3.5/5 — wins in S1, S2 strongly, S3 mixed, S4 partial, S5 mixed

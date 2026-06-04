@@ -974,3 +974,32 @@ For any "AI productivity plateau" / "AI ROI bounded" / "AI capex peaks" thesis, 
 **Detectability (per principle #32):** N=2+ confirmation pattern would justify promotion. Currently N=1 origin from user 2026-06-03 PM input on E7 candidate.
 
 **Meta-pattern note:** This is the FOURTH bias added in 7 days (B38 candidate 2026-05-28 → B39 candidate 2026-06-01 → B40 candidate 2026-06-03 AM → B41 candidate 2026-06-03 PM). Codification velocity is high. Monthly audit 2026-06-24 should review whether these are catching real failure modes or becoming inert text.
+
+---
+
+### B42 — Expectations-exhaustion bias (CANDIDATE — N=1 origin 2026-06-04 from AVGO Q2 FY26 GRADE)
+
+**Origin:** AVGO Q2 FY26 GRADE 2026-06-04. Predicted T+24h +11-13% weighted on BEAT + CATEGORY EVENT (Stage 4 narrative). Actual T+24h: -3 to -13.78% AH. Diagnostic: pre-print rally was +13.6% / $270B added market cap in the 5 trading days INTO the print. The positive surprise was already priced; confirmation = no upside left = "buy the rumor sell the news."
+
+**Pattern:** Pre-print rally >10% in 5 days creates expectations-exhaustion: even a genuine BEAT + CATEGORY EVENT can produce NEGATIVE T+24h reaction because the positive surprise was already priced. Distinct from "priced to perfection" (which is chronic, structural — multiple expanded over months); expectations exhaustion is ACUTE and quarter-specific (pre-print 5-day window).
+
+**Correction (candidate — pending validation):**
+For any BEAT + CATEGORY EVENT prediction with Stage 3-4 narrative status, MANDATORILY model the pre-print rally:
+1. Calculate 5-day pre-print stock return
+2. If 5-day return >10%: weight T+24h reaction expectation DOWN by 50% AND consider negative-reaction scenario as 20-40% probability
+3. If 5-day return >15%: weight DOWN by 75% AND consider negative-reaction as 35-55% probability
+4. If 5-day return <5%: standard L14 framework applies
+
+**Distinction from related biases:**
+- B23 (sell-side aggregation drift): operates at forecast step. B42 operates at expectations-baseline step (stock price vs forecast)
+- B25 (analyst lag for structural names): operates at forecast-vs-fundamentals gap. B42 operates at price-vs-expected-fundamentals gap
+- B40 (temporal freshness): operates at signal-currency step. B42 operates at expectations-already-priced step
+- B41 (measurement-frame bias): operates at value-quantification step. B42 operates at expectations-aggregation step
+
+**Hook enforcement candidate:** Future Stop hook could fire on Stage 3-4 + CATEGORY EVENT prediction WITHOUT pre-print 5-day rally check.
+
+**Detectability (per principle #32):** N=2+ confirmation pattern would justify promotion. AVGO Q2 FY26 is N=1; HPE Q2 FY26 was COUNTER-example (large positive reaction despite some pre-print rally — but only +5-7% pre-print not >10%, so consistent with refinement). Awaiting next BEAT+CATEGORY prediction with >10% pre-print rally for N=2.
+
+**Falsification trigger:** If next 2 cases with >10% pre-print rally AND BEAT+CATEGORY produce POSITIVE T+24h reaction, B42 is wrong.
+
+**Meta-pattern note:** This is the FIFTH bias added in 8 days (B38 → B39 → B40 → B41 → B42). Codification velocity continues high. Monthly audit 2026-06-24 critical.

@@ -1,12 +1,73 @@
 # Lessons — Mandatory Pre-Read Before Any New Prediction
 
-**Last updated:** 2026-06-02
+**Last updated:** 2026-06-04 (L17-v2 refinement + L18 + L19 + L20 from AVGO Q2 FY26 GRADE 2026-06-04 — L14 framework first major falsification)
 
 ## TL;DR
 
 Accumulated calibration memory from graded predictions. Every PREDICT workflow MUST start by reading this file. New lessons are appended via the GRADE workflow.
 
 ---
+
+## L14 FIRST FALSIFICATION (added 2026-06-04 from AVGO Q2 FY26 GRADE)
+
+L14 codified at N=2 (NVDA + HPE): "Stage 3-4 + CATEGORY EVENT → +25-40% T+24h."
+
+**AVGO Q2 FY26 (2026-06-03 print) is the first major falsification:**
+- Stage 4 narrative status: YES
+- CATEGORY EVENT: YES (Anthropic 5GW from 2027 + multi-gen Google TPU + Q3 AI semi $16B +200% YoY + FY27 AI >$100B framing)
+- Predicted T+24h: +25-40% per L14; my weighted call was +11-13% (capped for already-AI-narrative)
+- Actual T+24h: **-3 to -13.78% AH** (wrong direction)
+
+**Refinement candidate (L14-v2):** Pre-print rally >10% in 5 days OFFSETS the BEAT + CATEGORY signal. Add the pre-print expectations-exhaustion modifier:
+- L14 original (still applies): Stage 3-4 + CATEGORY EVENT + pre-print rally <10% over 5 days → +25-40% T+24h
+- L14-v2 NEW: Stage 3-4 + CATEGORY EVENT + pre-print rally >10% over 5 days → 0% to -15% T+24h (expectations exhaustion dominates)
+
+Plus L20 below (macro-confounder discount) and L19 below (multi-year framing vs FY raise gap).
+
+Falsification trigger for L14-v2: 2+ more cases where pre-print rally >10% but BEAT+CATEGORY still drives positive T+24h reaction. If that happens, L14-v2 is wrong and we keep L14 original.
+
+---
+
+## L19 (NEW — N=1 from AVGO Q2 FY26 GRADE 2026-06-04) — Multi-year framing vs FY-print raise gap
+
+**Origin:** AVGO Q2 FY26 GRADE 2026-06-04. Predicted FY26 AI raise from implied $30B → $32-35B. Actual: NO FY26 raise, but multi-year framing **FY27 AI >$100B reiterated**. Total magnitude was actually larger than I projected (FY27 >$100B is 2.5-3x my FY26 $32-35B estimate spread over 12 more months) but the FRAMING was read by market as "no Q4 raise" = disappointment.
+
+**Pattern:** When management uses multi-year (FY+1, FY+2) revenue framing INSTEAD of explicit current-FY raise, traders interpret as management "not playing into narrative" → negative T+24h reaction even if multi-year magnitude is larger. Conservative multi-year framing reads as ambiguity, not bullishness.
+
+**Generalizable lesson:** When predicting CATEGORY EVENT magnitude, model TWO scenarios:
+1. **FY-raise framing** — management explicitly raises current-FY guide by X% → positive T+24h reaction
+2. **Multi-year framing** — management gives FY+1 or FY+2 framing INSTEAD of current-FY raise → can be negative T+24h reaction even if multi-year magnitude is larger
+
+Listen for which framing is used. If multi-year framing wins, the BEAT+CATEGORY signal is partially neutralized.
+
+**Layer failed:** REASONING — assumed FY26 raise as the CATEGORY EVENT shape; actual was multi-year framing which has different market reading.
+
+**Calibration adjustment:** For Stage 4 names predicting BEAT+CATEGORY, model multi-year vs FY-raise as separate distributions with different T+24h reaction profiles.
+
+**Falsification trigger:** If next 2 predictions with multi-year-vs-FY-raise modeling produce wrong direction calls, L19 is wrong.
+
+---
+
+## L20 (NEW — N=1 from AVGO Q2 FY26 GRADE 2026-06-04) — Macro-confounder T+24h interpretation discount
+
+**Origin:** AVGO Q2 FY26 GRADE 2026-06-04. Print landed on June 3, 2026 — same day Brent oil rising on Netanyahu/CNBC remarks that US/Israel prepared to attack Iran again; Iran-Israel-US war ongoing since Feb 28, 2026 (Operation Epic Fury); Strait of Hormuz crisis active. Risk-off macro backdrop confounded the T+24h stock reaction signal.
+
+**Pattern:** T+24h stock-reaction grades during major geopolitical risk-off events (oil spike + war headlines on print day) should be interpretation-discounted by ~50%. Fundamental grade unaffected; stock-reaction signal-to-noise compressed materially.
+
+**Generalizable lesson:** Before any T+24h stock-reaction grade, check macro backdrop:
+1. Brent oil intraday move >2%?
+2. Major geopolitical headline within 24h of print?
+3. VIX >25 OR semi sector ETF down >2% intraday?
+
+If any TWO of those YES → halve the interpretive weight on T+24h reaction; fundamental grade remains primary.
+
+**Calibration adjustment:** Two-Part GRADE Protocol gets a macro-confounder adjustment line in every T+24h grade: "macro context = neutral / risk-on / risk-off / extreme risk-off; interpretation weight = 100% / 75% / 50% / 25%."
+
+**Falsification trigger:** If next 2 T+24h grades during macro risk-off events produce IDIOSYNCRATIC signal as strong as macro-neutral cases, L20 is wrong.
+
+---
+
+
 
 ## Meta-posture — the epistemic stance for predictions (codified 2026-05-27)
 

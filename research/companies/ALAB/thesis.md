@@ -8,6 +8,10 @@ Per `research/signals/cross-source-log/2026-06-04-evening-brief-gemma4-12b-alpha
 
 **Position implication:** HOLD — no size change — Alphabet capex confirms AI fabric demand acceleration; ALAB at 4.55% holding.
 
+### AVGO Q2 FY26 print read-through (added 2026-06-04 post-GRADE)
+
+Per `predictions/2026-06-04-AVGO-Q2FY26-GRADE.md`: AVGO Q3 AI semi guide $16.0B (+200% YoY) + Anthropic 5GW from 2027 + multi-gen Google TPU = direct PCIe retimer pull (TPU rack-scale needs retimers; Anthropic 5GW means thousands of TPU racks). ALAB primary scale-up fabric supplier for AVGO custom silicon. Net read: REINFORCED. No tier/sizing change.
+
 ---
 
 **Prior last updated:** 2026-05-21
