@@ -170,6 +170,48 @@ The CALL-COMMENTARY-LEVEL variables matter more than headline beat magnitude at 
 
 ---
 
+## Principle #38 candidate — Compounding-Signal-Density Pre-Print Entry
+
+**Origin:** 2026-06-04 PM user critique of SYNA "wait for Q4 BEAT" position framework: *"if you're waiting for the beat, you're just waiting for everybody. the novelty in your own reasoning does not rely on waiting for the obvious to happen to then spot the obvious. by that point, it's too late. ideally, over time, you can hold multiple different frameworks, multiple different competing point of views. and whenever I feed new data to you or at some point, when we start implementing scripts, would you do your own research on a daily basis, plus what I send you... if it's on the candidates list, what you wanna do is you want to show it that if it cascades and you see more and more signals, it then solidifies a entry before the beat actually happens as a new finder pattern before the actual beats."*
+
+**Pattern:** Default "wait for print confirmation" entry posture cedes the asymmetric pre-consensus-revision window. Edge lives in the period where signal density compounds but analysts haven't formally raised yet. By the time the print happens, the asymmetric trade is gone (priced).
+
+**The 5-element Principle #38 mechanism:**
+
+1. **Candidate on active watchlist** with explicit signal-accumulation tracker
+2. **Density threshold criteria** (my model — to validate against forward applications):
+   - N=4+ independent signals
+   - ≥3 of them T1-T2
+   - ≥2 directly impact the candidate (vs cohort-level only)
+   - No significant contradictory signals
+3. **Tiered entry sizing** (addresses sequence-of-returns risk):
+   - Stage 1: density threshold crossed → 25-33% of target sizing
+   - Stage 2: additional confirming events → +33-50%
+   - Stage 3: print confirmation → remaining 25-50%
+4. **Falsification protocol**: contradictory T1 signal → exit Stage 1 at small loss; thesis pivoted
+5. **LLM-native advantage**: hold all signals simultaneously, cross-reference, update density score in real time as new data ingests
+
+**Integrates with existing framework:**
+- L1 (sell-side last) — formalized: enter BEFORE sell-side updates
+- Principle #37 (MVCRC) — used at obviousness step (step 7) to validate density
+- L22 (beat-analyst-consensus) — applied as Stage 3 confirmation check
+- L23 (mid-cap asymmetry) — calibrates Stage 3 reaction band
+- B42 (pre-print rally exhaustion) — applies if stock has rallied >10% in 5 days at Stage 1 → wait for pullback before Stage 1
+- Portfolio constraints (no-income + €200K cash) — tiered sizing protects against full-position loss
+
+**Forward validation cases:**
+- SYNA Q4 FY26 (Aug 2026) — N=1 forward test; Stage 1 NOW; Stage 2 on Iran-deal binary; Stage 3 on print
+- LSCC next print (Aug 2026) — N=2 forward test (would require signal density check)
+- AMBA next print — N=3 forward test
+
+**Falsification trigger:** If 2+ Principle #38-triggered Stage 1 entries produce >-10% losses at thesis falsification (contradictory signal emerges), framework over-fits density threshold → tighten criteria.
+
+**Self-correction note:** Prior thesis-build position-implication defaults ("wait for print BEAT + 2 qualitative disclosures") were anti-Principle-#38. Going forward, all watchlist candidates get explicit signal-density tracking and Stage 1 entry recommendations BEFORE print.
+
+**Re-eval trigger:** Each Stage 1 entry + monthly codification audit 2026-06-24.
+
+---
+
 ## L14 FIRST FALSIFICATION (added 2026-06-04 from AVGO Q2 FY26 GRADE)
 
 L14 codified at N=2 (NVDA + HPE): "Stage 3-4 + CATEGORY EVENT → +25-40% T+24h."

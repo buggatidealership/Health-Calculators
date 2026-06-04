@@ -1,8 +1,54 @@
 # Watchlist Candidates
 
-**Last updated:** 2026-06-03 PM (added Sumitomo Electric 5802.T + Mitsubishi Electric 6503.T as EML/CW-DFB LD oligopoly candidates per TrendForce June 2026 ranking)
+**Last updated:** 2026-06-04 PM (SYNA added with active signal-density tracking per Principle #38 candidate; SYNA threshold CROSSED, Stage 1 entry recommended)
 
 Names surfaced by signals / causal chains, not yet covered by full thesis. Promoted to `companies/{TICKER}/` when conviction warrants.
+
+## Active signal-density tracking (Principle #38 candidate — Compounding-Signal-Density Pre-Print Entry)
+
+### SYNA (Synaptics) — added 2026-06-04 PM — **DENSITY THRESHOLD CROSSED**
+
+| Trigger criterion | Status |
+|---|---|
+| Full thesis | `companies/SYNA/thesis.md` v1 (created 2026-06-04 PM) |
+| Signals accumulated since Q3 print (May 8 2026) | 11 (4 DIRECT, 7 cohort) |
+| Contradictory signals | 0 |
+| T1-T2 signal ratio | 11/11 |
+| Density threshold (per Principle #38: N=4+, ≥3 T1-T2, ≥2 direct, no contradictions) | **CROSSED** |
+| Stage 1 entry sizing | 25-33% of 2-4% target = ~€2-5K from €200K cash buffer |
+| Pre-print rally caveat | +32.96% past 30 days; market partially pricing cascade |
+| Recommended entry call | Stage 1 NOW OR wait for ~-8% pullback to $113-115 then Stage 1 |
+| Stage 2 trigger events | Iran deal binary (4-6w); NVDA Q2 FY27 (Aug); LSCC print (Aug); AMBA print |
+| Stage 3 trigger event | SYNA Q4 FY26 print (Aug 2026) |
+| Falsifier | Contradictory signal (e.g., Coral NPU IP open-sourced to all SoC vendors; Astra ramp slips) → exit Stage 1 |
+
+#### Signal log (chronological)
+
+| # | Signal | Date | Direction | Tier | Direct/Cohort |
+|---|---|---|---|---|---|
+| 1 | Snapdragon 8 Elite Gen 5 launched (100 TOPS NPU) | Nov 2025 | bullish mobile AI inflection | T1 | cohort |
+| 2 | SYNA Q3 print Core IoT +31% YoY | May 8 2026 | bullish company momentum | T1 | DIRECT |
+| 3 | Astra SL2610 + Coral Dev Board launch | Q3 2026 (May 8) | bullish Coral integration | T1 | DIRECT |
+| 4 | SR-series semi-custom AI MCU taped out (H1 2027 wearable) | Q3 2026 (May 8) | bullish forward design wins | T1 | DIRECT |
+| 5 | Alphabet $190B 2026 CapEx + $84.75B raise | June 1-2 2026 | bullish hyperscaler accelerating | T1 | cohort |
+| 6 | Anthropic 5GW from 2027 + Google TPU multi-gen | June 3 2026 | bullish inference compute frontier | T1 | cohort |
+| 7 | Gemma 4 12B released — Coral named deployment target | June 3 2026 | bullish Coral integration moat | T1 | **DIRECT** |
+| 8 | Apple-Blackwell choice via Google Cloud | June 4 2026 | bullish inference frontier | T1-T2 | cohort |
+| 9 | Cloudflare agentic crossover 57.5% bot share | June 4 2026 | bullish edge AI TAM | T1 | cohort |
+| 10 | LPDDR5X bottleneck migration (segmented triangulation N=4) | June 4 2026 | bullish edge bypass route | T1-T2 | cohort |
+| 11 | Trump narrower AI EO (mild Chinese open-weight benefit) | June 4 2026 | mild bullish edge NPU | T2 | cohort |
+
+#### Maintenance protocol (active monitoring)
+
+- Add new signal each time relevant news ingests
+- Mark contradictory signals in red; if 1+ contradictory T1 signal accumulates, exit Stage 1
+- Track stock price moves vs signal accumulation (price-leading-signal vs signal-leading-price)
+- Re-evaluate density threshold weekly
+
+---
+
+## Other watchlist candidates (legacy format below)
+
 
 ## Format
 
