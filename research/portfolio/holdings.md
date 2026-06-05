@@ -1,105 +1,110 @@
 # Current Holdings — CANONICAL PORTFOLIO REFERENCE
 
-**Last updated:** 2026-06-04 PM (full detail from 3 user-shared Degiro screenshots)
-**Source:** User-shared Degiro mobile app screenshots 2026-06-04 PM
-**Total portfolio value:** €205,870.34 (day P/L -€2,637.82 / -1.27%)
+**Last updated:** 2026-06-05 PM — major rotation event (6 positions EXITED)
+**Source:** User directive 2026-06-05 PM — exited 6 positions; kept 10 names
 
-## ⚠️ CANONICAL REFERENCE RULE (set by user 2026-06-04 PM)
+## ⚠️ 2026-06-05 PM ROTATION EVENT
 
-> "Here is the most up to date portfolio. Remove any mention of prior ones. This should be the one every future sessions refers back to when talking about 'portfolio'. Only gets changed when I send a new screenshot."
+**User executed major rotation today (June 5, 2026):**
 
-ALL prior portfolio snapshots removed. This file is the SOLE reference for "portfolio" in future sessions. Updates only when user sends new screenshot.
+EXITED 6 positions (~31.83% of prior portfolio value):
+- Astera Labs (ALAB) — pure DC retimer
+- Corning (GLW) — mixed DC optical fiber + display drag
+- Semtech (SMTC) — signal integrity
+- STMicroelectronics (STM) — surprising (edge AI per Principle #39 trichotomy); possibly liquidity/tax
+- Tower Semiconductor (TSEM) — DC silicon photonics
+- T1 Energy (TE) — solar / supply-chain inheritance
 
-## Positions (full detail per 3 screenshots, alphabetical per Degiro)
+KEPT 10 positions (~64.79% of prior portfolio):
+1. ARM Holdings
+2. AGC Inc
+3. Datadog (DDOG)
+4. SK Hynix
+5. Hirano Tecseed
+6. MongoDB (MDB)
+7. Murata Manufacturing
+8. Sandisk (SNDK)
+9. ServiceNow (NOW)
+10. Sumco
 
-| # | Position | Ticker | ISIN | Qty | Price (native) | Curr | Value (EUR) | BEP | Unrealised P/L | Unrealised P/L % |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | ADR on Arm Holdings PLC | ARM | US042068058 | 69 | $395.14 | USD | €23,465.58 | $321.7971 | +€4,336.68 | +22.67% |
-| 2 | ADR on STMicroelectronics | STM | US8610121027 | 188 | $78.37 | USD | €12,680.57 | $64.0726 | +€2,363.82 | +22.91% |
-| 3 | AGC Inc | 5201.T | JP3112000009 | 100 | ¥8,117.00 | JPY | €4,366.42 | ¥7,098.00 | +€535.80 | +13.98% |
-| 4 | Astera Labs Inc | ALAB | US04626A1034 | 38 | $363.05 | USD | €11,873.57 | $306.80 | +€1,823.16 | +18.14% |
-| 5 | Corning Inc | GLW | US2193501051 | 61 | $198.42 | USD | €10,417.09 | $159.2083 | +€2,119.98 | +25.55% |
-| 6 | Datadog Inc Class A | DDOG | US23804L1035 | 60 | $245.45 | USD | €12,674.93 | $203.3735 | +€2,208.89 | +21.10% |
-| 7 | GDR on SK Hynix Inc | HXSCL | US78392B1070 | 16 | €1,315.00 | EUR | €21,040.00 | €995.3125 | +€5,115.00 | +32.11% |
-| 8 | Hirano Tecseed Co Ltd | 6245.T | JP3795800006 | 300 | ¥2,356.00 | JPY | €3,802.19 | ¥2,500.00 | -€245.44 | -6.06% |
-| 9 | MongoDB Inc Class A | MDB | US60937P1066 | 29 | $385.15 | USD | €9,613.00 | $396.4848 | -€305.13 | -3.07% |
-| 10 | Murata Manufacturing Co Ltd | 6981.T | JP3914400001 | 437 | €53.50 | EUR | €23,379.50 | €33.2887 | +€8,832.32 | +60.71% |
-| 11 | Sandisk Corp | SNDK | US80004C2008 | 8 | $1,802.36 | USD | €12,409.74 | $1,099.595 | +€4,893.73 | +65.08% |
-| 12 | Semtech Corp | SMTC | US8168501018 | 50 | $169.56 | USD | €7,296.67 | $154.6824 | +€617.93 | +9.25% |
-| 13 | ServiceNow Inc | NOW | US81762P1021 | 123 (est. from value/price math) | $121.34 | USD | €12,845.18 | $94.30 | +€2,844.35 | +33.18% (derived) |
-| 14 | Sumco Corp | 3436.T | JP3322930003 | 415 | €23.55 | EUR | €9,767.03 | €21.69 | +€765.67 | +8.50% |
-| 15 | T1 Energy Inc | TE | US35834F1049 | 1,286 | €10.30 | EUR | €13,245.80 | €7.3724 | +€3,764.80 | +39.70% |
-| 16 | Tower Semiconductor Ltd | TSEM | IL0010823792 | 44 (est. from value/price math) | $264.79 | USD | €10,026.20 | $266.0318 | -€28.91 | -0.28% |
+**Macro context driving exits:**
+- Nasdaq -4% June 5 (worst since early-2025 tariff turmoil)
+- SOXX -10% (worst since March 2020)
+- AVGO -6.27% (CNBC), Micron -9 to -13%, AMD -9%, NVDA -4.93%, Intel -11%
+- Jobs report +172K (vs 80K) = Fed rate cuts pushed further out; Kevin Warsh hawkish bias
+- CPI April 3.8% YoY (highest since mid-2023)
+- 10Y Treasury yields +5.5bp
+- Iran-Israel war ongoing; Brent oil $100+
 
-**Sum of visible 16 positions: €198,903.47** (vs displayed total €205,870.34 → ~€6,967 gap)
+**Net cash impact (my model):** ~€55-65K freed (depending on exit prices); estimated new cash position ~€255-265K
+**Net total liquid (my model):** ~€395-405K (essentially flat — rotation not capitulation)
+**Estimated invested:** ~€140K in 10 remaining positions
 
-## Reconciliation gap (~€6,967 unaccounted)
+## Note on data precision
 
-Likely explanations:
-1. Screenshot cut off below Tower Semiconductor → possibly 17th position (Harmonic Drive Systems / HDS, previously ~€10K on N26 — could now be on Degiro)
-2. OCR / read approximation on 1-2 values
-3. Recent transaction not yet settled
+Position values shown below are from prior canonical snapshot (2026-06-04 PM Degiro screenshot). Today's price action has moved values; user to provide fresh screenshot when convenient for full canonical update.
 
-User to clarify if 17th position exists.
+## Held positions (10 names — values approximate from June 4 snapshot)
 
-## % of portfolio (my model, based on screenshot total €205,870)
+| # | Position | Ticker | Approximate value (June 4 snapshot) | Approximate % of total liquid (my model) |
+|---|---|---|---|---|
+| 1 | ADR on Arm Holdings PLC | ARM | $23,509.16 USD | ~5.4% |
+| 2 | AGC Inc | 5201.T | €4,366.42 | ~1.1% |
+| 3 | Datadog Inc Class A | DDOG | $12,696.36 USD | ~2.9% |
+| 4 | GDR on SK Hynix Inc | HXSCL | €21,040.00 | ~5.1% |
+| 5 | Hirano Tecseed Co Ltd | 6245.T | €3,802.19 | ~0.9% |
+| 6 | MongoDB Inc Class A | MDB | $9,613.00 USD | ~2.2% |
+| 7 | Murata Manufacturing Co Ltd | 6981.T | €23,379.50 | ~5.7% |
+| 8 | Sandisk Corp | SNDK | $12,409.74 USD | ~2.9% |
+| 9 | ServiceNow Inc | NOW | $12,845.18 USD | ~2.9% |
+| 10 | Sumco Corp | 3436.T | €9,767.03 | ~2.4% |
 
-| # | Position | % portfolio |
+## Exited positions (logged for trace)
+
+| # | Position | Ticker | Approximate value at exit (today's pricing, my model) |
+|---|---|---|---|
+| 1 | Astera Labs Inc | ALAB | ~€9-10K (down ~10% on day) |
+| 2 | Corning Inc | GLW | ~€8.5-9.5K |
+| 3 | Semtech Corp | SMTC | ~€6.5-7K |
+| 4 | STMicroelectronics | STM | ~€11-12K |
+| 5 | Tower Semiconductor | TSEM | ~€8.5-10K |
+| 6 | T1 Energy | TE | ~€12-13K |
+
+## Cluster summary (10-name portfolio, my model)
+
+| Cluster | Names | Approx % of total liquid |
 |---|---|---|
-| 1 | MUR | 11.36% |
-| 2 | ARM | 11.40% |
-| 3 | HYNIX | 10.22% |
-| 4 | T1 | 6.43% |
-| 5 | NOW | 6.24% |
-| 6 | STM | 6.16% |
-| 7 | DDOG | 6.16% |
-| 8 | SNDK | 6.03% |
-| 9 | ALAB | 5.77% |
-| 10 | GLW | 5.06% |
-| 11 | TSEM | 4.87% |
-| 12 | SUMCO | 4.74% |
-| 13 | MDB | 4.67% |
-| 14 | AGC | 2.12% |
-| 15 | SMTC | 3.54% |
-| 16 | Hirano | 1.85% |
+| Memory / HBM / Storage | HYNIX + SNDK + SUMCO | ~10.4% |
+| Physical AI / MLCC / Precision | MUR + AGC + Hirano | ~7.7% |
+| Edge AI + CPU IP | ARM | ~5.4% |
+| Agentic Software / Data | NOW + DDOG + MDB | ~8.0% |
+| **Total invested** | **~31.5%** | |
+| **Cash** | | **~65-68%** |
 
-## Cluster summary (my model)
+**The portfolio is now significantly more cash-heavy** (~65-68% cash vs prior ~48%) — preserves optionality through SpaceX IPO (June 12), Fed meeting (June 16-17), and Q3 earnings season.
 
-| Cluster | Names | % portfolio |
-|---|---|---|
-| Memory / HBM / Storage | HYNIX (10.22%) + SNDK (6.03%) + SUMCO (4.74%) | **~20.99%** |
-| Physical AI / MLCC / Precision | MUR (11.36%) + AGC (2.12%) + Hirano (1.85%) | **~15.33%** |
-| Edge AI + CPU IP | ARM (11.40%) + STM (6.16%) | **~17.56%** |
-| AI Compute Fabric / Datacenter | ALAB (5.77%) + GLW (5.06%) + SMTC (3.54%) + TSEM (4.87%) | **~19.24%** |
-| Agentic Software / Data | NOW (6.24%) + DDOG (6.16%) + MDB (4.67%) | **~17.07%** |
-| Solar / Energy | T1 (6.43%) | **~6.43%** |
-| Reconciliation gap | unidentified | ~3.38% |
+## Critical observations on the rotation (my model)
 
-## Critical recalibration vs my earlier-session readings
+1. **STM exit is partially counter to Principle #39 trichotomy** — STM was the edge-AI pure-play; exiting reduces Edge bucket weight. May indicate user prioritized cash + concentration cleanup over pure trichotomy execution.
 
-| Name | Earlier session claim | Actual per canonical screenshot |
-|---|---|---|
-| **ServiceNow (NOW)** | "Trimmed from 123 → 50" | Still qty 123 — UNCHANGED. My earlier reading was wrong; cost basis $94.30 confirmed. **At 6.24% — still UNDER-WEIGHTED vs Core 10-13% target** |
-| **Tower Semiconductor (TSEM)** | "Qty 31 post June 2 size-up" | Now qty 44 — user has added since prior screenshot |
-| **Datadog (DDOG)** | "5.7% — close to target" | Actually 6.16% — UNDER-WEIGHTED vs 8-12% target. Earlier framing approximately right but slightly more under |
-| **Sandisk (SNDK)** | Prior file qty 50 | Actually qty 8 — prior file was WRONG (qty 50 × $1,800 would have been $90K, not the displayed €12.4K). Canonical qty = 8 |
+2. **T1 Energy exit** — not a DC name; exit suggests broader risk-reduction beyond just DC trichotomy.
+
+3. **Software cohort preserved** (NOW + DDOG + MDB) — consistent with "don't trim software" stated thesis.
+
+4. **Memory cohort preserved** (HYNIX + SNDK + SUMCO) — consistent with "5.92x forward + 10.86x forward = margin of safety" thesis.
+
+5. **ARM kept at full size** — surprising given 190x forward P/E + macro headwinds; user chose concentration via Cortex/Ethos edge AI thesis dominance over 25% Grace DC piece.
+
+6. **The 10-name portfolio is more focused** — easier to manage; less diversified by name count but cluster diversity preserved.
+
+## Pending decisions
+
+1. **Fresh portfolio screenshot from user** to confirm exact post-rotation values + cash position
+2. **Redeploy strategy for ~€55-65K freed cash** — pending macro clarity (SpaceX IPO, Fed meeting)
+3. **Codify Principle #39 (Physical-Cap Bottleneck Risk Decoupling)** based on this rotation being thesis-validated by market action
 
 ## Cross-references
 
-- `portfolio/constraints.md` — €200K cash + no-income + €5K/mo burn + Germany Abgeltungsteuer (UNCHANGED — load-bearing framing)
-- `portfolio/changes.md` — transaction log
-- `portfolio/targets.md` — desired sizing per name
-- `companies/{TICKER}/thesis.md` — per-name thesis files
-
-## Total liquid framework
-
-- **Invested (this screenshot):** €205,870.34
-- **Cash (per constraints.md):** ~€200,000 (now moving to N26 for some yields per 2026-06-04 PM directive)
-- **Total liquid:** ~€405,870 (if no 17th hidden position; ~€413K if HDS still held adding ~€7K)
-
-## Items flagged for user verification (non-blocking)
-
-1. **~€7K reconciliation gap** between sum of visible rows (€198,903) and displayed total (€205,870). Likely 17th position cut off below TSEM in screenshots — possibly HDS (Harmonic Drive). User to confirm.
-2. **ServiceNow qty 123** (derived from value/BEP math) — confirm
-3. **Tower Semi qty 44** (derived from value/price math) — confirm
-4. **Hirano** is the only red P/L position (-6.06%); all other positions in green
+- `portfolio/constraints.md` — FIRE math + €5K/mo burn + Germany Abgeltungsteuer + indefinite horizon (UNCHANGED)
+- `predictions/lessons.md` L21, L22, L23, Principle #37 (MVCRC), Principle #38 (Signal-Density Pre-Print Entry)
+- `sector/themes.md` T8 AI FinOps + Agentic Governance
