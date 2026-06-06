@@ -922,6 +922,14 @@ Every 6 months: review all entries, retire ones that have stopped showing up in 
 
 **Per tiered framework in `meta/methodology.md` (codified 2026-06-03):** N=2+ INDEPENDENT confirmation cases → promote to VERIFIED-HIGH-CONFIDENCE. N=6 within 48h vastly exceeds the threshold. Critical Rule #12 (codified same day) is the enforcement mechanism for B40 as an operating rule.
 
+### B40 POST-PROMOTION N+ catches (audit trail, enforcement working):
+
+7. **2026-06-06 AM** — June 6 morning AI brief #2 included "Meta acquires 49% of Scale AI at ~$30B valuation" as headline alongside genuinely-new items. **Caught DURING verification (pre-cascade)** — recognized as recycled June 2025 deal; dropped from brief synthesis. Detail: `signals/cross-source-log/2026-06-06-morning-brief-memory-shortage-coalition-airtrunk-india-sp500-block.md`. Enforcement layer working.
+
+8. **2026-06-06 PM** — User-shared viral tweet claiming "Google has published a paper that might end the transformer era" / "until today" / "Google just proved" framing. Paper "Memory Caching: RNNs with Growing Memory" was **published Feb 27, 2026 — 3+ months stale**. **Caught DURING verification (pre-cascade)** — recognized as temporally distorted framing on real-but-old paper. Detail: `signals/cross-source-log/2026-06-06-memory-caching-rnn-paper-tweet-verification-b40-catch.md`. Enforcement layer working — verification surfaced staleness BEFORE any cascade artifact written or thesis update propagated.
+
+**Post-promotion empirical pattern:** 2 of 2 post-promotion catches were intercepted PRE-CASCADE (not, as B40 origin case was, AFTER cascade through 5 thesis candidates). Critical Rule #12 verification protocol is operating as designed. No status change required; B40 remains VERIFIED-HIGH-CONFIDENCE; appended to monthly audit trail 2026-06-24.
+
 ### B40 ORIGINAL ENTRY (preserved for audit trail):
 
 **Origin:** 2026-06-03 SemiAnalysis brief recycled the June 12, 2025 Meta-Scale AI deal as if it were a fresh signal in a June 2, 2026 brief. Directionally correct (deal happened) but temporally stale by ~12 months. I propagated the framing through 5 emergent thesis candidates + per-name cascades before verification surfaced the staleness. **Cascade-impact: medium** — multiple thesis files referenced "Meta paid $30B for Scale AI" without checking the underlying timestamp.
