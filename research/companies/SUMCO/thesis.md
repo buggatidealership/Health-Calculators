@@ -1,6 +1,26 @@
 # Sumco Corporation (3436.T) — Thesis
 
-**Last updated:** 2026-06-04 (Alphabet $85B + DDR5 spillover back-reference; no thesis change)
+**Last updated:** 2026-06-06 (Memory shortage coalition + AirTrunk India 5GW — wafer pull thesis triple-validated)
+
+## 2026-06-06 — Memory coalition + AirTrunk India 5GW back-reference
+
+Per `research/signals/cross-source-log/2026-06-06-morning-brief-memory-shortage-coalition-airtrunk-india-sp500-block.md`:
+
+Two parallel signals reinforce SUMCO wafer-pull thesis:
+
+1. **9 US trade associations → Treasury + Commerce** flag memory shortage through 2027 per [Bloomberg T2](https://www.bloomberg.com/news/articles/2026-06-03/trade-groups-urge-us-to-boost-memory-chip-supply-strained-by-ai). H3 hypothesis (P~20%) = political pressure → US fab subsidies → MORE wafer demand from US fab buildout. SUMCO benefits as #2 global wafer player regardless of which fab geography expands.
+
+2. **AirTrunk $30B / 5GW India by 2030** per [TechCrunch T2](https://techcrunch.com/2026/06/05/airtrunk-commits-30b-to-build-5gw-of-ai-data-centers-in-india/) + [Bloomberg T2](https://www.bloomberg.com/news/articles/2026-06-05/blackstone-s-airtrunk-to-spend-30-billion-on-india-data-centers). Marginal DC capacity expansion in EM = marginal chip demand = wafer pull. India DC buildout is incremental to US/EU/China geographies SUMCO already serves.
+
+### SRAM architectural shift hedge note (from 2026-06-06 SRAM cascade)
+
+Per `research/signals/cross-source-log/2026-06-06-sram-supply-chain-plus-agc-trajectory-recontextualization.md`: SUMCO is hedged across the SRAM vs HBM architectural shift — Groq LPU @ TSMC 14nm (mature node) uses SUMCO wafers; HBM3E/HBM4 @ TSMC 3nm/2nm advanced nodes also use SUMCO wafers. DOUBLE-BENEFIT regardless of which inference architecture wins. This was UNDER-RECOGNIZED in prior thesis framing.
+
+**Position implication:** HOLD — no size change — Coalition letter + AirTrunk India + SRAM architectural-shift hedge collectively reinforce wafer thesis at multiple cascade orders. SUMCO at 4.42% Degiro (full size, NOT trimmed). Per Critical Rule #11 auto-execute: no reactive change; consider this signal cluster for ADD candidacy in next deployment window if user deploys cash.
+
+---
+
+**Prior last updated:** 2026-06-04 (Alphabet $85B + DDR5 spillover back-reference; no thesis change)
 
 ## 2026-06-04 back-reference
 

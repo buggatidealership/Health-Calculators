@@ -1,6 +1,20 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-06-04 (Alphabet $85B capital raise + 2026 capex guidance up to $190B verified T1; Samsung HBM5 mockup with HPB cooling at Computex 2026 verified Korean tri-source — 2028 mass production parity with SK Hynix iHBM, not threat). Prior material update 2026-05-20.
+**Last material synthesis update:** 2026-06-06 (US memory shortage coalition letter to Treasury + Commerce — FIRST govt-level acknowledgment of the structural HBM-divert-from-commodity-DRAM thesis; physical-cap regime now policymaker-recognized). Prior material update 2026-06-04.
+
+## 2026-06-06 — Memory shortage = govt-recognized structural regime
+
+**Trigger:** 9 US trade associations sent letter to Treasury Sec. Bessent + Commerce Sec. Lutnick (June 3, 2026) flagging AI-DC memory consumption as structural risk to consumer electronics, automotive, medical, telecommunications through at least 2027. Per [Bloomberg T2](https://www.bloomberg.com/news/articles/2026-06-03/trade-groups-urge-us-to-boost-memory-chip-supply-strained-by-ai) + [Tom's Hardware T2](https://www.tomshardware.com/tech-industry/artificial-intelligence/industry-coalition-urges-trump-administration-to-take-urgent-action-as-ai-data-centers-extreme-memory-consumption-threatens-other-industries-ai-driven-memory-chip-shortage-could-raise-prices-in-automotive-medical-telecommunications-sectors) + [TIA Online T1 primary letter](https://tiaonline.org/policy/industry-coalition-letter-on-memory-shortage/). Detail in `signals/cross-source-log/2026-06-06-morning-brief-memory-shortage-coalition-airtrunk-india-sp500-block.md`.
+
+**Synthesis significance:** The memory-shortage thesis has progressed through 4 escalating signal tiers in 6 months — (1) supplier earnings (Hynix April guidance), (2) bottoms-up consumer ASP spillover (DDR5 $375/32GB), (3) industry triangulation (Q1 2026 RAM +110% / SSD +147%), and now (4) govt-level industry coalition formally requesting policy response. Each tier represents increasing market consensus. This is no longer a "non-consensus thesis" — it's now consensus-acknowledged at the highest possible signal tier. Implication: edge for held memory cohort (HYNIX/SNDK/SUMCO) is no longer in IDENTIFYING the shortage but in (a) durability assessment (how long does diversion persist?) and (b) bypass-route mapping (HBF JV, 3D DRAM, hybrid bonding via BESI).
+
+**Companion signals same brief:** AirTrunk $30B / 5GW India DC buildout by 2030 (Blackstone-backed) confirms geographic SHIFT of DC capex to EM, not retraction. S&P 500 committee rejected SpaceX/OpenAI/Anthropic fast-track inclusion (June 4) — REDUCES one leg of the SpaceX IPO June 12 liquidity-suck thesis (no automatic $14B index rebalance).
+
+**Net synthesis read:** Physical-cap thesis remains binding and INTENSIFIES at govt-recognition tier. Memory cohort thesis FULLY VALIDATED. NA DC moratoriums (NY + Seattle) are geographic, not absolute, drag on capex — EM expansion (India) compensates. Hyperscaler capex still compounding (Alphabet $85B ECM raise = largest ever; Berkshire $10B participation = value-investor endorsement; Meta $145B 2026 capex consideration). Cycle is NOT peaking earlier than expected.
+
+---
+
+**Prior material synthesis update:** 2026-06-04 (Alphabet $85B capital raise + 2026 capex guidance up to $190B verified T1; Samsung HBM5 mockup with HPB cooling at Computex 2026 verified Korean tri-source — 2028 mass production parity with SK Hynix iHBM, not threat). Prior material update 2026-05-20.
 
 ## 2026-06-04 PM — Cloudflare agentic-traffic crossover (T1 verified)
 

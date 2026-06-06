@@ -1,6 +1,18 @@
 # AGC Inc (5201.T) — Thesis
 
-**Last updated:** 2026-06-01 (LLM-native deep-dive subagent + harness synthesis)
+**Last updated:** 2026-06-06 (Morning brief #2 back-reference — memory coalition + AirTrunk India 5GW; mild PTFE CCL adjacency; no thesis change)
+
+## 2026-06-06 back-reference
+
+Per `research/signals/cross-source-log/2026-06-06-morning-brief-memory-shortage-coalition-airtrunk-india-sp500-block.md`:
+
+AirTrunk $30B India 5GW DC buildout = incremental PTFE CCL demand vector (every AI server PCB requires high-frequency CCL). Builds on 2026-06-06 AM SRAM/trajectory cascade (PTFE CCL +9.6% CAGR through 2035; AGC AI-exposed segment growing 2-3x faster than non-AI). India geographic expansion adds to global CCL TAM.
+
+**Position implication:** HOLD — no size change — AGC at 2.23% Degiro (full size, NOT trimmed); PTFE trajectory thesis from 2026-06-06 AM cascade further validated by AirTrunk India physical buildout commitment. Watchlist trigger (named M10/Rubin PTFE qualification win OR FY2026 Electronics segment margin recovery >15% sustained) not yet fired.
+
+---
+
+**Prior last updated:** 2026-06-01 (LLM-native deep-dive subagent + harness synthesis)
 **Tier:** WATCHLIST (upgrade trigger: named M10/Rubin PTFE qualification win OR FY2026 Electronics segment margin recovery >15% sustained)
 **Position target:** 0% currently; 3-5% on trigger event
 **Anti-fragility:** 3/5 scenarios (wins in S1 + S2 + partial S3; flat S5; loses S4)

@@ -1,6 +1,22 @@
 # Sandisk (SNDK) — Thesis
 
-**Last updated:** 2026-06-04 (DDR5 spillover back-reference; no thesis change)
+**Last updated:** 2026-06-06 (Memory shortage industry coalition letter — govt-level structural-tightness validation extends to NAND)
+
+## 2026-06-06 back-reference — Memory shortage coalition letter (govt-level)
+
+Per `research/signals/cross-source-log/2026-06-06-morning-brief-memory-shortage-coalition-airtrunk-india-sp500-block.md`:
+
+9 US trade associations to Treasury + Commerce flagging memory shortage through at least 2027. While the coalition letter is DRAM-headline-led, NAND is implicated as second-order tightness because Samsung + Hynix diverting wafer capacity to HBM also constrains overall memory wafer pool. Per [Bloomberg T2](https://www.bloomberg.com/news/articles/2026-06-03/trade-groups-urge-us-to-boost-memory-chip-supply-strained-by-ai). Q1 2026 SSD ASPs +147% per prior triangulation directly supports.
+
+**Position implication:** HOLD — no size change — Govt-level validation of memory structural tightness reinforces NAND/SSD ASP thesis. SNDK at 2.88% Degiro post-50% trim. Per Critical Rule #8 no reactive trim from macro; per L17/L21 candidate hold through structural cycle.
+
+### KIOXIA-SNDK-Hynix HBF JV bypass-route note
+
+Per prior cross-source logs, the High Bandwidth Flash (HBF) joint venture between Kioxia, Sandisk, and SK Hynix is the architectural BYPASS ROUTE for memory tightness (compute-near NAND replacing some HBM workloads). Coalition letter's emphasis on persistent shortage strengthens commercial urgency for HBF productization. Watch Kioxia VLSI Symposium 2026-06-14/18 for HBF roadmap signals.
+
+---
+
+**Prior last updated:** 2026-06-04 (DDR5 spillover back-reference; no thesis change)
 
 ## 2026-06-04 back-reference
 

@@ -1,6 +1,18 @@
 # ARM Holdings (ARM) — Thesis
 
-**Last updated:** 2026-06-04 PM (Apple-Blackwell proliferation cascade verified)
+**Last updated:** 2026-06-06 (Morning brief #2 back-reference — Alphabet $85B / Meta $145B capex; mild Grace royalty pull amplification; no thesis change)
+
+## 2026-06-06 back-reference
+
+Per `research/signals/cross-source-log/2026-06-06-morning-brief-memory-shortage-coalition-airtrunk-india-sp500-block.md`:
+
+Alphabet $85B equity raise (largest ECM ever; $10B Berkshire Hathaway) + Meta exploring $145B 2026 capex underscore continued hyperscaler GPU pull. Grace CPU shipments scale with Blackwell racks → ARM Neoverse V2 server-CSS royalty mix continues compounding (per 2026-06-04 PM cascade).
+
+**Position implication:** HOLD — no size change — ARM at 3.17% Degiro post-71% trim (biggest cut, valuation discipline at 190x forward P/E). Capex signals support Grace royalty thesis but do not change the valuation-discipline rationale for the trim.
+
+---
+
+**Prior last updated:** 2026-06-04 PM (Apple-Blackwell proliferation cascade verified)
 
 ## 2026-06-04 PM — Apple-Blackwell proliferation to ARM (verified positive)
 

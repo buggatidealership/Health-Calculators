@@ -1,6 +1,18 @@
 # ServiceNow (NOW) — Thesis
 
-**Last updated:** 2026-06-04 PM (Cloudflare agentic-traffic crossover REINFORCES Knowledge 2026 governance thesis)
+**Last updated:** 2026-06-06 (Morning brief #2 back-reference — Alphabet $85B / Meta $145B capex amplifies enterprise AI rollout; no thesis change)
+
+## 2026-06-06 back-reference
+
+Per `research/signals/cross-source-log/2026-06-06-morning-brief-memory-shortage-coalition-airtrunk-india-sp500-block.md`:
+
+Alphabet $85B raise + Meta $145B 2026 capex consideration = hyperscaler infra spend compounding → downstream enterprise AI rollout compounds → NOW agentic-governance TAM compounds. Adjacent positive; no first-order thesis change.
+
+**Position implication:** HOLD — no size change — NOW at 4.21% Degiro post-34% trim. Capex L0 signals reinforce Knowledge 2026 governance thesis layer but do not alter sizing rationale.
+
+---
+
+**Prior last updated:** 2026-06-04 PM (Cloudflare agentic-traffic crossover REINFORCES Knowledge 2026 governance thesis)
 
 ## 2026-06-04 PM — Agentic crossover empirically verified
 

@@ -1,6 +1,18 @@
 # Hirano Tecseed (6245.T) — Thesis
 
-**Last updated:** 2026-06-01 (LLM-native deep-dive subagent + harness synthesis)
+**Last updated:** 2026-06-06 (Morning brief #2 back-reference — neutral read; no thesis change)
+
+## 2026-06-06 back-reference
+
+Per `research/signals/cross-source-log/2026-06-06-morning-brief-memory-shortage-coalition-airtrunk-india-sp500-block.md`:
+
+Memory coalition + AirTrunk India + Alphabet $85B signals are NEUTRAL for Hirano specifically — Hirano's MLCC sheet-forming equipment exposure is captured indirectly via Murata pull (covered in MURATA thesis 2026-06-06 back-reference). Direct read on Hirano: no incremental signal from this brief.
+
+**Position implication:** HOLD — no size change — Hirano at 1.88% Degiro (full size, micro-cap liquidity constraint binds). No incremental information from this brief.
+
+---
+
+**Prior last updated:** 2026-06-01 (LLM-native deep-dive subagent + harness synthesis)
 **Tier:** Active (1-1.5% portfolio sizing — micro-cap liquidity constraint)
 **Position target:** 1.0-1.5% of consolidated portfolio (~EUR 2,000-3,000 on EUR 200K base)
 **Anti-fragility:** 3/5 scenarios

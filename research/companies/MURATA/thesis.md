@@ -1,6 +1,20 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-06-04 PM (Beat-analyst-consensus framework applied; Q1 FY27 print as L21 falsification test; HOLD decision logged)
+**Last updated:** 2026-06-06 (AirTrunk India $30B/5GW + memory coalition letter — MLCC pull thesis reinforced via EM DC buildout angle)
+
+## 2026-06-06 back-reference — AirTrunk India 5GW + memory coalition letter
+
+Per `research/signals/cross-source-log/2026-06-06-morning-brief-memory-shortage-coalition-airtrunk-india-sp500-block.md`:
+
+**AirTrunk India 5GW by 2030** ($30B Blackstone-backed; [TechCrunch T2](https://techcrunch.com/2026/06/05/airtrunk-commits-30b-to-build-5gw-of-ai-data-centers-in-india/) + [Bloomberg T2](https://www.bloomberg.com/news/articles/2026-06-05/blackstone-s-airtrunk-to-spend-30-billion-on-india-data-centers)) is a NEW geographic vector for Murata MLCC demand. India DC buildout = incremental MLCC pull (every AI server rack consumes 30-50K MLCCs per Murata IR; capex math: 5GW @ ~15-25MW per AI training cluster = 200-330 clusters = 100K+ racks long-term).
+
+Memory shortage coalition letter (Bloomberg + Tom's Hardware) reinforces broader physical-cap thesis driving MLCC pricing power.
+
+**Position implication:** HOLD — no size change — AirTrunk India is incremental positive; memory coalition is adjacent confirmation of physical-cap regime that supports MLCC supercycle thesis. MUR at 5.36% Degiro (largest unrealised P/L position at +50.20%); Q1 FY27 print (late July/early August 2026) remains the falsification test per L21/L22 framework.
+
+---
+
+**Prior last updated:** 2026-06-04 PM (Beat-analyst-consensus framework applied; Q1 FY27 print as L21 falsification test; HOLD decision logged)
 
 ## 2026-06-04 PM — Beat-analyst-consensus test (user-articulated framework applied)
 

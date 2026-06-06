@@ -1,6 +1,18 @@
 # MongoDB (MDB) — Thesis
 
-**Last updated:** 2026-06-04 PM (Cloudflare agentic-traffic crossover MILD reinforcement for vector DB agentic RAG thesis)
+**Last updated:** 2026-06-06 (Morning brief #2 back-reference — Alphabet/Meta capex amplifies agentic data layer demand; no thesis change)
+
+## 2026-06-06 back-reference
+
+Per `research/signals/cross-source-log/2026-06-06-morning-brief-memory-shortage-coalition-airtrunk-india-sp500-block.md`:
+
+Alphabet $85B + Meta $145B 2026 capex consideration = downstream agentic application proliferation = vector DB demand growth. Mild adjacent positive; no first-order thesis change.
+
+**Position implication:** HOLD — no size change — MDB at 2.60% Degiro post-45% trim. Capex L0 signals reinforce agentic data layer thesis but Q2 FY27 print remains the share-capture-vs-Pinecone/Weaviate falsification test.
+
+---
+
+**Prior last updated:** 2026-06-04 PM (Cloudflare agentic-traffic crossover MILD reinforcement for vector DB agentic RAG thesis)
 
 ## 2026-06-04 PM — Agentic crossover empirically verified
 

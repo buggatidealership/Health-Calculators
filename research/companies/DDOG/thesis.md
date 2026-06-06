@@ -1,6 +1,18 @@
 # Datadog (DDOG) — Thesis
 
-**Last updated:** 2026-06-04 PM (Cloudflare agentic-traffic crossover REINFORCES agentic observability TAM thesis at operating-condition level)
+**Last updated:** 2026-06-06 (Morning brief #2 back-reference — Alphabet/Meta capex amplifies agentic observability TAM; no thesis change)
+
+## 2026-06-06 back-reference
+
+Per `research/signals/cross-source-log/2026-06-06-morning-brief-memory-shortage-coalition-airtrunk-india-sp500-block.md`:
+
+Alphabet $85B raise + Meta $145B 2026 capex consideration = downstream enterprise AI workload expansion = MORE agentic observability demand. Mild adjacent positive on top of 2026-06-04 PM Cloudflare crossover read.
+
+**Position implication:** HOLD — no size change — DDOG at 4.33% Degiro post-33% trim. Capex signals reinforce agentic observability TAM thesis but no sizing change in current macro regime (cash deployment gated on Iran/FOMC/SpaceX IPO triggers).
+
+---
+
+**Prior last updated:** 2026-06-04 PM (Cloudflare agentic-traffic crossover REINFORCES agentic observability TAM thesis at operating-condition level)
 
 ## 2026-06-04 PM — Agentic traffic crossover empirically verified
 
