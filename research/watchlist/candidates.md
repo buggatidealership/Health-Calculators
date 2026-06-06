@@ -261,3 +261,62 @@ A watchlist name gets a full `companies/{TICKER}/` folder when:
   - Investability: Japan TSE INVESTABLE
   - Status: **WATCHLIST — secondary priority vs Sumitomo Electric (lower ranking position)**; conglomerate exposure means photonics is small % of total revenue, needs SOTP decomposition before sizing
   - Priority: MEDIUM
+
+### Consumer hardware swap candidates (added 2026-06-06)
+
+Origin: 2026-06-06 PM user-articulated framework — "DC buildout 50% cancellation = ceiling on cohort demand → next non-consensus leg is consumer-side hardware swap (laptop, PCs, mobile phones)." Joint-regime correction validated supplier-side as winners; consumer-AI swap is the under-priced expression because (a) silicon SoC layer already priced (QCOM/AMD/AAPL/MTK parabolic), (b) 2nd+3rd order BOM intensity + sensing-adjacent components are under-covered. Per cross-source-log `2026-06-06-mag7-capex-burn-vs-net-cash-correction.md` (corrected joint-regime framework).
+
+- **Cirrus Logic (CRUS) — added 2026-06-06**
+  - Source signal: Consumer-swap 3rd-order cascade (always-on AI audio listening)
+  - Linked causal chain: AI assistant proliferation → always-on audio codec demand → CRUS dominant in Apple supply chain
+  - Why interesting: Apple-tier mixed-signal audio codec; always-on AI assistant ramp = structural pull; under-covered as AI play (~$8B mkt cap; viewed mostly as Apple-iPhone single-customer cyclical)
+  - Investability: US listed (NASDAQ)
+  - Status: WATCHLIST — needs dedicated thesis; check Apple supply concentration risk vs AI-assistant volume
+
+- **Monolithic Power Systems (MPWR) — added 2026-06-06**
+  - Source signal: Consumer-swap 4th-order cascade (PMIC for AI PC variable NPU power profile)
+  - Linked causal chain: AI PC NPU workload variability → high-precision PMIC demand → MPWR specialized integrated power management
+  - Why interesting: Growth name with AI PC + AI server cross-exposure; not in obvious AI cohort (~$30B mkt cap; less covered than TI/ADI in semis); semi-monopoly in high-precision modular power
+  - Investability: US listed (NASDAQ)
+  - Status: WATCHLIST — needs dedicated thesis; verify AI PC % of revenue
+
+- **Taiyo Yuden (6976.T) — added 2026-06-06**
+  - Source signal: Consumer-swap 2nd-order cascade (MLCC BOM intensity rise per AI device); second-tier MLCC alternative to Murata
+  - Linked causal chain: MLCC density per AI device rises → Murata + Samsung EM cap-out → second-tier benefits + bypass-route candidate
+  - Why interesting: Trades cheaper than Murata; same demand drivers; under-covered as AI MLCC play; complements held MUR position via bypass-route framework (Critical Rule #9)
+  - Investability: Japan TSE INVESTABLE (same path as Murata/Hirano)
+  - Status: WATCHLIST — needs dedicated thesis; useful as second-source bypass per Critical Rule #9
+
+- **Microchip Technology (MCHP) — added 2026-06-06**
+  - Source signal: Consumer-swap 4th-order cascade (secure enclave for on-device AI privacy)
+  - Linked causal chain: On-device LLM → hardware secure enclave demand → MCHP IoT-AI security MCU
+  - Why interesting: IoT-AI security as on-device LLM proliferates (private data must not leave device); MCHP focused on edge/embedded vs Infineon/NXP automotive-tilt
+  - Investability: US listed (NASDAQ)
+  - Status: WATCHLIST — secondary priority vs CRUS/MPWR; verify edge-AI security revenue exposure
+
+- **Panasonic (6752.T) — added 2026-06-06**
+  - Source signal: Consumer-swap 4th-order cascade (denser battery cells for AI PC + AI smartphone)
+  - Linked causal chain: AI PC compute load → battery drain rises → denser cylindrical/pouch cells → Panasonic + Samsung SDI + LGES
+  - Why interesting: Less obvious AI play; Tesla 2170/4680 customer + ThinkPad-tier laptop battery supplier; AI-laptop battery angle under-discussed
+  - Investability: Japan TSE INVESTABLE
+  - Status: WATCHLIST — lower priority (battery is small % of consolidated Panasonic revenue; SOTP decomposition needed); held vs adjacent investments first
+
+- **Knowles (KN) — added 2026-06-06**
+  - Source signal: Consumer-swap 3rd-order cascade (always-on AI audio + MEMS)
+  - Linked causal chain: AI assistant ambient listening + multi-microphone arrays + voice biometrics → MEMS microphone density rises
+  - Why interesting: MEMS microphone leader; small-cap (~$1B); under-covered consumer AI play; competes with TDK InvenSense
+  - Investability: US listed (NASDAQ)
+  - Status: WATCHLIST — small-cap volatility caveat; secondary to CRUS for audio exposure
+
+- **TDK Corporation (6762.T) — added 2026-06-06**
+  - Source signal: Consumer-swap 3rd-order cascade (motion sensors via InvenSense subsidiary; MLCC + battery cross-exposure)
+  - Linked causal chain: Context-aware AI needs IMU/motion sensors + AI PC MLCCs + EV battery → TDK 4-way exposure
+  - Why interesting: Diversified electronics conglomerate; InvenSense MEMS motion sensors for context-aware AI; secondary MLCC supplier; rare 4-way consumer-AI exposure
+  - Investability: Japan TSE INVESTABLE
+  - Status: WATCHLIST — secondary priority vs Murata (already held); useful as diversified consumer-AI conglomerate exposure
+
+### Existing watchlist names with consumer-hardware-swap angle ADDED (cross-reference, not new entries)
+
+- **KIOXIA (285A.T)** — already P1 todo (VLSI Symposium June 14-18); consumer-swap angle = UFS NAND for on-device LLM weights ADDS to existing HBF JV angle
+- **SONY (6758.T)** — existing `companies/SONY/thesis.md` covers Physical AI vision (CIS market 43-64% share); consumer-swap angle = AI multi-cam arrays for iPhone 17 / Pixel 11 STRENGTHENS existing thesis
+- **Furukawa Electric (5801.T)** — already on watchlist (HVLP4 angle); consumer-swap angle = heat pipes for AI PC thermal ADDS to existing copper foil angle
