@@ -131,3 +131,58 @@ Anti-fragile themes (win in ≥3 scenarios): T1, T5, T6.
 - Hiring shift toward "design, govern, run enterprise-scale workflows"
 
 **Status: CANDIDATE → expected promotion on N=2+ further empirical validation (token-waste-ratio metrics from NOW Q2 print, DDOG print, or independent enterprise surveys).**
+
+---
+
+## T9 — Consumer Hardware AI Swap (candidate, added 2026-06-06 PM)
+
+**User-articulated framework 2026-06-06 PM:** *"DC buildout 50% cancellation = ceiling on existing cohort demand. The next non-consensus leg is consumer-side hardware swap (laptop, PCs, mobile phones). Silicon SoC layer already priced (QCOM/AMD/AAPL/MTK parabolic); 2nd-3rd order BOM intensity + sensing-adjacent components are under-covered."*
+
+**Thesis:** As DC capex hits physical-cap ceiling (Bloomberg 50% of US 2026 DC builds delayed/canceled; NY + Seattle moratoriums; AirTrunk India $30B/5GW migration evidence of EM displacement), the next growth vector for AI hardware demand shifts to **consumer device refresh cycles** (AI PC, AI smartphone, on-device LLM inference). The investable edge sits NOT with the obvious silicon names (already priced parabolic) but with the **BOM intensity upgrade + sensing-adjacent components** that benefit per-device regardless of unit shipment growth.
+
+**Per-device BOM intensity drivers:**
+- NPU-bearing SoC replacing non-NPU SoC → MORE silicon area, MORE substrate complexity
+- LPDDR5X capacity rising (16GB → 32GB+ per AI PC; LPDDR5X ASP +60% per H2 2026 forecasts)
+- UFS NAND rising (on-device LLM weights = 5-20GB persistent storage per device)
+- MLCC count rising (NPU TDP variability = more decoupling capacitors)
+- Power delivery (PMIC) precision rising
+- Thermal solutions (heat pipes, vapor chambers for AI PC)
+- Audio always-on (AI assistant ambient listening)
+- Camera arrays (multi-cam AI vision)
+- Hardware secure enclave (on-device LLM privacy)
+
+**Names that play this theme:**
+
+*Already held (consumer-AI angle reinforcing):*
+- **MURATA (MUR1, held 5.36%)** — MLCC density rise per AI device; HIGHEST exposure to consumer-AI BOM intensity
+- **SUMCO (S3X, held 4.42%)** — wafer pull for consumer-AI SoCs (mobile + AI PC)
+- **SNDK (SNDK, held 2.88%)** — UFS NAND for on-device LLM weights; agentic-shift validates per user thesis
+- **ARM (ARM, held 3.17%)** — IP royalty receiver for consumer AI silicon SoC architecture
+
+*New watchlist (added 2026-06-06 PM):*
+- **CRUS (Cirrus Logic)** — always-on AI audio codec; Apple-tier mixed-signal
+- **MPWR (Monolithic Power)** — PMIC for AI PC variable NPU power profile
+- **Taiyo Yuden (6976.T)** — second-tier MLCC bypass to Murata
+- **MCHP (Microchip Technology)** — on-device AI secure enclave for IoT
+- **Panasonic (6752.T)** — denser batteries for AI PC + AI smartphone
+- **KN (Knowles)** — MEMS microphones for ambient AI audio
+- **TDK (6762.T)** — InvenSense motion sensors + MLCC + battery 4-way exposure
+
+*Existing watchlist with consumer-swap angle:*
+- **KIOXIA (285A.T)** — UFS NAND on-device LLM weights + HBF JV
+- **SONY (6758.T)** — image sensors for AI multi-cam arrays
+- **Furukawa Electric (5801.T)** — heat pipes for AI PC thermal
+
+**Anti-fragility:** wins in S1, S2, S3 (consumer-AI compounds regardless of which silicon vendor wins); neutral S4 (digestion may delay refresh cycle); mixed S5 (regulatory mostly neutral, privacy-AI angle slightly positive).
+
+**Falsifier:** AI PC remains <10% of laptop sales 2026-2028 per IDC tracking; iPhone Apple Intelligence v3 fails to drive accelerated upgrade cycle; edge AI permanently routes to cloud (would falsify partial); Microsoft Copilot+ becomes optional/de-emphasized.
+
+**Convex hull:** Even if AI PC penetration is only 30% by 2028, BOM intensity uplift per AI-PC device (3-5x more MLCCs, 2-3x more LPDDR5X, NPU silicon, better thermal, advanced packaging) means component winners can grow at 15-25% YoY in dollar terms even on flat unit volume. The thesis does not require explosive AI PC penetration — only modest penetration + structural BOM intensity.
+
+**Status: CANDIDATE → promotion trigger: N=2+ empirical validation via (a) consumer-AI MLCC pull in Murata Q1 FY27 print (late July/early Aug 2026), AND (b) one of the watchlist names showing first AI-specific revenue disclosure in next quarterly cycle.**
+
+**Cross-references:**
+- `signals/cross-source-log/2026-06-06-mag7-capex-burn-vs-net-cash-correction.md` — DC capex burn dynamic that motivates consumer-swap pivot
+- `signals/cross-source-log/2026-06-06-sram-supply-chain-plus-agc-trajectory-recontextualization.md` — joint-regime fit framework
+- `watchlist/candidates.md` — Consumer hardware swap section
+- `meta/todo.md` — H1 (supply chain graph reconstruction) monthly workflow that extends this theme

@@ -1,6 +1,46 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-06-06 (US memory shortage coalition letter to Treasury + Commerce — FIRST govt-level acknowledgment of the structural HBM-divert-from-commodity-DRAM thesis; physical-cap regime now policymaker-recognized). Prior material update 2026-06-04.
+**Last material synthesis update:** 2026-06-06 PM (Mag 7 capex burn vs net cash CORRECTION — only AAPL + NVDA score 6/6 joint-regime fit; GOOG/META/MSFT/AMZN are debt-funded capex burners with FCF compression; SUPPLIER-side names that COLLECT the spend are the structural joint-regime winners; Consumer Hardware AI Swap (T9) emerges as next non-consensus leg as DC capex hits physical-cap ceiling). Prior material update 2026-06-06 AM.
+
+## 2026-06-06 PM — Mag 7 capex burn correction + Consumer-swap pivot
+
+**Trigger:** User correction on prior framing of "Mag 7 = self-funded + $100B+ cash piles = joint-regime winners." Verified balance sheet data refutes the framing for 4 of 7 names. Detail in `signals/cross-source-log/2026-06-06-mag7-capex-burn-vs-net-cash-correction.md`.
+
+### Joint-regime fit correction
+
+Hyperscaler aggregate 2026 capex per Morgan Stanley: $805 billion; 2027: $1.1 trillion. Capex/revenue ratios 45-57% (vs 10-15% in 2020). Combined FCF (AMZN+GOOGL+META+MSFT) at lowest since 2014. 2025 hyperscaler debt issuance $121B (vs $28B 2020-2024 average) = 4.3x. Tech sector projected new debt 2025-2027 = $1.5 trillion (Morgan Stanley + JPM).
+
+Per-name verified balance sheet positions:
+- **GOOG:** $126.8B cash but raised $170B fresh capital in 12 months (debt + equity); total debt >$100B post-Q1 2026
+- **META:** $44.45B cash, $28.83B LT debt, $15.6B net cash (modest); $25B bond May 2026; considering additional equity raise
+- **MSFT:** FCF compressed -22% YoY ($20.3B → $15.8B Q3 FY26) on $190B calendar 2026 capex
+- **AMZN:** TTM FCF fell -95% YoY ($25.9B → $1.2B); going NEGATIVE 2026 on $200B projected capex
+- **AAPL:** STILL 6/6 joint-regime fit — only ~$13B capex; $100B buyback authorization; abandoned net-cash-neutral
+- **NVDA:** STILL 6/6 joint-regime fit — $80.5B cash + $48.5B Q1 FCF; $80B buyback authorization; 25x dividend hike
+
+### Synthesis significance — supplier side wins
+
+In a tight-rate + high-inflation joint regime where capital-intensive BUYERS face debt service inflation + component cost inflation simultaneously, the **SUPPLIERS who COLLECT the capex burn are the structural winners** — they collect the cash being burned, have stronger balance sheets (not levered for the buildout), and benefit from pricing power expansion in shortage conditions (validated by 2026-06-03 memory shortage coalition letter).
+
+User's held cohort (HYNIX/SNDK/SUMCO/MUR/AGC/ARM) sits structurally on the right side of this dynamic. Joint-regime fit STRENGTHENED, not weakened. **Post-rotation portfolio is correctly positioned for this joint regime.**
+
+### Consumer Hardware AI Swap = next non-consensus leg
+
+DC capex is hitting physical-cap ceiling (Bloomberg 50% of US 2026 DC builds delayed/canceled; NY + Seattle moratoriums; AirTrunk India $30B/5GW migration is geographic shift not retraction). User-articulated framework: **next growth vector is consumer-side hardware swap (laptop, PCs, mobile phones).** Silicon-tier already priced (QCOM/AMD/AAPL/MTK parabolic); the non-consensus edge sits with **BOM intensity upgrades + sensing-adjacent components** that benefit per-device regardless of unit shipment growth.
+
+Codified as **T9 — Consumer Hardware AI Swap** (CANDIDATE) in `sector/themes.md`. 7 new watchlist candidates added: CRUS, MPWR, Taiyo Yuden, MCHP, Panasonic, KN, TDK.
+
+### Opus 4.8 capability application framework codified
+
+User conversation 2026-06-06 PM identified 5 highest-leverage applications of frontier AI capability to investing. Top 2 codified as monthly recurring P1 workflows in `meta/todo.md`:
+- **H1 — Supply chain graph reconstruction** (subagent fanout across AI capex chain in English + Japanese/Korean/Chinese press; reconstructs Tier-3/Tier-4 supplier graph; targets 5-10 non-consensus candidates per cycle). First cycle 2026-06-25.
+- **H2 — Adversarial bear-case stress-test** (per-held-name "kill the thesis" exercise; finds constraint-system flaws in current bull theses). First cycle 2026-06-27.
+
+These workflows extend the harness from "reaction engine" to "discovery engine" — running systematic capability application rather than ad-hoc event-driven cascade.
+
+---
+
+**Prior material synthesis update:** 2026-06-06 AM (US memory shortage coalition letter to Treasury + Commerce — FIRST govt-level acknowledgment of the structural HBM-divert-from-commodity-DRAM thesis; physical-cap regime now policymaker-recognized). Prior material update 2026-06-04.
 
 ## 2026-06-06 — Memory shortage = govt-recognized structural regime
 
