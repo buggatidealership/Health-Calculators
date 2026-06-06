@@ -320,3 +320,16 @@ Origin: 2026-06-06 PM user-articulated framework — "DC buildout 50% cancellati
 - **KIOXIA (285A.T)** — already P1 todo (VLSI Symposium June 14-18); consumer-swap angle = UFS NAND for on-device LLM weights ADDS to existing HBF JV angle
 - **SONY (6758.T)** — existing `companies/SONY/thesis.md` covers Physical AI vision (CIS market 43-64% share); consumer-swap angle = AI multi-cam arrays for iPhone 17 / Pixel 11 STRENGTHENS existing thesis
 - **Furukawa Electric (5801.T)** — already on watchlist (HVLP4 angle); consumer-swap angle = heat pipes for AI PC thermal ADDS to existing copper foil angle
+
+### ⚠ NATIVE-LANGUAGE VERIFICATION REQUIRED (per Principle #36, B39/B40) — added 2026-06-06
+
+The 3 Japan TSE-listed entries above (Taiyo Yuden 6976.T, Panasonic 6752.T, TDK 6762.T) were added based on **English-only consumer-AI framework reasoning**. Before full thesis promotion, each requires:
+
+1. Native-language search (Kabutan, Nikkei, IFIS, Toyokeizai, Yahoo Finance Japan)
+2. Right-side-of-Belka 5-test (per `meta/methodology.md` Principle #35)
+3. ATH-distance language (recovery vs all-time-high) replacing rally-history framing
+4. B39 5-test asymmetry verification (bottoms-up upside vs current price)
+
+Origin: discipline standard previously enforced for MURATA + HIRANO + AGC + MITSUI + SUMITOMO ELECTRIC + MITSUBISHI ELECTRIC entries. Hook `llm-native-reasoning-hook.py` caught the same anti-pattern this session — codified now into the watchlist itself so the discipline survives session boundaries. See `signals/cross-source-log/2026-06-01-mlcc-japan-sub-suppliers-research-notes.md` CORRECTION section for origin context.
+
+**Watchlist tier ONLY for these 3 entries.** Promotion to full `companies/{TICKER}/thesis.md` REQUIRES native-language verification first.
