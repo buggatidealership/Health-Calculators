@@ -1,6 +1,26 @@
 # SK Hynix — Thesis
 
-**Last updated:** 2026-06-07 PM (6TH CONVERGENT SIGNAL TIER — Automotive memory +180% in 3 months per CCTV / UBS / Chinese press; >10 Chinese EV makers raising prices; Li Auto VP forecasts 2026 auto memory supply satisfaction <50%)
+**Last updated:** 2026-06-07 PM (SpaceX revised S1 + $45B Anthropic deal verified — 325K NVDA GPUs Anthropic-portion of Colossus 1+2 implies ~2M HBM3E stacks; combined SpaceX cloud forward revenue $78B+ contracted)
+
+## 2026-06-07 PM — SpaceX revised S1 $45B Anthropic deal verification
+
+Per `research/signals/cross-source-log/2026-06-07-spacex-revised-s1-anthropic-45b-verification.md`:
+
+- SpaceX revised S1 disclosed $1.25B/month Anthropic Cloud Services Agreement through May 2029 = ~$45B aggregate
+- Combined Anthropic + Google deals = >$78B contracted SpaceX cloud forward revenue
+- 325K NVDA GPUs Anthropic-accessible across Colossus 1+2 (220K + ~105K)
+- Each GB200 ships with ~6 HBM3E stacks → ~2M HBM3E stacks just for Anthropic-portion of Colossus 1+2 alone
+- "Short-term deal" per Elon = Anthropic shopping multi-source (AWS Trainium + Anthropic-Google TPU parallel paths)
+
+This is incremental load-bearing data on top of the 6-tier convergence ledger. SpaceX/xAI emerges as 3rd-major hyperscaler-peer capex source alongside MSFT/GOOG/META/AMZN. The "supplier-side wins" thesis (per 2026-06-06 PM joint-regime correction) gets another confirmation — HYNIX captures HBM pull from BOTH established hyperscalers AND emerging Anthropic-funded neoclouds.
+
+**SpaceX IPO June 12 recalibration:** $78B+ contracted forward revenue strengthens IPO valuation case; combined with S&P 500 fast-track inclusion block (June 4), liquidity-suck thesis is materially SOFTER than initially modeled. Held memory cohort doesn't need defensive positioning around the IPO event specifically.
+
+**Position implication:** HOLD — no size change — SpaceX-Anthropic + 6th tier auto + Lexar forward guidance + Intel Crescent Island + memory coalition letter = 5 sequential positive signals in 4 days. HYNIX at 4.48% Degiro remains the highest-conviction ADD candidate within held memory cohort when cash deployment window opens. Stage 4 + parabolic-rise caveat (per L21 sector regime modifier) means no pre-trigger add despite confirmation density.
+
+---
+
+**Prior last updated:** 2026-06-07 PM (6TH CONVERGENT SIGNAL TIER — Automotive memory +180% in 3 months per CCTV / UBS / Chinese press; >10 Chinese EV makers raising prices; Li Auto VP forecasts 2026 auto memory supply satisfaction <50%)
 
 ## 2026-06-07 PM — Automotive vertical confirmation (6th convergent signal tier)
 
