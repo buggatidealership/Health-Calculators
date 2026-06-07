@@ -1,6 +1,54 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-06-06 PM (Mag 7 capex burn vs net cash CORRECTION — only AAPL + NVDA score 6/6 joint-regime fit; GOOG/META/MSFT/AMZN are debt-funded capex burners with FCF compression; SUPPLIER-side names that COLLECT the spend are the structural joint-regime winners; Consumer Hardware AI Swap (T9) emerges as next non-consensus leg as DC capex hits physical-cap ceiling). Prior material update 2026-06-06 AM.
+**Last material synthesis update:** 2026-06-07 (Memory shortage thesis reaches 5TH CONVERGENT SIGNAL TIER — Lexar industry-insider forward guidance "RAM doubling by year-end 2026" + Intel Crescent Island LPDDR5X validation + agent memory research validation; NPO architectural expansion in Rubin Ultra surfaces optical supplier-side cohort as additional supplier-side winner). Prior material update 2026-06-06 PM.
+
+## 2026-06-07 — Memory shortage thesis reaches 5th convergent signal tier
+
+**Trigger:** Triple-brief cascade (June 6 PM + June 7 AM) + @FundaAI NPO tweet. Detail: `signals/cross-source-log/2026-06-07-triple-brief-plus-npo-unified-cascade.md`.
+
+### Memory shortage thesis: 5-tier convergence complete
+
+The memory shortage thesis has now triangulated across ALL credibility tiers:
+
+1. **Supplier earnings** (Hynix April 2026 guidance — shortage through 2027)
+2. **Bottoms-up consumer ASP spillover** (DDR5 $375/32GB — Tom's Hardware May 2026)
+3. **Industry triangulation** (Q1 2026 RAM +110% / SSD +147% ASP)
+4. **Govt-level industry coalition letter** to Treasury+Commerce (June 3, 2026)
+5. **Industry-insider forward guidance** — Lexar regional manager Chris Xia "RAM doubling by end 2026" (June 6 Tom's Hardware)
+
+Plus secondary corroborators: RTX 3090 consumer surge to $1,300-$1,500 (doubled from $700 2y ago); PC shipments forecast to contract >10%; motherboard sales already -25%.
+
+**Synthesis significance:** Memory shortage thesis is no longer non-consensus at any tier. The investable edge has SHIFTED from "identifying the shortage" to (a) durability assessment — does the cycle extend into 2028+? (b) bypass-route mapping when supply catches up — HBF JV, 3D DRAM, hybrid bonding (BESI watchlist). Held cohort (HYNIX 8sh / SNDK 4sh / SUMCO 415sh) thesis FULLY VALIDATED at every signal tier.
+
+### Architecture-agnostic memory beneficiary confirmation (Intel Crescent Island)
+
+Intel Crescent Island GPU (Xe3P, 480GB LPDDR5X, customer sampling H2 2026) per [The Register T2](https://www.theregister.com/ai-and-ml/2026/06/04/intels-new-gpu-is-what-nvidias-rubin-cpx-nearly-was/5250989) explicitly fills void left by cancelled Rubin CPX. Confirms LPDDR5X bottleneck thesis (from 2026-06-04 deep-dive) — memory makers benefit ARCHITECTURE-AGNOSTIC across Rubin CPX cancellation → Groq SRAM → Crescent Island LPDDR5X paths. Bypass-route framework validated (multiple architectural escape routes all need memory).
+
+### NPO architectural expansion adds optical supplier-side cohort
+
+Per @FundaAI Premium tweet 2026-06-07 + verified GTC 2026 narrative: Rubin Ultra NVL576 NPO content per GPU near-doubles (2.25 → 4.0 optical engines). Supply-chain leverage shifts toward optical module vendors (Coherent, Lumentum, Innolight, Eoptolink, Fabrinet) and laser component makers (Sumitomo Electric TIED #1 CW-DFB, Mitsubishi Electric EML #3, Lumentum lasers). New watchlist addition: **Fabrinet (FN)** — outsourced optical manufacturing. **Sumitomo Electric ELEVATED** to highest P1 watchlist priority.
+
+### ARM royalty thesis amplification
+
+NVIDIA high-density CPU system for Windows PCs (Computex 2026) + Gemma 4 12B multimodal at 8GB Q4 quantization = double signal for ARM royalty pull (NVDA Vera/Grace-tier server-CSS royalties + mobile NPU IP demand). ARM gets best single-item read of June 6-7 brief cluster. T9 Consumer Hardware AI Swap thesis reinforced empirically.
+
+### Power-binding emerges as next-tier bottleneck
+
+Google-Voltus 100MW VPP deal in PJM grid (announced June 3, in morning brief 4 days later) = first hyperscaler directly funding virtual power plant. Validates T2 (Power becomes binding) at hyperscaler-action tier. Watchlist beneficiaries: GEV, ETN, VST, CEG, BE (Aschenbrenner held), SEI.
+
+### B40 enforcement: post-promotion N+ catches continue
+
+3rd-4th N+ catches this week:
+- Intel Crescent Island: chip Oct 2025 / positioning fresh (PARTIAL B40)
+- Google-Voltus VPP: deal June 3 / brief June 7 (4-day lag, PARTIAL B40)
+- Gemma 4 12B: released June 3 / brief June 7 (PARTIAL B40)
+- Only Lexar RAM doubling is GENUINELY fresh (June 6) — and it's the most load-bearing item
+
+Pattern: aggregator briefs continue repackaging 2-4 day old signals as morning-current. Verification-before-cascade protocol working as designed.
+
+---
+
+**Prior material synthesis update:** 2026-06-06 PM (Mag 7 capex burn vs net cash CORRECTION — only AAPL + NVDA score 6/6 joint-regime fit; GOOG/META/MSFT/AMZN are debt-funded capex burners with FCF compression; SUPPLIER-side names that COLLECT the spend are the structural joint-regime winners; Consumer Hardware AI Swap (T9) emerges as next non-consensus leg as DC capex hits physical-cap ceiling). Prior material update 2026-06-06 AM.
 
 ## 2026-06-06 PM — Mag 7 capex burn correction + Consumer-swap pivot
 

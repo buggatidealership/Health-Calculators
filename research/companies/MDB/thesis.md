@@ -1,6 +1,18 @@
 # MongoDB (MDB) — Thesis
 
-**Last updated:** 2026-06-06 (Morning brief #2 back-reference — Alphabet/Meta capex amplifies agentic data layer demand; no thesis change)
+**Last updated:** 2026-06-07 (Triple-brief cascade — agent memory systems research directly validates vector DB for agentic memory thesis)
+
+## 2026-06-07 back-reference — Triple-brief unified cascade
+
+Per `research/signals/cross-source-log/2026-06-07-triple-brief-plus-npo-unified-cascade.md`:
+
+ArXiv "Agent memory systems characterized across long-horizon workloads" — first comprehensive analysis confirms stateful agents need fundamentally different storage/retrieval architectures than current RAG systems. Direct validation of vector DB for agentic memory thesis. MDB Voyage AI acquisition + Atlas Vector Search positioning capture this architectural shift.
+
+**Position implication:** HOLD — no size change — MDB at 2.60% Degiro post-45% trim. Research-tier validation strengthens entry-candidate framing but Q2 FY27 print remains the share-capture-vs-Pinecone/Weaviate falsification test.
+
+---
+
+**Prior last updated:** 2026-06-06 (Morning brief #2 back-reference — Alphabet/Meta capex amplifies agentic data layer demand; no thesis change)
 
 ## 2026-06-06 back-reference
 

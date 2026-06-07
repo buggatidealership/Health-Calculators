@@ -1,6 +1,22 @@
 # Sumco Corporation (3436.T) — Thesis
 
-**Last updated:** 2026-06-06 (Memory shortage coalition + AirTrunk India 5GW — wafer pull thesis triple-validated)
+**Last updated:** 2026-06-07 (Triple-brief cascade — Lexar RAM doubling + Intel Crescent Island wafer pull + sustained memory cycle = wafer demand reinforced at 5th convergent signal tier)
+
+## 2026-06-07 back-reference — Triple-brief unified cascade
+
+Per `research/signals/cross-source-log/2026-06-07-triple-brief-plus-npo-unified-cascade.md`:
+
+- Lexar industry-insider forward guidance: RAM doubling by end 2026 = sustained wafer demand cycle through year-end at minimum
+- Intel Crescent Island GPU production (Xe3P, customer sampling H2 2026) = additional Intel-side wafer pull
+- Memory cycle structural confirmation at 5th convergent signal tier (after supplier earnings + consumer ASP + industry triangulation + govt coalition letter + industry-insider forward guidance)
+
+SUMCO continues to benefit as #2 global wafer player REGARDLESS of which memory vendor wins (Hynix M15X expansion, Samsung P4, Micron Idaho/NY, KIOXIA, Intel Crescent Island manufacturing). Architecture-agnostic + vendor-agnostic supplier-side positioning.
+
+**Position implication:** HOLD — no size change — SUMCO at 4.42% Degiro (full size, currently -7.79% unrealised). Sustained wafer thesis through 2026-2027 + dual-benefit positioning (SRAM mature node + HBM advanced node) makes SUMCO the cheapest ADD candidate when cash deployment window opens. Consider 415 → 500-600 sh.
+
+---
+
+**Prior last updated:** 2026-06-06 (Memory shortage coalition + AirTrunk India 5GW — wafer pull thesis triple-validated)
 
 ## 2026-06-06 — Memory coalition + AirTrunk India 5GW back-reference
 

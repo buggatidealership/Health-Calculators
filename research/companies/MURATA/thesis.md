@@ -1,6 +1,24 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-06-06 (AirTrunk India $30B/5GW + memory coalition letter — MLCC pull thesis reinforced via EM DC buildout angle)
+**Last updated:** 2026-06-07 (Triple-brief cascade — NVDA CPU PCs + Intel Crescent Island PC-class + Gemma 4 12B multimodal edge deployment = T9 Consumer Hardware AI Swap thesis empirical reinforcement)
+
+## 2026-06-07 back-reference — Triple-brief unified cascade
+
+Per `research/signals/cross-source-log/2026-06-07-triple-brief-plus-npo-unified-cascade.md`:
+
+T9 Consumer Hardware AI Swap thesis (codified 2026-06-06 PM) gets multiple empirical reinforcements:
+- **NVIDIA high-density CPU system for Windows PCs** (Computex announcement; brief 2026-06-06 PM) — NVDA + ARM Grace-tier CPU in consumer PCs = MLCC content rise per device
+- **Intel Crescent Island GPU** (Xe3P, PCIe add-in card, 350W TDP, 480GB LPDDR5X) — PC-class deployment vector for AI inference acceleration; MLCC content per Crescent Island system
+- **Gemma 4 12B multimodal at 8GB Q4 quantization** — native multimodal (text+image+audio+video) deployable on consumer devices; drives BOM intensity (memory, MLCC, thermal, audio components) per AI-capable device
+- **RTX 3090 surge** signals consumer GPU memory shortage spillover; MLCC content per modern GPU/AI-PC is rising structurally
+
+Murata is the #1 consensus winner of consumer-AI MLCC density rise. Q1 FY27 print (late July / early Aug 2026) remains the L21/L22 falsification test on the beat-analyst-consensus framework.
+
+**Position implication:** HOLD — no size change — MUR at 5.36% Degiro (largest unrealised P/L position at +50.20%). Q1 FY27 print is the critical inflection. Pre-print add NOT recommended per L21 sector regime modifier (Stage 4 + macro risk-off); add candidacy after Q1 FY27 BEATS analyst consensus.
+
+---
+
+**Prior last updated:** 2026-06-06 (AirTrunk India $30B/5GW + memory coalition letter — MLCC pull thesis reinforced via EM DC buildout angle)
 
 ## 2026-06-06 back-reference — AirTrunk India 5GW + memory coalition letter
 

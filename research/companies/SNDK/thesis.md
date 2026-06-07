@@ -1,6 +1,21 @@
 # Sandisk (SNDK) — Thesis
 
-**Last updated:** 2026-06-06 (Memory shortage industry coalition letter — govt-level structural-tightness validation extends to NAND)
+**Last updated:** 2026-06-07 (Triple-brief cascade — Lexar RAM doubling implies NAND parallel tightness; RTX 3090 consumer-tier surge; agent memory research validates NAND-for-agentic-state thesis)
+
+## 2026-06-07 back-reference — Triple-brief unified cascade
+
+Per `research/signals/cross-source-log/2026-06-07-triple-brief-plus-npo-unified-cascade.md`:
+
+- Lexar industry-insider RAM doubling guidance implies NAND parallel tightness (same supplier diversion dynamic; SK Hynix + Samsung + Micron diverting wafer capacity to HBM constrains NAND too)
+- RTX 3090 surge to $1,300-$1,500 (doubled from $700 2 years ago) = consumer-tier memory shortage spillover affects storage tier as well
+- ArXiv "Agent memory systems characterized across long-horizon workloads" research = first comprehensive analysis confirms stateful agents need FUNDAMENTALLY DIFFERENT storage/retrieval architectures vs current RAG → direct validation of agentic-shift-to-NAND thesis user articulated 2026-06-06 PM
+- Kioxia VLSI Symposium June 14-18 watch (P1 todo) becomes more interesting — HBF roadmap signals will land into this convergent context
+
+**Position implication:** HOLD — no size change — SNDK at 2.88% Degiro post-50% trim, +43.87% unrealised. Agentic-shift-to-NAND thesis getting research-tier validation + memory shortage extending to NAND tier strengthens position. No immediate add (Stage 4 + ATH-proximity caution per L21 sector regime modifier); ADD candidate behind HYNIX + SUMCO when deployment opens.
+
+---
+
+**Prior last updated:** 2026-06-06 (Memory shortage industry coalition letter — govt-level structural-tightness validation extends to NAND)
 
 ## 2026-06-06 back-reference — Memory shortage coalition letter (govt-level)
 

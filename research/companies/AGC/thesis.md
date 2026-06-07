@@ -1,6 +1,18 @@
 # AGC Inc (5201.T) — Thesis
 
-**Last updated:** 2026-06-06 (Morning brief #2 back-reference — memory coalition + AirTrunk India 5GW; mild PTFE CCL adjacency; no thesis change)
+**Last updated:** 2026-06-07 (Triple-brief cascade — NPO architectural expansion in Rubin Ultra = mild PTFE CCL adjacency on top of existing AI-CCL trajectory)
+
+## 2026-06-07 back-reference — Triple-brief unified cascade
+
+Per `research/signals/cross-source-log/2026-06-07-triple-brief-plus-npo-unified-cascade.md`:
+
+NPO architectural expansion in Rubin Ultra NVL576 (per @FundaAI tweet + verified GTC 2026 narrative) = additional optical engine density per rack → additional PTFE CCL demand at high-frequency interconnect tier. AGC's PTFE CCL segment (already growing +9.6% CAGR per 2026-06-06 AM trajectory analysis) gets mild adjacency from NPO buildout.
+
+**Position implication:** HOLD — no size change — AGC at 2.23% Degiro (full size, NOT trimmed). NPO adjacency reinforces trajectory thesis without changing the watchlist-tier overall conviction. Named-trigger upgrade conditions unchanged (M10/Rubin PTFE qualification win OR FY2026 Electronics segment margin recovery >15% sustained).
+
+---
+
+**Prior last updated:** 2026-06-06 (Morning brief #2 back-reference — memory coalition + AirTrunk India 5GW; mild PTFE CCL adjacency; no thesis change)
 
 ## 2026-06-06 back-reference
 

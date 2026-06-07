@@ -1,6 +1,22 @@
 # ServiceNow (NOW) — Thesis
 
-**Last updated:** 2026-06-06 (Morning brief #2 back-reference — Alphabet $85B / Meta $145B capex amplifies enterprise AI rollout; no thesis change)
+**Last updated:** 2026-06-07 (Triple-brief cascade — federal AI + Meta IG hack security spend + OpenAI Lockdown Mode + tokenomics research validate agentic governance thesis)
+
+## 2026-06-07 back-reference — Triple-brief unified cascade
+
+Per `research/signals/cross-source-log/2026-06-07-triple-brief-plus-npo-unified-cascade.md`:
+
+Four signals reinforce Knowledge 2026 agentic governance thesis:
+- Trump considering equity stake in OpenAI = federal-AI engagement validates governance/compliance spend (mild adjacent)
+- Meta IG hack via AI chatbot exploit = security spend validation
+- OpenAI Lockdown Mode (prompt injection defense) = security category continues compounding
+- ArXiv tokenomics study quantifying token usage in agentic workflows = first rigorous accounting framework (validates AI FinOps T8 theme that NOW captures)
+
+**Position implication:** HOLD — no size change — NOW at 4.21% Degiro post-34% trim. T8 governance thesis getting research-tier validation. Capex backdrop intact; no immediate add per Stage 4 + risk-off regime.
+
+---
+
+**Prior last updated:** 2026-06-06 (Morning brief #2 back-reference — Alphabet $85B / Meta $145B capex amplifies enterprise AI rollout; no thesis change)
 
 ## 2026-06-06 back-reference
 

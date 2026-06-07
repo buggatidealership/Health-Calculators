@@ -1,6 +1,42 @@
 # SK Hynix — Thesis
 
-**Last updated:** 2026-06-06 (Memory shortage coalition letter VERIFIED — govt-level acknowledgment of structural memory tightness; thesis FULLY VALIDATED at highest-credibility public signal tier)
+**Last updated:** 2026-06-07 (5th-tier convergent confirmation — Lexar industry-insider RAM doubling forward guidance + Intel Crescent Island LPDDR5X validation + Huawei Ascend HBM market expansion)
+
+## 2026-06-07 — Triple-brief unified cascade reinforcement
+
+Per `research/signals/cross-source-log/2026-06-07-triple-brief-plus-npo-unified-cascade.md`:
+
+Three convergent signals from June 6-7 briefings + NPO tweet:
+
+1. **Lexar regional manager (Australia/NZ) Chris Xia forward-guides RAM prices DOUBLE by end of 2026** per [Tom's Hardware T2](https://www.tomshardware.com/pc-components/ram/lexar-regional-manager-says-that-ram-prices-are-expected-to-double-by-the-end-of-the-year-discounts-and-stabilized-prices-result-from-distributors-getting-rid-of-old-stock-or-sourcing-products-from-other-regions). Current price stabilization is distributor inventory clearing, NOT supply recovery. PC shipments forecast to contract >10%; motherboard sales already -25%. **5TH-TIER convergent signal** (after supplier earnings, consumer ASP spillover, industry triangulation, govt-level coalition letter, now industry-insider forward guidance).
+
+2. **Intel Crescent Island GPU** per [The Register T2](https://www.theregister.com/ai-and-ml/2026/06/04/intels-new-gpu-is-what-nvidias-rubin-cpx-nearly-was/5250989) — Xe3P architecture, 480GB LPDDR5X (160GB base), fills void left by cancelled Rubin CPX. Customer sampling H2 2026. **Direct HYNIX product line beneficiary** — LPDDR5X is HYNIX product; Intel adds another demand vector regardless of NVDA roadmap. Memory makers are ARCHITECTURE-AGNOSTIC beneficiaries.
+
+3. **Huawei post-trains DeepSeek 1.6T on Ascend 910C / 1,000 chips** per Tom's Hardware. Ascend uses HBM; market expansion for Chinese hardware sovereignty is HBM-agnostic positive (not just NVDA).
+
+### Why this is the 5th convergent signal tier and what it means
+
+The memory shortage thesis has progressed through escalating signal tiers:
+1. Supplier earnings (Hynix April 2026 guidance)
+2. Bottoms-up consumer ASP spillover (DDR5 $375/32GB)
+3. Industry triangulation (Q1 2026 RAM +110% / SSD +147% ASP)
+4. Govt-level industry coalition letter to Treasury+Commerce (June 3, 2026)
+5. **Industry-insider forward guidance — Lexar regional manager** (June 6, 2026)
+
+This is no longer a "non-consensus" thesis at any tier. Edge for HYNIX is in (a) durability assessment — does the cycle extend into 2028+? (b) bypass-route mapping for when supply catches up — HBF JV, 3D DRAM, hybrid bonding (BESI watchlist).
+
+### Parallel hypotheses on durability (my model)
+
+- H1 (P=50%) Memory cycle compounds through 2027-2028; ASPs continue rising; HYNIX margins expand
+- H2 (P=25%) Cycle compounds 6-12 more months then bends as Hynix M15X + Samsung P4 reach production faster than April guide
+- H3 (P=15%) Macro overlays (Iran deal / Fed pivot) cause mark-down without thesis falsification; Critical Rule #8 protects
+- H4 (P=10%) Tail-risk catalyst breaks thesis component; cash buffer + Critical Rule #8 provide resilience
+
+**Position implication:** HOLD — no size change — Thesis FULLY VALIDATED at 5th convergent signal tier; HYNIX at 4.48% Degiro post-50% trim. Critical Rule #8 protects against reactive change. When cash deployment window opens (Iran binary / FOMC June 16-17 / Murata Q1 FY27 print late July), HYNIX is the highest-conviction ADD candidate within held memory cohort (8sh → 10-12sh consideration).
+
+---
+
+**Prior last updated:** 2026-06-06 (Memory shortage coalition letter VERIFIED — govt-level acknowledgment of structural memory tightness; thesis FULLY VALIDATED at highest-credibility public signal tier)
 
 ## 2026-06-06 — Memory shortage industry coalition letter (govt-level validation)
 

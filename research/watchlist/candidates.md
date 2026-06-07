@@ -333,3 +333,19 @@ The 3 Japan TSE-listed entries above (Taiyo Yuden 6976.T, Panasonic 6752.T, TDK 
 Origin: discipline standard previously enforced for MURATA + HIRANO + AGC + MITSUI + SUMITOMO ELECTRIC + MITSUBISHI ELECTRIC entries. Hook `llm-native-reasoning-hook.py` caught the same anti-pattern this session — codified now into the watchlist itself so the discipline survives session boundaries. See `signals/cross-source-log/2026-06-01-mlcc-japan-sub-suppliers-research-notes.md` CORRECTION section for origin context.
 
 **Watchlist tier ONLY for these 3 entries.** Promotion to full `companies/{TICKER}/thesis.md` REQUIRES native-language verification first.
+
+### NPO architectural shift beneficiaries (added 2026-06-07)
+
+Origin: 2026-06-07 AM user-shared tweet @jukan05 / @FundaAI Premium Report — NPO content per Rubin Ultra GPU near-doubles (2.25 → 4.0 optical engines per GPU, +78%). NPO favors optical module vendors over advanced-packaging platform. Per `signals/cross-source-log/2026-06-07-triple-brief-plus-npo-unified-cascade.md`.
+
+- **Fabrinet (FN) — added 2026-06-07**
+  - Source signal: NPO architectural expansion in Rubin Ultra NVL576; outsourced optical manufacturing for module vendors (Coherent, Lumentum, Innolight, Eoptolink)
+  - Linked causal chain: NPO content expansion → optical module vendor content/assembly role expansion → Fabrinet captures contract manufacturing
+  - Why interesting: Pure-play outsourced optical manufacturing; rare clean exposure to optical module vendor consolidation; ~$10B+ mkt cap
+  - Investability: US NYSE INVESTABLE
+  - Status: WATCHLIST — needs dedicated thesis; verify NVDA/optical-vendor exposure mix
+
+- **Sumitomo Electric (5802.T) — ELEVATED 2026-06-07** (already on watchlist from 2026-06-03)
+  - Additional signal: NPO content expansion in Rubin Ultra benefits CW-DFB LD laser oligopoly (Sumitomo TIED #1 with Broadcom per TrendForce June 2026); ~12M Rubin Ultra unit fleet adds material laser content demand
+  - Status: HIGH PRIORITY P1 deep-dive when next cash deployment window opens
+

@@ -1,6 +1,24 @@
 # ARM Holdings (ARM) — Thesis
 
-**Last updated:** 2026-06-06 (Morning brief #2 back-reference — Alphabet $85B / Meta $145B capex; mild Grace royalty pull amplification; no thesis change)
+**Last updated:** 2026-06-07 (Triple-brief cascade — NVDA CPU for Windows PCs = additional Grace-tier royalty pull; Gemma 4 12B mobile NPU IP demand — best single-item read of the cluster)
+
+## 2026-06-07 back-reference — Triple-brief unified cascade
+
+Per `research/signals/cross-source-log/2026-06-07-triple-brief-plus-npo-unified-cascade.md`:
+
+**Best single-item read of the triple-brief cluster.** Two direct ARM royalty pull-through signals:
+
+1. **NVIDIA high-density CPU system for Windows PCs** (Computex announcement) — NVDA Vera/Grace-tier ARM Neoverse architecture extends from data center (Grace in Blackwell racks per 2026-06-04 PM Apple-Blackwell cascade) to consumer Windows PCs. Per-chip server-tier royalty (estimated $5-20/chip my model) much higher than Apple perpetual-license ~$0.30/chip. Mix-shift to higher-tier royalties continues.
+
+2. **Gemma 4 12B multimodal (8GB Q4 quantization)** — native multimodal edge AI deployable on smartphones + laptops drives ARM mobile NPU IP demand (ARMv9.2 NPU instructions; Cortex-X4/X5 cores). T9 Consumer Hardware AI Swap thesis reinforcement.
+
+Net: NVDA capex BUYER framing is downgraded per 2026-06-06 PM correction, but ARM as IP-ROYALTY-RECEIVER captures the upside without the debt-funded capex burden. ARM is structurally on the right side of joint-regime fit.
+
+**Position implication:** HOLD — no size change — ARM at 3.17% Degiro post-71% trim (biggest valuation-discipline cut). Capex signals reinforce Grace+Neoverse royalty thesis but Stage 4 + 190x forward P/E unchanged. No add until valuation reset OR meaningful price pullback. Position size reflects asymmetry discipline, not thesis weakness.
+
+---
+
+**Prior last updated:** 2026-06-06 (Morning brief #2 back-reference — Alphabet $85B / Meta $145B capex; mild Grace royalty pull amplification; no thesis change)
 
 ## 2026-06-06 back-reference
 
