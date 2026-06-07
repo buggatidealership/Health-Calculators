@@ -1,6 +1,20 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-06-07 (Triple-brief cascade — NVDA CPU PCs + Intel Crescent Island PC-class + Gemma 4 12B multimodal edge deployment = T9 Consumer Hardware AI Swap thesis empirical reinforcement)
+**Last updated:** 2026-06-07 PM (EV MLCC angle reinforced — automotive memory +180% drives EV BOM intensity rise; every L3/L4 ADAS system = more MLCCs alongside more memory)
+
+## 2026-06-07 PM — EV MLCC content rise (auto memory cascade)
+
+Per `research/signals/cross-source-log/2026-06-07-automotive-memory-180-cctv-verification-6th-tier.md`:
+
+Auto memory +180% in 3 months and EV makers raising prices (CCTV via Chinese press) underscores the broader EV BOM-intensity inflation. Murata is the #1 MLCC supplier for automotive — EVs already have 3-5x more MLCCs than ICE vehicles; L3/L4 ADAS systems push the count even higher (BYD 4nm intelligent driving chip + Horizon Robotics chips + memory subsystems all need MLCC decoupling). Even if Chinese EV demand softens on price hikes (SCMP analyst warning), MLCC content per vehicle is structurally rising regardless of unit volume.
+
+Overlay on consumer-AI MLCC thesis: auto + AI PC + AI smartphone = three structural BOM-intensity drivers compounding for Murata simultaneously.
+
+**Position implication:** HOLD — no size change — MUR at 5.36% Degiro (+50.20% unrealised, best held position). EV MLCC content rise is one more confirmation underpinning Q1 FY27 print (late July / early Aug) as the L21/L22 falsification test. Pre-print add NOT recommended per L21 sector regime modifier; add candidacy AFTER Q1 FY27 BEATS analyst consensus.
+
+---
+
+**Prior last updated:** 2026-06-07 (Triple-brief cascade — NVDA CPU PCs + Intel Crescent Island PC-class + Gemma 4 12B multimodal edge deployment = T9 Consumer Hardware AI Swap thesis empirical reinforcement)
 
 ## 2026-06-07 back-reference — Triple-brief unified cascade
 

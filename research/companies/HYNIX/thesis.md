@@ -1,6 +1,22 @@
 # SK Hynix — Thesis
 
-**Last updated:** 2026-06-07 (5th-tier convergent confirmation — Lexar industry-insider RAM doubling forward guidance + Intel Crescent Island LPDDR5X validation + Huawei Ascend HBM market expansion)
+**Last updated:** 2026-06-07 PM (6TH CONVERGENT SIGNAL TIER — Automotive memory +180% in 3 months per CCTV / UBS / Chinese press; >10 Chinese EV makers raising prices; Li Auto VP forecasts 2026 auto memory supply satisfaction <50%)
+
+## 2026-06-07 PM — Automotive vertical confirmation (6th convergent signal tier)
+
+Per `research/signals/cross-source-log/2026-06-07-automotive-memory-180-cctv-verification-6th-tier.md`:
+
+**CCTV (央视财经) reported** automotive memory chip prices surged ~180% over 3 months. UBS industry data corroborates. TrendForce reports high-end car-grade DDR5 spot prices TRIPLED. Memory cost per car $40-90 → $90-220 (mid/high spec); high-end intelligent EV >$500/car. Li Auto VP supply chain Meng Qingpeng: 2026 automotive memory supply satisfaction <50%. Nio founder William Li: memory price volatility now exceeds battery cost as biggest 2026 production variable.
+
+The coalition letter (tier 4, June 3) specifically warned automotive at risk; tier 6 is the empirical confirmation in the exact vertical policymakers flagged.
+
+**Structural thesis read:** auto vertical = scale-economy validation (high-volume manufacturing). Multi-year automotive supply contracts add ASP visibility extending into 2027-2028. HBM + LPDDR5X + advanced-node moat captures the most-elevated tiers structurally regardless of Chinese domestic substitution at mature-node commodity tier.
+
+**Position implication:** HOLD — no size change — Thesis structurally CONFIRMED at 6th convergent signal tier (5 of last 5 signals positive). HYNIX at 4.48% Degiro post-50% trim. Remains the **highest-conviction ADD candidate** within held memory cohort when cash deployment window opens; auto tier specifically reinforces HBM + LPDDR5X moat over Chinese domestic alternatives.
+
+---
+
+**Prior last updated:** 2026-06-07 (5th-tier convergent confirmation — Lexar industry-insider RAM doubling forward guidance + Intel Crescent Island LPDDR5X validation + Huawei Ascend HBM market expansion)
 
 ## 2026-06-07 — Triple-brief unified cascade reinforcement
 

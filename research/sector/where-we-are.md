@@ -1,6 +1,45 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-06-07 (Memory shortage thesis reaches 5TH CONVERGENT SIGNAL TIER — Lexar industry-insider forward guidance "RAM doubling by year-end 2026" + Intel Crescent Island LPDDR5X validation + agent memory research validation; NPO architectural expansion in Rubin Ultra surfaces optical supplier-side cohort as additional supplier-side winner). Prior material update 2026-06-06 PM.
+**Last material synthesis update:** 2026-06-07 PM (Memory shortage thesis reaches **6TH CONVERGENT SIGNAL TIER** — automotive vertical confirmation via CCTV + UBS: car memory +180% in 3 months; >10 Chinese EV makers raising prices; Li Auto VP forecasts 2026 auto memory supply satisfaction <50%. Coalition letter from June 3 flagged auto at risk; this is empirical confirmation in the exact flagged vertical). Prior material update 2026-06-07 AM.
+
+## 2026-06-07 PM — Memory shortage thesis reaches 6th convergent signal tier (automotive)
+
+**Trigger:** User-shared Twitter signal verified via Chinese-language multi-source. Detail: `signals/cross-source-log/2026-06-07-automotive-memory-180-cctv-verification-6th-tier.md`.
+
+### 6-tier convergence ledger
+
+| # | Tier | Date |
+|---|---|---|
+| 1 | Supplier earnings (Hynix Q1 guidance) | April 2026 |
+| 2 | Consumer ASP spillover (DDR5 $375/32GB Tom's Hardware) | May 2026 |
+| 3 | Industry triangulation (Q1 2026 RAM +110% / SSD +147% ASP) | May 2026 |
+| 4 | Govt-level coalition letter (9 US trade assoc → Treasury+Commerce) | June 3, 2026 |
+| 5 | Industry-insider forward guidance (Lexar "doubling by year-end") | June 6, 2026 |
+| **6** | **Automotive vertical confirmation (CCTV + UBS: car memory +180% 3-mo; >10 EV makers raising prices RMB 2-6K)** | **June 6-7, 2026** |
+
+Coalition letter (tier 4) specifically warned automotive at risk; tier 6 is empirical confirmation in the exact flagged vertical. Memory shortage thesis is now triangulated across supplier + consumer + industry + government + retail + AUTOMOTIVE-vertical tiers. No remaining signal-tier escalation available short of major hyperscaler / fab-capacity inflection.
+
+### Key auto-vertical data points
+
+- CCTV (央视财经): automotive memory chip prices +180% over 3 months
+- UBS industry data: automotive DRAM +180% over last 3 months
+- TrendForce: high-end car-grade DDR5 spot prices TRIPLED (+300%)
+- Memory cost per car: $40-90 → $90-220 (mid/high spec); high-end intelligent EV >$500/car
+- Memory cost share of vehicle: 8-20%
+- Li Auto VP supply chain Meng Qingpeng: 2026 auto memory supply satisfaction <50%
+- Nio founder William Li: memory volatility now exceeds battery cost as biggest 2026 production variable
+- NDRC (Feb 28 2026 via CCTV): "explosive" demand growth + widespread hoarding
+- Big 3 (Samsung/Hynix/Micron) diverted 70-80% advanced capacity to HBM/DDR5 for AI
+
+### Synthesis significance
+
+The investable edge has fully transitioned from "identifying the shortage" to (a) duration assessment — multi-year auto contracts now lock in elevated ASPs into 2027-2028; (b) Chinese domestic substitution dynamic at mature-node tier (CXMT, GigaDevice, Yangtze Memory, Longsys) — but HYNIX/Samsung/Micron retain advanced-node + HBM + LPDDR5X moat; (c) bypass-route mapping when supply catches up (HBF JV, 3D DRAM, hybrid bonding via BESI watchlist).
+
+Held cohort (HYNIX/SNDK/SUMCO/MUR) is the cleanest investable expression of this 6-tier convergence. Deployment-trigger candidates when gates fire (Iran binary / FOMC 16-17 / Murata Q1 FY27 print late July): HYNIX > SUMCO > SNDK > MUR adds + Fabrinet (NPO) + Sumitomo Electric (NPO laser).
+
+---
+
+**Prior material synthesis update:** 2026-06-07 (Memory shortage thesis reaches 5TH CONVERGENT SIGNAL TIER — Lexar industry-insider forward guidance "RAM doubling by year-end 2026" + Intel Crescent Island LPDDR5X validation + agent memory research validation; NPO architectural expansion in Rubin Ultra surfaces optical supplier-side cohort as additional supplier-side winner). Prior material update 2026-06-06 PM.
 
 ## 2026-06-07 — Memory shortage thesis reaches 5th convergent signal tier
 
