@@ -44,6 +44,12 @@
 
 ### P1 — High priority (next session — added 2026-05-28 end of session)
 
+- [ ] **P1 / research / 2026-06-09** [INDP, AF, POS] — Structural Winners Cohort dissection — name-by-name deep-dive
+  - Origin: 2026-06-08 PM user-articulated 4-way structural winner + 12-architecture resilience synthesis; user directive: "save that entire list, and we can talk about this list tomorrow... maybe dissect them a little bit more"
+  - Scope: Read `research/meta/structural-winners-cohort.md` — go through the 27 ranked names tier-by-tier. Priority dissection order: TIER 1 NEW (Shin-Etsu Chemical 4063.T + Nidec 6594.T), then TIER 2 cluster (TEL + AMAT + LRCX + KLA + ASML + APH + Hirose + TXN + ADI), then TIER 3 single-dependency names. Per Principle #36 multilingual parallel for Japan TSE names (Japanese press for Shin-Etsu + Nidec + TEL + Hirose + Daikin + Lasertec + HOYA + Harmonic Drive + Nabtesco).
+  - Linked: `meta/structural-winners-cohort.md` (THE list); `signals/cross-source-log/2026-06-08-*` (all today's cascades supporting the synthesis)
+  - Detectability: dissection produces (a) investability confirmation per name, (b) updated tier ranking if new data emerges, (c) 1-2 thesis-promotion candidates ready for deep-dive
+
 - [ ] **P1 / research / 2026-06-25** [INDP, AF, POS, BOT] — Monthly recurring: Supply chain graph reconstruction (H1 capability application)
   - Origin: 2026-06-06 PM user conversation re: Opus 4.8 capability mapping to investing (analog: Hornby+Claude Zcash audit). H1 of 5 candidate applications scored highest leverage. Codifies as monthly subagent-driven workflow.
   - Scope: subagent fans out across the AI hardware capex chain (compute → memory → substrate → CCL → power → cooling → optics → consumer-AI add-on). Reads 10-K/6-K/earnings transcripts + Japanese/Korean/Chinese trade press in parallel per Critical Rule #6 + Principle #36. Reconstructs Tier-3/Tier-4 supplier graph with revenue concentration + named customers. Surfaces 5-10 non-consensus names per cycle that meet (a) investability filter (no KRX-only, no Taiwan-only without ADR), (b) revenue concentration to AI cohort >25%, (c) market cap <$50B (under-followed).
