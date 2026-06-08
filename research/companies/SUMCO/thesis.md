@@ -1,6 +1,25 @@
 # Sumco Corporation (3436.T) — Thesis
 
-**Last updated:** 2026-06-07 (Triple-brief cascade — Lexar RAM doubling + Intel Crescent Island wafer pull + sustained memory cycle = wafer demand reinforced at 5th convergent signal tier)
+**Last updated:** 2026-06-08 PM (Google-Intel TPU 3M order + 6M Morgan Stanley estimate = SUMCO DUAL-BENEFICIARY positioned across TSMC AND Intel foundry capex cycles; architecture-agnostic wafer demand expansion regardless of which foundry wins)
+
+## 2026-06-08 PM — SUMCO as foundry-agnostic dual-beneficiary (TSMC + Intel)
+
+Per `research/signals/cross-source-log/2026-06-08-google-intel-tpu-6m-verification.md`:
+
+Google ordered 3M+ TPUs from Intel for 2028 production; Morgan Stanley estimates 6M+ TPUs total across 2027-2028 (split between TSMC and Intel). This positions SUMCO as a **dual-fab beneficiary**:
+- SUMCO supplies wafers to TSMC (already established — Murata + Apple + AVGO + Google TPU partner ecosystem)
+- SUMCO supplies wafers to Intel Foundry (Intel 18A process + advanced packaging for TPU 2028 production)
+- Regardless of which foundry physically packages the TPUs, the wafer demand routes through SUMCO
+
+This is conceptually parallel to the SRAM-vs-HBM architectural-shift hedge framing from 2026-06-06 AM SRAM cascade — SUMCO benefits architecture-agnostic at the wafer tier. Now extends to foundry-agnostic at the manufacturing tier.
+
+**Strategic positioning:** TSMC capacity constraint admission this morning ("can only support so much" demand) + Intel Foundry validation via Google TPU win + NVDA also testing Intel for Feynman 2028 = broader foundry diversification trend. SUMCO is the cleanest wafer-tier exposure that wins regardless of which foundry captures incremental share.
+
+**Position implication:** HOLD — no size change — SUMCO at 4.42% Degiro post-rotation, currently -7.79% unrealised; remains cheapest entry in cohort. The DUAL-BENEFICIARY positioning strengthens the case for SUMCO as the HIGHEST-CONVICTION ADD candidate at compressed price when deployment triggers fire (Iran binary / FOMC / Murata Q1 FY27 print / SpaceX IPO / Kioxia VLSI).
+
+---
+
+**Prior last updated:** 2026-06-07 (Triple-brief cascade — Lexar RAM doubling + Intel Crescent Island wafer pull + sustained memory cycle = wafer demand reinforced at 5th convergent signal tier)
 
 ## 2026-06-07 back-reference — Triple-brief unified cascade
 

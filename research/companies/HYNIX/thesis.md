@@ -1,6 +1,26 @@
 # SK Hynix — Thesis
 
-**Last updated:** 2026-06-08 PM (Primary-source confirmation — SK Hynix Computex 2026 booth display shows NVIDIA Vera Rubin Superchip with named SOCAMM2 + HBM4 spec; SemiAnalysis SOCAMM-cut narrative VERIFIED at supplier source; market selloff anchored on LPDDR5X line while ignoring HBM4 36GB 12Hi content expansion at the more profitable tier)
+**Last updated:** 2026-06-08 PM (Google-Intel 3M+ TPU order for 2028 + Morgan Stanley 6M TPUs across 2027-2028 estimate VERIFIED — adds ~36M HBM stacks pull 2027-2028 cycle; HBM supplied separately from packaging path means Hynix captures spend regardless of TSMC vs Intel foundry split)
+
+## 2026-06-08 PM — Google-Intel TPU 6M 2027-2028 = ~36M HBM stacks pull
+
+Per `research/signals/cross-source-log/2026-06-08-google-intel-tpu-6m-verification.md`:
+
+- Google ordered **3M+ TPUs from Intel for 2028 production** (Information original via Bloomberg + multi-source)
+- **Morgan Stanley estimate: 6M+ TPUs total across 2027-2028** (Intel = 3M; balance at TSMC)
+- 6M TPUs × ~6 HBM stacks per TPU = **~36M HBM stacks pulled through 2027-2028 cycle** just for Google TPU
+- Apple + Meta accessing TPUs via Google = TPU TAM expansion beyond Google internal
+- Intel +12% on the news
+
+**Critical structural insight:** HBM is supplied SEPARATELY from advanced packaging path. Whether Google TPUs are packaged at TSMC (3M) or Intel (3M), the HBM stacks still come from Hynix/Samsung/Micron oligopoly. **Hynix is foundry-agnostic in this cascade** — captures HBM spend on the full 6M unit volume regardless of which foundry physically packages the TPUs.
+
+This reinforces the 7-tier convergence ledger at the AVGO-Google-TPU customer tier (already noted in June 4 AVGO Q2 print cascade). Now anchored by explicit Morgan Stanley volume forecast.
+
+**Position implication:** HOLD — no size change — 6M TPU volume substrate adds verifiable forward HBM demand anchor at 2027-2028 horizon. HYNIX at 4.48% Degiro post-50% trim. Remains highest-conviction ADD candidate when deployment triggers fire.
+
+---
+
+**Prior last updated:** 2026-06-08 PM (Primary-source confirmation — SK Hynix Computex 2026 booth display shows NVIDIA Vera Rubin Superchip with named SOCAMM2 + HBM4 spec; SemiAnalysis SOCAMM-cut narrative VERIFIED at supplier source; market selloff anchored on LPDDR5X line while ignoring HBM4 36GB 12Hi content expansion at the more profitable tier)
 
 ## 2026-06-08 PM — Primary-source SOCAMM2 + HBM4 spec confirmed at SK Hynix Computex booth
 
