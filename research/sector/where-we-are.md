@@ -1,6 +1,20 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-06-07 PM (Memory shortage thesis reaches **6TH CONVERGENT SIGNAL TIER** — automotive vertical confirmation via CCTV + UBS: car memory +180% in 3 months; >10 Chinese EV makers raising prices; Li Auto VP forecasts 2026 auto memory supply satisfaction <50%. Coalition letter from June 3 flagged auto at risk; this is empirical confirmation in the exact flagged vertical). Prior material update 2026-06-07 AM.
+**Last material synthesis update:** 2026-06-08 AM (Light addendum — ASML hits $674B market cap = Europe's most valuable company ever; market-tier ratification of "supplier-side wins" joint-regime framework from 2026-06-06 PM correction). Prior material update 2026-06-07 PM.
+
+## 2026-06-08 AM — ASML $674B = market-tier ratification of supplier-side framework
+
+Per `research/signals/cross-source-log/2026-06-07-evening-brief-light-cascade-asml-milestone.md`:
+
+ASML reached $674B market cap during week of June 3-4 2026, eclipsing Novo Nordisk to become Europe's most valuable company ever (+60% YTD). ASML is the canonical supplier-side name in the joint-regime framework — equipment monopoly serving every AI chip order at TSMC + Samsung + Intel. The market just ratified the "supplier-side wins in tight-rate + high-inflation joint regime" thesis at the highest possible signal tier.
+
+Held cohort (HYNIX/SNDK/SUMCO/MUR/AGC/ARM) sits at memory + MLCC + wafer + IP tiers structurally adjacent to ASML's equipment-monopoly tier — same supplier-side framework, different layer in the stack.
+
+No per-name cascade required; this is sector-synthesis-layer confirmation only.
+
+---
+
+**Prior material synthesis update:** 2026-06-07 PM (Memory shortage thesis reaches **6TH CONVERGENT SIGNAL TIER** — automotive vertical confirmation via CCTV + UBS: car memory +180% in 3 months; >10 Chinese EV makers raising prices; Li Auto VP forecasts 2026 auto memory supply satisfaction <50%. Coalition letter from June 3 flagged auto at risk; this is empirical confirmation in the exact flagged vertical). Prior material update 2026-06-07 AM.
 
 ## 2026-06-07 PM — Memory shortage thesis reaches 6th convergent signal tier (automotive)
 
