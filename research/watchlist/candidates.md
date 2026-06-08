@@ -354,9 +354,19 @@ Origin: 2026-06-07 AM user-shared tweet @jukan05 / @FundaAI Premium Report — N
 
 Origin: 2026-06-08 PM follow-up research on MLCC equipment makers behind the verified MLCC sold-out cycle (per `signals/cross-source-log/2026-06-08-mlcc-sold-out-deep-research.md`). User explicit thesis: bet on the MLCC growth REGARDLESS of stock price action, steady compounder. Sakai surfaces as upstream-of-Hirano precursor play.
 
-- **Sakai Chemical Industry (4078.T) — added 2026-06-08 PM**
+- **Sakai Chemical Industry (4078.T) — added 2026-06-08 PM** — ✓ NATIVE-LANGUAGE VERIFIED 2026-06-08 PM
   - Source signal: Deep research on MLCC equipment + materials chain; **dominant BaTiO3 (barium titanate) dielectric powder supplier** with 25-30% global specialty share
   - Linked causal chain: MLCC sold out through 2027+ → Murata + Samsung EM + Taiyo Yuden + TDK + Yageo all expanding capacity (Philippines/Vietnam/India/Taiwan/Kaohsiung) → BaTiO3 powder demand compounds at ~25%+ CAGR through 2030 (Murata 3.3x by 2030 trajectory)
   - Why interesting: PRECURSOR-tier exposure UPSTREAM of Hirano (held) in the MLCC value chain; proprietary hydrothermal synthesis process produces spherical BaTiO3 below 200nm with dielectric constants >3,500; supplies Murata + TDK directly via Koshi Plant Ishikawa Prefecture; under-covered as AI play (still framed as legacy chemicals); Japanese listing = potentially lower expectations vs US AI cohort
+
+  **NATIVE-LANGUAGE VERIFICATION (Principle #36, B40, llm-native-reasoning-hook):**
+  - [Diamond Zai T2 (Japanese)](https://diamond.jp/zai/articles/-/281277) — explicitly names Sakai Chemical as 1 of 6 BaTiO3 makers for MLCC; "supply shortage of BaTiO3 is essential material for MLCC production"
+  - [IR Weather T2 (Japanese, 2026-06-06)](https://irweather.jp/reports/mlcc-theme-supply-chain-20260606) — most recent MLCC theme supply chain map; Sakai named as upstream materials beneficiary
+  - [ChartNavi T2 (Japanese, 2026-05-25)](https://chartnavi.com/scan/wadai/brand/_4078/_20260525/_09/) — Sakai Chemical hit "stop high" (limit up) on MLCC theme May 25 2026
+  - [Kabushiki news T2 (Japanese)](https://kabushiki.jp/news/639287) — Sakai as MLCC demand recovery beneficiary
+  - [Note rakuki T3 (Japanese investor analysis)](https://note.com/famous_daisy3271/n/na191aeeff43f) — competitive analysis on AI+EV growth scenario
+  - **Additional verified data points from Japanese press:** (a) high-end AI server consumes 28,000-30,000+ MLCCs per unit (vs ~12K per Rubin board in English sources — different reference baseline); (b) Q1 2026 industry utilization 87-88% average; Murata + Samsung EM >90%; (c) Murata + Samsung EM combined >80% share in high-end MLCC; (d) Sakai FY27 (March 2027) consensus: Operating Profit -7.0% but Net Profit +59.8% rebound expected (potentially-attractive valuation entry as net profit rebound not yet fully priced)
+  - B40 freshness: stop-high May 25 = 2 weeks old (PARTIAL); IR Weather 2026-06-06 = 2 days old (FRESH); Diamond Zai dated reference but evergreen content
+
   - Investability: Japan TSE (4078.T) — USER TO CHECK ACCESSIBILITY (Murata/Sumco/Hirano/AGC accessible via same channel suggests likely yes, but Sakai specifically not yet user-verified)
-  - Status: WATCHLIST — needs investability check; if accessible, dedicated thesis warranted as MLCC value-chain upstream complement to held Hirano + MUR; H1 monthly cycle (2026-06-25) deep-dive candidate
+  - Status: WATCHLIST — NATIVE-LANGUAGE VERIFIED tier (eligible for thesis promotion once investability confirmed); H1 monthly cycle (2026-06-25) deep-dive candidate; particularly interesting Q3-Q4 2026 entry given NP rebound trajectory + structural MLCC sold-out through 2027+
