@@ -1,6 +1,43 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-06-07 PM (EV MLCC angle reinforced — automotive memory +180% drives EV BOM intensity rise; every L3/L4 ADAS system = more MLCCs alongside more memory)
+**Last updated:** 2026-06-08 PM (User-articulated non-US-expectations framing + MLCC sold-out deep research substrate — MUR positioned as steady compounder with Japanese-listing expectations discount = beat-consensus runway intact)
+
+## 2026-06-08 PM — User-articulated non-US-expectations framing + MLCC sold-out substrate
+
+User articulation 2026-06-08 PM verbatim: *"Murata to bet on the growth in MLCC regardless of stock price action seems like there's gonna be a steady compounder. And given that it is not US, maybe the expectations are a bit lower. So that means they can potentially beat at the next earnings calls and the expectations are not too high."*
+
+This articulates a **geographic-listing-discount sub-pattern** layered on L22 beat-analyst-consensus framework. Japan TSE-listed names typically carry lower expectations vs US-listed AI cohort comps because:
+- Less retail attention drives analyst forecast inflation
+- Currency translation noise reduces forecast precision
+- Time-zone disconnect from US news cycle (Tokyo prints typically pre-announced 24-48h before US trade)
+- Cultural conservatism in company guidance (Japanese OEMs tend to under-promise)
+
+For MUR specifically, this dovetails with the MLCC sold-out deep research (`signals/cross-source-log/2026-06-08-mlcc-sold-out-deep-research.md`):
+- Murata president Nakajima Bloomberg Japan quote: "demand 2× supply capacity; tightness 1-2 more years"
+- Murata utilization 90%+ on AI server tier
+- April 1 + May 1 price hike rounds applying to NEW shipments after current order backlogs consumed (26-40 week lead times mean full effect lands Q1-Q2 FY27 prints)
+- 2030 trajectory: AI server MLCC demand 3.3× vs 2025 (Murata internal)
+
+### Steady-compounder thesis reinforcement
+
+The combination of (a) verified structural MLCC sold-out through 2027+, (b) Murata's ~35% global share, (c) Japan-listing expectations discount, and (d) operational price-hike cycle = steady compounder profile. Regardless of short-term stock action driven by macro / sector regime modifiers (L21), the multi-year fundamentals compound.
+
+### Q1 FY27 print (late July / early Aug 2026) = L22 falsification test still pending
+
+Post-guidance accelerators NOT in consensus (substrated by deep research):
+1. April 1 + May 1 price hikes (full impact lands Q1-Q2 FY27 after backlog consumption)
+2. AI server MLCC demand 3.3× by 2030 trajectory
+3. SpaceX-Anthropic $45B = 325K NVDA GPUs ≈ 12K MLCC per Rubin board pull-through
+4. Auto memory +180% = EV BOM intensity rise = more MLCC per vehicle
+5. Power inductor pricing power (April 1 hike)
+
+Weighted expected Q1 FY27 reaction: +3 to +6% net (my model from deep research).
+
+**Position implication:** HOLD — no size change — User-articulated steady-compounder framing + MLCC sold-out deep research substrate STRENGTHENS the conviction underlying current 5.36% Degiro position (+50.20% unrealised). Pre-print add NOT recommended per L21 sector regime modifier. Q1 FY27 print remains the critical falsification test. Sakai Chemical (4078.T) added to watchlist as MLCC value-chain upstream complement.
+
+---
+
+**Prior last updated:** 2026-06-07 PM (EV MLCC angle reinforced — automotive memory +180% drives EV BOM intensity rise; every L3/L4 ADAS system = more MLCCs alongside more memory)
 
 ## 2026-06-07 PM — EV MLCC content rise (auto memory cascade)
 

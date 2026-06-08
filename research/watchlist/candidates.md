@@ -349,3 +349,14 @@ Origin: 2026-06-07 AM user-shared tweet @jukan05 / @FundaAI Premium Report — N
   - Additional signal: NPO content expansion in Rubin Ultra benefits CW-DFB LD laser oligopoly (Sumitomo TIED #1 with Broadcom per TrendForce June 2026); ~12M Rubin Ultra unit fleet adds material laser content demand
   - Status: HIGH PRIORITY P1 deep-dive when next cash deployment window opens
 
+
+### MLCC equipment + precursor chain (added 2026-06-08 PM)
+
+Origin: 2026-06-08 PM follow-up research on MLCC equipment makers behind the verified MLCC sold-out cycle (per `signals/cross-source-log/2026-06-08-mlcc-sold-out-deep-research.md`). User explicit thesis: bet on the MLCC growth REGARDLESS of stock price action, steady compounder. Sakai surfaces as upstream-of-Hirano precursor play.
+
+- **Sakai Chemical Industry (4078.T) — added 2026-06-08 PM**
+  - Source signal: Deep research on MLCC equipment + materials chain; **dominant BaTiO3 (barium titanate) dielectric powder supplier** with 25-30% global specialty share
+  - Linked causal chain: MLCC sold out through 2027+ → Murata + Samsung EM + Taiyo Yuden + TDK + Yageo all expanding capacity (Philippines/Vietnam/India/Taiwan/Kaohsiung) → BaTiO3 powder demand compounds at ~25%+ CAGR through 2030 (Murata 3.3x by 2030 trajectory)
+  - Why interesting: PRECURSOR-tier exposure UPSTREAM of Hirano (held) in the MLCC value chain; proprietary hydrothermal synthesis process produces spherical BaTiO3 below 200nm with dielectric constants >3,500; supplies Murata + TDK directly via Koshi Plant Ishikawa Prefecture; under-covered as AI play (still framed as legacy chemicals); Japanese listing = potentially lower expectations vs US AI cohort
+  - Investability: Japan TSE (4078.T) — USER TO CHECK ACCESSIBILITY (Murata/Sumco/Hirano/AGC accessible via same channel suggests likely yes, but Sakai specifically not yet user-verified)
+  - Status: WATCHLIST — needs investability check; if accessible, dedicated thesis warranted as MLCC value-chain upstream complement to held Hirano + MUR; H1 monthly cycle (2026-06-25) deep-dive candidate
