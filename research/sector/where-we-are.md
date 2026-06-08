@@ -1,6 +1,44 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-06-08 AM (Light addendum — ASML hits $674B market cap = Europe's most valuable company ever; market-tier ratification of "supplier-side wins" joint-regime framework from 2026-06-06 PM correction). Prior material update 2026-06-07 PM.
+**Last material synthesis update:** 2026-06-08 AM (7TH CONVERGENT SIGNAL TIER — frontline supplier-side qualitative via Korean Twitter source-tier signal from SK Hynix Japan-based employee; SOCAMM-cut June 5 selloff context = sentiment overreaction per insider counter-narrative; CXMT verified DDR5-8000 / LPDDR5X-10667 commodity-tier narrowing added as HYNIX falsifier-monitor). Prior material update 2026-06-08 AM (ASML milestone).
+
+## 2026-06-08 AM — 7th convergent signal tier (frontline supplier-side qualitative)
+
+**Trigger:** User-shared Korean Twitter signal from SK Hynix Japan-based employee. Per Critical Rule #6 + Principle #36 multilingual parallel, treated as primary-tier qualitative source. Detail: `signals/cross-source-log/2026-06-08-korean-insider-tweet-socamm-selloff-7th-tier.md`.
+
+### 7-tier convergence ledger (memory shortage thesis)
+
+| # | Tier | Date |
+|---|---|---|
+| 1 | Supplier earnings (Hynix Q1 guidance) | April 2026 |
+| 2 | Consumer ASP spillover (DDR5 $375/32GB) | May 2026 |
+| 3 | Industry triangulation (Q1 2026 RAM +110% / SSD +147%) | May 2026 |
+| 4 | Govt-level coalition letter | June 3, 2026 |
+| 5 | Industry-insider forward guidance (Lexar doubling by year-end) | June 6, 2026 |
+| 6 | Automotive vertical confirmation (CCTV +180% / >10 EV makers) | June 6-7, 2026 |
+| **7** | **Frontline supplier-side qualitative (SK Hynix Japan-based employee; allocation hierarchy US > China > Japan; ASPs continuing UP; Nintendo paying +41% for LPDDR5X)** | **June 8, 2026** |
+
+This is the HIGHEST possible qualitative signal tier short of company management direct quote. Thesis structurally confirmed at every plausible tier of evidence; debate has fully transitioned from "is there a shortage" to (a) duration assessment, (b) commodity-vs-HBM tier-specific moat durability against Chinese substitution.
+
+### June 5 SOCAMM-cut selloff context — sentiment overreaction
+
+SemiAnalysis reported NVL72 reducing 55TB → 28TB (96GB SOCAMM replacing 192GB units). NVDA couldn't get enough LPDDR5X (supply constraint, NOT demand softening). Cohort selloff: Micron -10% / SanDisk -11.16% / WD -8.53% / Samsung + Hynix -10% intraday / NVDA -6%.
+
+**Korean insider counter-narrative same day:** "ASPs continuing UP regardless of NVDA per-rack reduction; operating income should keep climbing." This is L23 (market-cap-inverse reaction asymmetry) + L21 (sector regime modifier risk-off) firing in textbook form. **Held cohort sits at COMPRESSED prices on sentiment-driven move; fundamentals intact per supplier-side qualitative.**
+
+### CXMT competitive-narrowing — falsifier-monitor on HYNIX commodity moat
+
+CXMT verified shipping DDR5-8000 + LPDDR5X-10667 (advanced tier reached, narrower gap than 2-3 year assumption). 120M+ DDR5 modules shipped 2025. Consumer-tier shipping via ASUS/Gigabyte/ASRock/Corsair. **HBM gap remains ~5 years** (Hynix 6th gen vs CXMT 3rd gen) — advanced-node + HBM moat intact.
+
+**Falsifier-monitor condition:** if CXMT achieves DDR5-8400 / LPDDR5X-12000+ within 18 months, HYNIX commodity-tier ASP power weakens; segment-mix forward assumption needs re-eval.
+
+### Taiwan TWSE investability pattern confirmed (CLAUDE.md filter expanded)
+
+User confirmed 2026-06-08: Taiwan TWSE Winbond (2344) + Nanya (2408) NOT accessible — REFERENCE ARTIFACT only, same precedent as Co-Tech (8358.TW, 2026-06-03). Pattern now N=3 Taiwan TWSE confirmations; codified in CLAUDE.md investability filter.
+
+---
+
+**Prior material synthesis update:** 2026-06-08 AM (Light addendum — ASML hits $674B market cap = Europe's most valuable company ever; market-tier ratification of "supplier-side wins" joint-regime framework from 2026-06-06 PM correction). Prior material update 2026-06-07 PM.
 
 ## 2026-06-08 AM — ASML $674B = market-tier ratification of supplier-side framework
 

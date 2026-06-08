@@ -1,6 +1,72 @@
 # SK Hynix — Thesis
 
-**Last updated:** 2026-06-07 PM (SpaceX revised S1 + $45B Anthropic deal verified — 325K NVDA GPUs Anthropic-portion of Colossus 1+2 implies ~2M HBM3E stacks; combined SpaceX cloud forward revenue $78B+ contracted)
+**Last updated:** 2026-06-08 AM (7TH CONVERGENT SIGNAL TIER — frontline supplier-side Korean insider qualitative; June 5 SOCAMM-cut selloff = sentiment overreaction per insider counter-narrative; CXMT competitive-narrowing added as falsifier-monitor on commodity-tier moat)
+
+## 2026-06-08 AM — 7th convergent signal tier (frontline supplier-side qualitative) + SOCAMM selloff context
+
+Per `research/signals/cross-source-log/2026-06-08-korean-insider-tweet-socamm-selloff-7th-tier.md`:
+
+User-shared Korean Twitter signal — SK Hynix Japan-based employee coffee chat (verified at T2 across multiple sources). Frontline supplier-side qualitative is the highest possible insider signal tier short of company management direct quote.
+
+### Key verified insider claims
+
+1. **Allocation hierarchy US > China > Japan** — Hynix bowing 'sumimasen' to Japanese OEMs. Direct evidence allocation is concentrated at premium-tier customers.
+2. **Nintendo Switch 2 +$50 / Japan +¥10,000 / Nintendo paying +41% for LPDDR5X** ([TweakTown T2](https://www.tweaktown.com/news/109358/report-nintendo-paying-41-percent-more-for-ram-chips-used-in-switch-2/index.html) + [TechPowerUp T2](https://www.techpowerup.com/343969/nintendo-switch-2-hardware-hit-by-41-price-jump-in-dram-nand-up-8)). Confirms tightness flows to Japan tier directly.
+3. **CXMT consumer-tier shipping via ASUS/Gigabyte/ASRock/Corsair** (12-17 DDR5 kits; 120M+ modules 2025) per [HotHardware T2](https://hothardware.com/news/corsair-taps-cxmt-dram) + [SemiWiki T2](https://semiwiki.com/forum/threads/chinese-memory-module-makers-ramp-up-production-as-cxmt-ddr5-breakthrough-hits-market.25108/).
+4. **Memory ASPs continuing UP**; Winbond +90-95% Q-over-Q DRAM; 2027 capacity pre-sold per [TrendForce T2](https://www.trendforce.com/news/2026/02/11/news-winbond-expects-dram-prices-to-jump-nearly-4x-by-june-2026-capacity-booked-through-2027/).
+
+### June 5 SOCAMM-cut selloff — sentiment overreaction context
+
+Per [TradingKey T2](https://www.tradingkey.com/analysis/stocks/us-stocks/261950131-nvidia-nvda-sndk-sandisk-mu-micron-socamm-rubin-nvl72-hbm4-tradingkey) + [KuCoin T2](https://www.kucoin.com/news/flash/nvidia-rubin-socamm-memory-cut-sparks-market-panic-and-mu-drop):
+
+SemiAnalysis reported June 5 that NVDA Rubin NVL72 reducing memory per cabinet 55TB → 28TB (96GB SOCAMM replacing 192GB units). **Reason per reports: NVDA couldn't get enough LPDDR5X — supply constraint, not demand softening.**
+
+Cohort selloff intraday June 5:
+- Micron -10% (lost $100B+ market cap; ATH $1,089 → $971)
+- SanDisk -11.16%
+- Western Digital -8.53%
+- Samsung Electronics + SK Hynix -10% intraday (Asian markets)
+- NVDA -6% (below $5T valuation)
+
+**Korean insider counter-narrative (same day, native qualitative):** "ASPs continuing UP regardless of NVDA per-rack reduction; operating income should keep climbing." L23 pattern + L21 (sector regime modifier risk-off) firing in textbook form: market sold on sentiment at Stage 4 + macro risk-off; fundamentals intact per native-language source-tier qualitative.
+
+### CXMT competitive-narrowing FALSIFIER MONITOR (new)
+
+Per [Tom's Hardware T2](https://www.tomshardware.com/pc-components/dram/chinas-banned-memory-maker-cxmt-unveils-surprising-new-chipmaking-capabilities-despite-crushing-us-export-restrictions-ddr5-8000-and-lpddr5x-10667-displayed) + [Wccftech T2](https://wccftech.com/cxmt-debuts-domestically-produced-ddr5-memory-8000-mtps-lpddr5-10667-mtps/):
+
+- CXMT shipping **DDR5-8000 + LPDDR5X-10667** — advanced tier reached
+- 120M+ DDR5 modules shipped 2025
+- Korean engineer at CXMT (Japan-based) per insider quote: "Not 2-3 year gap — likely narrower"
+- **BUT HBM gap remains ~5 years** (Hynix 6th gen HBM4/HBM5 vs CXMT 3rd gen). Advanced-node + HBM moat INTACT.
+
+**Falsifier-monitor condition:** If CXMT achieves DDR5-8400 / LPDDR5X-12000+ tier within 18 months (by Q4 2027), commodity-DRAM moat erosion accelerates → re-eval Hynix commodity-tier ASP power AND segment-mix forward assumption.
+
+### Compressed-price ADD-zone framing (material new)
+
+Post-SOCAMM selloff, HYNIX (and SNDK/SUMCO) sit at compressed prices vs June 6 holdings.md reference ($1,050 EUR for HYNIX GDR; ~-10% intraday June 5). Insider qualitative says fundamentals intact; thus selloff = sentiment-driven compression.
+
+**ADD-zone framing:** when deployment triggers fire (Iran binary / FOMC June 16-17 / SpaceX IPO June 12 / Kioxia VLSI June 14-18 / Murata Q1 FY27 print late July), HYNIX becomes HIGHEST-CONVICTION ADD candidate at compressed entry. Sequence: HYNIX > SUMCO (-7.79% unrealised, cheapest entry) > SNDK > MUR.
+
+**Critical Rule #11 nuance:** Price compression ALONE is NOT a buy trigger (the reverse-equivalent of Critical Rule #8 — don't BUY on dip without thesis confirmation). But it materially IMPROVES the deployment-trigger payoff when a trigger does fire.
+
+### Investability sidebar (Winbond / Nanya / CXMT)
+
+User confirmed 2026-06-08: Taiwan TWSE Winbond (2344) + Nanya (2408) NOT accessible per Degiro / N26 brokerages — REFERENCE ARTIFACT only (same precedent as Co-Tech 2026-06-03). CXMT (state-backed Chinese) not investable per same filter. Memory cohort investability remains: HYNIX (held via GDR) + SNDK (held) + Micron (US, not held) + Samsung (KRX, not accessible) as the ONLY directly-investable global memory makers.
+
+### Parallel hypotheses (my model)
+
+- **H1 (P=50%)** Insider qualitative right; selloff = overreaction; thesis intact; compressed price = STRONG ADD when triggers fire
+- **H2 (P=25%)** CXMT commodity-moat erosion is real (verified DDR5-8000 / LPDDR5X-10667); commodity-tier ASP power weakens 2027+; HBM + advanced LPDDR5X moat intact (5-yr gap verified); net MIXED
+- **H3 (P=15%)** Both partially true; cycle compounds 12-18 months on ASP momentum; trajectory bends 2028 as Chinese substitution compounds with capex burden; held position still positive but compounding slows
+- **H4 (P=10%)** Single random employee opinion; doesn't generalize
+
+**In 3 of 4 hypotheses (P=90%), thesis is positive on compressed price.**
+
+**Position implication:** HOLD — no size change — Critical Rule #8 protects against reactive trim on sentiment selloff. Thesis fundamentally intact at 7th convergent signal tier (frontline supplier-side qualitative). CXMT falsifier-monitor added; if CXMT achieves DDR5-8400 / LPDDR5X-12000+ tier within 18 months, commodity-moat thesis weakens. ADD candidacy at compressed price elevated; trigger gates pending unchanged.
+
+---
+
+**Prior last updated:** 2026-06-07 PM (SpaceX revised S1 + $45B Anthropic deal verified — 325K NVDA GPUs Anthropic-portion of Colossus 1+2 implies ~2M HBM3E stacks; combined SpaceX cloud forward revenue $78B+ contracted)
 
 ## 2026-06-07 PM — SpaceX revised S1 $45B Anthropic deal verification
 
