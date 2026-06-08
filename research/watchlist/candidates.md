@@ -370,3 +370,29 @@ Origin: 2026-06-08 PM follow-up research on MLCC equipment makers behind the ver
 
   - Investability: Japan TSE (4078.T) — USER TO CHECK ACCESSIBILITY (Murata/Sumco/Hirano/AGC accessible via same channel suggests likely yes, but Sakai specifically not yet user-verified)
   - Status: WATCHLIST — NATIVE-LANGUAGE VERIFIED tier (eligible for thesis promotion once investability confirmed); H1 monthly cycle (2026-06-25) deep-dive candidate; particularly interesting Q3-Q4 2026 entry given NP rebound trajectory + structural MLCC sold-out through 2027+
+
+### Intel CPO turnaround thesis + structural winners (added 2026-06-08 PM)
+
+Origin: 2026-06-08 PM user-shared Twitter spicy take with 3 Intel slide images (Architecture Day 2020 + OFC 2024 OCI demo + Intel CPO history). Per `signals/cross-source-log/2026-06-08-intel-cpo-verification-structural-winners.md`: Intel 2024 OCI chiplet 4 Tbps bidirectional at <3 pJ/bit VERIFIED at Intel Newsroom T1 + Tom's Hardware + Hot Chips 2024. Tweet author's "Intel >90% CPO share" prediction = SPECULATIVE; my model P(Intel ≥35% CPO share by 2030) = 40% (H1+H2 combined). Held cohort NEUTRAL across outcome; structural opportunity is NON-PORTFOLIO.
+
+- **Intel Corporation (INTC) — added 2026-06-08 PM**
+  - Source signal: Verified Intel CPO technical leadership (OCI 4 Tbps bidirectional, <3 pJ/bit, EMIB packaging, ~25 yr silicon photonics in-house, JEDEC reliability) + foundry-diversification trend (Google-Intel 3M TPU order today verified)
+  - Linked causal chain: TSMC capacity constraints (verified today "can only support so much") + EMIB advantage for thermally-sensitive photonic integration → hyperscalers qualify Intel as second-source for CPO + Foundry → INTC compounds CPO + Foundry revenue 2027-2028
+  - Why interesting: Market views Intel as TSMC loser; non-consensus turnaround setup (CPO + Foundry both working); CHIPS Act subsidies + US semi sovereignty backdrop; today's Google TPU win = first major commercial validation
+  - Investability: US NASDAQ ✓
+  - Status: WATCHLIST — NEW HIGH-CONVICTION STRUCTURAL CANDIDATE; needs dedicated thesis with H1/H2/H3/H4 share-trajectory framework + CPO competitive landscape (TSMC COUPE / GF silicon photonics / AVGO Davisson / MRVL T100); flag for next H1 monthly cycle (2026-06-25)
+
+- **Aehr Test Systems (AEHR) — added 2026-06-08 PM**
+  - Source signal: Burn-in test infrastructure for photonics chips
+  - Linked causal chain: CPO commercialization at any tier requires reliability/burn-in testing → AEHR benefits foundry-agnostic regardless of who wins CPO race
+  - Why interesting: Micro-cap (~$500M-1B); under-covered; foundry-agnostic exposure to broader photonics commercialization; already partially noted in 2026-05-20 cascade walk
+  - Investability: US NASDAQ ✓ (micro-cap volatility caveat)
+  - Status: WATCHLIST — niche-tier; secondary priority vs INTC
+
+- **POET Technologies (POET) — added 2026-06-08 PM**
+  - Source signal: Silicon photonics IP licensor; micro-cap photonics specialist
+  - Linked causal chain: Silicon photonics IP licensing benefits if Intel licenses externally OR if other CPO vendors need IP gap-fill
+  - Why interesting: Pure-play silicon photonics IP; speculative tier; high-volatility micro-cap
+  - Investability: US NASDAQ ✓ (micro-cap caveat — speculative position sizing only)
+  - Status: WATCHLIST — speculative tier; flag only for monitoring
+
