@@ -26,7 +26,7 @@ Directed 6-subagent per-criterion verification of HDS + 2 self-confirmations (En
 
 ### META-PATTERN (codifiable) — recurring robotics bypass-route mis-assessment
 
-**THREE robotics-name bypass-route mis-assessments in 24 hours** (Nidec 2026-06-09 AM, Harmonic Drive 2026-06-09 PM, **Sony 2026-06-09 PM**). In each, I asserted bypass-route-PASS / multi-form-factor-resilience from memory WITHOUT verifying current Chinese competitive status, and verification revealed the moat was contested or absent. **Failure mode: optimistic bypass-route assertion for Japanese precision-component names, blind to the speed of Chinese localization in robotics specifically** (different from memory/MLCC where Chinese parity is years out). Candidate bias B-new for monthly audit 2026-06-24: "robotics-localization-blind-spot." Mandatory fix: any robotics supplier scored for bypass-route MUST fire a native-Chinese search on domestic-alternative qualification status BEFORE assigning a PASS.
+**FOUR robotics-name bypass-route mis-assessments in 48 hours** (Nidec 2026-06-09 AM, Harmonic Drive 2026-06-09 PM, **Sony 2026-06-09 PM, Renishaw 2026-06-09 PM**). In each, I asserted bypass-route-PASS / multi-form-factor-resilience from memory WITHOUT verifying current Chinese competitive status, and verification revealed the moat was contested or absent. **Failure mode: optimistic bypass-route assertion for precision-component names, blind to the speed of Chinese localization in robotics specifically AND to the wrong-product-category error** (Renishaw's optical grating moat ≠ humanoid magnetic-IC encoder market). Candidate bias B-new for monthly audit 2026-06-24: "robotics-localization-blind-spot." Mandatory fix: any robotics supplier scored for bypass-route MUST fire (a) native-Chinese search on domestic-alternative qualification status AND (b) BOM-line-specific tech audit to confirm the moat product matches the humanoid-joint product BEFORE assigning a PASS.
 
 ### ⚠️ 2026-06-09 PM THIRD CORRECTION — Sony (6758.T) robotics-vision bypass-route FAILS (6-subagent Fable-5 verified)
 
@@ -35,6 +35,28 @@ Directed 6 parallel Fable-5 subagents (CIS share/competition; robot-vision bypas
 - **"Sandisk/Micron of robotics-vision" = WEAK fit.** Matches cost side (sunk capex, record 16.6% margin, capex discipline) but NOT revenue side (no LTAs/prepays; Apple concentration eroding; mix-led ASP not shortage-pricing). The memory crunch is a *headwind* for Sony mobile CIS, not a tailwind.
 - **BUT Sony ≠ HD.** Fwd ~17x (vs HD ~139x), EV/EBITDA ~7–8x, ¥12.5T diversified conglomerate, record FY25 OI ¥1.45T, ¥500B buyback, ~25–35% SOTP discount, active crystallization (FS spun Oct-2025, Bravia JV, TSMC sensor-JV MOU May-2026). The robotics thesis fails but a **separate cheaper value-catalyst thesis survives** (premium-imaging + auto content growth 37→43% + SOTP).
 - **Net: Sony is NOT a robotics-bottleneck cohort name.** Reclassify from "Physical AI universal-vision-supplier" → watchlist value/catalyst play. Full verdict: `companies/SONY/thesis.md` (2026-06-09 revision).
+
+### ⚠️ 2026-06-09 PM FOURTH CORRECTION — Renishaw (RSW.L) robotics-encoder bypass-route FAILS (6-subagent Fable-5 verified)
+
+Directed 6 parallel Fable-5 subagents (encoder share/competition; bypass-route deep-test; financials/segment-split; physical-AI demand vectors; capacity/pricing; valuation/ATH). Mandatory native-Chinese discipline applied. Findings:
+- **Wrong-tech error.** Humanoid joints use off-axis MAGNETIC absolute encoders (AMS AS5047P-class, $5–15 commodity ICs), NOT Renishaw's optical/inductive grating-scale moat. Encoders are ~4.45% of Optimus third-party BOM (T2). The optical-encoder moat is in the wrong product category for humanoids.
+- **Chinese-localization error.** Unitree G1 uses self-developed dual encoders (T2 native-zh CSDN teardown); **Inovance 汇川 shipped first-gen self-developed encoders + joint modules in 2025** (T1 native-zh 2025 AR); Aopu/Yuheng told investors March 2025 their high-end encoders are "暂未直接给人形机器人厂家供货" (T1 native-zh 财联社) — yet pre-qualified at joint-module tier via Inovance.
+- **Verified Renishaw humanoid wins:** only **PAL Robotics REEM-C** via RLS magnetic. **NO Tesla/Figure/Apptronik/Unitree/XPeng design-win.**
+- **BUT the SEMICAP encoder thesis is REAL and is the actual driver.** FY2026 re-segmentation made it visible: Position Measurement £179.4m (9M FY26, ~31% of group, +21.6% cc) vs group +13.5% — encoders doing ~1.7× group growth on AI-chip / semicap demand. One disclosed ASML RLE21 LTA. Capex rolling off (£73.8m → £46.3m), 20% margin target reiterated, Q3 record £206m +14%, guidance raised TWICE in FY26.
+- **Problem: already priced for humanoid narrative (~32–35x fwd, top of 5-yr band), NOT semicap (~22–25x peers).** UBS Nov-2025 "favored humanoid exposure" note drove +100–115% TTM rally — but humanoid revenue ~$30m of ~£790m = ~3.8% of group. Wrong narrative for the right name. Multiple compression risk ~20–30% if CMD 16-Jun-2026 fails to deliver humanoid disclosure.
+- **Net: Renishaw is NOT a robotics-bottleneck cohort name.** Reclassify from "Tier 2 robotics-direct" → watchlist semicap-encoder compounder priced for the wrong narrative. Full verdict: `companies/RENISHAW/thesis.md` (2026-06-09 initial).
+
+### META-PATTERN — 4 dissections, 4 bypass-route FAILS → framework needs correction
+
+Pattern is now too robust to attribute to per-name error. The **"Sandisk/Micron of Robotics" framework doesn't generalize from memory to robotics-components by analogy.** Reasons:
+- Robotics has no NAND/DRAM-style shared specification → OEMs design proprietary actuators → no industry-wide bottleneck
+- No take-or-pay norm; design-win-per-program economics
+- Chinese parity arrives in months, not years (Inovance shipped first-gen joint modules 2025; Suzhou Green Harmonic captured Tesla Optimus)
+- Magnetic-IC commodity ($5–15) is the dominant feedback substrate, not premium optical
+
+**Cohort-wide framework correction action (P2 priority, before 2026-06-24 monthly audit):** re-score every robotics-supplier candidate (Nabtesco, Panasonic-robotics-angle, Murata-as-robotics-MLCC, AGC/Hirano robotics adjacency) with the new gate: **Chinese-localization-first native-search + BOM-line-specific tech audit + disclosed T1 design-win**. The structural-winners framework conflated "resilience-style criteria" (architecture-agnostic) with "bypass-route" (chokepoint) — these are different signals.
+
+**Real investable bypass-route-FAILS layer remains:** NVDA (Orin/Thor compute), TSM 台積電 / 2330.TW (below-5nm wafers), HBM (memory cohort already held), advanced packaging (ABF substrate cohort — IBIDEN already in dissection queue). Robotics-precision-component cohort de-prioritized pending framework re-validation.
 
 ### Framework refinement (codifiable insight)
 

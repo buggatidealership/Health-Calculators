@@ -414,12 +414,14 @@ Origin: 2026-06-09 user-articulated discovery question — "what must be true fo
   - Position: 0% now; re-examine only if/when SOTP+auto re-rating is the explicit thesis. Full verdict: `companies/SONY/thesis.md`. L24 line: hold ¥3,390 (secular breakout-retest).
   - Investability: Japan TSE ✓
 
-- **Renishaw plc (RSW.L) — added 2026-06-09**
-  - Source signal: Precision encoder oligopoly (top 3 ~70% with Heidenhain private + Tamagawa private; my model)
-  - Linked causal chain: Every humanoid joint requires position encoder for closed-loop control → encoder demand scales 1:1 with humanoid actuator count
-  - Why interesting: PASSES bypass-route test at high-precision tier (sensorless control limited; Chinese alternatives at low-end); 8/9 archetype criteria; UK-listed publicly investable (vs Heidenhain + Tamagawa private)
-  - Investability: UK LSE (RSW.L) — accessible via Degiro per UK market access (user to verify)
-  - Status: WATCHLIST — Tier 2 robotics-direct candidate; needs UK investability confirmation + native-language n/a (English-only OK)
+- **Renishaw plc (RSW.L) — ⚠️ REFRAMED 2026-06-09 PM after 6-subagent deep-dive — humanoid encoder thesis FAILED**
+  - ~~Source signal: Precision encoder oligopoly (top 3 ~70% with Heidenhain private + Tamagawa private; my model). PASSES bypass-route at high-precision tier; 8/9 archetype criteria~~ **— STRUCK. Wrong-tech error: humanoid joints use magnetic-IC commodity (AMS AS5047P $5–15), NOT optical gratings. Chinese-localization error: Inovance 汇川 shipped first-gen self-developed encoders + joint modules in 2025 (T1 native-zh); Unitree G1 uses self-developed dual encoders. Only verified Renishaw humanoid win is PAL Robotics REEM-C — not a T1 humanoid platform.** Factual correction: Heidenhain parent = **Dr. Johannes Heidenhain-Stiftung** (NOT "ITK Engineering AG" — that's a separate Bosch subsidiary).
+  - "**English-only OK**" was also wrong — Chinese-language native search was mandatory and DECISIVE in killing the thesis. (pretraining default; revising)
+  - **Surviving thesis (different archetype): semicap encoder compounder.** Position Measurement segment £179.4m (9M FY26, +21.6% cc) on AI-chip / semicap demand; one disclosed ASML RLE21 LTA (rare positive); capex rolling off (£73.8m → £46.3m); 20% margin target; record Q3 £206m +14%; guidance raised twice; Deltam family-control 50.25% (succession structure, NOT sale signal); debt-free £240m cash.
+  - **Problem: already priced for humanoid (~32–35x fwd, top of own 5-yr band) NOT semicap (~22–25x peers).** UBS Nov-2025 humanoid note catalyzed +100–115% TTM rally yet humanoid revenue ~$30m of ~£790m = ~3.8% of group. Mean-reversion risk 20–30% if CMD 16-Jun-2026 fails to deliver T1 humanoid disclosure.
+  - Position: 0% now; re-examine only if CMD or narrative mean-reversion creates 20–30% entry window into semicap thesis at 22–25x fwd. Full verdict: `companies/RENISHAW/thesis.md`
+  - Investability: UK LSE (RSW.L), £3.91B cap, liquid; Degiro routes LSE for German retail (0.5% stamp duty applies)
+  - **Catalyst: CMD 16-Jun-2026** (binary)
 
 - **Panasonic (6752.T) — already on watchlist (consumer-swap angle, added 2026-06-06) — ROBOTICS ANGLE ADDED 2026-06-09**
   - Additional signal: Battery cells for humanoid robot power (Tesla Optimus 2.3 kWh cylindrical cell; Panasonic incumbent Tesla cylindrical supplier 2170/4680)
