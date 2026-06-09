@@ -396,3 +396,35 @@ Origin: 2026-06-08 PM user-shared Twitter spicy take with 3 Intel slide images (
   - Investability: US NASDAQ ✓ (micro-cap caveat — speculative position sizing only)
   - Status: WATCHLIST — speculative tier; flag only for monitoring
 
+
+### Robotics supplier-side cohort — "Sandisk/Micron of Robotics" (added 2026-06-09)
+
+Origin: 2026-06-09 user-articulated discovery question — "what must be true for a company to be the Sandisk or Micron of Robotics?" Reasoning chain per session: functional decomposition of robot needs (perceive/think/act/power/connect/structure) → bypass-route test per layer (Critical Rule #9) → cross-check against Sandisk/Micron archetype (9 criteria) → top candidates by layer. Per `signals/cross-source-log/2026-06-09-sandisk-micron-of-robotics-synthesis.md` (when written) OR session chat for full reasoning trace.
+
+- **Harmonic Drive Systems (6324.T) — added 2026-06-09 — PRIMARY ROBOTICS-DIRECT CANDIDATE**
+  - Source signal: Functional decomposition of robotics value chain → reducer layer PASSES bypass-route test (humanoid joint precision requires harmonic-drive class precision; direct-drive too large; Chinese alternatives at lower-tier only per my model)
+  - Linked causal chain: Humanoid robotics commercial deployment 2027-2028 → ~25-40 actuators per humanoid robot × multi-million unit fleet trajectory (Tesla 100K 2027 → 1M+ 2028+ per public guidance) = massive harmonic reducer demand
+  - Why interesting: Closest single-name match to Sandisk/Micron robotics archetype per session synthesis (scored 9/9 criteria); already in held cohort framework via yesterday's Tier 2 upgrade (20/22 combined)
+  - Investability: Japan TSE (6324.T) ✓
+  - Status: WATCHLIST — Tier 1 robotics-direct candidate; **PENDING 7-subagent verification 2026-06-09 PM** (results in subsequent thesis file build)
+
+- **Sony Group (6758.T) — already in companies/SONY/thesis.md as Watchlist — ELEVATED 2026-06-09**
+  - Robotics-direct angle: CIS oligopoly ~43-64% global; universal vision-sensor supplier for every robot form factor (humanoid + AMR + drone + industrial); scores 8/9 Sandisk/Micron archetype criteria
+  - Note: Sony Group is conglomerate (CIS ~20% group revenue); pure-play robotics-vision exposure DILUTED — refine via SOTP analysis when dedicated robotics deep-dive runs
+  - Investability: Japan TSE ✓
+
+- **Renishaw plc (RSW.L) — added 2026-06-09**
+  - Source signal: Precision encoder oligopoly (top 3 ~70% with Heidenhain private + Tamagawa private; my model)
+  - Linked causal chain: Every humanoid joint requires position encoder for closed-loop control → encoder demand scales 1:1 with humanoid actuator count
+  - Why interesting: PASSES bypass-route test at high-precision tier (sensorless control limited; Chinese alternatives at low-end); 8/9 archetype criteria; UK-listed publicly investable (vs Heidenhain + Tamagawa private)
+  - Investability: UK LSE (RSW.L) — accessible via Degiro per UK market access (user to verify)
+  - Status: WATCHLIST — Tier 2 robotics-direct candidate; needs UK investability confirmation + native-language n/a (English-only OK)
+
+- **Panasonic (6752.T) — already on watchlist (consumer-swap angle, added 2026-06-06) — ROBOTICS ANGLE ADDED 2026-06-09**
+  - Additional signal: Battery cells for humanoid robot power (Tesla Optimus 2.3 kWh cylindrical cell; Panasonic incumbent Tesla cylindrical supplier 2170/4680)
+  - Linked causal chain: Tesla Optimus 50K-100K units 2026-2027 + Figure + Apptronik + 1X scaling → meaningful cylindrical cell demand 2027-2028
+  - Why interesting: Cross-vector (consumer-swap battery + robotics battery + EV cylindrical); already on watchlist; ROBOTICS adds new growth vector
+  - Risk: LG Energy Solution pursuing Tesla Optimus deal per Teslarati (KR not investable but competitive pressure exists)
+  - Investability: Japan TSE ✓
+  - Status: WATCHLIST update — added robotics battery vector to existing consumer-swap entry
+
