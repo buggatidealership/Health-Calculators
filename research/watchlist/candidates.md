@@ -401,7 +401,7 @@ Origin: 2026-06-08 PM user-shared Twitter spicy take with 3 Intel slide images (
 
 Origin: 2026-06-09 user-articulated discovery question — "what must be true for a company to be the Sandisk or Micron of Robotics?" Reasoning chain per session: functional decomposition of robot needs (perceive/think/act/power/connect/structure) → bypass-route test per layer (Critical Rule #9) → cross-check against Sandisk/Micron archetype (9 criteria) → top candidates by layer. Per `signals/cross-source-log/2026-06-09-sandisk-micron-of-robotics-synthesis.md` (when written) OR session chat for full reasoning trace.
 
-- **Harmonic Drive Systems (6324.T) — added 2026-06-09 — PRIMARY ROBOTICS-DIRECT CANDIDATE**
+- **Harmonic Drive Systems (6324.T) — ⚠️ RECLASSIFIED 2026-06-09 PM: ALREADY HELD on N26, NOT a watchlist candidate. See `companies/HDS/thesis.md`. Humanoid bypass-route verified CONTESTED (Tesla→Chinese). Retained below for audit trail only.**
   - Source signal: Functional decomposition of robotics value chain → reducer layer PASSES bypass-route test (humanoid joint precision requires harmonic-drive class precision; direct-drive too large; Chinese alternatives at lower-tier only per my model)
   - Linked causal chain: Humanoid robotics commercial deployment 2027-2028 → ~25-40 actuators per humanoid robot × multi-million unit fleet trajectory (Tesla 100K 2027 → 1M+ 2028+ per public guidance) = massive harmonic reducer demand
   - Why interesting: Closest single-name match to Sandisk/Micron robotics archetype per session synthesis (scored 9/9 criteria); already in held cohort framework via yesterday's Tier 2 upgrade (20/22 combined)

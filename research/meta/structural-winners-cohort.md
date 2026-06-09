@@ -14,8 +14,19 @@
 | Name | 2026-06-08 ranking | 2026-06-09 corrected ranking | Reason |
 |---|---|---|---|
 | **Nidec (6594.T)** | TIER 1 (21/22) — "TOP NEW; only robotics-direct anchor" | **TIER 3 (18/22) — turnaround candidate, NOT structural compounder** | FAILS bypass-route test for robotics (in-house design by Tesla/Figure/Apptronik/1X + Maxon/Faulhaber/Inovance alternatives); FAILS for AI cooling (Vertiv dominant); EV segment in crisis (-82.5% OP H1 FY26 on write-downs); AI-theme revenue ~10-15% (my model — not dominant story) |
-| **Harmonic Drive Systems (6324.T)** | TIER 4 (16/22) | **TIER 2 (20/22) — UPGRADE** | PASSES bypass-route test — near-monopoly precision reducer for humanoid joints; Chinese alternatives at lower-tier only; multi-decade process-IP moat |
+| **Harmonic Drive Systems (6324.T)** | TIER 4 (16/22) | ~~TIER 2 (20/22)~~ **→ RE-CORRECTED 2026-06-09 PM to ~17/22** | ⚠️ The "PASSES bypass-route" call was WRONG (verified) — see correction below. Also: HDS is **already HELD on N26** (mis-classified as "NOT held/TOP NEW"); not a new candidate. |
 | **Nabtesco (6268.T)** | TIER 4 (16/22) | **TIER 2 (19-20/22) — UPGRADE** | RV reducer duopoly with HD; same bypass-route logic |
+
+### ⚠️ 2026-06-09 PM SECOND CORRECTION — Harmonic Drive humanoid bypass-route FAILS (6-subagent verified)
+
+Directed 6-subagent per-criterion verification of HDS + 2 self-confirmations (English + Japanese). Findings:
+- **HDS is ALREADY HELD on N26** (€10K entry 2026-05-25; existing `companies/HDS/thesis.md`) — I mis-classified it as "NOT held / TOP NEW" because the canonical `holdings.md` is Degiro-only. **Harness-amnesia: I didn't read the existing HDS thesis before scoring it as new.** Held-status post-June-rotation needs user reconciliation.
+- **Humanoid bypass-route FAILS, not PASSES.** Tesla Optimus uses Chinese Suzhou Green Harmonic (~25%→60% target 2026), 40-60% cheaper than HDS; Leaderdrive +210% YoY humanoid orders; Goldman sees HDS humanoid share → 50/50 by 2030. Figure/Apptronik/1X/Unitree/Fourier/BD all in-house or alternative. HDS has NO confirmed Western humanoid flagship win.
+- HDS moat is DURABLE in industrial-robot wrist axes + semi-cap-equipment, NOT in humanoid. Combined score corrected ~17/22 (industrial/semi strength; humanoid contested). NOT the "Sandisk/Micron of robotics."
+
+### META-PATTERN (codifiable) — recurring robotics bypass-route mis-assessment
+
+**Two robotics-name bypass-route mis-assessments in 24 hours** (Nidec 2026-06-09 AM, Harmonic Drive 2026-06-09 PM). In both, I asserted bypass-route-PASS / multi-form-factor-resilience from memory WITHOUT verifying current Chinese competitive status, and verification revealed the moat was contested or absent. **Failure mode: optimistic bypass-route assertion for Japanese precision-component names, blind to the speed of Chinese localization in robotics specifically** (different from memory/MLCC where Chinese parity is years out). Candidate bias B-new for monthly audit 2026-06-24: "robotics-localization-blind-spot." Mandatory fix: any robotics supplier scored for bypass-route MUST fire a native-Chinese search on domestic-alternative qualification status BEFORE assigning a PASS.
 
 ### Framework refinement (codifiable insight)
 

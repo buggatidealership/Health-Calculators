@@ -1,4 +1,65 @@
-# HDS (Harmonic Drive Systems Inc, 6324.T) — Thesis stub
+# HDS (Harmonic Drive Systems Inc, 6324.T) — Thesis
+
+**Last updated:** 2026-06-09 (6-subagent per-criterion verification + 2 self-confirmations; humanoid bypass-route FAIL surfaced; HELD-status reconciliation flag)
+**Tier:** HELD (on N26, ~€10K entry 2026-05-25; ~5-6% of N26 sleeve) — NOT in canonical Degiro holdings.md (Degiro-only file); reconciliation needed
+**Position target:** 3-5% of consolidated portfolio (currently above-target if N26 position intact)
+**Anti-fragility:** 3/5 scenarios — REVISED DOWN from 4/5 (industrial-robot + semi-cap-equip moat durable; humanoid-vs-China now BASE case loss not tail; wins Western/non-Chinese humanoid + industrial + semi; loses China-dominated humanoid)
+
+---
+
+## ⚠️ 2026-06-09 — MAJOR VERIFICATION + DUAL SELF-CORRECTION (Critical Rule #11)
+
+**Trigger:** User directed 6-subagent per-criterion verification (one subagent per structural-winner criterion). All 6 returned; I self-confirmed the 2 thesis-breaking claims via direct English + Japanese search.
+
+### Self-correction #1 — PORTFOLIO-TRACKING ERROR (harness amnesia)
+
+On 2026-06-08 I scored Harmonic Drive in `meta/structural-winners-cohort.md` as **"NOT held / NOT watchlisted — TOP NEW"** and upgraded it to Tier 2 (20/22), then on 2026-06-09 added it to the robotics watchlist (commit 6dbd4ca). **Both were wrong: HDS is a HELD position** (€10K entry 2026-05-25 per this file lines 59-74 + `portfolio/changes.md`; "~5% on N26" per line 129). It does not appear in `portfolio/holdings.md` because that canonical file is **Degiro-only** (€187,619.80 Degiro balance); HDS is held on **N26**. The June 5-6 rotation trimmed DEGIRO names — whether it touched the N26 HDS position is **UNCONFIRMED**. RECONCILIATION REQUIRED: user to confirm whether HDS is still held on N26.
+Root cause: I did not read this existing HDS thesis before classifying it as "new" yesterday — same harness-amnesia failure mode flagged in `signals/cross-source-log/2026-05-30-overlooked-candidates-deep-dive.md` (LSCC).
+
+### Self-correction #2 — HUMANOID BYPASS-ROUTE: I claimed "PASSES", verification says CONTESTED/FAILS
+
+On 2026-06-09 I called HDS "the single closest Sandisk/Micron of robotics... PASSES bypass-route test, 9/9 criteria." **The flagship humanoid socket is already lost to Chinese competition.** This is the same bypass-route mis-assessment I made on Nidec 24h earlier — a recurring failure mode (asserting bypass-route-PASS for robotics names from memory without verifying Chinese competitive status). See meta-pattern note in `structural-winners-cohort.md`.
+
+### Verified findings (6 subagents + 2 self-confirmations)
+
+**1. Market share — "60% global" is segment-dependent and eroding.**
+- Goldman Sachs 2026 (via [Nikkei/Japanese press](https://www.investing.com/news/stock-market-news/this-japanese-stock-is-surging-on-positive-outlook-for-humanoid-robot-orders-4367329)): HDS ~70% of HIGH-PERFORMANCE robot reducer market TODAY, but **→ "50/50" with Chinese by 2030+** as humanoid scales. (T2)
+- China market: HDS ~35.5% vs Leaderdrive (绿的谐波) rising ~35%+; Leaderdrive >60% China / >35% global per [BigGo/36Kr](https://eu.36kr.com/en/p/3780414717129481). (T2)
+- HDS retains durable moat in INDUSTRIAL robot wrist axes (Fanuc/ABB locked) + ultra-precision (<1 arcsec). My flat "60% global" was overstated for the blended/humanoid figure. (T2)
+
+**2. Humanoid design wins — Tesla Optimus uses CHINESE, not HDS (thesis-breaking).** Per [36Kr](https://eu.36kr.com/en/p/3780414717129481) + [optimusk.blog T3](https://optimusk.blog/blog/tesla-optimus-suppliers/) + [Bloomberg T2 — Leaderdrive humanoid profit](https://www.bloomberg.com/news/articles/2026-04-23/leaderdrive-sees-profit-climb-on-boom-in-chinese-humanoid-robots):
+| Humanoid OEM | Reducer source | HDS? |
+|---|---|---|
+| **Tesla Optimus** | Suzhou Green Harmonic (Chinese ~25%→targeting 60% by 2026); Tesla in-house 2026 target | **NO** |
+| Figure 02/03 | Custom in-house | NO |
+| Boston Dynamics Atlas | Hyundai Mobis custom + cycloidal | NO |
+| Apptronik Apollo | Custom; explicitly avoids harmonic (cost) | NO |
+| 1X NEO | Tendon-drive | NO |
+| Unitree | QDD in-house (~80% cheaper) | NO |
+| Fourier GR | Proprietary FSA | NO |
+| XPeng IRON | Harmonic in HANDS only | partial |
+- HDS has **NO confirmed Western humanoid flagship design win.** Its ¥2.5B FY26 humanoid orders are non-exclusive; OEMs opaque. China 70% of Optimus Gen-3 components.
+
+**3. Bypass-route test — PARTIAL/FAILS for humanoid.** Direct-drive FAILS as bypass (cost/size). Cycloidal/RV PARTIAL (legs). **Chinese strain-wave QUALIFIED at Tesla at scale (48 reducers/robot, Leaderdrive +210% YoY orders) at 40-60% below HDS price, backlash parity at standard tier.** HDS moat durable only at ultra-precision (<1 arcsec). The Sandisk/Micron parallel BREAKS: memory has no Chinese parity at HBM tier; harmonic reducers already have Chinese parity at standard tier + Chinese winning the flagship OEM.
+
+**4. Financials (VERIFIED T1/T2) — FY26 badly missed its own mid-term plan.**
+- FY2026 (ended Mar 2026, reported May 13): revenue ¥59,557M (+7.0%), OP ¥2,567M, NP ¥1,608M (**-53.7% YoY**), OPM 4.3%. (T1)
+- vs the FY26 mid-term-plan TARGET of ¥90B revenue / 16.7% OPM — **massive miss** (¥59.5B actual vs ¥90B target). (T1/T2)
+- FY2027 guidance: revenue ¥68B (+14.2%), OP ¥6.2B (+141.5%), NP ¥4.5B (+179.7%) — big rebound off depressed base; dividend ¥20→¥42.1. Equity ratio 72.2%, OCF ¥6.4B (strong balance sheet). (T1)
+
+**5. Humanoid TAM math (VERIFIED capacity-constraint, contested-share).** ~14-30 harmonic reducers per humanoid; humanoid reducer TAM 42-46% CAGR ($276M 2024 → ~$3B 2031). If humanoid hits 500k-1M units/yr 2027-28, demand 7-20M reducers vs ~1.2-1.5M industry capacity = SEVERE constraint — but Chinese (Green Harmonic 500k/yr 2026) taking the flagship sockets. Constraint real; HDS share of it contested.
+
+**6. Valuation (VERIFIED) — rich, already re-rated.** Current ~¥7,160 (June 8); ATH ¥9,510 (Dec 2020), **-24.7% below ATH**; +129% TTM off ¥2,316 2024 low; +44% YTD. Forward P/E ~139x, P/S ~11x, P/B ~8x, EV/EBITDA ~66x vs Nabtesco ~28x P/E. NOT a depressed entry — mid-rebound, premium multiple, parabolic-adjacent. L24 read: it has NOT broken the 2020 ATH; it's recovered most of the way on humanoid narrative + margin-reset rebound.
+
+### Honest revised verdict
+
+HDS is **a high-quality industrial-automation precision-reducer incumbent** — durable moat in industrial-robot wrist axes (Fanuc/ABB) + semiconductor cap-equipment (~35-40% of harmonic usage; direct AI-capex beneficiary via CoWoS/BESI/ASMPT/DISCO) + ultra-precision niche. It is **NOT the "Sandisk/Micron of robotics"** — the humanoid upside that drove that label is CONTESTED, with the flagship socket (Tesla) already on Chinese suppliers 40-60% cheaper. The semi-cap-equipment + industrial + surgical-robotics narratives are the durable core; humanoid is contested optionality, not a bottleneck monopoly.
+
+**Position implication:** HOLD — no add — RECONCILE held status first (N26 position post-June-rotation unconfirmed). At 139x forward P/E with a contested humanoid thesis + a badly-missed FY26 mid-term plan, this is NOT an add candidate. If the N26 position is intact, hold on the durable industrial/semi-cap-equip core; do NOT size up on the humanoid narrative. If exited in the rotation, do NOT re-enter at current valuation on the humanoid story. Remove from robotics watchlist (it is a held/owned name, not a candidate). Anti-fragility revised 4/5 → 3/5.
+
+---
+
+## (PRIOR STUB BELOW — superseded by 2026-06-09 verification above; retained for audit trail)
 
 **Last updated:** 2026-05-24
 **Tier:** Watchlist (Phase 3 surfaced; pre-position-sizing)
