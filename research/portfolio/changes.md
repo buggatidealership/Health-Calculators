@@ -319,3 +319,45 @@ User-disclosed verbally: "added 8k position prior to their earnings as a quick t
 - `watchlist/candidates.md`: TY entry should be marked HELD pending next portfolio screenshot
 - `portfolio/holdings.md`: NOT yet updated per canonical reference rule (only updates with new screenshot per 2026-06-04 directive)
 - User to send next Degiro screenshot at convenience for canonical reflection
+
+---
+
+[2026-06-09] **HDS (Harmonic Drive Systems 6324.T) — EXIT CONFIRMED + N26 SLEEVE CLOSED**
+
+User verbal confirmation 2026-06-09: "I sold my HD so I hold nothing in N26 anymore. I only have the degiro holdings."
+
+| Element | Value |
+|---|---|
+| Position | HDS ~€10K entry 2026-05-25 (N26) |
+| Status | SOLD (date/price not disclosed; presumed during/around June 5-6 rotation) |
+| N26 sleeve | EMPTY — user now holds DEGIRO ONLY |
+| P/L | Unknown — user to share if relevant |
+
+**Structural implication for harness:** `portfolio/holdings.md` (Degiro-only) is now the COMPLETE canonical holdings picture — no second-brokerage blind spot remains. The 2026-06-09 harness-amnesia incident (mis-classifying held HDS as "new candidate") was partly caused by the N26 sleeve being invisible to the canonical file; that failure mode is now structurally closed.
+
+**Timing note:** exit preceded the 2026-06-09 6-subagent verification that surfaced the contested-humanoid thesis (Tesla→Chinese Green Harmonic; ~139x fwd P/E). User's sell was directionally validated by the subsequent verification.
+
+Updated Degiro screenshot pending from user.
+
+---
+
+[2026-06-09 PM] **Harmonic Drive Systems (6324.T) — EXITED (user-confirmed)**
+
+User stated verbatim: "I sold my HD so I hold nothing in N26 anymore. I only have the degiro holdings."
+
+| Element | Value |
+|---|---|
+| Name | Harmonic Drive Systems Inc |
+| Ticker | 6324.T (held on N26) |
+| Action | FULL EXIT |
+| Original entry | ~€10K, 2026-05-25 (per changes.md + companies/HDS/thesis.md) |
+| Exit confirmed | 2026-06-09 PM |
+| N26 sleeve status | EMPTY — user now holds ONLY Degiro holdings |
+
+**Context for exit (my read):** 2026-06-09 6-subagent verification surfaced that HDS humanoid bypass-route is CONTESTED (Tesla Optimus uses Chinese Suzhou Green Harmonic 40-60% cheaper; HDS no confirmed Western humanoid flagship win); FY26 NP -53.7% missing the ¥90B mid-term plan; ~139x fwd P/E. The "Sandisk/Micron of robotics" framing broke under verification. Exit is consistent with that read.
+
+**Harness implications:**
+- `companies/HDS/thesis.md` → tier EXITED (reference artifact)
+- `portfolio/holdings.md` → unchanged (Degiro-only canonical; HDS was never in it; N26 now empty)
+- Consolidated portfolio = Degiro holdings ONLY going forward (per user 2026-06-09)
+- `meta/structural-winners-cohort.md` → HDS already corrected to ~17/22; now also EXITED

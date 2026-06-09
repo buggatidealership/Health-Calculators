@@ -1,8 +1,8 @@
 # HDS (Harmonic Drive Systems Inc, 6324.T) — Thesis
 
 **Last updated:** 2026-06-09 (6-subagent per-criterion verification + 2 self-confirmations; humanoid bypass-route FAIL surfaced; HELD-status reconciliation flag)
-**Tier:** HELD (on N26, ~€10K entry 2026-05-25; ~5-6% of N26 sleeve) — NOT in canonical Degiro holdings.md (Degiro-only file); reconciliation needed
-**Position target:** 3-5% of consolidated portfolio (currently above-target if N26 position intact)
+**Tier:** EXITED — user confirmed 2026-06-09: HDS sold; N26 sleeve now EMPTY (user holds Degiro only). Reconciliation CLOSED.
+**Position target:** 0% — do NOT re-enter at ~139x fwd P/E on contested humanoid thesis; re-entry only on (a) material valuation reset toward Nabtesco-comp multiples OR (b) verified Western humanoid flagship design win
 **Anti-fragility:** 3/5 scenarios — REVISED DOWN from 4/5 (industrial-robot + semi-cap-equip moat durable; humanoid-vs-China now BASE case loss not tail; wins Western/non-Chinese humanoid + industrial + semi; loses China-dominated humanoid)
 
 ---
