@@ -408,9 +408,10 @@ Origin: 2026-06-09 user-articulated discovery question — "what must be true fo
   - Investability: Japan TSE (6324.T) ✓
   - Status: WATCHLIST — Tier 1 robotics-direct candidate; **PENDING 7-subagent verification 2026-06-09 PM** (results in subsequent thesis file build)
 
-- **Sony Group (6758.T) — already in companies/SONY/thesis.md as Watchlist — ELEVATED 2026-06-09**
-  - Robotics-direct angle: CIS oligopoly ~43-64% global; universal vision-sensor supplier for every robot form factor (humanoid + AMR + drone + industrial); scores 8/9 Sandisk/Micron archetype criteria
-  - Note: Sony Group is conglomerate (CIS ~20% group revenue); pure-play robotics-vision exposure DILUTED — refine via SOTP analysis when dedicated robotics deep-dive runs
+- **Sony Group (6758.T) — ⚠️ REFRAMED 2026-06-09 PM after 6-subagent deep-dive — robotics-vision thesis FAILED**
+  - ~~Robotics-direct angle: CIS oligopoly ~43-64% global; universal vision-sensor supplier...8/9 Sandisk/Micron archetype~~ **— STRUCK. Bypass-route FAILS: Sony is quality leader, NOT chokepoint (OmniVision won Xiaomi 17 Ultra main; Samsung broke iPhone monopoly; no T1 humanoid win; humanoid CIS is 2030s narrative ≈1% of I&SS). Retire the 43-64% figure → anchor Sony's own T1 53%/56% value share.**
+  - **Surviving thesis (different archetype): premium-imaging leader-under-siege + automotive content growth (value share 37→39→43% FY26) + conglomerate-discount/SOTP crystallization (FS spun Oct-2025, Bravia JV, TSMC sensor-JV MOU May-2026; ~25-35% discount). Fwd ~17x, EV/EBITDA ~7-8x. NOT a robotics-bottleneck cohort name — a value/catalyst play.**
+  - Position: 0% now; re-examine only if/when SOTP+auto re-rating is the explicit thesis. Full verdict: `companies/SONY/thesis.md`. L24 line: hold ¥3,390 (secular breakout-retest).
   - Investability: Japan TSE ✓
 
 - **Renishaw plc (RSW.L) — added 2026-06-09**
