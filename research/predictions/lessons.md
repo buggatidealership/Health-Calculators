@@ -131,6 +131,69 @@ The CALL-COMMENTARY-LEVEL variables matter more than headline beat magnitude at 
 
 ---
 
+## L24 (NEW candidate — origin 2026-06-09 user articulation + Taiyo Yuden live validation)
+
+**Origin:** User correction 2026-06-09 on my Stage 4 framing of Taiyo Yuden (6976.T) after the stock 4×'d YTD and broke its 26-year ATH (2000 IT bubble peak) on May 8 2026 Q4 FY26 print (+91% MLCC OP; +50% FY27 guidance; AI server MLCC +80% YoY guidance).
+
+User verbatim: *"a lot of companies actually start really going crazy after they reach all time high. Right? Because then it's... when it turns from a cyclical to a structural play most of the time, if it can fall into that category."* Refined further: *"it's a thesis... more of a technical analysis. Where it's of charting... they do not always per se become rules. It can show that there are some signals that can be met and increases the possibility of a breakout. It does not mean it happens... if something has been trading sideways for a while and then breaks an all time high, that there is an inflection upwards. How long that inflection lasts and how severe the magnitude of that inflection is is dependent on other variables and functions."*
+
+**Pattern statement:** Extended sideways trading (multi-year+) followed by ATH break **increases the probability** of subsequent multi-year structural inflection, **but does not guarantee** it. Magnitude and duration of post-break trajectory are DEPENDENT on other variables (cycle strength, narrative quality, foreign-analyst coverage lag, fundamental acceleration). Treated as a probabilistic TECHNICAL-ANALYSIS signal augmenting fundamental analysis, NOT a standalone trading rule.
+
+**Distinction from L21:** L21 default treats Stage 4 + ATH proximity + crowded consensus + macro risk-off = NEGATIVE reaction default. L24 REFINES L21 for mid-cap structural-inflection setups — for mid/small-cap names with decade+ sideways trading + earnings finally catching up to thesis + cyclical-to-structural narrative transition + foreign analyst lag + industry-wide cycle, ATH-break is MORE LIKELY structural inflection than Stage 4 exhaustion. The two frameworks apply to DIFFERENT name classes (mega-cap crowded vs mid-cap decade-sideways).
+
+**Base-rate probabilities (my model — preliminary, awaits N+ validation):**
+
+- H1 (P=60%) Pattern triggers structural inflection (post-break compounding ≥2× over 18-36 months) when paired with confirmed earnings acceleration + cycle inflection
+- H2 (P=25%) Pattern triggers consolidation phase (3-12 months) then resumption; eventual structural inflection but with material drawdown first
+- H3 (P=15%) Pattern false-positive — break is exhaustion (no fundamental support); mean-reversion follows
+- **Aggregate P(post-break compounding within 24 months) ~60-70% (my model) when accompanied by fundamental setup; lower if pattern alone**
+
+**Magnitude/duration dependency variables (load-bearing per user articulation "dependent on other variables and functions"):**
+
+| Variable | Effect on magnitude/duration |
+|---|---|
+| Cycle strength (e.g., MLCC sold out through 2027 per Murata president) | Stronger cycle → longer + deeper inflection |
+| Earnings trajectory at break (accelerating vs flat) | Accelerating → multi-year compounder; flat → consolidation more likely |
+| Foreign analyst coverage lag | More lag → more rerating runway; less lag → shorter runway |
+| Cyclical-to-structural narrative transition strength | Stronger transition → multi-year; weaker → cyclical mean reversion |
+| Industry-wide vs single-name pricing power | Industry-wide → more sustainable; single-name → fragility |
+| Macro regime (risk-on vs risk-off) | Risk-on → multiplier; risk-off → drag on magnitude |
+| Market cap (mid/small vs mega) | Mid/small with decade+ sideways → higher rerating potential; mega-cap → crowding caveat dominates |
+
+**Retrospective validation candidates already in scope (N=4 historical + N=1 live):**
+
+| Name | Sideways duration | ATH break date | Post-break trajectory | Status |
+|---|---|---|---|---|
+| NVDA | 2021-2023 | 2023 | +5× over 18 months | Confirmed +structural |
+| Mitsui Mining (5706.T) | Multi-year | ~2025 on HVLP4 narrative | +10× in 12 months | Confirmed +structural |
+| Murata (post-2025 cycle bottom) | 2020-2025 | 2026 | +50% rally + cycle inflection | Confirmed +structural |
+| Taiyo Yuden (6976.T) | **26 years (2000 IT bubble peak)** | May 2026 | **4× YTD through June (live)** | **N=1 LIVE — origin case for codification** |
+| ASML | 2021-2024 | 2024 | Continued upside + EUV rerating | Confirmed +structural |
+
+**Application to held cohort (forward monitoring candidates):**
+
+| Name | Sideways setup | Pattern trigger condition |
+|---|---|---|
+| SUMCO (held 415) | 17-year (2007 ATH) | If breaks 2007 ATH on AI-grade mix-shift cycle 2027-2028 → structural-inflection candidate |
+| Hirano (held 300) | Multi-year post-2022 ATH | If breaks ATH on MLCC capex tooling cycle → structural-inflection candidate |
+| AGC (held 100) | Long sideways since 2006 ATH | Distant; requires sustained AI cycle through 2027+ |
+| MUR (held 201) | Multi-year consolidation broken 2026 | Already mid-phase post-break compounding |
+
+**Layer it operates at:** This is at the REASONING layer of GRADE — it modifies how the L21 sector regime modifier is applied for mid-cap structural-inflection cases. Composes with L22 (beat-analyst-consensus) and L23 (market-cap-inverse reaction asymmetry).
+
+**Calibration adjustment:** For mid/small-cap names meeting the 7-condition fundamental setup, ATH-break entry is NOT chasing momentum — it's participating in the structural-inflection phase. Position-implication framing should reflect structural-rerating opportunity rather than Stage 4 exhaustion caveat.
+
+**Falsifier conditions:**
+- TY post-ATH-break trajectory turns into >30% drawdown without resumption within 18 months → L24 pattern weakened
+- 3+ N=2-N=5 candidates emerge in 12 months where pattern fires WITHOUT compounding → framework invalidated
+- Pattern only effective in Japan TSE / Taiwan TWSE structural-rerating context (not US mega-cap) → narrower scope codification needed
+
+**Re-eval trigger:** TY live follow-through 6+ months (continues compounding through Q1 FY27 print late July OR consolidates); monthly codification audit 2026-06-24; SUMCO + Hirano + AGC pattern-trigger monitoring as additional N+ data points.
+
+**Self-correction note (per Critical Rule #11):** Yesterday's framing of TY as "Stage 4 momentum, chasing post-26-yr ATH break" was WRONG under this corrected framework. The CORRECT framing is structural-inflection-phase entry. This L24 codification is the framework correction so the error doesn't recur for SUMCO + Hirano + AGC when their ATH-break conditions trigger.
+
+---
+
 ## Principle #37 candidate — Multi-Variable Contextualized Reasoning Chain (MVCRC)
 
 **Origin:** 2026-06-04 PM user articulation in SYNA DEEP-DIG context: *"Don't read the expectation as a single data point. Ideally, that will feed one into another... using them in isolation does not usually yield the best reasoning chain... systems thinking is what you can excel at if you know how the system looks and what you need to do to keep the system up to date. So every single part of the system can feed into one another to then build a better, bigger holistic view, and then you go from the macro to the micro."*
