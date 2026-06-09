@@ -1,6 +1,44 @@
 # Structural Winners Cohort — 4-Way Theme Beneficiary × Architectural Resilience Synthesis
 
 **Created:** 2026-06-08 PM
+**Last updated:** 2026-06-09 (CORRECTION — Nidec downgrade + Harmonic Drive/Nabtesco upgrade per bypass-route test)
+
+---
+
+## ⚠️ 2026-06-09 CORRECTION — Nidec downgrade + HD/Nabtesco upgrade (Critical Rule #11 visible self-correction)
+
+**Trigger:** User-articulated lateral question 2026-06-09: *"look at what it serves today. Is it a crucial bottleneck for robotics? And is there any bypass route that companies can take to avoid going through a Nidec?"* This forced application of Critical Rule #9 bypass-route test that I skipped at original ranking.
+
+### Tier corrections
+
+| Name | 2026-06-08 ranking | 2026-06-09 corrected ranking | Reason |
+|---|---|---|---|
+| **Nidec (6594.T)** | TIER 1 (21/22) — "TOP NEW; only robotics-direct anchor" | **TIER 3 (18/22) — turnaround candidate, NOT structural compounder** | FAILS bypass-route test for robotics (in-house design by Tesla/Figure/Apptronik/1X + Maxon/Faulhaber/Inovance alternatives); FAILS for AI cooling (Vertiv dominant); EV segment in crisis (-82.5% OP H1 FY26 on write-downs); AI-theme revenue ~10-15% (my model — not dominant story) |
+| **Harmonic Drive Systems (6324.T)** | TIER 4 (16/22) | **TIER 2 (20/22) — UPGRADE** | PASSES bypass-route test — near-monopoly precision reducer for humanoid joints; Chinese alternatives at lower-tier only; multi-decade process-IP moat |
+| **Nabtesco (6268.T)** | TIER 4 (16/22) | **TIER 2 (19-20/22) — UPGRADE** | RV reducer duopoly with HD; same bypass-route logic |
+
+### Framework refinement (codifiable insight)
+
+**"Multi-form-factor exposure" (resilience signal) ≠ "Critical bottleneck" (bypass-route signal). These are DIFFERENT signals and should NOT compound additively without independent bypass-route verification.**
+
+My original 10-criteria scoring applied resilience-style criteria (architecture-agnostic, form-factor agnostic, customer-agnostic) without separately verifying whether each candidate could be BYPASSED by customers. Nidec satisfies multi-form-factor diversification BUT does not pass bypass-route test for any of its segments. Yesterday's framework conflated these signals.
+
+### Net effect on dissection queue priority
+
+**Revised priority for future deep-dive sessions:**
+
+1. **Shin-Etsu Chemical (4063.T)** — TIER 1 22/22 — UNCHANGED top priority (multi-layer chemicals oligopoly passes both filters)
+2. **Harmonic Drive Systems (6324.T)** — UPGRADED to high-priority robotics-bottleneck candidate
+3. **Nabtesco (6268.T)** — UPGRADED to high-priority robotics-bottleneck candidate
+4. Tier 2 semi equipment + connector + analog clusters (unchanged)
+5. **Nidec (6594.T)** — DOWNGRADED to turnaround / segment-mix story; lower priority
+
+### Detail backing the correction
+
+Full bypass-route analysis: see `signals/cross-source-log/2026-06-09-nidec-deep-dive-bypass-route-correction.md` (when written) OR refer to chat transcript 2026-06-09 (this is a tier reranking summary; full analysis preserved in chat context).
+
+---
+
 **Purpose:** Persistent reference of structural-winner candidates ranked by combined score across (a) 10-criteria 4-way beneficiary filter (AI Robotics + Edge AI + AI Chip + AI DC build-out) AND (b) 12-architecture resilience scoring. To be dissected name-by-name across future sessions.
 **Origin:** User-articulated discovery question 2026-06-08 PM: "what must be true for a company to benefit from AI robotics, Edge AI, AI chip and AI data center build out" + follow-up "what must be true for newly listed companies to be resilient against changes within the AI sector's architecture" + "when you combine the companies based on resilience but also on the category winners... what companies emerged?"
 

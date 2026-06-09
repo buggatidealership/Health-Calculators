@@ -295,3 +295,27 @@ Surfaced via user-shared Kioxia IR slide + 3-subagent verification per `signals/
 - `companies/HYNIX/thesis.md` — TrendForce HBM 2027 +70-100% Mizuho cascade
 - `companies/MRVL/thesis.md` — Murphy keynote claims clarification ($36B platform-spend not M&A)
 - `sector/where-we-are.md` — HBM 2027 + Spectrum-X CPO PRODUCTION new-signal block
+
+---
+
+[2026-06-09] **Taiyo Yuden (6976.T) — NEW QUICK-TRADE ENTRY by user**
+
+User-disclosed verbally: "added 8k position prior to their earnings as a quick trade"
+
+| Element | Value |
+|---|---|
+| Name | Taiyo Yuden Co. Ltd. |
+| Ticker | 6976.T (Japan TSE) |
+| Position size | ~€8K (assumed EUR per user brokerage context; awaiting screenshot confirmation) |
+| Entry framing | Quick trade (tactical, not necessarily long-term cohort add) |
+| Entry timing | Prior to today June 9 trading session (post-Q4 FY26 May 8 print rally context; further price action today TY trading up) |
+| Brokerage | Degiro / N26 (per user setup) |
+
+**Thesis context:** Watchlist candidate since 2026-06-06 PM per consumer-hardware-swap thesis (2nd-tier MLCC bypass to held MUR); reinforced by 2026-06-08 MLCC sold-out deep research (Murata president "demand 2× supply, 1-2 yrs"); reinforced by May 1 power inductor + MLCC price hikes (verified) and Q4 FY26 +91% OP / +50% FY27 EPS guidance.
+
+**L24 candidate real-time validation:** TY hits the 7-condition setup of L24 (mid-cap + 26-yr sideways + earnings catching up + cyclical-to-structural + foreign analyst lag + multi-year contract visibility + industry-wide cycle); entry POST-ATH-break is exactly the L24 framework scenario being tested. This entry serves as N=2 live test for L24 candidate (N=1 = TY framework origin).
+
+**Status:**
+- `watchlist/candidates.md`: TY entry should be marked HELD pending next portfolio screenshot
+- `portfolio/holdings.md`: NOT yet updated per canonical reference rule (only updates with new screenshot per 2026-06-04 directive)
+- User to send next Degiro screenshot at convenience for canonical reflection
