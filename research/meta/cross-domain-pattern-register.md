@@ -36,7 +36,7 @@
 **Mechanism:** The durable moat is rarely the technology — it's the institutionally-granted gate: reimbursement code (medical), customer qualification (semis), national-payer listing, FDA/PMDA/NMPA clearance stack. Gates take years, are scarce by construction, and price-protect the holder.
 **Instances:** Medical — HTFL CPT 75580, Olympus 厚労省+60点, Viz.ai NTAP; Semis — HBM qualification at NVDA (Hynix 70% Rubin allocation vs Samsung unqualified), ASML-Renishaw RLE21 LTA, HVLP copper-foil qualification (Mitsui ~98% VSP share); Memory — LTAs/prepayments in the Sandisk/Micron archetype. N=6+.
 **Transfer rule:** in ANY domain, ask "what is the institutionally-granted gate, who holds it, what's the TTQ (time-to-qualification) for a challenger?" The gate-holder list is usually shorter and more durable than the technology-leader list.
-**Status:** VERIFIED-HIGH-CONFIDENCE. The medical version (reimbursement-code ownership, framework §10.4) is the cleanest screening metric found so far.
+**Status:** VERIFIED-HIGH-CONFIDENCE. The medical version (framework §10.4) is the cleanest screening metric found so far — **CORRECTED 2026-06-10 (HTFL deep-dive): procedure codes (CPT) are VENDOR-NEUTRAL** — Cleerly and Keya bill Heartflow's 75580/75577 category codes (T1 per HTFL facts.md). The durable gate is NOT code ownership but the FULL TOLL to bill credibly into the coded category: clearance + prospective evidence stack + payer coverage policies + workflow integration. §10.4 formulation updated accordingly. P-3 cross-link: Siemens cFFR folded to partnership rather than fight that toll (N+1 instance for P-3's "what stops the platform" clause).
 
 ### P-5: Distribution-moat-wearing-tech-costume
 **Mechanism:** Market prices a name as a technology/AI play; the actual economics are distribution, network, installed base, or a commodity-cycle windfall. Disconfirming the costume doesn't kill the company — it relocates the thesis to the correct (usually cheaper) archetype.
@@ -70,8 +70,8 @@ Regulatory rules that mandate speed/API/transparency force incumbent workflows t
 ### PC-10: Stale-cohort-spec compute burn
 Watchlist/cohort specs go stale (delistings, mergers) and burn subagent compute on dead names. N=1 batch (AUGX/MDRX/BAI in one dissection). Fix candidate: going-concern pre-check step in dissection prompts. → 2026-06-24 audit.
 
-### PC-11: National-payer divergence arbitrage
-Different national payers code the same AI capability years apart (Japan EndoBRAIN 2024 vs US no CADe code) — the divergence maps where the same capability gets paid vs free, and predicts the follow-the-leader code event. N=1 (Olympus/Japan leading US). Watch: does a US CADe colonoscopy CPT code emerge within 24 months?
+### PC-11 → **P-11 PROMOTED (N=2, 2026-06-10 HTFL deep-dive): National-payer divergence arbitrage**
+Different national payers code the same AI capability years apart — the divergence maps where the capability gets paid vs free, and predicts the follow-the-leader code event. **N=2:** (1) Olympus EndoBRAIN — Japan 保険適用 2024, US no CADe code yet; (2) **Heartflow FFRct — Japan E200-2 9,400点 from 2018-12, SIX YEARS before US Category I 75580 (2024-01)** (T1 MHLW/shirobon per HTFL facts.md). **Refinement from instance 2:** reimbursement is NECESSARY not SUFFICIENT — Japan paid premium rates from 2018 yet HTFL international stayed small (facility criteria + clinical-culture adoption gate the volume curve). Transfer rule: use the leading payer as the code-event predictor for the lagging payer, but do NOT model lagging-payer volume on leading-payer rates alone. Watch: US CADe colonoscopy CPT within 24 months (Olympus read-through).
 
 ## Micro-to-macro chain (where this register sits)
 

@@ -41,3 +41,21 @@
 
 ## Analyst context (T2 — B28-tagged: analyst PT framing; neutral, not used as valuation argument)
 - Consensus Strong Buy; PT range $35–43, avg $37.67; FY26 consensus ~$220M (stale vs raised guidance)
+
+## Bottoms-up volume/TAM anchors (TAM subagent 2026-06-10; tiers inline)
+- US stable-chest-pain non-invasive tests: ~9.5M/yr (T1 S-1 frame); CCTA only ~10-12% of that → ~1.0-1.2M US CCTAs/yr (my model midpoint 1.2M)
+- Medicare 2022: CCTA = 6% of ischemia testing vs 83% nuclear (T1 [EHJ](https://doi.org/10.1093/eurheartj/ehae802))
+- CCTA tailwinds: Class 1 LOE A in 2021 AHA/ACC chest-pain guideline (T1 [JACC](https://www.jacc.org/doi/10.1016/j.jacc.2021.07.052)); CMS doubled CCTA payment $175→$357 in 2025 (T2 [CVB](https://cardiovascularbusiness.com/topics/cardiac-imaging/cms-increases-medicare-payments-cardiac-ct-ccta))
+- FFRct-eligible slice: ~33% of CCTAs (40-90% stenosis, FORECAST via S-1); real-world referral ran ~12% (T2 Danish study PMC11499349)
+- Q1'26: 67,443 global revenue cases (T1 8-K); ~190-230k annualized US cases ≈ 15-19% of all CCTAs ≈ ~HALF the eligible slice already (my model)
+- Plaque-eligible: ~60% of CCTAs have plaque (S-1/PROMISE); 75577 live 1/1/26 ~$950 OPPS
+- Bottoms-up US+intl ceiling (my model): conservative ~$0.33B / base ~$1.0B / bull ~$3.0B — vs company TAM ~$11B (S-1; assumes CCTA displaces essentially ALL 9.5M NITs)
+- Turnaround time: median <1.5 hrs on next-gen platform (T1 [IR 9/22/25](https://ir.heartflow.com/news-releases/news-release-details/heartflow-announces-fda-510k-clearance-and-launch-next)); >1,000 hospitals globally
+- FY25: 219k patients, 600k cumulative (T1 10-K); FFRct = 98% of revenue; US ASP $1,067
+
+## Catalyst/ownership anchors (catalysts subagent 2026-06-10)
+- Q2'26 earnings Aug 13, 2026; CMS CY2027 OPPS/PFS proposed rule ~Jul 15, 2026; RSNA Nov 29-Dec 3 (OEM on-scanner FFR watch); ESC Aug 28-31; TCT Oct 31-Nov 3; AHA Nov 6-9
+- Bain Capital Life Sciences 12.18% + Wellington 6.9% (both passive 13G, T1); no GE equity (commercial tie only); no activist
+- CEO John Farquhar (Form 4: ~22.6K shares/month routine 10b5-1 since 9/12/25); CFO Vikram Verghese (T2, verify in proxy); CMO Campbell Rogers; no exec churn post-IPO
+- 2021 Longview SPAC at $2.4B EV mutually terminated Feb 2022 — current mcap $2.42B ≈ same level at ~3x the revenue (directional, my model)
+- CY2026 OPPS SaaS payment-methodology RFI (T1 Fed Reg 11/25/25) — CMS rethinking algorithm payment; comments deferred to future rulemaking
