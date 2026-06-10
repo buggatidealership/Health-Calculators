@@ -1,6 +1,21 @@
 # SK Hynix — Thesis
 
-**Last updated:** 2026-06-08 PM (Google-Intel 3M+ TPU order for 2028 + Morgan Stanley 6M TPUs across 2027-2028 estimate VERIFIED — adds ~36M HBM stacks pull 2027-2028 cycle; HBM supplied separately from packaging path means Hynix captures spend regardless of TSMC vs Intel foundry split)
+**Last updated:** 2026-06-10 (June 9 evening brief cascade — HBM4 "memory wall" item STALE Aug-2025 recycle, NO new ledger tier; Micron-zero-Rubin nuance + HBM4E base-die→TSMC + iPhone 18 12GB demand-side notes)
+
+## 2026-06-10 back-reference — June 9 evening brief verification
+
+Per `research/signals/cross-source-log/2026-06-10-june9-evening-brief-triage-b40-third-recycle.md`:
+
+1. **SemiAnalysis HBM4 brief item = STALE** (Aug 12, 2025 article recycled; B40 N=8). NO new convergence-ledger tier — repeats what the 2026-06-08 Computex booth log confirmed (HBM4 36GB 12-Hi mass production since Sept 2025; 16-Hi 48GB is CES showpiece, demand "concentrated on 12-Hi" per THE ELEC native-kr).
+2. **Nuance (Feb 2026 SemiAnalysis, 4mo absorbed):** Micron Rubin HBM4 allocation cut to ZERO; Hynix/Samsung 70/30 — consistent with the ~70% SemiCone allocation already in this thesis. Refines the earlier line "SK Hynix + Micron are qualified at NVDA for HBM4": **qualified ≠ allocated** — Micron qualified but reportedly zero Rubin share.
+3. **HBM4E structural deepening (April 2026 ISSCC piece, genuinely fresh):** core dies on DRAM node, base die on LOGIC node — **Hynix→TSMC for HBM4E base dies**. Deepens Hynix-TSMC coupling; raises foundry content per stack; further isolates Samsung (SF4 in-house base die).
+4. **Demand-side note (Apple WWDC26 CoreAI verified T1):** iPhone 18 rumored 12GB across ALL models (~65%, T3→T2) into existing DRAM tightness = consumer demand-side reinforcement, distinct from the 7 supply-side ledger tiers. Apple bypass routes (two-tier features, KV-paging-to-NAND, quantization, cloud offload) cap this at bull-branch not base-case.
+
+**Position implication:** HOLD — no size change — stale brief item adds nothing; Micron-zero nuance and HBM4E-TSMC coupling mildly reinforce the moat read; demand-side iPhone note is bull-branch only. HYNIX at 4.48% Degiro unchanged.
+
+---
+
+**Prior last updated:** 2026-06-08 PM (Google-Intel 3M+ TPU order for 2028 + Morgan Stanley 6M TPUs across 2027-2028 estimate VERIFIED — adds ~36M HBM stacks pull 2027-2028 cycle; HBM supplied separately from packaging path means Hynix captures spend regardless of TSMC vs Intel foundry split)
 
 ## 2026-06-08 PM — Google-Intel TPU 6M 2027-2028 = ~36M HBM stacks pull
 

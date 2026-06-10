@@ -1,6 +1,20 @@
 # Sandisk (SNDK) — Thesis
 
-**Last updated:** 2026-06-07 (Triple-brief cascade — Lexar RAM doubling implies NAND parallel tightness; RTX 3090 consumer-tier surge; agent memory research validates NAND-for-agentic-state thesis)
+**Last updated:** 2026-06-10 (June 9 evening brief cascade — KV-cache-offload-to-NAND additive direction reconfirmed; Apple CoreAI KV-paging optionality; iPhone 18 12GB two-tier bypass)
+
+## 2026-06-10 back-reference — June 9 evening brief verification
+
+Per `research/signals/cross-source-log/2026-06-10-june9-evening-brief-triage-b40-third-recycle.md`:
+
+1. **KV-cache offload direction RECONFIRMED additive (P~70%, my model):** the (stale, Aug-2025) SemiAnalysis memory-wall piece frames KV tiering to DDR5/CXL/SSD as mitigating the HBM capacity wall — **additive total-bit demand, incremental NAND positive, NOT HBM-negative** (decode stays bandwidth-bound). Same direction as this thesis's existing agentic-state vector (`wiki/agentic-workload-scaling.md`). No new tier — reinforcement only.
+2. **Apple CoreAI (T1 WWDC26 session 324) adds consumer-side KV-paging optionality:** Core AI exposes explicit KV-cache state management on-device; IF Apple pages cache/weights to NVMe (P~40%, my model, unconfirmed), that's incremental consumer NAND content per device. Bypass-route framing: this is Apple's route AROUND handset DRAM tightness — intra-portfolio rotation where SNDK gains what HYNIX's DRAM line doesn't. Held memory pair jointly robust.
+3. **iPhone 18 12GB-all-models rumor (~65%, T3→T2)** + iOS 27 two-tier Apple Intelligence = consumer hardware swap acceleration (T9) — NAND content rises with storage tiers on AI-capable devices.
+
+**Position implication:** HOLD — no size change — all three notes are reinforcement/optionality on existing vectors, no new falsifier-relevant evidence. SNDK Core position unchanged.
+
+---
+
+**Prior last updated:** 2026-06-07 (Triple-brief cascade — Lexar RAM doubling implies NAND parallel tightness; RTX 3090 consumer-tier surge; agent memory research validates NAND-for-agentic-state thesis)
 
 ## 2026-06-07 back-reference — Triple-brief unified cascade
 

@@ -181,6 +181,8 @@ Anti-fragile themes (win in ≥3 scenarios): T1, T5, T6.
 
 **Status: CANDIDATE → promotion trigger: N=2+ empirical validation via (a) consumer-AI MLCC pull in Murata Q1 FY27 print (late July/early Aug 2026), AND (b) one of the watchlist names showing first AI-specific revenue disclosure in next quarterly cycle.**
 
+**2026-06-10 evidence accrual (strongest since codification — Apple WWDC26 verified T1):** Per `signals/cross-source-log/2026-06-10-june9-evening-brief-triage-b40-third-recycle.md`: (1) Apple Core AI (T1 session 324) ships explicit on-device KV-cache management — the LPDDR + UFS NAND BOM-intensity drivers above get a first-party platform anchor; (2) iOS 27 **two-tier Apple Intelligence** (full features need 12GB) + **macOS 27 drops Intel Macs** = functional-obsolescence accelerant for <12GB devices (~75%, T2); (3) iPhone 18 rumored 12GB across ALL models (~65%, T3→T2 single-Weibo origin) = +50% DRAM on base models if real. This is platform-level confirmation of the obsolescence mechanism the theme depends on — but NOT yet the N=2 empirical validation (that still requires the Murata print + an AI-specific revenue disclosure; rumor + framework ≠ revenue).
+
 **Cross-references:**
 - `signals/cross-source-log/2026-06-06-mag7-capex-burn-vs-net-cash-correction.md` — DC capex burn dynamic that motivates consumer-swap pivot
 - `signals/cross-source-log/2026-06-06-sram-supply-chain-plus-agc-trajectory-recontextualization.md` — joint-regime fit framework

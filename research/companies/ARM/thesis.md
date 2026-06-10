@@ -1,6 +1,16 @@
 # ARM Holdings (ARM) — Thesis
 
-**Last updated:** 2026-06-07 (Triple-brief cascade — NVDA CPU for Windows PCs = additional Grace-tier royalty pull; Gemma 4 12B mobile NPU IP demand — best single-item read of the cluster)
+**Last updated:** 2026-06-10 (June 9 evening brief cascade — Apple CoreAI verified T1; confirms existing flat-license read, marginal royalty effect ≈ zero; no change)
+
+## 2026-06-10 back-reference — Apple CoreAI precision note
+
+Per `research/signals/cross-source-log/2026-06-10-june9-evening-brief-triage-b40-third-recycle.md`: Apple Core AI (WWDC26, T1 session 324) is a genuine on-device-inference push — but the naive "Apple on-device AI = ARM bullish" read is WRONG at the direct level, exactly as this thesis already documents: Apple's architectural ISA-only license is reportedly <$0.30/chip flat, extended beyond 2040 (T2 Tom's Hardware; renegotiation failed). **Marginal royalty effect ≈ zero (~90%).** The ARM-relevant path remains indirect: Android/Cortex-CSS licensees copying Apple's on-device push at much richer per-chip economics (the Grace/Neoverse mix-shift thesis unchanged).
+
+**Position implication:** HOLD — no size change — CoreAI validates the on-device epoch direction but adds zero direct royalty; valuation-discipline rationale for the 3.17% post-trim size unchanged.
+
+---
+
+**Prior last updated:** 2026-06-07 (Triple-brief cascade — NVDA CPU for Windows PCs = additional Grace-tier royalty pull; Gemma 4 12B mobile NPU IP demand — best single-item read of the cluster)
 
 ## 2026-06-07 back-reference — Triple-brief unified cascade
 
