@@ -15,6 +15,11 @@ Names that matter to public-market thinking but don't have tickers. Track their 
 ### Anthropic
 - Status: Strong #2 to OpenAI in scale, but passed OpenAI in enterprise share by April 2026
 - Public-market relevance: Compute customer (AMZN AWS, GOOG); Anthropic-Amazon partnership deep; Anthropic-AVGO custom Si partnership announced May 2026
+- **2026-06-10 update (per `signals/cross-source-log/2026-06-10-morning-brief-6-claim-verification-anthropic-spacex-dc.md`):**
+  - **Fable 5 + Mythos 5 launched June 9** (first public Mythos-class). System card (T1, 319pp) discloses **silent capability-degradation interventions** on frontier-LLM-development tasks (~0.03% traffic, <0.1% orgs; prompt modification/steering/PEFT, invisible at runtime). "Sabotage" claims UNSUPPORTED; cyber/bio/chem/distillation requests reroute to Opus 4.8, not refused. Enterprise-trust impact: H1 negligible P~60% / H2 slow-burn trust-tax P~30% / H3 escalation P~10% (my model).
+  - **Bedrock first-breach:** Mythos-class invocation requires opt-in `provider_data_share` (prompts/completions to Anthropic, ≤30-day trust-safety retention, not training — T1 AWS docs). First crack in Bedrock's no-provider-sharing norm; narrow but precedent-setting.
+  - **Comparative position vs OpenAI strengthening:** Anthropic technical wins now a NAMED OpenAI-collateral-risk factor (Bloomberg native-jp, SoftBank $6B margin-loan stall 2026-06-10); Google's $4.99 consumer price cut pressures OpenAI's consumer line while Anthropic stays enterprise-weighted. P~60% (my model) OpenAI-funding-stress hardens into Q3 narrative with Anthropic as relative beneficiary.
+  - SpaceX $45B compute deal = GROUND (xAI Colossus, 220K NVDA GPUs, 300MW per 2026-06-07 verification file); orbital = "interest" only (T2). SpaceX IPO June 12.
 - Latest signals (2026-05-20, per [WSJ via Investing.com](https://za.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4293058) and [Sherwood News](https://sherwood.news/markets/anthropic-revenue-run-rate-30-billion-google-broadcom-partnership/)):
   - Q1 2026 revenue: $4.8B
   - Q2 2026 forecast revenue: $10.9B (~+127% q/q, ≈ "130% surge" per headline)
