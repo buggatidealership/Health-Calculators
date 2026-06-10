@@ -190,3 +190,33 @@ Anti-fragile themes (win in ≥3 scenarios): T1, T5, T6.
 - `signals/cross-source-log/2026-06-06-sram-supply-chain-plus-agc-trajectory-recontextualization.md` — joint-regime fit framework
 - `watchlist/candidates.md` — Consumer hardware swap section
 - `meta/todo.md` — H1 (supply chain graph reconstruction) monthly workflow that extends this theme
+
+## T10 — Medical AI Execution Pocket (candidate, added 2026-06-10 PM)
+
+**Premise:** While attention saturates on AI-infra/semi names + SpaceX IPO, AI × biotech/medical execution is structurally under-looked. After 7-subagent dissection across all 8 value-chain layers (per `meta/medical-ai-evaluation-framework.md` + `signals/cross-source-log/2026-06-10-medical-ai-phase3-synthesis-3-GREEN-2-AMBER.md`), **5 of ~40 evaluated names clear the gate-stack with AI as the actual moat, 3 of those 5 are Degiro-accessible**. The pocket is REAL but THIN — not a deep cohort like memory or robotics-bottleneck.
+
+**Type-A AI-Execution anchors (3 GREEN, all investable):**
+- **Heartflow (HTFL)** — L5 diagnostics; FDA + CPT 75580 + PRECISE/PROMISE + deep CCTA workflow; CFD physics moat resists foundation-model commoditization
+- **Waystar (WAY)** — L8 RCM/admin; 4/4 + 110.5% NRR + cross-payer claims data spine; anti-Olive structurally; Epic Penny Nov 2026 is the named falsifier
+- **Olympus (7733.T)** — non-Western L5; EndoBRAIN +60点 reimbursement code (Japan canonical); ~70% global endoscopy install base
+
+**Strong AMBER worth watchlist tracking:** Schrödinger SDGR (picks-and-shovels archetype, not AI-drug execution); Fujifilm 4901.T (Type-B distribution-moat); Tempus AI TEM (diagnostics co. with trial-services rider); Canon Medical 7751.T; IQVIA IQV; Veeva VEEV; Doximity DOCS
+
+**Reference-only (would change ranking if accessible):** United Imaging 联影 (688271.SH; 17 NMPA III + 15 FDA — benchmark Western names against); Lunit 328130.KQ; Insilico (HK Stock Connect uncertain)
+
+**Anti-fragility:** unclear — pocket is thin enough that scenario-resilience math is premature; needs Phase 4 per-name work first
+
+**Falsifiers:**
+1. ≥1 of the 3 GREEN names loses its reimbursement code in next CMS/厚労省 review cycle → execution-gate prior breaks
+2. Epic Penny (Nov 2026) takes Epic-shop hospitals from Waystar at material scale 2027 → WAY moat thesis breaks → cohort thins to 2
+3. Foundation-model CFD-FFR equivalent emerges at <30% of HTFL cost → HTFL moat compresses
+
+**Promotion trigger (CANDIDATE → ACTIVE):** ≥1 GREEN name passes Phase 4 deep-dive with entry-price discipline cleared AND another T1 reimbursement-code event happens (replicating the HTFL/Olympus mechanism in another geography or another procedure)
+
+**Cross-references:**
+- `meta/medical-ai-evaluation-framework.md` — Phase 1 + Phase 3 framework refinements (Type A vs B distinction, layer-conditional gates, reimbursement-code-ownership as cleanest single screening metric)
+- `signals/cross-source-log/2026-06-10-medical-ai-phase3-synthesis-3-GREEN-2-AMBER.md` — full Phase 3 dissection
+- `companies/HTFL/`, `companies/WAY/`, `companies/OLYMPUS/`, `companies/SDGR/`, `companies/FUJIFILM/` — new stub theses
+- `watchlist/candidates.md` — Medical AI Execution Pocket section
+
+**Status: CANDIDATE.** Pocket exists but thin. Track via watchlist; don't size without Phase 4 work.

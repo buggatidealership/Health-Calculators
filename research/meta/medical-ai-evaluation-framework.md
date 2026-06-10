@@ -133,3 +133,71 @@ Per-subagent output requirement:
 - `research/sector/themes.md` — candidate T10 if cohort qualifies (medical AI execution pocket)
 - `research/meta/methodology.md` — Critical Rule #9 bypass-route + Rule #12 temporal-freshness applied throughout
 - `research/meta/biases-watchlist.md` — robotics-localization-blindspot lessons transferred to medical-AI form (substitute "Chinese parity" with "foundation-model commoditization" + "EHR-vendor absorption")
+
+---
+
+## §10 — POST-PHASE-2 REFINEMENTS (added 2026-06-10 PM)
+
+After running 7 parallel Fable-5 subagents across all 8 value-chain layers + non-Western pocket, the framework needs three structural refinements documented here. Per `signals/cross-source-log/2026-06-10-medical-ai-phase3-synthesis-3-GREEN-2-AMBER.md` for full data.
+
+### §10.1 — TWO distinct GREEN-pattern archetypes (the biggest insight)
+
+The §5 priors surface two structurally different cohorts that the original framework conflated:
+
+- **Type A — Clean AI-Execution:** AI is the load-bearing moat; gate-stack clears via reimbursement-coded AI output; bypass-route resistance comes from AI-specific moat (physics, registry, cross-payer data). **Cohort: HTFL, WAY, Olympus (within EndoBRAIN segment).**
+- **Type B — Existing-Archetype + AI Overlay:** Pre-existing moat (hardware install base, assay+CLIA, distribution network, EHR-vendor lock) carries the weight; AI is feature or operational improvement. **Cohort: ISRG, PODD, GE/SHL/PHG, RDNT, Guardant/Exact/Natera/Veracyte, DOCS, Fujifilm, Canon, United Imaging, IQVIA, Tempus, Veeva.**
+
+Type B names are not bad — many are excellent businesses — but they should be evaluated with the EXISTING archetype framework (distribution moat, device moat, network moat), NOT through the medical-AI lens. The AI overlay is sentiment, not the investment thesis. **Type A is where the genuine medical-AI alpha lives.**
+
+### §10.2 — Layer-conditional gate applicability
+
+The 4-gate filter applies cleanly to L5 (cleanest fit, both GREEN names came from L5 + L5-adjacent). It applies UNEVENLY elsewhere:
+
+- L1+L2: cleanly applicable; (a) regulatory is binding
+- L3+L4: partial; (b) reimbursement N/A for services
+- **L5: cleanest fit — all 4 gates apply**
+- L6: 2 gates STRUCTURALLY IMPOSSIBLE (regulatory + reimbursement N/A for unregulated CDS software) — framework gate-stack CANNOT exist here
+- L7: 2 of 4 N/A
+- L8: 2 of 4 N/A
+
+**Recommended layer-specific gate substitutions for L6/L7/L8:** substitute (a) → "EHR-vendor displacement immunity" + (b) → "labor-replacement budget anchor"; measure (c) as quantitative cost-savings disclosure. This recovers comparability across layers.
+
+### §10.3 — Sharpening §5 prior #1
+
+The original "proprietary longitudinal data" prior PARTIALLY FAILED the discrimination test — it surfaced both AI-winners (HTFL CFD+registry, WAY cross-payer claims, United Imaging Chinese-patient imaging) AND non-AI winners (Guardant blood assay, ISRG surgical kinematics, GE/SHL/PHG distribution data). Refined version:
+
+> **"Proprietary data that the AI-specific algorithm depends on AND that the algorithm's output is reimbursed-against."**
+
+This sharpens the Type-A vs Type-B distinction at the prior level.
+
+### §10.4 — The single cleanest AI-execution chokepoint metric
+
+**National-payer reimbursement code ownership for AI-specific output** is the single metric that most reliably separates Type-A execution from Type-B overlay across all 8 layers and both Western + Japan/Korea geographies.
+
+Canonical clears:
+- **HTFL CPT 75580** (US Category I, CMS +7% 2024)
+- **Olympus 厚労省 +60点 (¥600)** add-on K721 polypectomy (Japan 2024-06)
+- **Viz.ai LVO NTAP** (US first AI-specific NTAP, ~$1,040 cap — private reference)
+
+This is the framework's most actionable single screening criterion for new candidates.
+
+### §10.5 — Verified casualties (loser-list confirmation in real time)
+
+Framework §4 losers list is confirming via M&A and delisting, not just margin compression:
+- **AUGX delisted Oct 2024** — acquired by Commure $139M; public ambient-docs pure-play extinct
+- **MDRX delisted April 2024** — OTC, can't file 10-Q
+- **BAI delisted March 2025**
+- **Exscientia merged into RXRX Nov 2024**
+- **iCAD absorbed by RadNet 2024**
+- **Olive AI shut Oct 2023** — $902M burned from $4B peak
+- **HCAT divesting Vitalware $147M June 2026** — exiting RCM
+
+The bypass-route mechanism is validating faster in M&A than the framework predicted.
+
+### §10.6 — Sector pivot verdict
+
+Framework §8 falsifier #1 ("<5 names clear ≥3 gates"): BORDERLINE CLEARED at ~3 GREEN + 2 strong AMBER = ~5 actionable names. The pocket EXISTS but is THIN — not deep like memory or robotics-bottleneck. Phase 4 deep-dive workstream is the next workstream (per-name thesis depth on HTFL + WAY + Olympus) IF user wants to continue building this pocket.
+
+### §10.7 — Workflow lesson (codification candidate)
+
+Three cohort-spec names were stale at launch (AUGX, MDRX, BAI all delisted). **Pre-launch cohort specs should include a temporal-freshness pre-check** — any name in a watchlist should be re-checked for going-concern status before deploying compute on it. Codification candidate for 2026-06-24 monthly audit.

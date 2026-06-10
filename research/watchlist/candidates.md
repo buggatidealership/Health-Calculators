@@ -431,3 +431,47 @@ Origin: 2026-06-09 user-articulated discovery question — "what must be true fo
   - Investability: Japan TSE ✓
   - Status: WATCHLIST update — added robotics battery vector to existing consumer-swap entry
 
+
+## Medical AI Execution Pocket (added 2026-06-10 PM — per Phase 3 dissection)
+
+Per `signals/cross-source-log/2026-06-10-medical-ai-phase3-synthesis-3-GREEN-2-AMBER.md` + `meta/medical-ai-evaluation-framework.md`.
+
+### Type-A AI-Execution (GREEN — stub theses exist)
+- **Heartflow (HTFL)** — see `companies/HTFL/thesis.md` — 4/4 L5 anchor; IPO 2024 valuation discipline pending
+- **Waystar (WAY)** — see `companies/WAY/thesis.md` — 4/4 L8 anchor; Epic Penny Nov 2026 named falsifier
+- **Olympus (7733.T)** — see `companies/OLYMPUS/thesis.md` — 4/4 non-Western anchor; segment-trajectory matters
+
+### Picks-and-shovels archetype (different frame, but durable)
+- **Schrödinger (SDGR)** — see `companies/SDGR/thesis.md` — ~$199M software FY25; physics-based FEP moat
+
+### Type-B (distribution/device/network moat with AI overlay — evaluate via existing-archetype framework, NOT med-AI lens)
+- **Fujifilm (4901.T)** — see `companies/FUJIFILM/thesis.md` — REiLI on Synapse install base
+- **Tempus AI (TEM)** — 65% US academic medical centers, 50%+ US oncologists, 200PB data spine (T1 S-1); 75% rev diagnostics, 25% Data & Applications (trial-AI hidden inside); fresh-IPO §6 valuation discipline pending; NASDAQ ✓
+- **Canon Medical (7751.T)** — AiCE/PIQE FDA 510(k) 2025; reconstruction-AI on scanner install base; TSE ✓
+- **IQVIA (IQV)** — 1.2B+ patient records; AI buried in Tech & Analytics; NYSE ✓
+- **Veeva (VEEV)** — $3.195B revenue FY26 (T1 10-K); Veeva AI Agents Dec 2025; Epic-immunity in life sciences; NYSE ✓
+- **Doximity (DOCS)** — FY26 $644.9M (+13%), FCF $317.5M; ~half providers used clinical AI last quarter; AI as engagement flywheel; NYSE ✓
+- **RadNet (RDNT)** — 380+ centers + DeepHealth Nature ASSURE +21.6% CDR; distribution-moat with AI overlay
+- **Guardant Health (GH)** — Shield PMA + Medicare NCD + ECLIPSE NEJM; assay-moat (blood test), not AI; NASDAQ ✓
+- **Exact Sciences (EXAS)** — Cologuard + Medicare NCD; assay-moat; NASDAQ ✓
+- **Natera (NTRA)** — Signatera Medicare LCD L38779; assay-moat; NASDAQ ✓
+
+### Reference-only (NOT Degiro-accessible — A-share / KRX)
+- **United Imaging 联影 (688271.SH)** — 17 NMPA Class III + 31 CE + 15 FDA; deepest regulatory stack in entire cohort; FY2024 ¥10.3bn revenue, overseas ¥2.266bn (+35%); 14,800 institutions / 85+ countries (T1 native-zh 动脉网 / 中证网年报). **Benchmark Western names should be measured against.**
+- **Lunit (328130.KQ)** — FY2025 ₩83.1bn record; H1 overseas 92%; FDA CXR Triage + INSIGHT MMG (T1 native-kr)
+- **Mindray 迈瑞医疗 (300760.SZ)** — NMPA AI-ultrasound Class III + FDA
+- **VUNO (338220.KQ)** — DeepCARS FDA Breakthrough (not yet cleared); FY2025 ₩34.8bn (+35%)
+- **Insilico Medicine** — HK-listed; only T1 peer-reviewed Phase IIa in entire L1+L2 cohort (rentosertib Nature Medicine); HK Stock Connect via Degiro uncertain
+
+### HK-listed broker-access-pending (verify Degiro HK Stock Connect before any sizing)
+- **PA Good Doctor (1833.HK)** — FY2025 revenue ¥5.468bn (+13.7%), net +366%; AI cut per-consult cost ~45% QoQ; service-layer + foundation-model-exposed; ~$80m gross-profit contribution from AI (~4.5%, T1 native-zh)
+- **Alibaba Health (0241.HK), JD Health (6618.HK)** — AI-adjacent distribution, NOT AI-execution; RED
+
+### Casualties (validate framework §4 losers list in real time)
+- AUGX delisted Oct 2024 (Commure acquisition); MDRX delisted April 2024 (OTC); BAI delisted March 2025; Olive AI shut Oct 2023; Exscientia merged into RXRX Nov 2024; iCAD absorbed by RadNet; ICLR/MEDP no AI-narrative defense in disclosure; TDOC structural impairment; HCAT divesting Vitalware $147M June 2026 (exiting RCM)
+
+### HIMS Hims & Hers — separate read
+- Q1'26 revenue $608.1M (+4%), net LOSS $92.1M, GM 73%→65% on compounded-semaglutide exit (T1 [Fierce Healthcare](https://www.fiercehealthcare.com/health-tech/hims-hers-posts-92m-loss-q1-it-shifts-branded-glp-1-medications)). AI ("Labs AI", MedMatch) is retention veneer; P&L swing is 100% GLP-1 channel economics. **AMBER at best; NOT a med-AI execution name.** GLP-1 trade wearing AI costume.
+
+### Workstream candidate
+**Phase 4** — per-name thesis deep-dive on HTFL + WAY + Olympus medical-AI segment + valuation discipline math. Trigger: user signal to proceed.
