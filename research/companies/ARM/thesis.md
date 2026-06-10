@@ -1,6 +1,16 @@
 # ARM Holdings (ARM) — Thesis
 
-**Last updated:** 2026-06-10 (June 9 evening brief cascade — Apple CoreAI verified T1; confirms existing flat-license read, marginal royalty effect ≈ zero; no change)
+**Last updated:** 2026-06-10 (June 9 evening brief + SoftBank-OpenAI-$6B-margin-loan-stall cascade — SoftBank overhang risk re-emerges as 4th-order tail watch; no action, post-trim sizing already absorbs risk)
+
+## 2026-06-10 back-reference — SoftBank OpenAI margin loan stalls (4th-order ARM overhang watch)
+
+Per `research/signals/cross-source-log/2026-06-10-softbank-6b-openai-margin-loan-stalls.md`: SoftBank's $6B OpenAI-collateralized margin loan has stalled (3rd installment of arc; ~$5B was lined up pre-stall). Primary cause (~60%, T2) is lender difficulty valuing unlisted OpenAI collateral; secondary (~30%, T2) is SoftBank leverage stress (CDS ~360bps near 1-yr high). If SoftBank can't bridge financing alternative paths (~9mo to March-2027 $40B bridge takeout), prior playbook has been **monetizing ARM stake** (SoftBank holds ~90% of ARM float).
+
+**4th-order tail (P~20%, my model):** SoftBank forced ARM sell-down → overhang. **Bypass-route insulation:** post-71% trim already harvested most asymmetric upside; the 3.17% Degiro size is appropriately calibrated for tail risks like this. NO ACTION required.
+
+**Position implication:** HOLD — no size change — SoftBank overhang risk noted but pre-absorbed by the existing post-trim sizing. Valuation-discipline rationale unchanged. Watch SoftBank IR cadence for ARM sell-down signals at next quarterly cycle.
+
+---
 
 ## 2026-06-10 back-reference — Apple CoreAI precision note
 
