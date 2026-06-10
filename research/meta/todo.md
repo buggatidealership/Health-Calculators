@@ -378,3 +378,13 @@
 **Reading items:**
 - SessionStart hook auto-surfaces top 5 + any P0 at every session start
 - User can ask "what's on the to-do list" anytime; I read this file
+
+- [ ] **P3 / research / 2026-07-15** [INDP, AF] — PARKED: Medtech-AI × Edge-AI/Physical-AI/AI-chip cross-theme overlap mapping
+  - Origin: user brain dump 2026-06-10 PM ("there might be some overlap within the edge AI, robotics AI, physical AI and AI chip architecture... that's for later")
+  - Scope: map ISRG da Vinci 5 (NVIDIA Blackwell/Clara), medical-edge inference SoCs (AMBA/SYNA adjacency), NVIDIA IGX/Holoscan medical-edge cohort against T8 + medtech-biotech-ai-thesis.md branches
+  - Linked: sector/medtech-biotech-ai-thesis.md (PARKED section), sector/themes.md T8 + T10
+
+- [ ] **P2 / process / 2026-06-24** [OPT] — Monthly audit add-on: cross-domain-pattern-register first review
+  - Origin: register created 2026-06-10 per user combinatorial-harness directive
+  - Scope: verify register was load-bearing in any dissection since creation (cited in prompts? new instances appended?); promote/demote PC-9/10/11 candidates; apply net-positive test (subagent compute per dissection trending down?)
+  - Linked: meta/cross-domain-pattern-register.md

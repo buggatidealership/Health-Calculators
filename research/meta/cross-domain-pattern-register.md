@@ -1,0 +1,93 @@
+# Cross-Domain Pattern Register — the combinatorial connective tissue
+
+**Created:** 2026-06-10 (per user operations directive: harness must produce "combinatorial, continuously evolving, ever-expanding understanding of the micro to the macro... cross-pattern-matching mechanisms... need to lead to a net positive outcome for the overall system")
+**Function:** The harness's cross-domain index. Mechanisms recur across coverage areas (semis/memory, robotics, consumer-swap, medtech-AI, software). This register catalogs each VERIFIED mechanism once, with its instances per domain — so a new dissection recognizes a known mechanism instead of re-deriving it.
+
+## Operating rule (the combinatorial loop)
+
+1. **BEFORE any new dissection / deep-dive / cohort build:** read this register. Load the patterns as priors. Write the dissection prompts to TEST the relevant patterns explicitly (the way the Nabtesco prompts pre-loaded the Renishaw wrong-tech trap — that pre-load caught the RV-vs-harmonic error in the FIRST subagent return).
+2. **AFTER the dissection:** append new instances to existing patterns (N counter rises → confidence rises) OR register a new candidate pattern (N=1 = CANDIDATE; N=2+ across DIFFERENT domains = VERIFIED, eligible to feed prompts as prior).
+3. **Monthly audit (2026-06-24 cycle):** patterns with no new instances in 60 days get re-examined; patterns that produced false-positive priors get refined or demoted. Same fluidity metadata as principles/biases.
+4. **Net-positive test for the whole system (the user's criterion):** the register is EARNING ITS KEEP if new dissections get cheaper/faster/more accurate over time (measurable: subagent compute per dissection, error-catch latency, framework-falsifier hit rate). It is FAILING if dissections don't cite it or patterns accumulate without being load-bearing in prompts. Falsifier: 3 consecutive dissections that neither use nor update the register → architecture is decorative → redesign.
+
+---
+
+## VERIFIED PATTERNS (N≥2 across ≥2 domains)
+
+### P-1: Chinese-parity-arrives-faster-than-premium-pricing-assumes
+**Mechanism:** Western/Japanese premium-component pricing embeds an assumption of multi-year Chinese qualification lag; actual localization lands in months at the growth tier, first via domestic-OEM share gain rather than incumbent-customer defection.
+**Instances:** Robotics — HD harmonic (绿的谐波 in Optimus), Nabtesco RV (环动科技 25% domestic, Nabtesco China 61%→~40%), Nidec motors, Renishaw encoders (汇川 joint modules); Sony CIS (OmniVision OV50X in Xiaomi 17 Ultra halo flagship); Memory — CXMT (slower, years not months — the EXCEPTION that calibrates the rate variable). Medtech — United Imaging (17 NMPA III + 15 FDA, overseas +35%), Mindray — registered as live SENSORS not yet confirmed kills. N=6+ confirmed, 2 sensors pending.
+**Transfer rule:** any premium-component thesis MUST fire native-zh search on domestic-alternative qualification BEFORE bypass-route PASS. Rate variable differs by industry: robotics=months, CIS=1-2yr, memory=years, medical-imaging=TBD (watch UI/Mindray international wins).
+**Status:** VERIFIED-HIGH-CONFIDENCE. Enforced via structural-winners-cohort META-PATTERN + Critical Rule #12-adjacent discipline.
+
+### P-2: Wrong-product-category trap
+**Mechanism:** A company's REAL moat sits in a legacy product category; the narrative premium assumes that moat transfers to the hyped category — but the hyped category uses structurally different technology. The moat survives Chinese-parity checks AND sell-side frameworks because it IS real — just in the wrong place.
+**Instances:** Renishaw (optical-grating moat ≠ humanoid magnetic-IC encoders); Nabtesco (RV cycloidal ≠ humanoid harmonic+planetary — ZERO RV across 10 humanoid platforms); partial-instance: Sony (CIS quality leadership ≠ humanoid vision chokepoint — sockets won by OmniVision/Samsung E-M). N=3.
+**Transfer rule:** BOM-line-specific tech audit mandatory — decompose the actual target-application BOM and verify the candidate's product is IN it, not in an analogous-but-different legacy application. Demand a disclosed T1 design-win.
+**Status:** VERIFIED. More dangerous than P-1 (passes more filters before failing).
+
+### P-3: Incumbent-absorbs-AI-as-feature (platform absorption)
+**Mechanism:** The platform owner (EHR, scanner OEM, CRO, cloud) embeds the AI capability as a native feature at zero/bundled price, destroying standalone vendors whose only moat was the capability itself. The platform's distribution IS the moat; the AI commoditizes.
+**Instances:** Medical — Epic (Cosmos/Art/Penny/Emmie killing CDS + encroaching RCM + ambient docs), GE/SHL/PHG (120/89/50 FDA AI clearances bundled into scanners), IQVIA (AI inside Tech&Analytics); Software — MSFT-Nuance DAX (ambient docs); Robotics-adjacent — OEM in-house actuators (Tesla/Unitree internalizing components). Semis analog: hyperscaler custom silicon absorbing merchant-chip value (T4 theme). N=5+.
+**Transfer rule:** for any "standalone AI/component vendor" thesis, FIRST map which platform could absorb the capability natively and what stops it. Survivors own something the platform can't replicate: regulatory code (HTFL), cross-platform data (WAY cross-payer), vertical the platform doesn't serve (Veeva vs Epic).
+**Status:** VERIFIED-HIGH-CONFIDENCE.
+
+### P-4: Chokepoint-code / qualification-gate as the binding moat
+**Mechanism:** The durable moat is rarely the technology — it's the institutionally-granted gate: reimbursement code (medical), customer qualification (semis), national-payer listing, FDA/PMDA/NMPA clearance stack. Gates take years, are scarce by construction, and price-protect the holder.
+**Instances:** Medical — HTFL CPT 75580, Olympus 厚労省+60点, Viz.ai NTAP; Semis — HBM qualification at NVDA (Hynix 70% Rubin allocation vs Samsung unqualified), ASML-Renishaw RLE21 LTA, HVLP copper-foil qualification (Mitsui ~98% VSP share); Memory — LTAs/prepayments in the Sandisk/Micron archetype. N=6+.
+**Transfer rule:** in ANY domain, ask "what is the institutionally-granted gate, who holds it, what's the TTQ (time-to-qualification) for a challenger?" The gate-holder list is usually shorter and more durable than the technology-leader list.
+**Status:** VERIFIED-HIGH-CONFIDENCE. The medical version (reimbursement-code ownership, framework §10.4) is the cleanest screening metric found so far.
+
+### P-5: Distribution-moat-wearing-tech-costume
+**Mechanism:** Market prices a name as a technology/AI play; the actual economics are distribution, network, installed base, or a commodity-cycle windfall. Disconfirming the costume doesn't kill the company — it relocates the thesis to the correct (usually cheaper) archetype.
+**Instances:** ISRG (hardware-service moat, AI overlay), RDNT (380+ centers), HIMS (GLP-1 channel economics wearing AI costume — GM 73→65% on semaglutide exit proves pricing power sat in the compounding arbitrage), Sony (entertainment conglomerate priced, premium-imaging + SOTP是 the real thesis), Renishaw (semicap encoder play priced as humanoid), Guardant/Exact/Natera (assay+CLIA moat wearing ML label). N=6.
+**Transfer rule:** decompose the P&L driver vs the narrative driver. If they diverge, re-classify the name into its true archetype and re-price; the divergence direction (premium vs discount to true archetype) IS the trade.
+**Status:** VERIFIED-HIGH-CONFIDENCE.
+
+### P-6: Counter-cycle capacity blunder vs capacity discipline
+**Mechanism:** Capacity decisions made at cycle peaks into rising low-cost competition destroy margin for years (blunder); deliberate under-expansion lets ASPs carry the P&L (discipline — "Post-Traumatic Supply Disorder," principle #27).
+**Instances:** Blunder — Nabtesco Hamamatsu (doubling RV capacity into Huandong's 320k/yr 30-50%-cheaper expansion, ramp already delayed); Discipline — memory cohort (HBM capacity restraint → shortage pricing), Murata/TXN/NXPI analog restraint (T7), Sony fab-lite TSMC JV, Renishaw capex rolloff £73.8→46.3m. N=5+.
+**Transfer rule:** capacity announcements are direction-AMBIGUOUS — score them against the competitive supply curve (who else is adding, at what cost position), never as standalone "confidence signals." (The original Nabtesco stub scored capacity-doubling as a POSITIVE "execution discipline signal" — exactly wrong.)
+**Status:** VERIFIED.
+
+### P-7: Loser-validation-via-M&A/delisting (bypass-routes resolve faster than fundamentals show)
+**Mechanism:** When a bypass-route/commoditization thesis is correct, the casualties exit the public market (acquisition at compressed multiple, delisting, shutdown) BEFORE margin erosion fully shows in reported numbers. M&A flow is a leading indicator that the compression thesis is right.
+**Instances:** Medical — AUGX (acquired $139M at ~2.6-3× sales WHILE growing 45%), iCAD (absorbed by RadNet), Olive AI (shutdown), BAI (delisted/merged), Exscientia (merged into RXRX), HCAT divesting Vitalware; Robotics-adjacent — cohort consolidation. N=6 in medical alone.
+**Transfer rule:** track exit-events in any cohort under a compression thesis; a growing name selling at a compressed multiple = the strongest available confirmation that insiders see the commoditization. Conversely: ZERO exits in a "commoditizing" cohort = re-examine the thesis.
+**Status:** VERIFIED (newly codified from medical dissection — watch for instances in other domains).
+
+### P-8: Budget-line-replacement beats new-budget-creation
+**Mechanism:** Products that substitute an EXISTING spend line (labor, procedure, send-out, R&D seat) adopt fast — no new CFO approval circuit. Products requiring a NEW budget category stall regardless of ROI claims.
+**Instances:** Medical — WAY (RCM labor), HTFL (replaces invasive cath workup), Olympus (+60点 rides existing procedure), ambient docs (scribe spend) vs Olive AI (new "AI OS" category → death); Software — agentic-AI enterprise wiki (88% pilot failure concentrated in new-category pilots); Semis-adjacent — Schrödinger (existing computational-chemistry seats). N=6+.
+**Transfer rule:** for any revenue-model evaluation, classify: (a) existing-line substitution, (b) existing-line add-on (Olympus model), (c) new category. Weight durability a > b >> c.
+**Status:** VERIFIED-HIGH-CONFIDENCE.
+
+## CANDIDATE PATTERNS (N=1, single domain — need second-domain instance to verify)
+
+### PC-9: Reimbursement/regulation as ACCELERANT not just gate (CMS-0057-F shape)
+Regulatory rules that mandate speed/API/transparency force incumbent workflows to automate → structural tailwind for the automation vendor. N=1 (CMS prior-auth rule → WAY/Cohere/Fathom). Possible second instances to watch: EU AI Act conformity tooling; Taiwan chip-export criminalization → compliance tooling.
+
+### PC-10: Stale-cohort-spec compute burn
+Watchlist/cohort specs go stale (delistings, mergers) and burn subagent compute on dead names. N=1 batch (AUGX/MDRX/BAI in one dissection). Fix candidate: going-concern pre-check step in dissection prompts. → 2026-06-24 audit.
+
+### PC-11: National-payer divergence arbitrage
+Different national payers code the same AI capability years apart (Japan EndoBRAIN 2024 vs US no CADe code) — the divergence maps where the same capability gets paid vs free, and predicts the follow-the-leader code event. N=1 (Olympus/Japan leading US). Watch: does a US CADe colonoscopy CPT code emerge within 24 months?
+
+## Micro-to-macro chain (where this register sits)
+
+```
+company files (micro) → cohort artifacts (structural-winners, medtech 2×2)
+  → THIS REGISTER (cross-domain mechanisms)        ← the combinatorial layer
+  → themes.md T1-T10 (investable expressions)
+  → scenarios.md + where-we-are.md (macro synthesis)
+  → portfolio (positions)
+```
+
+The register is the layer that was missing: mechanisms verified in one domain become PRIORS for every other domain, so each new puzzle piece sharpens the whole picture instead of sitting beside it.
+
+## Cross-references
+- `meta/methodology.md` — principles #27 (P-6 source), #9/Time-to-X (P-4 kin), #22 (segment trajectory)
+- `meta/structural-winners-cohort.md` — robotics META-PATTERN (P-1/P-2 origin)
+- `meta/medical-ai-evaluation-framework.md` §10 — Type A/B + reimbursement-code screen (P-4/P-5 medical instances)
+- `meta/biases-watchlist.md` — B40 (temporal freshness), robotics-localization-blindspot candidate
+- `sector/medtech-biotech-ai-thesis.md` — newest coverage area, first to be built register-aware
