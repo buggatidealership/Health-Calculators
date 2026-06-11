@@ -242,6 +242,10 @@ Over time the ledger calibrates source reliability. A source 8/10 on past Vicor-
 
 ## Co-Adaptation Principle (user ↔ Claude)
 
+### Input-channel value ranking (added 2026-06-11, per codification rule §1.3)
+
+Empirical hit-rate of user-shared data points (week of 2026-06-05 → 06-11): **(1) T1 primary screenshots** (Bloomberg/Reuters terminal content unreachable directly) — highest absolute value, both instances produced thesis-grade cascades (InP→AXT/JX, SoftBank→ARM-overhang); **(2) user's own contrarian observations/corrections** — highest codification-per-word ratio (Mag7 debt correction, L24, the bypass-route question behind the 5-for-5 robotics dissection); **(3) niche non-English channels** (Korean insider tweet, booth photos) — became load-bearing ledger tiers; **(4) Twitter/aggregator items** — medium-high even when garbled (built the B40 3-type garble taxonomy); **(5) daily briefs** — ambient coverage with active staleness prior. Cost asymmetry favors user sharing liberally: verification is cheap, a missed InP-grade signal on a held name is not. Communicated to user 2026-06-11.
+
 User said 2026-05-20: *"You have to learn how to interact with me just how I have to learn how to interact with you."*
 
 The user-Claude interaction style itself evolves. The OS must capture what works.
