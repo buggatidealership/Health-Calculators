@@ -76,3 +76,18 @@ TC-1 (Memory tightness multi-tier) gets **instance N+1**: SK Group Chairman 9-ye
 ## 10. Signal #2 — Chinese-language CoPoS Kuo note repost: NO new cascade
 
 User's second shared signal is the Chinese-language version of the Ming-Chi Kuo CoPoS note already verified in `2026-06-11-copos-kuo-note-verification-neg-surprise-abf-inversion.md`. Content matches verbatim. Logging as instance N+1 in TC-5 cluster (Chinese-language rebroadcast = same underlying signal, no new T1/T2 increment). No additional cascade required.
+
+## 11. Bypass-route map (Critical Rule #9 — added 2026-06-11 PM in response to hook catch)
+
+The binding constraint Chey named: premium-tier DRAM/HBM wafer capacity through 2030. What customers do when Hynix premium HBM allocation fails their actual sensitivity:
+
+| Bypass route | Non-consensus beneficiary | TTQ | Direction for held cohort |
+|---|---|---|---|
+| Substitution at qualified 2nd source | Samsung HBM4 ~30% Rubin allocation (already-qualified); MU also cleared at NVDA per TechStock T2 | 0 (qualified) | NEUTRAL for HYNIX — standing falsifier #1 unchanged |
+| KV cache offload to NAND/CXL/host DRAM (alternative topology) | SNDK (held) on NAND tier; DeepSeek FlashMemory 2026-06-11 AM pattern | live | POSITIVE for SNDK |
+| Process-node + density (workaround) | Hynix itself + Samsung at sub-3nm DRAM, EUV scaling | continuous | POSITIVE for HYNIX (own moat extension) |
+| End-customer model efficiency (Jevons-vs-treadmill check) | Casualty direction if compresses absolute bit-demand beyond treadmill rate | continuous | NEUTRAL — standing position: treadmill holds (MLA→DSA→CSA history) |
+| Chinese domestic geographic bypass — CXMT absorbing domestic demand | CXMT (NOT investable, A-share) — tightens global balance at margin | years at premium tier (P-1 rate variable) | POSITIVE for HYNIX/SNDK |
+
+**Net:** the four real bypass routes are already priced or thesis-supportive; no new bypass-route casualty for held cohort surfaces from the Chey signal.
+
