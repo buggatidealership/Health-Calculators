@@ -1,6 +1,26 @@
 # SK Hynix — Thesis
 
-**Last updated:** 2026-06-11 (June 10 evening brief cascade — DeepSeek/FlashMemory KV-tiering verified NOT a falsifier; China draft ¥2T buildout tightens balance via CXMT absorption)
+**Last updated:** 2026-06-11 PM (Chairman Chey Nikkei interview T1: 3x wafer capacity by 2034 + Japan 'excellent candidate' — T7 thesis NEUTRAL-to-mildly-REINFORCING, falsifier NOT firing; H2 demand-following P~70%, my model)
+
+## 2026-06-11 PM back-reference — Chey 3x-by-2034 + Japan reopen
+
+Per `research/signals/cross-source-log/2026-06-11-hynix-chey-3x-2034-japan-reopen-t7-neutral-reinforcing.md`:
+
+- Chairman Chey at Nikkei Future of Asia (Tokyo Imperial, June 10): triple wafer capacity by 2034 = **~13-14% wafer CAGR over 8.5 yr (bottoms-up my model from T2 baseline 550k → ~2.1M wpm)**. HBM bit-multiplier (2-3x wafers/bit) means bit-supply CAGR even lower vs implied AI bit-demand >25%.
+- **Largely AGGREGATION of known plans** (Yongin fab-1 ops 2027 + KRW 21.6T board-approved Feb-2025 tranche). Yongin full completion pulled forward 2045→2034. **Not new committed capex.**
+- NAND: explicitly tech-migration (375L by end-2026), not capacity adds — discipline intact
+- Chey: "demand rising so fast even this may fall short," shortage to 2030 → demand-following framing
+- **Japan claim:** partial reversal of February 2026 SK Hynix formal denial; Chey reopens conditional on post-domestic-expansion, NO prefecture, NO committed money. Chairman-level diplomatic positioning at Tokyo forum vs Hynix-corporate stance — flag for context
+
+**T7 (principle #27) falsifier check:** NOT firing. Wafer CAGR 13-14% below demand pace; framing demand-chasing; NAND discipline intact. **Hedge: P~25% (my model) Samsung competitive response with COMMITTED capex within 60 days = early-cycle discipline erosion → reassess.** Watch Samsung Memory Day + Pyeongtaek P5.
+
+**TC-1 (signals/triangulation.md): instance N+1** — Chairman-level 9-year roadmap explicitly trails AI bit-demand pace.
+
+**Position implication:** HOLD — no size change — T7 thesis pace-extended through 2034; falsifier NOT firing; Chairman roadmap is aggregation not new commit. **Falsifier monitor (P~25%, my model):** Samsung COMMITTED capex match within 60 days. HYNIX 4.48% Degiro unchanged.
+
+---
+
+**Prior last updated:** 2026-06-11 (June 10 evening brief cascade — DeepSeek/FlashMemory KV-tiering verified NOT a falsifier; China draft ¥2T buildout tightens balance via CXMT absorption)
 
 ## 2026-06-11 back-reference — June 10 evening brief verification
 
