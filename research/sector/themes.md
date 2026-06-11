@@ -102,6 +102,7 @@ Anti-fragile themes (win in ≥3 scenarios): T1, T5, T6.
 - Only 6% of Microsoft Copilot pilots reach production deployment per Gartner — production-grade agentic governance is HARD
 - Kion June 4 launch of Anthropic Token Spend Management — agentic FinOps is a category not a feature
 - ServiceNow hiring demand exceeds supply through 2026; shift from administrators → "design, govern, run enterprise-scale workflows"
+- **2026-06-11 Ramp AI Index datapoint (T1 card-spend, May 2026, per `signals/cross-source-log/2026-06-11-june10-evening-brief-triage-b40-n9.md`):** top 1% "AI-pilled" firms = $7,500/employee/month (+14.1% MoM); top 10% = $611; **MEDIAN = $11.38**. The ~660x tail-to-median spread (derived) is the load-bearing structure: spend is extraordinarily concentrated → FinOps-exhaustion dynamics hit the tail cohort NOW while the diffusion runway behind the median is enormous. Both legs of T8 (governance urgency at the tail + adoption headroom at the median) in one dataset.
 
 **Thesis:** As tokens become scarce/expensive (Cloudflare 57.5% bot crossover, Uber capping at $1,500/employee, hyperscaler capex compounding), the load-bearing enterprise variable shifts from "is AI growing" to "is AI spend governed efficiently?" Token-waste-ratio is the new optimization metric. Companies that provide production-grade agentic workflow governance + AI FinOps tooling capture the optimization mandate.
 

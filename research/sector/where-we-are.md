@@ -1,6 +1,6 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-06-08 AM (7TH CONVERGENT SIGNAL TIER — frontline supplier-side qualitative via Korean Twitter source-tier signal from SK Hynix Japan-based employee; SOCAMM-cut June 5 selloff context = sentiment overreaction per insider counter-narrative; CXMT verified DDR5-8000 / LPDDR5X-10667 commodity-tier narrowing added as HYNIX falsifier-monitor). Prior material update 2026-06-08 AM (ASML milestone).
+**Last material synthesis update:** 2026-06-11 (Non-default read #6 added — AI-capex-credit regime: demand durability now a function of credit conditions + state budgets; both pre-registered legs confirmed same-day). Prior material update 2026-06-08 AM (7TH CONVERGENT SIGNAL TIER — frontline supplier-side qualitative via Korean Twitter source-tier signal from SK Hynix Japan-based employee; SOCAMM-cut June 5 selloff context = sentiment overreaction per insider counter-narrative; CXMT verified DDR5-8000 / LPDDR5X-10667 commodity-tier narrowing added as HYNIX falsifier-monitor). Prior material update 2026-06-08 AM (ASML milestone).
 
 ## 2026-06-08 AM — 7th convergent signal tier (frontline supplier-side qualitative)
 
@@ -469,6 +469,9 @@ Anthropic Q2 profit is the high-water mark for current per-token economics. Big 
 
 ### 4. The capacity-constrained narrative is asymmetric for SUPPLY-SIDE names, not model providers
 Altman's "capacity-constrained for some time" implies pricing power flows to whoever owns the constraint: TSMC, SK Hynix, NBIS, hyperscaler cloud capacity, power producers. Model providers are themselves capacity-buyers — they benefit from selling forward contracts but face their own input cost pressure.
+
+### 6. AI capex is migrating off corporate P&Ls onto credit and state budgets (added 2026-06-11, pre-registered + both legs confirmed)
+Per `signals/cross-source-log/2026-06-11-june10-evening-brief-triage-b40-n9.md`: Amazon's $17.5B delayed-draw term loan stacks to ~$42–43B fresh debt in ~7 months vs ~$200B 2026 capex (T2 Bloomberg); China's draft NDRC ~¥2T/5yr buildout is SOE-executed state financing (T1 Bloomberg + native-zh); prior legs: Mag7 debt-funded capex with FCF lowest since 2014 (2026-06-06 verification), SoftBank's OpenAI-collateral margin-loan stall (2026-06-10). **Implication:** memory/compute demand durability is increasingly a function of CREDIT CONDITIONS and STATE BUDGETS, not hyperscaler P&Ls. New monitorables: hyperscaler credit spreads, Chinese fiscal execution cadence, private-AI-collateral lending health. Cuts BOTH ways: financing-led demand survives margin compression longer than P&L-led demand, but reprices violently on credit tightening. (my model synthesis on T1/T2 verified legs.)
 
 ### 5. Inference cloud (NBIS, CoreWeave) is mis-priced as zero-sum competition (CORRECTED 2026-05-20 from user pushback)
 My initial framing said this layer was "overlooked." User pushed back correctly: NBIS rallied massively on its +684% Q1 print per [SEC 6-K](https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm), then dropped 7.5% to $184.84 (per [Investing.com](https://www.investing.com/news/stock-market-news/coreweave-nebius-shares-drop-as-blackstone-and-google-launch-5b-ai-cloud-venture-4698388)) on the Google + Blackstone $5B AI cloud venture announcement. Market HAS priced these names AND priced in competition risk.

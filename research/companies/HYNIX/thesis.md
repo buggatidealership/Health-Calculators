@@ -1,6 +1,20 @@
 # SK Hynix — Thesis
 
-**Last updated:** 2026-06-10 (June 9 evening brief cascade — HBM4 "memory wall" item STALE Aug-2025 recycle, NO new ledger tier; Micron-zero-Rubin nuance + HBM4E base-die→TSMC + iPhone 18 12GB demand-side notes)
+**Last updated:** 2026-06-11 (June 10 evening brief cascade — DeepSeek/FlashMemory KV-tiering verified NOT a falsifier; China draft ¥2T buildout tightens balance via CXMT absorption)
+
+## 2026-06-11 back-reference — June 10 evening brief verification
+
+Per `research/signals/cross-source-log/2026-06-11-june10-evening-brief-triage-b40-n9.md`:
+
+1. **"DeepSeek-V4 FlashMemory" = third-party Tencent/Tsinghua paper (arXiv 2606.09079), NOT a DeepSeek feature** (Reddit attribution-garble). Mechanism is **KV tiering to host DRAM** (~10-15% KV resident on GPU), NOT footprint reduction. Direction for Hynix: MIXED — HBM working-set softening per session vs commodity-DRAM lift, and Hynix sells both tiers. **Falsifier test: NOT firing** — the efficiency treadmill (MLA→DSA→CSA each ~10x KV cuts) has been consistently swallowed by context growth (128K→1M) + agent-session multiplication; this paper's explicit goal is ENABLING ultra-long-context serving (Jevons).
+2. **China draft NDRC buildout (~¥2T/5yr, Bloomberg Jun 9 T1, draft-stage)** — explicitly domestic-supply framed → CXMT output absorbed at home rather than pressuring global DRAM prices → **tightens global balance at the margin** (hedged: draft, 5-yr phasing). Also softens the CXMT-commodity-narrowing falsifier-monitor (2026-06-08 entry) at the margin: domestic absorption delays CXMT's export pressure.
+3. Google-Intel TPU item in the brief = recycle of our June 8 T1 verification (B40 N=9) — no new content.
+
+**Position implication:** HOLD — no size change — both items reinforce at the margin (tiering preserves bits, China absorbs CXMT); no falsifier-relevant evidence. HYNIX at 4.48% Degiro unchanged.
+
+---
+
+**Prior last updated:** 2026-06-10 (June 9 evening brief cascade — HBM4 "memory wall" item STALE Aug-2025 recycle, NO new ledger tier; Micron-zero-Rubin nuance + HBM4E base-die→TSMC + iPhone 18 12GB demand-side notes)
 
 ## 2026-06-10 back-reference — June 9 evening brief verification
 

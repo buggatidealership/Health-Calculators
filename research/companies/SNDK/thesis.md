@@ -1,6 +1,19 @@
 # Sandisk (SNDK) — Thesis
 
-**Last updated:** 2026-06-10 (June 9 evening brief cascade — KV-cache-offload-to-NAND additive direction reconfirmed; Apple CoreAI KV-paging optionality; iPhone 18 12GB two-tier bypass)
+**Last updated:** 2026-06-11 (June 10 evening brief cascade — FlashMemory KV-tiering stops at host DRAM today; defined NVMe-tier watch trigger; China draft buildout NAND-absorption supportive)
+
+## 2026-06-11 back-reference — June 10 evening brief verification
+
+Per `research/signals/cross-source-log/2026-06-11-june10-evening-brief-triage-b40-n9.md`:
+
+1. **"FlashMemory" (third-party Tencent/Tsinghua paper, not DeepSeek)** tiers KV to **host DRAM only — no NVMe/storage tier in the public release**. SNDK-neutral today. **Defined watch trigger:** if the (unreleased) swap engine ships with an NVMe tier, KV-tiering-to-storage becomes SNDK-ADDITIVE — same direction as the existing agentic-state vector. This is now the cleanest single watch item for the "KV cache reaches NAND" leg of the thesis.
+2. **China draft NDRC buildout (~¥2T/5yr, draft-stage)** — domestic-supply framing implies YMTC NAND absorbed at home → marginally supportive for global NAND balance (hedged: draft, 5-yr phasing).
+
+**Position implication:** HOLD — no size change — neutral-to-supportive at the margin; NVMe-tier trigger logged as watch item. SNDK Core position unchanged.
+
+---
+
+**Prior last updated:** 2026-06-10 (June 9 evening brief cascade — KV-cache-offload-to-NAND additive direction reconfirmed; Apple CoreAI KV-paging optionality; iPhone 18 12GB two-tier bypass)
 
 ## 2026-06-10 back-reference — June 9 evening brief verification
 
