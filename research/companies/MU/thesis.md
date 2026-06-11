@@ -60,7 +60,14 @@ Micron's first-ever 5-year HBM4 LTA = textbook P-4 instance: the NVDA qualificat
 - TC-2 AI capex on credit + state budgets (US CHIPS subsidy = state-budget upside Hynix doesn't have)
 - TC-5 CoPoS adjacency (TSMC-coupled HBM4E aligns with the panel-level packaging supply chain)
 
+## 2026-06-11 PM-2 corrective — total-HBM share FLAT (share-delta verification)
+
+Per `signals/cross-source-log/2026-06-11-pm2-moat-sharedelta-fabrace-2subagent.md`: Micron's total HBM share was FLAT ~21% from Q2'25 peak through Q1'26 (T2 Counterpoint) — Samsung (+4-5pp), not Micron, absorbed Hynix's -4pp decline. The bull narrative leg "Micron gaining share" is valid ONLY at the NVDA-Rubin-specific cut (zero → ~20% + 5-yr LTA); it is NOT a total-market share-gain story. Additionally Idaho ID1 first volume 2H 2027 (T1 mgmt) trails Hynix M15X (H2 2026) by ~18 months — the capacity leg of the thesis is 2028+, not 2026-27. Engineering moat ranked #2 of 3 (commercial-revealed-preference): TSMC N3P rail + 16-Hi GTC samples + Seoul hiring blitz are genuine forward signals; 16-Hi TC-NCF yield-at-scale is the stress point (P~25% failure, my model).
+
+**Position implication:** NO ACTION — 0% size, Watchlist P3 unchanged — corrective tempers the catch-up narrative without firing any falsifier; Q3 FY26 print (late June) remains the gate.
+
 ## Cross-reference
+- `signals/cross-source-log/2026-06-11-pm2-moat-sharedelta-fabrace-2subagent.md` — share-delta + moat-rank + fab-race verification (2-subagent)
 - `signals/cross-source-log/2026-06-11-pm-hynix-mu-deep-verification-3subagent.md` — originating verification (3-subagent parallel)
 - `companies/HYNIX/thesis.md` — companion (this thesis is the comparator, not the substitute)
 - `signals/triangulation.md` TC-1 — three-supplier reframe

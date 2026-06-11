@@ -1,6 +1,6 @@
 # SK Hynix — Thesis
 
-**Last updated:** 2026-06-11 PM (post Hynix-vs-MU 3-subagent deep verification: share-split corrected ~55% Rubin / >60% HBM4 segment; Falsifier #1 FIRED-PARTIALLY at qualification+borderline-material-share; Samsung yield-anchor STALE updated; HBM4E sub-falsifier surfaced as new live watch; voluntary margin-mix-shift = moat evolution)
+**Last updated:** 2026-06-11 PM-2 (2-subagent moat/share-delta/fab-race verification per `signals/cross-source-log/2026-06-11-pm2-moat-sharedelta-fabrace-2subagent.md`: engineering moat ranked #1 of 3 on commercial-revealed-preference; -4pp total-HBM share Q2'25→Q1'26 went to SAMSUNG not Micron and is partly the voluntary mix-trim; **M15X Cheongju is the soonest new-fab volume in the industry — pilot 10K wpm Feb-26, 40K wpm H2-26 (T1 SK Hynix PR + T2 Digitimes 2026-04-10) — NOT Yongin**; supply-tightening dominance through 2027-30 reinforced. Prior: 3-subagent deep verification — share-split ~55% Rubin / >60% HBM4 segment; Falsifier #1 FIRED-PARTIALLY; HBM4E sub-falsifier live watch; voluntary margin-mix-shift = moat evolution)
 
 ## 2026-06-11 PM (LATER) — Hynix-MU deep verification: thesis MILD-TRIM not break
 

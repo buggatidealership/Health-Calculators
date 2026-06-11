@@ -12,7 +12,7 @@ Signals confirmed by ≥3 independent same-segment same-direction sources within
 
 | Cluster ID | Segment | Status | N | Top thesis impact | Last update |
 |---|---|---|---|---|---|
-| **TC-1** Memory tightness multi-tier | memory-and-storage | [ACTIVE] | 9 — three-supplier reframe | HYNIX held core mild-trim + MU NEW candidate; SNDK NAND-tier confirmation; Rubin trim 2M→1.5M Apr partially-resolved; HBM4E TSMC-rail consolidation | 2026-06-11 PM (3-subagent deep-verify) |
+| **TC-1** Memory tightness multi-tier | memory-and-storage | [ACTIVE] | 10 — share-delta attribution + fab-race | Samsung (+4-5pp) not MU took Hynix's -4pp Q2'25→Q1'26 (T2 Counterpoint); Hynix M15X soonest new-fab volume H2-26, MU Idaho trails 18mo; moat rank Hynix>MU>Samsung; HYNIX held core mild-trim + MU candidate; HBM4E TSMC-rail consolidation | 2026-06-11 PM-2 (2-subagent moat/delta/fab) |
 | **TC-2** AI capex on credit + state budgets | infrastructure-IaaS | [ACTIVE] | 6 | New non-default read #6 in where-we-are; held memory cohort demand-durability now credit-dependent | 2026-06-11 |
 | **TC-3** DC-ceiling + EM-migration | power-and-cooling | [ACTIVE] | 6 | T9 motivation + T2 power theme; Seattle moratorium PASSED is strongest US-municipal datapoint | 2026-06-11 |
 | **TC-4** Anthropic enterprise-trust drift | model-and-foundation-lab | [ACTIVE] | 3 | Private-tracker H2 30→45% (my model); 3rd-named-enterprise threshold for H2 dominant | 2026-06-11 |
