@@ -119,3 +119,8 @@ The hardest part of DEEP-DIG is finding bottoms-up unit-count numbers in the ope
 - **Image-shared seed numbers from user** — most reliable for SemiAnalysis-tier paid content (e.g., the MLCC image 2026-05-21)
 
 Source gaps to flag: when WebFetch returns 403 on key sources (passive-components.eu PDFs, intuitionlabs.ai, digitimes paywalled), state explicitly in the deep-dig output — don't fabricate to fill.
+
+
+## 2026-06-11 queue updates (CoPoS verification)
+- IBIDEN dissection (existing queue item): priority RAISED — ABF bear-case inverted at T1 (glass core carries ABF build-up both sides; film area per package rises). Largest structural objection to TIER S removed.
+- NEW candidate: CoPoS glass-core supply chain BOM-level dig (glass panel $/package, TGV cost/via, ABF area multiplier organic-core vs glass-core) — trigger: TSMC glass-core commit signal OR Absolics MP confirmation end-2026.

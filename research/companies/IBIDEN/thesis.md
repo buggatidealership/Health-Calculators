@@ -1,6 +1,16 @@
 # IBIDEN (4062.T) — Thesis (candidate stub)
 
-**Last updated:** 2026-05-28
+**Last updated:** 2026-06-11 (CoPoS verification — "glass kills ABF" bear case INVERTED at T1; dissection priority RAISED)
+
+## 2026-06-11 back-reference — ABF bear-case inversion (CoPoS verification)
+
+Per `research/signals/cross-source-log/2026-06-11-copos-kuo-note-verification-neg-surprise-abf-inversion.md`: the glass-core substrate architecture is **glass core + ABF build-up layers on BOTH sides** (T1 IEEE; matches Intel glass-core + Absolics). Glass replaces the organic BT *core*, NOT the ABF build-up — and larger panels (510x515 SEMI standard) mean **ABF film area per package RISES**. The standing "glass replaces ABF" bear case is wrong at the architecture level. IBIDEN's ¥500B FY26-28 capex (T1 IR) + management naming ガラス基板 as development theme (T2 newswitch) positions it for the glass-core-processing era rather than being displaced by it. Unimicron glass-core sample validation Mar-2026 (T2) = competitive marker.
+
+**Position implication:** NO ACTION — still Active-candidate pending dissection — but dissection-queue priority RAISED: the bear-case inversion removes the largest structural objection to the TIER S scoring; entry-decision quality now gated on the dissection itself (Stage/valuation work), not on the glass question.
+
+---
+
+**Prior last updated:** 2026-05-28
 **Tier:** Active-candidate (TIER S per Principle #33 refined criteria — pending verification milestones for upgrade to Watchlist-Active)
 **Position target:** 1.5-3% if entered (user holds 0%)
 **Anti-fragility:** 3.5-4/5 estimate (pending full thesis build)

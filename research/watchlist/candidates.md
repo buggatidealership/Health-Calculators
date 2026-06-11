@@ -502,3 +502,23 @@ Reuters T1 (Jun 10-11) on China's InP export-control regime + 2-subagent verific
 - 广东先锐 Guangdong Xianrui (parent 先导科技集团, private) — 40 t/yr InP crystals, EIA approved Mar 2026 Qingyuan
 - 鼎泰芯源 Zhuhai Dingtai Xinyuan (private; CAS Semi Institute JV 2017) — first domestic-IP InP substrate line
 - 光智科技 300489.SZ — InP-asset injection TERMINATED; reference only
+
+## CoPoS / Glass-Core Packaging Cohort (added 2026-06-11 — per `signals/cross-source-log/2026-06-11-copos-kuo-note-verification-neg-surprise-abf-inversion.md`)
+
+Kuo CoPoS note (T3, June 10-11) verified via 2 subagents: pilot line June 2026 + 2028-29 ramp T1/T2-anchored; glass-core-in-CoPoS still "under review" (H1 P~60%, my model). ABF bear-case INVERTED at T1 (glass core carries ABF build-up both sides).
+
+- **NEG 日本電気硝子 (5214.T) — added 2026-06-11 — BEST-FIT NEW CANDIDATE**
+  - Source signal: exact-spec 515×510mm GCコア glass-ceramic core product (T1 [NEG release](https://www.neg.co.jp/news/20250115.html)); 2026 sample shipments (T2 Nikkei); carrier-glass sales targeted to TRIPLE to ¥30B by 2028 (T2 newswitch)
+  - Why interesting: only name with the exact MP panel dimension productized; capacity targets precede confirmed sockets (my model, directional)
+  - Caveat: glass-core-in-CoPoS not yet TSMC-confirmed (H2 P~30% organic-first, my model); NEG is multi-segment glass (displays/fibers) — segment-trajectory math per principle #22 before any sizing
+  - Investability: TSE ✓ Degiro ✓ — Status: WATCHLIST P2, full thesis warranted if TSMC glass-commit signals fire
+- **LPKF (LPK.DE) — added 2026-06-11 — purest TGV play**
+  - LIDE through-glass-via tech; 2026 guide EUR105-120M EXPLICITLY EXCLUDES HVM glass orders (T1) = clean upside-signal structure; ramp from 2027 per CEO
+  - Investability: Xetra ✓ Degiro ✓ — Status: WATCHLIST P3; order announcements are the trigger (ex-guidance = unambiguous)
+- **Onto Innovation (ONTO)** — panel litho + acoustic metrology for opaque glass; +20% packaging tool demand 2026 (T2). NASDAQ ✓. WATCHLIST P3.
+- **E&R 鈦昇 (8027.TW)** — claimed TSMC CoPoS TGV laser-drill supplier (T2 zh-only, UNVERIFIED) — TWSE investability check pending (same gate as Co-Tech 8358.TW). Speculative.
+- **Ajinomoto (2802.T)** — ABF film monopoly-adjacent; ABF area per package RISES under glass-core architecture (T1 IEEE) — but FOOD-CONGLOMERATE DILUTION (ABF small % of group; multi-vector check mandatory per principle #22). WATCHLIST P3 reference.
+- **MKS Instruments (MKSI)** — Atotech VitroCoat GI TGV Cu metallization (T1 product); diluted within MKS. Reference.
+- **Camtek (CAMT) — EXISTING P1 watchlist — CoPoS vector ADDS** (panel/glass inspection; Q1-26 OSAT orders >$90M T1)
+- **ASMPT — coverage CORRECTION:** panel-plating NEXX SOLD to Applied Materials May 2026 (T2 TrendForce) — AMAT consolidates panel plating; trim ASMPT CoPoS expectations
+- **Mitsui (5706.T) — explicitly NO new vector:** HVLP foil feeds low-loss CCL server boards, NOT ABF-GCP build-up (electroless seed, no foil; T3 reasoned) — P-2 wrong-product-category discipline applied to AVOID a false vector

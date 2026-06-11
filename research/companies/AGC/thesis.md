@@ -1,6 +1,21 @@
 # AGC Inc (5201.T) — Thesis
 
-**Last updated:** 2026-06-07 (Triple-brief cascade — NPO architectural expansion in Rubin Ultra = mild PTFE CCL adjacency on top of existing AI-CCL trajectory)
+**Last updated:** 2026-06-11 (CoPoS Kuo-note verification — Vector 3 glass-core VALIDATED but NOT upgraded; NEG 5214.T ahead on disclosure with exact-spec 515×510 product)
+
+## 2026-06-11 back-reference — CoPoS verification: Vector 3 validated-not-upgraded
+
+Per `research/signals/cross-source-log/2026-06-11-copos-kuo-note-verification-neg-surprise-abf-inversion.md`:
+
+- TSMC CoPoS (pilot June 2026, ramp 2028-29, T1/T2) validates the glass-core/TGV direction that Vector 3 bets on — but **glass core in CoPoS is NOT yet decided** (SCHMID: "under review", T2). H1 glass-enters-at-MP P~60% (my model, Bayesian per log §4).
+- **Competitive reality check: NEG 日本電気硝子 5214.T is AHEAD of AGC on disclosure** — exact-spec 515×510 GCコア product (T1), 2026 samples, carrier-glass sales targeted to triple to ¥30B by 2028 (T2 Nikkei/newswitch). AGC has T1 TGV product page + CES 2026 showcase but NO capacity plan, NO named customer, NO 515×510 product. Corning is zh-press favorite for the CoPoS slots.
+- Existing thesis scoring stands correct: Vector 3 = optionality, negligible current. Do NOT re-rate AGC on CoPoS headlines; the AGC thesis continues to ride Vectors 1 (EUV blanks) + 2 (PTFE CCL).
+- Watch: any AGC glass-core capacity announcement or named-customer disclosure → THAT (not TSMC news) is the Vector 3 upgrade trigger.
+
+**Position implication:** HOLD — no size change — Vector 3 direction validated by industry momentum but AGC's relative position within the glass cohort is mid-pack (NEG ahead, Corning favored); thesis remains anchored on EUV blanks + PTFE CCL with glass-core as free optionality. No falsifier-relevant evidence.
+
+---
+
+**Prior last updated:** 2026-06-07 (Triple-brief cascade — NPO architectural expansion in Rubin Ultra = mild PTFE CCL adjacency on top of existing AI-CCL trajectory)
 
 ## 2026-06-07 back-reference — Triple-brief unified cascade
 
