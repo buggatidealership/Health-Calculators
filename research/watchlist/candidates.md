@@ -475,3 +475,30 @@ Per `signals/cross-source-log/2026-06-10-medical-ai-phase3-synthesis-3-GREEN-2-A
 
 ### Workstream candidate
 **Phase 4** — per-name thesis deep-dive on HTFL + WAY + Olympus medical-AI segment + valuation discipline math. Trigger: user signal to proceed.
+
+## InP Substrate Bypass-Route Cohort (added 2026-06-11 — per `signals/cross-source-log/2026-06-11-reuters-inp-export-controls-axt-lateral-confirmed.md`)
+
+Reuters T1 (Jun 10-11) on China's InP export-control regime + 2-subagent verification (Fable-5) confirmed AXTI is a casualty (Beijing-produced, double-squeezed by US 70% tariffs + Chinese permits). The only investable non-Chinese InP substrate suppliers, both Japan-TSE Degiro-accessible:
+
+- **JX Advanced Metals JX金属 (5016.T) — added 2026-06-11**
+  - Source signal: Reuters T1 names as Lumentum supplier; native-jp [sangyo-times](https://www.sangyo-times.jp/article.aspx?ID=15055) confirms JX金属+住友電工+AXT as global top-3 InP substrate suppliers
+  - Linked causal chain: T3 (Networking displaces compute) — CPO load-bearing; PC-12 candidate "geopolitical bottleneck via export control"
+  - Why interesting: **¥20B capex to TRIPLE InP substrate capacity by 2030** at Isohara plant (T1 [JX release](https://www.jx-nmm.com/newsrelease/), [EETimes JP](https://eetimes.itmedia.co.jp/ee/articles/2602/16/news033.html)); listed TSE Prime 2025-03-19 (only ~15mo public, post-ENEOS spinoff); fresh-IPO §6 discipline barely cleared
+  - Conglomerate-dilution caveat (principle #22): copper smelting + advanced materials post-ENEOS spinoff; InP is one of several advanced-materials lines — segment-trajectory math required before sizing; multi-vector check mandatory
+  - Lateral exposure: China's Feb-2025 controls cover raw indium itself → Japanese growers carry upstream exposure too (less exposed than AXT, not unexposed)
+  - Investability: TSE Prime ✓ Degiro ✓
+  - Status: **WATCHLIST P2** — fresh-IPO valuation discipline + segment-trajectory math + native-jp verification on Isohara capex execution
+
+- **Sumitomo Electric 住友電工 (5802.T) — added 2026-06-11**
+  - Source signal: Reuters T1 names as Lumentum supplier; native-jp [住友電工 InP](https://sei.co.jp/sc/products/inp/) confirms product line
+  - Linked causal chain: same as JX 5016.T (T3 + PC-12 candidate)
+  - Why interesting: doubling optical-device capacity FY2026 vs FY2024 (T2)
+  - Conglomerate-dilution caveat (mandatory per principle #22): large-cap diversified conglomerate (wire/cable, automotive, electronics, environment/energy) — InP is ONE product line inside electronics. Same SOTP/segment-trajectory shape as Sony I&SS or Fujifilm Healthcare. Entry would require explicit forward-modeling of InP-segment % of group revenue + trajectory, NOT snapshot
+  - Investability: TSE ✓ Degiro ✓
+  - Status: **WATCHLIST P3** — conglomerate-dilution + segment-trajectory math required; lower priority than 5016.T given dilution depth
+
+**Chinese cohort — REFERENCE ONLY (all A-share, NONE Degiro-accessible per investability filter):**
+- 云南锗业 Yunnan Germanium (002428.SZ) — ¥189M to expand to 450k/yr 4"-equiv (T1 cninfo 2025年报); 2025 shipments +73.8% YoY; no exports (domestic backfill)
+- 广东先锐 Guangdong Xianrui (parent 先导科技集团, private) — 40 t/yr InP crystals, EIA approved Mar 2026 Qingyuan
+- 鼎泰芯源 Zhuhai Dingtai Xinyuan (private; CAS Semi Institute JV 2017) — first domestic-IP InP substrate line
+- 光智科技 300489.SZ — InP-asset injection TERMINATED; reference only

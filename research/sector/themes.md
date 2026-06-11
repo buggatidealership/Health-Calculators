@@ -26,6 +26,8 @@ Six themes currently active. Each maps to specific names and a specific catalyst
 **Names:** ANET, MRVL, COHR, LITE, possibly NVDA via Spectrum-X
 **Catalyst:** CPO product launches at scale; ANET share gains in AI back-ends
 
+**2026-06-11 InP-substrate-bottleneck note (per `signals/cross-source-log/2026-06-11-reuters-inp-export-controls-axt-lateral-confirmed.md`):** Reuters T1 + 2-subagent verification surface the InP substrate as a tightening sub-bottleneck under CPO. China imposed export controls Feb 4, 2025 (per-shipment licenses, ~60 business-day processing); 6" wafer prices +250% to $5,000 (T2). Standard sell-side "AXT = Western supplier" framing is WRONG — AXT 100% China-produced per FY2025 10-K (T1), caught by both 70% US tariffs + Chinese permit regime. **Investable bypass-route is JP-side: JX Advanced Metals 5016.T (¥20B to 3x capacity by 2030, Isohara — T1 native-jp) + Sumitomo Electric 5802.T (doubling optical-device capacity FY2026 — T2)**, with mandatory conglomerate-dilution math per principle #22. COHR (AXT-dependent) > LITE (Japan-sourced) is the sell-side pair-trade narrative — NOT actionable for our harness without dedicated COHR/LITE thesis files. Added InP regime to monitoring dashboard.
+
 ### T4 — Custom silicon fragments inference
 **Status:** Mid
 **Thesis:** TPU + Trainium + Maia + MTIA take 25–35% of inference by 2027; NVDA margin compresses; AVGO/MRVL benefit

@@ -1,8 +1,23 @@
 # AXT Inc (AXTI) — Thesis with Pass 2 Earnings-vs-Multiple Decomposition
 
-**Last updated:** 2026-05-29 (POSITION EXITED today)
-**Tier:** EXITED (was Active with TRIM RECOMMENDATION; user confirmed FULL EXIT 2026-05-29)
+**Last updated:** 2026-06-11 (Reuters InP-export-controls verification STRONGLY validates the 2026-05-29 exit decision — see back-reference below)
+**Tier:** EXITED (was Active with TRIM RECOMMENDATION; user confirmed FULL EXIT 2026-05-29; do NOT re-enter without material structural change)
 **Position target:** 0% (was 2-3% trim band; user confirmed FULL SELL 2026-05-29 — freed €4,573.85 for software rebalance)
+
+## 2026-06-11 back-reference — Reuters InP article validates exit-decision stronger
+
+Per `research/signals/cross-source-log/2026-06-11-reuters-inp-export-controls-axt-lateral-confirmed.md`:
+
+- **AXT FY2025 10-K T1 confirms: 100% of wafer production is in China** (Beijing Tongmei + 2 other sites). Fremont = HQ/admin only. The "Western alternative supplier" framing in standard sell-side coverage is **a US-listed wrapper around a Beijing bottleneck.**
+- **Double squeeze: US tariffs on AXT's China wafers hit 70% by 2025-03-04** + Chinese MOFCOM InP export-control regime since Feb 4, 2025. AXT caught by BOTH sides simultaneously.
+- **Permit cadence binds revenue mechanically:** Tongmei first InP permit June 11, 2025; Q3'25 beat on permits ($28M, +56% QoQ), Q4'25 missed on permit delays ($23M vs $27-30M guide). AXT's own words in Reuters June 10-11: "InP export permits represent the most significant challenge we currently face."
+- **Tongmei STAR IPO stuck at CSRC since Aug 2022 (~4 yrs)** + ~$49M PE-investor redemption obligation if IPO fails/cancels (10-K risk factor). No residual-stake rerating imminent.
+- **Verdict:** the exit decision (2026-05-29) is structurally validated. AXT is not a CPO-substrate beneficiary — it is a casualty of the same regime that creates the bottleneck.
+- The investable bypass-route plays are **JX Advanced Metals 5016.T (NOT 5020.T) + 住友電工 5802.T** — see watchlist/candidates.md. Both Japan-TSE Degiro-accessible.
+
+**Position implication:** NO ACTION — EXITED status unchanged; new evidence STRENGTHENS the prior exit decision; do NOT re-enter without one of: (a) US-China bilateral deal materially loosening InP licenses, (b) AXT announces material California (Fremont) substrate-production capacity, (c) Tongmei STAR IPO clears AND post-IPO standalone Tongmei equity becomes accessible AND priced for the bottleneck-rent dynamics. None expected near-term.
+
+---
 
 ## Position exit 2026-05-29
 
