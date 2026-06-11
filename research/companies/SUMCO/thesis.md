@@ -1,6 +1,20 @@
 # Sumco Corporation (3436.T) — Thesis
 
-**Last updated:** 2026-06-08 PM (Google-Intel TPU 3M order + 6M Morgan Stanley estimate = SUMCO DUAL-BENEFICIARY positioned across TSMC AND Intel foundry capex cycles; architecture-agnostic wafer demand expansion regardless of which foundry wins)
+**Last updated:** 2026-06-11 PM (Hynix Chey "3x by 2034 + Japan candidate" Nikkei T1 — double-positive read for SUMCO: Yongin ramp + Japan-site optionality strengthens supplier-geography vector)
+
+## 2026-06-11 PM back-reference — Hynix Chey Nikkei interview = SUMCO double-positive
+
+Per `research/signals/cross-source-log/2026-06-11-hynix-chey-3x-2034-japan-reopen-t7-neutral-reinforcing.md`:
+
+- **Leg 1 — Korean ramp:** Hynix DRAM 550k→~2.1M wpm by 2034 (Yongin fab-1 ops 2027, full completion pulled forward to 2034). 13-14% wafer CAGR is the Korean-side demand pull for SUMCO. Even if HBM bit-multiplier dampens bit-supply growth, **wafer-supply growth is what SUMCO sells** — direct mechanism.
+- **Leg 2 — Japan-site optionality:** Chey reopened Japan as "excellent candidate" for overseas plants (after February 2026 SK Hynix formal denial). If formal site selection follows in 12-18mo (P~30-40%, my model), **Japanese wafer supplier (SUMCO) into Korean memory built ON JAPANESE SOIL = supplier + geography compound** — distinct from the pure-Korean-demand leg. SUMCO is the single cleanest beneficiary in the harness of a Hynix Japan-fab scenario.
+- Caveat: no prefecture named, no committed money — Japan leg is optionality not certainty. Watch METI subsidy reframe + Korean chaebol Japan-investment formal announcements as the trigger.
+
+**Position implication:** HOLD — thesis read strengthened (double-positive — Korean demand certain + Japan optionality real); size-up trigger would be formal Hynix Japan-site selection. SUMCO position unchanged today.
+
+---
+
+**Prior last updated:** 2026-06-08 PM (Google-Intel TPU 3M order + 6M Morgan Stanley estimate = SUMCO DUAL-BENEFICIARY positioned across TSMC AND Intel foundry capex cycles; architecture-agnostic wafer demand expansion regardless of which foundry wins)
 
 ## 2026-06-08 PM — SUMCO as foundry-agnostic dual-beneficiary (TSMC + Intel)
 
