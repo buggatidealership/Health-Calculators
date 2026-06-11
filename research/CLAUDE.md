@@ -12,13 +12,17 @@ Build durable, asymmetric conviction in AI-sector positions BEFORE consensus cat
 
 ```
 Predict → Grade (3-layer: INPUT / COMPUTATION / REASONING)
-       → Lesson (predictions/lessons.md, currently L1-L13)
-       → Bias (meta/biases-watchlist.md, currently B1-B37 + candidate B38)
-       → Principle (meta/methodology.md, currently #1-#33 + candidate #34)
-       → Hook (deterministic Stop hook at ~/.claude/, currently 10 live)
-       → Monitor (meta/principle-applications-log.md, monthly audit cycle)
+       → Lesson (predictions/lessons.md, currently L1-L25)
+       → Bias (meta/biases-watchlist.md, currently B1-B44 incl. B40 3-type garble taxonomy CONFIRMED + B44 candidate chat-summary-discipline-drift)
+       → Principle (meta/methodology.md, currently #1-#34 + candidate #35 codification trigger)
+       → Hook (deterministic Stop hook at ~/.claude/, currently 18 live)
+       → Pattern (meta/cross-domain-pattern-register.md, currently P-1 to P-11 verified + PC-12 candidate)
+       → Triangulation (signals/triangulation.md, currently TC-1 to TC-8 ACTIVE)
+       → Monitor (meta/principle-applications-log.md, monthly audit cycle; codification rule + signal-density first re-eval 2026-07-11)
        → Retire OR refine OR codify-deeper based on real-catch vs false-positive metrics
 ```
+
+**Header maintenance:** I own this file. Count tails (L1-L25, B1-B44, etc.) and references to new canonical artifacts (`INDEX.md`, `meta/tags.md`, `meta/codification-rule.md`, `meta/signal-density-detection.md`, `meta/cross-domain-pattern-register.md`) must be kept current. Stale-header pollution of session context is itself a failure mode flagged by the 2026-06-11 harness audit.
 
 Every codification has FLUIDITY METADATA (codified date, last review, re-eval trigger, falsifier, status). N=1 insights are flagged as CANDIDATE; only N=2+ empirical validation justifies codification (principle #32 premortem). Codifications that go INERT for 30 days get retired or promoted to hooks.
 
@@ -38,6 +42,8 @@ Output style: TL;DR first, structured, tight. User is not an engineer. Adapt for
 **Investability filter (added 2026-05-28):** user's brokerage platforms do NOT support direct KRX (Korean) exchange access; no sponsored ADRs for LGI or SEMCO. KRX names are REFERENCE ARTIFACTS only (still valuable for harness — e.g., SEMCO is N=1 origin case for candidate Principle #34). Japan TSE (Ibiden, Murata) accessible via direct or pink-sheet ADRs. Before flagging any new candidate as P1/P2 research, run the investability check.
 
 When in doubt, read `meta/methodology.md`.
+
+**Retrieval-first protocol (added 2026-06-11):** before grep, check `INDEX.md` (root) for the answer to "where did we cover X?" and `meta/tags.md` for the answer to "what is L25 / B44 / P-11 / TC-5?". Built specifically to avoid wasting context on grep when the index already knows the answer.
 
 ---
 
@@ -75,6 +81,7 @@ Only NVDA has a full folder at initialization. Others get folders on first inges
 research/
 ├── CLAUDE.md                          ← this file (the harness)
 ├── README.md                          ← navigation
+├── INDEX.md                           ← (added 2026-06-11) single-file retrieval entry point; held names + active themes + Triangulation Quick Index + frameworks + binary-catalyst calendar + retrieval rules
 │
 ├── portfolio/
 │   ├── holdings.md                    ← actual current positions (user provides)
@@ -112,11 +119,17 @@ research/
 │   └── lessons.md                     ← MANDATORY pre-read before new predictions
 │
 └── meta/
-    ├── methodology.md                 ← how the analysis is done
-    ├── biases-watchlist.md            ← my own known failure modes
+    ├── methodology.md                 ← how the analysis is done (1,503 lines; 47 sections; TOC pending)
+    ├── biases-watchlist.md            ← my own known failure modes (B1-B44)
     ├── reasoning-templates.md         ← templates for N-order, anti-frag, cascade, triangulation
     ├── time-to-x-framework.md         ← bypass-route mapping for any binding constraint
-    └── private-tracker.md             ← OpenAI, Anthropic, xAI, etc. (no ticker)
+    ├── private-tracker.md             ← OpenAI, Anthropic, xAI, etc. (no ticker)
+    ├── tags.md                        ← (added 2026-06-11) shorthand dictionary L1-L25 / B1-B44 / Principles 1-36 / Critical Rules 1-13 / Themes T1-T10 / Patterns P-1 to PC-12 / Triangulation TC-1 to TC-8
+    ├── codification-rule.md           ← (added 2026-06-11) what triggers chat-only → file codification (Principle #35 candidate / Critical Rule #13 candidate)
+    ├── signal-density-detection.md    ← (added 2026-06-11) S0-raw → S4-theme-elevated promotion ladder; enforces signals/triangulation.md repair
+    ├── cross-domain-pattern-register.md ← cross-domain mechanism index (P-1 to P-11 verified + PC-12 candidate)
+    ├── medical-ai-evaluation-framework.md ← 4-gate filter + Type A/B archetypes + §10.4 corrected vendor-neutral codes
+    └── structural-winners-cohort.md   ← robotics 5-for-5 bypass-route META-PATTERN
 
 └── wiki/                              ← foundational reference primers
     ├── README.md                      ← wiki index, planned entries, conventions
@@ -528,6 +541,28 @@ Always check against these before completing any analysis:
     **Enforcement:** Subagent verification protocol now includes explicit temporal-freshness check as first step. Future Stop hook candidate if pattern recurs ≥N=2 within 30 days.
 
     **Distinction from Critical Rule #6** (segment-classify before triangulating): Rule #6 ensures signals are CATEGORIZED correctly; Rule #12 ensures signals are TEMPORALLY CURRENT before cascade. Both fire at the directional-verification step but at different sub-checks.
+
+13. **CODIFICATION TRIGGER — chat-only output MUST be persisted to a harness file when** (added 2026-06-11 as CANDIDATE; pending N=2+ promotion per principle #32 premortem; full rule + fluidity metadata + 2026-07-11 first re-eval at `meta/codification-rule.md`):
+    1. It contradicts an existing file claim (future sessions read the outdated file and propagate error)
+    2. It changes a position-relevant variable for a held / watchlist P1-P2 / candidate name (tier, target, falsifier, P-weight on a thesis hypothesis, register pattern N counter)
+    3. It introduces a new pattern, bias, principle, hook candidate, OR methodological insight (lands in `meta/`)
+    4. It is user-corrected reasoning that generalizes to a lesson (lands in `predictions/lessons.md` per 3-layer GRADE structure)
+    5. It surfaces a recurring chat-only pattern at N≥2 in 30 days
+
+    **Transient chat color (EXPLICITLY EXEMPT — do NOT codify):** typo / number-restate corrections; hook-driven discipline restates of content already in files; question-answers that don't change file state; restatements of existing principles for user-readability without new content; format/structure adjustments.
+
+    **Hook escalation:** if §1 triggers fire but codification is skipped 5+ times in 30 days, build `~/.claude/codification-trigger-hook.py` as deterministic enforcement.
+
+14. **SIGNAL DENSITY DETECTION — every cross-source-log file creation MUST run the same-segment same-direction lookup** (added 2026-06-11 as CANDIDATE; full rule + self-detecting metrics + 2026-07-11 first re-eval at `meta/signal-density-detection.md`). Manual enforcement until hook-built:
+    1. Segment-classify the new signal (per Critical Rule #6 + Principle #29)
+    2. Grep recent `signals/cross-source-log/` (last 90 days) for same-segment same-direction signals
+    3. Count
+    4. If N≥2: open `signals/triangulation.md`, add or update the relevant TC-N cluster entry with `[CANDIDATE]` or `[ACTIVE]` status
+    5. If N≥3 AND the convergence reframes a held/candidate thesis: cascade to thesis / themes / scenarios in SAME COMMIT (Critical Rule #10)
+
+    **Skip-rule:** if the signal genuinely has no convergence with any prior signal in 90 days, log only. Skip must be auditable (commit message or file body), not silent.
+
+    **Origin (2026-06-11):** 72 cross-source-log files / 26 in the last 7 days had produced only 115 lines of triangulation.md. The promotion mechanism described in Workflow #3 was failing silently. This rule + the rebuilt `signals/triangulation.md` index fix it.
 
 ---
 
