@@ -635,3 +635,22 @@ A lesson is worth adding if:
 - It's not already covered by an existing lesson
 
 If a lesson is just a restatement of "I should have predicted X instead of Y" without a process insight → don't add it. The lesson must be about HOW to think, not WHAT to think.
+
+## L25 (NEW positive lesson — origin 2026-06-11 AXT lateral / InP regime verification)
+
+**Pattern:** **Explicit Bayesian probability updating as new evidence arrives, with the update mechanism made visible per stage.**
+
+**Canonical positive instance (2026-06-11, two-subagent InP verification):**
+- Pre-verification chat H1 ("AXT caught in same regime via Beijing Tongmei"): **P~50% (my model, directional)** — prior based on lateral suspicion only
+- Post-subagent-1 (Reuters article + Chinese cohort verification): updated to **P~65% (my model, Bayesian on subagent 1's "AXT got first permit late June 2025" datapoint)** — confirms AXT is INSIDE the export regime
+- Post-subagent-2 (AXT 10-K T1: 100% Chinese production + 70% US tariffs + AXT's own words confirming permits are "most significant challenge"): updated to **P~80% (my model, post-2-subagent confirmation)** — overwhelming T1 evidence
+
+**Why this is a positive lesson (not failure-mode):** the update mechanism was made VISIBLE per stage (prior → evidence → posterior), each update was tagged with hedge marker (my model) + evidence source, and the trail is auditable. This is the explicit-Bayesian-update form of forward modeling — much sharper than the implicit "I think it's ~70%" which can't be checked or corrected.
+
+**Layer it operates at:** REASONING — separates the prior, the evidence, and the posterior at each update step. Combined with: source-tier tagging discipline (per Principle #36 candidate), B28 analyst-PT-context discipline, the L1 bottoms-up-before-outside-view rule.
+
+**Generalizable application:** any multi-subagent verification or multi-source signal triangulation should produce an explicit P-trail with the update mechanism per stage. Pattern detection rule: if I find myself writing "P~X%" without showing what evidence moved it from a prior — flag and re-state.
+
+**Self-positive test:** monthly audit greps for "P~X% → P~Y% (my model, Bayesian on [specific evidence])" pattern. If absent → I've reverted to implicit/static probability claims. If present → the lesson is alive.
+
+**Status:** CANDIDATE positive lesson — first explicit instance 2026-06-11; N=2+ confirmation across separate dissections will promote to CODIFIED. Re-eval 2026-07-11.

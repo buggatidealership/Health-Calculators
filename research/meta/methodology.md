@@ -1485,3 +1485,15 @@ Every news event ingest cascades through:
 | **E6** | AI Agent Security as standalone category | Cyera $12B 80x ARR + Starlette BadHost (325M weekly downloads) + UofT AI worm + Anthropic CVE-Bench (2026-06-02 morning) | N=2+ INDEPENDENT cases beyond current cluster within 60 days |
 | **E7** (REFRAMED per user 2026-06-03 PM) | Productivity-plateau-as-binding-constraint — but operator-curve + measurement-frame caveats per user input | DX 7.8% + METR 19% slower + Stanford HAI 6% EBIT (multi-source corroboration on direction) | N=2+ confirmation of plateau as STRUCTURAL (vs operator-curve transient OR measurement-frame artifact); requires 12-18mo operator-learning-curve maturation data |
 | **B41** | Measurement-frame bias — under-counting intangible AI value | User 2026-06-03 PM articulated on E7 elevation pushback (Anthropic Mythos vulnerability findings unmeasured by PR throughput; non-AI vulnerability-finder would be valued enormously) | N=2+ instances of measurement-frame missing high-intangible-value within 60 days |
+
+## Principle #35 candidate — Codification trigger rule (added 2026-06-11)
+
+**The rule (one-line):** chat-only output MUST be persisted to a harness file when it (1) contradicts an existing file claim, (2) changes a position-relevant variable for a held / watchlist P1-P2 name, (3) introduces a new pattern / bias / principle / hook candidate, (4) is a user-corrected generalizable lesson, OR (5) surfaces a recurring chat-only pattern at N≥2 in 30 days. Transient chat color (typos, format adjustments, hook-driven restates of content already in files, question-answers without file state change) is explicitly EXEMPT.
+
+**Full rule + fluidity metadata + retroactive 2026-06-09→2026-06-11 audit log:** `meta/codification-rule.md`.
+
+**Why this principle exists:** without it, valuable chat-derived corrections + new patterns die at session end and the harness fails the user's directive that "a new session never relies on outdated files." Over-applied, every chat turn generates file noise. The 4-condition test + the explicit transient-color exemption is the cheapest viable test.
+
+**Promotion to Critical Rule #13:** pending N=2+ session-instances where §1 fires materially within 30 days (per principle #32 premortem).
+**Retirement trigger:** 30 days with zero fires OR 10+ fires with zero subsequent reads → retire or refine.
+**First re-eval:** 2026-07-11.

@@ -167,3 +167,17 @@ If 3+ consecutive months fail any metric → escalate to retire-or-revise per pr
 ## Monthly audit log (entries added at recurring cycles)
 
 (none yet — first audit scheduled for next recurring cycle 2026-06-24 per todo.md)
+
+## 2026-06-11 — Codification rule itself codified (meta-application)
+
+Per user directive 2026-06-11 ("codify the gap that decides which chat-only corrections must be persisted"):
+- Created `meta/codification-rule.md` — full 4-condition test + transient-color exemption + self-detecting metrics + retroactive 2026-06-09 → 2026-06-11 audit of this session
+- Methodology Principle #35 candidate added pointing to codification-rule.md
+- Retroactive codifications applied SAME COMMIT (per §2 zero-credibility-without-self-application rule):
+  - B40 expanded to 3-type garble taxonomy (stale-recycle / magnitude-inflation / attribution-garbling)
+  - B44 NEW candidate "Chat-summary discipline drift from file-level discipline" (N=3 origin this session)
+  - L25 NEW positive lesson "Explicit Bayesian probability updating as new evidence arrives" (AXT InP verification canonical instance)
+- First net-positive check 2026-07-11 (todo P1)
+- CLAUDE.md Critical Rule #13 promotion pending N=2+ confirmation per principle #32 premortem
+
+Rule #13 candidate logged as `Rule #13 application` tag-ready for monthly audit grep.

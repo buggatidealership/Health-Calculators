@@ -388,3 +388,9 @@
   - Origin: register created 2026-06-10 per user combinatorial-harness directive
   - Scope: verify register was load-bearing in any dissection since creation (cited in prompts? new instances appended?); promote/demote PC-9/10/11 candidates; apply net-positive test (subagent compute per dissection trending down?)
   - Linked: meta/cross-domain-pattern-register.md
+
+- [ ] **P1 / process / 2026-07-11** [OPT, AF] — Codification rule first 30-day net-positive check
+  - Origin: `meta/codification-rule.md` §3 self-detecting metrics; user 2026-06-11 directive
+  - Scope: grep sessions 2026-06-11 → 2026-07-11 for (a) §1-triggered codifications (POSITIVE = ≥4 in 30 days); (b) read-rate of newly codified items in subsequent sessions; (c) FALSIFIER firing (zero codifications OR ≥10 codifications with zero subsequent reads); (d) B40 expansion garble taxonomy fire-rate per sub-type; (e) B44 chat-summary discipline drift recurrence; (f) L25 explicit-Bayesian-update pattern recurrence
+  - Decision matrix: positive → promote codification rule to Critical Rule #13 in CLAUDE.md + B40/B44/L25 to confirmed; flat → refine triggers; negative → retire + build deterministic chat-summary-mirror hook
+  - Linked: `meta/codification-rule.md`, `meta/biases-watchlist.md` B40/B44, `predictions/lessons.md` L25, `meta/principle-applications-log.md`

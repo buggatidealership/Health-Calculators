@@ -1045,3 +1045,31 @@ If regime = re-rating/risk-on → L14 applies at codified rate.
 **Falsification trigger:** If NVDA Q2 FY27 + 1 more Stage 4 BEAT+CATEGORY both produce POSITIVE reactions despite macro risk-off, B43 is wrong / regime hypothesis falsified.
 
 **Meta-pattern note:** This is the SIXTH bias added in 8 days (B38 → B39 → B40 → B41 → B42 → B43). Codification velocity at extreme high. Monthly audit 2026-06-24 critical — if velocity sustains, may indicate genuine regime transition rather than over-codification.
+
+### B40 EXPANSION — Garble taxonomy (3 types, codified 2026-06-11)
+
+Per `meta/codification-rule.md` §6 retroactive audit: B40 was originally "temporal-freshness blind-spot" (stale-recycle). Across June 2026 sessions, two additional garble types surfaced repeatedly in chat but were never codified. Expanding B40 into a 3-type taxonomy:
+
+**B40.1 — Stale-recycle (original):** secondary aggregators recycle older news as fresh. N=9+ catches (Meta-Scale ×3, HBM4 piece, Google-Intel TPU 2-day recycle, etc.). VERIFIED-HIGH-CONFIDENCE.
+
+**B40.2 — Magnitude-inflation by rewording:** brief summarizers convert qualitative claims to quantitative-sounding statements. Examples this session: "prepares" → "announces"; rate-vs-stock garble in SpaceX Gigasat ("1 GW deployed" vs actual "1 GW/year production rate target"); opt-in → mandate (AWS Bedrock data-share). Pattern: load-bearing word (rate/stock, opt-in/mandate, draft/passed) silently swapped. CANDIDATE — N=3 instances logged June 2026; promotion threshold N=2+ met → CONFIRMED.
+
+**B40.3 — Attribution-garbling:** secondary sources credit third-party research papers to the model vendor / large lab. Canonical: DeepSeek "FlashMemory" feature in June 10 evening brief = actually arXiv 2606.09079, Tencent AI Lab + Tsinghua authors, no DeepSeek affiliation; community GitHub repo name caused Reddit conflation. CANDIDATE — N=1 in 30 days; watch for second instance; if N=2+ in 60 days → CONFIRMED.
+
+**Composite enforcement:** subagent verification protocol expanded to include all three checks at first step: temporal-freshness + magnitude-precision + attribution-accuracy. Future Stop hook candidate (per `meta/codification-rule.md` §4) if any sub-type recurs after 5 skipped catches in 30 days.
+
+### B44 — Chat-summary discipline drift from file-level discipline (CANDIDATE — N=3 origin 2026-06-11)
+
+**Pattern:** I produce file-level work that correctly applies a discipline (T1/T2/T3 tagging, N-th order cascade, native-language anchor, conglomerate-dilution caveat, Bayesian P-update hedge) and then produce a CHAT SUMMARY of the same content that violates the discipline. Hook-driven correction follows; the chat correction is then logged but the underlying drift pattern is uncodified.
+
+**N=3 origin instances this session (2026-06-09 → 2026-06-11), per `meta/codification-rule.md` §6:**
+1. N-th order cascade — file (cross-source log §7) had explicit P-tier markers; chat summary collapsed to linear prose; hook caught
+2. Native-language tagging — file (Olympus 7733.T thesis) had T1 native-jp citations; chat summary referenced 7733.T without restating the native anchor; hook caught
+3. Probability hedge-label — file (HTFL thesis) carried `(my model)` tags on every P-claim; chat summary dropped the labels; hook caught
+
+**Why it matters:** the hooks catch the chat-level miss, but the META-pattern (chat-summary discipline drift = the discipline only lives in files, not in chat) is the codifiable insight. Without a codification, the same miss recurs across sessions because each catch reads as a one-off rather than as instance N of a pattern.
+
+**Mitigation hypothesis (my model, to test):** add a pre-generation reminder in chat-summary contexts that all file-level disciplines (T-tags / N-th-order / native-language / hedge labels) must mirror in the summary. If this doesn't drop the hook-fire rate within 30 days, build a deterministic chat-summary-mirror-check hook (sibling of structural-output-hook.py).
+
+**Status:** CANDIDATE — N=3 in 1 session is intra-session not multi-session; promotion threshold = N=2+ multi-session instances within 30 days post-codification. Re-eval 2026-07-11.
+**Cross-ref:** `meta/codification-rule.md` §6 retroactive audit; companion to B40 expansion.
