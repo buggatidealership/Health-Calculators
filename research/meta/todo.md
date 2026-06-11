@@ -394,3 +394,13 @@
   - Scope: grep sessions 2026-06-11 → 2026-07-11 for (a) §1-triggered codifications (POSITIVE = ≥4 in 30 days); (b) read-rate of newly codified items in subsequent sessions; (c) FALSIFIER firing (zero codifications OR ≥10 codifications with zero subsequent reads); (d) B40 expansion garble taxonomy fire-rate per sub-type; (e) B44 chat-summary discipline drift recurrence; (f) L25 explicit-Bayesian-update pattern recurrence
   - Decision matrix: positive → promote codification rule to Critical Rule #13 in CLAUDE.md + B40/B44/L25 to confirmed; flat → refine triggers; negative → retire + build deterministic chat-summary-mirror hook
   - Linked: `meta/codification-rule.md`, `meta/biases-watchlist.md` B40/B44, `predictions/lessons.md` L25, `meta/principle-applications-log.md`
+
+- [ ] **P2 / process / 2026-07-11** [OPT] — Signal-density-detection first 30-day net-positive check
+  - Origin: `meta/signal-density-detection.md` §3 self-detecting metrics; built same day as codification rule first-check
+  - Scope: (a) triangulation.md growth ≥1-3 lines/wk (was 0/wk during the 72-cross-source-log gap); (b) every [ACTIVE] cluster cites ≥3 dated sources; (c) cross-source-log files that produced NO triangulation entry after 60 days reviewed for missed convergence; (d) FALSIFIER firing → build deterministic promotion-check hook
+  - Decision matrix: positive → keep manual; flat → tighten promotion rule; negative → deterministic hook required
+  - Linked: `meta/signal-density-detection.md`, `signals/triangulation.md`, `meta/codification-rule.md` (parallel first check)
+
+- [ ] **P3 / process / 2026-06-24** [OPT] — INDEX.md + tags.md refresh + monthly audit consolidation
+  - Origin: `INDEX.md` monthly refresh cadence; tags.md sync with newly added principles/biases/lessons
+  - Scope: regenerate INDEX held-positions section against `portfolio/holdings.md`; sync tags.md against actual file state; cross-source-log >30 days summarized into triangulation entries OR explicitly flagged as noise

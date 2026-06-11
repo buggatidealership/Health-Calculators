@@ -1,12 +1,131 @@
 # Triangulated Signals (High-Conviction)
 
-**Last updated:** 2026-05-28
+**Last material update:** 2026-06-11 (PIPELINE REBUILD — repaired silent failure: 72 cross-source-log files / 26 in last 7 days had not produced corresponding promotions; backfilled 7 [ACTIVE] convergence clusters from last 30 days)
 
-Signals confirmed by ≥3 independent sources within 90 days. These outweigh single-article reads. Cited in theses.
+Signals confirmed by ≥3 independent same-segment same-direction sources within 90 days. These outweigh single-article reads.
 
-**Per principle #29 (added 2026-05-27)**: each source MUST be segment-classified before promotion. SAME-SEGMENT clusters promote here; CROSS-SEGMENT clusters log to `cross-source-log.md` only.
+**Enforcement mechanism:** `meta/signal-density-detection.md` (canonical promotion rule + self-detecting metrics + first re-eval 2026-07-11)
+**Critical Rule alignment:** #6 (segment-classify before triangulating) + Workflow #3 (TRIANGULATE) + Principle #29 (segment classification)
+**Aging:** [ACTIVE] → [DORMANT] at 60 days without new instance → [ARCHIVED] at 120 days
 
-## Format
+## Quick index (current state — read this first)
+
+| Cluster ID | Segment | Status | N | Top thesis impact | Last update |
+|---|---|---|---|---|---|
+| **TC-1** Memory tightness multi-tier | memory-and-storage | [ACTIVE] | 7+ | HYNIX (held core) reinforced; SNDK NAND-tier confirmation | 2026-06-11 (MLCC spillover) |
+| **TC-2** AI capex on credit + state budgets | infrastructure-IaaS | [ACTIVE] | 6 | New non-default read #6 in where-we-are; held memory cohort demand-durability now credit-dependent | 2026-06-11 |
+| **TC-3** DC-ceiling + EM-migration | power-and-cooling | [ACTIVE] | 6 | T9 motivation + T2 power theme; Seattle moratorium PASSED is strongest US-municipal datapoint | 2026-06-11 |
+| **TC-4** Anthropic enterprise-trust drift | model-and-foundation-lab | [ACTIVE] | 3 | Private-tracker H2 30→45% (my model); 3rd-named-enterprise threshold for H2 dominant | 2026-06-11 |
+| **TC-5** CoPoS / glass-core packaging firming | advanced-packaging | [ACTIVE] | 5 | ABF bear-case INVERTED at T1 (raises IBIDEN priority); NEG 5214.T new candidate | 2026-06-11 |
+| **TC-6** MLCC AI-server tier bifurcation | advanced-packaging (passives) | [ACTIVE] | 4 | Murata held — ~70% AI-server share anchored; T7+T9 strengthen into Q1 FY27 print | 2026-06-11 |
+| **TC-7** InP geopolitical bottleneck + JP rent migration | chip-and-foundry (substrates) | [ACTIVE] | 4 | AXT exit decision validated stronger; JX 5016.T + Sumitomo 5802.T candidates | 2026-06-11 |
+| **TC-8** Token consumption compounding (T1) | infrastructure-IaaS | [ACTIVE] | maintained | Held cohort across compute+memory benefits | (carry-over) |
+
+---
+
+## TC-1 — Memory tightness multi-tier convergence [ACTIVE]
+**Segment:** memory-and-storage
+**Direction:** structural shortage, premium-tier pricing power
+**Instances (N=7+):**
+1. Supplier earnings (T1 SK Hynix / Micron / Samsung 2026-Q1)
+2. Consumer ASP rise — Lexar guide forward (T2)
+3. Industry triangulation — multi-source DRAMeXchange / TrendForce (T2)
+4. Govt coalition letter on memory shortage (T2)
+5. Automotive +180% CCTV demand spike (T2 cross-source-log 2026-06-07)
+6. Korean SK Hynix frontline-insider tweet (T3 native-kr, 2026-06-08)
+7. SemiAnalysis Hynix Computex booth photo — SOCAMM2 96GB + HBM4 36GB 12Hi spec (T1-source-photo, 2026-06-08)
++ Demand-side reinforcement: iPhone 18 12GB-all-models rumor (T3→T2, 2026-06-10); DeepSeek FlashMemory KV-tiering = additive not subtractive (2026-06-11)
+**Convergent read:** premium DRAM + HBM remain capacity-binding through 2027; commodity tier separately tightening via reallocation spillover (per TC-6)
+**Names affected:** HYNIX (held), SNDK (held), SUMCO (held), MURATA (held — via TC-6)
+**Falsifier:** any T1 Hynix/Samsung capacity-expansion announcement above demand-following pace (would invert principle #27 thesis); CXMT premium-tier qualification at NVDA
+
+## TC-2 — AI capex migrating off corporate P&Ls onto credit + state budgets [ACTIVE]
+**Segment:** infrastructure-IaaS
+**Direction:** structural — capex financing shifts from FCF to debt + state
+**Instances (N=6):**
+1. Mag7 debt-funded capex verification (2026-06-06): GOOG/META/MSFT/AMZN debt-funded; FCF lowest since 2014
+2. Alphabet $190B 2026 capex + $84.75B raise (T1, 2026-06-01-02)
+3. SoftBank $6B OpenAI margin-loan stall (T1 Bloomberg + native-jp, 2026-06-10) — 3rd installment of $10B→$6B→stall arc
+4. Amazon $17.5B unsecured delayed-draw term loan (T2 Bloomberg) stacking to ~$42-43B fresh debt in ~7 months (2026-06-11)
+5. China NDRC draft ~¥2T/5yr buildout — state-financed SOE-executed (T1 Bloomberg + native-zh, 2026-06-10)
+6. Google AI Plus consumer price cut $7.99→$4.99 — consumer pressure on OpenAI funding stress (2026-06-10)
+**Convergent read:** memory/compute demand durability is increasingly a function of CREDIT CONDITIONS and STATE BUDGETS, not hyperscaler P&Ls. Financing-led demand survives margin compression longer but reprices violently on credit tightening.
+**Names affected:** all held compute+memory (HYNIX, SNDK, ARM, NVDA-adjacent watchlist); new monitorables = hyperscaler credit spreads, Chinese fiscal execution, AI-collateral lending health
+**Falsifier:** Mag7 returning to FCF-positive capex funding for ≥2 consecutive quarters; Chinese fiscal commitment formally walked back
+
+## TC-3 — DC-ceiling + EM-migration pattern [ACTIVE]
+**Segment:** power-and-cooling
+**Direction:** US DC siting friction → EM absorption + existing-site densification
+**Instances (N=6):**
+1. Bloomberg: 50% of US 2026 DC builds delayed/canceled (T2)
+2. NY DC moratorium (T2)
+3. **Seattle CB 121214 PASSED June 9, UNANIMOUS** (T1 [Seattle Council](https://council.seattle.gov/2026/06/09/city-council-passes-emergency-data-center-moratorium-and-policy-framework/)) — strongest US-municipal datapoint
+4. AirTrunk India $30B/5GW commitment (T1)
+5. Meta-Reliance Jamnagar 168MW built-to-suit lease, ~1GW renewables (T1 [TechCrunch](https://techcrunch.com/2026/06/10/meta-signs-first-ai-data-center-deal-in-india-with-reliance/), [CNBC](https://www.cnbc.com/2026/06/10/meta-ai-infrastructure-data-centers-india-hyperscalers-reliance.html), 2026-06-10) — 2nd hyperscale India
+6. Samsung Heavy 50MW floating DCs + MOL 73MW floating DC 2027 (T2, 2026-06-10) — siting-bypass via ocean
+**Convergent read:** US capex skews to densification + EM absorbs displaced shells. Component-intensity per site rises (more power/cooling/memory/MLCC per shell); construction-adjacent names compress.
+**Names affected:** T9 theme motivation; MUR (held — densification favors components); held cohort broadly insulated; downstream casualty: US DC construction/REIT-adjacent
+**Falsifier:** US municipal moratoriums reversed under federal pressure; EM DC commitments stall
+
+## TC-4 — Anthropic enterprise-trust drift [ACTIVE]
+**Segment:** model-and-foundation-lab
+**Direction:** slow-burn enterprise-trust tax on Mythos-class access
+**Instances (N=3):**
+1. AWS Bedrock Mythos-class invocation requires opt-in `provider_data_share` overriding ZDR — first crack in Bedrock no-provider-sharing norm (T1 AWS docs + Anthropic Help Center, 2026-06-10)
+2. **Microsoft restricted internal GitHub Copilot Fable 5 access** over the same retention requirement; MSFT simultaneously sells via Foundry (T2 Verge/Reuters, T1 Azure blog, 2026-06-11) — customer-balking not Copilot-positioning
+3. Named-researcher false-positive refusals (immunologist Derya Unutmaz / Verdon) + Anthropic ACKNOWLEDGED safeguards too stringent (T2 The Register, 2026-06-11)
+**Convergent read:** H2 enterprise-trust-tax probability updated **P~30% → P~45% (my model, Bayesian per L25)**; 3rd-named-enterprise threshold = H2 dominant (P~60%+, my model)
+**Names affected:** private-tracker Anthropic section; Anthropic strength now NAMED OpenAI-collateral-risk factor (Bloomberg native-jp, links TC-2 SoftBank leg)
+**Falsifier:** Anthropic relaxes Mythos retention policy OR no 3rd enterprise restriction in 60 days
+
+## TC-5 — CoPoS / glass-core packaging supply chain firming [ACTIVE]
+**Segment:** advanced-packaging
+**Direction:** panel-level glass-core era arriving; ABF area per package rises (NOT replaced)
+**Instances (N=5):**
+1. TSMC CoPoS pilot line at VisEra completing June 2026; AP7 Chiayi volume fab; ramp late 2028-1H29 (T2 [TrendForce 4/13](https://www.trendforce.com/news/2026/04/13/news-tsmc-advances-panel-level-packaging-copos-pilot-line-reportedly-set-for-june-completion-2028-29-ramp-eyed/))
+2. TSMC CEO C.C. Wei confirmed pilot + "2-3 years to scale" at June 4 shareholder meeting (T1-adjacent)
+3. ABF/glass/ABF sandwich architecture verified T1 ([IEEE](https://ieeexplore.ieee.org/document/9360812)) — glass replaces organic BT core, NOT ABF build-up
+4. Absolics (SKC) glass-core MP targeted end-2026 + Intel glass-core 2026-27 (T2)
+5. NEG 5214.T exact-spec 515×510 GCコア product (T1 native-jp [NEG](https://www.neg.co.jp/news/20250115.html)); 2026 sample shipments; ¥30B-by-2028 capacity target
+**Convergent read:** "glass kills ABF" bear case INVERTED at architecture level; IBIDEN dissection priority raised; NEG 5214.T new best-fit candidate (ahead of held AGC on disclosure)
+**Names affected:** AGC (HELD — Vector 3 validated-not-upgraded); IBIDEN (dissection queue priority RAISED); NEW candidates NEG 5214.T, LPKF, Camtek vector-add
+**Falsifier:** TSMC publicly rejects glass-core for CoPoS (SCHMID currently states "under review")
+
+## TC-6 — MLCC AI-server tier bifurcation [ACTIVE]
+**Segment:** advanced-packaging / passives
+**Direction:** premium-tier Japanese/Korean concentration hardens; mid-tier backfill to Chinese
+**Instances (N=4):**
+1. MLCC sold-out deep research (2026-06-08 cross-source-log)
+2. Murata Izumo new building ¥47B April 2026 + CEO "tight supply persisting" (T1/T2 native-jp Nikkei/dempa/EETimes, 2026-06-11)
+3. **Yageo May revenue record NT$15.06B +47.5% YoY** (T1 [工商時報 6/9](https://www.ctee.com.tw/news/20260609700904-430201))
+4. DigiTimes wave-refresh (T2-3, 2026-06-11) + zh tier-split [163.com 高端MLCC卡脖子](https://www.163.com/dy/article/KPU05VEJ05568W0A.html): Murata ~70% AI-server MLCC share, 0.3µm dielectric vs Three-Circle 1µm (8-10yr gap quantified)
+**Convergent read:** tier-bifurcation hardens (Murata-supportive); 15-35% premium price hikes; live premium-tier threat is SEMCO (Korea) not China — P-1 China-rate distinct from Korea-rate clock
+**Names affected:** MURATA (held — HOLD; Q1 FY27 print late Jul/early Aug = T9 promotion trigger); T9 (TDK / Taiyo Yuden watchlist)
+**Falsifier:** Three-Circle qualifies sub-0.3µm dielectric in volume; SEMCO takes named AI-server MLCC share from Murata at Rubin-next cycle; CSP-LTA claim verified at T1/T2 = UPGRADE trigger (not falsifier)
+
+## TC-7 — InP geopolitical bottleneck + JP rent migration [ACTIVE]
+**Segment:** chip-and-foundry / substrates / photonic
+**Direction:** Chinese MOFCOM regime persists; rent migrates to JP non-controlling suppliers
+**Instances (N=4):**
+1. Reuters multi-byline (Chen/Mo/Martina/Lee/Lv/Ning/Okasaka) June 10-11 (T1)
+2. AXT FY2025 10-K: 100% wafer production in China (Beijing Tongmei); Fremont admin-only (T1 SEC)
+3. AXT 8-K June 11 2025 first Tongmei permit + Q3'25 +56%QoQ on permits / Q4'25 miss on delays (T1)
+4. **JX Advanced Metals 5016.T ¥20B to triple InP substrate capacity by 2030 at Isohara** (T1 native-jp [JX release](https://www.jx-nmm.com/newsrelease/), [EETimes JP](https://eetimes.itmedia.co.jp/ee/articles/2602/16/news033.html))
++ Sumitomo Electric 5802.T doubling optical-device capacity FY2026 (T2 native-jp)
+**Convergent read:** AXT structural casualty (US-listed wrapper around Beijing bottleneck); investable bypass JX 5016.T + 住友電工 5802.T (Japan-TSE Degiro ✓; conglomerate-dilution math required per principle #22)
+**Names affected:** AXTI EXIT validated stronger; NEW candidates JX 5016.T (Watchlist P2 fresh-IPO discipline barely cleared), 住友電工 5802.T (Watchlist P3); register PC-12 candidate "Geopolitical bottleneck via export control" N=1
+**Falsifier:** US-China bilateral deal materially loosens InP licenses; AXT announces material California (Fremont) substrate production; PC-12 N=2 cross-check fails (Dec 2023 Ga/Ge regime not showing same rent migration)
+
+## TC-8 — Token consumption compounding (T1 theme anchor) [ACTIVE — maintained, no rebuild needed]
+**Segment:** infrastructure-IaaS
+**Direction:** token volume growth outpaces per-token price decreases at the enterprise tier
+**Instances:** maintained across multiple cross-source-logs since 2026-06-03 (Uber AI budget exhaustion + SemiAnalysis workflow ROI + Cloudflare 57.5% bot crossover + Ramp AI Index 1% tail $7,500/mo)
+**Convergent read:** see `sector/themes.md` T1 + token-consumption.md wiki
+**Names affected:** broad held cohort
+
+---
+
+## Format spec (kept for reference)
 
 ```
 [YYYY-MM-DD promoted] {THEME or DIRECTION}
@@ -20,14 +139,10 @@ Names affected: [tickers]
 Falsifier: [what would suggest this convergence is coincidence not pattern]
 ```
 
-## Entries (most recent first)
+---
 
-### [2026-05-28 promoted] Advanced-Packaging substrate supply chain at binding-constraint chokepoint
+## Pre-2026-06-11 historical entries (preserved for audit)
 
-**Segment classification (per principle #29)**: SINGLE-SEGMENT — all sources are advanced-packaging segment. First triangulation hit of principle #29 threshold (3+ same-segment data points within 90 days).
-
-**Sources** (all advanced-packaging segment):
-1. **[T1 primary]** Ibiden ¥500B capex plan, ¥220B first phase at Gama Plant Cell6 for EMIB-T mass production, FY26-28 timeline (per [Globe and Mail relay of Ibiden IR T1](https://www.theglobeandmail.com/investing/markets/stocks/IBIDF/pressreleases/10864/ibiden-to-invest-yen500-billion-in-expanding-ic-package-substrate-capacity-for-ai-and-high-performance-servers/), May 2026)
 2. **[T1 primary]** Samsung Electro-Mechanics $1B (1.55T KRW) silicon capacitor contract signed May 20, 2026 for delivery Jan 2027-Dec 2028 (per [Samsung EM newsroom T1](https://samsungsem.com/global/newsroom/news/view.do?id=10310))
 3. **[T2 secondary]** Intel CEO Lip-Bu Tan on-record: substrate supply "extremely tight"; customers willing to prepay billions; "Intel/AMD/NVDA collectively co-funded roughly 50% of capex at top 4 substrate suppliers" (per [Tom's Hardware T2](https://www.tomshardware.com/tech-industry/semiconductors/intel-reportedly-in-talks-with-google-and-amazon-over-advanced-packaging) + [TrendForce T3](https://www.trendforce.com/news/2026/05/20/news-intel-says-emib-customers-back-substrate-prepayments-4-taiwan-and-2-japan-suppliers-reportedly-seek-commitments/), May 2026)
 4. **[T3 trade]** Google v8e ("Humufish") H2 2027 launch confirmed using Intel EMIB-T packaging + TSMC chip + MediaTek design (per [SemiWiki/Kuo T3](https://semiwiki.com/forum/threads/ming-chi-kuo-on-intels-emib-t-packaging-for-google-tpu-v8e-humufish.25038/), May 2026)
