@@ -1,6 +1,24 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-06-08 PM (User-articulated non-US-expectations framing + MLCC sold-out deep research substrate — MUR positioned as steady compounder with Japanese-listing expectations discount = beat-consensus runway intact)
+**Last updated:** 2026-06-11 (MLCC tightness wave-refresh verified — tier-bifurcation HARDENS, T7 mechanism confirmed at T1/T2; ~70% AI-server MLCC share anchored; P-1 premium-tier test holds; SEMCO not China is the live threat)
+
+## 2026-06-11 back-reference — MLCC wave-refresh + tier-bifurcation verification
+
+Per `research/signals/cross-source-log/2026-06-11-mlcc-tightness-wave-refresh-tier-bifurcation-b40-3-n2.md` (2-subagent native-zh+jp verification of user-shared Twitter signal):
+
+1. **Tier-bifurcation HARDENS — the Murata-supportive branch confirmed (P~75%, my model, on T2 multi-source zh+jp convergence):** 超高容 ≥100µF small-case AI-server grade = **Murata + SEMCO + TDK only; Murata ~70% of AI-server MLCC, ~40% overall** (T2 multi-source). Japanese/Korean allocation redirect + **15-35% price hikes** → Taiwanese downstream qualifies Chinese sources (三环/风华) for the VACATED standard/consumer grades. Mid-tier backfill, NOT premium displacement.
+2. **T7 (Post-Traumatic Supply Disorder) mechanism confirmed in behavior:** Izumo new building completed Apr 2026 (¥47B), capacity +~10%/yr measured demand-following expansion, CEO flags tight supply persisting (T1/T2 native-jp Nikkei/dempa/EETimes). Principle #27 working as codified — under-expand, let ASPs carry.
+3. **Technology-gap quantified:** Murata premium dielectric 0.3µm-class vs Three-Circle 1µm at volume — ≈ Japanese state of 8-10 years ago. P-1 "years out" assessment HOLDS at premium tier; re-test boundary ≥100µF small-case at 2027-06.
+4. **Correction absorbed (B40.3 N=2):** the tweet's "Murata managing order intake on restricted basis" is OVER-ATTRIBUTED — no T1 Murata restriction exists; Murata manages via price/lead-time. Confirmed suspensions were Fenghua + Samsung-EM-rumor. Attribution-garbling promoted to CONFIRMED in biases-watchlist.
+5. **CSP-LTA claim UNVERIFIED (T3-only)** — logged as WATCH ITEM: T1/T2 confirmation of hyperscaler-direct MLCC LTAs would be a thesis UPGRADE trigger (contract-backed demand at the passives layer).
+6. **Lead-time + spillover:** standard 16-20週, high-end 8→24週 (T2); commodity tier now TIGHTENING via reallocation spillover (not recovering — tweet had direction inverted). Whole-complex bullish; T9 watchlist names (Taiyo Yuden, TDK) benefit alongside.
+7. **The live premium-tier threat is SEMCO (Korea), not China** — watch SEMCO AI-server qualification disclosures at the Rubin-next platform cycle.
+
+**Position implication:** HOLD — no size change — tier-bifurcation + allocation-redirect + 15-35% hikes strengthen the T7/T9 thesis legs into the Q1 FY27 print (late July/early Aug 2026, the codified T9 promotion-trigger event); no falsifier-relevant evidence; premium-tier moat intact with the threat vector correctly relocated to SEMCO. Watch items: CSP-LTA confirmation (upgrade trigger), Three-Circle dielectric-node progression (P-1 clock), SEMCO qualification news (threat).
+
+---
+
+**Prior last updated:** 2026-06-08 PM (User-articulated non-US-expectations framing + MLCC sold-out deep research substrate — MUR positioned as steady compounder with Japanese-listing expectations discount = beat-consensus runway intact)
 
 ## 2026-06-08 PM — User-articulated non-US-expectations framing + MLCC sold-out substrate
 

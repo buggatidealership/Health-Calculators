@@ -1073,3 +1073,14 @@ Per `meta/codification-rule.md` §6 retroactive audit: B40 was originally "tempo
 
 **Status:** CANDIDATE — N=3 in 1 session is intra-session not multi-session; promotion threshold = N=2+ multi-session instances within 30 days post-codification. Re-eval 2026-07-11.
 **Cross-ref:** `meta/codification-rule.md` §6 retroactive audit; companion to B40 expansion.
+
+### B40.3 PROMOTION — Attribution-garbling CONFIRMED at N=2 (2026-06-11 PM)
+
+Per the B40.3 entry's own threshold ("if N=2+ in 60 days → CONFIRMED"):
+1. **N=1 (2026-06-11 AM):** "DeepSeek-V4 FlashMemory" — third-party Tencent/Tsinghua paper (arXiv 2606.09079) credited to DeepSeek by Reddit conflation
+2. **N=2 (2026-06-11 PM):** "Murata managing order intake on restricted basis" — Twitter/trade-press summary attributed competitor behavior (Fenghua suspension T2-confirmed, Samsung EM quote-pause T3-rumor) to the marquee name Murata; T1 Murata statement does NOT exist; JP procurement report explicitly states Murata manages via price/lead-time, not formal 受注制限. Per `signals/cross-source-log/2026-06-11-mlcc-tightness-wave-refresh-tier-bifurcation-b40-3-n2.md`
+3. Related earlier instance (pre-taxonomy, retroactively consistent): 双环-supplies-Optimus-6-RVs stock-promotion claim rejected in Nabtesco dissection 2026-06-09 — smaller-entity action inflated onto bigger narrative
+
+**Mechanism:** summarizers gravitate attribution toward the most-recognizable entity in the category (DeepSeek > Tencent-paper; Murata > Fenghua). The bigger the name, the higher the prior that a category-level behavior gets pinned on it specifically.
+**Enforcement:** subagent verification protocol step expanded — for any company-specific behavioral claim (restriction, suspension, price action, design win), demand the T1 entity-specific statement; if absent, check whether the behavior belongs to a DIFFERENT entity in the same category.
+**Status: CONFIRMED.** Composite B40 taxonomy now: B40.1 stale-recycle (VERIFIED-HIGH-CONFIDENCE, N=9+), B40.2 magnitude-inflation (CONFIRMED, N=3), B40.3 attribution-garbling (CONFIRMED, N=2 + 1 retroactive).
