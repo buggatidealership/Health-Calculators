@@ -1,6 +1,42 @@
 # SK Hynix — Thesis
 
-**Last updated:** 2026-06-11 PM (Chairman Chey Nikkei interview T1: 3x wafer capacity by 2034 + Japan 'excellent candidate' — T7 thesis NEUTRAL-to-mildly-REINFORCING, falsifier NOT firing; H2 demand-following P~70%, my model)
+**Last updated:** 2026-06-11 PM (post Hynix-vs-MU 3-subagent deep verification: share-split corrected ~55% Rubin / >60% HBM4 segment; Falsifier #1 FIRED-PARTIALLY at qualification+borderline-material-share; Samsung yield-anchor STALE updated; HBM4E sub-falsifier surfaced as new live watch; voluntary margin-mix-shift = moat evolution)
+
+## 2026-06-11 PM (LATER) — Hynix-MU deep verification: thesis MILD-TRIM not break
+
+Per `research/signals/cross-source-log/2026-06-11-pm-hynix-mu-deep-verification-3subagent.md` (3 parallel Fable-5 subagents):
+
+**SHARE-SPLIT CORRECTED:**
+- NVDA Rubin HBM4 initial allocation Dec-2025: **Hynix ~55% / Samsung ~25% / Micron ~20%** (T2 [Hankyung Feb-9](https://www.hankyung.com/article/202602092346i)) — prior "Hynix ~70% per SemiCone" was either UBS-prior call or HBM-total Q4-25; adopt corrected anchor
+- Hynix Q1 print guides ">60% HBM4 share" company-wide (T1 [컨콜 전문](https://www.thelec.kr/news/articleView.html?idxno=55559))
+- Counterpoint total HBM Q1'26: Hynix ~58% / Samsung ~21% / Micron ~21%
+- **Critical nuance:** Hynix is VOLUNTARILY trimming NVDA-bound HBM4 20-30% to capture higher-margin HBM3E/DRAM mix (T2 [ZDNet KR](https://zdnet.co.kr/view/?no=20260414110036)) — Samsung's gain is partly Hynix-voluntary mix-shift, NOT pure competitive displacement
+
+**FALSIFIER #1 STATUS — FIRED PARTIALLY:**
+- (a) Samsung qualifies at NVDA for HBM4: **FIRED** — Huang T1 June 5 statement "all three qualified" + Samsung first commercial HBM4 shipper Feb 12 2026 (T1 native-kr [머니투데이](https://www.mt.co.kr/industry/2026/06/05/2026060515111684507))
+- (b) Material share allocation: **AT THRESHOLD** — Samsung mid-20% Rubin ≈ "material" definition borderline; need to define ≥25%? as the binary threshold
+- (c) HBM4E/post-Rubin material share: **NEW LIVE WATCH** — Samsung first commercial HBM4E samples May 29 2026 (T1 [Samsung Newsroom](https://news.samsung.com/global/samsung-electronics-begins-shipment-of-industry-first-hbm4e-samples)) + AMD primary-supplier status (T2 [Dealsite](https://dealsite.co.kr/articles/159434)). NVDA year-end top-bin HBM4 decision = trigger event
+
+**SAMSUNG YIELD ANCHOR STALE (prior thesis stated 40% yield per TechStock substack):** Samsung 4nm logic-die yield now **>90%**; 1c DRAM ~50% (T2 [DigiTimes Apr 17](https://www.digitimes.com/news/a20260417PD222/samsung-hbm4-nvidia-4nm-hbm.html)). The yield-disadvantage moat anchor is OUTDATED.
+
+**MR-MUF MOAT PARTIALLY ERODED:** Samsung TC-NCF cleared NVDA qual + moving to hybrid bonding for 16-Hi. Hynix retains ~70% HBM4 share + 16-Hi cost/yield lead. **Moat = MARGIN, not ACCESS.** Multi-generation yield curve still ahead but binary qualification is now a 3-way game.
+
+**HBM4E ARCHITECTURAL POSITIONING — POSITIVE:** Hynix HBM4E base die → TSMC 3nm + Micron also TSMC-coupled (joins same rail) vs Samsung internal SF4 (cost disadvantage). **TSMC-coupled architectures should win the custom-HBM4E generation** — Hynix on the right side.
+
+**RUBIN PRODUCTION TRIM 2M→1.5M APRIL 2026 (TRUE, T2):** [The Register Apr 8](https://www.theregister.com/2026/04/08/nvidia_supply_chain/) + TrendForce share-cut 29%→22%; Hynix trimmed 2026 NVDA HBM4 shipments 20-30% in response (overlap with voluntary margin-mix-shift above). Huang June 5 = supply de-bottlenecked; volume target restoration to 2M NOT YET CONFIRMED.
+
+**VOLUNTARY MARGIN-MIX-SHIFT = MOAT EVOLUTION:** Hynix's choice to allocate AWAY from NVDA HBM4 toward HBM3E/DRAM margin capture is principle #27 in motion at a level ABOVE raw capacity discipline — choosing WHICH customer segment to allocate to. H3 (P~20%, my model): this is the actual edge; if margins durably outpace concentration, Hynix outperforms even as named-share-of-Rubin compresses.
+
+**Updated parallel hypotheses:**
+- **H1 (P~45%, my model):** Thesis MILD-TRIM not break. Concentration premium compresses from "70% Rubin" → "~55% Rubin + >60% HBM4 segment + margin-mix-shift edge + MR-MUF margin lead + HBM4E TSMC-3nm + voluntary HBM3E margin capture"
+- **H2 (P~35%, my model):** HBM4E generation watch becomes new load-bearing event. P~25% (my model) further Hynix concentration compression within 6 months on Samsung HBM4E win at NVDA
+- **H3 (P~20%, my model):** Margin-mix-shift IS the actual moat evolution
+
+**Position implication:** HOLD — no size change — thesis is MILD-TRIM not break; falsifier #1 firing was always priced into the harness's standing framework; moat is correctly relocated from concentration → margin/yield/architectural-alignment. HYNIX at 4.48% Degiro unchanged. New watch item: NVDA year-end top-bin HBM4 decision (sub-clause c trigger). Companion thesis: `companies/MU/thesis.md` (NEW stub — Micron is differentiated complement not substitute).
+
+---
+
+**Prior last updated:** 2026-06-11 PM (Chairman Chey Nikkei interview T1: 3x wafer capacity by 2034 + Japan 'excellent candidate' — T7 thesis NEUTRAL-to-mildly-REINFORCING, falsifier NOT firing; H2 demand-following P~70%, my model)
 
 ## 2026-06-11 PM back-reference — Chey 3x-by-2034 + Japan reopen
 

@@ -12,7 +12,7 @@ Signals confirmed by ≥3 independent same-segment same-direction sources within
 
 | Cluster ID | Segment | Status | N | Top thesis impact | Last update |
 |---|---|---|---|---|---|
-| **TC-1** Memory tightness multi-tier | memory-and-storage | [ACTIVE] | 8 | HYNIX (held core) reinforced — Chey Nikkei T1 + supplier discipline confirmed at Chairman level; SNDK NAND-tier confirmation | 2026-06-11 PM (Chey 3x/2034) |
+| **TC-1** Memory tightness multi-tier | memory-and-storage | [ACTIVE] | 9 — three-supplier reframe | HYNIX held core mild-trim + MU NEW candidate; SNDK NAND-tier confirmation; Rubin trim 2M→1.5M Apr partially-resolved; HBM4E TSMC-rail consolidation | 2026-06-11 PM (3-subagent deep-verify) |
 | **TC-2** AI capex on credit + state budgets | infrastructure-IaaS | [ACTIVE] | 6 | New non-default read #6 in where-we-are; held memory cohort demand-durability now credit-dependent | 2026-06-11 |
 | **TC-3** DC-ceiling + EM-migration | power-and-cooling | [ACTIVE] | 6 | T9 motivation + T2 power theme; Seattle moratorium PASSED is strongest US-municipal datapoint | 2026-06-11 |
 | **TC-4** Anthropic enterprise-trust drift | model-and-foundation-lab | [ACTIVE] | 3 | Private-tracker H2 30→45% (my model); 3rd-named-enterprise threshold for H2 dominant | 2026-06-11 |
@@ -36,6 +36,7 @@ Signals confirmed by ≥3 independent same-segment same-direction sources within
 7. SemiAnalysis Hynix Computex booth photo — SOCAMM2 96GB + HBM4 36GB 12Hi spec (T1-source-photo, 2026-06-08)
 + Demand-side reinforcement: iPhone 18 12GB-all-models rumor (T3→T2, 2026-06-10); DeepSeek FlashMemory KV-tiering = additive not subtractive (2026-06-11)
 8. **SK Group Chairman Chey Nikkei interview T1 (2026-06-11)** — 3x wafer capacity by 2034 = 13-14% CAGR (my bottoms-up math), framed as demand-following with shortage-through-2030 language; HBM bit-multiplier means bit-supply CAGR even lower vs implied AI bit-demand >25%. Supplier-side discipline confirmed at the chairman level. Per `signals/cross-source-log/2026-06-11-hynix-chey-3x-2034-japan-reopen-t7-neutral-reinforcing.md`
+9. **Hynix-vs-Micron 3-subagent deep verification (2026-06-11 PM)** — share-split corrected (NVDA Rubin: Hynix ~55% / Samsung ~25% / Micron ~20%); HYNIX Falsifier #1 FIRED at qualification + borderline material share; Samsung 4nm yield overcame (40%→>90%); Rubin production trim 2M→1.5M April (T2 KeyBank, TrendForce 29%→22%) partially resolved by Huang June 5 "all qualified"; volume restoration unconfirmed. **Three-supplier reframe of the cluster:** Hynix + Samsung + Micron now all in production; HBM4E TSMC-rail (Hynix + Micron) vs Samsung internal SF4 splits the next-gen architecture. Per `signals/cross-source-log/2026-06-11-pm-hynix-mu-deep-verification-3subagent.md`
 **Convergent read:** premium DRAM + HBM remain capacity-binding through 2027; commodity tier separately tightening via reallocation spillover (per TC-6)
 **Names affected:** HYNIX (held), SNDK (held), SUMCO (held), MURATA (held — via TC-6)
 **Falsifier:** any T1 Hynix/Samsung capacity-expansion announcement above demand-following pace (would invert principle #27 thesis); CXMT premium-tier qualification at NVDA
