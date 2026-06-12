@@ -1050,7 +1050,7 @@ If regime = re-rating/risk-on → L14 applies at codified rate.
 
 Per `meta/codification-rule.md` §6 retroactive audit: B40 was originally "temporal-freshness blind-spot" (stale-recycle). Across June 2026 sessions, two additional garble types surfaced repeatedly in chat but were never codified. Expanding B40 into a 3-type taxonomy:
 
-**B40.1 — Stale-recycle (original):** secondary aggregators recycle older news as fresh. N=9+ catches (Meta-Scale ×3, HBM4 piece, Google-Intel TPU 2-day recycle, etc.). VERIFIED-HIGH-CONFIDENCE.
+**B40.1 — Stale-recycle (original):** secondary aggregators recycle older news as fresh. **N=10+ catches** (Meta-Scale ×3, HBM4 piece, Google-Intel TPU 2-day recycle, etc., + 2026-06-12 EVE Rubin CPX: SemiAnalysis Sept 10, 2025 article curated alongside fresh June 2026 items in evening brief, made-fresh by adjacency; resolved via subagent verification same-session — Workflow #9 macro-first ordering caught the contradiction at Step 0 BEFORE thesis cascade per `signals/cross-source-log/2026-06-12-evening-brief-22-item-triage-workflow9-applied.md` §5). VERIFIED-HIGH-CONFIDENCE. **The Workflow #9 catch is the cleanest live demonstration of the discipline working as designed since codification 2026-06-12 AM.**
 
 **B40.2 — Magnitude-inflation by rewording:** brief summarizers convert qualitative claims to quantitative-sounding statements. Examples this session: "prepares" → "announces"; rate-vs-stock garble in SpaceX Gigasat ("1 GW deployed" vs actual "1 GW/year production rate target"); opt-in → mandate (AWS Bedrock data-share). Pattern: load-bearing word (rate/stock, opt-in/mandate, draft/passed) silently swapped. CANDIDATE — N=3 instances logged June 2026; promotion threshold N=2+ met → CONFIRMED.
 
