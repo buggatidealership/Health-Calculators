@@ -130,7 +130,63 @@ Y on all 4 = strong H1
 
 ---
 
-## Files to update
+## 2026-06-12 PM update — spot verified, H1/H2/H3/H4 weights refreshed
+
+**User-shared brokerage screenshot 2026-06-12** (10:32 timestamp; cohort watchlist + Kioxia 1D chart):
+
+- **Kioxia (285A.T) spot: ¥81,200 at close** (day move +¥5,760 / +7.64%)
+- 12-day delta vs anchor ¥72,450 from June 1 (per `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md`): **+12.08%** (my model — 81,200/72,450 − 1)
+- Intraday 1D chart visible: dip to ~¥80,200 around 4:30 AM local, rallied to high ~¥83,000 around 7:15 AM, closed at ¥81,200 — modest profit-taking from intraday high
+- **Pre-event -10% falsifier (¥65,205): NOT FIRED** — opposite direction, massively above; thesis falsifier #2 remains armed and gated to symposium content
+- **L14-v2 pre-print rally >10% trigger: tripped over 12-day window** — 5-day-specific computation requires intermediate prints not visible in screenshot, but a 12-day +12.08% move makes a >10% 5-day move highly likely (my model)
+
+**Cohort joint state same screenshot (single-day moves at close):**
+
+| Name | Day move | Note |
+|---|---|---|
+| Samsung Electronics (005930) | +7.86% | Cohort beta |
+| ASML | +9.53% | Cohort beta; 2nd-line -2.24% reading visible (likely after-hours indication) |
+| WDC | +8.00% | Cohort beta |
+| Seagate (STX) | +6.38% | Cohort beta |
+| Kioxia (285A) | +7.64% | This name |
+| SK Hynix (000660) | +2.33% | Held core — adds ~+€196 unrealized on 8 shares × ~€1,050 = €8,400 (my model) |
+| TSM, MU, SNDK | not visible | — |
+
+This is COHORT BETA, not Kioxia-idiosyncratic anticipation. Something macro/sector moved the whole memory + semi-cap-eq cluster today. That marginally dilutes the H2 "pure expectations exhaustion" read versus a pure-idiosyncratic rally — but the absolute price-level expectations remain regardless of what drove them.
+
+### Hypothesis reweight (my model)
+
+| H | Pre-reg (June 12 AM) | Updated (June 12 PM) | Δ | Why |
+|---|---|---|---|---|
+| H1 — L14 original holds | P~45% | **P~25%** | −20pp | 5-day rally >10% trigger almost certainly fired |
+| H2 — L14-v2 expectations exhaustion | P~30% | **P~45%** | +15pp | Now modal — Kioxia matches the AVGO pre-print profile that broke L14 originally |
+| H3 — Paper thin / falsifier #2 | P~20% | **P~20%** | 0 | Independent of price action |
+| H4 — Macro confounder | P~5% | **P~10%** | +5pp | Cohort-wide rally today suggests macro tailwind; symmetric downside if it reverses |
+
+### Recommendation strengthened: Option B (reactive entry post-T+24h)
+
+Three reinforcing reasons (vs original pre-reg):
+1. H2 (L14-v2) is now the modal hypothesis at P~45% — exactly the path the original framework breaks on
+2. Pre-event spot is +12.08% from anchor — buying here is buying into maximum priced-in vulnerability
+3. Cohort beta gifted you most of the held-name upside today (~+€196 on HYNIX alone, my model) — adding cohort exposure at the top of the rally has worse risk-reward than waiting
+
+**SNDK pre-event top-up also de-emphasized:** SNDK is in the same cohort that just rallied 6-8% per the screenshot cluster (STX +6.38% / WDC +8.00%); SNDK is likely directionally similar. The Stage 2-3 vs Kioxia Stage 3 asymmetry that previously favored a SNDK partial entry is partly muted by today's cohort move.
+
+### Lateral check — what would CONTRADICT the H2 read
+
+- Cohort-wide rally is the start of a sustained sector re-rating (not a one-day macro spike) → Kioxia's +12% reflects re-rating not exhaustion → L14 original could hold; H1 weight recovers
+- Spot pulls back to ~¥75,000 between June 12 and June 14 → 5-day rally trigger uncomputes → H1 weight recovers
+- Chinese hyperscaler memory-buying announcement in the next 48h → cohort-wide H1 strengthens
+
+### What I'm watching between now and June 14 open
+
+1. Kioxia overnight + tomorrow close — does it consolidate at ¥81K or extend to ¥83K+ (more rally) or pull back to ¥75K (rally exhausted)?
+2. Cohort behavior — does Samsung/ASML/WDC sustain today's move or fade?
+3. Any macro news that explains today's sector spike (Fed comms, Iran de-escalation, US-China memory tariff news)
+
+---
+
+
 
 - This file (NEW) — pre-registration of the conditional prediction
 - `predictions/grading-log.md` — add Kioxia VLSI as pending with resolution date June 19-22
