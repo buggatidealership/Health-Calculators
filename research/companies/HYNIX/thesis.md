@@ -1,5 +1,10 @@
 # SK Hynix — Thesis
 
+**2026-06-12 EVE cross-ref:** TC-1 N=13 — Huawei Ascend production ramps DESPITE HBM bottleneck per SemiAnalysis T2 + xAI Colossus 2 first 1GW coherent cluster (200K H100/H200 + 30K GB200) per SemiAnalysis T2 (`signals/cross-source-log/2026-06-12-evening-brief-22-item-triage-workflow9-applied.md`). **Adversarial-procurement tier-9 added to memory-shortage convergence ledger:** HBM is binding at the highest-adversarial-procurement layer (China motivated to scale, blocked at HBM specifically) — confirms premium-tier non-Chinese-HBM moat is physics-of-bit-density + supply-constraint, NOT just US-supply-allocation artifact. xAI Colossus 2 reframes TAM unit from rack → gigawatt-cluster. 2nd-order monitor: CXMT/YMTC HBM3E development urgency increases (18-24mo watch). Position implication: HOLD — no sizing change; structural moat reinforcement.
+
+---
+
+
 **2026-06-12 PM cross-ref:** Joint-state correlation flag added per MRVL deep-dive at `signals/cross-source-log/2026-06-13-MRVL-deep-dive-3subagent.md`. HYNIX + MRVL (held ~5.9% as of 2026-06-12 rotation) both pure-play AI-capex names — correlation in S4 stress estimated ~0.7+ (my model); MINIMAL diversification benefit in macro digestion scenario; cohort apparent diversification across memory + connectivity is partly illusory at the macro-stress layer. 3rd-order positive read: IF MRVL Google MPU talks fail and MRVL custom-ASIC story becomes effectively AWS-only → HYNIX read-through STRENGTHENS since memory is universal across all custom-ASIC vendors regardless of design house. Position implication: HOLD — no sizing change today; flag joint S4 correlation for next bear-case stress-test cycle (2026-06-27 monthly recurring).
 
 ---

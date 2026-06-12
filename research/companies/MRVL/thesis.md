@@ -1,5 +1,10 @@
 # Marvell Technology (MRVL) — Thesis
 
+**2026-06-12 EVE cross-ref:** AWS multi-GW Trainium expansion with Anthropic as ANCHOR CUSTOMER per SemiAnalysis T2 (`signals/cross-source-log/2026-06-12-evening-brief-22-item-triage-workflow9-applied.md`) = empirical volume confirmation of the H1 bull-leg (FY28 "more than double" custom Si). Volume side reinforces; per-chip content demotion (Trainium3/4 partial role per Benchmark T2) unchanged. **3rd-order joint-state:** Anthropic-as-anchor creates cross-cluster link to TC-4 (Anthropic enterprise-trust drift, 11 signals in 48h) — IF TC-4 enterprise-trust-drift materially slows Anthropic compute commitments, AWS Trainium volume thesis softens. Watch. Position implication: HOLD ~5.9% — H1 stays at 40% (post-Jensen-reframe); marginally bullish but doesn't cross add threshold without Q2 FY27 print confirmation.
+
+---
+
+
 **Last updated:** 2026-06-12 PM (full refresh post 3-subagent deep-dive; supersedes 2026-06-02 stub which was pre-NVDA-$2B-investment-detail-and-pre-Trainium-demotion-disclosure)
 **Tier:** Active (HELD ~5.9% per portfolio rotation 2026-06-12; cost basis $286.26 ≈ spot $287)
 **Position target:** 5-7% if Q2 FY27 print (Aug-26) confirms thesis; 3-4% if Q2 disappoints. Current 5.9% is at the HIGH END of Active band given concentration + S&P inclusion catalyst + partial Trainium demotion

@@ -485,3 +485,8 @@
   - Linked: `meta/hooks/macro-anchor-hook.py`; `meta/biases-watchlist.md` B46; `CLAUDE.md` Critical Rule #15; `meta/hook-fire-log.md`
 
 - [x] **DONE 2026-06-12 PM** — Workflow #9 MACRO-FIRST RESEARCH full specification — completed early (was due 2026-06-20); written into CLAUDE.md Core Workflows section as Workflow #9 incorporating user's 5-step pipeline articulation verbatim (research pass → first-principles articulation → metric evaluation → future inference via triangulation + pattern-matching against P-register/TC-clusters → company tie-in). Quality bar + #8 relationship + origin failure + falsifier all specified. Artifact: CLAUDE.md §Workflow 9.
+
+- [ ] **P1 / verification / 2026-06-18** [INDP, AF] — Rubin CPX cancelled-vs-unveiled B40 contradiction
+  - Origin: 2026-06-12 EVE brief item #19 (SemiAnalysis T2) describes Rubin CPX as "specialized prefill accelerator" + "most significant inference advancement since March 2024 announcement"; CONTRADICTS June 4 brief anchor stating Rubin CPX CANCELLED → Intel Crescent Island fills gap. Per Critical Rule #12 B40 temporal-freshness, do NOT auto-cascade architectural details to thesis files until reconciled.
+  - Scope: NVDA T1 primary (newsroom + earnings call transcripts) for Rubin CPX status; reconcile with June 4 cancellation framing; if real and ships, cascade to HYNIX LPDDR5X positioning (prefill chips use LPDDR-class memory) + connectivity volume implications (more total accelerator count)
+  - Linked: `signals/cross-source-log/2026-06-12-evening-brief-22-item-triage-workflow9-applied.md` §3 Rubin CPX section; `signals/cross-source-log/2026-06-04-*` Rubin CPX cancellation anchor
