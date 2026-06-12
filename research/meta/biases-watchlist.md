@@ -1084,3 +1084,42 @@ Per the B40.3 entry's own threshold ("if N=2+ in 60 days → CONFIRMED"):
 **Mechanism:** summarizers gravitate attribution toward the most-recognizable entity in the category (DeepSeek > Tencent-paper; Murata > Fenghua). The bigger the name, the higher the prior that a category-level behavior gets pinned on it specifically.
 **Enforcement:** subagent verification protocol step expanded — for any company-specific behavioral claim (restriction, suspension, price action, design win), demand the T1 entity-specific statement; if absent, check whether the behavior belongs to a DIFFERENT entity in the same category.
 **Status: CONFIRMED.** Composite B40 taxonomy now: B40.1 stale-recycle (VERIFIED-HIGH-CONFIDENCE, N=9+), B40.2 magnitude-inflation (CONFIRMED, N=3), B40.3 attribution-garbling (CONFIRMED, N=2 + 1 retroactive).
+
+### B45 — Pre-training magnitude conservatism in structural-demand regimes (CANDIDATE — N=1 origin 2026-06-12)
+
+**Pattern:** My naive pre-training prior treats +100-200% as the "extreme winner" band and +200%+ as the "rare outlier" tail for 18-month equity returns. In a confirmed structural AI-supercycle regime — where named bottleneck companies are supply-constrained on hardware delivering exponentially scaling demand — this prior is empirically wrong at the tail by roughly **5-8×**. The actual base rate (15-name AI-infrastructure basket, Jan 2025 → June 12, 2026, subagent-verified, full data in `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md`):
+
+- Naive prior expected ~1-2 category outliers + 0-1 extreme outliers in 15 names
+- Actual: **6 category outliers + 6 extreme outliers**
+- Tail names: MU +1,044%, NBIS +1,528%, SK Hynix +799%, ALAB +323%, Kioxia +5,480% (all structural supply-constraint bottleneck names)
+- In-line vs prior (ANET +43%, ONTO +52%) = equipment-adjacent names, NOT bottleneck-direct → real regime differentiation, not vindication of prior
+
+**Single-day move base rate (2026-06-10-12 window):** 7-8 of 15 cohort names with single-day moves +5-12% within 48-72h; ≥3 names with single-day moves >+8% (MU +11.66%, SK Hynix +9.38%, ARM +8.32%). **The pre-training heuristic "+7-10% single-day move = extreme expectations exhaustion signal" is mis-calibrated for this regime.**
+
+**Origin case:** Kioxia VLSI Symposium 2026-06-12 pre-event registration (`predictions/2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md`). H2 (L14-v2 expectations exhaustion) weight initially raised to P~45% on +12.08% pre-event rally. B45 calibration corrected the read: +12% over 12 days for a Stage 3 AI-infrastructure bottleneck name is **within-regime pattern**, not exhaustion-specific. H2 reweighted back to P~30%; H1 (L14 original holds) restored to modal at P~40%. Recommendation flipped from Option B (reactive) to Option C (50/50 split). The exhaustion-misread WAS caught — but only because the user articulated the meta-bias and forced empirical verification. Without B45 codified, the same misread will recur on the next pre-event registration.
+
+**Correction rule:** In any session where the structural-demand AI-supercycle regime is confirmed per `sector/where-we-are.md`, BEFORE flagging any cumulative return or single-day move as "extreme," replace naive pre-training prior with the cohort empirical distribution:
+- 18-month bottleneck-name return: median +160%, P90 +800%+
+- Single-day move in AI-infra cohort: +5-12% routine (multiple times per week across cohort)
+
+**Direct downstream effects on existing frameworks:**
+1. **L14 / L14-v2 threshold recalibration needed.** The L14-v2 modifier (pre-print rally >10% over 5 days → 0 to -15% T+24h) was codified at AVGO N=1 in a regime where 10% in 5 days WAS unusual. In the current cohort, 10% in 5 days is sometimes a SINGLE-DAY move. Threshold candidate: 20-25% in 5 days to be diagnostic. Test at next L14 application.
+2. **Stage 3-4 modifier (Principle #31) may be too compressive.** "Stage 3 melt-up" framing assumes magnitude exhaustion that doesn't bind in supercycle regime. The principle's magnitude-compression effect may need to be reduced or stage-thresholds re-anchored.
+3. **Bear-case adversarial framework (P1 due 2026-06-27)** should use B45-corrected base rates, not pre-training base rates.
+
+**Falsifier:** If the cohort's median 18-month return drops below +60% in the next measurement period (re-run subagent calibration at 2026-09-12 quarterly cadence), revert toward standard prior. Intermediate audit 2026-06-24 monthly cycle: confirm B45 still binding on any new prediction registered between codification and audit.
+
+**Status:** CANDIDATE — N=1 origin 2026-06-12. Promotion to CONFIRMED requires:
+- N=2+ instances where B45 catch CHANGED a thesis output between 2026-06-12 and 2026-09-12 (forward applications)
+- OR a downstream L14/L14-v2 grade that proves the pre-training-anchored read was wrong by ≥10pp magnitude
+
+**Companion biases (the structural-anchoring family):**
+- B23 — Sell-side aggregation drift (forecast-step anchoring)
+- B26 — Pre-training as primary source
+- B28 — Cyclical-vs-structural mis-classification (sell-side LAG; classification-layer error)
+- **B45 — Pre-training magnitude conservatism (magnitude-layer error in structural regimes; B45 is the magnitude-layer companion to B28's classification-layer error)**
+
+**Cross-ref:**
+- `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md` — full empirical basket + classification table
+- `predictions/2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md` — origin case (reweight from PM to PM-2)
+- `meta/codification-rule.md` §1 — triggered codification (introduces new bias + methodological insight)

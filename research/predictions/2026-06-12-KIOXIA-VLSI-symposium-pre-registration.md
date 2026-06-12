@@ -186,6 +186,43 @@ Three reinforcing reasons (vs original pre-reg):
 
 ---
 
+## 2026-06-12 PM-2 update — B45 calibration correction (subagent-verified)
+
+User-articulated 2026-06-12 PM: my pre-training-anchored "+7-10% single-day move = extreme" read is mis-calibrated for the current structural-demand AI-supercycle regime. Subagent verification on a 15-name AI-infrastructure basket (Jan 2025 → June 12 2026) returned in `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md`. Full B45 codification at `meta/biases-watchlist.md`.
+
+**Headline calibration findings:**
+- 18-month basket distribution: 6 of 15 names returned >+200% (extreme outliers vs my naive prior of 0-1); 6 of 15 returned +100-200% (category outliers vs my naive prior of 1-2). **Tail under-modeling: ~5-8×.**
+- Most under-modeled: MU +1,044%, NBIS +1,528%, SK Hynix +799%, ALAB +323%, Kioxia +5,480%
+- Single-day move base rate June 10-12 window: 7-8 of 15 names with +5-12% moves in 48-72h; ≥3 with single-day moves >+8%. **Kioxia +7.64% = mid-distribution, not exhaustion-signaling.**
+
+### Hypothesis reweight (PM-2, B45-corrected)
+
+| H | AM | PM | **PM-2** | Δ vs PM |
+|---|---|---|---|---|
+| H1 — L14 original holds | P~45% | P~25% | **P~40%** (my model) | +15pp |
+| H2 — L14-v2 expectations exhaustion | P~30% | P~45% (modal) | **P~30%** (my model) | -15pp |
+| H3 — Paper thin / falsifier #2 | P~20% | P~20% | **P~20%** (my model) | 0 |
+| H4 — Macro confounder | P~5% | P~10% | **P~10%** (my model) | 0 |
+
+**Modal hypothesis flips back to H1.** L14-v2 threshold of >10% pre-print rally over 5 days was codified at AVGO N=1 in a pre-supercycle calibration; in the current regime that threshold likely needs to be 20-25% in 5 days to be diagnostic. Kioxia +12.08% over 12 days does not exceed it on current evidence.
+
+### Entry recommendation update (Option B → Option C)
+
+EV math (my model, back-of-envelope on ~€9K combined deployment):
+- **Option A** (€4-5K Kioxia + €5K SNDK now): EV ~+€247; variance ±€1,500
+- **Option B** (reactive post-T+24h): EV ~-€100 to +€100; lower variance but worse expectation than recalibration suggests
+- **Option C** (50/50 split — €2K Kioxia + €2.5K SNDK now, top up €2K/€2.5K on T+24h H1 confirm): EV ~+€150; variance ±€800. **Best risk-adjusted path.**
+
+**Recommended: Option C.** The earlier Option B recommendation was overweighted on H2 due to B45 pre-training magnitude conservatism. Option C captures half the H1 upside, halves H2/H3 downside, preserves reweight optionality on symposium content.
+
+### What this means beyond Kioxia
+
+- L14 / L14-v2 threshold recalibration needed (next grade application — likely SNDK Q2 FY27 print July 2026 — is the test)
+- Stage 3-4 modifier (Principle #31) may be too magnitude-compressive in supercycle regime
+- Bear-case adversarial framework (P1 due 2026-06-27) should use B45-corrected base rates
+
+---
+
 
 
 - This file (NEW) — pre-registration of the conditional prediction
