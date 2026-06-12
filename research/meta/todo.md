@@ -471,7 +471,7 @@
   - Origin: 2026-06-12 MRVL bear subagent — SPA exhibit not retrievable at T1; lock-up + standstill + exclusivity terms unverified; this drives MRVL falsifier #4
   - Scope: attempt EDGAR retrieval via alternate paths (10-Q/10-K reference exhibits, FOIA equivalents, redacted version in proxy materials); failing that, monitor for 13D/G or 8-K amendment exposing terms
 
-- [ ] **P0 / harness / 2026-06-12** [INFRA] — Activate macro-anchor-hook in ~/.claude/settings.json (USER AUTHORIZATION REQUIRED)
+- [x] **DONE 2026-06-12 PM** — Activate macro-anchor-hook in ~/.claude/settings.json — USER AUTHORIZED verbally ("I would activate it") 2026-06-12 20:11 UTC; registered as 14th Stop hook; verified via settings.json parse + sanity run exit 0. NOTE: session-prime-hook activation REMAINS PENDING (separate P0 item) — user's authorization was singular ("it") in macro-anchor context
   - Origin: 2026-06-12 user-articulated cross-session anchoring concern (every output should be macro-first research-anchored); Critical Rule #15 + B46 candidate codified same day; hook built + smoke-tested (fires on position-relevant without anchor; passes with macro/T1/tie-together marker)
   - Action: add `{"type":"command","command":"~/.claude/macro-anchor-hook.py"}` to Stop hooks array in ~/.claude/settings.json
   - Trade-off: more output friction (analytical responses must explicitly anchor to macro / tag claims / tie micro-to-macro); user explicitly accepted "slower replies, more accuracy" trade
