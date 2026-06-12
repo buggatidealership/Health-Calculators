@@ -6,7 +6,7 @@
 
 **Trigger:** User-shared Korean Twitter signal from SK Hynix Japan-based employee. Per Critical Rule #6 + Principle #36 multilingual parallel, treated as primary-tier qualitative source. Detail: `signals/cross-source-log/2026-06-08-korean-insider-tweet-socamm-selloff-7th-tier.md`.
 
-### 7-tier convergence ledger (memory shortage thesis)
+### 8-tier convergence ledger (memory shortage thesis)
 
 | # | Tier | Date |
 |---|---|---|
@@ -17,6 +17,7 @@
 | 5 | Industry-insider forward guidance (Lexar doubling by year-end) | June 6, 2026 |
 | 6 | Automotive vertical confirmation (CCTV +180% / >10 EV makers) | June 6-7, 2026 |
 | **7** | **Frontline supplier-side qualitative (SK Hynix Japan-based employee; allocation hierarchy US > China > Japan; ASPs continuing UP; Nintendo paying +41% for LPDDR5X)** | **June 8, 2026** |
+| **8** | **Consumer-GPU OEM behavioral adaptation (Manli reissues RTX 3060/3050 for Asia per Tom's Hardware T2 — 4-year-old SKUs resurrected because memory supply constraints make new-architecture pricing untenable; see `signals/cross-source-log/2026-06-11-evening-brief-19-item-triage.md`)** | **June 11, 2026** |
 
 This is the HIGHEST possible qualitative signal tier short of company management direct quote. Thesis structurally confirmed at every plausible tier of evidence; debate has fully transitioned from "is there a shortage" to (a) duration assessment, (b) commodity-vs-HBM tier-specific moat durability against Chinese substitution.
 
