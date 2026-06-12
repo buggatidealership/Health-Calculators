@@ -405,3 +405,15 @@
 - [ ] **P3 / process / 2026-06-24** [OPT] — INDEX.md + tags.md refresh + monthly audit consolidation
   - Origin: `INDEX.md` monthly refresh cadence; tags.md sync with newly added principles/biases/lessons
   - Scope: regenerate INDEX held-positions section against `portfolio/holdings.md`; sync tags.md against actual file state; cross-source-log >30 days summarized into triangulation entries OR explicitly flagged as noise
+
+- [ ] **P1 / harness / 2026-07-12** [INFRA, CAL] — B45 priming-bracket effectiveness check (30-day audit)
+  - Origin: 2026-06-12 user-articulated cross-session-anchoring concern; H1+H3 priming-hook addition + CLAUDE.md banner shipped same day to counter pre-training magnitude conservatism
+  - Scope: grep session transcripts 2026-06-12 to 2026-07-12 for magnitude-categorizing language ("extreme", "elevated", "exhaustion-signaling", "above expectation", "stretched", "priced-to-perfection") combined with %-magnitude language. Cross-check: did each instance reference B45 / regime base rate / cohort empirical data? If yes → priming works. If no → priming failed; escalate to H2 (build deterministic magnitude-claim Stop hook)
+  - Metrics: POSITIVE = ≥80% of magnitude flags reference B45/regime; NEGATIVE = <50% reference (instructions not enforced); FALSIFIER = 3+ magnitude-categorizing instances with NO B45 reference → build Stop hook same day
+  - Linked: `meta/biases-watchlist.md` B45, `meta/hooks/llm-native-priming-hook.py`, `CLAUDE.md` regime-corrected-priors banner
+
+- [ ] **P1 / research / 2026-09-12** [CAL, INDP] — B45 cohort base-rate quarterly recalibration
+  - Origin: B45 codification 2026-06-12 — empirical regime base rates need quarterly re-verification; falsifier in B45 specifies "if cohort median 18-month return drops below +60% in next measurement period, revert toward standard prior"
+  - Scope: re-run the 15-name AI-infrastructure basket subagent calibration (same names + Kioxia reference) for Jan/Feb 2026 → Sep 2026 window. Compute new band counts. If extreme-outlier count drops below 2 of 15 (vs current 6 of 15), regime priors weakened — update CLAUDE.md banner + priming hook item 8 to reflect new base rate. If extreme-outlier count stays ≥4 of 15, regime priors confirmed — B45 promoted from CANDIDATE to CONFIRMED.
+  - Cascade: principle-applications-log.md entry + biases-watchlist.md B45 status update + CLAUDE.md banner refresh if needed
+  - Linked: `meta/biases-watchlist.md` B45, `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md`

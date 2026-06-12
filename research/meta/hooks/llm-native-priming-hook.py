@@ -137,6 +137,23 @@ LLM-NATIVE MULTI-DIMENSIONAL.
    OR T1/T2/T3 source tier OR Bayesian-update derivation. Never bare
    probability.
 
+8. REGIME-CORRECTED PRIORS (B45, codified 2026-06-12) — your
+   pre-training data is mis-calibrated for the current structural-
+   demand AI-supercycle regime. Empirical 15-name AI-infrastructure
+   basket Jan 2025 -> Jun 2026: 6 of 15 names returned >+200%; 6 of
+   15 returned +100-200%; tail under-modeled by ~5-8x. Single-day
+   moves of +5-12% across cohort are routine (multiple times per
+   week). BEFORE flagging any return or single-day move as
+   "extreme", "elevated", "exhaustion-signaling", "above
+   expectation", "stretched", or "priced-to-perfection", consult
+   the regime base rate per `research/meta/biases-watchlist.md`
+   B45 and `research/signals/cross-source-log/2026-06-12-pre-
+   training-magnitude-conservatism-calibration.md`. Regime base
+   rates binding until 2026-09-12 quarterly recalibration. This
+   item exists because pre-training will pull you toward
+   conservative magnitude reads even when the explicit calibration
+   data contradicts that read.
+
 This is NOT a checklist to read and ignore. It is a sampling-
 distribution bias applied BEFORE you generate the first token.
 Generation that survives this priming + the Stop-hook pruning layer

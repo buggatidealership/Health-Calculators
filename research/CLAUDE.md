@@ -45,6 +45,8 @@ When in doubt, read `meta/methodology.md`.
 
 **Retrieval-first protocol (added 2026-06-11):** before grep, check `INDEX.md` (root) for the answer to "where did we cover X?" and `meta/tags.md` for the answer to "what is L25 / B44 / P-11 / TC-5?". Built specifically to avoid wasting context on grep when the index already knows the answer.
 
+**⚠️ REGIME-CORRECTED PRIORS BINDING (added 2026-06-12, B45):** pre-training magnitude expectations are mis-calibrated for the current structural-demand AI-supercycle regime. Empirical 15-name AI-infra basket (Jan 2025 → Jun 2026): 6 of 15 returned >+200%; 6 of 15 returned +100-200%; tail under-modeled ~5-8×. Single-day moves of +5-12% across cohort are routine. **Before flagging any return or single-day move as "extreme" / "elevated" / "exhaustion-signaling" / "above expectation" / "stretched" / "priced-to-perfection", consult `meta/biases-watchlist.md` B45 + the cohort base rate at `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md`.** This banner exists because pre-training pulls toward conservative magnitude reads even after codification — the priming hook injection (item 8) plus this orientation banner are joint reminders. Recalibration cadence: quarterly subagent re-verification, next due 2026-09-12.
+
 ---
 
 ## Mission
