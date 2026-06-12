@@ -417,3 +417,21 @@
   - Scope: re-run the 15-name AI-infrastructure basket subagent calibration (same names + Kioxia reference) for Jan/Feb 2026 → Sep 2026 window. Compute new band counts. If extreme-outlier count drops below 2 of 15 (vs current 6 of 15), regime priors weakened — update CLAUDE.md banner + priming hook item 8 to reflect new base rate. If extreme-outlier count stays ≥4 of 15, regime priors confirmed — B45 promoted from CANDIDATE to CONFIRMED.
   - Cascade: principle-applications-log.md entry + biases-watchlist.md B45 status update + CLAUDE.md banner refresh if needed
   - Linked: `meta/biases-watchlist.md` B45, `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md`
+
+- [ ] **P0 / harness / 2026-06-12** [INFRA] — Activate session-prime-hook in ~/.claude/settings.json (USER AUTHORIZATION REQUIRED)
+  - Origin: 2026-06-12 user-proposed reference-system architecture to force every fresh session to load load-bearing ledger items. File + hook + docs built and smoke-tested; auto-mode classifier blocked settings.json edit (correctly — wiring auto-executing startup hook requires explicit authorization).
+  - Action: add a second hook entry to the SessionStart hooks array in ~/.claude/settings.json: `{"type":"command","command":"~/.claude/session-prime-hook.py"}` after the existing session-start-hook.py entry.
+  - Trade-off: ~10K extra tokens per cold session start (NOT on resume) in exchange for higher baseline calibration from first turn
+  - Falsifier already in place: 2026-07-12 30-day audit checks for measurable reduction in bias-recurrence rate; retire both file + hook if no measurable benefit
+  - Linked: `meta/session-prime.md`, `meta/hooks/session-prime-hook.py`, `meta/hook-fire-log.md` (logs each fire)
+
+- [ ] **P1 / harness / 2026-07-12** [INFRA, CAL] — Session-prime + B45 priming effectiveness joint audit (30-day check)
+  - Origin: 2026-06-12 cross-session-anchoring defense stack (CLAUDE.md banner + priming hook item 8 + session-prime force-load)
+  - Scope: grep transcripts 2026-06-12 → 2026-07-12 for (a) magnitude-categorizing language without B45 reference; (b) revert to pre-training base rates on AI-infra names; (c) session-prime.md staleness — was it updated when codifications happened?
+  - Metrics: POSITIVE = <2 magnitude-flag instances without B45 reference + session-prime updated within 7 days of every codification commit; NEGATIVE = ≥3 magnitude reverts OR ≥2 codifications without session-prime update → escalate to magnitude-claim Stop hook + session-prime-cascade-hook
+  - Linked: `meta/session-prime.md`, `meta/biases-watchlist.md` B45, `meta/hooks/llm-native-priming-hook.py`, `meta/hook-fire-log.md`
+
+- [ ] **P2 / harness / 2026-06-24** [INFRA] — Session-prime curation rule integration into monthly audit
+  - Origin: 2026-06-12 session-prime.md created with explicit cap rules (500-line hard / 250-400 target) — needs first monthly audit verification
+  - Scope: at monthly codification audit (2026-06-24), verify session-prime.md (a) is ≤500 lines, (b) all listed CANDIDATE biases are still active (not gone INERT >30 days), (c) listed recent lessons are within rolling-5 window, (d) regime base rate not stale, (e) any codification commits since session-prime creation also updated session-prime
+  - Action: prune INERT items; promote/demote per the file's own cap rules; add to consolidated monthly audit checklist
