@@ -440,3 +440,9 @@
   - Origin: 2026-06-12 morning brief surfaced 4-signal stack over 2 days on agentic-deployment-without-observability failing (DN42 agent bankruptcy + KPMG hallucinations report + DeepMind multi-agent safety funding + botsitting 6+hrs/wk). Segment: agentic-application. Direct tailwind for DDOG + NOW (both held). Per Critical Rule #14, N≥3 same-segment same-direction → promotable.
   - Scope: at 2026-06-24 monthly audit, verify the 4 source items remain T2/T3-tier; check for additional same-segment signals between 2026-06-12 and 2026-06-24; if N≥5 with same direction → promote TC-9 to ACTIVE and cascade sizing-implication review for DDOG + NOW; if signals drift to different sub-segments → keep CANDIDATE and re-examine at next monthly audit
   - Linked: `signals/cross-source-log/2026-06-12-morning-brief-21-item-triage.md` §5; `companies/DDOG/thesis.md` 2026-06-12 cross-ref; `companies/NOW/thesis.md` 2026-06-12 cross-ref
+
+- [ ] **P2 / verification / 2026-09-30** [INDP, AF, POS] — ALAB Trainium3 Scorpio fabric award watch (Q3 2026 expected per RBC T2)
+  - Origin: 2026-06-12 connectivity-layer re-evaluation (`signals/cross-source-log/2026-06-12-connectivity-layer-alab-reevaluation-2subagent.md`) — single most informative upcoming datapoint for the ALAB H1/H3 split
+  - Scope: confirm whether AWS Trainium3 scale-up fabric socket goes to ALAB Scorpio or MRVL; if ALAB → entry trigger (a) fires, enter 2-3% per re-evaluation; if MRVL → demote ALAB watchlist P2→P3 + H3 (absorption squeeze) reweights up materially
+  - Secondary triggers tracked same item: 2nd CXL hyperscaler disclosure (CATEGORY EVENT, run L14-v2 pre-rally check before entry); ALAB Q2-26 print ~Aug 11 (estimate)
+  - Linked: `companies/ALAB/thesis.md` 2026-06-12 re-evaluation
