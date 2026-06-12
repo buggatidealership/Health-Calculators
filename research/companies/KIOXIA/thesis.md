@@ -1,6 +1,6 @@
 # Kioxia Holdings (285A.T / キオクシア) — Thesis
 
-**Last updated:** 2026-06-02 (initial creation post 3-subagent deep-dive on Kioxia $320B 2026 NAND projection + capex + lead-time verification + Japanese-language primary IR pull)
+**Last updated:** 2026-06-12 (pre-event registration for VLSI Symposium June 14-18 — L14/L14-v2 forward-application test, L17 candidate N=1, per `predictions/2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md`; entry framework refreshed against post-rotation portfolio reality — SNDK is now 2.88% not 5.2% per `portfolio/holdings.md` 2026-06-06, cash on Degiro ~€120,887, recommended Option B reactive entry post-T+24h given L14 just falsified at N=1 on AVGO; counter-option: SNDK €5K top-up alone as higher-Kelly partial path). Prior: 2026-06-02 (initial creation post 3-subagent deep-dive on Kioxia $320B 2026 NAND projection + capex + lead-time verification + Japanese-language primary IR pull)
 **Tier:** WATCHLIST → ACTIVE candidate (upgrade trigger: VLSI Symposium June 14-18 joint MSA-CBA paper validation + Q1 FY27 print confirmation OR -10% pullback from spot ~¥72,450)
 **Position target:** 0% currently; 2-5% on trigger event (Quarter-Kelly on 3.5/5 anti-fragility + Stage 3 modifier per principle #31)
 **Anti-fragility:** 3.5/5 scenarios (wins S1 + S2 strongly; partial S3; loses S4; partial-WIN S5 Japan moat)

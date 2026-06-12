@@ -85,7 +85,7 @@
   - Scope: Establish dedicated thesis if HVLP4 exposure is desired without Mitsui Stage 3-4 entry penalty. Check FY26 actuals + FY27 guidance + HVLP segment contribution + capacity disclosures + analyst PTs
   - Linked: `watchlist/candidates.md`
 
-- [ ] **P1 / research / 2026-06-14** [INDP, AF, POS, CAL] — Kioxia (285A.T) VLSI Symposium June 14-18 watch + L17 candidate test N=1 application
+- [ ] **P1 / research / 2026-06-14** [INDP, AF, POS, CAL] — Kioxia (285A.T) VLSI Symposium June 14-18 watch + L17 candidate test N=1 application (**PRE-REGISTRATION COMPLETE 2026-06-12** at `predictions/2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md`; pending Pending in `grading-log.md`; T+24h resolution ~June 19-22, T+72h ~June 22-25)
   - Origin: Kioxia 3-subagent deep-dive 2026-06-02 surfaced Stage 3 mid-melt-up with imminent CATEGORY EVENT catalyst (joint Kioxia/SanDisk MSA-CBA paper at VLSI Symposium Hawaii Jun 14-18). Forward P/E 6.24×; FY27 Q1 guide NP ¥869B = 48× YoY profit jump per [Nikkei Asia T1](https://asia.nikkei.com/business/tech/semiconductors/japan-s-kioxia-forecasts-48-fold-quarterly-profit-jump-on-ai-demand). User considering ~€4-5K initial entry parallel to SNDK SIZE UP.
   - Scope: (a) Monitor VLSI Symposium June 14-18 for joint MSA-CBA paper + 332-layer BiCS10 validation + 1000-layer roadmap commentary; (b) Track stock reaction T+24h to T+72h to validate L14 framework forward-application (L17 candidate); (c) If entry occurs, document as N=1 forward-application of L14 framework — pre-entry estimate +20-30% per Stage 3 + CATEGORY EVENT; if actual reaction +20-40%, L17 codified at N=1
   - Falsifier: If Kioxia drops >10% pre-VLSI Symposium OR if VLSI presentation doesn't materially validate MSA-CBA architecture, entry timing was wrong

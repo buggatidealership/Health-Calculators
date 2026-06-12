@@ -8,7 +8,9 @@ Index of every prediction made by the system. Each row resolves to "pending" or 
 
 ## Pending
 
-*(none — all resolved as of 2026-06-02)*
+| Date made | Resolution target | Ticker | Event | Prediction file |
+|---|---|---|---|---|
+| 2026-06-12 | T+24h ~2026-06-19 to 22 (paper-dependent); T+72h ~06-22 to 25 | KIOXIA | VLSI Symposium 2026 joint Kioxia/SanDisk MSA-CBA paper (L14/L14-v2 forward-application test, L17 candidate N=1) | `2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md` |
 
 ## Graded
 
