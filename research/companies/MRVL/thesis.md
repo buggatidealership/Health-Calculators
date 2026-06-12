@@ -8,14 +8,18 @@
 
 ---
 
-## TL;DR
+## TL;DR (REFRAMED 2026-06-12 PM — B46 catch validated; see `signals/cross-source-log/2026-06-13-MRVL-jensen-reframe-B46-validation.md`)
 
-Marvell is no longer the storage-cycle name pre-training anchors on — Data Center is **74% of FY26 revenue ($6.1B of $8.2B)** per T1 10-K with custom-ASIC ramp + interconnect inflection (>70% YoY mgmt guide) driving FY27-28. The NVDA $2B = **Series A Convertible Preferred at $91.84 strike** (NVDA ~3× in-the-money at spot), no board seat, structural NVLink-Fusion ecosystem insurance — NOT IP transfer. Three load-bearing negatives partially offset the bull narrative: **(a) Inphi DSP designed OUT of AVGO TH6-Davisson CPO** (AVGO uses Sian3 in-house); **(b) Trainium3/4 content demotion confirmed by Benchmark Research** (Amazon added Alchip primary design, PCIe SerDes to Synopsys not MRVL); **(c) Google TPU v8 split confirmed to AVGO (Sunfish) + MediaTek (Zebrafish)** — MRVL only "in talks" for separate inference chip. Concentration: AWS estimated ~60-70% of custom ASIC (my model). At ~$287 / ~$260B mkt cap / ~16x FY28 mgmt guide revenue ($16.5B): **within B45 cohort precedent** (NOT pre-training "extreme") but priced for execution with limited margin of safety. S&P inclusion June 22 is imminent K5 forced-buy-then-sell-the-news risk.
+Marvell is **NVDA's strategic preferred non-AVGO XPU co-design partner for the heterogeneous AI-factory era** — bull case is materially BROADER than "AWS-anchored custom Si." Jensen's "$1T company" Computex Jun-2 endorsement was framed around connectivity-disaggregation thesis (T1 verbatim "what's necessary is connectivity"), NOT AWS Trainium specifically. NVDA $2B = strategic competitive asymmetry vs AVGO (AVGO Tomahawk directly competes with NVDA Spectrum-X ~$8B+ ARR T1; MRVL Teralynx does not; "poison pill against Broadcom" framing T2-converged across 5+ outlets). Data Center is 74% of FY26 revenue ($6.1B of $8.2B T1 10-K) with custom-ASIC ramp + interconnect >70% YoY guide. NVDA $2B = Series A Convertible Preferred at $91.84 strike, no board seat. Bear leg STILL REAL: Trainium3/4 content demotion confirmed (Benchmark T2); Google TPU v8 to AVGO+MediaTek (T1); Inphi DSP designed OUT of AVGO TH6-Davisson CPO. Concentration: AWS estimated ~60-70% of custom ASIC (my model — recall-based, verify before sizing). Inphi DSP "per-bit royalty across all accelerators" thesis is REAL but quantitatively small (~$75-150M/yr order of magnitude, my model). At ~$287 / ~$260B mkt cap / ~16x FY28 mgmt guide revenue: within B45 cohort precedent. S&P inclusion June 22 = imminent K5 risk. **Reframe ties to macro:** connectivity layer is downstream of bit-thermodynamics (durable); custom ASIC is downstream of hyperscaler strategy (volatile); MRVL straddles both via NVLink Fusion ecosystem anchor. Trillion-dollar claim is aspirational (requires ~8-10× revenue from FY26 $8.2B) — achievable at scenario level not base case in 3 years.
+
+**"8 hyperscalers in NVLink Fusion discussion" FALSIFIED** — unsourced; confirmed = AWS + MSFT + Google in talks = 3. Removing from thesis going forward.
 
 ---
 
-## Bull case (P=35%, my model)
+## Bull case (P=40%, my model — reweighted +5pp 2026-06-12 PM post-Jensen-reframe; consistent with macro first-principles read that connectivity-layer demand is downstream of bit-thermodynamics)
 
+- **NVLink Fusion connectivity-layer anchor**: NVDA's strategic preferred non-AVGO XPU co-design partner — every hyperscaler that adopts custom Si in a NVDA-fabric-attached pod pays MRVL toll
+- **Strategic asymmetry vs AVGO is structural** (research-verified 2026-06-12 T2-triangulated 5+ outlets): AVGO Tomahawk competes with NVDA Spectrum-X; NVDA cannot make $2B bet on AVGO; MRVL Teralynx does not threaten Spectrum-X → NVDA's preferred partner status is durable
 - **FY28 "more than double" custom Si delivers** via Trainium ramp + Google MPU conversion + new NVLink Fusion XPU programs (10+ pipeline per mgmt Q1 FY27 call T1)
 - Interconnect >70% YoY FY27 growth sustains; DCI $1B ARR + scale-up optics $300M by FY28 (T1 mgmt)
 - Inphi DSP retains channel-conflict-free wedge in 800G/1.6T pluggable optics (~70% share at top tier per mgmt claim — T2 unverified independent — flag)
@@ -23,7 +27,7 @@ Marvell is no longer the storage-cycle name pre-training anchors on — Data Cen
 - B45 regime tolerates 16x FY28 forward revenue multiple (NVDA traded 20-25x at similar stage; not "stretched" by cohort base rate)
 - Expected return: **+30-50% over 12-18 months** (my model)
 
-## Bear case (P=30%, my model)
+## Bear case (P=25%, my model — reweighted -5pp 2026-06-12 PM post-Jensen-reframe; structural asymmetry vs AVGO reduces tail risk)
 
 - **Trainium3/4 content demotion CONFIRMED** (Benchmark Research T2 via TipRanks 2026) — Amazon added Alchip primary design; PCIe SerDes went to Synopsys not MRVL; if Trainium5 (FY28-29) goes fully to Alchip / in-house → primary anchor collapses
 - **Google TPU v8 confirmed to AVGO (Sunfish training) + MediaTek (Zebrafish inference)** (T1 Google Blog 2026 + T2 trade press); MRVL only in talks for inference chip — if talks fail, "more than double" FY28 anchor breaks
