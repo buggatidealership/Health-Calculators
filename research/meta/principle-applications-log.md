@@ -181,3 +181,16 @@ Per user directive 2026-06-11 ("codify the gap that decides which chat-only corr
 - CLAUDE.md Critical Rule #13 promotion pending N=2+ confirmation per principle #32 premortem
 
 Rule #13 candidate logged as `Rule #13 application` tag-ready for monthly audit grep.
+
+## 2026-06-12 EOD — User-articulated meta-observation: INPUT-SHAPE effect (candidate principle for 2026-06-24 audit)
+
+User verbatim (closing statement 2026-06-12): "when I initially found the... directionally correct companies in January and December, I think I was starting more from a first principle basis instead of feeding you company names. Because when I feed you company names... there's a high likelihood that you will then only look at that company and how it's positioned in our portfolio... the value came out of me better understanding the tech stack, what you would see, how I would see agents growing."
+
+**The observation:** INPUT SHAPE conditions output quality. Name-first inputs ("evaluate MRVL") trigger company-anchored analysis — competent but bounded to the name. Principle-first inputs ("where does the AI stack bind next?") trigger DISCOVERY — which is where the Dec-2025/Jan-2026 directionally-correct picks came from. Workflow #9 (codified today) partially structurally fixes this by forcing macro-first even on name-first inputs, but the deeper version: when user feeds a name, ALSO ask "what would the principle-first path have surfaced here — is this name even the best expression of its layer?"
+
+**Status:** CANDIDATE observation, N=1 user articulation; cross-validates with today's B46 origin case (name-first MRVL analysis missed layer-level strategic logic). Review at 2026-06-24 monthly audit alongside Workflow #9 first applications — if #9 applications keep surfacing better-expression-of-layer alternatives, promote to principle.
+
+**Also reaffirmed by user same statement (no action needed, working as designed):**
+- Cascade discipline on shared data: "has been relatively good" — keep
+- No fabrication, reputable-source inference, reverifiability: "already worked out to some extent" — keep enforcing via anti-fabrication hook + source-tiering
+- No held-name defensive bias: negative news on held names must be surfaced honestly ("you're not too biased to tell") — standing expectation, aligns with adversarial bear-case discipline (B-case subagent steel-manning per 2026-06-12 MRVL precedent + monthly H2 stress-test cycle)
