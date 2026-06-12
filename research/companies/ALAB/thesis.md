@@ -1,6 +1,18 @@
 # Astera Labs (ALAB) — Thesis (Compact)
 
-**Last updated:** 2026-06-04 (Alphabet $85B back-reference; no thesis change)
+**Last updated:** 2026-06-12 (full connectivity-layer re-evaluation post-exit; 2-subagent deep-dig per `signals/cross-source-log/2026-06-12-connectivity-layer-alab-reevaluation-2subagent.md`)
+
+## 2026-06-12 re-evaluation (position: 0% — exited 2026-06-05 in rotation, not falsification)
+
+**Evaluation matrix verdict: 6.7/10 weighted (my model)** — elite commercial traction (AWS $6.5B warrant tied to Scorpio purchases per T1 10-Q; Azure Leo only named hyperscaler CXL production; PCIe Gen6 >1/3 revenue) and best-in-class breadth, but the layer's existential question is platform-vendor absorption: NVLink Fusion + Feynman-2028 CPO close the switch-layer copper window, and NVDA's $2B stake in MRVL (Mar-26 T1) funds ALAB's most direct Scorpio competitor. Stock re-rated to ~$369 (June 12; stale prior anchor ~$338); ~3 customers ≈ 80% revenue per SEC filings.
+
+**Hypotheses (my model):** H1 P~40% scale-up switching re-rate (Scorpio largest product line by YE + Trainium3 win + 2nd CXL hyperscaler CATEGORY EVENT); H2 P~35% concentration-capped grind; H3 P~25% absorption squeeze (NVLink Fusion/MRVL capture sockets + CPO cliff pre-optical-roadmap).
+
+**Net read: high-quality 24-month-window trade, not yet a durable-moat compounder** — moat is execution velocity vs two better-resourced absorbers (NVDA, AVGO), unlike physics/qualification moats in the held memory cohort.
+
+**Position implication: RE-ENTER WATCHLIST P2 — no immediate entry — triggers: (a) Trainium3 Scorpio fabric award (expected Q3-26 per RBC T2) → 2-3%; (b) 2nd CXL hyperscaler named (L14 CATEGORY EVENT; check L14-v2 pre-rally <10%) → 2-3%; (c) pullback toward consensus-PT zone without thesis deterioration (analyst-PT framing; neutral, not used as valuation argument) → 2%. Cap 3% on concentration + 2028 CPO cliff. Watchlist falsifier: Trainium3 socket to MRVL → demote P3.**
+
+---
 
 ## 2026-06-04 back-reference
 
