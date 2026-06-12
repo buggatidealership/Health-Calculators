@@ -484,7 +484,4 @@
   - Metrics: POSITIVE = ≥3 fires AND each caught a genuine recall-anchored output AND user reports framing improvements; NEGATIVE = <3 fires (inert) OR ≥30% false-positive rate
   - Linked: `meta/hooks/macro-anchor-hook.py`; `meta/biases-watchlist.md` B46; `CLAUDE.md` Critical Rule #15; `meta/hook-fire-log.md`
 
-- [ ] **P2 / methodology / 2026-06-20** [INFRA] — Workflow #9 MACRO-FIRST RESEARCH full specification in `meta/methodology.md`
-  - Origin: 2026-06-12 Critical Rule #15 codification (specification stub only); full workflow spec deferred for follow-up commit
-  - Scope: write Workflow #9 in same format as Workflows #1-#8 (steps, output template, quality bar, what triggers Workflow #9 vs Workflow #8 DEEP-DIG)
-  - Linked: `CLAUDE.md` Critical Rule #15; `meta/methodology.md` workflows section
+- [x] **DONE 2026-06-12 PM** — Workflow #9 MACRO-FIRST RESEARCH full specification — completed early (was due 2026-06-20); written into CLAUDE.md Core Workflows section as Workflow #9 incorporating user's 5-step pipeline articulation verbatim (research pass → first-principles articulation → metric evaluation → future inference via triangulation + pattern-matching against P-register/TC-clusters → company tie-in). Quality bar + #8 relationship + origin failure + falsifier all specified. Artifact: CLAUDE.md §Workflow 9.

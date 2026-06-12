@@ -198,7 +198,7 @@ Then, before responding to the user:
 
 ---
 
-## Core Workflows (8 named modes)
+## Core Workflows (9 named modes)
 
 Always announce the workflow name in your response so the user knows the mode.
 
@@ -409,6 +409,36 @@ Files updated:
 - Specific falsifier (not "if AI demand slows")
 
 If any of these can't be met from open-web sources, state explicitly: "Source gap on [X] — would need [paid newsletter / earnings call transcript / trade press source]." Don't fabricate to fill gaps.
+
+---
+
+### 9. MACRO-FIRST RESEARCH — research-anchored first-principles pipeline (codified 2026-06-12 per user articulation; enforced by Critical Rule #15 + macro-anchor-hook LIVE)
+
+**Trigger:** any thesis-level or layer-level analysis where (a) entering a NEW layer/segment not analyzed in the last 30 days, OR (b) re-examining an existing analysis after a user-caught framing error, OR (c) any position-relevant output where the current first-principles state has no date-anchored verification in the harness.
+
+**User articulation 2026-06-12 verbatim (the design input):** *"before doing an analysis, there should be a [hook] that forces research to understand first principle thinking of where we are today. and then what you infer where this is heading. Right? So you pass through data, which is your research, and then you evaluate, okay, these are the most common and most important metrics, what is happening there. And then you can form a picture of what the future might look like by not only triangulating, but also pattern matching across n amount of data points that you're ingesting."*
+
+**The 5-step pipeline:**
+
+| Step | Name | What happens | Output |
+|---|---|---|---|
+| 0 | **RESEARCH PASS** | Subagent fan-out on the CURRENT state of the layer/regime (not the company). Web-verified, date-anchored, T1/T2-tiered. Native-language parallel where relevant (Principle #36) | Raw current-state data, source-tiered |
+| 1 | **FIRST-PRINCIPLES ARTICULATION** | From the research (NOT pre-training): what are the physics/constraints/incentives that define this layer TODAY? What is inelastic vs strategic? What is the binding constraint? | Date-stamped first-principles statement |
+| 2 | **METRIC EVALUATION** | Identify the most common AND most important metrics for this layer; what is HAPPENING in them right now (direction, rate, inflection) | Metric table with current readings + direction |
+| 3 | **FUTURE INFERENCE** | Form the forward picture via BOTH: (a) triangulation (≥3 same-segment converging signals per Workflow #3 / Critical Rule #14) AND (b) cross-pattern matching against the N accumulated data points in `meta/cross-domain-pattern-register.md` (P-1..P-11+) and `signals/triangulation.md` (TC-1..TC-8+) — does this layer's current state match a mechanism the harness has already verified elsewhere? | Forward thesis with P-weighted scenarios + named pattern-matches |
+| 4 | **COMPANY TIE-IN** | ONLY NOW run company-level analysis (Workflow #8 DEEP-DIG or thesis build). Every micro detail must tie to the step-1 first-principles statement or surface as explicit contradiction (B46 check) | Thesis with macro-anchored, research-tagged claims |
+
+**Quality bar:**
+- Step 0 must produce ≥1 NEW cross-source-log artifact OR cite one dated within 30 days for this layer
+- Step 1 must be derivable from step-0 sources, not pre-training (research-verified tags required)
+- Step 3 must name SPECIFIC pattern-register entries (P-N) or triangulation clusters (TC-N) matched — "pattern matching" without named patterns is decoration
+- Step 4 contradiction-check is mandatory: if micro details contradict the step-1 macro statement OR a credible institutional signal, surface BEFORE concluding (B46)
+
+**Relationship to Workflow #8 (DEEP-DIG):** #8 remains the company/component-level drill. #9 wraps #8 when the layer-context is stale or new. If the layer was #9-verified within 30 days (dated cross-source-log exists), #8 can run standalone citing that artifact.
+
+**Origin failure (why this exists):** MRVL deep-dive 2026-06-12 ran company-level analysis (#8-style) without a current-state layer verification first; produced a detail-rich bear framing contradicting the NVDA $2B + Jensen institutional signal. User caught it; Jensen-reframe subagent validated the catch (B46 N=1). The pipeline ordering — macro-first, then company — is the structural fix.
+
+**Detectability/falsifier (re-eval 2026-07-12 with B46/macro-anchor audit):** POSITIVE = #9 applications produce step-3 pattern-matches that change conclusions vs what #8-alone would have said; NEGATIVE = step 0-3 always produces the same generic landscape regurgitation adding nothing → collapse #9 back into a lighter pre-flight check.
 
 ---
 
