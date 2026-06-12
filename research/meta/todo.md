@@ -98,7 +98,8 @@
   - Linked: `companies/SNDK/thesis.md`, `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md`, `predictions/lessons.md` L14 codification + L17 candidate
 
 
-- [ ] **P1 / harness / 2026-06-08** [INFRA, CAL] — Two-bracket LLM-native enforcement experiment week-1 check
+- [ ] **P1 / harness / 2026-06-19** [INFRA, CAL] — Two-bracket LLM-native enforcement experiment WEEK-2 check (week-1 DONE 2026-06-12, 4 days late — see `meta/recurring-audit-log.md` 2026-06-12 entry: 8 deduped fires 06-01→05, ZERO 06-06→12 → DECREASING → H2 reweighted to P~45% (my model); both hooks KEPT; fire-logging instrumentation added to `meta/hook-fire-log.md` so week-2+ reads the committed log instead of transcript archaeology. Week-2 scope: count genuine fires 06-12→19 from hook-fire-log.md, cross-check transcripts if available, confirm logger works (fires in transcripts but not log = logger broken), reweight H1/H2/H3. 30-day close ~07-01.)
+  - Original item (week-1, for reference): Two-bracket LLM-native enforcement experiment week-1 check
   - Origin: 2026-06-01 user authorized live install of `llm-native-priming-hook.py` (UserPromptSubmit) + `structural-output-hook.py` (Stop). Two-bracket architecture: priming biases sampling distribution pre-generation; Stop hook companion enforces structural-output requirements post-generation.
   - **30-day experiment framing**: Track structural-output-hook fire rate week-by-week to distinguish:
     - **H1 (P~70% my model)**: pretraining gravity dominates → fires plateau or stay flat → retire both hooks

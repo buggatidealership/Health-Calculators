@@ -84,3 +84,29 @@ User confirmed 2026-05-21 they primarily interact via Claude Code on phone (web/
 - Adds: session starts automatically on schedule even with no user interaction
 - Trade-off: more autonomous but more setup cost; only worth it if recurring audits happen often enough for the convenience to matter
 - Skip by default unless user asks
+
+---
+
+## RECURRING-AUDIT: 2026-06-12 — Two-bracket LLM-native experiment, week-1 check (due 06-08, ran 4 days late)
+
+**Method:** transcript archaeology over `/root/.claude/projects/-home-user-Health-Calculators/*.jsonl` — grep for the fire-feedback string, then dedupe by per-second timestamp (forked/resumed transcript copies multiply-counted single events ~10x) and exclude quote-contamination (44 matches were the hook's own source code being read/discussed in transcripts, incl. 1 self-measurement artifact on 06-12 where the dedupe script itself matched).
+
+**Genuine deduplicated fire events:**
+
+| Date | Fires |
+|---|---|
+| 2026-06-01 (install day) | 1 |
+| 2026-06-03 | 1 |
+| 2026-06-04 | 4 |
+| 2026-06-05 | 2 |
+| **2026-06-06 → 06-12** | **0 (7 consecutive days)** |
+
+Week 1 (06-01→07): 8 fires. Week 2 partial (06-08→12): 0 fires. Session volume during the zero-fire window was HIGH (where-we-are.md logs material sessions 06-06/07/08/10/11), so the zero is not a no-activity artifact.
+
+**Hypothesis update (pre-registered H1 P~70% plateau / H2 P~20% decrease / H3 P~10% increase, my model):** trajectory is DECREASING → consistent with H2, against the H1 prior. Reweight: H2 P~45% / H1 P~35% / H3 P~10% / measurement-confound residual P~10% (my model). NOT yet conclusive because of two confounds:
+1. **Exemption breadth** — `\bhook\b`, `Principle #`, `codif*` exemptions auto-pass meta-discussion turns, and 06-08→11 sessions were heavily harness-meta. Some of the zero is exemption swallow, not behavior shift.
+2. **Generous pass markers** — `cascade` and any 3-column markdown table count as structural markers; current output habits include both in nearly every analytical response. This is arguably the experiment WORKING (the habit is the point), but it can't be distinguished from marker leniency on fire-rate alone.
+
+**Decision per pre-registered matrix:** KEEP both hooks; continue to week-2 check (2026-06-19) and week-3/4. If weeks 2-4 stay at/near zero on non-meta analytical sessions, promote H2 at the 30-day close (~07-01) and keep the architecture.
+
+**Infrastructure fix shipped same commit:** the hook had NO persistent fire log — measurement only worked because this container happened to retain transcripts. Added append-on-fire logging to `research/meta/hook-fire-log.md` in both `~/.claude/structural-output-hook.py` and the `research/meta/hooks/` mirror. Weeks 2-4 are now measurable by design (git-committed log), not by transcript luck. Self-detection: if week-2 check finds fires in transcripts but not in hook-fire-log.md, the logger is broken.

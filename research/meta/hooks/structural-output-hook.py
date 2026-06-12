@@ -214,6 +214,19 @@ def main():
         sys.exit(0)
 
     # Otherwise: analytical content + NO structural marker = revert pattern detected
+
+    # Persistent fire log (added 2026-06-12, week-1 check): transcript
+    # archaeology is fragile in ephemeral cloud containers; a committed
+    # file is the only fire record that survives container reclamation.
+    try:
+        from datetime import datetime, timezone
+        log_path = Path(ENFORCEMENT_PATHS[0]) / "research/meta/hook-fire-log.md"
+        ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%SZ")
+        with open(log_path, "a") as lf:
+            lf.write(f"- {ts} structural-output-hook FIRE\n")
+    except Exception:
+        pass
+
     feedback = (
         "STRUCTURAL-OUTPUT HOOK: large analytical response (>800 chars) "
         "with analytical markers (thesis/position/probability/scenario) "
