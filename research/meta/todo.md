@@ -470,3 +470,21 @@
 - [ ] **P3 / research / 2026-09-30** [INDP, AF] — Retrieve NVDA Securities Purchase Agreement full exhibit (currently SEC 403)
   - Origin: 2026-06-12 MRVL bear subagent — SPA exhibit not retrievable at T1; lock-up + standstill + exclusivity terms unverified; this drives MRVL falsifier #4
   - Scope: attempt EDGAR retrieval via alternate paths (10-Q/10-K reference exhibits, FOIA equivalents, redacted version in proxy materials); failing that, monitor for 13D/G or 8-K amendment exposing terms
+
+- [ ] **P0 / harness / 2026-06-12** [INFRA] — Activate macro-anchor-hook in ~/.claude/settings.json (USER AUTHORIZATION REQUIRED)
+  - Origin: 2026-06-12 user-articulated cross-session anchoring concern (every output should be macro-first research-anchored); Critical Rule #15 + B46 candidate codified same day; hook built + smoke-tested (fires on position-relevant without anchor; passes with macro/T1/tie-together marker)
+  - Action: add `{"type":"command","command":"~/.claude/macro-anchor-hook.py"}` to Stop hooks array in ~/.claude/settings.json
+  - Trade-off: more output friction (analytical responses must explicitly anchor to macro / tag claims / tie micro-to-macro); user explicitly accepted "slower replies, more accuracy" trade
+  - Falsifier already in place per Critical Rule #15: 30-day fire-rate audit; retire if <3x/month OR false-positive >30%
+  - Linked: `CLAUDE.md` Critical Rule #15; `meta/biases-watchlist.md` B46; `meta/hooks/macro-anchor-hook.py`
+
+- [ ] **P1 / harness / 2026-07-12** [INFRA, CAL] — Macro-anchor hook + B46 effectiveness audit (30-day check)
+  - Origin: 2026-06-12 codification of Critical Rule #15 + B46
+  - Scope: grep `meta/hook-fire-log.md` for macro-anchor-hook entries 2026-06-12→2026-07-12; cross-check transcripts for analytical outputs that PASSED the hook's pattern check but still exhibited B46 (framing-vs-institutional contradiction); if pattern persists despite tagging discipline → escalate to Workflow #9 mandatory pre-research subagent
+  - Metrics: POSITIVE = ≥3 fires AND each caught a genuine recall-anchored output AND user reports framing improvements; NEGATIVE = <3 fires (inert) OR ≥30% false-positive rate
+  - Linked: `meta/hooks/macro-anchor-hook.py`; `meta/biases-watchlist.md` B46; `CLAUDE.md` Critical Rule #15; `meta/hook-fire-log.md`
+
+- [ ] **P2 / methodology / 2026-06-20** [INFRA] — Workflow #9 MACRO-FIRST RESEARCH full specification in `meta/methodology.md`
+  - Origin: 2026-06-12 Critical Rule #15 codification (specification stub only); full workflow spec deferred for follow-up commit
+  - Scope: write Workflow #9 in same format as Workflows #1-#8 (steps, output template, quality bar, what triggers Workflow #9 vs Workflow #8 DEEP-DIG)
+  - Linked: `CLAUDE.md` Critical Rule #15; `meta/methodology.md` workflows section

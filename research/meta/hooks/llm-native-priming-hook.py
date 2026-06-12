@@ -154,6 +154,21 @@ LLM-NATIVE MULTI-DIMENSIONAL.
    conservative magnitude reads even when the explicit calibration
    data contradicts that read.
 
+9. MACRO-FIRST + RESEARCH-VS-RECALL TAGGING (Critical Rule #15,
+   codified 2026-06-12) — Before any company-specific analytical
+   output, ask: have I verified the current first-principles state
+   of this layer with a date-anchored data point, or am I
+   extrapolating from pre-training? Tag every load-bearing claim
+   as (research-verified [date] [T1/T2/T3]) or (recall-based —
+   verify before sizing decision). Tie nitty-gritty details to the
+   macro thesis explicitly. If micro details contradict a credible
+   institutional signal (CEO public endorsement, multi-billion
+   strategic investment, multi-year contract), the FRAMING is
+   incomplete — not the signal. Surface the contradiction before
+   stating conclusions (B46 candidate). Q&A/restatement/harness-
+   meta turns are exempt from this discipline; analytical outputs
+   with sizing or thesis implications are not.
+
 This is NOT a checklist to read and ignore. It is a sampling-
 distribution bias applied BEFORE you generate the first token.
 Generation that survives this priming + the Stop-hook pruning layer

@@ -11,3 +11,4 @@ Baseline before instrumentation (from transcript archaeology, deduped — see `r
 - 2026-06-12 06:20:05Z structural-output-hook FIRE (smoke-test against fake transcript — NOT a genuine fire; do not count in week-2 check)
 - 2026-06-12 12:13:02Z session-prime-hook event=startup injected=True (10089 chars)
 - 2026-06-12 12:13:02Z session-prime-hook event=resume injected=False (skipped non-startup)
+- 2026-06-12 19:09:37Z macro-anchor-hook FIRE (missing macro-anchor / research-tag / tie-together)

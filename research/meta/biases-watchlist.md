@@ -1123,3 +1123,33 @@ Per the B40.3 entry's own threshold ("if N=2+ in 60 days → CONFIRMED"):
 - `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md` — full empirical basket + classification table
 - `predictions/2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md` — origin case (reweight from PM to PM-2)
 - `meta/codification-rule.md` §1 — triggered codification (introduces new bias + methodological insight)
+
+### B46 — Framing-vs-institutional-signal inconsistency (CANDIDATE — N=1 origin 2026-06-12)
+
+**Pattern:** I produce a detail-rich analytical framing (bear case, concentration risk, kill scenarios) that logically CONTRADICTS a credible institutional signal (CEO public endorsement, multi-billion strategic investment, multi-year contract, public design-win disclosure) without surfacing the contradiction. The micro details look rigorous but float as noise because they are not anchored to the macro thesis that institutional behavior implies.
+
+**Origin (2026-06-12):** MRVL 3-subagent deep-dive produced a coherent bear case anchored on "AWS concentration risk + Trainium3/4 content demotion + Google TPU v8 to AVGO/MediaTek." User caught the logical contradiction: if MRVL is essentially AWS-anchored with content demoting, why would NVDA put $2B in MRVL AND why would Jensen publicly endorse MRVL as "next $1T company" at Computex June 2, 2026? Either (a) my framing is incomplete — the bull case is broader than AWS, OR (b) Jensen's endorsement is hype-not-substance. Default assumption SHOULD be (a) absent strong evidence for (b); I anchored on the bear framing without checking against the institutional signal.
+
+**Mechanism:** Pre-training anchors on "concentration risk = bearish" narrative shape; my analytical generation amplifies the bear framing because details (Trainium content demotion confirmed by Benchmark; Google TPU v8 to AVGO) are concrete and citable, while the bull alternative (NVLink Fusion ecosystem connectivity backbone, Inphi per-bit DSP royalty across all accelerators, strategic asymmetry NVDA→MRVL vs NVDA→AVGO) requires inferring NVDA's strategic logic from the investment structure. Concrete details outweigh inferred strategy in the generation distribution. This is the bias.
+
+**Distinction from related biases:**
+- B23 (sell-side aggregation drift): forecast-step anchoring on consensus
+- B26 (pre-training as primary source): general pre-training reliance
+- B28 (cyclical-vs-structural mis-classification): timing/regime error at sell-side
+- B45 (pre-training magnitude conservatism): magnitude-layer error
+- **B46: FRAMING-LAYER error — analytical narrative shape contradicts institutional signal; companion to B26/B28/B45 but at framing-coherence layer**
+
+**Correction rule:** Before stating analytical conclusions, check whether the framing is consistent with credible institutional signals on the name. If contradiction exists: (a) surface it explicitly, (b) reframe to integrate both, (c) only conclude AFTER reconciliation. Codified via Critical Rule #15 + `~/.claude/macro-anchor-hook.py` (Stop hook, activation pending) + `llm-native-priming-hook.py` item 9 (LIVE).
+
+**Falsifier:** If the Jensen-reframe subagent fired 2026-06-12 returns "Jensen's framing IS partly hype-not-substance" — i.e., MRVL bull case really IS AWS-anchored and NVDA's $2B is structural insurance with limited spillover — then my original framing was correct and B46 is a false positive. In that case, retire B46. Currently expecting the reframe to confirm broader bull case (P~65%, my model) based on first-principles strategic logic (NVDA needs hyperscalers in NVLink ecosystem; MRVL is the cleanest co-design partner that's NOT a direct competitor).
+
+**Status:** CANDIDATE — N=1 origin 2026-06-12. Promotion to CONFIRMED requires:
+- N=2+ instances where B46 catch CHANGED a thesis output between 2026-06-12 and 2026-09-12
+- OR the macro-anchor hook fires materially (≥3 catches) on analytical outputs that subsequent reframing proved were missing the macro layer
+
+**Cross-ref:**
+- `CLAUDE.md` Critical Rule #15 (codified same day)
+- `meta/hooks/macro-anchor-hook.py` (Stop hook source)
+- `meta/hooks/llm-native-priming-hook.py` item 9 (priming reminder, LIVE)
+- `signals/cross-source-log/2026-06-13-MRVL-deep-dive-3subagent.md` (origin artifact where bias manifested)
+- Companion bias family: B23 / B26 / B28 / B45

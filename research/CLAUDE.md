@@ -556,6 +556,23 @@ Always check against these before completing any analysis:
 
     **Hook escalation:** if §1 triggers fire but codification is skipped 5+ times in 30 days, build `~/.claude/codification-trigger-hook.py` as deterministic enforcement.
 
+15. **MACRO-FIRST, RESEARCH-ANCHORED DISCIPLINE** (added 2026-06-12 as CANDIDATE; pending N=2+ promotion; full rule + falsifier + 2026-07-12 first re-eval co-located with B45/B46 audit). Before any position-relevant analytical output:
+    1. Articulate the current first-principles state of the relevant layer/regime with a date-stamped data anchor — NOT extrapolation from pre-training alone
+    2. Tag every load-bearing claim explicitly as `(research-verified [date] [T1/T2/T3])` or `(recall-based — verify before sizing decision)` — readers should know which is which
+    3. Tie nitty-gritty details to the macro thesis explicitly (`ties to macro` / `consistent with first-principles read` / `contradicts macro because X`); orphan micro details are noise
+    4. **If micro framing logically contradicts a credible institutional signal (CEO public endorsement, multi-billion strategic investment, multi-year contract), the FRAMING is incomplete — surface the contradiction and re-examine BEFORE stating conclusions** (B46 candidate; origin: 2026-06-12 MRVL deep-dive AWS-concentration framing vs NVDA $2B + Jensen endorsement contradiction)
+
+    **Workflow change — new Workflow #9 MACRO-FIRST RESEARCH** (specification): for any DEEP-DIG or thesis-level analytical artifact, the workflow becomes: (step 0) subagent fan-out on current first-principles state of the layer/regime; (step 1) explicit macro thesis articulation with date anchor; (step 2) subagent fan-out on company-specific (existing DEEP-DIG); (step 3) explicit "tie together" section — does micro confirm/contradict macro? (step 4) thesis output. Workflow #8 DEEP-DIG continues to apply when starting from a layer + cohort already verified; Workflow #9 fires when entering a new layer or when an existing analysis is being re-examined.
+
+    **Exemption (EXPLICITLY EXEMPT):** Q&A / restatement / discussion of existing files / harness-meta / file-narration. Only fires on position-relevant analytical outputs (TICKER + thesis/bull/bear/sizing/position-implication markers) with sizing or thesis implications.
+
+    **Enforcement:** `~/.claude/macro-anchor-hook.py` (Stop hook, codified 2026-06-12; ACTIVATION PENDING user authorization per same pattern as session-prime-hook); `~/.claude/llm-native-priming-hook.py` item 9 (per-prompt priming reminder, LIVE 2026-06-12). Two-bracket architecture: priming (pre-generation) + Stop hook (post-generation).
+
+    **Falsifier (codified 2026-06-12, audit 2026-07-12):**
+    - If 30 days show macro-anchor hook fires <3x/month → inert; retire
+    - If false-positive rate >30% (legitimate analytical outputs flagged without need) → tighten exemption list
+    - If I produce analytical outputs that PASS the hook's pattern check but still contradict institutional signals (the underlying B46 pattern persists despite tagging) → tagging is decorative; deeper enforcement needed (escalate to Workflow #9 mandatory pre-research subagent)
+
 14. **SIGNAL DENSITY DETECTION — every cross-source-log file creation MUST run the same-segment same-direction lookup** (added 2026-06-11 as CANDIDATE; full rule + self-detecting metrics + 2026-07-11 first re-eval at `meta/signal-density-detection.md`). Manual enforcement until hook-built:
     1. Segment-classify the new signal (per Critical Rule #6 + Principle #29)
     2. Grep recent `signals/cross-source-log/` (last 90 days) for same-segment same-direction signals
