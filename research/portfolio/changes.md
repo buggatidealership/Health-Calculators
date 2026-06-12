@@ -361,3 +361,15 @@ User stated verbatim: "I sold my HD so I hold nothing in N26 anymore. I only hav
 - `portfolio/holdings.md` → unchanged (Degiro-only canonical; HDS was never in it; N26 now empty)
 - Consolidated portfolio = Degiro holdings ONLY going forward (per user 2026-06-09)
 - `meta/structural-winners-cohort.md` → HDS already corrected to ~17/22; now also EXITED
+
+## 2026-06-12 PM rotation (user-shared screenshots 19:39 local)
+
+EXITED (4): ARM, AGC, Hirano (6245.T), MongoDB
+NEW (1): Marvell (MRVL) — 44 sh @ $287.00 = ~€10,910 (~5.9%) — FIRST connectivity-layer position; cost basis $286.258 ≈ spot, recent build (likely post-Computex Jun-2 NVDA $2B/Jensen endorsement window)
+SIZED UP: SNDK 4 sh → 6 sh (+50% on shares; spot $2,009 also +29% vs prior)
+TRIMMED: DDOG 40 → 26 (-35%), NOW 81 → 54 (-33%)
+SPLIT: Murata position re-routed across JPY direct (6981) + EUR listing (MUR1), aggregate ~similar
+UNCHANGED: SK Hynix 8 sh GDR, Sumco 415 sh
+
+Total Degiro: €187,620 → €185,029 (slight cash use net of position appreciation)
+Implied cash: ~64% → ~68% (more defensive)

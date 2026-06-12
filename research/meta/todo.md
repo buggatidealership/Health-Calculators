@@ -446,3 +446,13 @@
   - Scope: confirm whether AWS Trainium3 scale-up fabric socket goes to ALAB Scorpio or MRVL; if ALAB → entry trigger (a) fires, enter 2-3% per re-evaluation; if MRVL → demote ALAB watchlist P2→P3 + H3 (absorption squeeze) reweights up materially
   - Secondary triggers tracked same item: 2nd CXL hyperscaler disclosure (CATEGORY EVENT, run L14-v2 pre-rally check before entry); ALAB Q2-26 print ~Aug 11 (estimate)
   - Linked: `companies/ALAB/thesis.md` 2026-06-12 re-evaluation
+
+- [ ] **P1 / research / 2026-06-15** [INDP, AF, POS] — Build MRVL thesis on equal footing with ALAB re-eval (NEW HELD POSITION ~5.9%)
+  - Origin: 2026-06-12 PM portfolio rotation introduced MRVL as new ~5.9% holding (44 sh @ $287); no existing thesis file in harness. User asked "should we own both to hedge ALAB" — the question is mal-formed without an MRVL thesis on the connectivity-layer evaluation matrix used for ALAB (`signals/cross-source-log/2026-06-12-connectivity-layer-alab-reevaluation-2subagent.md`).
+  - Scope: full thesis build — apply the same 6-axis connectivity matrix (content-per-accelerator / standard-rail / commercial-revealed-preference / breadth / moat depth / valuation vs B45) to MRVL; XConn integration milestones; 51.2T CPO traction; NVLink Fusion design wins (named); Structera CXL pipeline; AEC competitive position vs Credo; FY27/FY28 framework
+  - Cross-reference: connectivity re-eval cross-source-log + ALAB thesis 2026-06-12 entry; joint-state with ALAB rivalry
+  - Output: `companies/MRVL/thesis.md` + joint MRVL-vs-ALAB comparator section in connectivity log
+
+- [ ] **P2 / research / 2026-06-20** [INDP, POS] — Document why DDOG + NOW were trimmed -33%/-35% in 2026-06-12 rotation
+  - Origin: 2026-06-12 PM rotation cut software-cluster exposure materially; thesis files don't yet reflect rationale; rotation reduces TC-9 (candidate agentic-observability mandate) cascade beneficiaries' weight before TC-9 promotion audit 2026-06-24
+  - Scope: confirm with user whether trim reflects: (a) valuation discipline, (b) thesis conviction softening, (c) capital reallocation to MRVL/SNDK, (d) all of the above; cascade to DDOG + NOW thesis files
