@@ -108,7 +108,7 @@ Adds magnitude (5/45 = ~89% citation hallucination, T2 The Register/GPTZero) to 
 
 | Item | What to verify | Deadline |
 |---|---|---|
-| Rubin CPX cancelled-vs-unveiled (B40) | reconcile June 4 cancellation vs today's unveiling; primary T1 NVDA source | 2026-06-18 |
+| ~~Rubin CPX cancelled-vs-unveiled (B40)~~ | **RESOLVED 2026-06-12 EVE subagent verification: Scenario (c) confirmed — June 12 brief RECYCLED Sept 10, 2025 SemiAnalysis article as fresh news (URL `semianalysis.com/2025/09/10/...`); textbook B40.1 stale-recycle. NVDA cancelled Rubin CPX at GTC 2026 March; replaced by Groq 3 LPX SRAM rack; Intel Crescent Island LPDDR5X fills inference-disaggregation gap. June 4 anchor was CORRECT. HYNIX HBM thesis INTACT (June 6 verification stands). No cascade needed.** | CLOSED 2026-06-12 |
 | Anthropic enterprise-trust-drift TC-4 vendor self-bias check | run independent benchmark on Fable 5 coding (LMArena / Aider / SWE-Bench-Verified) | 2026-06-25 (carry from yesterday) |
 | Huawei Ascend HBM workaround | watch for CXMT HBM3E announcement or non-HBM architecture pivot | 2026-09-12 (quarterly cadence with B45 recalibration) |
 
