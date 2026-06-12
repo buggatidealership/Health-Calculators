@@ -1,5 +1,7 @@
 # Datadog (DDOG) — Thesis
 
+**2026-06-12 cross-ref:** Candidate TC-9 cluster (agentic-observability mandate) surfaced — 4 same-direction signals over 2 days: (1) AI agent bankrupts operator on DN42 scan 2026-06-12 (Lantian T3), (2) KPMG own AI report contained hallucinations 2026-06-12 (FT T2), (3) DeepMind funds multi-agent interaction safety research 2026-06-11 (MIT Tech Review T2), (4) "botsitting" 6+ hrs/wk supervising AI 2026-06-11 (Business Insider T2). Direction: eval/observability/safety is unsolved at enterprise deployment, becoming mandatory spend. Direct tailwind for Datadog AI eval/observability suite. See `signals/cross-source-log/2026-06-12-morning-brief-21-item-triage.md` §5. **Status:** CANDIDATE pending formal TC-9 promotion at 2026-06-24 monthly audit. Position implication: HOLD — no sizing change yet; reweighting awaits TC-9 promotion + per-name DDOG product-traction verification.
+
 **Last updated:** 2026-06-07 (Triple-brief cascade — Meta IG hack + OpenAI Lockdown + agent memory research + tokenomics study all validate agentic observability TAM expansion)
 
 ## 2026-06-07 back-reference — Triple-brief unified cascade

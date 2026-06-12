@@ -435,3 +435,8 @@
   - Origin: 2026-06-12 session-prime.md created with explicit cap rules (500-line hard / 250-400 target) — needs first monthly audit verification
   - Scope: at monthly codification audit (2026-06-24), verify session-prime.md (a) is ≤500 lines, (b) all listed CANDIDATE biases are still active (not gone INERT >30 days), (c) listed recent lessons are within rolling-5 window, (d) regime base rate not stale, (e) any codification commits since session-prime creation also updated session-prime
   - Action: prune INERT items; promote/demote per the file's own cap rules; add to consolidated monthly audit checklist
+
+- [ ] **P2 / verification / 2026-06-24** [INDP, AF, POS] — TC-9 candidate promotion decision (agentic-observability mandate)
+  - Origin: 2026-06-12 morning brief surfaced 4-signal stack over 2 days on agentic-deployment-without-observability failing (DN42 agent bankruptcy + KPMG hallucinations report + DeepMind multi-agent safety funding + botsitting 6+hrs/wk). Segment: agentic-application. Direct tailwind for DDOG + NOW (both held). Per Critical Rule #14, N≥3 same-segment same-direction → promotable.
+  - Scope: at 2026-06-24 monthly audit, verify the 4 source items remain T2/T3-tier; check for additional same-segment signals between 2026-06-12 and 2026-06-24; if N≥5 with same direction → promote TC-9 to ACTIVE and cascade sizing-implication review for DDOG + NOW; if signals drift to different sub-segments → keep CANDIDATE and re-examine at next monthly audit
+  - Linked: `signals/cross-source-log/2026-06-12-morning-brief-21-item-triage.md` §5; `companies/DDOG/thesis.md` 2026-06-12 cross-ref; `companies/NOW/thesis.md` 2026-06-12 cross-ref

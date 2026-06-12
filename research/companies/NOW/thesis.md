@@ -1,5 +1,7 @@
 # ServiceNow (NOW) — Thesis
 
+**2026-06-12 cross-ref:** Candidate TC-9 cluster (agentic-observability mandate) surfaced — 4 same-direction signals over 2 days (see DDOG thesis 2026-06-12 cross-ref for full enumeration). Direction: eval/governance/safety unsolved at enterprise deployment; mandatory spend. Tailwind for ServiceNow agentic-workflow + governance positioning per existing thesis (T8 AI FinOps + Agentic Governance). See `signals/cross-source-log/2026-06-12-morning-brief-21-item-triage.md` §5. **Status:** CANDIDATE pending TC-9 promotion at 2026-06-24 monthly audit. Position implication: HOLD — no sizing change today.
+
 **Last updated:** 2026-06-07 (Triple-brief cascade — federal AI + Meta IG hack security spend + OpenAI Lockdown Mode + tokenomics research validate agentic governance thesis)
 
 ## 2026-06-07 back-reference — Triple-brief unified cascade

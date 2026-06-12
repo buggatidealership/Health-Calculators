@@ -1,5 +1,7 @@
 # Sandisk (SNDK) — Thesis
 
+**2026-06-12 cross-ref:** Biwin $1.86B NAND multi-year fixed-price supply deal per Tom's Hardware T2 → first major Chinese-domestic NCNR-style buyer commitment; validates SNDK $42B-backlog enforceability pattern as industry-wide not US-hyperscaler-specific. **Thesis falsifier #3 (NCNR enforceability untested in court) weight reduces** — Chinese OEMs replicating the same multi-year fixed-price commitment lattice strengthens the read that NCNR is becoming industry-standard. See `signals/cross-source-log/2026-06-12-morning-brief-21-item-triage.md` §2. Position implication: HOLD — no sizing change today; pending Kioxia entry decision matrix (Option A/B/C) unchanged.
+
 **Last updated:** 2026-06-12 (Kioxia VLSI Symposium pre-event registration cross-reference per `predictions/2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md` — SNDK pre-event €5K top-up identified as higher-Kelly partial path than Kioxia entry, given SNDK Stage 2-3 vs Kioxia Stage 3 melt-up; joint MSA-CBA paper June 14-18 is category event for BOTH via Yokkaichi Fab 6 JV; SNDK currently 4 shares = €5,409 = 2.88% of Degiro €187,620 per `portfolio/holdings.md` — NOT the 5.2% the June 2 thesis assumed. Position implication: NO ACTION today; top-up decision deferred to user review of entry-decision matrix.). Prior: 2026-06-11 (June 10 evening brief cascade — FlashMemory KV-tiering stops at host DRAM today; defined NVMe-tier watch trigger; China draft buildout NAND-absorption supportive)
 
 ## 2026-06-11 back-reference — June 10 evening brief verification
