@@ -2,7 +2,13 @@
 
 **Last updated:** 2026-06-12 (full connectivity-layer re-evaluation post-exit; 2-subagent deep-dig per `signals/cross-source-log/2026-06-12-connectivity-layer-alab-reevaluation-2subagent.md`)
 
-## 2026-06-12 re-evaluation (position: 0% — exited 2026-06-05 in rotation, not falsification)
+## 2026-06-12 PM cross-ref — MRVL deep-dive built (rivalry joint-state)
+
+Companion `companies/MRVL/thesis.md` built same day at full thesis depth (Bull/Bear/Base + 7-axis matrix scoring 6.78/10, roughly tied with ALAB 6.7/10). Rivalry implications: MRVL is DEEPER at AWS (5-yr multi-gen supply agreement, 60-70% custom ASIC concentration my model) while ALAB is AHEAD on Scorpio shipping volume (320-lane shipping vs MRVL XConn sampling Q3-26). ALAB stronger on commercial-revealed-preference precision (AWS $6.5B warrant tied to specific Scorpio purchases vs MRVL's "10+ pipeline" framing). MRVL cheaper on forward multiple (~16x FY28 mgmt guide vs ALAB ~40x P/S). ALAB structurally more open-rail in 4th-order scenarios if NVDA SPA contains restrictive covenants on MRVL. **Watchlist falsifier UPDATED:** AWS Trainium3 fabric award Q3-26 is informative for BOTH names — MRVL wins (consistent with its existing AWS dominance) = neutral for ALAB watchlist; ALAB wins = MRVL bear K2 fires AND ALAB triggers Option B entry (~2-3% sizing per `2026-06-12-connectivity-layer-alab-reevaluation-2subagent.md`).
+
+---
+
+
 
 **Evaluation matrix verdict: 6.7/10 weighted (my model)** — elite commercial traction (AWS $6.5B warrant tied to Scorpio purchases per T1 10-Q; Azure Leo only named hyperscaler CXL production; PCIe Gen6 >1/3 revenue) and best-in-class breadth, but the layer's existential question is platform-vendor absorption: NVLink Fusion + Feynman-2028 CPO close the switch-layer copper window, and NVDA's $2B stake in MRVL (Mar-26 T1) funds ALAB's most direct Scorpio competitor. Stock re-rated to ~$369 (June 12; stale prior anchor ~$338); ~3 customers ≈ 80% revenue per SEC filings.
 

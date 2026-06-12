@@ -1,154 +1,164 @@
-# Marvell (MRVL) — Thesis (Compact)
+# Marvell Technology (MRVL) — Thesis
 
-**Last updated:** 2026-06-02 (Computex Day 2 keynote + Jensen $1T endorsement + Teralynx T100 + 1.6T 2nm coherent optics + L14 N=3 real-time validation)
-**Tier:** Active candidate (multi-theme: custom Si + networking + memory + CXL)
-**Position target:** 3–5% if entered (user holds 0%) — **but apply principle #31 Stage 3-4 modifier: -25 to -35% discount to standard sizing**; effective 2-3.5% if entered today
-**Narrative Stage:** 3-4 transition (per principle #31) — stock +100-130% YTD 2026; consensus PT $162 vs current ~$196 = market run THROUGH analyst targets; options implying 11-14% earnings move; priced-to-raise positioning. Surprise capacity partially exhausted.
-**Anti-fragility:** 3.5/5 — wins in S1, S2, S3
-**Foundation:** `research/wiki/custom-silicon-primer.md`, `research/wiki/optical-interconnect-primer.md`, `research/wiki/hbm-primer.md`
+**Last updated:** 2026-06-12 PM (full refresh post 3-subagent deep-dive; supersedes 2026-06-02 stub which was pre-NVDA-$2B-investment-detail-and-pre-Trainium-demotion-disclosure)
+**Tier:** Active (HELD ~5.9% per portfolio rotation 2026-06-12; cost basis $286.26 ≈ spot $287)
+**Position target:** 5-7% if Q2 FY27 print (Aug-26) confirms thesis; 3-4% if Q2 disappoints. Current 5.9% is at the HIGH END of Active band given concentration + S&P inclusion catalyst + partial Trainium demotion
+**Anti-fragility:** 3/5 scenarios (wins S1 + partial S2; neutral S3 + S5; loses S4)
+**Foundation:** `signals/cross-source-log/2026-06-13-MRVL-deep-dive-3subagent.md`
+
+---
 
 ## TL;DR
 
-Marvell is the multi-theme AI compounder — custom silicon design partner (AWS Trainium + Microsoft Maia + Google inference) + networking + memory + CXL exposure. FY2026 total revenue **$8.2B** with **Q4 FY26 $2.22B** per [Marvell 8-K via SEC](https://www.sec.gov/Archives/edgar/data/0001835632/000183563226000006/q426_8kx1312026ex-991.htm). **Data center 74% of mix at $1.65B Q4 (+21% YoY)** per same. Wells Fargo PT raised to $195 on AWS Trainium + custom Si momentum per [24/7 Wall St](https://247wallst.com/investing/2026/05/20/marvell-price-target-vaults-to-195-at-wells-fargo-on-aws-trainium-and-custom-silicon-momentum/).
+Marvell is no longer the storage-cycle name pre-training anchors on — Data Center is **74% of FY26 revenue ($6.1B of $8.2B)** per T1 10-K with custom-ASIC ramp + interconnect inflection (>70% YoY mgmt guide) driving FY27-28. The NVDA $2B = **Series A Convertible Preferred at $91.84 strike** (NVDA ~3× in-the-money at spot), no board seat, structural NVLink-Fusion ecosystem insurance — NOT IP transfer. Three load-bearing negatives partially offset the bull narrative: **(a) Inphi DSP designed OUT of AVGO TH6-Davisson CPO** (AVGO uses Sian3 in-house); **(b) Trainium3/4 content demotion confirmed by Benchmark Research** (Amazon added Alchip primary design, PCIe SerDes to Synopsys not MRVL); **(c) Google TPU v8 split confirmed to AVGO (Sunfish) + MediaTek (Zebrafish)** — MRVL only "in talks" for separate inference chip. Concentration: AWS estimated ~60-70% of custom ASIC (my model). At ~$287 / ~$260B mkt cap / ~16x FY28 mgmt guide revenue ($16.5B): **within B45 cohort precedent** (NOT pre-training "extreme") but priced for execution with limited margin of safety. S&P inclusion June 22 is imminent K5 forced-buy-then-sell-the-news risk.
 
-CEO Matt Murphy: full-year FY2026 revenue growth >40% with data center growth for next fiscal year above prior expectations.
+---
 
-## Multi-theme exposure
+## Bull case (P=35%, my model)
 
-| Theme | MRVL exposure |
-|---|---|
-| Custom Si | AWS Trainium 1/2/3 co-design + Microsoft Maia IP + Google inference talks |
-| Networking | AI back-end fabric — 1.6T optical DSPs |
-| Memory | CXL devices + memory controllers |
-| Optical interconnect | Silicon photonics adjacency |
+- **FY28 "more than double" custom Si delivers** via Trainium ramp + Google MPU conversion + new NVLink Fusion XPU programs (10+ pipeline per mgmt Q1 FY27 call T1)
+- Interconnect >70% YoY FY27 growth sustains; DCI $1B ARR + scale-up optics $300M by FY28 (T1 mgmt)
+- Inphi DSP retains channel-conflict-free wedge in 800G/1.6T pluggable optics (~70% share at top tier per mgmt claim — T2 unverified independent — flag)
+- NVDA $2B structural insurance → MRVL participates in every NVLink-Fusion-attached XPU rack regardless of who wins specific custom ASIC sockets
+- B45 regime tolerates 16x FY28 forward revenue multiple (NVDA traded 20-25x at similar stage; not "stretched" by cohort base rate)
+- Expected return: **+30-50% over 12-18 months** (my model)
 
-## Anti-fragility
+## Bear case (P=30%, my model)
 
-WIN in S1 (NVDA's networking + optical DSPs), S2 (custom Si design), S3 (efficient interconnect + CXL). Anti-fragility 3.5/5 — among highest in OS universe.
+- **Trainium3/4 content demotion CONFIRMED** (Benchmark Research T2 via TipRanks 2026) — Amazon added Alchip primary design; PCIe SerDes went to Synopsys not MRVL; if Trainium5 (FY28-29) goes fully to Alchip / in-house → primary anchor collapses
+- **Google TPU v8 confirmed to AVGO (Sunfish training) + MediaTek (Zebrafish inference)** (T1 Google Blog 2026 + T2 trade press); MRVL only in talks for inference chip — if talks fail, "more than double" FY28 anchor breaks
+- Custom ASIC TAM compresses as NVDA Vera Rubin Ultra TCO wins at scale (Apple-Blackwell pattern = hyperscaler reverts to GPU vs in-housing)
+- NVDA Securities Purchase Agreement full exhibit unverified (SEC 403 on direct fetch); if lock-up + standstill + exclusivity terms restrictive → strategic optionality halves
+- S&P 500 inclusion June 22 → forced-buy spike followed by 30-60d post-inclusion drag (historical pattern); L14 post-Computex give-back already in progress ($316 ATH → $280 = -11% so far)
+- S4 digestion scenario: pure-play AI-capex; cohort joint-state with HYNIX correlates → no diversification benefit at macro-stress layer
+- Expected loss: **-25 to -65%** (S4 floor estimate $80-120, near NVDA conversion floor of $91.84 — not coincidence, my model)
 
-## Position recommendation
+## Base case (P=35%, my model)
 
-3-5% entry candidate. **Best pair-trade companion to AVGO** — both benefit from S2 scaling but at different customers/scope:
-- AVGO: largest design partnership share + Google TPU + Meta MTIA + MSFT Maia + OpenAI Titan + Anthropic
-- MRVL: AWS Trainium + Maia (some) + networking + CXL
+- FY27 delivers ($11.5B mgmt guide); FY28 partial (~$15-16B vs $16.5B guide) — custom Si grows but doesn't fully "double"
+- Range-bound $230-310 over 12-18 months as multi-year guide gets digested by consensus catching up (analyst-lag dynamic per B28)
+- Net flat to +15%
 
-Together they cover essentially the entire custom Si design house universe. Pair-trade weighting suggestion: AVGO 5-6% + MRVL 3-4%.
+---
 
-## Blind spots
-- AWS customer concentration (Trainium 1/2/3 = single customer)
-- Lower margins than NVDA-class
-- Stock at higher multiple than typical semi
-- Specific FY27 revenue trajectory not yet disclosed
-- CXL competition from Astera Labs
+## Falsifiers (mandatory — what would prove me wrong)
+
+1. **Q2 FY27 print (Aug-26): FY28 custom Si guide RAISED with named new XPU customer** (Google MPU, or new hyperscaler) → bull case strengthens; conversely, if Q2 reaffirms but adds no new named customer → base case dominant; if guide trimmed → bear case fires
+2. **Google MPU talks (T2 The Information Apr-26) fail to convert to confirmed design win by Q3 FY27** → diversification thesis broken; AWS dependency intensifies
+3. **AWS Trainium5 (FY28-29) goes fully to Alchip / in-house** → primary moat anchor (AWS 5-yr multi-gen supply agreement) collapses; bear case fires hard
+4. **NVDA Securities Purchase Agreement exhibit reveals restrictive covenants** (lock-up >2 years, exclusivity, ROFR on M&A) → strategic optionality compromised; multiple compresses
+5. **30-day post-S&P-inclusion (Jul 22, 2026): stock down >15% AND no fundamental bear news** → L14 give-back pattern confirmed worse than expected; reweight Stage 3-4 modifier
+6. **Inphi DSP loses 800G/1.6T pluggable optics share to AVGO Sian3** → optical thesis breaks; interconnect growth slows materially
+
+---
+
+## Anti-fragility decomposition (3/5 scenarios — per `sector/scenarios.md`)
+
+| Scenario | P (current weights) | MRVL outcome | Mechanism |
+|---|---|---|---|
+| S1 NVDA dominant | 31% | **WIN** | NVDA $2B + NVLink Fusion attach → MRVL participates in NVDA-centric rack content regardless of who wins specific sockets |
+| S2 Custom Si fragments | 32% | **PARTIAL WIN** | MRVL has AWS + Microsoft + nascent Google; AVGO has Google TPU + Meta + Anthropic + OpenAI — MRVL captures less of segment fragmentation than AVGO |
+| S3 Power binds | 27% | NEUTRAL | Interconnect demand intact even at slower hyperscaler buildout; custom ASIC may slip but doesn't disappear |
+| S4 Digestion | 5% | **LOSE** | Pure-play AI infra (76% data center); cohort joint with HYNIX correlates in stress; S4 floor $80-120 |
+| S5 Geopolitical shock | 5% | NEUTRAL | US-domestic ticker + Taiwan TSMC fab dependency; symmetric to peers |
+
+---
+
+## Joint-state with held cohort (LOAD-BEARING per Critical Rule #10)
+
+| Held name | Correlation with MRVL (my model) | Mechanism | Diversification benefit |
+|---|---|---|---|
+| HYNIX (~5.6%) | **HIGH ~0.7+ in stress** | Both ride hyperscaler AI capex; HYNIX at memory, MRVL at connectivity/ASIC | **MINIMAL** — both compress simultaneously in S4 |
+| SNDK (~5.6%) | Medium-high | NAND tier vs connectivity, same capex driver | Limited |
+| SUMCO (~4.6%) | Medium-high | Wafer tier vs connectivity, same buildout dependency | Limited |
+| DDOG + NOW (~5.4% combined) | Medium | Software-agentic vs hardware connectivity | Modest hedge — the only real intra-cohort diversifier |
+| MURATA (~4.9%) | Medium | Passives vs connectivity, same per-rack BOM tailwind | Limited |
+
+**Critical observation:** the portfolio's apparent diversification across memory + connectivity + software is partly illusory at the macro-stress layer because all hardware names correlate to hyperscaler capex. Adding ALAB on top would amplify this. Software cluster (DDOG + NOW) is the only meaningful intra-cohort diversifier.
+
+---
+
+## N-th order cascade — what the deep-dive surfaced
+
+**1st order (P>80%):**
+- Custom ASIC is 60-70% of data center segment (my model from "flagship XPU" framing); AWS Trainium is primary anchor; FY26 actuals $8.2B with 74% data center
+- NVDA Series A Convertible Preferred terms confirmed: $91.84 strike, no board seat, automatic conversion on non-NVDA-affiliate sale; lock-up/exclusivity terms NOT verified at T1 (SEC 403)
+- Trainium3/4 content demotion confirmed (Benchmark T2); Google TPU v8 confirmed to AVGO+MediaTek (T1+T2)
+
+**2nd order (P~60%):**
+- FY28 "more than double" custom Si guide depends on new XPU programs (10+ pipeline per mgmt) filling the AWS content gap → **knock-on if Google MPU talks don't convert: MRVL multiple compresses from current ~16x FY28 toward AVGO-comp ~12x → ~25% multiple downside**
+- S&P 500 inclusion → forced index buying ~June 22 → ripple: discretionary holders use index bid as exit liquidity → 30-60 day post-inclusion drag historically
+
+**3rd order (P~40%):**
+- IF AWS Trainium content stays demoted → AWS continues diversifying primary design partners → **downstream beneficiary: Alchip Technologies (3661.TW — partially investability-gated per harness Taiwan TWSE filter)**; downstream casualty: MRVL custom-ASIC TAM expansion narrative breaks
+- IF Google MPU talks fail → MRVL custom-ASIC story becomes effectively AWS-only → **read-through STRENGTHENS for HYNIX (held)** since memory remains universal across all custom-ASIC vendors regardless of design house
+
+**4th order (P~20%):**
+- IF NVDA SPA contains roadmap exclusivity → MRVL effectively locked OUT of any AMD/Tesla/Apple counterplays → long-term TAM ceiling falls; **ripple: ALAB becomes structurally more open-rail than MRVL → relative-value tilts to ALAB on diversification axis**
+- IF convertible converts at favorable NVDA terms 2027-28 → NVDA holds ~21.8M MRVL shares (~2.4% float) → dilutive overhang as exit risk
+
+---
+
+## Comparable held/related-candidate names
+
+| Name | Held % | Layer | Stage | Forward P/S (my model) | Diversification vs MRVL |
+|---|---|---|---|---|---|
+| ALAB (watchlist P2) | 0% | Connectivity pure-play | Stage 3-4 melt-up | ~40× | Connectivity duplicate; 0.6-0.8 correlation |
+| AVGO (unheld) | 0% | Custom Si + scale-out | Stage 4 | ~13× | Direct competitor; broader customer base |
+| CRDO (unheld) | 0% | AECs primary | Stage 3-4 | ~30× | AEC concentration vs MRVL connectivity breadth |
+| **MRVL (THIS)** | **5.9%** | **Multi-segment connectivity + custom ASIC** | **Stage 3-4 post-Computex** | **~16× FY28 mgmt guide** | — |
+| HYNIX | ~5.6% | Memory | Stage 3 advanced | ~12× | Different layer same capex driver |
+
+**MRVL trades CHEAPER than ALAB on forward revenue multiple (16x vs 40x); the rationale is MRVL's lower-margin custom ASIC + concentration. The ALAB-vs-MRVL split favors MRVL on valuation but ALAB on commercial-revealed-preference precision (AWS warrant tied to specific Scorpio purchases vs MRVL's "10+ pipeline" framing).**
+
+---
+
+## Evaluation matrix (MRVL-specific 7-axis, weighted /10)
+
+| Axis | Weight | Score | Rationale |
+|---|---|---|---|
+| Content-per-accelerator trajectory | 20% | 6.0 | Confirmed AWS Trainium2 content; Trainium3/4 DEMOTED (Benchmark T2); FY28 doubling depends on unnamed new programs |
+| Standard-rail positioning | 15% | 7.0 | NVLink Fusion structural insurance + UALink consortium → multi-rail position stronger than ALAB |
+| Commercial-revealed-preference | 25% | 8.0 | AWS 5-yr multi-gen supply agreement = strongest possible CRP; NVDA $2B is structural insurance (validation, not IP); Trainium content demotion partial offset |
+| Product-line breadth (optionality) | 10% | 7.5 | Custom ASIC + Interconnect + Switch + Storage controllers + IP licensing; diversified but Trainium concentration partially offsets |
+| Moat depth per product | 15% | 6.5 | AWS 5-yr agreement is strongest moat anchor; Inphi pluggable wedge real; XConn integration risk; CPO follower not leader |
+| Concentration / customer dependency (NEW vs ALAB) | 5% | 4.0 | AWS ~60-70% custom ASIC (my model); Trainium3/4 demotion already a signal |
+| Valuation vs B45 regime | 10% | 6.0 | 16x FY28 mgmt guide WITHIN regime precedent (B45-corrected); 102x trailing P/E reflects multi-year ramp execution priced in |
+| **Weighted total (my model)** | | **6.78/10** | Roughly tied with ALAB 6.7; different shapes of bet |
+
+---
+
+## Bypass-route analysis (Critical Rule #9)
+
+- **Substitution at custom ASIC layer:** AWS could move Trainium primary design to Alchip (already partial signal); Google could move further to MediaTek; Microsoft Maia is in-house heavy → all hyperscalers have demonstrated willingness to diversify away from any single design partner
+- **Bypass-route AT MRVL's expense:** if NVDA Vera Rubin Ultra TCO + Apple-Blackwell pattern generalizes → hyperscalers reduce custom ASIC investment in favor of NVDA GPU + Vera CPU → MRVL custom-ASIC TAM compresses
+- **Bypass-route INTO MRVL exposure:** UALink (if Marvell ships first 1.0 silicon) → open-fabric scale-up bypass of NVDA-only → MRVL captures NVDA-skeptical hyperscaler workloads
+- **Bypass-route LOSERS if custom ASIC TAM compresses:** MRVL + AVGO (custom Si tier); winners: NVDA pure-play, possibly SK Hynix (held — memory universal across vendors)
+
+---
+
+## Multilingual verification
+
+Primary sources US-based (SEC EDGAR + MRVL IR). Subagent verification cross-checked Korean press for SK Hynix joint-state context (no MRVL-specific Korean coverage); Japanese press for hyperscaler commentary (not material). Chinese sources for Alchip Technologies (3661.TW) flagged for next-cycle bypass-route deep-dive (partially investability-gated). No critical multilingual gap.
+
+---
 
 ## Cross-references
-- `research/wiki/custom-silicon-primer.md` — MRVL Tier 1 design partner
-- `research/wiki/optical-interconnect-primer.md` — silicon photonics adjacency
-- `research/wiki/hbm-primer.md` — CXL bypass route
-- `research/companies/AVGO/thesis.md` — pair-trade companion
-- `research/wiki/networking-primer.md` — cross-source synthesis below
 
-## Cross-reference — Networking primer (added 2026-05-21)
+- `signals/cross-source-log/2026-06-13-MRVL-deep-dive-3subagent.md` — full 3-subagent verification artifact (financial decomposition + competitive moat + adversarial bear)
+- `signals/cross-source-log/2026-06-12-connectivity-layer-alab-reevaluation-2subagent.md` — layer landscape applies to MRVL + ALAB
+- `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md` — B45 regime priors applied to MRVL valuation
+- `companies/ALAB/thesis.md` — rivalry joint-state; ALAB watchlist P2
+- `companies/HYNIX/thesis.md` — joint-state correlation flag (S4 cohort risk)
+- `predictions/lessons.md` L11/L12/L13 (MRVL Q1 FY27 GRADE 2026-05-27) — already-graded MRVL lessons cross-validated
+- `meta/biases-watchlist.md` B26/B28/B37/B45 — applied throughout
+- `sector/scenarios.md` — S1-S5 anti-fragility table grounding
+- `portfolio/holdings.md` — 5.9% Active position (44 sh @ cost $286.26)
 
-Per `research/wiki/networking-primer.md`: MRVL has dual exposure across 3 sub-layers — (1) switch ASIC race with Teralynx 10 at 51.2T but ~1 generation behind Broadcom's 102.4T Tomahawk 6, (2) DPU/SmartNIC competition via OCTEON (Extrapolation 5: $5-20B/yr TAM that NVIDIA BlueField currently dominates ~70%), (3) custom networking silicon for AWS Trainium clusters. Extrapolation 10 (sovereign AI favoring Ethernet ecosystem) is positive for MRVL alongside AVGO. **The 3-5% Active candidate tier reinforced; MRVL is the broadest play across the networking stack with custom-Si optionality.** The Teralynx generational lag vs AVGO Tomahawk is the watch item.
+---
 
-## Cross-reference — NVDA Q1 FY27 call deep-dive (added 2026-05-21)
+## Position implication (Critical Rule #11)
 
-Per `research/signals/events/2026-05-20-NVDA-Q1FY27-call-deepdive.md`:
+**Position implication: HOLD existing ~5.9% (44 sh @ cost basis $286.26 ≈ spot $287) — DO NOT ADD until Q2 FY27 print (Aug-26). Trim catalyst: if stock fails to recover above $300 by mid-July AND any of falsifiers #1-#5 fire → trim to 3-4% (move from Active toward lower-Active band). Add catalyst: Q2 FY27 print confirms FY28 trajectory with NAMED new XPU customer (Google MPU confirmation or new hyperscaler) → add 1-2% to ~7%. Watchlist S4 floor: $80-120; below that, harness should review whether holding makes sense at all given cohort correlation with HYNIX. The 5.9% position is at the HIGH END of Active band given concentration + S&P inclusion catalyst + partial Trainium content demotion confirmation; further sizing without thesis confirmation is not justified.**
 
-NVDA networking +199% YoY validates the networking-layer growth trajectory. MRVL's Teralynx + DPU exposure benefits from the same in-situ data point. AWS Trainium custom-Si design partner role validated by Jensen's "frontier model on Rubin" framing leaving production-inference share fragmentation to custom Si (AWS Trainium runs production inference, not frontier training). **3-5% Active candidate tier stands.**
-
-## Cross-reference — Q1 FY27 PREDICT + Supply-Chain-Cohort Calibration (added 2026-05-27)
-
-Per `research/predictions/2026-05-27-MRVL-Q1FY27.md` (PREDICT artifact + first application of the Supply-Chain-Cohort Calibration framework):
-
-**Cohort signals collected and classified (ordered by predictive power):**
-
-1. **AMZN Q1 2026** (direct customer, STRONG ADDITIVE): AWS chips >$20B annual run-rate; Trainium2 FULLY COMMITTED; Trainium3 NEARLY FULLY SUBSCRIBED; OpenAI committed ~2GW Trainium capacity from 2027; Anthropic up to 5GW; ~$225B+ in Trainium revenue commitments (per [TIKR citing AMZN earnings T3](https://www.tikr.com/blog/amazon-beat-q1-2026-earnings-on-every-line-the-bigger-story-is-the-chip-business-inside-aws)). **MRVL is AWS Trainium design partner — this is the contracted-demand pull-through.**
-
-2. **ANET Q1 2026** (direct customer, STRONG ADDITIVE): $2.71B (+35% YoY); AI revenue target raised to $3.5B; 800G at 35% of DC switch revenue; CEO "best demand ever" (per [Arista 8-K T1 via SEC](https://www.sec.gov/Archives/edgar/data/0001596532/000159653226000074/ex991q126-earningsrelease.htm)). **Direct validation of MRVL optical DSP segment health.**
-
-3. **CSCO Q3 FY26** (orthogonal networking confirmation, ADDITIVE): AI infrastructure orders $1.9B in Q3; FY2026 AI order forecast raised $5B → $9B (per [Futurum T3](https://futurumgroup.com/insights/cisco-q3-fy-2026-ai-networking-momentum-drives-raised-outlook/)). **Order forecast doubled AFTER MRVL set Q1 guide.**
-
-4. **ALAB Q1 2026** (adjacent socket, ADDITIVE): $308.4M (+93% YoY); Scorpio AI fabric volume shipments beginning; Q2 guide +15-18% sequential (per [ALAB 8-K T1 via SEC](https://www.sec.gov/Archives/edgar/data/0001736297/000173629726000017/q126exhibit991.htm)).
-
-5. **NVDA Q1 FY27** (ecosystem reference, CONFIRMATORY→ADDITIVE): Datacenter $75.246B; Hyperscale $37.869B (+115% YoY); Q2 guide $91B (per [NVDA CFO commentary T1](https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000051/q1fy27cfocommentary.htm)). Jensen: "custom Si is additive, not zero-sum."
-
-6. **AVGO Q1 FY26** (peer, CONFIRMATORY): AI revenue $8.4B (+106% YoY); Q2 guide AI ~$10.7B (+140% YoY) (per [AVGO 8-K T1](https://www.sec.gov/Archives/edgar/data/0001730168/000173016826000011/avgo-02012026x8kxex99.htm)). AWS Trainium budget (MRVL) STRUCTURALLY SEPARATE from Google TPU / META MTIA budgets (AVGO).
-
-7. **SK Hynix Q1 2026** (upstream supplier, CONFIRMATORY): HBM backlog >3 years forward; 72% operating margin (per [SK Hynix press release T1](https://www.prnewswire.com/news-releases/sk-hynix-announces-1q26-financial-results-302750959.html)). HBM3E/4 locked to Trainium configs = MRVL demand validation.
-
-8. **Aggregate hyperscaler capex 2026**: ~$725B (+77% YoY vs $410B 2025) per [Tom's Hardware T3](https://www.tomshardware.com/tech-industry/big-tech/skyrocketing-component-prices-push-big-tech-capex-to-record-725-billion). MSFT FY26 $190B vs $152B consensus.
-
-**Material impact on Q1 FY27 prediction**: cohort calibration pushed estimates ABOVE bottoms-up alone. Custom Si FY27 outlook upgrade probability (60%) and Q2 FY27 guide raise probability (65-70%) are the two non-consensus calls the framework produced. Pure bottoms-up would have left both at "consensus-tracking."
-
-**Stock-reaction caveat per principle #31**: BEAT high probability fundamentally, but Stage 3-4 positioning means stock could react muted-to-negative even on a fundamental beat (NVDA May 2026 pattern is the parallel case study).
-
-**Pending GRADE outcome 2026-05-28** — if the framework's non-consensus calls land, codify as principle #32 in methodology.md. If not, keep as cross-source-log methodology candidate pending 2nd application.
-
-## Cross-reference — SNOW $6B AWS pact TRACE (added 2026-05-27, back-reference per Critical Rule #10)
-
-Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`: MRVL named in 3rd-order cascade as **conditional beneficiary** via UNCONFIRMED Trainium3 inclusion in SNOW's $6B GPU commitment. P~40% confidence. MRVL is AWS Trainium custom-Si networking partner per [The New Stack T3](https://thenewstack.io/openai-bedrock-trainium-silicon/); IF Trainium3 is part of the GPU category in the SNOW commitment, MRVL benefits via EthOS networking demand.
-
-**No thesis update warranted (premortem 2026-05-27)**: Trainium3 inclusion is NOT confirmed in public deal disclosures. The TRACE artifact captures this as a single-source hypothesis, NOT a triangulated signal. Propagating to thesis as fact would violate principle #29 segmented-triangulation discipline. Watch item: any AWS-side disclosure confirming chip mix in the SNOW infrastructure commitment.
-
-## Cross-reference — Q1 FY27 GRADE (added 2026-05-28, back-reference per Critical Rule #10)
-
-Per `research/predictions/2026-05-27-MRVL-Q1FY27-GRADE.md`:
-
-**Print summary (T1 per [Q1 FY27 8-K via SEC](https://www.sec.gov/Archives/edgar/data/0001835632/000183563226000014/q127_8kx522026ex-991.htm))**:
-- Q1 FY27 revenue $2.418B (+28% YoY) — RECORD; beat consensus $2,410M
-- Q1 FY27 non-GAAP EPS $0.80 (+29% YoY) — at consensus high end
-- Datacenter $1.833B (+27% YoY) = 76% of total
-- Q2 FY27 guide $2.700B ± 5% — beat raise expectations
-- **FY27 outlook RAISED to ~$11.5B (vs prior ~$11B target)** = +$500M material upgrade
-- **FY28 outlook NEW at ~$16.5B (+45% YoY)** = new structural data point
-- Custom Si FY27 ">20% growth" MAINTAINED; **FY28 "more than double" NEW commentary** (>100% YoY)
-
-**Thesis impact:** STRUCTURALLY POSITIVE. Multi-year guide upgrade + FY28 custom Si "more than double" commentary CONFIRMS the contracted-demand thesis and EXTENDS the visibility horizon. The "more than double" FY28 commentary is the strongest single-data-point structural signal in the print — tied to new tier-1 hyperscaler XPU program ramp + 10+ XPU-attached programs reaching volume. No falsifier fired.
-
-**Stock reaction (per Two-Part Protocol):** -1.96% pre-market 2026-05-28 despite green macro tape (Iran-US deal news). Validates principle #31 Stage 3-4 positioning modifier. MRVL underperforming green tape = NEGATIVE relative-strength signal. Sizing discipline applies: -25 to -35% discount to standard sizing for any entry. The fundamental thesis remains intact; the entry-price asymmetry is poor at current levels.
-
-**No tier change.** Active candidate; sizing discipline per principle #31 continues to apply. Recommended next watch: Q2 FY27 earnings (next August) — does mgmt confirm the FY28 "more than double" trajectory with first quarterly proof-points, OR slip the timeline.
-
-**Lessons added (L11 + L12 + L13):** see `predictions/lessons.md`. L11 conditional-EPS-amplification refinement to L6; L12 sequential-vs-YoY discipline; L13 management-commentary vintage-distribution framing.
-
-**Supply-Chain-Cohort Calibration framework status:** PARTIALLY VALIDATED at N=1. NOT codified yet. Refinement notes documented for N=2 application at Schwab June 2026 launch.
-
-## Cross-reference — Computex 2026 Day 2 keynote + Jensen Huang $1T endorsement (added 2026-06-02, per Critical Rule #10)
-
-**Day 2 event:** CEO Matt Murphy's Computex keynote with Jensen Huang on stage calling MRVL "the next trillion-dollar company"; +24% pre-market move per [TipRanks T2](https://www.tipranks.com/news/why-is-marvell-technology-mrvl-stock-soaring-today-june-2-2026) and [Bloomberg T2](https://www.bloomberg.com/news/articles/2026-06-02/marvell-surges-after-huang-calls-it-the-next-1-trillion-company). Product family announcements per [Marvell IR press release T1](https://www.marvell.com/company/newsroom/marvell-keynote-computex-2026-future-of-scaling-ai-depends-on-connectivity.html):
-
-- **Teralynx T100** — claimed industry-first 102.4 Tbps AI-optimized switch chip (parity with AVGO Tomahawk 6 — closes the 1-generation gap flagged in 2026-05-21 networking-primer cross-reference)
-- **1.6T 2nm coherent optical** solution — samples this year, production 2027
-- **51.2T CPO switch** — first public reveal; blunts AVGO/NVDA CPO disintermediation risk
-- **100T Ethernet switch** — next-generation roadmap milestone
-- **FY27 revenue guide reaffirmed** at ~$11.5B (+40% YoY)
-- **NVDA $2B stake amplified** + NVLink Fusion partnership expansion (per Jensen co-keynote)
-
-**L14 real-time validation (N=3):** Stage 3-4 + CATEGORY EVENT → +24% pre-mkt is exact L14 codified range (+25-40% per `predictions/lessons.md` L14 framework table, just N=2 codified at HPE 2026-06-02 morning, now N=3 real-time at MRVL same day). CATEGORY markers present: (a) new product family across switch + optics + CPO + Ethernet — multi-product baseline-break, (b) NVDA $2B stake amplified to "next $1T company" framing — strategic relationship reframe, (c) FY27 guide reaffirmed at peak run-rate at Stage 3-4. This is a real-time codification cross-validation — L14 framework holds across HPE (compute-system) and MRVL (chip) verticals same day.
-
-**NEW NEGATIVE signal surfaced (not yet cascaded to thesis):** Digitimes/SemiAnalysis T2 reports that MRVL content on Trainium3/Trainium4 may be limited to interface IP — smaller $-content per chip than Trainium2 per [DigiTimes T2](https://www.digitimes.com/news/a20260213PD201/aws-ai-server-cooling-production-2026.html); MediaTek Computex 2026 announcement raised 2026 DC revenue forecast $1B→$2B targeting 10-15% ASIC market share by 2027 per [MediaTek/ABI T2](https://www.mediatek.com/tek-talk-blogs/mediateks-nvlink-fusion-partnership-pioneering-ai-innovation-with-custom-asic) = direct slot competition with MRVL custom Si. **These are pre-positioned watch items, not yet thesis-falsifying** — but they do compress the FY28 "more than double" custom Si trajectory if confirmed.
-
-**AVGO Jun 3 earnings = load-bearing comparative event:** AVGO Q2 FY26 print tomorrow (June 3) tests the relative MRVL-vs-AVGO custom Si trade. If AVGO custom Si growth > MRVL, the absolute MRVL win at Day 2 keynote partially neutralizes by relative ranking. If AVGO disappoints, MRVL absorbs the custom Si leadership narrative permanently.
-
-**Position implication: NO ACTION — stay at 0% — buying post +24% CATEGORY EVENT move at Stage 3-4 violates entry discipline per principle #31; wait for (a) AVGO Jun 3 print to test relative custom-Si thesis, (b) Trainium3/T4 $-content clarification, (c) Stage 3-4 + CATEGORY EVENT T+24h sustain or fade (per L14 framework expectation +25-40% lasts; if it fades below +15% within 48h, framework partial-falsifier).**
-
-## Cross-source synthesis — Murphy Computex 2026 keynote claims verification (added 2026-06-02 evening, per Critical Rule #10)
-
-Per `signals/cross-source-log/2026-06-02-hbm-2027-pricing-trendforce-and-spectrum-x-cpo-production.md`: User-shared Marvell CEO Murphy Computex 2026 keynote per [Digitimes article T2](https://www.digitimes.com/news/a20260602VL212/marvell-copper-cpo-data-center-server-rack-computex-2026.html) + 3-subagent verification:
-
-**VERIFIED claims:**
-- **Teralynx T100 specs: 102.4 Tbps monolithic, 3nm process, <1,000W typical power, up to 25% lower power than competing solutions** per [Marvell IR T1](https://investor.marvell.com/news-events/press-releases/detail/1024/marvell-announces-availability-of-industrys-first-102-4-tbps-switch-purpose-built-for-ai-and-cloud-data-center-infrastructure); sampling "this quarter" — VERIFIED-DIRECTIONALLY (TSMC node N3E vs N3P source-gap; AVGO Tomahawk 6 comparator watt figure undisclosed so 25% delta not independently verifiable)
-- **Copper reach physics** (5m@100G → 2.5m@200G → impossible@400G within rack) — VERIFIED-DIRECTIONALLY per IEEE 802.3dj/df working group consensus
-- **NVDA Spectrum-X Photonics in production** per [NVDA June 1 2026 T1](https://www.globenewswire.com/news-release/2026/06/01/3303979/0/en/NVIDIA-Vera-Rubin-Ramps-Into-Full-Production-to-Power-Agentic-AI-Factories-Worldwide.html) — VERIFIED-DIRECTIONALLY; NVDA framing is "ramping into full production" (Murphy "mass production" slightly stronger; directionally aligned); AVGO Tomahawk 6-Davisson also claimed "first CPO Ethernet switch" so "first" depends on definition
-- **ASE role + Taiwan ecosystem** — VERIFIED per [Digitimes parallel article T2](https://www.digitimes.com/news/a20260602VL211/taiwan-ase-ceo-marvell-computex-2026.html); ASE advanced-packaging sales doubling to $3.2B 2026 on CPO/AI demand
-
-**MARKETING-RHETORIC flags (NOT load-bearing claims, important context):**
-- **"$36B M&A over decade"** is NOT pure M&A — actual M&A sums to ~$21-23B (Cavium ~$6B + Aquantia ~$452M + Avera ~$650M + Inphi ~$10B + Innovium ~$1.1B + Celestial AI ~$3.25B base + ~$2.25B earnout per [Marvell IR T1](https://investor.marvell.com/news-events/press-releases/detail/1005/marvell-completes-acquisition-of-celestial-ai)). The $36B is Murphy's PLATFORM-SPEND framing bundling ~$22.5B M&A + ~$18B organic R&D − ~$4.5B divestitures per [Semiconalpha keynote transcript T3](https://semiconalpha.substack.com/p/marvell-computex-2026-keynote-key)
-- **"Marvell is the ONLY company addressing full mm-to-km connectivity stack"** — MARKETING-RHETORIC; AVGO (Tomahawk 6 CPO + Sian DSPs + Jericho) + NVDA (Spectrum-X + NVLink + ConnectX) + Cisco/Acacia cover overlapping scope
-- **"10× intra-rack vs inter-rack connections"** — SOURCE-GAP; Goldman cites 9× optical TAM expansion + 29× GB300→Rubin Ultra interconnect dollar jump but not 10× cleanly per [BigGo Finance T2](https://finance.biggo.com/news/W6DUmZ0B-x-dxYpb0XI7); likely Marvell-specific framing
-
-**Net read on MRVL thesis:** The Murphy keynote claims are partially marketing rhetoric AT THE FRAMING LEVEL ($36B + "only company") but the LOAD-BEARING engineering claims (T100 specs + copper physics + Spectrum-X production confirmation + ASE ecosystem) are verified. The CPO transition is real and ahead of prior schedule. **For MRVL specifically:** The Spectrum-X production validates Murphy's CPO framing but ALSO confirms that NVDA + AVGO are direct competitors at the CPO switch ASIC layer — MRVL's 51.2T CPO switch announcement at Day 2 is followers' move, not leader. The asymmetric edge is MRVL Coherent optical modules + 1.6T 2nm coherent DSP layer (where MRVL is differentiated incumbent vs AVGO/NVDA in-house), not the CPO switch ASIC layer itself.
-
-**Position implication:** NO CHANGE from prior Day 2 cascade — STAY at 0%; Stage 3-4 + post-+24% CATEGORY EVENT entry discipline holds. The $36B platform-spend clarification + "only company" rhetoric flag actually REDUCES the case for MRVL all-in at peak. Co-Tech (8358.TW) bypass-route alternative remains the asymmetric Kelly bet per `companies/MITSUI/thesis.md` position-implication line.
+**Self-bias counter-weight:** user just bought MRVL near spot. Confirmation bias risk acknowledged explicitly; the bear case is real and partially already in motion (Trainium demotion + Google TPU to AVGO are confirmed, not speculative). The HOLD recommendation is honest — not "validate the buy" — and falsifier #5 (post-S&P drag through Jul 22) is a real near-term test, not a decorative caveat.

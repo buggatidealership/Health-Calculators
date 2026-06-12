@@ -456,3 +456,17 @@
 - [ ] **P2 / research / 2026-06-20** [INDP, POS] — Document why DDOG + NOW were trimmed -33%/-35% in 2026-06-12 rotation
   - Origin: 2026-06-12 PM rotation cut software-cluster exposure materially; thesis files don't yet reflect rationale; rotation reduces TC-9 (candidate agentic-observability mandate) cascade beneficiaries' weight before TC-9 promotion audit 2026-06-24
   - Scope: confirm with user whether trim reflects: (a) valuation discipline, (b) thesis conviction softening, (c) capital reallocation to MRVL/SNDK, (d) all of the above; cascade to DDOG + NOW thesis files
+
+- [ ] **P1 / verification / 2026-08-25** [INDP, AF, POS, CAL] — MRVL Q2 FY27 print + L14/L19/B42 watch (HELD ~5.9%)
+  - Origin: 2026-06-12 3-subagent MRVL deep-dive (`signals/cross-source-log/2026-06-13-MRVL-deep-dive-3subagent.md`); falsifier #1 of MRVL thesis fires/falsifies at this print
+  - Scope: (a) Was FY28 custom Si guide RAISED with named NEW XPU customer (Google MPU, new hyperscaler)? → confirms H1 bull; (b) Was guide reaffirmed with no new named customer? → base case dominant; (c) Was guide trimmed? → bear K2 fires → trim trigger; (d) Stock T+24h reaction vs L14/L14-v2 framework — calibration data point
+  - Linked: `companies/MRVL/thesis.md` falsifier #1; `predictions/lessons.md` L11/L12/L13; `signals/cross-source-log/2026-06-13-MRVL-deep-dive-3subagent.md`
+
+- [ ] **P2 / verification / 2026-07-22** [POS, CAL] — MRVL post-S&P inclusion drag watch (falsifier #5)
+  - Origin: 2026-06-12 MRVL deep-dive K5 imminent risk (S&P inclusion Jun-22; 30-day post-inclusion drag pattern); falsifier #5 from `companies/MRVL/thesis.md`
+  - Scope: at Jul-22 (30d post-inclusion), check MRVL stock action: down >15% AND no fundamental bear-news → L14 give-back pattern worse than expected → reweight Stage 3-4 modifier + trim trigger. Down <10% → K5 risk dissipated. Anywhere in between → monitoring
+  - Linked: `companies/MRVL/thesis.md` falsifier #5
+
+- [ ] **P3 / research / 2026-09-30** [INDP, AF] — Retrieve NVDA Securities Purchase Agreement full exhibit (currently SEC 403)
+  - Origin: 2026-06-12 MRVL bear subagent — SPA exhibit not retrievable at T1; lock-up + standstill + exclusivity terms unverified; this drives MRVL falsifier #4
+  - Scope: attempt EDGAR retrieval via alternate paths (10-Q/10-K reference exhibits, FOIA equivalents, redacted version in proxy materials); failing that, monitor for 13D/G or 8-K amendment exposing terms
