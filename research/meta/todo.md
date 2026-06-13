@@ -497,3 +497,14 @@
   - Origin: 2026-06-12 model-layer export-control signal (TC-10) — IF H2/H3 plays out, cleanest investable expression is EU-sovereign-AI serving infra; currently NO held or watchlist name captures it. Mistral is private (€3B raise 2026-06-12). Need investable proxies.
   - Scope: during the monthly supply-chain graph reconstruction cycle, fan out specifically on EU-sovereign-AI infra investable names (sovereign cloud, EU-compliant model serving, EU data-residency infra) that pass the investability filter (Degiro/N26 accessible). Surface 2-3 candidates if they exist.
   - Linked: TC-10; `signals/cross-source-log/2026-06-12-us-export-control-fable-mythos-suspension-model-layer-FIRST.md`; existing supply-chain graph reconstruction P1 (2026-06-25)
+
+- [ ] **P2 / verification / 2026-09-13** [INDP] — TC-11 ITC Section 337 petition watch (UMC vs TSMC patent enforcement)
+  - Origin: 2026-06-13 AM brief item #15 — Republican congresspersons petition ITC to block TSMC chip imports via UMC patents (T2 Tom's Hardware). N=1 candidate cluster TC-11 (hardware-IP/patent enforcement at chip-import layer; distinct from TC-7 export-side).
+  - Scope: 90-day watch for (a) ITC formal acceptance of Section 337 investigation (procedural milestone); (b) N=2 instance — any other hardware-IP enforcement action targeting AI chip flow; (c) hyperscaler/foundry public commentary
+  - Outcome decision tree: ITC accepts + N=2 emerges → promote TC-11 CANDIDATE → ACTIVE → cascade to MRVL/NVDA watchlist + held MRVL thesis update; ITC declines OR no N=2 → keep candidate; close at 2026-09-13 monthly review
+  - Linked: TC-11 in `signals/triangulation.md`; `signals/cross-source-log/2026-06-13-morning-brief-15-item-triage-tc10-promoted.md`
+
+- [ ] **P3 / verification / 2026-06-25** [INDP] — Contrail Compute AIX RISC-V AI execution platform T1 verification
+  - Origin: 2026-06-13 AM brief item #12 — Epic Semi PR claims first RISC-V AI execution platform. Single source (T2 vendor PR); ARM-alternative thesis watch (ARM held 3.2%).
+  - Scope: verify whether AIX is shipping product OR pre-product PR; if real, what customers / volume / when does it reach commercial scale; does it materially threaten ARM royalty model in next 24-36 months
+  - Linked: `companies/ARM/thesis.md`; `signals/cross-source-log/2026-06-13-morning-brief-15-item-triage-tc10-promoted.md`
