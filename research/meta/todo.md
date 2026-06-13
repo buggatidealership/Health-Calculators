@@ -487,3 +487,13 @@
 - [x] **DONE 2026-06-12 PM** — Workflow #9 MACRO-FIRST RESEARCH full specification — completed early (was due 2026-06-20); written into CLAUDE.md Core Workflows section as Workflow #9 incorporating user's 5-step pipeline articulation verbatim (research pass → first-principles articulation → metric evaluation → future inference via triangulation + pattern-matching against P-register/TC-clusters → company tie-in). Quality bar + #8 relationship + origin failure + falsifier all specified. Artifact: CLAUDE.md §Workflow 9.
 
 - [x] **DONE 2026-06-12 EVE same-session** — Rubin CPX B40 contradiction RESOLVED via verification subagent: Scenario (c) — June 12 brief recycled Sept 10, 2025 SemiAnalysis article as fresh news (URL confirmed `semianalysis.com/2025/09/10/...`). June 4 cancellation anchor was CORRECT. HYNIX HBM thesis INTACT. B40.1 increment to N=10+. Closed in cross-source-log verification register. Discovery D2 (inference architecture bifurcation) ALSO COLLAPSES — no Rubin CPX = no prefill/decode chip-class split from NVDA side.
+
+- [ ] **P2 / verification / 2026-06-20** [INDP] — Fable 5 / Mythos 5 access-restore check (H1 transient vs H2 structural resolver)
+  - Origin: 2026-06-12 US export-control directive disabled Fable 5 + Mythos 5 globally (`signals/cross-source-log/2026-06-12-us-export-control-fable-mythos-suspension-model-layer-FIRST.md`). H1 transient (P~45% my model) confirms if access restored allied-tier by ~June 20; if still disabled or a 2nd model-layer action appears, H2 structural-regime weight rises.
+  - Scope: check Anthropic status + news for Fable/Mythos restoration; check for any SECOND model-layer export action (any provider); update TC-10 candidate cluster N-count + status
+  - Linked: TC-10 in `signals/triangulation.md`; the export-control cross-source-log
+
+- [ ] **P1 / research / 2026-06-25** [INDP, AF, POS, BOT] — EU-sovereign-AI infra investable-expression RESEARCH GAP (add to supply-chain graph reconstruction)
+  - Origin: 2026-06-12 model-layer export-control signal (TC-10) — IF H2/H3 plays out, cleanest investable expression is EU-sovereign-AI serving infra; currently NO held or watchlist name captures it. Mistral is private (€3B raise 2026-06-12). Need investable proxies.
+  - Scope: during the monthly supply-chain graph reconstruction cycle, fan out specifically on EU-sovereign-AI infra investable names (sovereign cloud, EU-compliant model serving, EU data-residency infra) that pass the investability filter (Degiro/N26 accessible). Surface 2-3 candidates if they exist.
+  - Linked: TC-10; `signals/cross-source-log/2026-06-12-us-export-control-fable-mythos-suspension-model-layer-FIRST.md`; existing supply-chain graph reconstruction P1 (2026-06-25)

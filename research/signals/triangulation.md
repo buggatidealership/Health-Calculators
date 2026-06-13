@@ -20,6 +20,7 @@ Signals confirmed by ≥3 independent same-segment same-direction sources within
 | **TC-6** MLCC AI-server tier bifurcation | advanced-packaging (passives) | [ACTIVE] | 4 | Murata held — ~70% AI-server share anchored; T7+T9 strengthen into Q1 FY27 print | 2026-06-11 |
 | **TC-7** InP geopolitical bottleneck + JP rent migration | chip-and-foundry (substrates) | [ACTIVE] | 4 | AXT exit decision validated stronger; JX 5016.T + Sumitomo 5802.T candidates | 2026-06-11 |
 | **TC-8** Token consumption compounding (T1) | infrastructure-IaaS | [ACTIVE] | maintained | Held cohort across compute+memory benefits | (carry-over) |
+| **TC-10** Model-layer sovereignty + export control | sovereign-AI / regulatory | [CANDIDATE] | 3 in 48h | FIRST instance of US export control on a COMMERCIAL AI MODEL (Fable 5 + Mythos 5 disabled globally 2026-06-12, T1 Anthropic primary) — export regime extends silicon-tier → model-tier; "any foreign national" breadth reads like govt testing model-disablement machinery; bypass routes abundant near-term (other Anthropic tiers + GPT-5.5/Gemini same-day) so equity impact muted, but regime-precedent durable; cleanest investable expression = EU-sovereign-AI infra (Mistral €3B analogue) but NO held/watchlist name captures it = research gap; distinct from TC-7 (hardware substrate). Promotion review 2026-06-24 | 2026-06-13 (export-control model-layer log) |
 
 ---
 
