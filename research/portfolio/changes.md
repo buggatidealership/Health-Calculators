@@ -373,3 +373,16 @@ UNCHANGED: SK Hynix 8 sh GDR, Sumco 415 sh
 
 Total Degiro: €187,620 → €185,029 (slight cash use net of position appreciation)
 Implied cash: ~64% → ~68% (more defensive)
+
+## 2026-06-14 AM rotation (user-shared screenshots 10:41 local)
+
+EXITED: (none — all prior exits remain)
+NEW: (none)
+SIZED UP: (none)
+TRIMMED: DDOG 40 → 26 sh (-14 sh / -35%) — continues software-cluster reduction trajectory (NOW was trimmed similarly Jun-12); total Degiro DDOG value €5,169 = ~2.8% of portfolio
+UNCHANGED: HY9H, MRVL, Murata (both listings), SNDK, NOW, Sumco
+
+Total Degiro: €185,029 → €184,419 (-€610 net; small drift)
+Implied cash: ~68.0% → ~68.3% (modestly more defensive)
+
+USER DIRECTIVE 2026-06-14 (verbatim): "we don't hold ARM anymore. I've sold a lot and consolidated in certain positions just for you to update everywhere the portfolio is mentioned in the harness or in the ledger." → triggered sweep for stale ARM-as-held references.

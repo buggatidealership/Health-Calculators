@@ -1,5 +1,7 @@
 # AGC Inc (5201.T) — Thesis
 
+**⚠️ POSITION STATUS: EXITED (no longer held) — exited in 2026-06-12 rotation per `portfolio/holdings.md`; reaffirmed by user 2026-06-14 AM directive.** Thesis retained as reference artifact for EUV mask blank / CoPoS glass-core analysis. **All "HOLD" entries below are HISTORICAL — do NOT treat as current position guidance.**
+
 **Last updated:** 2026-06-11 (CoPoS Kuo-note verification — Vector 3 glass-core VALIDATED but NOT upgraded; NEG 5214.T ahead on disclosure with exact-spec 515×510 product)
 
 ## 2026-06-11 back-reference — CoPoS verification: Vector 3 validated-not-upgraded

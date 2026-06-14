@@ -162,7 +162,7 @@ Per-name verified balance sheet positions:
 
 In a tight-rate + high-inflation joint regime where capital-intensive BUYERS face debt service inflation + component cost inflation simultaneously, the **SUPPLIERS who COLLECT the capex burn are the structural winners** — they collect the cash being burned, have stronger balance sheets (not levered for the buildout), and benefit from pricing power expansion in shortage conditions (validated by 2026-06-03 memory shortage coalition letter).
 
-User's held cohort (HYNIX/SNDK/SUMCO/MUR/AGC/ARM) sits structurally on the right side of this dynamic. Joint-regime fit STRENGTHENED, not weakened. **Post-rotation portfolio is correctly positioned for this joint regime.**
+User's held cohort (HYNIX/SNDK/SUMCO/MURATA/MRVL/DDOG/NOW per `portfolio/holdings.md` 2026-06-14 canonical; ARM and AGC EXITED) sits structurally on the right side of this dynamic. Joint-regime fit STRENGTHENED, not weakened. **Post-rotation portfolio is correctly positioned for this joint regime.**
 
 ### Consumer Hardware AI Swap = next non-consensus leg
 

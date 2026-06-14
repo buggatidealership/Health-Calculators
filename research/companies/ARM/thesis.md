@@ -1,5 +1,7 @@
 # ARM Holdings (ARM) — Thesis
 
+**⚠️ POSITION STATUS: EXITED (no longer held) — reaffirmed by user 2026-06-14 AM.** Last held sizing was ~3.17% (post-Jun-5/6 -71% trim from 11.40%); fully exited at or before 2026-06-14 portfolio refresh per `portfolio/holdings.md`. **All "Position implication: HOLD" entries below are HISTORICAL ARTIFACTS from the held period — do NOT treat as current position guidance.** Thesis retained as reference artifact for ARM royalty / CSS / Vera ecosystem analysis and for any future re-entry consideration.
+
 **Last updated:** 2026-06-10 (June 9 evening brief + SoftBank-OpenAI-$6B-margin-loan-stall cascade — SoftBank overhang risk re-emerges as 4th-order tail watch; no action, post-trim sizing already absorbs risk)
 
 ## 2026-06-10 back-reference — SoftBank OpenAI margin loan stalls (4th-order ARM overhang watch)
