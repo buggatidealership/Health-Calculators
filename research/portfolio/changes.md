@@ -386,3 +386,15 @@ Total Degiro: €185,029 → €184,419 (-€610 net; small drift)
 Implied cash: ~68.0% → ~68.3% (modestly more defensive)
 
 USER DIRECTIVE 2026-06-14 (verbatim): "we don't hold ARM anymore. I've sold a lot and consolidated in certain positions just for you to update everywhere the portfolio is mentioned in the harness or in the ledger." → triggered sweep for stale ARM-as-held references.
+
+## 2026-06-14 AM — User-clarified rotation context (META-ANNOTATION)
+
+User 2026-06-14 verbatim: "the selling of the positions as the updated portfolio I've shared with you previously is based on... it was just me selling because it was sort of an emotional sale based on geopolitics."
+
+**Implication:** the recent trims (DDOG -35% Jun-14, NOW -33% Jun-12, ARM full exit, AGC exit, Hirano exit, MongoDB exit, ALAB exit, STM/GLW/SMTC/TSEM/TE exits at Jun-5/6) were EMOTIONAL / GEOPOLITICAL discretionary trims, NOT thesis-falsifier fires. Per Critical Rule #8 (NEVER sell on macro headwind without thesis falsification), these trims were outside standing discipline.
+
+Forward operational implications:
+- Held theses for trimmed names remain VALID at file level
+- Re-entry consideration does not require new thesis development
+- Pattern monitoring at next monthly audit 2026-06-24: is emotional-trim cadence becoming recurring failure mode?
+- Flag to user proactively if portfolio rotation cadence accelerates further during macro stress without thesis falsification (B9 in biases-watchlist.md addresses emotional-risk-management masquerade)

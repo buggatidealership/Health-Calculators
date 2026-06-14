@@ -1,8 +1,181 @@
 # Watchlist Candidates
 
-**Last updated:** 2026-06-04 PM (SYNA added with active signal-density tracking per Principle #38 candidate; SYNA threshold CROSSED, Stage 1 entry recommended)
+**Last updated:** 2026-06-14 AM (EU-sovereign-AI cluster added per user directive 2026-06-14 — Capgemini + Deutsche Telekom + OVHcloud + Reply SpA + Schneider Electric; explicit directional-signal-event tracking attached to each name; plus Bloom Energy on Layer-3 power-bypass)
 
 Names surfaced by signals / causal chains, not yet covered by full thesis. Promoted to `companies/{TICKER}/` when conviction warrants.
+
+## EU-sovereign-AI cluster (TC-10 ACTIVE — added 2026-06-14)
+
+**Origin signal:** TC-10 (model-layer sovereignty + export control) promoted CANDIDATE → ACTIVE 2026-06-13 on N=6 in <72h after US gov suspended Anthropic Fable 5 + Mythos 5 worldwide. **The investable expression gap is the EU-sovereign-AI INFRA/INTEGRATOR tier** (no EU-publicly-listed pure-play model lab exists — Mistral private, Aleph Alpha absorbed into Cohere).
+
+**Research foundation:** `signals/cross-source-log/2026-06-14-eu-sovereign-AI-and-corrected-layer-3-bypass-2subagent.md` §1 (Subagent A T1+T2 multi-source).
+
+**User context 2026-06-14 (verbatim):** *"these are companies that we should add on the watch list in the Sovereign AI segment. Specifically, I assume Europe. we also have to ensure that there are events that you identify that have to be tracked that give a directional signal to if these are becoming positions to consider adding to our portfolio."*
+
+### Capgemini (CAP.PA) — Euronext Paris — RANK 1
+
+| Attribute | Value (research-verified 2026-06-14) |
+|---|---|
+| Market cap / Fwd P/E (T2) | €21.9B / ~12.3x |
+| Investability | Yes — Degiro Euronext Paris confirmed accessible |
+| Thesis hook | T1 CMD 2026-05-27: sovereignty + defense as 2028 pillar; first SAP sovereign cloud partner in EU; Q1-26 revenue +7% reported / +11% cFX |
+| Cleanness | HIGH — undemanding multiple for what's becoming an infra-toll position |
+| Falsifier | Pivots to US-hyperscaler-wrappered sovereign offerings (already has AWS EU Sovereign Cloud partnership) → differentiation reduces |
+
+**DIRECTIONAL SIGNAL EVENTS to track for entry:**
+
+| Event | What it signals | When |
+|---|---|---|
+| Capgemini Q2-26 print (Jul-26 est) | Sovereignty/defense pillar revenue contribution disclosed; named EU public-sector wins | Late Jul-26 |
+| Named EU public-sector contract win (defense, regulated industries) | Compliance-toll thesis activating; demand-side empirical confirmation | Watch continuous |
+| SAP sovereign cloud revenue disclosure update | Partner-revenue traction | Quarterly SAP prints |
+| EU AI Act enforcement first major fine | Compliance-pricing-power rising | Indeterminate; watch EU Commission announcements |
+| 2nd model-layer export action (any frontier lab) | TC-10 H2 structural-regime confirmation → EU-sovereign re-rates | TC-10 watch active |
+
+### Deutsche Telekom (DTE.DE) — Xetra Frankfurt — RANK 2
+
+| Attribute | Value (research-verified 2026-06-14) |
+|---|---|
+| Market cap / Fwd P/E (T2) | ~$159B / ~12.2x |
+| Investability | Yes — Degiro Xetra confirmed accessible |
+| Thesis hook | T1 Telekom PR: T-Systems Industrial AI Cloud LIVE (~10k Blackwell GPUs Munich, 0.5 EFLOPS). **Anti-fragile across H1 (status quo) AND H2 (structural sovereign-regime)** |
+| Cleanness | HIGH — boring telco multiple for what is now an EU AI infra asset |
+| Falsifier | T-Systems sovereign AI cloud fails public-sector contract wins; market share <5% EU enterprise AI spend by 2027 |
+
+**DIRECTIONAL SIGNAL EVENTS to track for entry:**
+
+| Event | What it signals | When |
+|---|---|---|
+| DTE Q2-26 print (Aug-26 est) | T-Systems AI Cloud utilization + customer count disclosure | Aug-26 |
+| Named EU public-sector NHS/Bundeswehr/regulated-industry contract win on T-Systems AI Cloud | H2 structural-regime activating empirically | Watch continuous |
+| DELOS cloud (T-Systems/Microsoft JV) revenue disclosure | Partial-sovereignty tier vs full-sovereignty competition with OVHcloud | Quarterly prints |
+| 2nd hyperscaler EU sovereign retreat (Microsoft Azure / Google Cloud reduces EU autonomy) | Demand for genuinely-sovereign alternatives accelerates | Watch continuous |
+| T-Systems GPU cluster capacity expansion announcement | Buildout cadence accelerating | Continuous |
+
+### OVHcloud (OVH.PA) — Euronext Paris — RANK 3 (HIGH-BETA pure-play)
+
+| Attribute | Value (research-verified 2026-06-14) |
+|---|---|
+| Market cap / Fwd P/E (T2) | €2.35B / ~41x (stale Sept-25 anchor — verify pre-sizing) |
+| Investability | Yes — Degiro Euronext Paris confirmed accessible |
+| Thesis hook | T1 explicit "sovereign, European leader in Cloud and AI" positioning; only major EU-native public cloud at scale |
+| Cleanness | HIGH for thesis; risk HIGH for execution |
+| Falsifier | Already trading above analyst mean PT (€15.75 vs €10.44 avg); operational history (2021 Strasbourg fire); loses SLA battles to T-Systems / AWS EU Sovereign |
+
+**DIRECTIONAL SIGNAL EVENTS:**
+
+| Event | What it signals | When |
+|---|---|---|
+| OVHcloud quarterly print + GPU capacity disclosure | Buildout pace vs hyperscaler-sovereign competitors | Quarterly |
+| Hyperscaler EU sovereign offering pricing benchmark | Price/SLA delta vs OVH stays favorable or compresses | Watch continuous |
+| Pullback below €13 (-17%) without thesis deterioration | Asymmetric entry zone vs current momentum | Price watch |
+| Named EU enterprise design wins | Demand-side traction | Continuous |
+
+### Reply SpA (REY.MI) — Borsa Italiana — RANK 4
+
+| Attribute | Value (research-verified 2026-06-14) |
+|---|---|
+| Market cap / Fwd P/E (T2) | ~€3.1-3.6B / ~12-14x TTM |
+| Investability | Yes — Degiro Borsa Italiana confirmed accessible per general Degiro product description (verify against live REY.MI search before sizing) |
+| Thesis hook | EU-native IT integrator; AI compliance integrator; analyst consensus implies ~55% upside |
+| Cleanness | MEDIUM — less direct exposure than Capgemini; smaller float |
+| Falsifier | Revenue mix too Italian-public-sector dependent (lower margin) |
+
+**DIRECTIONAL SIGNAL EVENTS:**
+
+| Event | What it signals | When |
+|---|---|---|
+| Reply quarterly print | AI-segment revenue mix disclosure | Quarterly |
+| Italian / EU public-sector AI contract wins | Compliance-integrator thesis activating | Continuous |
+| Pan-EU expansion announcements | Diversifying beyond Italy-mix | Continuous |
+
+### Schneider Electric (SU.PA) — Euronext Paris — RANK 5 (2nd-order)
+
+| Attribute | Value (research-verified 2026-06-14) |
+|---|---|
+| Market cap / Fwd P/E (T2) | ~$182B / ~27-30x |
+| Investability | Yes — Degiro Euronext Paris confirmed accessible |
+| Thesis hook | 2nd-order: supplies DC power+cooling regardless of model-layer; T2 beat-and-raise on AI DC demand 2026 |
+| Cleanness | MEDIUM-HIGH — large cap means TC-10 is marginal not primary catalyst |
+| Falsifier | EU sovereign DC buildout stalls on permits; large-cap multiple already reflects AI-supply story |
+
+**DIRECTIONAL SIGNAL EVENTS:**
+
+| Event | What it signals | When |
+|---|---|---|
+| Schneider quarterly print + DC backlog disclosure | EU DC buildout intensity | Quarterly |
+| Named EU sovereign DC project wins | TC-10-specific demand vs general AI DC demand | Continuous |
+| EU permitting reform / DC moratorium update | Layer-3 EU buildout pace | Continuous |
+
+### Honorable mentions tracked (lower priority for now)
+
+- **SAP.DE** (Xetra; >€20B sovereign cloud + AI investment; Mistral AI Studio in SAP AI Foundation live) — watch for sovereign-cloud revenue disclosure
+- **STM.PA** (Euronext Paris; T1 SEC 6-K data center revenue $1B target 2026) — held-cohort-adjacent silicon name; watch FY26 actuals
+- **Infineon (IFX.DE)** (power semis for AI server delivery; €12B AI opportunity by decade end T3) — watch AI revenue segmentation
+- **Atos (ATO.PA)** (T1 Sovereign Agentic Studios Mar-26 + Digital Sovereignty offering Apr-26; mkt cap only ~$0.88B) — restructuring risk; watch turnaround milestones
+- **ASML.AS** (already in harness universe; 3rd-order TC-10 link) — incumbent watch
+
+### TC-10 CLUSTER-LEVEL DIRECTIONAL SIGNAL EVENTS (apply to all 5 names)
+
+These events move the whole TC-10 H2 weighting (currently P~55% structural, my model):
+
+| Event | H1 (transient) ← → H2 (structural) | When | Status |
+|---|---|---|---|
+| Fable 5 / Mythos 5 access restored allied-tier | → H1 confirms; cluster cools | 2026-06-20 watch | Pending |
+| 2nd model-layer export action (any provider) | → H2 confirms structural; basket re-rates | 90-day window | Watching |
+| EU AI Act enforcement first major action | → H2 demand-side confirmation | Continuous | Watching |
+| Mistral IPO announcement | EU public-market sovereign-AI listing emerges — closes the model-lab gap | Indeterminate | Watching |
+| Anthropic CEO public statement on terms of restoration | Operational-vs-temporary read | Indeterminate | Watching |
+| Anthropic loses named US enterprise account post-suspension | TC-4 + TC-10 stacking; private-tracker H2 +pp | Indeterminate | Watching |
+
+## Bloom Energy (BE) — Layer-3 power bypass — added 2026-06-14
+
+**Origin signal:** TC-3 reinforced 2026-06-13 EVE at strongest datapoint yet ($130B / 75+ DC projects blocked Q1'26 per Tom's Hardware T2). User caught GEV as B46 framing error (CEO sold out through 2030 T1 SEC); BE is the ONLY empirically-near-zero-TTQ Layer-3 power bypass at MW scale.
+
+**Research foundation:** `signals/cross-source-log/2026-06-14-eu-sovereign-AI-and-corrected-layer-3-bypass-2subagent.md` §2 (Subagent B T1+T2 multi-source).
+
+| Attribute | Value (research-verified 2026-06-14) |
+|---|---|
+| Investability | Yes — NYSE listed; Degiro accessible |
+| TTQ | **~55 days empirically (Oracle 50 MW); 90-day SLA standard** |
+| Thesis hook | SOFC modules truck-deliverable, gas-hookup only, no large substation/permit; bypasses 5-10 yr utility interconnect queue. $7.65B contracts in 90-day window 2026; Oracle 2.8 GW + Cheyenne 900 MW + Nebius |
+| Capacity constraint | ~2-3 GW annual production (Fremont expansion underway for +2 GW) |
+| Cleanness | HIGH — only verified empirical near-zero-TTQ name at MW scale |
+| Falsifier | Natural gas price spike compresses SOFC TCO advantage; competitor SOFC scale-up (FuelCell Energy, Mitsubishi Power) compresses BE pricing power; capacity gating limits revenue ramp |
+
+**DIRECTIONAL SIGNAL EVENTS:**
+
+| Event | What it signals | When |
+|---|---|---|
+| BE next quarterly print | Capacity ramp + new customer wins + backlog disclosure | Next BE earnings |
+| Fremont capacity expansion milestone | Supply-side constraint loosens or persists | Continuous |
+| Additional hyperscaler SOFC announcements | Empirical bypass-route adoption broadens | Continuous |
+| Natural gas spot price action (Henry Hub) | TCO of SOFC vs grid power | Continuous |
+| Competitor SOFC scale-up announcement (FuelCell Energy, Mitsubishi) | BE pricing power dimension | Continuous |
+| Bloom-Oracle Phase 1 (Cheyenne) operational delivery on schedule late-2026 | Execution credibility on 900 MW project | Late 2026 |
+
+## How these watchlist entries promote to position
+
+Per Critical Rule #11 + framework-codification gate (Critical Rule #11d): names move from watchlist → position when:
+
+1. ≥1 directional-signal event listed above fires in same direction as thesis, AND
+2. User explicit go-decision (these are NEW NAMES, not adds-to-existing-thesis), AND
+3. Per-name thesis file built with full Bull/Bear/Base + falsifiers per CLAUDE.md template, AND
+4. Sizing logic explicit (Active-band 2-4% typical; cash position post-add still >50% per discipline)
+
+## Portfolio rotation context (added 2026-06-14 per user note)
+
+User clarified 2026-06-14 verbatim: *"the selling of the positions as the updated portfolio I've shared with you previously is based on... it was just me selling because it was sort of an emotional sale based on geopolitics."*
+
+**Harness implication:** the recent trims (DDOG -35%, prior NOW -33%, ARM full exit, AGC exit, Hirano exit, MongoDB exit, ALAB exit, STM/GLW/SMTC/TSEM/TE exits at Jun-5) were **EMOTIONAL / GEOPOLITICAL discretionary trims, NOT thesis-falsifier-fires.** Per Critical Rule #8 (NEVER sell on macro headwind without thesis falsification), these trims were outside the standing discipline.
+
+**Forward operational implication:**
+- Held theses for trimmed names remain VALID at file level (no falsifier fired → thesis didn't break)
+- Re-entry consideration for any trimmed name does NOT require new thesis-development; existing thesis applies
+- For watchlist additions (incl. EU-sovereign cluster + BE), the framework-codification gate above still applies
+- User's emotional-trim acknowledgment is itself a meta-discipline signal worth honoring at next monthly audit (2026-06-24) — pattern monitoring for whether emotional-trim cadence becomes a recurring failure mode
+
+---
 
 ## Active signal-density tracking (Principle #38 candidate — Compounding-Signal-Density Pre-Print Entry)
 
