@@ -14,3 +14,4 @@ Baseline before instrumentation (from transcript archaeology, deduped — see `r
 - 2026-06-12 19:09:37Z macro-anchor-hook FIRE (missing macro-anchor / research-tag / tie-together)
 - 2026-06-13 06:42:10Z structural-output-hook FIRE
 - 2026-06-13 19:58:22Z structural-output-hook FIRE
+- 2026-06-14 07:48:18Z structural-output-hook FIRE
