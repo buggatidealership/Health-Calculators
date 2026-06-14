@@ -1085,6 +1085,22 @@ Per the B40.3 entry's own threshold ("if N=2+ in 60 days → CONFIRMED"):
 **Enforcement:** subagent verification protocol step expanded — for any company-specific behavioral claim (restriction, suspension, price action, design win), demand the T1 entity-specific statement; if absent, check whether the behavior belongs to a DIFFERENT entity in the same category.
 **Status: CONFIRMED.** Composite B40 taxonomy now: B40.1 stale-recycle (VERIFIED-HIGH-CONFIDENCE, N=9+), B40.2 magnitude-inflation (CONFIRMED, N=3), B40.3 attribution-garbling (CONFIRMED, N=2 + 1 retroactive).
 
+### B40.3 potential N=3 instance (2026-06-14 PM) — Walsin Q1 2026 "Japanese vendor" attribution ambiguity
+
+Per `signals/cross-source-log/2026-06-14-pm-mlcc-equipment-materials-deepdig-3subagent.md` subagent B finding:
+
+The user-shared trade-press brief (2026-06-14 AM) framed Walsin Technology Q1 2026 法說會 commentary as "Japanese equipment vendor lead times 6-12 months." However, the underlying T1 source ([BigGo Finance Q1 2026 earnings call summary](https://finance.biggo.com/news/TW_2492.TW_2026-05-27)) cites Walsin's "Japanese vendors" specifically for **palladium / silver / petroleum-derived materials** = electrode/termination MATERIAL suppliers, NOT manufacturing equipment vendors.
+
+Possible interpretations:
+- (a) The trade-press brief was correct and Walsin separately discussed equipment lead times in another call segment not captured in the BigGo summary — would NOT be a B40.3 instance
+- (b) The trade-press brief mis-attributed material-vendor commentary as equipment-vendor commentary — would be a B40.3 instance (material-supplier behavior credited to equipment-vendor layer in the summarized brief)
+
+**Status: AMBIGUOUS, pending T1 Walsin transcript verification.** If a full T1 Walsin Q1 2026 法說會 transcript confirms no separate equipment-lead-time commentary at the 6-12mo specificity, this promotes B40.3 to N=3 (validating the codification's predictive power: the catch worked).
+
+Independent corroboration: Holy Stone Enterprise 1-1.5yr "high-end MLCC equipment lead time" claim (T2 [DigiTimes 2026-05-26](https://www.digitimes.com/news/a20260526PD211/holy-stone-mlcc-demand-high-end-2027.html), explicitly equipment-specific) STANDS regardless of the Walsin interpretation. The equipment-lead-time binding thesis is structurally supported by Holy Stone alone; the Walsin number is a corroborating-but-attribution-fragile data point.
+
+**Action:** flag in 2026-06-14 AM cross-source-log + MURATA thesis (already executed in PM cascade commit). Re-test at monthly audit 2026-06-24: if any Walsin Q2 2026 投資者說明会 disclosure explicitly addresses equipment lead times, that resolves the ambiguity.
+
 ### B45 — Pre-training magnitude conservatism in structural-demand regimes (CANDIDATE — N=1 origin 2026-06-12)
 
 **Pattern:** My naive pre-training prior treats +100-200% as the "extreme winner" band and +200%+ as the "rare outlier" tail for 18-month equity returns. In a confirmed structural AI-supercycle regime — where named bottleneck companies are supply-constrained on hardware delivering exponentially scaling demand — this prior is empirically wrong at the tail by roughly **5-8×**. The actual base rate (15-name AI-infrastructure basket, Jan 2025 → June 12, 2026, subagent-verified, full data in `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md`):

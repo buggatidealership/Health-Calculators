@@ -1,6 +1,52 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-06-11 (Non-default read #6 added — AI-capex-credit regime: demand durability now a function of credit conditions + state budgets; both pre-registered legs confirmed same-day). Prior material update 2026-06-08 AM (7TH CONVERGENT SIGNAL TIER — frontline supplier-side qualitative via Korean Twitter source-tier signal from SK Hynix Japan-based employee; SOCAMM-cut June 5 selloff context = sentiment overreaction per insider counter-narrative; CXMT verified DDR5-8000 / LPDDR5X-10667 commodity-tier narrowing added as HYNIX falsifier-monitor). Prior material update 2026-06-08 AM (ASML milestone).
+**Last material synthesis update:** 2026-06-14 PM (MLCC equipment+materials deep-dig completed via 3 parallel subagents; H1 SUPPORTED 55%, H2 REFUTED — no TSE pure-play exists; H3 RE-CHARACTERIZED as forward CO-binding 2027-28; **MURATA moat re-quantified as DOUBLE**: proprietary equipment IP + 20% minority partner in MF Material JV for BaTiO₃ powder per Nikkei T1; SEMCO single-moat asymmetry quantified; pretraining-default candidate list refuted via native-jp — Shibaura Machine / Sintokogio / Japan Steel Works / Murata Machinery / Tokyo Electron / SCREEN / Disco all REFUTED; Walsin Q1'26 "Japanese vendor" attribution flagged as possible B40.3 N=3 pending T1 verification). Prior material update 2026-06-11.
+
+## 2026-06-14 PM — MLCC equipment+materials deep-dig: NO investable bypass exists; MURATA rent capture validated
+
+Per `signals/cross-source-log/2026-06-14-pm-mlcc-equipment-materials-deepdig-3subagent.md` (3-subagent fan-out: native-jp equipment + Taiwan/Korea cross-verification + materials-upstream H3 pressure-test):
+
+### Key result: equipment + materials are CO-BINDING, not alternative
+
+The earlier framing "equipment-lead-time is THE binding constraint" was directionally correct but incomplete. Corrected joint-binding model:
+- **Equipment layer (PRIMARY current binding):** Holy Stone 1-1.5yr high-end MLCC equipment lead time (T2 DigiTimes). No premium-tier substitution exists (Chinese vendors commodity-tier only). Japanese vendors (Nikkiso, NGK Insulators, JTEKT Thermo Systems, Yodogawa Hu-Tech) participate at commodity sintering/stacking steps; Murata internalizes the 0.3µm dielectric + 1000-layer thermal-profile IP.
+- **Materials layer (forward CO-binding 2027-28):** BaTiO₃ powder tight but not supply-stopped today. Japanese 80-100nm particle size vs Chinese 120-150nm maps to 0.3µm vs 1µm dielectric thickness gap. Murata + MF Material JV (Murata 20% minority + Fuji Titanium 70% + Ishihara Sangyo 10%, Nobeoka 2nd factory operational 2027 per Nikkei T1) is the structural rent layer.
+
+### Murata moat re-quantification: DOUBLE vertical integration
+
+**Corrected framing** (replaces yesterday's "vertical integration captured in MURATA stock"):
+- Equipment IP: INTERNAL proprietary (tape-casting + custom kilns)
+- Materials supply: JV-HEDGED via 20% minority stake in MF Material (not internalized)
+- Recipe + formulation: INTERNAL proprietary
+- Result: DOUBLE moat (equipment + materials, both protected from external supplier risk)
+
+**SEMCO comparison (Korean premium-tier threat vector):**
+- Powder: INTERNAL (Busan BaTiO₃ facility)
+- Equipment: NOT disclosed (likely external; same Japanese vendor dependency as Taiwan tier-2)
+- Result: SINGLE moat (powder only)
+- **Asymmetry: Murata double-moat > SEMCO single-moat by the equipment-IP layer.** Reduces premium-tier threat from SEMCO; Korean memory-equipment-ecosystem watch should monitor whether SEMCO catches up on equipment IP.
+
+### Non-default read added (#7): the MLCC equipment+materials rent stack is structurally NOT separately investable
+
+Most analysts assume there must be a pure-play MLCC equipment vendor capturing the rent layer. The deep-dig REFUTES this:
+- Pretraining-default candidate list (Shibaura Machine / Sintokogio / Japan Steel Works / Murata Machinery / Tokyo Electron / SCREEN / Disco) all REFUTED via 4-pass native-jp search — none have material MLCC equipment business. Validates Principle #36 (native-language verification mandatory; pretraining knowledge of Japanese specialty-equipment landscape is unreliable).
+- All verifiable Japanese MLCC equipment vendors (Nikkiso, NGK Insulators, JTEKT Thermo Systems, Yodogawa Hu-Tech) FAIL Principle #22 (MLCC equipment <10% of revenue at conglomerates; Yodogawa Hu-Tech private; Murata Machinery confirmed UNRELATED to Murata Manufacturing).
+- All materials candidates (Sakai Chemical, Ishihara Sangyo, Nippon Chemical Industrial, Sumitomo Metal Mining, Resonac, Toho Titanium) FAIL Principle #22 — conglomerate-diluted with MLCC materials <12% of revenue; Toho Titanium delisted via JX Advanced Metals privatization Feb 2026.
+- **The entire rent stack is captured in MURATA stock + private MF Material JV + diluted conglomerates.** Held MURATA position IS the investable expression.
+
+### Held cohort implication
+
+Held cohort string (post-2026-06-14 portfolio refresh): HYNIX / SNDK / SUMCO / MURATA / MRVL / DDOG / NOW. The MURATA leg is REINFORCED by today's deep-dig — moat depth re-quantified upward (double moat), threat vector (SEMCO) asymmetry-reduced, no investable bypass that would compete for capital allocation. No new entries to held cohort surface from this work; deep-dig produced a properly-constrained negative-leaning answer on the bypass-candidate question, validating the workflow as pressure-test not validator.
+
+### B40.3 potential N=3 instance flagged (Walsin Q1'26 attribution)
+
+Subagent B found that Walsin Technology Q1 2026 法說會 cites "Japanese vendors" for palladium / silver / petroleum-derived materials = electrode MATERIAL suppliers, NOT equipment vendors per [BigGo Finance T1 summary](https://finance.biggo.com/news/TW_2492.TW_2026-05-27). The user-shared trade-press brief (2026-06-14 AM) presented this as "Japanese equipment vendor 6-12mo lead times" — possible material-vs-equipment attribution garble. If T1 transcript verifies no separate equipment-lead-time commentary, this is B40.3 N=3 instance. Logged in `meta/biases-watchlist.md` pending verification. Holy Stone 1-1.5yr equipment claim is independent and stands.
+
+### Self-correction event logged (Critical Rule #11)
+
+Yesterday's AM MURATA thesis cascade framed Murata as "vertical integration captured in MURATA stock." Today's deep-dig CORRECTED this to "DOUBLE moat: equipment IP INTERNAL + materials JV-HEDGED (20% minority partner in MF Material)." Directional conclusion unchanged (MURATA HOLD reinforced); framing precision corrected. 1st explicit self-correction event in last 30 days at this granularity. Per CLAUDE.md detectability ("≥3 self-correction events surface user-facing thesis errors that I missed → revert to permission-asking"), monitor for falsifier.
+
+---
 
 ## 2026-06-08 AM — 7th convergent signal tier (frontline supplier-side qualitative)
 
