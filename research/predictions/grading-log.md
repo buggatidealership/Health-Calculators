@@ -12,6 +12,14 @@ Index of every prediction made by the system. Each row resolves to "pending" or 
 |---|---|---|---|---|
 | 2026-06-12 | T+24h ~2026-06-19 to 22 (paper-dependent); T+72h ~06-22 to 25 | KIOXIA | VLSI Symposium 2026 joint Kioxia/SanDisk MSA-CBA paper (L14/L14-v2 forward-application test, L17 candidate N=1) | `2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md` |
 
+**Paper-landscape mapping COMPLETE 2026-06-14 PM5** per `signals/cross-source-log/2026-06-14-pm5-kioxia-vlsi-2026-paper-landscape-mapping.md` (Step 0 of approved Kioxia plan; user authorization 2026-06-14 22:25 UTC). Key inputs locked for T+24h grade:
+- T1.4 MSA-CBA joint paper CONFIRMED (M. Noda et al, Kioxia + Sandisk; world-first QLC on multi-stacked array with Cu wafer-to-wafer direct bonding; path to 1,000+ word lines)
+- 3 additional Kioxia papers titles undisclosed = H3 wildcard
+- Samsung TFS1.3 900-layer CMB paper June 16 = comparison-bar threat
+- HBF not confirmed at VLSI 2026 in public program
+- H1-H4 trigger map operational; B45-corrected weights unchanged (H1 40% / H2 30% / H3 20% / H4 10%)
+- Day 1-2 monitoring active (June 14-15 JST); T+24h grade resolution ~June 19; T+72h ~June 22-25
+
 ## Graded
 
 | Date made | Resolution | Ticker | Event | Prediction file | Grade file | Outcome |
