@@ -1,6 +1,22 @@
 # Sumco Corporation (3436.T) — Thesis
 
-**Last updated:** 2026-06-11 PM (Hynix Chey "3x by 2034 + Japan candidate" Nikkei T1 — double-positive read for SUMCO: Yongin ramp + Japan-site optionality strengthens supplier-geography vector)
+**Last updated:** 2026-06-14 PM2 (DRAM ASP 60-year trend-line break verified — H1 structural-regime posterior 75%; SUMCO direct wafer-supplier compounder regardless of HBM-vs-DRAM mix)
+
+## 2026-06-14 PM2 back-reference — DRAM 60-year trend-break = SUMCO direct compounder
+
+Per `signals/cross-source-log/2026-06-14-pm2-dram-asp-60yr-trend-break-structural-regime-confirmation-subagent.md` (3-subagent-equivalent single research subagent on WSTS chart trend-break verification):
+
+WSTS DRAM ASP chart shows ~5-7× break above the 1970-2010 ~5yr/order-of-magnitude trend, sustained 8-12+ quarters and tracking. This is a SECOND-ORDER rupture (first-order deceleration to ~14yr/order happened 2010-11 per McCallum T1; 2024-26 REVERSES the trend, not just slows it). H1 posterior 65%→75%; H1+H3 = 86% structural-thesis-holds.
+
+**SUMCO direct read:** wafer supply is the upstream binding constraint for ALL memory expansion regardless of whether the bit-demand grows in HBM tier (3× wafer area per Gb) or standard DRAM tier (mix-shift consumes wafer capacity). SUMCO + Shin-Etsu duopoly captures rent at the wafer layer in BOTH scenarios. Hynix Q1'26 +198% YoY revenue, OP margin 72% (T1) = direct customer demonstrating the supercycle compounding; SK Hynix Yongin + potential Japan-site expansion (2026-06-11 PM Chey Nikkei T1 read) reinforces SUMCO supplier-geography vector. IDC 16% DRAM bit-supply growth 2026 vs ~70% HBM demand growth = supplier-capacity constraint that gates the memory cycle for at least 24 months. No 18-month bypass route exists (Micron Idaho 2027; 3D DRAM 2027-28 — both consume MORE wafers per bit, not less).
+
+**Joint-state position:** SUMCO benefits whether H1 (75%) confirms full structural read OR H2 (12%) early-inflects — in H2 case, the cyclical reversion at MEMORY-MAKER tier (Hynix/Samsung) doesn't necessarily reverse wafer-supplier tightness because Hynix/Samsung capex continues even when ASP normalizes (capex is for capacity-coming-online 2027-28, decided 18-24mo earlier on supercycle outlook). SUMCO falsifier independence from HBM/DRAM cycle is a STRUCTURAL feature, not weakness.
+
+**Position implication:** HOLD — no size change — SUMCO direct compounder confirmed at upstream wafer-layer; supplier-capacity-constraint thesis ROBUST to H1 vs H2 vs H3 because Hynix/Samsung capex continues independent of intra-cycle ASP variation. Pre-committed trim sequence: SUMCO trims AFTER HYNIX + SNDK on F1 supplier-discipline-break signal (the most direct SUMCO-relevant falsifier — if Samsung/SK Hynix announce capex GUIDE STEP-DOWN, that's the SUMCO-specific trim trigger). Add-decision pending current price + cash deployment context (back-pocket per user 2026-06-14 directive).
+
+---
+
+**Prior last updated:** 2026-06-11 PM (Hynix Chey "3x by 2034 + Japan candidate" Nikkei T1 — double-positive read for SUMCO: Yongin ramp + Japan-site optionality strengthens supplier-geography vector)
 
 ## 2026-06-11 PM back-reference — Hynix Chey Nikkei interview = SUMCO double-positive
 

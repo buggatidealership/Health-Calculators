@@ -1,6 +1,69 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-06-14 PM (MLCC equipment+materials deep-dig completed via 3 parallel subagents; H1 SUPPORTED 55%, H2 REFUTED — no TSE pure-play exists; H3 RE-CHARACTERIZED as forward CO-binding 2027-28; **MURATA moat re-quantified as DOUBLE**: proprietary equipment IP + 20% minority partner in MF Material JV for BaTiO₃ powder per Nikkei T1; SEMCO single-moat asymmetry quantified; pretraining-default candidate list refuted via native-jp — Shibaura Machine / Sintokogio / Japan Steel Works / Murata Machinery / Tokyo Electron / SCREEN / Disco all REFUTED; Walsin Q1'26 "Japanese vendor" attribution flagged as possible B40.3 N=3 pending T1 verification). Prior material update 2026-06-11.
+**Last material synthesis update:** 2026-06-14 PM2 (DRAM ASP 60-year trend-line break verified — non-default read #8 added: 1970-2010 ~5yr/order-of-magnitude DRAM cost decline already decelerated 2010-11 [first-order rupture, per McCallum T1]; 2024-26 break is SECOND-ORDER rupture REVERSING the trend at ~5-7× magnitude over 8-12+ quarters; no prior 50-year cycle matched current magnitude+duration combination; H1 structural-regime posterior 65%→75% via subagent verification; H1+H3 = 86% structural-thesis-holds at minimum for HBM; no 18-month bypass routes exist; held cohort post-rotation [HYNIX/SNDK/SUMCO/MURATA/MRVL/DDOG/NOW] structurally well-positioned for compounding through 2027 minimum; L26 candidate codification on multi-decade-trend-break = highest-tier structural-regime-confirmation signal; F7 NEW falsifier added — hyperscaler inventory pre-buying pattern shift). Prior material update 2026-06-14 PM (MLCC equipment+materials deep-dig).
+
+## 2026-06-14 PM2 — DRAM 60-year trend-line break = highest-tier structural-regime-confirmation; non-default read #8 added
+
+Per `signals/cross-source-log/2026-06-14-pm2-dram-asp-60yr-trend-break-structural-regime-confirmation-subagent.md` (single research subagent verification of user-shared WSTS DRAM ASP chart 2001-2026 on log scale):
+
+### Non-default read #8: the 60-year DRAM cost-decline trend has ruptured; 2024-26 is the SECOND-ORDER break
+
+Most analysts model cycles within the historical trend envelope (cycle peaks oscillate around a downward-sloping cost curve). The verified reality:
+- **1970-2010 (40 years):** DRAM cost declined ~36%/year, one order of magnitude every ~5.1 years (McCallum T1 dataset used by Hennessy & Patterson computer architecture textbook)
+- **2010-11 first-order deceleration:** cost-decline slowed to ~15%/year (one order per ~14 years) — first structural break that few analysts recognized at the time
+- **2024-26 second-order rupture:** the chart shows ~5-7× break ABOVE the 1970-2010 trend line, sustained 8-12+ quarters and tracking. Not just slowing the decline — REVERSING it.
+- **No prior 50-year cycle matched** the current combination of magnitude (5-7× vs prior peaks at 1.5-3×) AND duration (8-12+ quarters vs prior 2-8 quarters).
+
+The mechanism is structural: HBM consumes ~3× wafer area per Gb (T2 Tom's Hardware), CoWoS-S binding at TSMC (~+30% cost vs in-house DRAM), supplier rational discipline (70% HBM gross margin vs 50% DRAM gross margin = no incentive to reverse capacity reallocation even if demand normalizes). Forward HBM deficit widens 5%→6%→9% 2025-27 (Yole T2); IDC 16% DRAM bit-supply growth 2026 vs ~70% HBM demand growth.
+
+### Analyst consensus convergent on STRUCTURAL (not cyclical) framing
+
+| Source | Read |
+|---|---|
+| IDC Dec 2025 | STRUCTURAL — "potentially permanent strategic reallocation of the world's silicon wafer capacity" |
+| BoA | STRUCTURAL — "supercycle similar to 1990s boom" |
+| SemiAnalysis | STRUCTURAL — "once-in-four-decades shortage" |
+| Samsung CFO Kim Jaejune (T1) | STRUCTURAL — shortages through at least 2027; HBM/DRAM/NAND "essentially sold out for 2026" |
+| SK Hynix (T1) | STRUCTURAL — Q1 2026 +198% YoY revenue, OP margin 72%, explicit "supercycle" framing |
+| TrendForce | HYBRID — normalization 2027-28 as new capacity ramps |
+| Blocks and Files | HYBRID — supercycle through 2028; oversupply tail risk 2028-29 |
+
+**No major analyst calls pure demand-pull cyclical.** The debate has narrowed to DURATION (2027 vs 2028+ vs indefinite), not mechanism.
+
+### Held cohort joint-state under H1 75% posterior
+
+| Name | DRAM exposure | If H1 (75%) holds | Trim trigger priority |
+|---|---|---|---|
+| HYNIX | DIRECT (HBM leader) | Primary structural compounder; multi-year | F2 ASP rollover = FIRST to trim |
+| SNDK | INDIRECT (NAND tightness spillover + HBF JV) | Compound via correlation + HBF optionality | Trim AFTER HYNIX on F2 by 1Q lag |
+| SUMCO | DIRECT (wafers to all memory) | Compound regardless of HBM-vs-DRAM mix | F1 supplier-discipline-break = most direct trigger |
+| MURATA | INDIRECT (MLCC on AI servers + T9) | Compound via AI capex sustenance | F5 hyperscaler capex deceleration = more relevant than F2 |
+| MRVL | INDIRECT (custom Si demand) | Compound via sustained AI capex | F5; ASIC-reducing-HBM = slight counter-tail |
+| DDOG, NOW | INDIRECT (software/agentic) | Token-volume compounding (TC-8) | Minimal direct impact |
+
+**Cohort selection from emotional/geopolitical rotation 2026-06-14 AM, in retrospect, is structurally well-positioned for H1.** Positive read on the rotation.
+
+### L26 candidate (multi-decade-trend-break framework)
+
+> When an industry's long-term cost/price trend ruptures (5+× magnitude over 8+ quarters above a 50+ year trend line), the prior cycle-modeling framework is INVALIDATED. Standard cycle-trim heuristics (sell at 2× trend) don't apply because the trend itself has reset. Hold positions remain valid until supply-discipline-break (F1) + demand-softening (F5/F7) leading indicators fire.
+
+CANDIDATE pending N=2 (watch: NAND ASP trend-break via SNDK; MLCC ASP trend-break via MURATA + Taiwan tier-2 "longest in history" framing; CoWoS pricing trend-break). If MLCC trend-break verifies similarly by 2026-12-14, L26 → CONFIRMED.
+
+### F7 NEW falsifier (added 2026-06-14 PM2)
+
+**F7 — Hyperscaler inventory pre-buying pattern shift:** if hyperscaler memory orders transition from "pull every available bit" to "hold existing stock," that's the leading indicator of demand normalization 2-3 quarters before ASP rollover (F2). TrendForce flagged "AI chip delays" Q4 2025 as low-intensity early softening — watch for escalation. SK Hynix forward-order disclosures + Micron customer-mix commentary on quarterly calls are the load-bearing data points.
+
+### Pre-committed trim sequence (cyclical-inflection-catch protocol)
+
+When falsifiers fire with T1 evidence:
+1. **F1 supplier-discipline-break first signal:** SUMCO trim trigger (most direct upstream exposure)
+2. **F2 Hynix ASP rollover:** HYNIX trim first, SNDK on 1-quarter lag, MURATA on 2-quarter lag
+3. **F5 hyperscaler capex guide step-down:** MURATA + MRVL primary trim triggers (AI-capex-correlated thesis layer)
+4. **F7 inventory pre-buying pattern shift:** earliest leading indicator, raises trim-watch intensity but does NOT trigger trim alone
+
+---
+
+**Prior material synthesis update:** 2026-06-14 PM (MLCC equipment+materials deep-dig completed via 3 parallel subagents; H1 SUPPORTED 55%, H2 REFUTED — no TSE pure-play exists; H3 RE-CHARACTERIZED as forward CO-binding 2027-28; **MURATA moat re-quantified as DOUBLE**: proprietary equipment IP + 20% minority partner in MF Material JV for BaTiO₃ powder per Nikkei T1; SEMCO single-moat asymmetry quantified; pretraining-default candidate list refuted via native-jp — Shibaura Machine / Sintokogio / Japan Steel Works / Murata Machinery / Tokyo Electron / SCREEN / Disco all REFUTED; Walsin Q1'26 "Japanese vendor" attribution flagged as possible B40.3 N=3 pending T1 verification). Prior material update 2026-06-11.
 
 ## 2026-06-14 PM — MLCC equipment+materials deep-dig: NO investable bypass exists; MURATA rent capture validated
 

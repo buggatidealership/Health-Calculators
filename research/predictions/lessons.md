@@ -654,3 +654,40 @@ If a lesson is just a restatement of "I should have predicted X instead of Y" wi
 **Self-positive test:** monthly audit greps for "P~X% → P~Y% (my model, Bayesian on [specific evidence])" pattern. If absent → I've reverted to implicit/static probability claims. If present → the lesson is alive.
 
 **Status:** CANDIDATE positive lesson — first explicit instance 2026-06-11; N=2+ confirmation across separate dissections will promote to CODIFIED. Re-eval 2026-07-11.
+
+## L26 (NEW positive lesson CANDIDATE — origin 2026-06-14 PM2 DRAM 60-year trend-line break)
+
+**Pattern:** **Multi-decade trend-line break of 5+× magnitude over 8+ quarters above a 50+ year trend = highest-tier structural-regime-confirmation signal.** When the underlying long-term industry cost/price trend itself ruptures (not just oscillates around the trend like prior cycles), standard cycle-trim heuristics become OBSOLETE because the trend itself has reset. The held cohort is positioned to compound; trim trigger shifts from price-level (which is now uncoupled from historical norms) to falsifier-leading-indicators on supply discipline (F1, F7) + demand softening (F2, F5).
+
+**Canonical instance (2026-06-14 PM2 — DRAM ASP via WSTS chart):**
+- 1970-2010 ~5yr/order-of-magnitude DRAM cost decline (McCallum T1)
+- 2010-11 first-order rupture: decline slowed to ~14yr/order (recognized in retrospect)
+- 2024-26 second-order rupture: REVERSING the trend at ~5-7× magnitude, sustained 8-12+ quarters
+- Mechanism (subagent-verified T1/T2): HBM 3× wafer area per Gb + CoWoS-S binding at TSMC + supplier rational discipline at 70% HBM gross margin vs 50% DRAM
+- No prior 50-year cycle matched magnitude AND duration combination
+- H1 structural posterior 65%→75%; H1+H3 = 86% structural-thesis-holds for HBM minimum
+- Held cohort joint-state: HYNIX direct compounder, SUMCO direct upstream compounder, SNDK/MURATA/MRVL indirect compounders
+
+**Why this is a positive lesson (not failure-mode):** the trend-break detection requires LATERAL pattern recognition (priming item 3) — asking "is this a cycle within trend, or trend-break itself?" rather than just "is this a cycle peak?" Forward chains stop at "ASP elevated → cycle will revert." Lateral analysis surfaces "ASP elevated AND trend-line ruptured = different regime entirely."
+
+**Layer it operates at:** REASONING — distinguishes within-trend variation (cyclical, mean-reverting) from trend-line rupture (structural, not mean-reverting on the same horizon).
+
+**Generalizable application rule:** for any held-cohort name in a supply-constrained regime, before applying standard cycle-trim heuristics, run the trend-break check:
+1. What's the underlying 30+ year price/cost trend?
+2. Has the current cycle peak exceeded prior peaks in MAGNITUDE AND DURATION simultaneously?
+3. Is there a physical/economic mechanism that explains why supply CAN'T catch up at the historical rate?
+4. Do credible institutional sources (Samsung CFO / SK Hynix IR / IDC / SemiAnalysis) confirm the mechanism?
+If yes to 2+3+4 → trend-break regime applies; standard trim heuristics invalid.
+
+**N=2 candidates to watch (promotion to CONFIRMED by 2026-12-14):**
+- MLCC ASP trend-break (Murata pricing power; Taiwan tier-2 "longest in history" framing 2026-06-14 AM)
+- NAND ASP trend-break (HBF emerging; SNDK Q-by-Q watch)
+- CoWoS pricing trend-break (TSMC advanced packaging supply-constrained)
+
+If any of these surface with similar 5+×-magnitude / 8+-quarter / structural-mechanism characteristics, L26 promotes to CONFIRMED with N=2.
+
+**Self-positive test:** quarterly audit greps for "trend-break" pattern detection in cross-source-log; if absent for 90 days → either no trend-break signals arrived (genuine quiet) OR I missed them (failure mode → escalate).
+
+**Falsifier:** if L26 fires on a regime that subsequently REVERTS to trend within 12 months despite passing the 4-step test → the test is mis-calibrated; revise. Monitor: HBM ASP rollover by 2027-12-14 would falsify the 2024-26 application.
+
+**Status:** CANDIDATE positive lesson — first explicit instance 2026-06-14 PM2; N=2+ across MLCC / NAND / CoWoS will promote to CODIFIED. Re-eval 2026-07-14 (1-month) + 2026-09-14 (quarterly with B45 recalibration cadence).

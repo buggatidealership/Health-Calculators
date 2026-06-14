@@ -1,6 +1,22 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-06-14 PM (3-subagent deep-dig synthesis: DOUBLE moat clarified — proprietary equipment IP + JV-hedged materials [Murata 20% MF Material]; H1 SUPPORTED 55%, H2 REFUTED 5%, H3 RE-CHARACTERIZED as forward CO-binding; SEMCO single-moat vs Murata double-moat asymmetry quantified)
+**Last updated:** 2026-06-14 PM2 (DRAM ASP 60-year trend-line break verified — H1 structural-regime posterior 75%; MURATA indirect compounder via AI capex sustenance + T9 sub-leg + MLCC supercycle correlation; 3rd thesis update today within Critical Rule #11 detectability monitor)
+
+## 2026-06-14 PM2 back-reference — DRAM 60-year trend-break cross-cohort cascade
+
+Per `signals/cross-source-log/2026-06-14-pm2-dram-asp-60yr-trend-break-structural-regime-confirmation-subagent.md`:
+
+WSTS DRAM ASP 60-year trend-line break verified via subagent (H1 structural-regime posterior 65%→75%; H1+H3 = 86% structural-thesis-holds at minimum for HBM). MURATA INDIRECT exposure via two mechanisms:
+1. **AI capex sustenance:** HBM-led memory supercycle = direct evidence sustained AI infrastructure capex through 2027 minimum (Samsung + SK Hynix T1 framing); MLCC volume on AI server boards (30K MLCCs per GB300, 12K per Rubin board per existing thesis) requires sustained AI capex
+2. **T9 Consumer Hardware AI Swap correlation:** the regime-confirmation strengthens read that AI-PC + AI-edge BOM-intensity rise (Walsin "AI PCs and AI edge devices LARGER than AI servers" T1-equivalent commentary from 2026-06-14 AM cascade) compounds alongside server-tier
+
+**Cross-cohort joint-state:** the DRAM regime-confirmation does NOT change MURATA-specific moat reads (DOUBLE moat — proprietary equipment IP + 20% MF Material JV — established 2026-06-14 PM remains the load-bearing analysis); it reinforces the DEMAND-side certainty under which the MURATA moat captures rent. The MLCC supercycle (Taiwan tier-2 "longest in history" 2026-06-14 AM) is a CANDIDATE N=2 for L26 codification (Lesson L26 candidate: multi-decade trend-break = structural-regime-confirmation; MLCC ASP trend-break has similar magnitude characteristics).
+
+**Position implication:** HOLD — no size change — DRAM 60-year regime-confirmation REINFORCES the demand-side certainty layer beneath MURATA's MLCC pricing-power thesis; no falsifier triggered. Pre-committed trim sequence: MURATA trims AFTER HYNIX + SNDK + SUMCO on F1 supplier-discipline-break OR F2 ASP rollover signals, by 1-2 quarter correlated lag (MURATA cycle-correlation is less direct than HYNIX/SUMCO; trim trigger is more about hyperscaler capex deceleration F5 than ASP rollover F2). Add-decision pending current price + cash deployment context (back-pocket per user 2026-06-14 directive); MURATA current ~4.9% of Degiro per holdings 2026-06-14 vs historical target band 10-13% = room to add if structural regime confirmed AND emotional-rotation context resolves.
+
+---
+
+**Prior last updated:** 2026-06-14 PM (3-subagent deep-dig synthesis: DOUBLE moat clarified — proprietary equipment IP + JV-hedged materials [Murata 20% MF Material]; H1 SUPPORTED 55%, H2 REFUTED 5%, H3 RE-CHARACTERIZED as forward CO-binding; SEMCO single-moat vs Murata double-moat asymmetry quantified)
 
 ## 2026-06-14 PM back-reference — Equipment + materials deep-dig 3-subagent synthesis
 
