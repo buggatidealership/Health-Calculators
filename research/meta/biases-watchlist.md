@@ -1167,3 +1167,38 @@ Independent corroboration: Holy Stone Enterprise 1-1.5yr "high-end MLCC equipmen
 - `meta/hooks/llm-native-priming-hook.py` item 9 (priming reminder, LIVE)
 - `signals/cross-source-log/2026-06-13-MRVL-deep-dive-3subagent.md` (origin artifact where bias manifested)
 - Companion bias family: B23 / B26 / B28 / B45
+
+### B47 — Efficiency-driven demand destruction blind spot in supply-constrained thesis (CANDIDATE — N=1 origin 2026-06-14 PM4)
+
+**Pattern:** When modeling structural-supply-constraint regimes (memory shortage, MLCC supercycle, CoWoS binding), my naive prior assumes demand growth at the end-use layer dominates efficiency-gain compression at the component layer. The telecom historical record (Ericsson SEK 273B → 248B 2000-2024 flat while mobile data traffic +1500-2000×; Cisco $48-52B FLAT for 6 consecutive years FY2015-FY2021 while internet traffic +5-6×; RAN market -22% 2022-2024 while 5G subs grew) shows this assumption can be EMPIRICALLY WRONG even in clearly structural-demand environments. Component vendors get compressed when application-layer efficiency reduces per-unit hardware demand faster than aggregate demand expands.
+
+**Origin (2026-06-14 PM4):** User-articulated U8 candidate universal falsifier for HBM structural-regime thesis surfaced this blind spot. The harness had codified F1-F7 supply-side cycle-peak falsifiers (2026-06-14 PM3) without a corresponding demand-side universal that captures the elasticity-ratio mechanism. The Benedict Evans framework + telecom historical analog + AI efficiency frontier subagent research (per `signals/cross-source-log/2026-06-14-pm4-token-cost-elasticity-U8-evans-telecom-3subagent.md`) confirmed the gap. The first U8-adjacent empirical signal IDENTIFIED: DDR5 RDIMM surpassed HBM in per-wafer profitability Q1 2026 per T2 TrendForce/Digitimes — inference-vs-training mix shift in early form.
+
+**Mechanism:** my analytical generation amplifies supply-side cycle-peak vocabulary because it's well-anchored in the prior cycle (2017-18 DRAM peak) + the codified Principle #27 (Post-Traumatic Supply Disorder). Demand-side compression-via-efficiency requires inferring from the elasticity ratio between cost compression and demand expansion — less concrete in the priors. Concrete supply-side falsifiers (capex break, ASP rollover) outweigh inferred demand-side compression in the generation distribution. This is the bias.
+
+**Mitigation rule:** for any held supplier-side thesis in a structural-supply-constraint regime, explicitly model the elasticity ratio (component revenue per unit of end-use) AND require a U8-class falsifier (demand-side universal) with named discriminating test. The L26 framework now has 3 layers (universal supply-side + universal demand-side + cycle-specific); use all three when constructing or auditing falsifier sets.
+
+**Distinction from related biases:**
+- B22 (consensus-solution anchoring): supply-side substitution thinking
+- B23 (sell-side aggregation drift): forecast-step anchoring on consensus
+- B28 (cyclical-vs-structural mis-classification): timing/regime error at sell-side
+- B45 (pre-training magnitude conservatism): magnitude-layer error in supercycle regime
+- **B47: DEMAND-SIDE BLIND SPOT — focus on supply-side compression mechanisms blinds me to demand-side compression via efficiency at application layer; companion to B22/B23/B28/B45 at the demand-elasticity-modeling layer**
+
+**Falsifier:** if held cohort thesis is correctly invalidated FUTURE by F1-F12 supply-side signals alone WITHOUT F13 (U8) firing, B47 was overstated. If F13 DOES fire before F1-F12 and held-cohort gets caught flat-footed, B47 is empirically validated.
+
+**Status:** CANDIDATE — N=1 origin 2026-06-14 PM4. Watch for N=2 in: NVDA HBM-content-per-AI-query, CoWoS pricing per AI inference dollar, MLCC pricing per AI server unit. If any of those show component-revenue-per-end-use ratio compression while end-use grows, B47 promotes to CONFIRMED.
+
+**Companion biases (the demand-side family):**
+- B22 — Consensus-solution anchoring (supply-side substitution)
+- B23 — Sell-side aggregation drift
+- B26 — Pre-training as primary source
+- B28 — Cyclical-vs-structural mis-classification (sell-side LAG)
+- B45 — Pre-training magnitude conservatism (magnitude-layer)
+- **B47 — Efficiency-driven demand destruction blind spot (demand-elasticity-modeling layer)**
+
+**Cross-ref:**
+- `signals/cross-source-log/2026-06-14-pm4-token-cost-elasticity-U8-evans-telecom-3subagent.md` — origin artifact
+- `predictions/lessons.md` L26 — universal supply-side + demand-side + cycle-specific framework
+- `sector/where-we-are.md` non-default read #9 — U8 elasticity-driven compression risk
+- `signals/triangulation.md` TC-8 — paired counterfactual on token consumption compounding

@@ -1,6 +1,70 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-06-14 PM2 (DRAM ASP 60-year trend-line break verified — non-default read #8 added: 1970-2010 ~5yr/order-of-magnitude DRAM cost decline already decelerated 2010-11 [first-order rupture, per McCallum T1]; 2024-26 break is SECOND-ORDER rupture REVERSING the trend at ~5-7× magnitude over 8-12+ quarters; no prior 50-year cycle matched current magnitude+duration combination; H1 structural-regime posterior 65%→75% via subagent verification; H1+H3 = 86% structural-thesis-holds at minimum for HBM; no 18-month bypass routes exist; held cohort post-rotation [HYNIX/SNDK/SUMCO/MURATA/MRVL/DDOG/NOW] structurally well-positioned for compounding through 2027 minimum; L26 candidate codification on multi-decade-trend-break = highest-tier structural-regime-confirmation signal; F7 NEW falsifier added — hyperscaler inventory pre-buying pattern shift). Prior material update 2026-06-14 PM (MLCC equipment+materials deep-dig).
+**Last material synthesis update:** 2026-06-14 PM4 (token-cost-elasticity U8 candidate UNIVERSAL falsifier verified via 3-subagent fan-out — Benedict Evans framework + telecom historical analog + AI efficiency frontier; non-default read #9 added: **U8 demand-side efficiency-driven compression risk is real and EMPIRICALLY supported** by telecom equipment vendor historical pattern (Ericsson revenue flat 2000-2024 despite data traffic 1500-2000×; Cisco 6 years flat while internet traffic 5-6×; RAN -22% 2022-2024 while 5G subs grew); FIRST empirical U8-adjacent signal IDENTIFIED — DDR5 RDIMM surpassed HBM in per-wafer profitability Q1 2026 per TrendForce/Digitimes T2; HBM forecasters do NOT model efficiency (structural methodology gap); HU8b PARTIAL firing posterior 45% (largest weight); F1-F12 → F1-F13 with U8/F13 added as universal demand-side; held cohort cascade — HYNIX direct compounder still bull but F13 elevated to monthly-watch; MRVL custom-Si rent partially exposed to ASIC consolidation; SUMCO/SNDK/MURATA less U8-exposed; H1 structural-regime posterior at 75% UNCHANGED — H1 and U8 are independent questions). Prior material update 2026-06-14 PM3 (2017-18 cycle peak signature + universals-vs-cycle-specific framework correction).
+
+## 2026-06-14 PM4 — U8 candidate universal falsifier verified; first empirical signal firing (DDR5 > HBM profitability Q1 2026); F1 → F13
+
+Per `signals/cross-source-log/2026-06-14-pm4-token-cost-elasticity-U8-evans-telecom-3subagent.md` (3 parallel research subagents on Evans framework + telecom historical analog + AI efficiency frontier):
+
+### Non-default read #9: U8 demand-side falsifier is EMPIRICALLY SUPPORTED by telecom precedent
+
+Most analysts model HBM demand via hardware-unit forecasts (TrendForce, Yole, IDC) without flowing efficiency-gain assumptions through to bandwidth demand. **The telecom equipment vendor historical record proves component-vendor revenue CAN compress despite end-user demand growth** when efficiency at the application layer reduces per-unit hardware demand faster than aggregate demand expands:
+
+- Ericsson: SEK 273.6B (2000) → SEK 247.9B (2024) = essentially flat 25-year revenue while mobile data traffic grew ~1,500-2,000× (T1 Ericsson IR + Evans T1)
+- Cisco: $48-52B FLAT FOR 6 CONSECUTIVE YEARS (FY15-FY21) while internet traffic grew ~5-6× (T1 Cisco SEC; mechanism: hyperscaler white-box switching + Broadcom Tomahawk merchant silicon captured rent)
+- Global RAN market: $45.2B (2022) → $35B (2024) = -22% in 2 years while 5G subs grew (T2 Dell'Oro); Dell'Oro 5-year forecast 0% CAGR through 2029
+
+The mechanism (4G saturation 2015-2018 + post-5G 2022-2024) is the **STRONGEST ANALOG** to the HBM/U8 question — spectral-efficiency gains reduced per-bit hardware need exactly as KV-cache + MoE + speculative decoding reduce per-token bit need.
+
+### The first empirical U8-adjacent signal HAS fired
+
+**DDR5 RDIMM surpassed HBM in per-wafer profitability for the FIRST time in Q1 2026** per T2 [TrendForce/Digitimes Apr 2026](https://www.digitimes.com/news/a20260413PD211/ddr5-demand-hbm-profit-hbm4.html). Driver: CSPs expanding general INFERENCE server deployments (DDR5-heavy) at the expense of training-only (HBM-heavy). This is the inference-vs-training mix shift IN EARLY FORM — exactly the U8 mechanism.
+
+### The Jevons-saves-you-for-now finding
+
+Token prices fell ~80% in 12 months ending mid-2026 BUT enterprise AI bills rose ~3× over the same period (T2 NavyaAI). Volume currently OUTRUNNING compression at dollar level. Why: agentic workflows multiply tokens 50-500× per task; 72% of production AI cost OUTSIDE the model invoice; consumption driven by deployment mandates not WTP. **Bull case for HBM holds for 2026-2027 on aggregate revenue data, but the structural blind spot in mainstream forecasts means consensus is UNDER-PRICING the efficiency tail risk.**
+
+### Benedict Evans framework (T1 verbatim)
+
+Per Evans 2026-05-24 [link](https://www.ben-evans.com/benedictevans/2026/5/24/ai-job-exposure): *"The Jevons Paradox is really applied price elasticity: if you make it cheaper to do something, do you do the same for less money, or more for the same money, or does a new ROI mean you do more for more money?"*
+
+Evans predicts LLM PROVIDER commoditization (carriers analogy) but stops there — doesn't extend to HBM. The cascade-mechanism (carrier-layer margin pressure flows down to equipment + component suppliers) is consistent with his framework AND empirically validated by telecom equipment vendor compression 2010-2024.
+
+### Meta token-capping claim — CONFIRMED with critical nuance
+
+User-cited "Meta capping token use" verified per T1 The Information (Jyoti Mann ~2026-06-12). BUT: it's INTERNAL employee tool spend cost-control ("Claudeonomics" leaderboard gamed by tokenmaxxing → 73.7T tokens in 30 days → memo to 6K employees), NOT customer-facing rationing due to HBM scarcity. Same pattern at Amazon, Uber, Microsoft. The direction (capping happening) is verified; the cause-chain runs through internal tool spend not HBM-supply pricing.
+
+### F1-F13 falsifier set (UPDATED from F1-F12)
+
+UNIVERSAL SUPPLY-SIDE: F1 (capex break) / F2 (HYNIX ASP rollover) / F8 (spot<contract at HBM) / F9 (revenue composition shift) / F11 (supplier guidance shift)
+
+**UNIVERSAL DEMAND-SIDE (NEW): F13 — token-cost-elasticity inflection (U8).** HBM revenue per AI query served falling faster than query volume growth. Sub-signals: DDR5-vs-HBM profitability ratio trajectory (FIRING Q1 2026); HBM ASP per Gb / model API cost per 1M tokens ratio; hyperscaler revenue-per-bit metrics. First firing instance: DDR5 RDIMM surpassed HBM per-wafer profitability Q1 2026.
+
+CYCLE-SPECIFIC TO 2024-26: F5 (hyperscaler capex step-down) / F7 (hyperscaler inventory pattern shift) / F10 (first AI segment demand pause) / F12 (HBM equipment lead-time normalization)
+
+### Updated U8 hypothesis posteriors (Bayesian per L25)
+
+- HU8a (NOT firing) 55% → 35% (telecom analog reduces probability that volume saves HBM-makers)
+- **HU8b (PARTIAL firing 18-36mo) 30% → 45%** (largest weight; telecom precedent + DDR5-over-HBM Q1'26 + Evans cascade framework converge)
+- HU8c (IMMINENT firing 12-24mo) 15% → 15%
+- HU8d (already firing) <5%
+
+### Held cohort updated cascade
+
+Pre-committed trim sequence adds F13 alongside F2:
+- HYNIX trims FIRST on F2 ASP rollover OR F13 acceleration of DDR5-vs-HBM ratio widening for 2 consecutive quarters
+- SUMCO less U8-exposed (wafers to all memory tiers)
+- SNDK HBF JV becomes U8-hedge upgrade trigger if HBF qualifies at AI-training tier
+- MURATA orthogonal to U8 (MLCC content per AI server is BOM-driven)
+- MRVL has elevated watch on Google TPU + AWS Trainium roadmap — if those exceed 30% of hyperscaler AI silicon by 2027, MRVL custom-Si rent partially compresses
+
+### H1 structural-regime read UNCHANGED at 75%
+
+**H1 and U8 are independent questions.** H1 = is the 60-yr DRAM trend-line break structural or cyclical? U8 = is the structural surplus captured by HBM-makers or absorbed by efficiency? Both can be true simultaneously. H1 holds at 75% posterior; U8 reweighting affects sizing/timing of held cohort thesis, not structural premise.
+
+---
+
+**Prior material synthesis update:** 2026-06-14 PM2 (DRAM ASP 60-year trend-line break verified — non-default read #8 added: 1970-2010 ~5yr/order-of-magnitude DRAM cost decline already decelerated 2010-11 [first-order rupture, per McCallum T1]; 2024-26 break is SECOND-ORDER rupture REVERSING the trend at ~5-7× magnitude over 8-12+ quarters; no prior 50-year cycle matched current magnitude+duration combination; H1 structural-regime posterior 65%→75% via subagent verification; H1+H3 = 86% structural-thesis-holds at minimum for HBM; no 18-month bypass routes exist; held cohort post-rotation [HYNIX/SNDK/SUMCO/MURATA/MRVL/DDOG/NOW] structurally well-positioned for compounding through 2027 minimum; L26 candidate codification on multi-decade-trend-break = highest-tier structural-regime-confirmation signal; F7 NEW falsifier added — hyperscaler inventory pre-buying pattern shift). Prior material update 2026-06-14 PM (MLCC equipment+materials deep-dig).
 
 ## 2026-06-14 PM2 — DRAM 60-year trend-line break = highest-tier structural-regime-confirmation; non-default read #8 added
 

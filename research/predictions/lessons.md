@@ -691,3 +691,19 @@ If any of these surface with similar 5+×-magnitude / 8+-quarter / structural-me
 **Falsifier:** if L26 fires on a regime that subsequently REVERTS to trend within 12 months despite passing the 4-step test → the test is mis-calibrated; revise. Monitor: HBM ASP rollover by 2027-12-14 would falsify the 2024-26 application.
 
 **Status:** CANDIDATE positive lesson — first explicit instance 2026-06-14 PM2; N=2+ across MLCC / NAND / CoWoS will promote to CODIFIED. Re-eval 2026-07-14 (1-month) + 2026-09-14 (quarterly with B45 recalibration cadence).
+
+### L26 update 2026-06-14 PM4 — Universal supply-side + universal demand-side + cycle-specific framework
+
+Per `signals/cross-source-log/2026-06-14-pm4-token-cost-elasticity-U8-evans-telecom-3subagent.md`:
+
+The L26 framework expands from 2-layer (universals + cycle-specific) to 3-layer:
+
+1. **UNIVERSAL SUPPLY-SIDE** (U1-U7): spot<contract / segment failure / revenue composition shift / stock-leads-ASP-3-4mo / first analyst downgrade / supplier guidance shift / capex break — physics-of-cycles, fire in form at any peak
+2. **UNIVERSAL DEMAND-SIDE** (U8 NEW): **token-cost-elasticity inflection** — efficiency gains compressing per-unit consumption faster than aggregate demand expands. Empirically verified at telecom equipment vendors 2015-2024 (Ericsson SEK 246B → 248B over 10yr while data traffic 1500-2000×; Cisco 6 years flat while internet traffic +5-6×; RAN market -22% 2022-2024 while 5G subs grew). Discriminating test: component-revenue-per-unit-of-end-use ratio; if falling faster than end-use grows → U8 fires.
+3. **CYCLE-SPECIFIC** (F5/F7/F10/F12/F13): hyperscaler capex guide / hyperscaler inventory pattern shift / first AI-infra segment demand pause / equipment-vendor lead-time normalization / DDR5-vs-HBM profitability ratio — artifacts of 2024-26 market structure
+
+The cycle-peak signature THIS cycle will fire across ALL THREE layers; the operational falsifier set is F1-F13. The supply-side universals always fire; the demand-side universal requires its OWN discriminating test; the cycle-specifics map to current variables.
+
+Evans (Benedict, T1) verbatim 2026-05-24: *"The Jevons Paradox is really applied price elasticity: if you make it cheaper to do something, do you do the same for less money (or resources, or employees), or more for the same money, or does a new ROI mean you do more for more money?"* — Evans explicitly refuses to predict the regime without seeing the elasticity ratio. The "it depends" is the load-bearing word; matches the L26 framework that the universals tell us cycle-peak signals fire in form but elasticity-ratio determines regime outcome.
+
+**Status:** CANDIDATE positive lesson UPDATED with U8 demand-side universal. Promotion criteria unchanged (N=2+ across MLCC/NAND/CoWoS); additionally watching DDR5-vs-HBM profitability ratio (FIRING Q1 2026 — first U8-adjacent empirical signal) + HBM revenue per AI query proxy.

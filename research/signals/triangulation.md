@@ -121,12 +121,13 @@ Signals confirmed by ≥3 independent same-segment same-direction sources within
 **Names affected:** AXTI EXIT validated stronger; NEW candidates JX 5016.T (Watchlist P2 fresh-IPO discipline barely cleared), 住友電工 5802.T (Watchlist P3); register PC-12 candidate "Geopolitical bottleneck via export control" N=1
 **Falsifier:** US-China bilateral deal materially loosens InP licenses; AXT announces material California (Fremont) substrate production; PC-12 N=2 cross-check fails (Dec 2023 Ga/Ge regime not showing same rent migration)
 
-## TC-8 — Token consumption compounding (T1 theme anchor) [ACTIVE — maintained, no rebuild needed]
+## TC-8 — Token consumption compounding (T1 theme anchor) [ACTIVE — maintained, paired-counterfactual added]
 **Segment:** infrastructure-IaaS
 **Direction:** token volume growth outpaces per-token price decreases at the enterprise tier
 **Instances:** maintained across multiple cross-source-logs since 2026-06-03 (Uber AI budget exhaustion + SemiAnalysis workflow ROI + Cloudflare 57.5% bot crossover + Ramp AI Index 1% tail $7,500/mo)
 **Convergent read:** see `sector/themes.md` T1 + token-consumption.md wiki
 **Names affected:** broad held cohort
+**PAIRED COUNTERFACTUAL (added 2026-06-14 PM4):** TC-8 bullish anchor (volume outrunning compression) has explicit BEAR-SIDE hedge per `signals/cross-source-log/2026-06-14-pm4-token-cost-elasticity-U8-evans-telecom-3subagent.md` — U8 candidate universal falsifier (token-cost-elasticity inflection at component layer). Evidence: token prices fell ~80% in 12 months ending mid-2026 BUT enterprise AI bills rose ~3× same period (T2 NavyaAI) = volume currently outrunning compression CONFIRMS TC-8. However: telecom analog (Ericsson SEK 273B → 248B 2000-2024 flat while data traffic +1500-2000×) shows volume-outrunning-compression at the END-USER layer can coexist with REVENUE COMPRESSION at the component layer. First U8-adjacent firing: DDR5 RDIMM surpassed HBM in per-wafer profitability Q1 2026 per T2 TrendForce/Digitimes — first concrete signal that memory-intensity-per-dollar is declining at the margin. **TC-8 bullish read intact for 2026-2027 but watch F13 monthly: if DDR5-vs-HBM profitability ratio widens for 2 consecutive quarters, TC-8 bullish bias decays into mixed.**
 
 ---
 
