@@ -1,6 +1,24 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-06-11 (MLCC tightness wave-refresh verified — tier-bifurcation HARDENS, T7 mechanism confirmed at T1/T2; ~70% AI-server MLCC share anchored; P-1 premium-tier test holds; SEMCO not China is the live threat)
+**Last updated:** 2026-06-14 (Taiwan tier-2 supercycle commentary — "longest shortage cycle in history" / equipment-lead-time binding / beyond 2027 — TC-6 N=4→N=5; T9 sub-leg reinforced by Walsin TAM framing AI PCs/edge > AI servers)
+
+## 2026-06-14 back-reference — Taiwan tier-2 supercycle commentary + equipment-lead-time binding
+
+Per `research/signals/cross-source-log/2026-06-14-mlcc-longest-shortage-cycle-taiwan-tier2-tc6-reinforce.md` (user-shared Taiwan trade-press summary; B40 stale-recycle check PASS — fresh datapoints not in any prior log):
+
+1. **Magnitude framing escalates:** Taiwan tier-2 makers (Yageo / Walsin / Holy Stone / PDC) collectively frame the current cycle as "longest in history," surpassing the 2018 passive-component supercycle benchmark; deficit extends beyond 2027 (was: 2026-end consensus). Duration thesis extends ~1 year.
+2. **The binding constraint is equipment-vendor lead time, not cell capacity:** Holy Stone reports high-end MLCC equipment lead times 1-1.5 years; Walsin reports Japanese equipment vendor lead times 6-12 months. **Even tripling capex (Walsin) does NOT bring supply online faster** — equipment delivery gates everything. Reinforces premium-tier moat: Japanese equipment vendors themselves capacity-constrained = the cause of "under-expand let ASPs carry" discipline at the MLCC-maker layer.
+3. **Yageo book-to-bill >1.3×** — first tier-2 print crosses this threshold in the current cycle (T2; would be T1 on Yageo monthly investor disclosure).
+4. **T9 (Consumer Hardware AI Swap) reinforced — verbatim institutional source:** Walsin commentary that "AI PCs and AI edge devices markets are LARGER than AI servers." Direct T1-equivalent strength for the T9 sub-leg. Validates AI-edge/AI-PC tailwind as ADDITIVE to AI-server math, not duplicative.
+5. **Tier-2 capacity expansion (Walsin tripling capex / Holy Stone +20-30% 2026 / +30-40% 2027) is NOT premium-tier displacement.** Their dielectric tech remains ~5-8yr behind Murata; what they capture is the structurally-tight COMMODITY tier vacated by Japan/Korea premium reallocation. Tier-bifurcation HARDENS further.
+6. **Principle #27 (Post-Traumatic Supply Disorder) confirmed at equipment-supplier layer** (not just MLCC-maker layer): the discipline propagates up the supply chain — Japanese equipment makers under-expanding makes Japanese MLCC makers under-expand makes ASPs carry.
+7. **RESEARCH GAP surfaced:** Japanese MLCC manufacturing equipment vendors uncovered in harness. Candidates: Shibaura Machine 6104.T, MURATEC-adjacent, internal-to-Murata equipment subsidiary. Added to deep-dig queue. If equipment IS the binding constraint binding the binding constraint, upstream-equipment rents are the highest-rent layer in the MLCC stack.
+
+**Position implication:** HOLD — no size change — Taiwan tier-2 supercycle commentary EXTENDS the structural-shortage duration thesis by ~1 year (beyond 2027); equipment-lead-time binding REINFORCES the premium-tier moat; Walsin TAM framing of AI PCs/edge > AI servers reinforces T9 sub-leg. NO falsifier triggered. Pre-Q1 FY27 print add NOT recommended per L21 regime modifier; add candidacy AFTER Q1 FY27 BEATS analyst consensus (late July / early August 2026 — codified T9 promotion-trigger event).
+
+---
+
+**Prior last updated:** 2026-06-11 (MLCC tightness wave-refresh verified — tier-bifurcation HARDENS, T7 mechanism confirmed at T1/T2; ~70% AI-server MLCC share anchored; P-1 premium-tier test holds; SEMCO not China is the live threat)
 
 ## 2026-06-11 back-reference — MLCC wave-refresh + tier-bifurcation verification
 
