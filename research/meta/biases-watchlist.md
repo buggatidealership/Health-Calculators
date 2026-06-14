@@ -1143,9 +1143,7 @@ Per the B40.3 entry's own threshold ("if N=2+ in 60 days → CONFIRMED"):
 
 **Falsifier:** If the Jensen-reframe subagent fired 2026-06-12 returns "Jensen's framing IS partly hype-not-substance" — i.e., MRVL bull case really IS AWS-anchored and NVDA's $2B is structural insurance with limited spillover — then my original framing was correct and B46 is a false positive. In that case, retire B46. Currently expecting the reframe to confirm broader bull case (P~65%, my model) based on first-principles strategic logic (NVDA needs hyperscalers in NVLink ecosystem; MRVL is the cleanest co-design partner that's NOT a direct competitor).
 
-**Status:** CANDIDATE — N=1 origin 2026-06-12. Promotion to CONFIRMED requires:
-- N=2+ instances where B46 catch CHANGED a thesis output between 2026-06-12 and 2026-09-12
-- OR the macro-anchor hook fires materially (≥3 catches) on analytical outputs that subsequent reframing proved were missing the macro layer
+**Status:** **CANDIDATE → N=2 (promotion threshold MET).** N=1 origin 2026-06-12 (MRVL Jensen-reframe — concentration-risk framing contradicted NVDA $2B + Jensen $1T endorsement). **N=2 confirmation 2026-06-14 (GEV near-zero-TTQ framing contradicted GEV CEO T1 SEC filing "reservations sold out through 2030").** Both catches changed thesis output BEFORE cascade (Workflow #9 Step 0 / user pre-emption). Pattern: pre-training-recall framing CONTRADICTS load-bearing institutional signal; should have surfaced contradiction before stating conclusions. Promotion to CONFIRMED at monthly audit 2026-06-24 review.
 
 **Cross-ref:**
 - `CLAUDE.md` Critical Rule #15 (codified same day)

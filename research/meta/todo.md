@@ -508,3 +508,10 @@
   - Origin: 2026-06-13 AM brief item #12 — Epic Semi PR claims first RISC-V AI execution platform. Single source (T2 vendor PR); ARM-alternative thesis watch (ARM held 3.2%).
   - Scope: verify whether AIX is shipping product OR pre-product PR; if real, what customers / volume / when does it reach commercial scale; does it materially threaten ARM royalty model in next 24-36 months
   - Linked: `companies/ARM/thesis.md`; `signals/cross-source-log/2026-06-13-morning-brief-15-item-triage-tc10-promoted.md`
+
+- [ ] **P1 / research / 2026-06-15** [INDP, AF, POS] — Sizing-decision threads if user proceeds with TC-10 + Layer-3 candidates
+  - Origin: 2026-06-14 AM 2-subagent parallel research (`signals/cross-source-log/2026-06-14-eu-sovereign-AI-and-corrected-layer-3-bypass-2subagent.md`) surfaced 4 candidates closing 2 harness gaps:
+    - **TC-10 (EU-sovereign-AI):** Capgemini (CAP.PA) + Deutsche Telekom (DTE.DE) as cleanest pair, both ~12x fwd P/E, both Degiro-accessible
+    - **Layer-3 power-bypass (Time-to-Power):** Bloom Energy (BE) as ONLY empirical near-zero-TTQ name (55-day Oracle deployment); Vertiv (VRT) for density-bypass
+  - Scope IF user gives go: build full thesis files for top 2 (likely BE + one EU sovereign-AI name) with Bull/Bear/Base + falsifiers; verify current pricing T2 pre-sizing; size at 2-3% Active-band each on entry; integrate with existing held cohort joint state
+  - Falsifier of going forward: user prefers to wait for monthly audit 2026-06-24 cycle to fold into supply-chain reconstruction first
