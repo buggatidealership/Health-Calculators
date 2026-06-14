@@ -15,17 +15,6 @@
 
 ## Open
 
-### P2 — RESEARCH GAP surfaced 2026-06-14 (MLCC equipment-supplier layer)
-
-- [ ] **P2 / research / 2026-07-14** [INDP, AF, POS, BOT] — Japanese MLCC manufacturing equipment vendors deep-dig (research gap)
-  - Origin: 2026-06-14 Taiwan tier-2 supercycle commentary (Yageo / Walsin / Holy Stone / PDC) per `signals/cross-source-log/2026-06-14-mlcc-longest-shortage-cycle-taiwan-tier2-tc6-reinforce.md`. Holy Stone reports high-end MLCC equipment lead times 1-1.5 years; Walsin reports Japanese equipment vendor lead times 6-12 months. Equipment delivery is the BINDING constraint on capacity-coming-online — capex commitment (Walsin tripling) does NOT translate to faster supply.
-  - Hypothesis: if equipment IS the binding constraint binding the binding constraint, upstream MLCC-equipment-supplier rents are the highest-rent layer in the MLCC stack (currently uncovered in harness).
-  - Candidates to research: Shibaura Machine 6104.T (former Toshiba Machine); MURATEC-adjacent vendors; internal-to-Murata equipment subsidiary disclosures; Sintokogio (6339.T); any TSE-listed pure-play MLCC equipment vendor; Japan Steel Works adjacency; potentially Tokyo Electron-adjacent specialty equipment (likely too diluted)
-  - Investability: TSE-listed via Degiro should be accessible; verify
-  - Scope: identify the actual MLCC equipment OEM(s) supplying Murata + Holy Stone + Walsin; verify equipment-lead-time claim from supplier-side disclosure (T1/T2); model rent capture vs Murata-pricing-power capture; size investability
-  - Linked: `companies/MURATA/thesis.md` 2026-06-14 entry section 7; `signals/triangulation.md` TC-6 entry 5; `sector/themes.md` T7 + T9
-  - Promotion trigger: if a T1/T2 Japanese MLCC equipment vendor surfaces with verifiable >50% Murata-supplier share AND TSE liquidity → P1 candidate full thesis build
-
 ### P2 — High priority new (added 2026-06-04 PM — bypass-route + architecture-of-tomorrow research)
 
 - [ ] **P2 / research / 2026-06-05** [INDP, AF, POS, BOT] — Deep dive: BE Semiconductor Industries (BESI) — hybrid bonding equipment for 3D-stacked DRAM bypass route

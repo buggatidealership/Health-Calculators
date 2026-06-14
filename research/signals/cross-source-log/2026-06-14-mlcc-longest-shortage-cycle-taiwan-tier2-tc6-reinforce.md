@@ -1,5 +1,15 @@
 # 2026-06-14 — MLCC "longest shortage cycle in history" — Taiwan tier-2 supercycle commentary (Yageo / Walsin / Holy Stone / PDC); TC-6 N=4→N=5; T9 sub-leg reinforced; B40 fresh
 
+**⚠️ CORRECTION SECTION (added 2026-06-14 PM):** Three-subagent deep-dig per `2026-06-14-pm-mlcc-equipment-materials-deepdig-3subagent.md` surfaced two material corrections to this AM cascade:
+
+1. **Walsin "Japanese equipment vendor 6-12mo lead times" attribution may be B40.3 garble.** Subagent B verified that Walsin Q1 2026 法說會 (T1 [BigGo Finance summary](https://finance.biggo.com/news/TW_2492.TW_2026-05-27)) cites "Japanese vendors" specifically for palladium / silver / petroleum-derived materials = electrode/termination MATERIAL suppliers, NOT manufacturing equipment vendors. The 6-12mo figure should be hedged as **(B40.3 attribution risk; source-text verification pending)** until a T1 Walsin transcript clarifies. The Holy Stone 1-1.5yr equipment lead-time claim is INDEPENDENTLY supported (T2 [DigiTimes 2026-05-26](https://www.digitimes.com/news/a20260526PD211/holy-stone-mlcc-demand-high-end-2027.html)) and stands.
+
+2. **Equipment lead-time binding is the PRIMARY current constraint but materials is a forward CO-binding constraint** (not alternative). Subagent C verified that BaTiO₃ powder layer is tight but not supply-stopped; Murata's MF Material JV (Sept 2023; Fuji Titanium 70% + Ishihara Sangyo 10% + Murata 20%, per [Nikkei T1](https://www.nikkei.com/article/DGXZRSP661507_R00C23A9000000/), Nobeoka 2nd factory operational 2027) is a PROACTIVE HEDGE not crisis response. The "vertical integration captured in MURATA stock" framing was overstated — Murata is 20% MINORITY partner on materials; equipment-IP is fully internal. Corrected framing: DOUBLE moat (proprietary equipment IP + JV-hedged materials supply).
+
+The directional CONCLUSIONS of this AM cascade hold (TC-6 N=5; T9 reinforced; MURATA HOLD reinforced; cycle duration extends beyond 2027; tier-bifurcation hardens). The FRAMING precision needed correction. Self-correction event logged per Critical Rule #11.
+
+---
+
 **Workflow:** INGEST + signal-density (Critical Rule #14) + Workflow #9 light (layer-context re-anchor for MLCC complex).
 **Source:** user-shared Taiwan trade-press summary (shared twice identical; no double-cascade). Underlying T2 trade press (DigiTimes / 工商時報 / 經濟日報 cadence, June 2026).
 **B40 stale-recycle check:** PASS — fresh datapoints (Yageo B:B threshold, Walsin equipment-vendor lead-time call-out, Holy Stone 2027 intensification warning) NOT in any prior MLCC log. Last MLCC entry 2026-06-11 (tier-bifurcation wave-refresh). Today's content is a NEW magnitude-framing entry ("longest in history" / "surpass 2018 supercycle") with tier-2 (Taiwan) commentary explicitly reinforcing tier-1 (Japan/Korea) pricing power conditions.

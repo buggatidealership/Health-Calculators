@@ -1,6 +1,36 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-06-14 (Taiwan tier-2 supercycle commentary — "longest shortage cycle in history" / equipment-lead-time binding / beyond 2027 — TC-6 N=4→N=5; T9 sub-leg reinforced by Walsin TAM framing AI PCs/edge > AI servers)
+**Last updated:** 2026-06-14 PM (3-subagent deep-dig synthesis: DOUBLE moat clarified — proprietary equipment IP + JV-hedged materials [Murata 20% MF Material]; H1 SUPPORTED 55%, H2 REFUTED 5%, H3 RE-CHARACTERIZED as forward CO-binding; SEMCO single-moat vs Murata double-moat asymmetry quantified)
+
+## 2026-06-14 PM back-reference — Equipment + materials deep-dig 3-subagent synthesis
+
+Per `research/signals/cross-source-log/2026-06-14-pm-mlcc-equipment-materials-deepdig-3subagent.md` (3 parallel subagents: native-jp equipment verification, Taiwan+Korea cross-verification, materials-upstream H3 pressure-test):
+
+**Self-correction event logged** (Critical Rule #11 auto-execute strengthening clause): the 2026-06-14 AM cascade framing "vertical integration captured in MURATA stock" was somewhat overstated. The corrected framing — based on T1/T2 native-jp evidence:
+
+1. **Equipment layer = INTERNAL proprietary IP.** Murata internally builds proprietary tape-casting machines + custom kilns for the 0.3µm dielectric + 1000-layer stacking process. External vendors (Nikkiso Hi-Stacker, NGK Insulators Roller Hearth Kiln "100+ delivered", JTEKT Thermo Systems, Yodogawa Hu-Tech) participate at COMMODITY sintering / stacking steps. No TSE-listed pure-play passes Principle #22 (all conglomerate-diluted with MLCC equipment <10% of revenue per subagent estimates). Pretraining-default candidate list (Shibaura Machine, Sintokogio, Japan Steel Works, Murata Machinery, Tokyo Electron, SCREEN, Disco) all REFUTED via 4-pass native-jp search. Murata Machinery (村田機械) confirmed UNRELATED to Murata Manufacturing per Wikipedia JP+EN.
+2. **Materials layer = JV-HEDGED, NOT internalized.** The MF Material JV (Sept 2023; Fuji Titanium Industry 70% + Ishihara Sangyo 10% + Murata Manufacturing 20% — Murata is MINORITY partner) per [Nikkei T1](https://www.nikkei.com/article/DGXZRSP661507_R00C23A9000000/) was explicitly formed to "secure raw material procurement of barium titanate." Nobeoka 2nd factory: 19,000m² floor area, completes autumn 2026, operational 2027 (T2 [Dempa Digital](https://dempa-digital.com/article/470674) + [EE Times Japan](https://eetimes.itmedia.co.jp/ee/articles/2309/04/news073.html)). Murata sources base BaTiO₃ from Sakai Chemical + Fuji Titanium + Nippon Chemical Industrial; recipe + doping IP is INTERNAL.
+3. **The Murata moat is DOUBLE (corrected framing):** proprietary equipment IP + JV-hedged materials supply + internal recipe formulation. SEMCO is the closest competitor at SINGLE moat (powder vertical integration via Busan facility, but NO equipment IP — equipment sourcing not disclosed publicly). Taiwan tier-2 (Yageo / Walsin / Holy Stone / Prosperity Dielectrics) lacks both.
+4. **MF Material 2027 factory timing is a LEADING-INDICATOR behavioral signal:** Murata management recognized materials co-constraint by 2023 and pre-positioned 4 years ahead. The JV factory operational date (2027) aligns precisely with the equipment-gated MLCC capacity expected to come online from the current cycle's capex. This is management-quality evidence, not crisis response.
+
+**H3 RE-CHARACTERIZATION (forward CO-binding, not alternative):** Equipment lead-time remains PRIMARY current binding constraint per Holy Stone direct T2 ([DigiTimes 2026-05-26](https://www.digitimes.com/news/a20260526PD211/holy-stone-mlcc-demand-high-end-2027.html)). Materials (BaTiO₃) is tight but not supply-stopped today — becomes more binding 2027-2028. Japanese makers achieve 80-100nm BaTiO₃ vs Chinese 120-150nm — maps directly to 0.3µm vs 1µm dielectric thickness gap (T2 multi-source convergent). No premium-tier substitution route exists at materials OR equipment (Chinese commodity-tier only; no Korean / European MLCC equipment competitors surfaced).
+
+**B40.3 attribution-garble flag on yesterday's cascade:** The Walsin Q1 2026 法說會 "Japanese vendor 6-12mo lead times" attribution may refer to electrode/termination MATERIAL suppliers (palladium / silver / petroleum-derived) per [BigGo Finance T1 summary](https://finance.biggo.com/news/TW_2492.TW_2026-05-27), NOT manufacturing equipment vendors. Holy Stone 1-1.5yr claim is INDEPENDENT and stands. Pending T1 transcript verification.
+
+**Sakai Chemical (TSE listing) investability check via subagent C:** electronic materials ~12% of revenue (FY2025 segment data, T2); BaTiO₃ for MLCC a sub-segment of that (~3-7% direct exposure subagent estimate); 88% conglomerate dilution from non-MLCC businesses (TiO₂ pigments + plastic additives + cosmetics + catalysts). FAILS Principle #22 ≥30% threshold. Same verdict for Ishihara Sangyo (TiO₂ pigments + herbicides + ag chemicals primary; BaTiO₃ exposure via Fuji Titanium subsidiary; +11% May 2026 stock move on MLCC attention per [minkabu T2](https://minkabu.jp/news/4531835)). Toho Titanium privatized by JX Advanced Metals (Feb 2026), not independently investable. **No portfolio-actionable bypass-route winner identified — the entire MLCC equipment + materials rent stack is captured in MURATA stock + private entities + conglomerate-diluted names.**
+
+**Hypothesis posterior probabilities (my model, Bayesian update from subagent evidence):**
+- H1 (vertical integration captured): 40% → 55%
+- H2 (TSE pure-play exists): 25% → 5% (REFUTED)
+- H3 (powder primary binding): 25% → 25% but RE-CHARACTERIZED as forward CO-binding not alternative
+- H4 (substitution emerging): 10% → 5% (REFUTED at premium tier)
+- H5 NEW (no investable bypass — rent in MURATA + private JVs): P~10%
+
+**Position implication:** HOLD — no size change — deep-dig research STRENGTHENS the MURATA thesis on moat depth (double vertical: proprietary equipment IP + JV-hedged materials supply) while CORRECTING the framing precision from yesterday's AM cascade (Murata is 20% MINORITY partner in MF Material, not full materials-internalizer). The recognition + pre-positioning behavior (2023 JV ahead of 2027 binding) is leading-indicator management-quality evidence. SEMCO comparison: single moat vs Murata's double moat asymmetry quantified — premium-tier threat vector slightly reduced. No falsifier triggered. Pre-Q1 FY27 print add NOT recommended per L21 regime modifier; T9 promotion-trigger event date unchanged (late July / early August 2026 print).
+
+---
+
+**Prior last updated:** 2026-06-14 AM (Taiwan tier-2 supercycle commentary — "longest shortage cycle in history" / equipment-lead-time binding / beyond 2027 — TC-6 N=4→N=5; T9 sub-leg reinforced by Walsin TAM framing AI PCs/edge > AI servers)
 
 ## 2026-06-14 back-reference — Taiwan tier-2 supercycle commentary + equipment-lead-time binding
 
