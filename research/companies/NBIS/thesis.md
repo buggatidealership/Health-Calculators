@@ -1,6 +1,56 @@
 # Nebius (NBIS) — Thesis
 
-**Last updated:** 2026-06-02 (REFRESHED post-Aschenbrenner Q2 13G + Q1 2026 SEC 6-K; verified by 3-subagent comparative deep-dive 2026-06-02; supersedes 2026-05-21 baseline which was materially stale on market cap, revenue trajectory, and Aschenbrenner position)
+**Last updated:** 2026-06-15 PM (user-hypothesis 2-subagent + 1 background-duplicate verification on EU sovereign-AI bypass-route thesis + NDX inclusion June 22 confirmation; minor sizing/tier framework updated — see 2026-06-15 PM back-reference below)
+
+## 2026-06-15 PM back-reference — User hypothesis triage + NDX inclusion + EU sovereign-AI bypass thesis (3-way subagent convergence)
+
+Per `signals/cross-source-log/2026-06-15-pm-nebius-2subagent-verification-eu-sovereign-bypass-thesis.md`:
+
+User articulated hypothesis 2026-06-15: "[Nebius] are headquartered in France ... they might become the AI data center build out partner for most sovereign EU countries ... they also are getting added to the Nasdaq end of June ... what variables we must track." User explicitly flagged as "completely unverified assumption." 2 Opus subagents fired in parallel per user spec; 1 additional background-duplicate subagent C ran on same scope — 3-way convergence on verdicts.
+
+### 🟢 HARD verified (NEW datapoints)
+
+- **Nasdaq 100 inclusion CONFIRMED** — effective Monday June 22 2026 (announced June 12 after-hours) per [Nasdaq IR T1](https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-100-indexr-june-2026-quarterly-changes) + [Yahoo Finance mirror T2](https://finance.yahoo.com/markets/stocks/articles/nasdaq-100-index-june-2026-000000273.html). Quarterly rebalance under NEW rank-based methodology (user's "annual" framing slightly off). Co-added: ALAB, CRWV, RKLB, TER. Deletions: CHTR, CTSH, INSM, VRSK, ZS. NBIS spiked +12.9% after-hours Thursday June 12 on announcement per Subagent B — **passive-bid alpha MOSTLY CAPTURED.**
+- **UK £1.7 billion commitment June 8 2026** — three new UK facilities, 65 MW by 2027, explicit alignment with UK AI Opportunities Action Plan per [Nebius newsroom T1](https://nebius.com/newsroom/nebius-expands-in-uk-with-more-nvidia-powered-infrastructure-more-customers-and-more-cloud-capabilities-for-agentic-and-enterprise-ai). **This IS the sovereign-AI bypass thesis materializing at NATIONAL-government tier.**
+- **Israel Innovation Authority national supercomputer** (~1,000 NVDA B200) per Subagent A T2 — first sovereign deal but NON-EU
+- **Passive flow estimate: ~$1.45-1.9 billion** mandatory NDX-tracker buying (my model, derived from QQQ ~$400-494B + QQQM ~$45-83B + international NDX trackers ~$80-200B = ~$520-780B total tracking AUM × NBIS 0.22-0.25% float-adjusted weight per [Invesco T2](https://www.invesco.com/qqq-etf/en/market-outlook/qqq-crosses-300-billion-in-assets.html) + [QQQM MutualFunds T2](https://www.mutualfunds.com/etfs/qqqm-invesco-nasdaq-100-etf/)); ~10% of one day's $-volume
+
+### 🟡 DIRECTIONAL / mixed evidence (NEW datapoints)
+
+- **EU-Commission tier sovereign-AI: NBIS LOST the €180 million tender** April 2026 per [DCD T2](https://www.datacenterdynamics.com/en/news/eu-commission-selects-four-cloud-providers-under-180m-sovereign-cloud-tender/). Winners: Post Telecom+OVHcloud, StackIT, Scaleway, Proximus+S3NS. NBIS NOT named at EU-institutional tier. **Thesis REFRAME required:** "EU sovereign-AI champion" framing is wrong at EU-Commission tier; "neutral NVDA-native GPU cloud for national-government deals" framing is right
+- **EU CADA (Cloud and AI Development Act) 4-tier sovereignty framework** — Level 3 requires EU ownership AND EU-citizen personnel per [Raconteur T2](https://www.raconteur.net/global-business/eu-cloud-and-ai-development-act-what-sovereign-cloud-means-in-new-laws). NBIS passes Level 2 cleanly; **Level 3 status PENDING (binary fork for sovereign-AI thesis ceiling)**
+- **Insider selling pattern** — $131 million trailing 3-month with ZERO buys per Subagent B (yellow flag on Stage 2-3 transition risk)
+- **NBIS stock state:** ATH $278.84 early June 2026; current ~$232-236 (~-15-16% from ATH; YTD +158-165% per [GuruFocus T2](https://www.gurufocus.com/news/8913816/nebius-group-nbis-leads-nasdaq100-reshuffle-with-1655-ytd-gain))
+
+### Cross-cluster impact (TC-10 sub-mechanism reweight strengthens NBIS bypass-route thesis)
+
+This morning's TC-10 sub-mechanism reweight (H_d security-incident root 30%→40%; H_b regulatory-machinery 30%→35% per `signals/cross-source-log/2026-06-15-am-morning-brief-verification-cascade.md`) DIRECTLY reinforces the NBIS sovereign-AI bypass thesis. Anthropic 90-min global Fable 5 + Mythos 5 shutdown precedent = the canonical "your vendor is offline in 90 minutes by government order" scenario the user articulated; NBIS as EU-domiciled neutral compute is positioned as one bypass route. **But:** NVDA-chip-dependency means NBIS is still US export-control exposed (EAR Part 740/744); "can't be regulated by US" framing partially false.
+
+### User hypothesis verdict (RIGHT vs WRONG vs PARTIAL)
+
+| User assumption | Verified state |
+|---|---|
+| Headquartered in France | **WRONG** — Amsterdam Dutch N.V. (existing thesis already correctly had this) |
+| Can't be regulated by US | **PARTIALLY WRONG** — NVDA-dependent so US EAR exposed |
+| EU sovereign-AI buildout partner | **REFRAMED** — wrong at EU-institutional tier; right at NATIONAL-government tier (UK proof case) |
+| Nasdaq end-of-June addition + passive bid | **RIGHT on substance** — June 22 effective; passive ~$1.45-1.9B but **MOSTLY ALREADY CAPTURED** in +12.9% after-hours June 12 spike |
+
+### Position implication update (overlays existing 2026-06-02 Active-candidate framing)
+
+**Position implication: 🟡 DIRECTIONAL — NO ACTION on spot at $232-236 — existing Active-candidate framing (Aschenbrenner 5.6% 13G basis, sizing entry $205-210 on pullback) holds; NDX inclusion mechanically delivered but passive-bid alpha already captured (3 trading days ago); sovereign-AI bypass-route thesis ADVANCED at national-government tier via UK £1.7B but REFRAMED narrower than user's "EU sovereign champion" framing. Insider selling $131M T3M / zero buys is the new yellow flag relative to prior Stage 3 framing. Stop the chase on NDX-add catalyst alone; entry-trigger frame remains Aschenbrenner-validated pullback to ~$205-210, NOW REINFORCED by 4 explicit promotion gates:**
+
+1. Named additional sovereign deal beyond UK (Germany / France / Nordics / Italy / India / Korea national-level) — high-value gate
+2. ATH close above $278.84 on volume confirmation post NDX flow day June 22 (within 10 sessions) — L24 ATH-break activation
+3. Q2 2026 earnings (late July / early August): EU-mix expansion + 2.5 GW year-end EMEA capacity ramp confirmation
+4. EU InvestAI 5-gigafactory call (expected summer 2026) names Nebius as approved GPU-compute provider
+
+**30-day watch (through 2026-07-15):** (a) June 22 inclusion auction price action + 5-session follow-through (per B45 regime base rate single-day moves +5-12% routine; do NOT over-read magnitude); (b) any NBIS sovereign-deal announcement from Germany / France / Italy / Nordics / India / Korea; (c) CADA implementing-act draft language re: Level 3 personnel/ownership tests; (d) insider Form 4 trend — accel above $200M T3M = adverse signal.
+
+**Tier:** Active-candidate framing maintained from prior 2026-06-02 entry; the 2026-06-15 verification did NOT promote/demote tier — it refined the SCOPE of the sovereign-AI sub-thesis (national-government tier yes; EU-institutional tier no) and added 4 explicit gates. Anti-fragility 3/5 holds.
+
+---
+
+**Prior last updated:** 2026-06-02 (REFRESHED post-Aschenbrenner Q2 13G + Q1 2026 SEC 6-K; verified by 3-subagent comparative deep-dive 2026-06-02; supersedes 2026-05-21 baseline which was materially stale on market cap, revenue trajectory, and Aschenbrenner position)
 **Tier:** Active candidate (Aschenbrenner 5.6% 13G stake = consensus signal); Stage 3 recognition (post +529% 1yr)
 **Position target:** 1.5-2.5% small entry on 15% pullback to ~$205-210; 3-5% on second pullback or quarterly catalyst confirmation
 **Anti-fragility:** 3/5 scenarios (wins S1 + S2 + S3; partial S4; neutral S5)

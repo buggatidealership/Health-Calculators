@@ -35,6 +35,44 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM] Nebius (NBIS) user-hypothesis 2-subagent verification (+1 background-duplicate) → 3-way convergence + EU sovereign-AI bypass-route REFRAMING + NDX inclusion confirmation cascade
+
+**Trigger source:** user-articulated hypothesis 2026-06-15 ~11:21 UTC verbatim: "[Nebius] are headquartered in France ... they might become the AI data center build out partner for most sovereign EU countries ... they also are getting added to the Nasdaq end of June ... what variables we must track." User explicitly flagged as "completely unverified assumption" and explicitly directed: "Use OPUS 4.8 for each sub agent" (not Haiku).
+
+**Intake tier:** 🟡 DIRECTIONAL (final, post 3-way verification convergence) — user hypothesis partially confirmed at NATIONAL-government tier (UK £1.7B June 8 verified T1), partially falsified at EU-Commission tier (Nebius LOST €180M tender T2; winners OVH/Scaleway/StackIT/Proximus), HQ-framing wrong (Amsterdam Dutch N.V. not France — existing 2026-06-02 thesis already had this correctly), NDX inclusion confirmed (effective June 22 2026; quarterly rebalance under new rank-based methodology, user's "annual" framing slightly off; passive alpha MOSTLY CAPTURED in +12.9% June 12 after-hours spike).
+
+**Source:** 2 Opus subagents fired in parallel per user spec (Subagent A company verification + Subagent B index inclusion + tracking framework) + 1 background-duplicate Subagent C ran on same Nasdaq-100 + sovereign-AI scope. 3-way convergence on tier verdict; minor numerical refinements on passive-flow estimates ($1.45-1.9B range across subagents); no contradictions.
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm-nebius-2subagent-verification-eu-sovereign-bypass-thesis.md` — NEW artifact (full hypothesis trail + per-claim tier reassessment + cascade map + 10-row tracking variable framework)
+- `companies/NBIS/thesis.md` — appended 2026-06-15 PM back-reference (NOT overwritten — existing 2026-06-02 Active-candidate thesis maintained; verification REFINED sovereign-AI sub-thesis scope + added 4 explicit promotion gates + new insider-selling yellow flag + new 30-day watch criteria)
+- `watchlist/candidates.md` — added 2026-06-15 PM cross-ref subsection noting NBIS Active-candidate tier maintained; bypass-route at national-government tier; NDX-add passive alpha mostly captured
+- `signals/triangulation.md` TC-10 — appended "bypass-route at national-government tier MATERIALIZING" prefix to cell (NBIS UK £1.7B as first proof case post-Anthropic-90-min precedent); tier-split mapped (EU-institutional vs national-government)
+- `sector/themes.md` T6 — added 2026-06-15 PM bypass-route proof case section: T6 cluster now spans TWO tiers (EU-institutional layer dominated by OVH/Scaleway/StackIT/Capgemini/DTE/Reply/SU.PA + AION Gigafactory consortium; national-government / neutral-NVDA-cloud tier with NBIS as first proof case)
+- `meta/tier-cascade-log.md` — THIS entry + prior cd8e069 SHA fill below
+
+**Files NOT touched (per scoping rule — no genuine intersection):**
+- All held cohort theses (HYNIX/SNDK/SUMCO/MURATA/MRVL/DDOG/NOW) — orthogonal to NBIS positioning; memory/chip/passives demand unaffected by which neutral-compute provider wins EU sovereign deals
+- IBIDEN/CAMT/BESI (TSMC PLP cascade earlier today; NBIS doesn't change their positioning)
+- AGC/ARM (exited)
+- portfolio/holdings.md / targets.md / changes.md — no position changes (NBIS Active-candidate framing unchanged from 2026-06-02; entry-trigger frame remains Aschenbrenner-validated pullback to ~$205-210, NOT NDX-add catalyst alone)
+- meta/methodology.md, research/CLAUDE.md, meta/session-prime.md, meta/tags.md, INDEX.md — no new principle / convention / retrieval rule
+- sector/where-we-are.md — TC-10 + T6 already in synthesis ledger; UK £1.7B is reinforcing datapoint not synthesis-shifting
+- predictions/grading-log.md, lessons.md — no resolved predictions; no new lesson candidate
+- biases-watchlist.md — no new B40.x instance from this verification
+
+**Stale flags fired:** none (file is 1 day old)
+
+**Loop-validation note (THIRD real-data application of Principle #37 today):** Subagent verification explicitly caught the user's HQ-framing error (France vs Amsterdam) BEFORE any cascade would have propagated it; explicitly caught the EU-Commission tier vs national-government tier split that would have over-credited NBIS on the sovereign-AI thesis; explicitly identified the passive-bid-alpha-already-captured timing issue. The "what variables we must track" component (Subagent B's 10-row framework) is the forward-monitoring scaffold the user explicitly requested. This is the loop working AS DESIGNED — user shares speculative hypothesis → verification corrects 2 framing errors + 1 timing error + builds tracking scaffold → cascade is SCOPED (6 files updated; 14+ harness files explicitly NOT touched) → all without manufactured sizing or thesis change.
+
+**3-way subagent convergence note (unusual but informative):** Subagent C was a background-duplicate that ran on the same scope as Subagent B (likely from a race condition in session orchestration earlier today). The 3-way convergence on (a) NDX inclusion confirmed, (b) WATCHLIST P2 vs prior Active-candidate tier nuance, (c) insider selling yellow flag, (d) tier-split between EU-institutional and national-government sovereign-AI = STRONGER evidentiary base than 2-subagent verification alone. Minor numerical refinements (passive flow $1.45-1.9B range) reflect different AUM input assumptions across subagents, not contradictory verdicts.
+
+**Cascade-fatigue check:** 3 cascades today (TSMC PLP morning + morning brief + NBIS PM) + 1 pre-prep (Kioxia) = 4 events in ~12 hours. Per Principle #37 promotion gate (N=20 cascade events without drift for CANDIDATE → CONFIRMED), tracking-rate is healthy and ahead of pace. No scope-violation observed in any of the 4 events (all held theses untouched except where direct intersection existed).
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 AM] Morning AI brief 67-source / 19-item triage — 4-item T1 verification → TC-10 N=9 + TC-4 acute-phase + T9 N=2 + B40.x N+3 scoped cascade
 
 **Trigger source:** user-shared morning AI Intelligence Brief 2026-06-15 (67 sources scanned, 19 items reported); 2-subagent parallel fan-out per Critical Rule #15 + LLM-native priming item 6 (Kioxia Day 3-4 pre-prep concurrent + 4-item morning brief T1 verification). Both subagents returned in same processing window.
@@ -71,7 +109,7 @@
 
 **Cascade-fatigue check:** 19 items in brief → 4 verified-actionable + 15 log-only. ~21% cascade-trigger rate. Within healthy range (high-noise briefs should produce few cascade triggers; 21% is concentrated near major regulatory events which is expected on a multi-state-AG day).
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `cd8e069` (filled in this 2026-06-15 PM NBIS cascade per lag-1 SHA-fill convention)
 
 ---
 

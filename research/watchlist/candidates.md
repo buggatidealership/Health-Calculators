@@ -704,6 +704,17 @@ Reuters T1 (Jun 10-11) on China's InP export-control regime + 2-subagent verific
 
 ## CoPoS / Glass-Core Packaging Cohort (added 2026-06-11; UPDATED 2026-06-15 PM — per `signals/cross-source-log/2026-06-15-pm-tsmc-plp-etnews-2subagent-verification-tc5-cascade.md` + prior `2026-06-11-copos-kuo-note-verification-neg-surprise-abf-inversion.md`)
 
+### 2026-06-15 PM cross-ref — Nebius (NBIS) user-hypothesis verification + NDX inclusion + sovereign-AI bypass-route REFRAMING
+
+Per `signals/cross-source-log/2026-06-15-pm-nebius-2subagent-verification-eu-sovereign-bypass-thesis.md` + `companies/NBIS/thesis.md` 2026-06-15 PM back-reference:
+
+- **NBIS already at Active-candidate** per existing 2026-06-02 thesis (Aschenbrenner 5.6% 13G basis). 2026-06-15 PM verification did NOT promote/demote tier — refined the SOVEREIGN-AI sub-thesis SCOPE: WRONG at EU-Commission tier (lost €180M tender; OVH/Scaleway/StackIT/Proximus won); RIGHT at NATIONAL-government tier (UK £1.7B June 8 = first proof case). 4 explicit promotion gates now in NBIS thesis Position-implication line.
+- **NDX inclusion confirmed** effective June 22 2026 (announced June 12 after-hours) per [Nasdaq IR T1](https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-100-indexr-june-2026-quarterly-changes); co-added ALAB/CRWV/RKLB/TER. Passive-bid alpha ~$1.45-1.9 billion (my model) MOSTLY CAPTURED in +12.9% after-hours June 12 spike per Subagent B.
+- **Cross-cluster strengthens via TC-10 sub-mechanism reweight** this morning (H_d 30→40%, H_b 30→35%). NBIS positioning as EU-domiciled neutral compute is one bypass route for "your vendor offline in 90 minutes by government order" scenario (Anthropic Fable 5/Mythos 5 90-min global shutdown precedent).
+- **Insider selling $131 million T3M / zero buys** = NEW yellow flag relative to prior Stage 3 framing.
+
+---
+
 ### 2026-06-15 AM cross-ref — Morning brief verification cascade (T9 N=2 + new EU AI-deployment-liability candidate cluster)
 
 Per `signals/cross-source-log/2026-06-15-am-morning-brief-verification-cascade.md`:
