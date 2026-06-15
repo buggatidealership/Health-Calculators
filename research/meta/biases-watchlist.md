@@ -1083,7 +1083,19 @@ Per the B40.3 entry's own threshold ("if N=2+ in 60 days → CONFIRMED"):
 
 **Mechanism:** summarizers gravitate attribution toward the most-recognizable entity in the category (DeepSeek > Tencent-paper; Murata > Fenghua). The bigger the name, the higher the prior that a category-level behavior gets pinned on it specifically.
 **Enforcement:** subagent verification protocol step expanded — for any company-specific behavioral claim (restriction, suspension, price action, design win), demand the T1 entity-specific statement; if absent, check whether the behavior belongs to a DIFFERENT entity in the same category.
-**Status: CONFIRMED.** Composite B40 taxonomy now: B40.1 stale-recycle (VERIFIED-HIGH-CONFIDENCE, N=9+), B40.2 magnitude-inflation (CONFIRMED, N=3), B40.3 attribution-garbling (CONFIRMED, N=2 + 1 retroactive).
+**Status: CONFIRMED.** Composite B40 taxonomy now: B40.1 stale-recycle (VERIFIED-HIGH-CONFIDENCE, N=10+ as of 2026-06-15), B40.2 magnitude-inflation (CONFIRMED, N=3), B40.3 attribution-garbling (CONFIRMED, N=2 + 1 retroactive).
+
+### B40.1 N=10 instance (added 2026-06-15) — Amazon water 0.075% PR-repackaging
+
+Per `signals/cross-source-log/2026-06-15-evening-brief-2026-06-14-cascade-tc10-tc4-eu-sovereignty-b40-verifications.md`:
+
+Amazon's 2026-06-14 disclosure that "data centers use only 0.075% of US lawn watering water" (2.5B gallons annual DC vs 3.3T gallons American lawn watering, per Tom's Hardware T2) is a B40.1-adjacent instance. The 2.5B gal numerator is the SAME number disclosed in:
+- 2026-06-11 evening brief item 17 ("Amazon DCs consumed 2.5B gallons water 2025" per The Verge T2)
+- 2026-06-12 morning brief item 17 (stacked with AI 600B gal by 2030 forecast per Tom's Hardware T2)
+
+Amazon's new disclosure is a PR DEFENSE to the same underlying coverage — same numerator (2.5B gal), new denominator (3.3T lawn gal) for narrative spin. **Classified as B40.1-adjacent** (corporate-PR-recycling) rather than pure B40.1 stale-recycle, because Amazon as a corporate entity making a defensive claim counts as new entity-speech, not stale aggregator-recycle. But the recycling pattern warrants flagging — when corporate PR responds to negative coverage with new denominator framing, treat as response-signal not new-substance signal.
+
+**Related story-development pattern flag (not B40.1):** KPMG hallucination story now at 3rd beat (Jun 11 evening "AI report had hallucinations" FT T2 → Jun 12 evening "5/45 = ~89% citation hallucination" The Register T2 → Jun 14 evening "report withdrawn" TechCrunch T2). Each beat adds incremental info. NOT B40.1 stale-recycle. Pattern: story-development with sequential beats. TC-9 candidate cluster gets another datapoint; monitor for promotion at monthly audit 2026-06-24.
 
 ### B40.3 potential N=3 instance (2026-06-14 PM) — Walsin Q1 2026 "Japanese vendor" attribution ambiguity
 

@@ -48,11 +48,12 @@ Six themes currently active. Each maps to specific names and a specific catalyst
 
 ### T7 — Supply Chain Inheritance (existing theme, not modified here)
 
-### T6 — Sovereign AI (UAE / Saudi / Stargate)
-**Status:** Mid
+### T6 — Sovereign AI (UAE / Saudi / Stargate + EU-investable-expression cluster)
+**Status:** Mid (T6-original) + ACCELERATING (T6-EU branch per 2026-06-15 cascade)
 **Thesis:** Nation-state AI builds create demand outside the hyperscaler-4 (MSFT/GOOG/AMZN/META) channel
-**Names:** NVDA (direct), TSM (foundry), GEV/ETN (electrical), ORCL (Stargate)
+**Names:** NVDA (direct), TSM (foundry), GEV/ETN (electrical), ORCL (Stargate) + EU cluster: CAP.PA Capgemini / DTE.DE Deutsche Telekom / OVH.PA OVHcloud / REY.MI Reply / SU.PA Schneider Electric (per `watchlist/candidates.md` EU-sovereign-AI cluster)
 **Catalyst:** new sovereign deals; existing deals moving from announcement to delivery
+**2026-06-15 cascade reinforce:** EU sovereignty push (Brussels advancing cloud autonomy + open source mandates despite US opposition per The Register T2) + Mythos China-access disclosure (Semafor T2) adding H_d security-incident vector to TC-10 = exogenous accelerant to EU-investable-expression urgency. Per `signals/cross-source-log/2026-06-15-evening-brief-2026-06-14-cascade-tc10-tc4-eu-sovereignty-b40-verifications.md`.
 
 ## Theme × Scenario matrix
 

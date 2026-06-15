@@ -127,6 +127,9 @@ These events move the whole TC-10 H2 weighting (currently P~55% structural, my m
 | Mistral IPO announcement | EU public-market sovereign-AI listing emerges — closes the model-lab gap | Indeterminate | Watching |
 | Anthropic CEO public statement on terms of restoration | Operational-vs-temporary read | Indeterminate | Watching |
 | Anthropic loses named US enterprise account post-suspension | TC-4 + TC-10 stacking; private-tracker H2 +pp | Indeterminate | Watching |
+| **Mythos China-access disclosure (Semafor T2 ~2026-06-12)** | → H2 STRUCTURAL CONFIRMED via H_d security-incident vector; sovereign-AI alternative urgency rises | FIRED 2026-06-12 | **TRIGGERED** — per `signals/cross-source-log/2026-06-15-evening-brief-2026-06-14-cascade-tc10-tc4-eu-sovereignty-b40-verifications.md` |
+| **EU sovereignty push: Brussels advancing cloud autonomy + open source mandates despite US opposition (Register T2 ~2026-06-14)** | → H2 demand-side; compliance regime accelerates EU-cloud-buyer requirements; CAP.PA / DTE.DE / OVH.PA all positioned to win | FIRED 2026-06-14 | **TRIGGERED** — per same source |
+| Anthropic-WH meeting outcome (Reuters T2 ~2026-06-14; meeting scheduled next week from June 14) | If meeting → restored access with conditions = H1; if meeting → standoff or stricter restrictions = H2 acceleration | ~2026-06-23 watch | Pending |
 
 ## Bloom Energy (BE) — Layer-3 power bypass — added 2026-06-14
 
