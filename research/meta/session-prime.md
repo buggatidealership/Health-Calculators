@@ -116,7 +116,7 @@
 - **🔴 SPECULATIVE / IN-FEAR** — Hypothesis, candidate, pre-registered H1-H4, single-source unverified.
 - **STALE** — Auto-flag on 🔴/🟡 entries no cascade-event >30 days.
 
-**Position implication enforcement:** every `Position implication:` line MUST carry a 🟢/🟡/🔴 marker on the same line or directly above. Hook-level enforcement via `~/.claude/structural-output-hook.py` is PENDING USER AUTHORIZATION (auto-mode classifier blocked self-modification 2026-06-15); analyst-discipline enforcement until authorized.
+**Position implication enforcement:** every `Position implication:` line MUST carry a 🟢/🟡/🔴 marker on the same line or directly above. Hook-level enforcement: code shipped to `research/meta/hooks/structural-output-hook.py` mirror; LIVE-PENDING-USER-ACTIVATION via `cp research/meta/hooks/structural-output-hook.py ~/.claude/structural-output-hook.py`. Analyst-discipline enforcement until activated.
 
 **The scoped-cascade rule (load-bearing — when new data lands):**
 

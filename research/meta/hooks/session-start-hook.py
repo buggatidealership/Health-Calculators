@@ -32,6 +32,7 @@ ENFORCEMENT_PATHS = ["/home/user/Health-Calculators"]
 TODO_PATH = Path("/home/user/Health-Calculators/research/meta/todo.md")
 PREDICTIONS_LOG_PATH = Path("/home/user/Health-Calculators/research/predictions/grading-log.md")
 BOTTLENECKS_PATH = Path("/home/user/Health-Calculators/research/sector/bottlenecks.md")
+TIER_CASCADE_LOG_PATH = Path("/home/user/Health-Calculators/research/meta/tier-cascade-log.md")
 
 REPO_PATH = Path("/home/user/Health-Calculators")
 
@@ -281,9 +282,83 @@ def build_briefing() -> str | None:
                 )
                 lines.append("")
 
+    # Tier-cascade-log staleness surfacing (Principle #37, added 2026-06-15).
+    # Surface entries in `meta/tier-cascade-log.md` whose entry-date is
+    # >30 days old AND whose Intake tier is 🟡 or 🔴. (🟢 HARD entries
+    # excluded — T1 receipts don't go stale the same way.) Forces explicit
+    # re-verify-or-retire decisions on aging speculative / directional
+    # claims so the cascade audit trail stays current.
+    if TIER_CASCADE_LOG_PATH.exists():
+        stale_tier_entries = parse_stale_tier_entries(TIER_CASCADE_LOG_PATH, threshold_days=30)
+        if stale_tier_entries:
+            lines.append("⚠️ STALE TIER ENTRIES — RE-VERIFY OR RETIRE (>30 days untouched, Principle #37):")
+            for entry_date, summary, tier in stale_tier_entries[:5]:
+                days_old = (date.today() - entry_date).days
+                lines.append(f"  {tier} {entry_date.isoformat()} ({days_old}d) — {summary}")
+            if len(stale_tier_entries) > 5:
+                lines.append(
+                    f"  ... + {len(stale_tier_entries) - 5} more stale entries — "
+                    f"see meta/tier-cascade-log.md"
+                )
+            lines.append("")
+
     lines.append("Read /home/user/Health-Calculators/research/meta/todo.md for full backlog.")
     lines.append("=== END BRIEFING ===")
     return "\n".join(lines)
+
+
+def parse_stale_tier_entries(path: Path, threshold_days: int = 30) -> list:
+    """
+    Parse `meta/tier-cascade-log.md` for entries dated >threshold_days ago
+    whose Intake tier is 🟡 or 🔴. Returns list of (date, summary, tier)
+    tuples, most-stale (oldest) first.
+
+    Entry format (per Principle #37 codification):
+        ### [YYYY-MM-DD] {summary}
+        ...
+        **Intake tier:** 🟢 / 🟡 / 🔴
+
+    Skips 🟢 entries — HARD T1 receipts don't go stale the same way.
+    Failures are silent — never break the session-start briefing on
+    parse errors.
+    """
+    try:
+        text = path.read_text()
+    except Exception:
+        return []
+
+    entry_re = re.compile(r"^###\s*\[(\d{4}-\d{2}-\d{2})\]\s*(.+?)$", re.MULTILINE)
+    matches = list(entry_re.finditer(text))
+    if not matches:
+        return []
+
+    today = date.today()
+    stale = []
+    for i, m in enumerate(matches):
+        try:
+            entry_date = datetime.strptime(m.group(1), "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if (today - entry_date).days <= threshold_days:
+            continue
+
+        # Slice the entry body to find the Intake tier line
+        start = m.end()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        body = text[start:end]
+
+        tier_match = re.search(r"\*\*Intake tier:\*\*\s*([🟢🟡🔴])", body)
+        if not tier_match:
+            continue
+        tier = tier_match.group(1)
+        if tier == "🟢":
+            continue  # HARD receipts don't go stale
+
+        summary = m.group(2).strip()[:80]
+        stale.append((entry_date, summary, tier))
+
+    stale.sort(key=lambda x: x[0])  # oldest first
+    return stale
 
 
 def main():

@@ -140,6 +140,14 @@ EXEMPTION_PATTERNS = [
     r"^(?:Yes|No|Confirmed|Acknowledged)\s*[—-]",             # acknowledgment lead-in
 ]
 
+# Position-implication tier enforcement (Principle #37, added 2026-06-15).
+# Every `Position implication:` line MUST carry a 🟢 / 🟡 / 🔴 tier
+# marker on the same line or the line directly above. The check runs
+# BEFORE the general STRUCTURAL_MARKERS pass-gate so other structural
+# markers do NOT excuse a missing tier on a sizing recommendation.
+POSITION_IMPLICATION_RE = re.compile(r"^.*Position implication:.*$", re.MULTILINE)
+TIER_MARKER_RE = re.compile(r"[🟢🟡🔴]")
+
 
 def load_last_assistant_message() -> str:
     try:
@@ -189,6 +197,45 @@ def has_pattern(text: str, patterns) -> bool:
     return False
 
 
+def _log_fire(reason: str) -> None:
+    """
+    Append a fire event to `meta/hook-fire-log.md` with the rejection
+    reason so different fire-paths are distinguishable in audits.
+    Transcript archaeology is fragile in ephemeral cloud containers;
+    the committed log is the only fire record that survives container
+    reclamation.
+    """
+    try:
+        from datetime import datetime, timezone
+        log_path = Path(ENFORCEMENT_PATHS[0]) / "research/meta/hook-fire-log.md"
+        ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%SZ")
+        with open(log_path, "a") as lf:
+            lf.write(f"- {ts} structural-output-hook FIRE ({reason})\n")
+    except Exception:
+        pass
+
+
+def _print_position_implication_feedback(implication_line: str) -> None:
+    feedback = (
+        "STRUCTURAL-OUTPUT HOOK (Principle #37 enforcement): the output "
+        "contains a `Position implication:` line without a 🟢/🟡/🔴 tier "
+        "marker on the same line or the line directly above.\n\n"
+        f"  Offending line: {implication_line.strip()[:200]}\n\n"
+        "Every sizing recommendation must declare its confidence tier. "
+        "Restate with one of:\n"
+        "  🟢 HARD — T1 receipt (filing, IR, gov data, contract). "
+        "Citation URL required.\n"
+        "  🟡 DIRECTIONAL — T2 source-tier OR my-model with explicit "
+        "(my model) + Bayesian P.\n"
+        "  🔴 SPECULATIVE / IN-FEAR — hypothesis, candidate, "
+        "pre-registered H1-H4.\n\n"
+        "Convention: meta/tags.md § Truth-Tier markers + "
+        "meta/methodology.md Principle #37.\n"
+        "Cascade log: meta/tier-cascade-log.md.\n"
+    )
+    print(feedback, file=sys.stderr)
+
+
 def main():
     if not in_scope():
         sys.exit(0)
@@ -209,23 +256,29 @@ def main():
     if not has_pattern(text, ANALYTICAL_MARKERS):
         sys.exit(0)
 
+    # Position-implication tier enforcement (Principle #37, added 2026-06-15).
+    # Runs BEFORE the general structural-markers pass-gate — every sizing
+    # recommendation must declare its confidence tier even if other
+    # structural markers are present.
+    for m in POSITION_IMPLICATION_RE.finditer(text):
+        line = m.group(0)
+        # Find the line directly above for the "above" tier-marker variant
+        line_start = m.start()
+        above_start = text.rfind("\n", 0, line_start - 1) + 1
+        above_line = text[above_start:line_start]
+        if TIER_MARKER_RE.search(line) or TIER_MARKER_RE.search(above_line):
+            continue  # tier marker present on this line or directly above — OK
+        # No tier marker — reject + ask to restate
+        _log_fire("position-implication-tier-missing")
+        _print_position_implication_feedback(line)
+        sys.exit(2)
+
     # Pass condition: contains AT LEAST ONE multi-dimensional structural marker
     if has_pattern(text, STRUCTURAL_MARKERS):
         sys.exit(0)
 
     # Otherwise: analytical content + NO structural marker = revert pattern detected
-
-    # Persistent fire log (added 2026-06-12, week-1 check): transcript
-    # archaeology is fragile in ephemeral cloud containers; a committed
-    # file is the only fire record that survives container reclamation.
-    try:
-        from datetime import datetime, timezone
-        log_path = Path(ENFORCEMENT_PATHS[0]) / "research/meta/hook-fire-log.md"
-        ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%SZ")
-        with open(log_path, "a") as lf:
-            lf.write(f"- {ts} structural-output-hook FIRE\n")
-    except Exception:
-        pass
+    _log_fire("structural-markers-missing")
 
     feedback = (
         "STRUCTURAL-OUTPUT HOOK: large analytical response (>800 chars) "

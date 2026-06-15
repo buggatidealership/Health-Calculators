@@ -6,8 +6,8 @@
 - `meta/methodology.md` Principle #37 — convention + scoped-cascade rule
 - `meta/tags.md` § Truth-Tier markers — tier symbol dictionary
 - `meta/session-prime.md` §9 — cold-session injection of convention (force-injected via `~/.claude/session-prime-hook.py` on `SessionStart`)
-- `~/.claude/session-start-hook.py` — **PENDING USER AUTHORIZATION** for STALE-entry surfacing block (auto-mode classifier blocked self-modification of hook 2026-06-15; manual stale-review until authorized)
-- `~/.claude/structural-output-hook.py` — **PENDING USER AUTHORIZATION** for `Position implication:` tier-marker enforcement (auto-mode classifier blocked self-modification 2026-06-15; convention enforced by analyst discipline until authorized)
+- `~/.claude/session-start-hook.py` — surfaces STALE 🔴/🟡 entries (>30d untouched) in the session-start briefing (LIVE-PENDING-USER-ACTIVATION 2026-06-15: code shipped to `research/meta/hooks/session-start-hook.py` mirror; activation = `cp research/meta/hooks/session-start-hook.py ~/.claude/session-start-hook.py`)
+- `~/.claude/structural-output-hook.py` — enforces 🟢/🟡/🔴 tier marker on every `Position implication:` line (LIVE-PENDING-USER-ACTIVATION 2026-06-15: code shipped to `research/meta/hooks/structural-output-hook.py` mirror; activation = `cp research/meta/hooks/structural-output-hook.py ~/.claude/structural-output-hook.py`)
 
 ---
 
@@ -34,6 +34,30 @@
 ---
 
 ## Entries (most recent first)
+
+### [2026-06-15] Principle #37 hook-enforcement layer shipped to repo mirror
+
+**Trigger source:** plan-mode follow-up cascade after the codification commits `7049a16` + `779ec88` landed; user re-entered plan mode 2026-06-15 PM and approved hook-enforcement plan via ExitPlanMode. Live-hook self-modification was blocked twice by auto-mode classifier ("agent-startup hook (Self-Modification)") — code shipped to `research/meta/hooks/` mirror with 1-step `cp` activation path so user retains explicit go/no-go on hook activation.
+
+**Intake tier:** 🟡 (DIRECTIONAL — code passes py_compile + local unit tests but full integration test requires live activation; promotion to 🟢 on first observed session-start STALE surface + first observed Position-implication rejection in transcripts)
+
+**Source:** plan file `/root/.claude/plans/enumerated-tickling-hartmanis.md` (approved by user); local unit tests in /tmp confirmed: STALE parser correctly excludes 🟢 + correctly returns 🟡/🔴 entries >30d old; POSITION_IMPLICATION_RE + TIER_MARKER_RE correctly fire on no-marker line and pass when marker is same-line OR directly-above
+
+**Tier moves (scoped — only files actually touched):**
+- `research/meta/hooks/session-start-hook.py` — added `TIER_CASCADE_LOG_PATH` const + STALE-tier surfacing block (after bottlenecks staleness check) + `parse_stale_tier_entries()` helper
+- `research/meta/hooks/structural-output-hook.py` — added `POSITION_IMPLICATION_RE` + `TIER_MARKER_RE` constants + Position-implication validation block (runs BEFORE structural-markers pass-gate) + `_print_position_implication_feedback()` + `_log_fire(reason)` refactor (existing fire-path now also tagged with reason for audit)
+- `meta/tier-cascade-log.md` — this entry + Linked-section hedge update (PENDING-AUTHORIZATION → LIVE-PENDING-USER-ACTIVATION with cp commands)
+- `meta/session-prime.md` §9 — Position implication enforcement line updated
+- `meta/tags.md` § Truth-Tier markers — convention enforcement line updated
+- `research/CLAUDE.md` TL;DR § Truth-Tier — hedge updated
+
+**Files NOT touched (no claim intersection):** `~/.claude/session-start-hook.py` + `~/.claude/structural-output-hook.py` live copies (blocked by auto-mode classifier; user activates via `cp` from mirror — explicit go/no-go preserved); all company `thesis.md` files (codification is harness-level, not per-thesis); other TC entries (TC-1 / TC-6 / TC-10 already tagged in prior commit; no further tagging cascade triggered by this hook-enforcement event)
+
+**Stale flags fired:** none (file is 1 day old; first STALE flags arrive earliest 2026-07-15)
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
 
 ### [2026-06-15] Truth-Tier Taxonomy codified (Principle #37) — meta-entry, file birth
 
