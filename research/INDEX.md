@@ -1,7 +1,7 @@
 # Harness Index — single-file retrieval entry point
 
 **Created:** 2026-06-11 (per signal-density-detection optimization directive)
-**Last refreshed:** 2026-06-14 PM2 (cohort canonical refresh + DRAM 60-yr trend break TC-1 N=14 + MLCC equipment+materials deep-dig + non-default reads #7-#8)
+**Last refreshed:** 2026-06-15 (multi-cascade day refresh — 5 commits: evening brief deferred cascade TC-10 H_d + TC-4 N=12 + EU sovereignty push; Kioxia VLSI Day 1-2 monitoring negative-finding + earnings-backdrop dominates; **800V HVDC Vera Rubin DSX 3-subagent T1 verification — MURATA materially reinforced + Schneider SU.PA RANK 5→2 + Eaton/Vertiv promotions + B40.3 PROMOTED VERIFIED-HIGH-CONFIDENCE + TC-6 N=5→6**)
 **Refresh cadence:** monthly + on major thesis/scenario changes
 **Function:** answer "where did we cover X?" without grep
 
