@@ -35,6 +35,75 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM16] Zephyr (X @zephyr_z9) + Citrini Research MLCC commentary → 3 Opus subagents parallel verification (FIRST operational application of Critical Rule #16) → REINFORCE MURATA HELD as PRICE story + Sakai Chemical 4078.T NEW #1 ENTER candidate (raw materials spillover T1-confirmed)
+
+**Trigger source:** user-shared 2026-06-15 ~22:08 UTC: (1) ~600-word Zephyr/Citrini MLCC market commentary text + (2) 2 charts (Citrini Research infographic + Low-end MLCC S/D balance %). User said "I have one other piece for today. same approach as before" — applying Critical Rule #16 codified PM15 (always run verification with opus 4.8 + don't ask). 3 Opus subagents fired in parallel WITHOUT permission-asking.
+
+**Intake tier:** 🟡 DIRECTIONAL — Zephyr text T2 (independent X analyst, no inline source attribution per Subagent A) + Citrini Research T2 baseline; load-bearing claims verified at T1 source level via 3-subagent multilingual (EN+JP+ZH) triangulation. Most claims REINFORCE existing thesis; some specifics REFRAMED (especially Murata "blended ASP flat" → actual is PRICE STORY with 15-35% segmented hikes).
+
+**Source:** 3 parallel Opus subagents — (a64b7dde2b7e9dbb2 source + 11-claim verification, 46 tool uses / 299s; afdfc17da1d93fe02 Macronix effect + MURATA, 36 tool uses / 274s; a11cae5eff42ba4df materials + equipment beneficiary investability, 51 tool uses / 288s). Total ~150k subagent tokens.
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm16-mlcc-zephyr-citrini-3subagent-verification-sakai-chemical-spillover.md` — NEW artifact (full 8-section structural verdict; 30+ source URLs across EN/JP/ZH; joint-state matrix; reweighted hypotheses; falsification triggers; bottleneck-of-tomorrow candidate flag)
+- `companies/MURATA/thesis.md` — PM16 back-reference: REINFORCE as PRICE story (NOT "flat ASP" as Zephyr/Citrini framed); H1 PRICE 55% / H2 VOLUME-MIX 35% / H3 FLAT-ASP 10%; Apr 1 segmented hike T1 + Apr 30 +¥80B capex T1 + President "inquiries 2× supply 1-2yr tightness" T1; BOM count discrepancy 440k vs 600k flagged; rare-earth decoupling 3yr plan T1; bottleneck-of-tomorrow BaTiO3+Ni surfaced; Last updated header refreshed
+- `watchlist/candidates.md` — NEW "MLCC raw-materials spillover cluster" section added with 5 watchlist additions (Sakai Chemical 4078.T #1 ENTER candidate + Sumitomo Metal Mining 5713.T + Toho Titanium 5727.T + Shoei Chemical 4970.T + Ishihara Sangyo 4028.T) + 2 Tier-2 MLCC additions (YAGEO 2327.TW #1 Tier-2 + Taiyo Yuden 6976.T #2) + Ulvac 6728.T deferred + Nittobo/Guocai/Fenghua/Three-Circle/Sunlord reference-only; directional signal events tracked per name
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM15 SHA fill (`d104fc9`)
+
+**Files NOT touched (per scoping rule):**
+- `companies/HYNIX/thesis.md`, `SNDK/thesis.md`, `KIOXIA/thesis.md`, `MRVL/thesis.md`, `DDOG/thesis.md`, `NOW/thesis.md`, `SUMCO/thesis.md` — all orthogonal to MLCC cluster (memory + connectivity + software + ceramic substrates separate)
+- `companies/IBIDEN/thesis.md`, `CAMT/thesis.md`, `BESI/thesis.md` — packaging substrate / equipment; orthogonal to MLCC capacitor tier
+- `portfolio/holdings.md`, `targets.md`, `changes.md` — no position changes (MURATA HOLD ~current; all new watchlist additions are watch not enter yet)
+- `signals/triangulation.md` — TC-6 (Japan MLCC tightness multi-tier) cluster already at strong conviction; PM16 reinforces but no cluster-state change
+- `meta/methodology.md` — Critical Rule #16 codified in CLAUDE.md PM15 commit; PM16 is FIRST operational application validating the rule, not a new principle
+- `meta/tags.md` — Rule #16 tag deferred to monthly audit (Rule #16 N=1 operational validation now; promote tag commitment at N≥2)
+- `meta/biases-watchlist.md` — no new B-instance; B40.3 moderate hit (Zephyr no inline attribution + user dropped author identity) is logged in cross-source-log artifact and tier-cascade-log; N-counter increments deferred to monthly audit
+- `meta/session-prime.md` — Critical Rule #16 injection deferred until N=2 operational validation
+- `sector/themes.md`, `sector/where-we-are.md` — no synthesis-level shift; TC-6 MLCC tightness regime intact and reinforced
+- `sector/bottlenecks.md` — BaTiO3+Ni powder bottleneck-of-tomorrow flagged as CANDIDATE for promotion at June 24 monthly audit; defer formal entry to BOTTLENECK-FORECAST workflow run
+- `predictions/grading-log.md`, `lessons.md` — no resolved predictions; 5 falsification triggers pre-registered as watch items per PM16 artifact, not formal prediction entries yet
+- `research/CLAUDE.md`, `INDEX.md` — no new principle/convention; Rule #16 already in CLAUDE.md from PM15 commit
+
+**Stale flags fired:** none (file 1 day old; first STALE flags ≥2026-07-15)
+
+**Critical Rule #16 first operational validation:**
+- ✅ 3 Opus subagents fired in PARALLEL without permission-asking
+- ✅ Model=opus per Rule #16 step 2
+- ✅ Subagent prompts explicitly required web-tool invocation per Rule #16 step 5 — no failure-to-invoke this round (vs PM15 where re-fire was needed)
+- ✅ Native-Japanese + native-Chinese parallel search executed (Subagent B + C; per Principle #36)
+- ✅ Cascade flowed cleanly per Principle #37 scoped rule
+- ✅ Discipline-drift check passed: did NOT pause to ask "fire 3 or which subset"
+- **Rule #16 detectability: POSITIVE (N=1 operational validation event).** Monthly audit June 24 will track cumulative N+/N-.
+
+**Reweighted hypothesis distribution on Zephyr/Citrini commentary (my model post-3-subagent):**
+- H1 PRICE STORY (Murata 15-35% hikes + tightness 1-2yr) P~55% (up from ~40% prior; T1 verified)
+- H2 VOLUME-MIX STORY (Murata cedes low-end; captures AI-server mix margin) P~35% (still in play; complementary)
+- H3 CITRINI-FLAT-ASP STORY (Murata defending blended-flat via capex burn) P~10% (down from ~30%; T1 contradicted)
+
+**N-th order cascade markers (my model):**
+- 1st order (P>80%): Murata price hikes hold through FY27 → blended ASP up not flat; sustained tightness through 2027
+- 2nd order (P~60%): Raw materials spillover continues; Sakai Chemical / Sumitomo / Toho Titanium pricing power emerges from MLCC capex flow-through
+- 3rd order (P~40%): Macronix-effect at consumer/low-end materializes; Chinese mainland (Fenghua + Three-Circle) capture volume share; YAGEO Tier-2 anti-fragile play activates
+- 4th order (P~20%): Equipment-tier spillover emerges in Q3-Q4 2026 (Ulvac MLCC order signal); humanoid MLCC TAM crystallizes (Macquarie $139B by 2030-2035 directionally validated)
+
+**Loop-validation note (SIXTEENTH real-data application of Principle #37 today + FIRST Rule #16 operational application):**
+
+Clean joint cascade:
+- 3 subagents fired in parallel without permission-asking (Rule #16 first apply); 3 of 3 returned T1/T2 multilingual triangulation
+- MURATA HELD: REINFORCE (PRICE story not "flat ASP") + bottleneck-of-tomorrow surfaced; back-reference appended
+- 5 NEW raw-materials watchlist additions investable (Sakai #1 ENTER + Sumitomo + Toho + Shoei + Ishihara)
+- 2 NEW Tier-2 MLCC watchlist additions (YAGEO + Taiyo Yuden)
+- 1 equipment deferred (Ulvac)
+- 4 reference-only confirmed (Nittobo user-prior; Guocai SHE-locked; Fenghua + Three-Circle + Sunlord SHE-listed)
+- Bottleneck-of-tomorrow CANDIDATE: BaTiO3 + Ni powder for MLCC inner electrode
+- Portfolio unchanged
+- Held cohort cascade: MURATA back-reference; HYNIX + SNDK + KIOXIA + MRVL + DDOG + NOW + SUMCO + IBIDEN/CAMT/BESI orthogonal — explicitly NOT touched per scoping rule
+
+**Cascade-fatigue check:** 16 cascades + Kioxia pre-prep + INDEX refresh = 18 events in ~26 hours. Per P#37 promotion gate (N=20 events without drift), **90% to promotion threshold.** No scope-violation observed in any of the 16 cascades. **Principle #37 ready for VERIFIED promotion at June 24 monthly audit** with strong evidentiary base.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM15] Bernstein (Mark Li) Kioxia 285A.T Underperform ¥40,000 PT bear-note → 3 Opus subagents parallel verification → REFRAME (Bernstein note registered as Falsifier candidate; thesis HOLDS) + Critical Rule #16 ALWAYS-RUN-VERIFICATION-NEVER-ASK codification
 
 **Trigger source:** user-shared Bernstein bear-note abstract 2026-06-15 ~21:50 UTC with explicit unbiased-take ask. User also issued durable directive at 21:53 UTC verbatim: "always run verification with opus 4.8 and do not ask. verifications must always be run" — codified as Critical Rule #16 in this commit. 3 Opus subagents fired in parallel per Critical Rule #16 (was Principle #36 + user-directive at PM13 spec; now formalized).
@@ -88,7 +157,7 @@
 
 **Cascade-fatigue check:** 15 cascades + Kioxia pre-prep + INDEX refresh = 17 events in ~26 hours. Per P#37 promotion gate (N=20 events without drift), 85% to promotion threshold. No scope-violation observed in any of the 15 cascades.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `d104fc9` (filled in this PM16 cascade per lag-1 SHA-fill convention)
 
 ---
 

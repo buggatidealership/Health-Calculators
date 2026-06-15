@@ -1,6 +1,41 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-06-15 (800V HVDC Vera Rubin DSX cascade — MATERIALLY REINFORCED; CAGR 18%→30% Murata IR T1 + 1.25kV C0G monopoly Dec 2025 T1 + Walsin AGM T1 "past 2027" TC-6 N+1 confirmation; 800V IBC stage = structural BOM uplift; U8 partial-offset prong-specific; 4th MURATA-relevant update in 48h)
+**Last updated:** 2026-06-15 PM16 (Zephyr+Citrini MLCC cascade — REINFORCE as PRICE STORY not "flat ASP"; Apr 1 2026 segmented +15-35% AI/auto / +6-13% consumer T1; Apr 30 2026 +¥80B emergency capex on top of ¥250B FY26 T1; President "inquiries 2× supply capacity; tightness 1-2 years" T1; FY27 guide ¥1,960B rev +7.1% / Op profit ¥380B +34.8% T1; Macronix-effect partial fit consumer/low-end only — AEC-Q200 24mo qual gates protect high-end Murata; new bottleneck-of-tomorrow: BaTiO3 + Ni powder material tier — Sakai Chemical 4078.T NEW #1 ENTER candidate watchlist)
+
+## 2026-06-15 PM16 back-reference — Zephyr + Citrini Research MLCC commentary 3-subagent verification
+
+Per `signals/cross-source-log/2026-06-15-pm16-mlcc-zephyr-citrini-3subagent-verification-sakai-chemical-spillover.md` (3 Opus subagents in parallel per Critical Rule #16 first operational application):
+
+**🔴 KEY REFRAME — Zephyr/Citrini's "Murata blended ASP flat" framing is TOO PESSIMISTIC on price:**
+
+| Reality (T1 verified PM16) | Zephyr/Citrini |
+|---|---|
+| Murata **active 15-35% price hikes April 2026** (silver + AI tightness) per [Note.com T1](https://note.com/japansho/n/n7b745e6d4817) | "Blended ASP flat" |
+| Murata FY27 guidance: **¥1,960B rev (+7.1% YoY) / Op profit ¥380B (+34.8%)** per Murata IR T1 | — |
+| Murata President: **"inquiries 2× supply capacity; tightness lasts 1-2 years"** per [EE Times Japan T1](https://eetimes.itmedia.co.jp/ee/articles/2602/27/news048.html) | — |
+| **+¥80B emergency capex on top of ¥250B FY26**; Izumo plant small-size high-cap AI-server power-delivery spec; output NOT before Q4 2026 per [BanyanLane T1 relay](https://banyanlanecapital.substack.com/p/murata-mraay-more-signs-of-tightening) | — |
+| Murata China rare-earth decoupling 3-year plan per [TrendForce Mar 19 2026 T1](https://www.trendforce.com/news/2026/03/19/news-mlcc-giant-murata-reportedly-to-decouple-china-rare-earth-supply-in-3-years-as-risks-rise/) | — |
+
+**This is a PRICE story + MIX story, NOT "flat blended ASP."** Citrini's framing under-reads Murata pricing power.
+
+**🟢 Macronix-effect REFRAME — partial fit, NOT clean analog:** Substitution LIVE only in consumer/low-end (where Citrini S/D chart flips negative -16.5% by 2028e); AEC-Q200 24mo qual gates protect Murata high-end auto/server. Tier-1 vacating PARTIAL (capacity reallocation, no exit); flood is from Chinese mainland (Fenghua 000636.SZ Xianghe park +15B units/month new; Three-Circle 300408.SZ 300B units/yr) NOT Taiwanese Tier-2 (YAGEO 2327.TW capital-disciplined NO new capex 2026 per [BigGo T1](https://finance.biggo.com/news/TW_2327.TW_2026-04-15)).
+
+**🟡 BOM count discrepancy flagged for reconciliation:** Murata IR (Nakajima) T1 ~440,000 MLCCs per GB200 NVL72 rack (already in thesis) vs Banyan Lane T2 / Sohu Fenghua T2 ~600,000 MLCCs per rack. Likely 440k = Murata-share vs 600k = total rack-content all suppliers. Disambiguation update at next monthly audit.
+
+**Reweighted hypotheses (my model post-PM16 3-subagent):**
+- H1 PRICE STORY (Murata 15-35% hikes + tightness 1-2yr) P~55% ↑ from ~40% prior
+- H2 VOLUME-MIX STORY (Murata cedes low-end; captures AI-server mix margin) P~35% complementary
+- H3 CITRINI-FLAT-ASP STORY (Murata defending blended-flat via capex burn) P~10% ↓ from ~30%
+
+**🟢 New bottleneck-of-tomorrow surfaced (12-18mo):** BaTiO3 dielectric powder + Ni powder for MLCC inner electrode. As Murata ¥270B FY26 capex (+50% YoY per [Nikkei Asia T1](https://asia.nikkei.com/business/electronics/electronics-maker-murata-bets-ai-device-boom-coming-around-2030)) + Taiyo Yuden FY27 +50% op profit + YAGEO + Chinese mainland adds ALL hit supply chain simultaneously, raw material inputs become next pinch. **Sakai Chemical 4078.T (T1 supplier to Murata/TDK/Taiyo Yuden BaTiO3 per [dataintelo T1](https://dataintelo.com/report/global-barium-titanate-formula-powder-market); 25% global BaTiO3 share; +13.1% single day 2026-06-02 per [note.com T1](https://note.com/ready_fox3873/n/nf5a35c673d6a)) is NEW #1 ENTER candidate in watchlist.** Other materials watchlist adds: Sumitomo Metal Mining 5713.T (Ni powder duopolist); Toho Titanium 5727.T (dual Ni+BaTiO3 precursor); Shoei Chemical 4970.T (Ni paste leader); Ishihara Sangyo 4028.T (Murata JV with Fuji Titanium). Equipment NOT YET confirming: Ulvac 6728.T FY25 -3.8% rev; MLCC mix <10%; wait for order signal. Nittobo 3110.T REFERENCE-ONLY (user prior); Guocai 300285.SZ SHE-locked.
+
+**B40.x discipline:** B40.1 NOT recycled (Apr 30 capex + single-day events 2026-05-29 / 2026-06-02 fresh); B40.2 mild on Zephyr 80% AI CAGR (peak-year vs Goldman 5yr 34% steady-state); B40.3 moderate (Zephyr does NOT cite inline sources; user share dropped author identity).
+
+**Position implication: 🟢 REINFORCE — HOLD ~current sizing — no size change — H1 PRICE STORY P~55% elevation strengthens thesis but doesn't cross add threshold; pre-committed trim sequence unchanged. Falsification triggers pre-registered:** (a) Murata FY27 Q1/Q2 prints with blended ASP flat or down → invalidates H1; (b) Chinese MLCC achieving full AEC-Q200 high-spec auto qual in 2026 → accelerates Tier-1 share loss into auto; (c) YAGEO surprise large MLCC capex → Tier-2 capital-discipline broken; (d) Sakai Chemical MLCC mix disclosure <50% revenue tied to MLCC → spillover thesis too narrow; (e) Ulvac Q3'26 MLCC equipment order signal → equipment thesis activates.
+
+---
+
+## 2026-06-15 back-reference — 800V HVDC Vera Rubin DSX cascade (MATERIALLY REINFORCED)
 
 ## 2026-06-15 back-reference — 800V HVDC Vera Rubin DSX cascade (MATERIALLY REINFORCED)
 

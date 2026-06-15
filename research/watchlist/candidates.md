@@ -1,6 +1,97 @@
 # Watchlist Candidates
 
-**Last updated:** 2026-06-14 AM (EU-sovereign-AI cluster added per user directive 2026-06-14 — Capgemini + Deutsche Telekom + OVHcloud + Reply SpA + Schneider Electric; explicit directional-signal-event tracking attached to each name; plus Bloom Energy on Layer-3 power-bypass)
+**Last updated:** 2026-06-15 PM16 (MLCC raw-materials spillover cluster added — Sakai Chemical 4078.T #1 ENTER candidate + Sumitomo Metal Mining / Toho Titanium / Shoei Chemical / Ishihara Sangyo / YAGEO / Taiyo Yuden per Zephyr+Citrini 3-subagent verification cascade)
+
+## MLCC raw-materials spillover cluster — added 2026-06-15 PM16
+
+**Origin signal:** Zephyr (X @zephyr_z9) + Citrini Research MLCC commentary 2026-06-15 PM verified via 3 Opus subagents (Critical Rule #16 first operational application). Per `signals/cross-source-log/2026-06-15-pm16-mlcc-zephyr-citrini-3subagent-verification-sakai-chemical-spillover.md`. **Spillover thesis (MLCC producer rent migrating upstream to raw materials suppliers) T1-confirmed via single-day breakouts: Sakai Chemical +13.1% 2026-06-02 + Ishihara Sangyo +11% 2026-05-29 + Guocai Materials +166-300% YTD ATH.** Equipment spillover NOT YET confirming (Ulvac FY25 -3.8% rev; MLCC mix <10%). Held cohort: MURATA REINFORCED as PRICE story.
+
+### Sakai Chemical (4078.T) — Tokyo Stock Exchange — RANK 1 ENTER CANDIDATE
+
+| Attribute | Value (research-verified 2026-06-15 T1) |
+|---|---|
+| Latest price signal | 6,380 JPY 2026-06-02; **+13.1% single day** per [note.com T1](https://note.com/ready_fox3873/n/nf5a35c673d6a) |
+| Investability | Yes — TSE accessible via Degiro |
+| Thesis hook | Named T1 supplier to Murata + TDK + Taiyo Yuden BaTiO3 per [dataintelo T1](https://dataintelo.com/report/global-barium-titanate-formula-powder-market); ~25% global BaTiO3 share; cleanest BaTiO3 pure-play |
+| Cleanness | HIGH — smaller market cap than peers = leverage to mix shift; narrative arrived 2 weeks ago (still early in spillover trade) |
+| Falsifier | If MLCC mix disclosure shows <50% revenue tied to MLCC dielectric powder → spillover thesis too narrow for this name |
+
+**DIRECTIONAL SIGNAL EVENTS to track for entry:**
+
+| Event | What it signals | When |
+|---|---|---|
+| Sakai Q1 FY27 earnings (Aug-26 est) | BaTiO3 revenue mix disclosure; pricing power confirmation; capex commentary | Aug-26 |
+| Murata FY27 Q1/Q2 print | Murata blended ASP path (REINFORCES if 15-35% hikes hold) → upstream demand confirmation | Late Jul-26 / Late Oct-26 |
+| Chinese MLCC AEC-Q200 auto qual breakthrough | Accelerates Tier-1 share loss → Tier-1 reactionary capex → upstream BaTiO3 demand | Watch continuous |
+| Murata China rare-earth decoupling progress | If domestic Japan supply chain prioritized → Sakai positively-leveraged | Quarterly Murata IR |
+
+### Sumitomo Metal Mining (5713.T) — RANK 2
+
+| Attribute | Value |
+|---|---|
+| Investability | Yes — TSE via Degiro |
+| Thesis hook | Ni powder duopolist (w/ JFE Mineral private); MLCC inner electrode core product; large-cap liquidity advantage; nickel mining biz adds optionality but dilutes MLCC purity per [SMM product T1](https://www.smm.co.jp/en/business/material/products/nickel_powder/) |
+| Falsifier | If Ni powder spot prices roll over without volume offset → industry capacity coming online too fast |
+
+### Toho Titanium (5727.T) — RANK 3
+
+| Attribute | Value |
+|---|---|
+| Investability | Yes — TSE |
+| Thesis hook | Dual exposure: Ni powder + BaTiO3 precursor titanium per [Toho Titanium ultra-fine Ni T1](https://www.toho-titanium.co.jp/en/products/ni/); +65% YoY shows partial pricing in |
+| Falsifier | Titanium pricing oversupply (aero/defense alt demand softens) → drag on stock unrelated to MLCC thesis |
+
+### Shoei Chemical (4970.T) — RANK 4
+
+| Attribute | Value |
+|---|---|
+| Investability | Yes — TSE (verify ticker; conflict risk with Shoei Co 7839 in some feeds) |
+| Thesis hook | Ni paste leader; private peer Heraeus + Namics |
+| Falsifier | Murata vertical integration of Ni paste (rare-earth decoupling could include this) |
+
+### Ishihara Sangyo (4028.T) — RANK 5
+
+| Attribute | Value |
+|---|---|
+| Investability | Yes — TSE |
+| Thesis hook | +11% gap-up 2026-05-29 MLCC narrative per [kabutan T1](https://kabutan.jp/news/marketnews/?b=n202605290836); +66.8% YoY; Murata JV with Fuji Titanium economics opaque |
+| Falsifier | JV revenue-share clarification reveals < expected Murata-linked exposure |
+
+### Tier-2 anti-fragile MLCC producer watchlist additions
+
+**YAGEO 國巨 (2327.TW) — RANK 1 Tier-2 MLCC**
+
+| Attribute | Value |
+|---|---|
+| Investability | Yes — ADR accessible via Degiro |
+| Thesis hook | Q1'26 NT$38.17B rev (+22.7% YoY), GM 38.1%, AI mix 12%→14.5% (target >15%); **NO new MLCC capacity 2026 — capital-disciplined** per [BigGo T1](https://finance.biggo.com/news/TW_2327.TW_2026-04-15); relying on under-utilized Kaohsiung |
+| Why now | Tier-2 capital discipline = price discipline preserved; AI mix rising; ADR-accessible; +98% trailing 52w but lagging Murata's +322% 52w |
+| Falsifier | YAGEO announces surprise large MLCC capex → Tier-2 oversupply risk |
+| Entry trigger | Pullback to 50d MA or AI mix print >17% |
+
+**Taiyo Yuden (6976.T) — RANK 2 Tier-2 MLCC** (already on broader watchlist)
+
+| Attribute | Value |
+|---|---|
+| Thesis hook | FY27 op profit guide ¥30B (+50%); B/B 1.25 (capacitor 1.31); AI-server MLCC +80% FY26 guidance per [BigGo T1](https://finance.biggo.com/news/5hr2FJ4BX0tZvRTv1JbB); Murata co-trade candidate |
+
+### Equipment — DEFERRED (wait for confirmation signal)
+
+**Ulvac (6728.T)** — FY25 revenue -3.8%; MLCC mix <10% of ¥251B per [Eulerpool T2](https://eulerpool.com/stock/JP3126190002). Equipment thesis NOT yet activating. Wait for Q3'26 earnings MLCC equipment order signal before adding to ENTER watchlist.
+
+### REFERENCE-ONLY (not investable)
+
+- **Nittobo (3110.T)** — per user prior directive (T-Glass spillover analog but excluded from active investment)
+- **Guocai Materials (300285.SZ)** — SHE-locked; 80-90% Chinese domestic BaTiO3 / 25-30% global hydrothermal nano-BaTiO3 monopolist per [Eastmoney T1](https://emcreative.eastmoney.com/app_fortune/article/index.html?artCode=20260605225200334631830&postId=1721785712); +166-300% YTD ATH (late-cycle entry risk regardless of investability)
+- **Fenghua 风华高科 (000636.SZ) / Three-Circle 三环集团 (300408.SZ) / Sunlord 顺络 (002138.SZ)** — Chinese SHE-listed MLCC producers; reference-only for Macronix-effect tracking
+
+### Bottleneck-of-tomorrow flag (BOTTLENECK-FORECAST workflow June 24 monthly audit)
+
+BaTiO3 dielectric powder + Ni powder for MLCC inner electrode = 12-18mo bottleneck candidate. Sakai Chemical 25% global BaTiO3 (T1 dataintelo); Sumitomo Metal Mining + JFE Mineral + Shoei Chemical + Toho Titanium Top-5 hold >60% Ni powder global per [Verified Market T1](https://www.verifiedmarketreports.com/product/nickel-powder-for-mlcc-electrode-market/). Capacity additions in finished MLCC ALL flow through to material demand; 12-24mo to add BaTiO3 capacity vs 24mo for finished MLCC qual. **Bottleneck-of-tomorrow status: CANDIDATE for promotion at June 24 monthly audit.**
+
+---
+
+
 
 Names surfaced by signals / causal chains, not yet covered by full thesis. Promoted to `companies/{TICKER}/` when conviction warrants.
 
