@@ -35,6 +35,46 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM5] Pharmicell-Doosan-NVDA AI CCL supply chain → TC-5 N=7→N=8 + Nittobo (TYO 3110) watchlist elevation + Principle #34 N=1→N=2 candidate
+
+**Trigger source:** user-shared translated Korean trade-press article (The Elec 디일렉 native-kr + EN versions, dated June 10 2026) at 2026-06-15 ~17:25 UTC — Pharmicell as exclusive low-Dk resin/hardener supplier to Doosan Electro-Materials BG for NVDA AI server CCL
+
+**Intake tier:** 🟡 DIRECTIONAL on article framing; 🟢 HARD on independently-verified Doosan-NVIDIA Physical AI partnership 2026-06-07 (T1 NVIDIA blog); 🟡 on Pharmicell-Doosan exclusivity at qualified-vendor level (not global monopoly)
+
+**Source:** 1 Opus subagent verification (aa937713a09522158) returned substantive 7-section report with T1 sources including [NVIDIA blog T1](https://blogs.nvidia.com/blog/nvidia-and-doosan-group-physical-ai/) + [Hankyung T1 Pharmicell Q1 2026 earnings](https://www.hankyung.com/article/202605120639i) + [Hankyung T1 3rd Ulsan plant](https://www.hankyung.com/article/2025032448196) + [Korea Herald T1 Thailand plant](https://www.koreaherald.com/article/10728734) + [SeoulEcon T1 Lotte Energy Materials](https://en.sedaily.com/finance/2026/03/22/lotte-energy-materials-doosan-electronics-unit-partner-on) + [TrendForce T2 Nittobo](https://www.trendforce.com/news/2025/11/28/news-nittobo-expands-glass-fiber-output-with-nan-ya-nan-ya-to-handle-20-by-2027-amid-ai-surge/)
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm-pharmicell-doosan-nvda-ccl-cascade.md` — NEW artifact (full verification + hypothesis trail + claim-by-claim tier reassessment + bypass-route check + sources)
+- `signals/triangulation.md` TC-5 — N=7→N=8 with CCL substrate-base layer (Pharmicell-Doosan-NVDA Physical AI + Lotte Energy Materials Blackwell delivery + Nittobo T-Glass tripling + MGC/Resonac 30% CCL hike + Doosan Thailand H2 2028)
+- `watchlist/candidates.md` — NEW 2026-06-15 PM5 subsection: **Nittobo (TYO 3110) INVESTABLE WATCHLIST P2** (Japan TSE per Degiro filter; supply-layer-agnostic winner across all CCL vendors; ¥15B Fukushima + Nan Ya 20% by 2027); Resonac (TYO 4004) WATCHLIST P3 reference; MGC (TYO 4182) reinforce existing radar; EMC (TWSE 2383) NEGATIVE signal; Pharmicell + Doosan + Lotte Energy Materials all REFERENCE-only per investability filter
+- `companies/IBIDEN/thesis.md` — 2026-06-15 PM5 back-reference appended: light input-cost headwind (MGC + Resonac 30% CCL price hike 2026 = pass-through to IBIDEN substrate cost; mild margin headwind to monitor in Q1 FY27 print late July/early August). No tier change.
+- `meta/methodology.md` Principle #34 row — N=1→N=2 candidate validation (SEMCO-MFA + Pharmicell-Doosan match pattern: single-customer single-source qualification at specialty-chemicals tier; 10-year co-development + re-certification gates; multi-quarter switching cost). Approaching codification threshold per Principle #32 premortem.
+- `meta/tags.md` — Principle #34 N=2 status update
+- `meta/tier-cascade-log.md` — THIS entry + prior 4786cb5 SHA fill below
+
+**Files NOT touched (per scoping rule — no genuine intersection):**
+- All held cohort theses (HYNIX/SNDK/SUMCO/MURATA/MRVL/DDOG/NOW) — orthogonal to CCL substrate layer; memory/compute/passives/observability demand unaffected by which CCL vendor wins NVDA AI server BOM
+- CAMT/BESI/NBIS theses — earlier today's TSMC PLP + NDX cascades; no overlap with CCL upstream
+- AGC/ARM (exited)
+- portfolio files — no position changes (Pharmicell/Doosan/Lotte all REFERENCE per KRX investability filter; Nittobo new watchlist not yet sized)
+- `meta/biases-watchlist.md` — B40.x verdict on article: B40.1 LIGHT (3rd Ulsan plant Mar 2025 + fresh May 2026 earnings = editorial-acceptable not violation); B40.2 LIGHT-rhetorical ("exclusive" qualified-vendor-level not global monopoly + Thailand H2 2028 vs article Q1 2027 inflation); B40.3 CLEAN (NVDA explicitly named in T1). No new N+1 codification needed.
+- `sector/themes.md` — no theme-level event (TC-5 cluster reinforce within existing T6 / T7 framework)
+- `meta/session-prime.md` / `research/CLAUDE.md` / `INDEX.md` — no new principle / convention / retrieval rule (Principle #34 still CANDIDATE pending codification)
+- `predictions/grading-log.md` / `lessons.md` — no resolved predictions
+- `meta/cross-domain-pattern-register.md` — Principle #34 lives in methodology.md not pattern-register
+
+**Stale flags fired:** none
+
+**Loop-validation note (SEVENTH real-data application of Principle #37 today):** Subagent verification MATERIALLY UPGRADED H1 (50%→85%) via independently-found Doosan-NVIDIA Physical AI partnership T1 disclosure that user-shared article didn't surface AND independently-found EMC GB300 qualification failure explaining Doosan's exclusive Rubin CCL opportunity. **REJECTED H3** (NVDA-specific inferred) — NVDA explicit per T1. **Surfaced NEW H5 Nittobo investable expression** — the verification did real value-added work beyond just confirming the article. This is the loop's REAL output: not just verification of user-shared claims but DISCOVERY of adjacent T1 datapoints that change the cascade scope.
+
+**Cascade-fatigue check:** 7 cascades + Kioxia pre-prep = 8 events in ~17 hours. Per Principle #37 promotion gate (N=20 events without drift), tracking-rate well ahead of pace. No scope-violation observed in any of the 7 cascades.
+
+**Principle #34 promotion trajectory:** N=1 (SEMCO-MFA codified 2026-05-28) → N=2 candidate (Pharmicell-Doosan 2026-06-15 PM5). Third confirming case would promote from CANDIDATE → VERIFIED per Principle #32 premortem. Watch for: (a) another specialty-chemicals single-source qualification within an AI BOM (e.g., MLCC dielectric powder + IBIDEN CoWoS substrate qualification cycles already noted as adjacent patterns); (b) re-certification-gate moats at any tier of advanced packaging.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM4] PC-13 codification — Government emergency-order model-shutdown precedent (N=1 origin Anthropic Fable 5 + Mythos 5 90-min Commerce Dept shutdown June 13)
 
 **Trigger source:** deferred codification queue item; pattern has been referenced 3+ times across this session's cascades (TC-4 acute-phase note + TC-10 H_d=40% sub-mechanism reweight + NBIS bypass-route thesis explicitly cites the Anthropic 90-min precedent as bypass-route demand driver). Each reference made the pattern more load-bearing; codifying now before next cascade implicitly assumes it. Per Critical Rule #13 trigger (3) "introduces a new pattern."
@@ -65,7 +105,7 @@
 
 **First re-eval:** 2026-09-13 (90 days from Anthropic 90-min shutdown June 13 origin) — N=2 promotion check OR demotion if zero N+1 within 90 days
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `4786cb5` (filled in this 2026-06-15 PM5 Pharmicell-Doosan cascade per lag-1 SHA-fill convention)
 
 ---
 

@@ -1,6 +1,18 @@
 # IBIDEN (4062.T) — Thesis (candidate stub)
 
-**Last updated:** 2026-06-15 PM (TSMC PLP / CoPoS ETNews 2-subagent verification — TC-5 N=5→N=7; ASE-TSMC June 2025 PLP co-dev surfaced; glass-core medium-term displacement risk surfaces — dissection priority RAISED again)
+**Last updated:** 2026-06-15 PM5 (Pharmicell-Doosan-NVDA CCL cascade — TC-5 N=7→N=8 CCL upstream layer added; MGC + Resonac 30% CCL price hike 2026 = mild input-cost headwind to monitor)
+
+## 2026-06-15 PM5 back-reference — CCL upstream supply chain cascade (mild input-cost headwind)
+
+Per `signals/cross-source-log/2026-06-15-pm-pharmicell-doosan-nvda-ccl-cascade.md`:
+
+IBIDEN sources CCL upstream from Japanese majors (MGC / Resonac / Panasonic / Hitachi-Resonac) — NOT from Doosan (which serves a different customer segment with NVDA AI server CCL). Doosan-NVDA Physical AI partnership 2026-06-07 does NOT directly affect IBIDEN cost basis or competitive positioning at FC-BGA ABF substrate layer.
+
+**Light input-cost headwind to monitor:** MGC + Resonac jointly announced 30% CCL price hike 2026 = pricing power signal at CCL tier that flows through to IBIDEN's substrate input cost. Mild margin headwind to monitor in IBIDEN's next print (Q1 FY27 expected late July / early August). NOT a thesis-altering event but worth tracking.
+
+**Position implication:** 🟡 DIRECTIONAL — NO ACTION — Active-candidate framing maintained; dissection priority RAISED+ status from prior 2026-06-15 PM TSMC PLP cascade unchanged. Next material event: Q1 FY27 earnings + glass-core roadmap explicit-disclosure check + 30% CCL price hike margin pass-through monitoring.
+
+---
 
 ## 2026-06-15 PM back-reference — TSMC PLP ETNews 2-subagent verification + glass-core medium-term risk
 

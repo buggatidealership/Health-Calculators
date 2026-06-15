@@ -48,7 +48,7 @@
 - **#31** Narrative-stage modifier
 - **#32** Premortem — N=2+ before codification
 - **#33** Demand-side decomposition (Tier S/A/B/C)
-- **#34** CANDIDATE — Supplier-side cross-layer moat decomposition
+- **#34** CANDIDATE → N=2 PENDING (SEMCO-MFA + Pharmicell-Doosan 2026-06-15 PM5) — Supplier-side cross-layer moat decomposition
 - **#35** CANDIDATE — Codification trigger rule (ADDED 2026-06-11; meta/codification-rule.md)
 - **#36** CANDIDATE — AI-native operating frame at capability scale
 - **#37** CANDIDATE — Truth-Tier Taxonomy + Scoped-Cascade Rule (ADDED 2026-06-15; meta/tier-cascade-log.md)
