@@ -1083,7 +1083,31 @@ Per the B40.3 entry's own threshold ("if N=2+ in 60 days → CONFIRMED"):
 
 **Mechanism:** summarizers gravitate attribution toward the most-recognizable entity in the category (DeepSeek > Tencent-paper; Murata > Fenghua). The bigger the name, the higher the prior that a category-level behavior gets pinned on it specifically.
 **Enforcement:** subagent verification protocol step expanded — for any company-specific behavioral claim (restriction, suspension, price action, design win), demand the T1 entity-specific statement; if absent, check whether the behavior belongs to a DIFFERENT entity in the same category.
-**Status: CONFIRMED.** Composite B40 taxonomy now: B40.1 stale-recycle (VERIFIED-HIGH-CONFIDENCE, N=10+ as of 2026-06-15), B40.2 magnitude-inflation (CONFIRMED, N=3), B40.3 attribution-garbling (CONFIRMED, N=2 + 1 retroactive).
+**Status: CONFIRMED.** Composite B40 taxonomy now: B40.1 stale-recycle (VERIFIED-HIGH-CONFIDENCE, N=11+ as of 2026-06-15 with Songchuan staleness inflation), B40.2 magnitude-inflation (CONFIRMED, N=3), B40.3 attribution-garbling (**CONFIRMED N=3 + 1 retroactive — PROMOTED to VERIFIED-HIGH-CONFIDENCE 2026-06-15** with Songchuan ticker garble instance).
+
+### B40.3 N=3 instance (added 2026-06-15) — Songchuan Precision ticker garble in 工商時報 article
+
+Per `signals/cross-source-log/2026-06-15-800v-hvdc-vera-rubin-3subagent-verification-murata-cap-upgrade.md` Subagent B finding:
+
+The user-shared 工商時報 article 2026-06-15 identified Songchuan Precision (松川精密) as a TWSE-listed beneficiary of NVIDIA 800V HVDC supply chain. The article's stated ticker was **6202.TW** — but Songchuan Precision actually trades as **7788.TW on TPEX**. Verified across multiple Taiwan financial databases (鉅亨網, Yahoo Taiwan, Goodinfo, Wantgoo). Stock code 6202.TW does not correspond to Songchuan.
+
+**Classification:** B40.3 attribution-garbling at the TICKER LEVEL — a specific entity (Songchuan) attached to the wrong identifier (6202.TW vs 7788.TW). This is a sub-type of attribution-garbling (entity-to-identifier mismatch) distinct from prior B40.3 instances (entity-to-action mismatch like DeepSeek FlashMemory / Murata order-restriction).
+
+**B40.3 N counter: N=3 confirmed + 1 retroactive (双环-Optimus pre-taxonomy):**
+1. **N=1 (2026-06-11 AM):** DeepSeek-V4 FlashMemory third-party paper attribution
+2. **N=2 (2026-06-11 PM):** Murata order-restriction over-attribution (smaller-entity action credited to marquee name)
+3. **N=3 (2026-06-15):** **Songchuan ticker garble (entity-to-identifier mismatch sub-type)**
+4. Related retroactive: 双环-Optimus-6-RVs stock-promotion claim (Nabtesco dissection 2026-06-09)
+
+**Promotion threshold met:** N=3 confirmed within 60 days + 1 retroactive = VERIFIED-HIGH-CONFIDENCE per B40.3's own promotion criterion. Taxonomy expanded to two sub-types:
+- **B40.3a entity-to-action mismatch** (DeepSeek FlashMemory, Murata order-restriction) — established
+- **B40.3b entity-to-identifier mismatch** (Songchuan ticker garble) — NEW sub-type 2026-06-15
+
+**Companion B40.1 instance (Songchuan staleness inflation):** January 2026 investor-conference forward-looking statement ("bear fruit 2026 year-end or 2027") reported in June 2026 article as "Q3 2026 beneficiary" = 5-month staleness inflation. B40.1 N=11+ confirmed.
+
+**Cross-ref:**
+- `signals/cross-source-log/2026-06-15-800v-hvdc-vera-rubin-3subagent-verification-murata-cap-upgrade.md` Subagent B verification
+- Taiwan financial DB references (鉅亨網, Yahoo Taiwan, Goodinfo, Wantgoo) — Songchuan 7788.TW
 
 ### B40.1 N=10 instance (added 2026-06-15) — Amazon water 0.075% PR-repackaging
 

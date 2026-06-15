@@ -1,6 +1,54 @@
 # Murata Manufacturing — Thesis
 
-**Last updated:** 2026-06-14 PM2 (DRAM ASP 60-year trend-line break verified — H1 structural-regime posterior 75%; MURATA indirect compounder via AI capex sustenance + T9 sub-leg + MLCC supercycle correlation; 3rd thesis update today within Critical Rule #11 detectability monitor)
+**Last updated:** 2026-06-15 (800V HVDC Vera Rubin DSX cascade — MATERIALLY REINFORCED; CAGR 18%→30% Murata IR T1 + 1.25kV C0G monopoly Dec 2025 T1 + Walsin AGM T1 "past 2027" TC-6 N+1 confirmation; 800V IBC stage = structural BOM uplift; U8 partial-offset prong-specific; 4th MURATA-relevant update in 48h)
+
+## 2026-06-15 back-reference — 800V HVDC Vera Rubin DSX cascade (MATERIALLY REINFORCED)
+
+Per `signals/cross-source-log/2026-06-15-800v-hvdc-vera-rubin-3subagent-verification-murata-cap-upgrade.md` (3-subagent verification of user-shared 工商時報 article 2026-06-15):
+
+**Murata-specific T1 evidence (research-verified 2026-06-15 T1):**
+
+1. **CAGR guidance revised UPWARD 18% → 30% through FY2030** (Murata IR T1; revised late 2025 AFTER 800V HVDC became architecture direction). Per Murata CEO Norio Nakajima.
+
+2. **Murata 1.25kV C0G MLCC mass production Dec 2025 — WORLD-FIRST 15nF/1.25kV in 1210** per T1 [BusinessWire 2025-12-01](https://www.businesswire.com/news/home/20251201104421/en/Murata-Unveils-Worlds-First-15nF1.25kV-C0G-MLCC-in-1210-inch-Size) — explicitly targeting 800V bus architectures + SiC MOSFET resonant/snubber circuits. **Murata is the SOLE confirmed vendor with this product in mass production for AI-server 800V tier as of Jun 2026** (SEMCO has 1000V C0G but lagging; TDK/Taiyo Yuden/Yageo no AI-specific 800V SKU).
+
+3. **Feb 2026 Murata "Power Delivery Guide for AI Servers" T1** ([murata.com 2026-02-04](https://www.murata.com/news/other/other/2026/0204)) — explicitly addresses 12V → 54V → ±400V/800V migration; covers VPD + iPaS substrate + multi-stage DC-DC.
+
+4. **AI server MLCC orders "doubled capacity"** per Digitimes Feb 2026 T2.
+
+5. **¥50B power module revenue target FY2027** per TrendForce T2 + Digitimes Dec 2025 T2 — Murata coordinating directly with major CSPs.
+
+6. **Per-rack MLCC content quantified (Murata IR T1 via Nakajima):** GB200 NVL72 rack ~440,000 MLCCs; 15,000-25,000 MLCCs per AI server today; CAGR 30%/yr → 3.3× by FY2030.
+
+**TC-6 N+1 CONFIRMATION cycle MET via Walsin Technology AGM T1 2026-06-12:**
+
+- GM Tseng Ming-tsan at AGM said shortage "extends to 2027 or beyond 2028" (T1.5 [TVBS](https://news.tvbs.com.tw/money/3230612))
+- B/B ratio 1.3-1.4 (above Murata's 1.25); Walsin capex raised NT$0.5-1B → NT$3B+ (3× increase); MLCC utilization 80-85%
+- **AI server MLCC usage: 2× by 2026, 4× by 2027 vs 2025 base** (Walsin Q1 2026 earnings call T1) — **bottoms-up DEMAND ANCHOR** independent of Murata's own forecast
+- This is independent T1 corroboration of MLCC supercycle duration extending past 2027; TC-6 cluster N=5→N=6
+
+**800V HVDC mechanism — STRUCTURAL BOM-intensity increase per rack:**
+
+800V HVDC architecture (NVIDIA Vera Rubin DSX T1 per [NVIDIA Newsroom 2026-03-16](https://nvidianews.nvidia.com/news/nvidia-releases-vera-rubin-dsx-ai-factory-reference-design-and-omniverse-dsx-digital-twin-blueprint-with-broad-industry-support)) adds MANDATORY 800V → 50V IBC (Intermediate Bus Converter) stage with LLC resonant converters at the rack level. This is a NEW PDN stage that doesn't exist in legacy 48V/54V topology. Combined with the fact that 1.25kV MLCC 1210 yields only ~15nF vs 100V MLCC 1.0-10µF (~100× capacitance-per-unit reduction at resonant stage), many more 1.25kV units in parallel are needed for equivalent capacitance.
+
+**Quantified rack-level per Murata IR:** GB200 ~6,500 MLCCs per board (existing thesis) + 800V IBC stage adds rack-level high-voltage MLCC content on top. Both compound to ~440,000 MLCCs per rack confirmed by Nakajima T1.
+
+**U8 (token-cost-elasticity inflection) framework refinement — PARTIAL OFFSET:**
+
+| U8 prong | 800V HVDC offset? |
+|---|---|
+| Efficiency-prong (bits-per-token compression) | **PARTIAL OFFSET** — rack power scales with deployment regardless of token efficiency |
+| Demand-destruction prong (fewer racks deployed in macro capex reversal) | **NO OFFSET** — provides zero protection if hyperscalers stop ordering racks |
+
+**Net:** 800V HVDC defends MURATA against U8's efficiency-prong but NOT against macro-capex-reversal. F13 monitoring still operational; F13 effect on MURATA specifically MUTED by 800V mechanism but not eliminated.
+
+**Bypass-route check (Critical Rule #9):** NVIDIA 800V vs OCP ±400V Mt Diablo split is the architectural bypass. Hyperscaler-internal builds (Google/Meta/Microsoft) MAY route around 800V via ±400V Mount Diablo. **MURATA's 1.25kV C0G product targets the 800V tier specifically; if hyperscaler-internal ±400V dominates, MURATA's 1.25kV positioning is less directly load-bearing but the per-rack MLCC count uplift still applies at lower voltage tier where MURATA is also dominant.** Murata's moat is voltage-agnostic; the 800V monopoly is the cherry-on-top, not the whole thesis.
+
+**Position implication:** HOLD — no size change today, but sizing-up candidacy NOW MATERIALLY ELEVATED. 4 independent T1 vectors today converged: (a) Murata IR CAGR upgrade 18%→30%; (b) Murata 1.25kV C0G monopoly Dec 2025 mass production; (c) Walsin AGM T1 "past 2027" + AI server MLCC 4× by 2027 bottoms-up anchor; (d) 800V IBC structural BOM uplift. Position at ~4.9% Degiro vs historical target band 10-13% leaves significant headroom IF user pulls trigger on add-decision (per "back-pocket" framing 2026-06-14). Pre-Q1 FY27 print add still NOT recommended per L21 regime modifier; T9 promotion-trigger event date unchanged (late July / early August 2026 print). **The CAGR upgrade + 1.25kV monopoly + Walsin T1 N+1 + 800V structural BOM uplift collectively represent the strongest single-day reinforcement of MURATA thesis since codification — 4 independent T1 vectors converging is rare-tier conviction event.**
+
+---
+
+**Prior last updated:** 2026-06-14 PM2 (DRAM ASP 60-year trend-line break verified — H1 structural-regime posterior 75%; MURATA indirect compounder via AI capex sustenance + T9 sub-leg + MLCC supercycle correlation; 3rd thesis update today within Critical Rule #11 detectability monitor)
 
 ## 2026-06-14 PM2 back-reference — DRAM 60-year trend-break cross-cohort cascade
 

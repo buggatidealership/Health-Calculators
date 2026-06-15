@@ -89,7 +89,11 @@ Names surfaced by signals / causal chains, not yet covered by full thesis. Promo
 | Italian / EU public-sector AI contract wins | Compliance-integrator thesis activating | Continuous |
 | Pan-EU expansion announcements | Diversifying beyond Italy-mix | Continuous |
 
-### Schneider Electric (SU.PA) — Euronext Paris — RANK 5 (2nd-order)
+### Schneider Electric (SU.PA) — Euronext Paris — **RANK 2 UPGRADE 2026-06-15** (was RANK 5 / 2nd-order; UPGRADED to direct NVIDIA AI Factory partner via T1 verification)
+
+**2026-06-15 UPGRADE rationale per `signals/cross-source-log/2026-06-15-800v-hvdc-vera-rubin-3subagent-verification-murata-cap-upgrade.md`:** Schneider T1-VERIFIED as DIRECT NVIDIA Vera Rubin DSX AI Factory reference architecture partner per [Schneider global newsroom 2026-03-17](https://www.se.com/ww/en/about-us/newsroom/news/press-releases/Schneider-Electric-teams-with-NVIDIA-to-develop-validated-blueprints-to-design-simulate-build-operate-and-maintain-gigawattscale-AI-Factories-69b82397e7fa28870e0cd5a3/). **Detailed role:** ETAP for electrical system simulation + power distribution optimization; ITD CFD for thermal/airflow analysis; **AVEVA lifecycle digital twin EMBEDDED in NVIDIA Omniverse DSX Blueprint** + AVEVA Process Simulation for liquid-cooling network simulation. **This is software-layer lock-in (recurring engagement), not just hardware supply** — structurally different from one-time hardware sale; recurring SaaS-style revenue stream tied to every Vera Rubin AI Factory deployment. Promotion from "2nd-order EU sovereign-AI beneficiary" to "direct NVIDIA AI Factory reference architecture partner" warranted.
+
+### Schneider Electric (SU.PA) — original entry (preserved for historical reference)
 
 | Attribute | Value (research-verified 2026-06-14) |
 |---|---|
@@ -130,6 +134,25 @@ These events move the whole TC-10 H2 weighting (currently P~55% structural, my m
 | **Mythos China-access disclosure (Semafor T2 ~2026-06-12)** | → H2 STRUCTURAL CONFIRMED via H_d security-incident vector; sovereign-AI alternative urgency rises | FIRED 2026-06-12 | **TRIGGERED** — per `signals/cross-source-log/2026-06-15-evening-brief-2026-06-14-cascade-tc10-tc4-eu-sovereignty-b40-verifications.md` |
 | **EU sovereignty push: Brussels advancing cloud autonomy + open source mandates despite US opposition (Register T2 ~2026-06-14)** | → H2 demand-side; compliance regime accelerates EU-cloud-buyer requirements; CAP.PA / DTE.DE / OVH.PA all positioned to win | FIRED 2026-06-14 | **TRIGGERED** — per same source |
 | Anthropic-WH meeting outcome (Reuters T2 ~2026-06-14; meeting scheduled next week from June 14) | If meeting → restored access with conditions = H1; if meeting → standoff or stricter restrictions = H2 acceleration | ~2026-06-23 watch | Pending |
+
+## NVIDIA Vera Rubin DSX vendor-stack cohort — added 2026-06-15
+
+**Origin signal:** User-shared 工商時報 2026-06-15 article on 800V HVDC Vera Rubin AI Factory architecture; 3-subagent T1 verification per `signals/cross-source-log/2026-06-15-800v-hvdc-vera-rubin-3subagent-verification-murata-cap-upgrade.md`.
+
+**Thesis:** NVIDIA Vera Rubin DSX AI Factory Reference Design (announced 2026-03-16 GTC) incorporates an officially-named vendor stack: Schneider Electric (already promoted above to RANK 2) + Eaton + Vertiv + Siemens. The structural insight is **software-layer lock-in via Omniverse DSX Blueprint** — these vendors' digital twin assets (Schneider AVEVA, Eaton Beam, Vertiv OneCore) are EMBEDDED in NVIDIA's reference architecture, creating recurring engagement per AI Factory deployment vs one-time hardware sale.
+
+| Name | Listing | Investability | T1 verification | Status |
+|---|---|---|---|---|
+| **Eaton (ETN)** | NYSE | Degiro accessible | T1 [BusinessWire 2026-03-16 Eaton Beam Rubin DSX](https://www.businesswire.com/news/home/20260316466878/en/Eaton-collaborates-with-NVIDIA-to-unveil-the-Eaton-Beam-Rubin-DSX-platform-to-address-the-nearly-%247-trillion-data-center-buildout-market-from-grid-to-chip) — explicit 800 VDC; VP/Chief Architect at GTC booth | **PROMOTE to active watchlist** (was CLAUDE.md universe stub only) |
+| **Vertiv (VRT)** | NYSE | Degiro accessible | T1 PRNewswire (2 releases); OneCore Rubin DSX validated in Omniverse DSX Blueprint; 800 VDC portfolio H2 2026 | **PROMOTE to active prioritization** within existing watchlist |
+| Siemens (SIE.DE) | Xetra Frankfurt | Degiro accessible | T1 NVIDIA GTC PR; framework role + Siemens Energy Noedra digital twin using NVIDIA RAPIDS | Log only — less differentiated than Schneider AVEVA |
+| Delta Electronics (2308.TW) | TWSE | DLELY OTC ADR Degiro-restricted; direct TWSE not accessible | T1 Delta GTC release + Computex 2026-06-02 + Taipei Times 2026-06-04 Q3 2026 small-volume shipments | Reference artifact |
+| Songchuan Precision (**7788.TW** — NOTE: article said 6202.TW which is WRONG; B40.3 N+1 candidate) | TPEX | Not Degiro-accessible | T2 January 2026 investor conference; certification with Delta + Lite-On (not directly NVIDIA); timeline 2026 end / 2027 | Reference artifact |
+| Actron Technology (8255.TWO) | TPEX | Not Degiro-accessible | T2 March 2026 investor day; 1700V SiC modules sample stage; management own timeline "after 2027" | Reference artifact + stock-promo inflation flag |
+
+**Bypass-route monitor:** NVIDIA 800V vs OCP ±400V Mt Diablo (Google/Meta/Microsoft co-authored May 2025) is the architectural split. If hyperscaler-internal builds dominate via ±400V Mount Diablo, the ±400V vendor ecosystem (different supply chain) becomes the bypass-route winner. Watch 2027-2028 for architectural divergence.
+
+**Falsification monitor:** Navitas direct 800V → 6V single-stage GaN board (GTC 2026 per Semiconductor Today T2) — if scales to >50% of server trays, compresses tray-level MLCC content uplift. Track Navitas production ramp + NVIDIA Rubin Ultra Kyber (H2 2027) tray design specs.
 
 ## Bloom Energy (BE) — Layer-3 power bypass — added 2026-06-14
 
