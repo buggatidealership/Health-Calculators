@@ -1501,3 +1501,41 @@ Every news event ingest cascades through:
 **Promotion to Critical Rule #13:** pending N=2+ session-instances where §1 fires materially within 30 days (per principle #32 premortem).
 **Retirement trigger:** 30 days with zero fires OR 10+ fires with zero subsequent reads → retire or refine.
 **First re-eval:** 2026-07-11.
+
+## Principle #37 candidate — Truth-Tier Taxonomy + Scoped-Cascade Rule (added 2026-06-15)
+
+**The convention (one-line):** every load-bearing claim in the harness carries a confidence marker — 🟢 HARD (T1 receipt, citation URL required), 🟡 DIRECTIONAL (T2 source-tier or my-model with explicit `(my model)` + Bayesian P), 🔴 SPECULATIVE / IN-FEAR (hypothesis, candidate, pre-registered H1-H4, single-source unverified). STALE is the auto-applied flag on 🔴/🟡 entries with no cascade event in >30 days. The 3-tier marker is the structural resolution of Critical Rule #15's research-vs-recall tagging — Rule #15 says "tag T1/T2/T3 or recall-based"; Principle #37 turns that into a colored sticker that travels with the claim through every file.
+
+**The scoped-cascade rule (load-bearing — answers user 2026-06-15 verbatim "any new type of data has to be cascaded throughout the harness so that every log is... doesn't remain stale"):**
+
+When new data lands (user-shared, my research output, or subagent result):
+
+1. **Tag intake** — tier the new datapoint 🟢/🟡/🔴 BEFORE it enters any log file (citation URL required for 🟢)
+2. **Touch detection** — grep / search the new datapoint's key claim against existing 🔴/🟡 entries in the harness; identify the SPECIFIC files it intersects (likely a small set: 1 thesis + 1 TC entry + 1 cross-source-log, sometimes a watchlist row)
+3. **Scoped propagation** — update tier on the touched claims IN THE SAME COMMIT; append an entry to `meta/tier-cascade-log.md` recording: trigger source, intake tier, files touched with tier-moves, files NOT touched (confirming scoping fired), stale flags fired, commit SHA. **Untouched files stay untouched** (user explicit: "if a piece of data that I share does not touch anything specifically, then there is no need to update")
+4. **Stale check** — if any touched file's existing 🔴/🟡 entries are >30 days old without movement, the SessionStart hook surfaces them as STALE for re-verify-or-retire in next session briefing
+
+**Cross-session persistence (the other half of the user's ask, verbatim "a new session understands the tagging"):** `meta/session-prime.md` §11 carries the convention block; `~/.claude/session-prime-hook.py` force-injects it as `additionalContext` on cold-start. New sessions read the tier convention inside their first context window and can tag their first analytical output correctly without being prompted.
+
+**Why this principle exists:** the harness already does tier-discrimination informally (T1/T2/T3 source tags per Critical Rule #15; H1-H4 pre-registered hypotheses; `(my model)` hedges per Critical Rule #7). What it lacks is a STRUCTURAL marker that travels with every claim, surfaces at the `Position implication:` line, and cascades when new data arrives. Without it, B40.x stale-recycle and B46 framing-vs-institutional-signal failures keep recurring because old 🔴 hypotheses get treated as 🟡 directional reads in the next session that grep-touches them. The cascade-log + stale-flag pair is what makes the system self-policing.
+
+**Integration with existing harness layers:**
+- **Critical Rule #15** (macro-first + research-vs-recall T1/T2/T3): Principle #37 is its structural resolution, not a replacement — Rule #15 enforces the tagging discipline; Principle #37 turns the tag into a propagating marker
+- **Critical Rule #11** (`Position implication:` closing line): every implication MUST now carry a 🟢/🟡/🔴 marker on the same line or directly above — enforced by `~/.claude/structural-output-hook.py` extension
+- **Critical Rule #10** (cascade cross-source synthesis): scoped-cascade is the SAME mechanism applied tier-by-tier rather than file-by-file — both still required in same commit
+- **L25** (explicit Bayesian P-update): 🟡 with `(my model)` hedge IS L25 applied; tier marker makes the implicit explicit
+- **B40.1 / B40.3 / B46**: tier marker on intake catches stale-recycle (🔴 dated >30d auto-stale) and attribution-garble (🟢 requires citation URL — naked-attribution claims forced to 🟡)
+- **Workflow #9 MACRO-FIRST RESEARCH**: step 0 RESEARCH PASS output is born 🟢/🟡; step 1 FIRST-PRINCIPLES ARTICULATION born 🟢 only if step 0 sources are T1-dated; step 3 FUTURE INFERENCE born 🟡 (my model + Bayesian P)
+
+**Status:** CANDIDATE pending 30-day operational test. Promotion gate: N=20 cascade events successfully logged in `meta/tier-cascade-log.md` without drift (tier-inflation, cascade-fatigue, scope-violation).
+
+**Retirement / refinement triggers (detectability, audit 2026-07-15):**
+- POSITIVE: cascade-log shows variety of tier-moves (🔴 → 🟡, 🟡 → 🟢, new 🔴, STALE retirements) — convention is load-bearing
+- DECORATIVE: 30 days produces zero tier-moves OR all entries are uniform "no tier move" — convention is performative, retire or refine
+- TIER-INFLATION: grep for 🟢 claims without citation URL — count >2/month → tighten 🟢 gate
+- CASCADE-FATIGUE: cascade-log entries with empty `Tier moves` field — count >3/month → scope is too broad (relax to load-bearing claims only, those cited in `Position implication:` lines)
+- SCOPE-VIOLATION: cascade events that updated files NOT actually touched by the datapoint — count >2/month → discipline drift, re-train the touch-detection step
+
+**Promotion to Critical Rule #16:** pending N=2+ external verifications that the convention catches a B40.x or B46 instance the harness would otherwise have missed (per Principle #32 premortem).
+
+**First re-eval:** 2026-07-15 (monthly codification audit cycle).

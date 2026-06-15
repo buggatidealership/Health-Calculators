@@ -1,6 +1,6 @@
 # Triangulated Signals (High-Conviction)
 
-**Last material update:** 2026-06-11 (PIPELINE REBUILD — repaired silent failure: 72 cross-source-log files / 26 in last 7 days had not produced corresponding promotions; backfilled 7 [ACTIVE] convergence clusters from last 30 days)
+**Last material update:** 2026-06-15 PM (Principle #37 Truth-Tier codification — TC-1 / TC-6 / TC-10 retroactively tagged 🟢/🟡/🔴 as convention demonstration; other TCs to be tagged organically on next cascade event affecting each). Prior: 2026-06-11 (PIPELINE REBUILD — repaired silent failure: 72 cross-source-log files / 26 in last 7 days had not produced corresponding promotions; backfilled 7 [ACTIVE] convergence clusters from last 30 days)
 
 Signals confirmed by ≥3 independent same-segment same-direction sources within 90 days. These outweigh single-article reads.
 
@@ -28,6 +28,12 @@ Signals confirmed by ≥3 independent same-segment same-direction sources within
 ## TC-1 — Memory tightness multi-tier convergence [ACTIVE]
 **Segment:** memory-and-storage
 **Direction:** structural shortage, premium-tier pricing power
+
+**Truth-Tier breakdown (Principle #37, demonstration tagging 2026-06-15):**
+- 🟢 HARD: SK Hynix Q1 2026 revenue +198% YoY OP margin 72% (T1 filing); Samsung CFO "essentially sold out for 2026" (T1 earnings call); SK Chairman Chey 3× wafer capacity by 2034 (T1 Nikkei interview); 60-year WSTS DRAM ASP series trend-break (T1 WSTS dataset, verified via subagent)
+- 🟡 DIRECTIONAL: Yole HBM deficit 5%→6%→9% 2025-27 (T2 forecast); TrendForce Rubin trim 29%→22% then "all qualified" reframe (T2); Bayesian H1 structural posterior 65%→75% (my model per L25 cascade); 3-supplier-share reframe Hynix ~55% / Samsung ~25% / Micron ~20% (my model, subagent-verified)
+- 🔴 SPECULATIVE: CXMT premium-tier qualification at NVDA (falsifier candidate, pending verification); HBF AI-training qualification (Kioxia VLSI H3 ~20% pre-registered); 3D DRAM 2027-28 timeline pull-in (rumor)
+
 **Instances (N=7+):**
 1. Supplier earnings (T1 SK Hynix / Micron / Samsung 2026-Q1)
 2. Consumer ASP rise — Lexar guide forward (T2)
@@ -98,6 +104,12 @@ Signals confirmed by ≥3 independent same-segment same-direction sources within
 ## TC-6 — MLCC AI-server tier bifurcation [ACTIVE]
 **Segment:** advanced-packaging / passives
 **Direction:** premium-tier Japanese/Korean concentration hardens; mid-tier backfill to Chinese; duration extends beyond 2027 (equipment-lead-time binding)
+
+**Truth-Tier breakdown (Principle #37, demonstration tagging 2026-06-15):**
+- 🟢 HARD: Murata Izumo new building ¥47B April 2026 (T1 IR + native-jp Nikkei/dempa); Yageo May revenue NT$15.06B +47.5% YoY (T1 工商時報); Walsin AGM 2026-06-12 GM Tseng "shortage extends to 2027 or beyond 2028" + AI server MLCC 4× by 2027 (T1 AGM transcript); Murata CAGR 18%→30% upgrade through FY2030 (T1 Nakajima statement); Murata 1.25kV C0G mass production Dec 2025 WORLD-FIRST (T1 BusinessWire)
+- 🟡 DIRECTIONAL: Murata ~70% AI-server MLCC share (T2-3 163.com tier-split — directional, not company-disclosed); 0.3µm dielectric vs Three-Circle 1µm 8-10yr gap (T2 quantification); Walsin "AI PCs/edge LARGER than AI servers" TAM datapoint (T1 verbatim but novel framing — directional read on T9 sub-leg); DOUBLE-moat thesis (proprietary equipment IP + 20% MF Material JV stake — my model per 2026-06-14 PM deep-dig)
+- 🔴 SPECULATIVE: Three-Circle qualifies sub-0.3µm in volume (falsifier candidate); SEMCO takes named AI-server share from Murata at Rubin-next (falsifier candidate); Japanese equipment vendor lead times collapse <6mo (falsifier candidate); Walsin "Japanese vendor 6-12mo" attribution B40.3 garble flag (partially resolved at AGM T1, residual ambiguity — pending T1 transcript verification)
+
 **Instances (N=5):**
 1. MLCC sold-out deep research (2026-06-08 cross-source-log)
 2. Murata Izumo new building ¥47B April 2026 + CEO "tight supply persisting" (T1/T2 native-jp Nikkei/dempa/EETimes, 2026-06-11)
@@ -120,6 +132,17 @@ Signals confirmed by ≥3 independent same-segment same-direction sources within
 **Convergent read:** AXT structural casualty (US-listed wrapper around Beijing bottleneck); investable bypass JX 5016.T + 住友電工 5802.T (Japan-TSE Degiro ✓; conglomerate-dilution math required per principle #22)
 **Names affected:** AXTI EXIT validated stronger; NEW candidates JX 5016.T (Watchlist P2 fresh-IPO discipline barely cleared), 住友電工 5802.T (Watchlist P3); register PC-12 candidate "Geopolitical bottleneck via export control" N=1
 **Falsifier:** US-China bilateral deal materially loosens InP licenses; AXT announces material California (Fremont) substrate production; PC-12 N=2 cross-check fails (Dec 2023 Ga/Ge regime not showing same rent migration)
+
+## TC-10 — Model-layer sovereignty + export control [ACTIVE — added section for tier-tagging demonstration 2026-06-15]
+
+**Segment:** sovereign-AI / regulatory (model-and-foundation-lab)
+**Direction:** export-control regulatory overhang on frontier-lab access expanding via competitive-capture + security-incident dual mechanism; bypass = EU sovereign-AI cluster + JP/IN candidates
+**Full convergent-read details:** see Quick Index table row TC-10 above + `signals/cross-source-log/2026-06-15-evening-brief-2026-06-14-cascade-tc10-tc4-eu-sovereignty-b40-verifications.md`
+
+**Truth-Tier breakdown (Principle #37, demonstration tagging 2026-06-15):**
+- 🟢 HARD: White House export restrictions on Anthropic Mythos partly driven by China-linked access fears (T2 Semafor + Reuters reporting on US-gov action — primary-source policy filed); Anthropic-WH meeting scheduled (T1 Reuters); EU sovereignty push despite US opposition (T2 The Register reporting on EU policy filings); OpenAI state-AG probe same evening (T2 press); Amazon CEO Jassy public-record discussions naming Anthropic + Amazon researchers' jailbreak demo (T2 WSJ / Verge / Times of India)
+- 🟡 DIRECTIONAL: H_d genuine-security / China-leak-driven mechanism at P~30% (my model); H_a Amazon-incidental compressed 45%→30% (my model); H_b regulatory-machinery 40%→30% (my model); H_c coordinated-intent 15%→10% (my model); EU investable-expression cluster (CAP.PA / DTE.DE / OVH.PA / REY.MI / SU.PA / BE) as bypass-route for frontier-lab regulatory overhang (my model directional read pending supply-chain graph reconstruction 2026-06-25)
+- 🔴 SPECULATIVE: H_c coordinated-intent (intentional Amazon-Anthropic squeeze, 10% residual); JP/IN sovereign-AI candidate names beyond watchlist (pending supply-chain graph); regulatory overhang cascades to OpenAI / Google / xAI specifically within 90 days (pre-registered tail hypothesis at ~25% my model)
 
 ## TC-8 — Token consumption compounding (T1 theme anchor) [ACTIVE — maintained, paired-counterfactual added]
 **Segment:** infrastructure-IaaS

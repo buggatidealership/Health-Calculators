@@ -50,6 +50,15 @@
 - **#34** CANDIDATE — Supplier-side cross-layer moat decomposition
 - **#35** CANDIDATE — Codification trigger rule (ADDED 2026-06-11; meta/codification-rule.md)
 - **#36** CANDIDATE — AI-native operating frame at capability scale
+- **#37** CANDIDATE — Truth-Tier Taxonomy + Scoped-Cascade Rule (ADDED 2026-06-15; meta/tier-cascade-log.md)
+
+## Truth-Tier markers (Principle #37, ADDED 2026-06-15)
+- **🟢 HARD** — T1 receipt: filing / IR disclosure / gov data / court record / contract / audited spec. Citation URL or document path REQUIRED.
+- **🟡 DIRECTIONAL** — T2 source-tier (trade press, sell-side, forecaster) OR my-model claim with explicit `(my model)` hedge + Bayesian P
+- **🔴 SPECULATIVE / IN-FEAR** — Hypothesis / pre-registered H1-H4 / candidate / rumor / single-source unverified
+- **STALE** — Auto-flag on 🔴 or 🟡 entries with no cascade event in >30 days; surfaces in next SessionStart briefing for re-verify-or-retire
+- **Convention:** every `Position implication:` line MUST carry one of 🟢/🟡/🔴 on the same line or directly above (hook-level enforcement via `~/.claude/structural-output-hook.py` PENDING USER AUTHORIZATION; analyst-discipline until then)
+- **Cascade log:** `meta/tier-cascade-log.md` records every tier-move with files-touched / files-not-touched audit trail (per scoped-cascade rule — only files actually intersecting the new data get updated)
 
 ## Critical Rules (CLAUDE.md)
 - **#6** Segment-classify before triangulating

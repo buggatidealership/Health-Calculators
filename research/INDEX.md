@@ -1,7 +1,7 @@
 # Harness Index — single-file retrieval entry point
 
 **Created:** 2026-06-11 (per signal-density-detection optimization directive)
-**Last refreshed:** 2026-06-15 (multi-cascade day refresh — 5 commits: evening brief deferred cascade TC-10 H_d + TC-4 N=12 + EU sovereignty push; Kioxia VLSI Day 1-2 monitoring negative-finding + earnings-backdrop dominates; **800V HVDC Vera Rubin DSX 3-subagent T1 verification — MURATA materially reinforced + Schneider SU.PA RANK 5→2 + Eaton/Vertiv promotions + B40.3 PROMOTED VERIFIED-HIGH-CONFIDENCE + TC-6 N=5→6**)
+**Last refreshed:** 2026-06-15 PM (multi-cascade day + Principle #37 codification — Truth-Tier Taxonomy + Scoped-Cascade Rule born; meta/tier-cascade-log.md created; convention auto-loads on cold-session via session-prime.md §9; prior 5 commits: evening brief deferred cascade TC-10 H_d + TC-4 N=12 + EU sovereignty push; Kioxia VLSI Day 1-2 monitoring negative-finding + earnings-backdrop dominates; **800V HVDC Vera Rubin DSX 3-subagent T1 verification — MURATA materially reinforced + Schneider SU.PA RANK 5→2 + Eaton/Vertiv promotions + B40.3 PROMOTED VERIFIED-HIGH-CONFIDENCE + TC-6 N=5→6**)
 **Refresh cadence:** monthly + on major thesis/scenario changes
 **Function:** answer "where did we cover X?" without grep
 
@@ -105,3 +105,4 @@ Read `portfolio/holdings.md` for canonical positions + sizing. Post-2026-06-14 e
 - "What's broken in the harness?" → `meta/codification-rule.md` + `meta/signal-density-detection.md` self-detecting metrics
 - "What's the structural memory regime thesis?" → `signals/cross-source-log/2026-06-14-pm2-dram-asp-60yr-trend-break-structural-regime-confirmation-subagent.md`
 - "What's the Murata moat?" → `signals/cross-source-log/2026-06-14-pm-mlcc-equipment-materials-deepdig-3subagent.md` + `companies/MURATA/thesis.md`
+- "What tier is a claim? / How do tier markers work?" → `meta/tags.md` § Truth-Tier markers (🟢 HARD / 🟡 DIRECTIONAL / 🔴 SPECULATIVE / STALE) + `meta/methodology.md` Principle #37 + `meta/tier-cascade-log.md` for recent tier-moves
