@@ -35,6 +35,62 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM14] Evening AI brief (83 sources / 17 items) → 2 Opus subagents parallel verification on MRVL optical multi-DC + AMD MEXT memory tiering → LIGHT-CASCADE REINFORCING on both held names
+
+**Trigger source:** user-shared evening AI brief 2026-06-15 ~21:30 UTC (83 sources / 17 items). Triage filter (Critical Rule #14) selected 2 highest-cascade-relevance items for parallel subagent verification (optimizing for HELD-position-impact × narrow verification surface × T1 source available); 7 items DEFERRED via skip-rule, 8 items SKIPPED as non-position-relevant. Subagents fired in parallel per Workflow #9 macro-first + Principle #36 LLM-native parallelism.
+
+**Intake tier:** 🟡 DIRECTIONAL (final after verification) — both items verified at T1 source level but LIGHT-CASCADE because (a) MRVL item is stale (Tom's Hardware paraphrase of Computex 2026-06-02 keynote ~13 days late) and not a new TAM datapoint, AND (b) AMD MEXT is fresh + T1 but ORTHOGONAL to held-cohort theses at the architecturally relevant layer.
+
+**Source:** 2 parallel Opus subagents (ab3f4567f140feff5 MRVL optical, 8 tool uses / 94s; ad5d242abca266027 AMD MEXT, 21 tool uses / 229s). Anchor sources — MRVL: [Marvell IR COLORZ 1600 press release 2026-03-05 T1](https://www.marvell.com/company/newsroom/marvell-1-6t-zr-zr-plus-pluggable-2nm-coherent-dsp-ai-interconnects.html) + [Marvell IR Computex 2026 keynote T1](https://www.marvell.com/company/newsroom/marvell-keynote-computex-2026-future-of-scaling-ai-depends-on-connectivity.html). AMD MEXT: [AMD corporate blog T1](https://www.amd.com/en/blogs/2026/amd-acquires-mext-for-memory-optimization.html) + [Globenewswire MEXT product launch 2026-04-07 T1](https://www.globenewswire.com/news-release/2026/04/07/3269309/0/en/mext-introduces-ai-driven-memory-optimization-to-help-curb-rising-infrastructure-costs.html).
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm14-evening-brief-2subagent-verification-mrvl-optical-amd-mext.md` — NEW artifact (full triage of 17 items + both subagent verdicts + joint-state matrix + N-th order cascade markers + lateral falsifier pre-registered for SNDK)
+- `companies/MRVL/thesis.md` — PM14a back-reference: three-layer taxonomy explicit (scale-UP Photonic Fabric / scale-OUT Ara+Teralynx / scale-ACROSS COLORZ); Inphi DCI franchise additive to Celestial, not replaced; bull-case width > previously modeled; B40.1 PARTIAL + B40.2 HIT on Tom's Hardware headline
+- `companies/SNDK/thesis.md` — PM14b back-reference: AMD MEXT ORTHOGONAL to HBF (different stack layer, different physical implementation, different buyer); PM8/PM9/PM10 system-architecture thesis intact; lateral falsifier pre-registered for Aug 2026 AMD earnings
+- `companies/HYNIX/thesis.md` — PM14b back-reference: REINFORCE mild — MEXT explicitly does NOT touch HBM tier; AMD acquiring software-only optimization implicitly signals HBM tightness is binding constraint they can't directly solve; TC-1 cluster INTACT
+
+**Files NOT touched (per scoping rule):**
+- `companies/MURATA/thesis.md`, `SUMCO/thesis.md`, `DDOG/thesis.md`, `NOW/thesis.md`, `KIOXIA/thesis.md` — orthogonal to optical-DCI and CPU-memory-tiering signals
+- `companies/IBIDEN/thesis.md`, `CAMT/thesis.md`, `BESI/thesis.md` — orthogonal to PM14 signal layers
+- `portfolio/holdings.md`, `targets.md`, `changes.md` — no position changes (MRVL HOLD ~5.9% / SNDK HOLD / HYNIX HOLD — all per-thesis position implications)
+- `signals/triangulation.md` TC-1 — REINFORCE-mild via HYNIX path; no cluster-state change (already at strong conviction)
+- `signals/triangulation.md` TC-5/TC-6/TC-10 — orthogonal (advanced packaging / Japan multi-tier / sovereign-AI not touched)
+- `meta/methodology.md`, `meta/tags.md`, `research/CLAUDE.md`, `INDEX.md`, `meta/session-prime.md` — no new principle / convention / retrieval-rule triggered
+- `meta/biases-watchlist.md` — B40.1 + B40.2 N-counter increments DEFERRED to monthly audit (already documented in cross-source-log artifact + this entry); next monthly audit June 24
+- `meta/cross-domain-pattern-register.md` — no new pattern instance
+- `sector/themes.md`, `sector/where-we-are.md` — no synthesis-level shift (TC-1 memory tightness already in ledger)
+- `predictions/grading-log.md`, `lessons.md` — no resolved predictions; lateral falsifier pre-registered in PM14 artifact (Aug 2026 AMD earnings HBF/CXL Type 3 disclosure check) NOT yet a formal prediction entry
+- Deferred-to-48h items from triage (TC-10 India/UAE/Sarvam + PC-13 WH/Anthropic ratification + power/energy TN moratoriums + regulatory preemption + price-war U8 candidate) — explicitly DEFERRED per skip-rule, not skipped silently
+
+**Stale flags fired:** none (file 1 day old; first STALE flags ≥2026-07-15)
+
+**Joint-state cascade matrix (PM14a + PM14b together):**
+
+| Held name | PM14a MRVL optical | PM14b AMD MEXT | Net move |
+|---|---|---|---|
+| MRVL | REINFORCE (three-layer taxonomy explicit; Inphi DCI franchise additive) | none | HOLD ~5.9% NO ACTION |
+| SNDK | none | NEUTRAL (HBF moat untouched; mild NAND volume tailwind) | HOLD NO ACTION |
+| HYNIX | none | REINFORCE mild (HBM unchallenged; AMD's software workaround = implicit HBM tightness binding signal) | HOLD NO ACTION |
+| MURATA / SUMCO / DDOG / NOW / KIOXIA | orthogonal | orthogonal | unchanged |
+
+**B40.x discipline fires today (3 hits cumulative across PM13 + PM14a):**
+- PM13 MRVL B. Riley note: B40.2 MILD ($345→$350 Twitter rounding; EPS path bull-case-not-consensus) + B40.3 MODERATE (Twitter drops attribution to B. Riley/Ellis)
+- PM14a MRVL optical: B40.1 PARTIAL (Tom's Hardware indexes Computex keynote ~13 days late) + B40.2 HIT ("thousands of km" headline vs 1,000 km per-module spec)
+- PM14b AMD MEXT: B40.1 PASS (fresh) + B40.2 PARTIAL (marketing claims unverified) + B40.3 PASS (AMD IR direct)
+- Net biases-watchlist N-counter increments deferred to monthly audit June 24
+
+**Loop-validation note (FOURTEENTH real-data application of Principle #37 today):** clean scoping discipline demonstrated:
+- 17 brief items triaged → 2 verified at T1 → 3 back-references to held theses → 5 held theses + portfolio + 6 meta files explicitly NOT touched
+- Subagent-fan-out optimization worked: both selected items had high P(cascade-move) but BOTH returned LIGHT-CASCADE (not CASCADE) — accuracy of harness-state preserved (no premature CASCADE-tier promotion on signal-amplifying-restatement events)
+- Skip-rule auditable: 7 deferred items named explicitly (TC-10 India/UAE/Sarvam; PC-13 ratification; TN moratoriums; preemption; price war); 8 skipped as non-position-relevant
+- Lateral falsifier pre-registered for SNDK (Aug 2026 AMD earnings) — converts orthogonal → complement if hits; demonstrates Critical Rule #15 forward-thinking discipline integrated with cascade work
+
+**Cascade-fatigue check:** 14 cascades + Kioxia pre-prep + INDEX refresh = 16 events in ~25 hours. Per P#37 promotion gate (N=20 events without drift), 80% to promotion threshold. No scope-violation observed in any of the 14 cascades.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM13] MRVL B. Riley Securities note ($345 PT, Craig Ellis 2026-06-12) — Twitter abstract Opus-subagent verification → LIGHT-CASCADE REINFORCING
 
 **Trigger source:** user-shared Twitter abstract 2026-06-15 ~PM ("Marvell had a conference or something of that sort... do some research where they got this data from"); 1 Opus subagent fired for source attribution + load-bearing claim triage + B40.x freshness check + cross-source verification + thesis-state validation + tier verdict. Subagent returned 2026-06-15 (agent ID a01c007de7942507a, 35 tool uses / 4-min runtime).
@@ -74,7 +130,7 @@
 
 **Loop-validation note (THIRTEENTH real-data application of Principle #37 today):** clean light-cascade discrimination — subagent verified abstract reinforces existing harness state without surfacing new T1 datapoints that warrant full cascade. 2-file write (cross-source-log artifact + thesis back-reference); held cohort orthogonal; portfolio unchanged; no synthesis-level shift. Demonstrates Principle #37's scoping discipline preventing over-cascade on signal-amplifying-restatement events.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `e5d9530` (filled in this PM14 cascade per lag-1 SHA-fill convention)
 
 ---
 
@@ -115,7 +171,7 @@
 
 **Loop-validation note (TWELFTH-AND-A-HALF real-data application of Principle #37 today):** documents the activation-pending state explicitly rather than silent non-action — Principle #37's audit-trail discipline applied to harness self-modification itself. Demonstrates that the convention captures DEFERRED-WORK-WITH-DEPENDENCY events, not just data-arrival events.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `e5d9530` (filled in this PM14 cascade per lag-1 SHA-fill convention — PM12 + PM13 shared the same commit since batched)
 
 ---
 
