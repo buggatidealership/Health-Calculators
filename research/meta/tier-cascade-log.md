@@ -35,6 +35,36 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM11] Principle #38 N=3 application to TC-1 (memory tightness multi-tier) — Lead-Lag tracking variables for highest-conviction structural cluster
+
+**Trigger source:** deferred queue item; P#38 codified PM2 + N=2 applied at TC-10 PM6; N=3 framework promotion test needed before June 24 monthly audit promotion gate. TC-1 chosen because (a) highest-conviction structural cluster (N=14 STRUCTURAL-REGIME-CONFIRMATION); (b) directly affects held cohort (HYNIX direct + SNDK/SUMCO indirect + MURATA via TC-6 adjacency); (c) memory cycle inflection-catching = highest-alpha event-type per F1-F13 falsifier set discipline. Application validates P#38 across cluster types: company-level (NBIS rich LEAD) + regulatory cluster (TC-10 sparse LEAD) + supply-cycle cluster (TC-1 rich LEAD with native multilingual signals).
+
+**Intake tier:** 🟡 DIRECTIONAL (CANDIDATE framework N=3 application; concrete LEAD-indicator monitoring scaffold for highest-conviction cluster)
+
+**Source:** `meta/methodology.md` Principle #38 candidate + `companies/NBIS/tracking-variables.md` + `signals/tracking-variables-TC-10.md` patterns; TC-1 cluster state per `signals/triangulation.md`
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/tracking-variables-TC-1.md` — NEW (12 LEAD indicators ranked + 7 LAG confirmations + PAID tier-list + cross-cluster informants TC-5/TC-6/TC-8/PC-13 + convex-hull lateral check + F1-F13 falsifier integration + B47 calibration table + 5-source daily stack)
+- `meta/tier-cascade-log.md` — THIS entry + prior `69f16e9` SHA fill below
+
+**Files NOT touched (per scoping rule):**
+- `meta/methodology.md` Principle #38 row — N=3 status implicit in this cascade-log entry; explicit promotion gate at June 24 monthly audit
+- `meta/tags.md` — P#38 status update deferred to June 24 audit
+- `signals/triangulation.md` TC-1 — cluster cell references implicit dir-adjacent file
+- All held cohort theses — orthogonal (framework application not data event)
+- portfolio/* — no position changes
+- No new cross-source-log artifact — framework-application not new external data
+
+**Stale flags fired:** none
+
+**Principle #38 promotion trajectory:** N=1 NBIS company-level (PM2) → N=2 TC-10 regulatory cluster (PM6) → N=3 TC-1 supply-cycle cluster (PM11). Three different cluster types validate framework breadth. **Ready for CANDIDATE → VERIFIED promotion at 2026-06-24 monthly codification audit.**
+
+**Cascade-fatigue check:** 12 cascades + Kioxia pre-prep + INDEX refresh = 14 events in ~24 hours. Per P#37 promotion gate (N=20), well past halfway. No scope-violation observed.
+
+**Commit:** `69f16e9` (filled in this 2026-06-15 PM11 P#38→TC-1 cascade per lag-1 SHA-fill convention)
+
+---
+
 ### [2026-06-15 PM10] Mobile-data-collapse historical analogy → AI token-cost-reduction equity-value-capture framework (Kioxia = Qualcomm-PHY-analog; Sandisk = Akamai-CDN-analog; Yokkaichi JV = Tower REIT analog)
 
 **Trigger source:** user analogy question 2026-06-15 ~20:12 UTC asking how mobile-data cost reduction accrued across layers historically, and which layers innovated to drive the cost-down. Q&A synthesis on already-committed data (PM8 SNDK vs Kioxia tech comparison + PM9 token-cost-reduction time-horizon framework) + historical mobile-data pattern-matching — meta-inference layer; no new external data.
