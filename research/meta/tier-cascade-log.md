@@ -35,6 +35,38 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM6] Principle #38 N=2 application to TC-10 cluster — Lead-Lag tracking variables file created
+
+**Trigger source:** deferred queue item; Principle #38 codified 2026-06-15 PM2 with first application at `companies/NBIS/tracking-variables.md`; N=2 framework promotion test needs cluster-level application beyond company-level. TC-10 chosen as most active cluster (2 cascades today on it: N=8→N=9 morning + sub-mechanism reweight; cross-link to PC-13 codification).
+
+**Intake tier:** 🟡 DIRECTIONAL (CANDIDATE framework N=2 application; framework validation work)
+
+**Source:** `meta/methodology.md` Principle #38 candidate + `companies/NBIS/tracking-variables.md` first application pattern; TC-10 cluster state per `signals/triangulation.md` Quick Index
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/tracking-variables-TC-10.md` — NEW (Lead-Lag framework applied to TC-10 cluster; 12 LEAD indicators ranked + 7 LAG confirmations + cross-cluster informants + convex-hull lateral check + B47 calibration table + 5-source daily stack)
+- `meta/tier-cascade-log.md` — THIS entry + prior 4c60b8a SHA fill below
+
+**Files NOT touched (per scoping rule):**
+- `meta/methodology.md` Principle #38 — N=2 status noted in this cascade-log entry; methodology row update can wait for next monthly audit OR for explicit promotion event
+- `meta/tags.md` — minor status update possible but deferred (P#38 still CANDIDATE pending operational validation)
+- `signals/triangulation.md` TC-10 — cluster cell appropriately references `signals/tracking-variables-TC-10.md` via implicit dir-adjacent file naming; no cell update needed
+- All held cohort theses — orthogonal (TC-10 is sector-level cluster; cascade is framework not data)
+- portfolio files — no position changes
+- No new cross-source-log artifact — this is framework-application not new external data
+
+**Stale flags fired:** none
+
+**Loop-validation note (EIGHTH real-data application of Principle #37 today; SECOND Principle #38 application):** Framework application generated genuinely useful discovery — TC-10 LEAD indicators are SPARSE by cluster nature (regulatory/sovereign-AI = event-driven + back-channel-opaque; Anthropic 90-min precedent happened with no public LEAD). This is a feature not a bug — surfaces the meta-pattern that regulatory clusters require different monitoring than company-level clusters. Validates that Principle #38 generates useful distinctions across cluster types.
+
+**Principle #38 promotion trajectory:** N=1 NBIS first application 2026-06-15 PM2 → N=2 TC-10 application 2026-06-15 PM6. Per Principle #32 premortem promotion threshold met for CANDIDATE → VERIFIED step IF N=2 holds in operational test over 30 days. First re-eval 2026-07-15 monthly codification audit.
+
+**Cascade-fatigue check:** 8 cascades + Kioxia pre-prep = 9 events in ~18 hours. Per Principle #37 promotion gate (N=20 events without drift), tracking-rate well ahead of pace. No scope-violation observed in any of the 8 cascades.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM5] Pharmicell-Doosan-NVDA AI CCL supply chain → TC-5 N=7→N=8 + Nittobo (TYO 3110) watchlist elevation + Principle #34 N=1→N=2 candidate
 
 **Trigger source:** user-shared translated Korean trade-press article (The Elec 디일렉 native-kr + EN versions, dated June 10 2026) at 2026-06-15 ~17:25 UTC — Pharmicell as exclusive low-Dk resin/hardener supplier to Doosan Electro-Materials BG for NVDA AI server CCL
@@ -71,7 +103,7 @@
 
 **Principle #34 promotion trajectory:** N=1 (SEMCO-MFA codified 2026-05-28) → N=2 candidate (Pharmicell-Doosan 2026-06-15 PM5). Third confirming case would promote from CANDIDATE → VERIFIED per Principle #32 premortem. Watch for: (a) another specialty-chemicals single-source qualification within an AI BOM (e.g., MLCC dielectric powder + IBIDEN CoWoS substrate qualification cycles already noted as adjacent patterns); (b) re-certification-gate moats at any tier of advanced packaging.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `4c60b8a` (filled in this 2026-06-15 PM6 Principle #38 TC-10 application cascade per lag-1 SHA-fill convention)
 
 ---
 
