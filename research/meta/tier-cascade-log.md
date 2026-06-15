@@ -35,6 +35,45 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM9] Token-cost-reduction layer analysis — Kioxia (silicon, long-term) vs Sandisk (system, near-term) time-horizon framework
+
+**Trigger source:** user-articulated question 2026-06-15 ~19:49 UTC asking which layer's innovation (Kioxia silicon vs Sandisk system) is more relevant for consumer-AI token cost reduction. User explicitly asked for probabilistic inference acknowledging "it might be both at different stacks." Q&A synthesis on already-committed data (PM8 SNDK vs Kioxia + PM3 NDX mechanics + TC-1 memory tightness anchor) — meta-inference layer; no new external data. User confirmed cascade explicitly: "If you feel that the additional resets that you have done is valuable to update the Kioxia log or the Soundus log, or if you have a nonspecific one, then do so."
+
+**Intake tier:** 🟡 DIRECTIONAL (my-model probabilistic inference; structural pattern reading from verified facts; complementary lens to PM8 tech-quality static moat read)
+
+**Source:** synthesis from existing harness state — PM8 tech-leadership comparison commit `4a916c8` + PM3 NDX mechanics commit `fcdc736` + TC-1 memory tightness cluster
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm9-token-cost-reduction-layer-analysis-kioxia-vs-sandisk-time-horizon-framework.md` — NEW (joint-state matrix per token-cost bottleneck + H1/H2/H3 probabilistic verdict + N-th order cascade + lateral check + PM8-vs-PM9 lens distinction)
+- `companies/KIOXIA/thesis.md` — PM9 cross-ref: long-term cost-curve substrate framing distinct from PM8 cell-physics framing
+- `companies/SNDK/thesis.md` — PM9 cross-ref: near-term direct token-cost-reduction lever via HBF
+- `meta/tier-cascade-log.md` — THIS entry + prior `4a916c8` SHA fill below
+
+**Files NOT touched (per scoping rule):**
+- `portfolio/holdings.md` — DISCIPLINE BINDING per L25; only user updates via screenshot
+- `portfolio/targets.md`, `changes.md` — no position changes recommended
+- All other held cohort theses (HYNIX/SUMCO/MURATA/MRVL/DDOG/NOW) — orthogonal to NAND-token-cost question
+- IBIDEN/CAMT/BESI/NBIS — earlier today's cascades; no overlap
+- AGC/ARM (exited)
+- `meta/methodology.md` — PREMATURE to codify "token-cost-reduction layer analysis" as Principle #39 candidate at N=1; let evidence accumulate (would need N=2 application to e.g., HBM tier or compute tier framework)
+- `meta/tags.md`, `session-prime.md`, `CLAUDE.md`, `INDEX.md` — no new convention
+- `signals/triangulation.md` — no TC cluster state change (this is per-name lens analysis not cluster instance)
+- `meta/biases-watchlist.md` — no new B40.x or B47 instance
+- `sector/themes.md`, `where-we-are.md` — no theme-level event
+- `predictions/grading-log.md`, `lessons.md` — no resolved predictions
+
+**Stale flags fired:** none
+
+**Critical distinction from PM8 (preserved in artifact):** PM8 = tech-quality engineering bench comparison (Kioxia leads cell-physics; Sandisk leads system-architecture); PM9 = cost-curve relevance for consumer-AI inference economics by TIME HORIZON (Sandisk leads near-term 2026-2028 via HBF; Kioxia leads long-term 2028-2032 via silicon density curve). Two complementary lenses on the same complementary engineering organizations — NOT redundant. PM8 = static moat; PM9 = dynamic cost-curve relevance.
+
+**Loop-validation note (ELEVENTH real-data application of Principle #37 today):** synthesis-only event; no new external data; nonetheless cascade-worthy per Critical Rule #13 trigger (3) "introduces methodological insight" + (2) "position-relevant variable refinement for held name." Per user explicit cascade authorization. Small write (4 files); held cohort untouched; portfolio unchanged.
+
+**Cascade-fatigue check:** 11 cascades + Kioxia pre-prep = 12 events in ~22 hours. Per Principle #37 promotion gate (N=20 events without drift), well past halfway to promotion threshold. No scope-violation observed in any of the 11 cascades. Pre-Kioxia-Day-3 cascade rate naturally elevated given user-driven active questioning today; expect lower rate tomorrow during VLSI Day 3 monitoring window.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM8] SNDK vs Kioxia tech-leadership comparison (Opus 2-subagent unbiased verification) — joint NAND duopoly exposure now in user portfolio after Kioxia accidental purchase
 
 **Trigger source:** user-shared portfolio update 2026-06-15 PM7 verbatim: "I bought a hundred shares of KeyOaks here" (Kioxia ~$48K accidental purchase via Degiro tranche-sizing instead of intended $10K); user already held SNDK 4 shares; asked for UNBIASED tech-comparison to inform keep-vs-sell decision: "who has the best engineers, who's the most innovative company that pushes the space forward."
@@ -69,7 +108,7 @@
 
 **Cascade-fatigue check:** 10 cascades + Kioxia pre-prep = 11 events in ~20 hours. Per Principle #37 promotion gate (N=20 events without drift), well over halfway to promotion threshold. No scope-violation observed in any of the 10 cascades.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `4a916c8` (filled in this 2026-06-15 PM9 token-cost-reduction lens cascade per lag-1 SHA-fill convention)
 
 ---
 
