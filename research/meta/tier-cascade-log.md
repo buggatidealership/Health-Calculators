@@ -35,6 +35,44 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM7] Principle #34 N=2 structural validation retrospective (3-dimensional pattern match analysis pre-June 24 monthly audit)
+
+**Trigger source:** deferred queue item; per Principle #32 premortem, before CANDIDATE→VERIFIED promotion at June 24 monthly audit, need explicit structural pattern-match validation across load-bearing dimensions. Two instances now logged: SEMCO-MFA (N=1, 2026-05-28) + Pharmicell-Doosan (N=2, 2026-06-15 PM5).
+
+**Intake tier:** 🟡 DIRECTIONAL (meta-synthesis my model; structural pattern reading; not new external data)
+
+**Source:** existing harness state — SEMCO-MFA pattern per prior Samsung Electro-Mechanics thesis work; Pharmicell-Doosan per `signals/cross-source-log/2026-06-15-pm-pharmicell-doosan-nvda-ccl-cascade.md` (commit `4c60b8a`)
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm7-principle-34-n2-validation-retrospective.md` — NEW artifact (3-dimensional structural pattern match + falsification check + N=3 watch candidates + promotion recommendation)
+- `meta/tier-cascade-log.md` — THIS entry + prior `a107408` SHA fill below
+
+**Files NOT touched (per scoping rule):**
+- `meta/methodology.md` Principle #34 row — already updated PM5 with N=2 candidate note; this retrospective is the supporting validation document not a methodology re-write
+- `meta/tags.md` — P#34 status already at "N=2 PENDING"; promotion event deferred to June 24 monthly audit
+- All held cohort theses — orthogonal (retrospective is meta-validation; pattern already operationally cited in MURATA + IBIDEN cluster context)
+- portfolio/* — no position changes
+- No new TC cluster instance — synthesis not new data
+
+**Stale flags fired:** none
+
+**Key findings from the retrospective:**
+- **3-of-3 load-bearing dimensions match** between SEMCO-MFA and Pharmicell-Doosan (cross-layer relationship + re-certification gate + multi-year co-development)
+- **Intra-conglomerate vs inter-firm difference is environmental variant** not pattern-breaking — actually STRENGTHENS generalizability because Pharmicell-Doosan demonstrates the pattern works with EXTERNAL end-customer (NVDA), not just intra-Samsung vertical capture
+- **N=2 is approaching codification threshold per Principle #32 — recommend MAINTAIN CANDIDATE STATUS at June 24 audit pending N=3 cross-domain validation**
+- **Highest-value N=3 candidate: HBM TC-NCF film supplier** (cross-domain memory vs MLCC vs CCL would give strongest cross-domain validation; MURATA-MFA is partially redundant with SEMCO-MFA at BaTiO₃-tier)
+
+**Action items deferred to June 24 monthly audit:**
+1. Explicit pattern-match assessment of MURATA-MFA (likely N=3 redundant with SEMCO-MFA; both BaTiO₃ powder domain)
+2. Dedicate next packaging deep-dig to HBM TC-NCF film supplier identification — highest-value N=3 candidate
+3. NEG / Absolics glass-core case explicit assessment
+
+**Cascade-fatigue check:** 9 cascades + Kioxia pre-prep = 10 events in ~19 hours. Per Principle #37 promotion gate (N=20 events without drift), tracking-rate well ahead of pace. No scope-violation observed in any of the 9 cascades.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM6] Principle #38 N=2 application to TC-10 cluster — Lead-Lag tracking variables file created
 
 **Trigger source:** deferred queue item; Principle #38 codified 2026-06-15 PM2 with first application at `companies/NBIS/tracking-variables.md`; N=2 framework promotion test needs cluster-level application beyond company-level. TC-10 chosen as most active cluster (2 cascades today on it: N=8→N=9 morning + sub-mechanism reweight; cross-link to PC-13 codification).
@@ -63,7 +101,7 @@
 
 **Cascade-fatigue check:** 8 cascades + Kioxia pre-prep = 9 events in ~18 hours. Per Principle #37 promotion gate (N=20 events without drift), tracking-rate well ahead of pace. No scope-violation observed in any of the 8 cascades.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `a107408` (filled in this 2026-06-15 PM7 Principle #34 N=2 retrospective cascade per lag-1 SHA-fill convention)
 
 ---
 
