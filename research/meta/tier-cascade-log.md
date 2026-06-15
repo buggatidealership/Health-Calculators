@@ -35,6 +35,90 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM13] MRVL B. Riley Securities note ($345 PT, Craig Ellis 2026-06-12) — Twitter abstract Opus-subagent verification → LIGHT-CASCADE REINFORCING
+
+**Trigger source:** user-shared Twitter abstract 2026-06-15 ~PM ("Marvell had a conference or something of that sort... do some research where they got this data from"); 1 Opus subagent fired for source attribution + load-bearing claim triage + B40.x freshness check + cross-source verification + thesis-state validation + tier verdict. Subagent returned 2026-06-15 (agent ID a01c007de7942507a, 35 tool uses / 4-min runtime).
+
+**Intake tier:** 🟡 DIRECTIONAL (final after subagent verification) — Twitter relay (T2) of underlying sell-side note (T1) from B. Riley Securities / Craig Ellis dated 2026-06-12 raising MRVL PT $240 → $345 (street-high alongside Stifel $321 vs consensus avg ~$176). All five load-bearing claims (Google v10ax bidding, MSFT Maia300 300k/2027, AWS Trainium 4 config "likelihood", Celestial AI scale-up optics, 800G/1.6T strong demand) structurally verifiable against MRVL disclosures + recent press. NO CONTRADICTION with existing harness state; abstract REINFORCES the post-Baker-verification + Jensen-reframe MRVL thesis.
+
+**Source:** subagent fan-out — [B. Riley raises MRVL PT to $345 (Investing.com)](https://www.investing.com/news/analyst-ratings/briley-raises-marvell-stock-price-target-on-nvidia-partnership-93CH-4739807); [Top B. Riley Analyst Raised MRVL Target >40% (TipRanks)](https://www.tipranks.com/news/heres-why-top-b-riley-analyst-raised-marvell-mrvl-stock-price-target-by-more-than-40); [MRVL Maintained by B. Riley — PT $345 (GuruFocus)](https://www.gurufocus.com/news/8914162/mrvl-maintained-by-b-riley-securities-price-target-raised-to-345); [Marvell Completes Acquisition of Celestial AI (MRVL IR)](https://investor.marvell.com/news-events/press-releases/detail/1005/marvell-completes-acquisition-of-celestial-ai); [Marvell Q1 FY27 Financial Results (MRVL IR)](https://investor.marvell.com/news-events/press-releases/detail/1023/marvell-technology-inc-reports-first-quarter-of-fiscal-year-2027-financial-results); [Google-Marvell two-chip program TPU + MPU + Structera CXL (Bitget News relay Wells Fargo)](https://www.bitget.com/news/detail/12560605387486); [MRVL stock soars on MSFT AI chip prospects / Maia300 (Investing.com)](https://uk.investing.com/news/stock-market-news/marvell-technology-stock-soars-10-on-microsoft-ai-chip-prospects-4191167); [Marvell 102.4 Tbps Teralynx T100 Switch (The Register 2026-06-02)](https://www.theregister.com/networks/2026/06/02/marvell-enters-the-ai-network-fray-with-1024-tbps-switch-silicon/5250180); [MRVL Stock Forecast & Analyst PT (Stock Analysis)](https://stockanalysis.com/stocks/mrvl/forecast/).
+
+**B40.x flags binding (verified by subagent):**
+- B40.1 stale-recycle: NO — note is 3 days old at 2026-06-15; distinctive catalyst stack (S&P 500 entry June 22, Durn CFO hire, Computex joint appearance) all <2 weeks old
+- B40.2 magnitude-inflation: MILD — abstract EPS path ($4.1/$7.6/$14 FY27/28/29) is B. Riley's BULL-CASE, not Bloomberg consensus (~$1.95 FY27); Twitter relay rounds PT $345→$350 (~1.4% mild inflation)
+- B40.3 attribution-garbling: MODERATE — Twitter abstract does NOT name B. Riley or Craig Ellis; reader could mistake for consensus call or anonymous source. Attribution missing from relay
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm13-mrvl-b-riley-note-twitter-abstract-verification.md` — NEW artifact at 🟡 (subagent verification report condensed; 5 load-bearing claim verification table; B40.x flag breakdown; full source URL stack)
+- `companies/MRVL/thesis.md` — back-reference appended (B. Riley $345 note = 3rd-source corroboration of NVDA+MRVL co-design narrative — Baker post + verified press + B. Riley channel = triangulation threshold met for NVLink Fusion partnership-extension claim); "v10ax" Google TPU candidate codename flagged T2-speculative; pricing-caution note: B. Riley $4.1/$7.6/$14 EPS path is ~2× consensus FY27 — do not internalize as consensus; treat as bull-case anchor for own bottoms-up
+
+**Files NOT touched (per scoping rule):**
+- All other held cohort theses (HYNIX/SNDK/SUMCO/MURATA/DDOG/NOW/KIOXIA) — orthogonal to MRVL custom-Si + NVLink ecosystem narrative
+- `signals/triangulation.md` TC-N entries — NVDA+MRVL co-design has not yet been promoted to its own TC cluster; could be considered for June 24 monthly audit if 3+-source pattern persists
+- `portfolio/holdings.md`, `targets.md`, `changes.md` — no position changes; MRVL Active at ~5.9% (cost basis $286.26 ≈ spot $287)
+- `meta/methodology.md`, `meta/biases-watchlist.md` (existing B40.x N counters auto-update from this entry; no NEW bias instance), `meta/tags.md`, `INDEX.md` — no new convention / principle / retrieval-rule
+- `sector/themes.md`, `sector/where-we-are.md` — no synthesis-level shift (post-Baker MRVL framing already in synthesis ledger 2026-06-15 memory palace refresh)
+- `predictions/grading-log.md`, `lessons.md` — no resolved predictions
+- `meta/cross-domain-pattern-register.md` — no new pattern instance
+
+**Stale flags fired:** none (file is 1 day old)
+
+**Net thesis impact (5 bullets per subagent report):**
+1. REINFORCE — all 5 substantive claims (Google + MSFT + AWS + Celestial + optics) triangulate with prior harness state; no thesis revision needed
+2. REINFORCE TC-1 (memory tightness) — Maia300 2nm + HBM4 transition adds explicit memory-tier-bottleneck attribution point to MRVL custom-Si exposure (cross-cluster link)
+3. REINFORCE Baker-post (NVLink scale-up) — Ellis's explicit NVLink Fusion partnership-extension citation is 3rd independent source converging on NVDA+MRVL co-design narrative; triangulation threshold met
+4. NEW WEAK SIGNAL — Trainium 4 "one config" candidate: upside scenario only; flag for monitoring at AWS re:Invent late-2026 (currently MRVL is incumbent on Trainium 2/3 per harness state)
+5. PRICING CAUTION — B. Riley's $4.1/$7.6/$14 EPS path is ~2× consensus FY27; do NOT internalize as consensus; treat as bull-case anchoring for bottoms-up build; consensus catch-up (if it happens) is the rerating driver, not the entry premise
+
+**Position implication for MRVL (post-PM13):** 🟡 HOLD ~5.9% — no size change — B. Riley $345 + triangulation-threshold-met on NVDA+MRVL co-design REINFORCES bull case but does NOT cross add threshold without Q2 FY27 print confirmation (Aug-26); pre-Q2 add still NOT recommended per L21 regime modifier + U8 elevated-watch from PM4 framework. F13 (token-cost-elasticity) monthly watch continues; trim trigger remains Google TPU + AWS Trainium >30% hyperscaler AI silicon share threshold.
+
+**Loop-validation note (THIRTEENTH real-data application of Principle #37 today):** clean light-cascade discrimination — subagent verified abstract reinforces existing harness state without surfacing new T1 datapoints that warrant full cascade. 2-file write (cross-source-log artifact + thesis back-reference); held cohort orthogonal; portfolio unchanged; no synthesis-level shift. Demonstrates Principle #37's scoping discipline preventing over-cascade on signal-amplifying-restatement events.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
+### [2026-06-15 PM12] Principle #37 hook-enforcement live activation DEFERRED (classifier-blocked) — `cp` mirror → `~/.claude/` requires user-side manual execution
+
+**Trigger source:** plan-mode follow-up after `6a3bade` mirror commit; user re-entered plan mode 2026-06-15 PM12 and approved ExitPlanMode for activation steps. Attempted backup + `cp` activation in single atomic bash chain; auto-mode classifier blocked with reason "Overwriting agent startup hooks in ~/.claude/ installs persistent code controlling agent behavior with no user request — Self-Modification / Unauthorized Persistence." Plan explicitly anticipated this outcome (Step 3 most-likely-blocked branch) — mirror copy on disk + on GitHub remains the deliverable; user runs the same `cp` manually outside the agent.
+
+**Intake tier:** 🔴 SPECULATIVE (activation pending user manual `cp`; functional verification at session-start STALE-surface + Position-implication rejection deferred to post-activation) — code itself passes py_compile + local unit tests (parse helper + position-implication regex) per `6a3bade` pre-flight; runtime risk wrapped in try/except silent-pass (lines 304-306 session-start; analogous fire-log try/except structural-output) so worst case is silent non-firing not session-break.
+
+**Source:** plan file `/root/.claude/plans/enumerated-tickling-hartmanis.md`; auto-mode classifier denial message (Bash tool refusal at backup+cp atomic chain); pre-flight checks confirmed mirror files exist (386 + 319 lines), live hooks pre-codification (312 + 266 lines), no existing `.bak.*` files, live permissions 755.
+
+**Tier moves (scoped — only files actually intersecting):**
+- `meta/tier-cascade-log.md` — THIS entry (activation-deferred state documented; rollback path preserved in plan); prior `c172ade` SHA fill on TSMC PLP entry
+
+**Files NOT touched (per scoping rule):**
+- `~/.claude/session-start-hook.py` + `~/.claude/structural-output-hook.py` live copies — BLOCKED by classifier; user runs `cp research/meta/hooks/session-start-hook.py ~/.claude/session-start-hook.py && cp research/meta/hooks/structural-output-hook.py ~/.claude/structural-output-hook.py` manually outside agent
+- `~/.claude/*.py.bak.2026-06-15` — blocked by same atomic chain; user creates backup before running activation `cp` (suggested: `cp ~/.claude/session-start-hook.py ~/.claude/session-start-hook.py.bak.2026-06-15`)
+- All company `thesis.md` files — activation is harness-level, not per-thesis
+- `signals/triangulation.md` — no cluster-state change
+- `companies/*` — orthogonal
+- `meta/methodology.md`, `meta/tags.md`, `research/CLAUDE.md`, `meta/session-prime.md` — pointer text "LIVE-PENDING-USER-ACTIVATION" already correctly hedged from `6a3bade` mirror-ship commit; no rewrite needed
+- `portfolio/*` — no position changes
+
+**Stale flags fired:** none (mirror file 1 day old; activation-deferred state itself is fresh)
+
+**Rollback path (preserved for user):** if user runs activation `cp` and post-activation smoke test detects a hook bug, revert via `cp ~/.claude/session-start-hook.py.bak.2026-06-15 ~/.claude/session-start-hook.py` (and analogously for structural-output-hook.py). Bug fix in mirror, push, re-attempt activation.
+
+**Post-activation smoke tests (deferred until user runs `cp`):**
+1. `diff ~/.claude/session-start-hook.py research/meta/hooks/session-start-hook.py` → empty output
+2. `diff ~/.claude/structural-output-hook.py research/meta/hooks/structural-output-hook.py` → empty output
+3. `python3 -c "import py_compile; py_compile.compile('/root/.claude/session-start-hook.py', doraise=True)"` → no error
+4. `python3 -c "import py_compile; py_compile.compile('/root/.claude/structural-output-hook.py', doraise=True)"` → no error
+5. `echo '{}' | python3 ~/.claude/session-start-hook.py` → exit 0; output includes current briefing; no "⚠️ STALE TIER ENTRIES" yet (today's entries <30d)
+
+**Promotion gates (🔴 → 🟡 → 🟢):**
+- 🔴 → 🟡: first observed STALE-tier surface in session-start briefing on/after 2026-07-15 (passive — no action needed; STALE flags arrive automatically when oldest entries cross 30d)
+- 🟡 → 🟢: first observed Position-implication rejection in transcripts when output emits `Position implication:` line without 🟢/🟡/🔴 marker — confirms the new structural-output-hook check fires correctly
+
+**Loop-validation note (TWELFTH-AND-A-HALF real-data application of Principle #37 today):** documents the activation-pending state explicitly rather than silent non-action — Principle #37's audit-trail discipline applied to harness self-modification itself. Demonstrates that the convention captures DEFERRED-WORK-WITH-DEPENDENCY events, not just data-arrival events.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM11] Principle #38 N=3 application to TC-1 (memory tightness multi-tier) — Lead-Lag tracking variables for highest-conviction structural cluster
 
 **Trigger source:** deferred queue item; P#38 codified PM2 + N=2 applied at TC-10 PM6; N=3 framework promotion test needed before June 24 monthly audit promotion gate. TC-1 chosen because (a) highest-conviction structural cluster (N=14 STRUCTURAL-REGIME-CONFIRMATION); (b) directly affects held cohort (HYNIX direct + SNDK/SUMCO indirect + MURATA via TC-6 adjacency); (c) memory cycle inflection-catching = highest-alpha event-type per F1-F13 falsifier set discipline. Application validates P#38 across cluster types: company-level (NBIS rich LEAD) + regulatory cluster (TC-10 sparse LEAD) + supply-cycle cluster (TC-1 rich LEAD with native multilingual signals).
@@ -100,7 +184,7 @@
 
 **Methodology candidate forming:** PM8 + PM9 + PM10 together constitute a "three-lens analytical framework" for evaluating tech-tier positioning under cost-down cycles (engineering quality + time-horizon + historical-analogy). If this pattern applies cleanly to a non-NAND sector pair (e.g., HBM-tier vs custom-Si-tier; or substrate-tier vs MLCC-tier) at next opportunity, codification candidate for Principle #39 at next monthly audit June 24.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `69f16e9` (filled in this PM12 cascade per lag-1 SHA-fill convention)
 
 ---
 
@@ -406,7 +490,7 @@
 
 **Subagent-failure-and-recovery note:** original re-fired subagent (a8bb2fe73dcdf856d) returned the full 20-URL table after 81 tool uses / 4-minute runtime. 7 background-fired subagents on parallel sub-scopes returned more focused per-gate verdicts. Net: 3-way+ convergence on URL corrections, 4-way+ convergence on lead-time corrections. Strong evidentiary base.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `43c16ba` (filled in this PM12 cascade per lag-1 SHA-fill convention)
 
 ---
 
@@ -571,7 +655,7 @@
 
 **Loop-validation note:** this is the FIRST real-data application of Principle #37 after the codification + hook-mirror commits. The loop fired cleanly — share → 2-subagent parallel verification → hypothesis reweighting (H1 55%→95%, H2 30%→5%, H3 15%→75%, H4 new 95%) → claim-level tier reassessment (article-level 🟡 with sub-claim 🟢/🟡/🔴 breakdown) → scoped cascade to 8 affected files → 7+ files explicitly NOT touched (held cohort, portfolio, methodology, synthesis ledgers). The scoping rule did real work: Subagent B's broad supplier-cascade mapping could have triggered updates to dozens of files; Principle #37 disciplined the cascade to ONLY the files where the new data created tier-moves.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `c172ade` (filled in this PM12/PM13 batched cascade per lag-1 SHA-fill convention)
 
 ---
 
