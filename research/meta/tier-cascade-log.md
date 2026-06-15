@@ -58,7 +58,7 @@
 
 **Stale flags fired:** none — file birth event
 
-**Commit:** {to-be-filled-in-by-commit}
+**Commit:** `7049a16` (parent commit; SHA filled in follow-up due to commit-self-reference circularity — convention is now: SHA filled in next commit after the cascade)
 
 ---
 
