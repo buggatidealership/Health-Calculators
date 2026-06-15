@@ -35,6 +35,44 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM8] SNDK vs Kioxia tech-leadership comparison (Opus 2-subagent unbiased verification) — joint NAND duopoly exposure now in user portfolio after Kioxia accidental purchase
+
+**Trigger source:** user-shared portfolio update 2026-06-15 PM7 verbatim: "I bought a hundred shares of KeyOaks here" (Kioxia ~$48K accidental purchase via Degiro tranche-sizing instead of intended $10K); user already held SNDK 4 shares; asked for UNBIASED tech-comparison to inform keep-vs-sell decision: "who has the best engineers, who's the most innovative company that pushes the space forward."
+
+**Intake tier:** 🟢 HARD on T1 verified facts across both subagents (Kioxia FMS award + VLSI 2026 tipsheet + SEC 10-Q Sandisk financials + HBF MoU + Patterson/Koduri advisory); 🟡 DIRECTIONAL on synthesis claims (paper-output prestige; bench-strength comparison)
+
+**Source:** 2 Opus subagents fired in parallel per user spec (not Haiku) — Subagent A (a1c15facc1d5fed52) for Kioxia tech-leadership + Subagent B (a7ae42dfa354b182b) for Sandisk tech-leadership. Both returned substantive 7-section reports with T1/T2 sourcing.
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm8-sndk-vs-kioxia-tech-leadership-comparison.md` — NEW artifact (full joint-state matrix verdict + hypothesis trail + N-th order cascade + position context)
+- `companies/KIOXIA/thesis.md` — 2026-06-15 PM8 cross-ref appended: NAND cell-physics tier leadership VERIFIED (Kioxia architectural origin of 3D NAND); HBF standards-orphaned risk surfaced; user accidental position context noted (NOT in holdings.md per discipline)
+- `companies/SNDK/thesis.md` — 2026-06-15 PM8 cross-ref appended: system-level AI memory tier leadership VERIFIED (Sandisk-originated HBF standard with SK Hynix; Patterson + Koduri advisory; Stargate / UltraQLC IP)
+- `meta/tier-cascade-log.md` — THIS entry + prior c8c2776 SHA fill below
+
+**Files NOT touched (per scoping rule):**
+- `portfolio/holdings.md` — DISCIPLINE BINDING: only user can update via screenshot; user's stated Kioxia 100sh position not yet reflected
+- `portfolio/targets.md`, `portfolio/changes.md` — no actionable position change recommended
+- All other held cohort theses (HYNIX/SUMCO/MURATA/MRVL/DDOG/NOW) — orthogonal to NAND tech-leadership question
+- IBIDEN/CAMT/BESI/NBIS — earlier today's cascades; no overlap with NAND cell-physics or HBF system-architecture
+- AGC/ARM (exited)
+- `signals/triangulation.md` — no TC cluster state change (TC-1 memory tightness already covered; this verification is per-name tech-quality not cluster-state)
+- `meta/methodology.md` / `CLAUDE.md` / `session-prime.md` / `tags.md` / `INDEX.md` — no new principle / convention / retrieval rule
+- `meta/biases-watchlist.md` — B46 candidate (framing-vs-institutional-signal) WAS partially applicable to my pre-verification HBF JV framing error (I described "3-way Kioxia+Sandisk+SK Hynix JV" but reality per Tom's Hardware T1 is Sandisk + SK Hynix only); verification caught it pre-cascade so no new B46 codification needed
+- `predictions/grading-log.md` / `lessons.md` — no resolved predictions
+- `sector/themes.md` / `where-we-are.md` — no theme-level event
+
+**Stale flags fired:** none
+
+**Critical framing correction caught by Kioxia subagent (B46-pattern self-catch):** My pre-verification hypothesis described HBF as "3-way Kioxia + Sandisk + SK Hynix JV." Reality: Sandisk + SK Hynix lead OCP standardization; Kioxia NOT primary signatory (has working 5TB prototype Aug 2025 but standards-orphaned risk). Caught BEFORE cascade — exactly the value Principle #37 verification step delivers.
+
+**Loop-validation note (TENTH real-data application of Principle #37 today):** Two-subagent parallel verification + cross-check generated genuine value-added discovery — Kioxia subagent independently caught my HBF JV framing error (corrected 3-way to 2-way + Kioxia competing-via-superior-product); Sandisk subagent independently verified Patterson + Koduri advisory board (heavyweight external endorsement no NAND competitor has matched). Synthesis verdict: COMPLEMENTARY engineering organizations at DIFFERENT layers of same value chain — Kioxia engineers the silicon (cell physics + process + bonding); Sandisk engineers the system (controllers + HBF + hyperscaler design-ins). Position implication for user: holding both is NOT a wrong-side bet despite sizing accident; tech-quality verified for both; the accidental Kioxia overweight is a SIZING question not thesis-falsification per Critical Rule #8.
+
+**Cascade-fatigue check:** 10 cascades + Kioxia pre-prep = 11 events in ~20 hours. Per Principle #37 promotion gate (N=20 events without drift), well over halfway to promotion threshold. No scope-violation observed in any of the 10 cascades.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM7] Principle #34 N=2 structural validation retrospective (3-dimensional pattern match analysis pre-June 24 monthly audit)
 
 **Trigger source:** deferred queue item; per Principle #32 premortem, before CANDIDATE→VERIFIED promotion at June 24 monthly audit, need explicit structural pattern-match validation across load-bearing dimensions. Two instances now logged: SEMCO-MFA (N=1, 2026-05-28) + Pharmicell-Doosan (N=2, 2026-06-15 PM5).
@@ -69,7 +107,7 @@
 
 **Cascade-fatigue check:** 9 cascades + Kioxia pre-prep = 10 events in ~19 hours. Per Principle #37 promotion gate (N=20 events without drift), tracking-rate well ahead of pace. No scope-violation observed in any of the 9 cascades.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `c8c2776` (filled in this 2026-06-15 PM8 SNDK-vs-Kioxia tech-comparison cascade per lag-1 SHA-fill convention)
 
 ---
 
