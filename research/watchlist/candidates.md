@@ -702,7 +702,19 @@ Reuters T1 (Jun 10-11) on China's InP export-control regime + 2-subagent verific
 - 鼎泰芯源 Zhuhai Dingtai Xinyuan (private; CAS Semi Institute JV 2017) — first domestic-IP InP substrate line
 - 光智科技 300489.SZ — InP-asset injection TERMINATED; reference only
 
-## CoPoS / Glass-Core Packaging Cohort (added 2026-06-11 — per `signals/cross-source-log/2026-06-11-copos-kuo-note-verification-neg-surprise-abf-inversion.md`)
+## CoPoS / Glass-Core Packaging Cohort (added 2026-06-11; UPDATED 2026-06-15 PM — per `signals/cross-source-log/2026-06-15-pm-tsmc-plp-etnews-2subagent-verification-tc5-cascade.md` + prior `2026-06-11-copos-kuo-note-verification-neg-surprise-abf-inversion.md`)
+
+### 2026-06-15 PM update — TSMC PLP / CoPoS ETNews 2-subagent cascade
+
+ETNews 2026-06-15 = signal-amplifying restatement (B40.1 partial-stale Samsung-incumbent + B40.2 timeline-inflation 2027) but Subagent B independently verified NEW T1 datapoints at substrate / equipment / OSAT layers that DO advance TC-5 to N=7. Cohort additions / reframings:
+
+- **Camtek (CAMT) — TIER S equipment vector at PLP layer** (was P1 watchlist as HBM4 reference tool). Golden Eagle 600-650mm PLP-rated ([Camtek panel solutions T1](https://www.camtek.com/solution/panel/)) = first-call panel inspection at TSMC PLP format. Subagent B Rank #1 across PLP cohort for investability + forward visibility + structural rent. ADDITIVE to HBM4 thesis, not substitutable. See `companies/CAMT/thesis.md` 2026-06-15 PM back-reference.
+- **BESI (BSEMY / BESI.AS) — TIER S equipment vector at PLP die-attach layer**. Q1 2026 orders doubled YoY T1 + die-attach 80% of FY25 EUR 591M + hybrid bonding EUR 476M FY26. Format-agnostic die-attach = PLP ramp adds volume without new architecture. Subagent B Rank #2. See `companies/BESI/thesis.md` 2026-06-15 PM back-reference.
+- **ASE 3711.TW — REFERENCE candidate at OSAT layer** (TWD-listed; investability check required). Signed TSMC June 2025 PLP co-development agreement for 310mm panel; PLP MP H1 2027 = explicit TSMC overflow handler for lower-end CoWoS → PLP migration. Subagent B's "best OSAT expression."
+- **SEMCO + Nepes Laweh — KRX-only REFERENCE per investability filter.** SEMCO sample-shipped glass substrates to Apple+Broadcom April 2026, MP 2027. Nepes Laweh ALREADY operates world's first 600×600mm PLP volume production (~96k panels/yr Deca M-Series) — corrects ETNews framing that 600mm is forward-looking. Both reference-only (no ADR).
+- **IBIDEN dissection priority RAISED again (TIER S+).** ¥500B FY26-28 reinforced T1; ASE-TSMC June 2025 PLP co-dev = substrate-tailwind; glass-core medium-term displacement risk now explicit (¥500B is FC-BGA organic, not glass-core). See `companies/IBIDEN/thesis.md` 2026-06-15 PM back-reference.
+
+### Prior 2026-06-11 cohort framing
 
 Kuo CoPoS note (T3, June 10-11) verified via 2 subagents: pilot line June 2026 + 2028-29 ramp T1/T2-anchored; glass-core-in-CoPoS still "under review" (H1 P~60%, my model). ABF bear-case INVERTED at T1 (glass core carries ABF build-up both sides).
 

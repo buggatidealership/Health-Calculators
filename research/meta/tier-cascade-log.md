@@ -55,11 +55,46 @@
 
 **Stale flags fired:** none (file is 1 day old; first STALE flags arrive earliest 2026-07-15)
 
+**Commit:** `6a3bade` (filled in this 2026-06-15 PM cascade per the lag-1 SHA-fill convention)
+
+---
+
+### [2026-06-15] TSMC PLP / CoPoS ETNews 2-subagent verification — TC-5 cascade (first real-data application of Principle #37)
+
+**Trigger source:** user-shared translated ETNews article 2026-06-15 ("TSMC Preparing for Full-Scale Mass Production of Panel-Level Packaging (PLP)") + 2 parallel verification subagents per Critical Rule #15 + Workflow #1 INGEST.
+
+**Intake tier:** 🟡 DIRECTIONAL (final after verification) — article itself is signal-amplifying restatement of existing TC-5 cluster; B40.1 partial-stale + B40.2 timeline-inflation flags binding; BUT Subagent B independently verified NEW T1 datapoints at substrate / equipment / OSAT layers that DO qualify for TC-5 N+1 promotion (the substantive cascade-trigger is the verification output, not the article framing — this is exactly the case Principle #37 is designed to discriminate).
+
+**Source:** ETNews 2026-06-15 [native-kr T2](https://www.etnews.com/20260615000239); 2-subagent verification per Critical Rule #15.
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm-tsmc-plp-etnews-2subagent-verification-tc5-cascade.md` — NEW artifact (file birth at 🟡)
+- `signals/triangulation.md` TC-5 — N=5 → 🟢 **N=7** with Camtek Golden Eagle 600mm T1 + BESI Q1 2026 orders doubled T1 + ASE-TSMC June 2025 PLP co-dev T2 + Absolics AMD+AWS named T2 + NEG TGV native-jp T1 + NVDA Feynman Kuo T3. Quick-index cell + dedicated section both updated with Truth-Tier breakdown
+- `companies/IBIDEN/thesis.md` — 🟡 ASE-TSMC PLP co-dev surfaces as substrate-tailwind (REINFORCING) + 🟡 glass-core medium-term displacement risk surfaces (NEW dissection vector)
+- `companies/CAMT/thesis.md` — 🟢 Golden Eagle 600-650mm PLP-rated T1 ADDS panel-inspection growth vector on top of existing HBM4-reference-tool thesis (additive not substitutable)
+- `companies/BESI/thesis.md` — 🟢 Q1 2026 orders doubled YoY T1 + die-attach 80% revenue + format-agnostic for PLP ADDS PLP growth vector on top of hybrid-bonding thesis
+- `watchlist/candidates.md` — new "2026-06-15 PM update" subsection under CoPoS / Glass-Core Packaging Cohort with: CAMT TIER S equipment; BESI TIER S equipment; ASE 3711.TW REFERENCE OSAT; SEMCO + Nepes Laweh KRX-only references; IBIDEN dissection priority RAISED+
+- `meta/deep-dig-queue.md` — IBIDEN dissection priority RAISED again (TIER S+; glass-core roadmap question new vector); CoPoS BOM-level dig substantially answered at supplier-mapping layer by Subagent B; NEW candidate: TSMC PLP customer-identity verification
+- `meta/biases-watchlist.md` — B40.1 N=11 → N=12+ (Samsung "upper hand" partial-stale for AI segment); B40.2 N=3 → N=4 (ETNews 2027 timeline-inflation, 양산 trial-vs-volume translation gap)
+- `meta/tier-cascade-log.md` — THIS entry + prior-entry SHA fill (`6a3bade`)
+
+**Files NOT touched (no claim intersection — scoping rule fired correctly):**
+- `companies/HYNIX/thesis.md`, `SNDK/thesis.md`, `SUMCO/thesis.md`, `MURATA/thesis.md`, `MRVL/thesis.md`, `DDOG/thesis.md`, `NOW/thesis.md` — all held theses orthogonal to advanced-packaging-substrate cluster; PLP/CoPoS is packaging-layer specific
+- `companies/AGC/thesis.md` — exited 2026-06-14; this datapoint reinforces (NEG ahead on glass-core disclosure) but doesn't change historical-artifact framing
+- `portfolio/holdings.md`, `targets.md`, `changes.md` — no position changes triggered (CAMT/BESI/IBIDEN are P1 watchlist candidates, not held)
+- `meta/methodology.md`, `research/CLAUDE.md`, `meta/session-prime.md`, `meta/tags.md`, `INDEX.md` — no new principle / convention / retrieval-rule triggered
+- `sector/themes.md`, `sector/where-we-are.md` — TC-5 is already in synthesis ledger; PLP cascade is sub-cluster detail not synthesis-shifting
+- `predictions/lessons.md` — ABF bear-case inversion already logged at TC-5 (2026-06-11); this is reinforce-not-new
+
+**Stale flags fired:** none (file is 1 day old; first STALE flags arrive earliest 2026-07-15 when oldest entries cross 30 days)
+
+**Loop-validation note:** this is the FIRST real-data application of Principle #37 after the codification + hook-mirror commits. The loop fired cleanly — share → 2-subagent parallel verification → hypothesis reweighting (H1 55%→95%, H2 30%→5%, H3 15%→75%, H4 new 95%) → claim-level tier reassessment (article-level 🟡 with sub-claim 🟢/🟡/🔴 breakdown) → scoped cascade to 8 affected files → 7+ files explicitly NOT touched (held cohort, portfolio, methodology, synthesis ledgers). The scoping rule did real work: Subagent B's broad supplier-cascade mapping could have triggered updates to dozens of files; Principle #37 disciplined the cascade to ONLY the files where the new data created tier-moves.
+
 **Commit:** {to-be-filled-in-next-cascade}
 
 ---
 
-### [2026-06-15] Truth-Tier Taxonomy codified (Principle #37) — meta-entry, file birth
+### [2026-06-15] Principle #37 hook-enforcement layer shipped to repo mirror
 
 **Trigger source:** user-shared (verbatim 2026-06-15 ~08:21 UTC ask for a harness with "heart truth … directional calls … some that is in fear, then some that is proven already") + 2026-06-15 ~08:24 UTC scoping clarification ("a new session understands the tagging and also understands that any new data that gets shared with it has to be cascaded to respective files. It doesn't have to cascade through every file if a piece of data that I share does not touch anything specifically").
 

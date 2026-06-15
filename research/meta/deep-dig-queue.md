@@ -124,3 +124,11 @@ Source gaps to flag: when WebFetch returns 403 on key sources (passive-component
 ## 2026-06-11 queue updates (CoPoS verification)
 - IBIDEN dissection (existing queue item): priority RAISED — ABF bear-case inverted at T1 (glass core carries ABF build-up both sides; film area per package rises). Largest structural objection to TIER S removed.
 - NEW candidate: CoPoS glass-core supply chain BOM-level dig (glass panel $/package, TGV cost/via, ABF area multiplier organic-core vs glass-core) — trigger: TSMC glass-core commit signal OR Absolics MP confirmation end-2026.
+
+## 2026-06-15 PM queue updates (TSMC PLP / CoPoS ETNews 2-subagent verification)
+
+Per `signals/cross-source-log/2026-06-15-pm-tsmc-plp-etnews-2subagent-verification-tc5-cascade.md`:
+
+- **IBIDEN dissection priority RAISED AGAIN (TIER S+).** TC-5 cluster expansion REINFORCES the cluster-level thesis BUT Subagent B independently surfaced a NEW dissection vector: IBIDEN's disclosed ¥500B FY26-28 capex is FC-BGA ORGANIC, not glass-core. As Absolics/SKC (end-2026 MP, AMD+AWS named), NEG 5214.T (515×510mm GC Core), and SEMCO (2027 MP Apple+Broadcom samples) commercialize glass-core substrate at scale, the organic-to-glass transition is a medium-term moat risk to IBIDEN's substrate franchise. Dissection now needs explicit treatment: does IBIDEN have a glass-core substrate roadmap, or is the ¥500B all organic-BT FC-BGA? This is the question that gates entry-decision quality.
+- **CoPoS glass-core BOM-level supply-chain dig — substantially answered at supplier-mapping layer by Subagent B 2026-06-15 PM** (Camtek Golden Eagle 600-650mm inspection; BESI format-agnostic die-attach; NEG 515×510mm GC Core + TGV; Absolics 1.2T won raise with AMD+AWS pre-qual; ASE-TSMC PLP co-dev). What remains for the formal DEEP-DIG: glass-panel $/package vs organic-substrate $/package, TGV cost-per-via, ABF area multiplier organic-core vs glass-core. Trigger for full DEEP-DIG: TSMC T1 disclosure naming first PLP customer OR Absolics MP confirmation end-2026.
+- **NEW candidate: TSMC PLP customer-identity verification** — currently NVDA Feynman per Kuo analyst-T3 single-source. Trigger to formal investigation: any T1 TSMC disclosure naming a CoPoS / PLP customer (could come at TSMC AGM, technical conference, or supplier disclosures); could materially shift IBIDEN, CAMT, BESI, NEG sizing reads.

@@ -1,6 +1,18 @@
 # Camtek (CAMT) — Thesis (DEEP-DIG v2)
 
-**Last updated:** 2026-06-04 PM (full DEEP-DIG workflow #8 applied — replaces 2026-05-21 compact thesis)
+**Last updated:** 2026-06-15 PM (TSMC PLP / CoPoS ETNews 2-subagent verification — Golden Eagle 600-650mm PLP-rated T1 surfaces as TC-5 N+1 datapoint)
+
+## 2026-06-15 PM back-reference — Golden Eagle Panel-Level Packaging 600-650mm capability T1
+
+Per `signals/cross-source-log/2026-06-15-pm-tsmc-plp-etnews-2subagent-verification-tc5-cascade.md`:
+
+**🟢 HARD verified by Subagent B:** Camtek's Golden Eagle inspection system is explicitly rated for FO-PLP applications up to 600-650mm — i.e., it already covers the 600×600mm panel format ETNews flagged as the TSMC PLP target ([Camtek panel solutions page T1](https://www.camtek.com/solution/panel/)). This is INDEPENDENT of (and more specific than) the existing HBM4 reference-tool thesis: as TSMC PLP / CoPoS ramps 2027 → 2028-29 (C.C. Wei T1-adjacent "2-3 more years" → 2028-29 ramp consensus), Camtek is the most-named panel-inspection beneficiary at the format-tier TSMC is targeting. Reinforces the existing pick-and-shovel framing at a NEW packaging layer (panel-level inspection) ADDITIVE to the HBM4 inspection franchise — these are complementary, not substitutable, revenue streams.
+
+**Position implication:** 🟡 DIRECTIONAL — NO ACTION on spot — the Golden Eagle 600-650mm capability ADDS a panel-level-inspection growth vector on top of the HBM4 thesis already in place, but does NOT change the entry-trigger framing ("$185 spot + EV ~+8% over 12-18mo (my model), entry not justified — wait for trigger"). The PLP exposure makes the trigger more likely to fire if TSMC PLP ramp accelerates 2027-2028 — watch for Camtek FY27 guidance citing PLP-specific bookings, or any disclosure that names TSMC / NVDA Feynman as Golden Eagle customer.
+
+---
+
+**Prior last updated:** 2026-06-04 PM (full DEEP-DIG workflow #8 applied — replaces 2026-05-21 compact thesis)
 **Tier:** Active candidate — ENTER on trigger only, NOT at spot
 **Position target:** 2-3% of total liquid (~€8-12K from €414K base)
 **Anti-fragility:** 3.5/5 — wins in S1, S2 cleanly; partial S3; loses S4

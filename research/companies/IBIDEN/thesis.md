@@ -1,6 +1,20 @@
 # IBIDEN (4062.T) — Thesis (candidate stub)
 
-**Last updated:** 2026-06-11 (CoPoS verification — "glass kills ABF" bear case INVERTED at T1; dissection priority RAISED)
+**Last updated:** 2026-06-15 PM (TSMC PLP / CoPoS ETNews 2-subagent verification — TC-5 N=5→N=7; ASE-TSMC June 2025 PLP co-dev surfaced; glass-core medium-term displacement risk surfaces — dissection priority RAISED again)
+
+## 2026-06-15 PM back-reference — TSMC PLP ETNews 2-subagent verification + glass-core medium-term risk
+
+Per `signals/cross-source-log/2026-06-15-pm-tsmc-plp-etnews-2subagent-verification-tc5-cascade.md`:
+
+**Reinforcing (🟢 HARD):** IBIDEN ¥500B FY26-28 capex independently re-verified at T1 via Globe and Mail relay of IR; ¥280B Ono Plant; sequential MP from FY2027; 2.5× AI server substrate capacity by FY2028. ASE 3711.TW signed TSMC June 2025 co-development agreement for 310mm panel flow (Digitimes T2 Feb 2026) — confirms TSMC overflow handler at OSAT layer, complementary to IBIDEN substrate position rather than competitive (ASE = OSAT, IBIDEN = substrate). C.C. Wei T1-adjacent June 4 2026 "2-3 more years" for PLP volume scale = 2028-29 ramp aligns with IBIDEN FY2027 sequential MP / FY2028 full ramp timing.
+
+**Medium-term displacement risk surfaces (🟡 DIRECTIONAL):** Subagent B independently flagged that IBIDEN's ¥500B capex is FC-BGA ORGANIC, not glass-core. As glass-core adoption progresses (NEG 515×510mm GC Core T1 native-jp; Absolics/SKC end-2026 MP with AMD+AWS named customers; SEMCO 2027 MP target Apple+Broadcom samples) the organic-to-glass transition is a medium-term moat risk to IBIDEN's substrate franchise — not near-term displacement (architecture is hybrid glass-core + ABF build-up per IEEE T1, so ABF demand RISES with glass-core not falls; but the substrate-base layer transitions from organic-BT to glass and IBIDEN's disclosed capex is ON THE ORGANIC-BT SIDE). Dissection priority RAISED again: the glass-core question now needs explicit treatment in the IBIDEN thesis — does IBIDEN have a glass-core substrate roadmap, or is the ¥500B all organic?
+
+**Position implication:** 🟡 DIRECTIONAL — NO ACTION — Still Active-candidate; dissection-queue priority RAISED again (now TIER S+ effectively). The TC-5 cluster expansion REINFORCES the cluster-level thesis but the IBIDEN-specific question on glass-core roadmap is a NEW dissection vector that the deep-dig must address. Bull-case capex-co-funded-by-customers moat intact for organic-BT FC-BGA; bear-case glass-core-displaces-organic-substrate-medium-term is a new explicit risk to weight. ASE June 2025 PLP co-dev is bullish for IBIDEN substrate (more PLP volume = more substrate demand regardless of which OSAT handles it). Entry decision STILL gated on Q1 FY27 earnings (late Jul / early Aug 2026) + LGI comparison + explicit IBIDEN glass-core roadmap disclosure.
+
+---
+
+**Prior last updated:** 2026-06-11 (CoPoS verification — "glass kills ABF" bear case INVERTED at T1; dissection priority RAISED)
 
 ## 2026-06-11 back-reference — ABF bear-case inversion (CoPoS verification)
 

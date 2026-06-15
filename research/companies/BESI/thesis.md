@@ -1,6 +1,24 @@
 # BESI (BE Semiconductor Industries — AMS:BESI / NASDAQ:BSEMY) — Thesis stub
 
-**Last updated:** 2026-05-25 (initial Phase 1 build)
+**Last updated:** 2026-06-15 PM (TSMC PLP / CoPoS ETNews 2-subagent verification — Q1 2026 orders doubled YoY T1; format-agnostic die-attach surfaces as TC-5 N+1 datapoint)
+
+## 2026-06-15 PM back-reference — Q1 2026 orders doubled YoY + format-agnostic die-attach for PLP
+
+Per `signals/cross-source-log/2026-06-15-pm-tsmc-plp-etnews-2subagent-verification-tc5-cascade.md`:
+
+**🟢 HARD verified by Subagent B via T1 sources:**
+- BESI Q1 2026 orders doubled YoY driven by hybrid bonding + AI packaging ([3D InCites Mar 2026 T2 relay](https://www.3dincites.com/2026/03/besi-at-the-center-of-the-packaging-power-shift/))
+- Die-attach is ~80% of FY2025 revenue (EUR 591M total) per [BESI Q4-25 + FY25 results T1](https://www.globenewswire.com/news-release/2026/02/19/3240803/0/en/BE-Semiconductor-Industries-N-V-Announces-Q4-25-and-Full-Year-2025-Results.html)
+- Hybrid bonding revenues projected EUR 476M FY2026 = ~1/3 of total
+- **Format-agnostic die-attach** = BESI tools serve both wafer-level and panel-level (PLP 600mm) without requiring new tool architecture; PLP ramp 2027-2029 adds volume on top of existing HBM4E hybrid bonding tailwind
+
+**Net read:** Subagent B's Q6 ranking placed BESI #2 across the PLP supplier cohort (behind Camtek panel-inspection; ahead of NEG materials and ASE OSAT) for investability + forward visibility + structural rent. The TC-5 PLP cascade adds a SECOND structural growth vector to the existing hybrid-bonding thesis — these are complementary not substitutable revenue streams. C.C. Wei T1-adjacent "2-3 more years" → 2028-29 ramp aligns with BESI's long-term EUR 1.5-1.9B revenue target.
+
+**Position implication:** 🟡 DIRECTIONAL — NO ACTION on spot — PLP exposure REINFORCES the existing Active-candidate framing without changing Phase-1 tier or sizing target. BESI was already at TC-5 adjacency via hybrid bonding for HBM4E; the PLP layer adds independent demand vector. Entry decision STILL gated on Phase-2 thesis build + valuation discipline (forward P/E + EV/EBITDA at current spot vs structural growth runway). Watch for BESI Q2 2026 earnings to confirm Q1 order doubling sustained — that's the key falsifier per TC-5 cluster.
+
+---
+
+**Prior last updated:** 2026-05-25 (initial Phase 1 build)
 **Tier:** Active candidate (Phase 1 surfaced — hybrid bonding leader at structural choke point)
 **Position target:** 2-4% if entered (user holds 0%)
 **Anti-fragility:** 4/5 scenarios (wins on hybrid bonding adoption across all HBM vendors + logic + memory; loses if ASML entry compresses moat sooner than thesis assumes OR if HBM4E adoption delays)
