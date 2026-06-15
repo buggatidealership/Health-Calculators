@@ -95,6 +95,7 @@
 - **PC-9** Regulation as accelerant not just gate (CMS-0057-F shape)
 - **PC-10** Stale-cohort-spec compute burn
 - **PC-12** Geopolitical bottleneck via export control (NEW 2026-06-11; InP N=1)
+- **PC-13** Government emergency-order model-shutdown precedent (NEW 2026-06-15 PM3; Anthropic Fable 5/Mythos 5 90-min Commerce Dept shutdown N=1 origin; binary acute regulatory action distinct from TC-4 gradual drift; watch N=2 within 90 days; first re-eval 2026-09-13)
 
 ## Triangulation clusters (signals/triangulation.md)
 - **TC-1** Memory tightness multi-tier

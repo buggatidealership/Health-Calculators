@@ -35,6 +35,40 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM4] PC-13 codification — Government emergency-order model-shutdown precedent (N=1 origin Anthropic Fable 5 + Mythos 5 90-min Commerce Dept shutdown June 13)
+
+**Trigger source:** deferred codification queue item; pattern has been referenced 3+ times across this session's cascades (TC-4 acute-phase note + TC-10 H_d=40% sub-mechanism reweight + NBIS bypass-route thesis explicitly cites the Anthropic 90-min precedent as bypass-route demand driver). Each reference made the pattern more load-bearing; codifying now before next cascade implicitly assumes it. Per Critical Rule #13 trigger (3) "introduces a new pattern."
+
+**Intake tier:** 🟡 CANDIDATE (N=1 by design; pattern register entries codify at N=1 with explicit N=2 promotion gate per Principle #32 premortem)
+
+**Source:** Anthropic Fable 5 + Mythos 5 90-min shutdown precedent verified earlier today per `signals/cross-source-log/2026-06-15-am-morning-brief-verification-cascade.md` (Axios T1 corrected the WSJ B40.3 attribution garble in user-shared morning brief). Pattern abstraction is meta-synthesis, not new data.
+
+**Tier moves (scoped — only files actually intersecting):**
+- `meta/cross-domain-pattern-register.md` — appended PC-13 entry with mechanism + N=1 instance + cross-distinction from TC-4 (gradual) and TC-10 (cluster-level) + promotion criterion (N=2 within 90 days; 4 candidate watch-mechanisms listed) + first re-eval 2026-09-13
+- `meta/tags.md` — added PC-13 shorthand entry
+- `meta/tier-cascade-log.md` — THIS entry + prior fcdc736 SHA fill below
+
+**Files NOT touched (per scoping rule):**
+- `signals/triangulation.md` TC-4 + TC-10 — already reference the Anthropic 90-min event from prior cascades; PC-13 codification is meta-pattern not new TC datapoint
+- `signals/cross-source-log/2026-06-15-am-morning-brief-verification-cascade.md` — original verification source stands as-is; PC-13 is downstream synthesis
+- `companies/NBIS/thesis.md` + `tracking-variables.md` — already cite Anthropic 90-min precedent; PC-13 cross-reference added in pattern register entry itself
+- All held cohort theses — pattern is mechanism not direct holding implication
+- portfolio files — no position changes
+- methodology / CLAUDE.md / session-prime — no principle codification (pattern is in pattern register not methodology)
+- biases-watchlist.md — no new bias instance
+
+**Stale flags fired:** none
+
+**Loop-validation note (SIXTH real-data application of Principle #37 today):** PC-13 codification deferred from earlier in session when user-shared data arrived (Nebius hypothesis; NDX mechanics primer). After the substantive user-directed work completed, this is the genuine "continue from where you left off" — capturing a meta-pattern that was operationally already in use across multiple cascades. Demonstrates Principle #37 cascade-vs-not-cascade discrimination working correctly: pattern register is downstream synthesis, not new datapoint, so cascade is appropriately SMALL (3 files) — not a 7-file thesis cascade.
+
+**Cascade-fatigue check:** 6 cascades today (TSMC PLP + morning brief + NBIS PM + Lead-Lag framework + NDX mechanics + PC-13 codification) + Kioxia pre-prep = 7 events in ~16 hours. Per Principle #37 promotion gate (N=20 events without drift), well ahead of pace. **No scope-violation observed in any of the 6 cascades** — held theses untouched in all 6 events.
+
+**First re-eval:** 2026-09-13 (90 days from Anthropic 90-min shutdown June 13 origin) — N=2 promotion check OR demotion if zero N+1 within 90 days
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM3] NBIS NDX inclusion mechanics primer + material number corrections (float-adjusted weight + June 13 weekend correction + co-add cluster + post-inclusion -7% academic pattern)
 
 **Trigger source:** user-directed primer 2026-06-15 ~14:53 UTC verbatim ask for layman NDX mechanics + passive flow + post-inclusion patterns. 3 Opus subagents (a33c0bdbf398004a1 returned primer; a0207dd3f250ba2cf returned QQQ/QQQM/international AUM granular detail; ab88e93473d648f96 returned NBIS market cap + float + announcement-day data) converged on T1 Nasdaq sources.
@@ -79,7 +113,7 @@
 
 **Hook-validation note:** both anti-fabrication hook + signal-ingest-cascade hook fired correctly during this cascade — anti-fabrication caught $712%/713% AppLovin discrepancy + $58.5B repo-grounding mismatch; signal-ingest-cascade enforced creating the cross-source-log file rather than chat-only persistence. Both hooks doing what they were designed to do.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `fcdc736` (filled in this 2026-06-15 PM4 PC-13 codification cascade per lag-1 SHA-fill convention)
 
 ---
 

@@ -80,6 +80,46 @@ Different national payers code the same AI capability years apart — the diverg
 **Mechanism:** A state-policy-enforced supply gate (export-control regime) creates persistent friction in a critical input even as domestic capacity in the controlling state grows. Distinct from P-1 (commercial Chinese parity taking export share) and P-3 (platform absorption) — here, the controlling state's CAPACITY grows for DOMESTIC backfill while exports stay slow/selective. The investable rent goes to the NON-bottlenecked supplier, almost always a non-pure-play diversified conglomerate where the rent dilutes before reaching the equity line.
 **N=1 instance (InP substrate, June 2026, T1 Reuters + T1 AXT 10-K via `signals/cross-source-log/2026-06-11-reuters-inp-export-controls-axt-lateral-confirmed.md`):** China MOFCOM/GACC dual-use license regime since Feb 4, 2025; per-shipment licenses, ~60 business-day processing; controls retained post-May 14-15 Trump-Xi summit. Chinese capacity tripling (Yunnan Germanium 002428.SZ: +73.8% YoY 2025; 450k/yr 4"-equiv target by 2026) for domestic backfill. AXT confirmed casualty (100% China-produced per FY2025 10-K + 70% US tariffs). Investable bypass: JX Advanced Metals 5016.T (¥20B to 3x by 2030 at Isohara) + Sumitomo Electric 5802.T (doubling FY2026) — both diversified conglomerates; InP one segment among many.
 **P-1 variant note:** the InP case is technically a P-1 instance (Chinese capacity tripling +73.8% YoY) but the failure mode is INVERTED vs robotics/CIS: instead of Chinese makers taking export share, the Chinese STATE deliberately maintains export friction *while* domestic capacity grows. The rent migrates to the non-Chinese supplier rather than disappearing. This is the load-bearing distinction making PC-12 worth tracking as separate pattern.
+
+### PC-13: Government emergency-order model-shutdown precedent (NEW candidate, added 2026-06-15 PM3)
+
+**Mechanism:** Frontier AI lab gets ~90-minute compliance window from a national-government executive order to globally disable a model line; vendor complies; downstream enterprise customers face acute "vendor offline by government action" risk; bypass-route demand at neutral-jurisdiction compute providers spikes. The pattern is structurally distinct from gradual enterprise-trust drift (TC-4 mechanism, multi-quarter behavioral shift): this is **binary acute regulatory action with sub-day operational impact** at the model-vendor layer. Triggers: security-incident finding (e.g., jailbreak surfacing dual-use capability), competitive-capture risk, IP-leak concern, sovereign-AI strategic-asset reframing. Creates persistent enterprise-customer behavior shift: contract clauses on government-action vendor-disable, multi-vendor model redundancy, sovereign-AI neutral-compute bypass commitments.
+
+**N=1 instance (Anthropic Fable 5 + Mythos 5, 2026-06-13, per `signals/cross-source-log/2026-06-15-am-morning-brief-verification-cascade.md` + Axios T1 reporting):**
+- **Trigger:** Amazon-researcher jailbreak finding of Fable 5 bypassing consumer guardrails surfacing Mythos-level cyber capabilities
+- **Order:** US Commerce Department executive order June 13 2026 with 90-minute compliance window
+- **Compliance:** Anthropic disabled both Fable 5 (consumer model) + Mythos 5 (underlying foundation model) globally within 90 minutes
+- **Follow-through:** Dario Amodei + senior technical staff flew DC June 14; 3 calls with Bessent/Lutnick/Kessler/Scharf/Walters/Barrett administration officials
+- **Downstream demand-side response:** NBIS UK £1.7 billion June 8 commitment + Israel Innovation Authority national supercomputer + emerging national-government sovereign-AI deal flow = bypass-route response already materializing at neutral-NVDA-cloud tier
+- **Source-tier:** Axios T1 (June 14; corrected from "WSJ via Hacker News" B40.3 attribution-garble caught in morning brief verification)
+
+**Why this is worth a separate pattern (not subsumed by TC-4 or TC-10):**
+- **TC-4 (Anthropic enterprise-trust drift)** is GRADUAL multi-quarter behavioral pattern across 12 instances. PC-13 mechanism is BINARY acute single-event regulatory action. Same Anthropic ticker but different epistemics.
+- **TC-10 (Model-layer sovereignty + export control)** has H_d security-incident sub-mechanism that captures the trigger, but TC-10 is the SECTOR-LEVEL cluster (multiple labs, multiple regulators, multiple mechanisms). PC-13 is the SPECIFIC MECHANISM (executive-order shutdown precedent) that can repeat at N=2+ across different labs / regulators / triggers.
+- **N=2+ would change the discount-rate model on enterprise-AI vendor contracts.** Insurance-pricing / contract-terms / customer-redundancy spend all reprice if PC-13 demonstrates as a repeating mechanism.
+
+**Promotion criterion (per Principle #32 premortem):** N=2+ same-mechanism instance within 90 days of June 13 origin. Watch for:
+- (a) Any other US executive order with sub-day compliance window targeting any AI model (OpenAI, Google, xAI, Meta) — same regulator, different vendor
+- (b) Any EU / UK / JP / KR / AU government executive order with same compliance-window mechanism targeting any AI model — different regulator, same mechanism
+- (c) Reverse pattern: Chinese government emergency-order on Western-AI access (national-security framing) — would suggest pattern is global not US-specific
+
+**If N=2+ confirms (cross-mechanism or cross-jurisdiction):**
+- Promote to verified pattern P-13
+- Triggers cascade to sovereign-AI cluster watchlist (T6 candidate names), TC-10 mechanism reweight, NBIS thesis upgrade if compute-bypass demand materializes
+- Insurance / contract-clause repricing thesis becomes investable (legal-tech / risk-management vendor angle)
+
+**Detectability / falsifier:**
+- POSITIVE: N=2+ within 90 days; pattern promotes
+- NEGATIVE: 90 days pass with zero N=2 instances; pattern decays to "Anthropic-specific isolated event" and demotes from pattern register
+
+**First re-eval:** 2026-09-13 (90 days from origin)
+
+**Cross-references:**
+- `signals/cross-source-log/2026-06-15-am-morning-brief-verification-cascade.md` — verification source
+- `signals/triangulation.md` TC-4 — Anthropic enterprise-trust drift acute-phase note (June 13 90-min shutdown logged here)
+- `signals/triangulation.md` TC-10 — H_d security-incident sub-mechanism reweight 30%→40% (this morning's cascade)
+- `companies/NBIS/thesis.md` — explicitly references Anthropic 90-min precedent as bypass-route demand driver
+- `companies/NBIS/tracking-variables.md` — TC-10 vector tracking variable monitors "US regulatory escalation (≥1 more multi-state AG action or 90-min outage in 90 days)" as confirm threshold for sovereign-AI bypass thesis
 **Cross-check candidates for N=2 promotion:** Dec 2023 Ga/Ge/graphite regime (still in force? rent migration to Japanese/Korean sub-producers?); Aug 2023 US chip-equipment regime (Western mirror — does same dynamic apply with ASML rent? complicated by ASML monopoly).
 **Transfer rule (if promoted):** for ANY input under export-control regime, the rent goes to the non-controlling country's most-scaled producer; check if that producer is pure-play or diversified, and apply segment-trajectory math accordingly. The pure-play vs diversified distinction is the load-bearing variable for whether the rent reaches equity holders.
 **Status:** CANDIDATE; need N=2 cross-check before promotion. Watch: any Reuters/FT/Nikkei article on Ga/Ge rent migration; any Sumitomo/JX segment-revenue disclosure that breaks out InP economics.
