@@ -1,6 +1,84 @@
 # Where AI Is — Living Synthesis
 
-**Last material synthesis update:** 2026-06-14 PM4 (token-cost-elasticity U8 candidate UNIVERSAL falsifier verified via 3-subagent fan-out — Benedict Evans framework + telecom historical analog + AI efficiency frontier; non-default read #9 added: **U8 demand-side efficiency-driven compression risk is real and EMPIRICALLY supported** by telecom equipment vendor historical pattern (Ericsson revenue flat 2000-2024 despite data traffic 1500-2000×; Cisco 6 years flat while internet traffic 5-6×; RAN -22% 2022-2024 while 5G subs grew); FIRST empirical U8-adjacent signal IDENTIFIED — DDR5 RDIMM surpassed HBM in per-wafer profitability Q1 2026 per TrendForce/Digitimes T2; HBM forecasters do NOT model efficiency (structural methodology gap); HU8b PARTIAL firing posterior 45% (largest weight); F1-F12 → F1-F13 with U8/F13 added as universal demand-side; held cohort cascade — HYNIX direct compounder still bull but F13 elevated to monthly-watch; MRVL custom-Si rent partially exposed to ASIC consolidation; SUMCO/SNDK/MURATA less U8-exposed; H1 structural-regime posterior at 75% UNCHANGED — H1 and U8 are independent questions). Prior material update 2026-06-14 PM3 (2017-18 cycle peak signature + universals-vs-cycle-specific framework correction).
+**Last material synthesis update:** 2026-06-15 (multi-cascade day — 4 commits: evening brief deferred TC-10 H_d + TC-4 N=12 + EU sovereignty; Kioxia VLSI Day 1-2 monitoring negative-finding + earnings-backdrop dominates; **800V HVDC Vera Rubin DSX 3-subagent T1 verification — MURATA MATERIALLY REINFORCED via 4 independent T1 vectors converging** + Schneider SU.PA RANK 5→2 + Eaton/Vertiv promotions + B40.3 PROMOTED to VERIFIED-HIGH-CONFIDENCE + TC-6 N=5→6). Prior material update 2026-06-14 PM4 (token-cost-elasticity U8 framework).
+
+## 2026-06-15 — 800V HVDC Vera Rubin DSX architectural transition: MURATA materially reinforced; Schneider direct NVIDIA partner; vendor-stack software-layer lock-in = recurring-revenue thesis
+
+Per `signals/cross-source-log/2026-06-15-800v-hvdc-vera-rubin-3subagent-verification-murata-cap-upgrade.md` (3 parallel research subagents on user-shared 工商時報 article 2026-06-15):
+
+### Non-default read #10: NVIDIA Vera Rubin DSX vendor-stack lock-in = software-layer recurring-revenue model (structurally different from one-time hardware sale)
+
+Most analysts model Schneider Electric / Eaton / Vertiv as one-time hardware suppliers to data center capex cycles. The T1-verified reality (NVIDIA Newsroom 2026-03-16 GTC + Schneider Newsroom 2026-03-17 + Eaton BusinessWire 2026-03-16 + Vertiv PRNewswire):
+
+**Schneider's AVEVA lifecycle digital twin is EMBEDDED in NVIDIA Omniverse DSX Blueprint** — this is software-layer engagement that scales with every Vera Rubin AI Factory deployment, not just initial buildout. ETAP for power simulation + ITD CFD for thermal/airflow + AVEVA Process Simulation for liquid cooling. **SU.PA RANK 5 → RANK 2 upgrade** is warranted because software-layer lock-in creates recurring engagement model.
+
+Eaton Beam Rubin DSX + Vertiv OneCore Rubin DSX are similarly validated system-level models in the Blueprint.
+
+### Non-default read #11: MURATA thesis MATERIALLY REINFORCED via 4 independent T1 vectors single day
+
+Consensus models MURATA on traditional MLCC cycle math. The 2026-06-15 cascade surfaced 4 INDEPENDENT T1 vectors converging:
+
+1. **Murata IR CAGR 18% → 30%** through FY2030 per Nakajima T1 (revised late 2025 AFTER 800V became architecture direction)
+2. **Murata 1.25kV C0G MLCC mass production Dec 2025** per BusinessWire T1 — WORLD-FIRST 15nF/1.25kV in 1210, explicitly targeting 800V; **Murata is SOLE confirmed vendor for AI-server 800V MLCC tier as of Jun 2026** (SEMCO 1000V lagging; TDK/Taiyo Yuden/Yageo no AI-specific 800V SKU)
+3. **Walsin Technology AGM T1 2026-06-12** "shortage extends to 2027 or beyond 2028" + Q1 2026 earnings call T1: AI server MLCC usage **2× by 2026, 4× by 2027** vs 2025 base = **bottoms-up demand anchor independent of Murata's own forecast**
+4. **800V HVDC architecture (NVIDIA Vera Rubin DSX T1) adds MANDATORY 800V → 50V IBC stage** with LLC resonant converters at rack level — this is a NEW PDN stage not in legacy 48V/54V; 1.25kV MLCC 1210 yields only ~15nF vs 100V MLCC 1-10µF (~100× capacitance-per-unit reduction), requiring many more 1.25kV units in parallel = structural BOM uplift
+
+**Position-relevance:** MURATA ~4.9% Degiro vs historical target band 10-13% leaves significant headroom. Sizing-up candidacy MATERIALLY ELEVATED but trigger remains with user per "back-pocket" framing.
+
+### U8 framework refinement (L26 update)
+
+**800V HVDC PARTIAL OFFSET to U8 prong-specific:**
+- **Efficiency-prong (bits-per-token compression):** PARTIAL OFFSET — rack power scales with deployment regardless of token efficiency
+- **Demand-destruction prong (fewer racks deployed in macro capex reversal):** NO OFFSET — provides zero protection if hyperscalers stop ordering
+
+U8 monitoring still active; effect on MURATA specifically MUTED by 800V mechanism but not eliminated.
+
+### Bypass-route check (Critical Rule #9)
+
+**NVIDIA 800V vs OCP ±400V Mt Diablo (Google/Meta/Microsoft co-authored May 2025) is the architectural bypass.** Hyperscaler-internal builds may route around NVIDIA's 800V via ±400V Mount Diablo. ±400V vendor ecosystem (different supply chain) becomes the bypass-route winner if hyperscaler-internal builds dominate over NVIDIA-branded AI Factories. **MURATA's moat is voltage-agnostic** — 1.25kV monopoly is cherry-on-top, not whole thesis.
+
+**Falsification monitor:** Navitas direct 800V → 6V single-stage GaN board (GTC 2026 per Semiconductor Today T2) — if scales to >50% server trays, would compress tray-level MLCC content. Track Navitas production ramp + NVIDIA Rubin Ultra Kyber (H2 2027) tray design specs.
+
+## 2026-06-15 — TC-10 mechanism reframe: H_d security-incident vector via Mythos China-access disclosure
+
+Per `signals/cross-source-log/2026-06-15-evening-brief-2026-06-14-cascade-tc10-tc4-eu-sovereignty-b40-verifications.md` (deferred-cascade from 2026-06-14 evening brief, executed 2026-06-15):
+
+### TC-10 framework expanded H_a / H_b / H_c → H_a / H_b / H_c / H_d
+
+NEW H_d genuine-security / China-leak-driven hypothesis added (P~30% my model). Mythos China-access disclosure per Semafor T2 + Anthropic-WH meeting Reuters T2 = operational confirmation that regulatory action has security-incident root cause, not just competitive-capture mechanism. Updated weights:
+- H_a Amazon-incidental 45% → 30%
+- H_b regulatory-machinery 40% → 30%
+- H_c coordinated-intent 15% → 10%
+- H_d NEW security-incident 30%
+
+### EU sovereign-AI watchlist directional events ADDED
+
+Mythos China-access (FIRED 2026-06-12) + EU sovereignty push (Brussels advancing cloud autonomy + open source mandates per Register T2 2026-06-14, FIRED) = TC-10 H2 STRUCTURAL CONFIRMED via H_d. Schneider SU.PA position dramatically improved — was RANK 5 on EU sovereign-AI thesis alone; now RANK 2 with T1-verified NVIDIA AI Factory direct partner role (separate thesis stack).
+
+### TC-4 N=11→N=12: Anthropic walkback admission = drift CONFIRMATION not reversal
+
+Anthropic reverses silent model changes policy after backlash per Reddit/ML + WIRED T2: *"We made the wrong tradeoff and we apologize for not getting the balance right."* Walkback CONFIRMS the drift; doesn't reverse it. Self-bias check: as Fable 5 vendor, read as if OpenAI/Google walkback — strengthens enterprise-trust-drift triangulation.
+
+### B40.1 N=11+ + B40.3 PROMOTED to VERIFIED-HIGH-CONFIDENCE
+
+- B40.1 N=10 (Amazon water 0.075% PR-repackaging) + N=11 (Songchuan 5-month staleness inflation in 工商時報 article)
+- **B40.3 PROMOTED to VERIFIED-HIGH-CONFIDENCE** at N=3 + 1 retroactive via Songchuan ticker garble (article said 6202.TW; actual 7788.TW) = NEW sub-type B40.3b entity-to-identifier mismatch
+
+## 2026-06-15 — Kioxia VLSI Day 1-2 monitoring: negative finding + earnings backdrop dominates VLSI signal
+
+Per `signals/cross-source-log/2026-06-15-kioxia-vlsi-2026-day1-2-monitoring.md`:
+
+### Negative-finding state (high value)
+
+Day 1 (June 14 Sunday) = Short Courses only. Day 2 (June 15 Monday) = first technical session day; no live post-presentation coverage indexed (academic norm; OnDemand June 24). T1.4 MSA-CBA + 3 undisclosed Kioxia papers all pre-presentation. HBF NOT in public VLSI program. **B40.1 venue self-correction:** VLSI 2026 is in HONOLULU (Step 0 said Kyoto — stale-recycled pre-training).
+
+### Critical re-anchor: pre-event "rally" assumption + earnings overlay
+
+Pre-registration H2 (exhaustion 30%) assumed "+12% rally priced in" — reality: 285A.T -11.68% June 8 on US semi selloff, recovered to ~81,200 JPY June 13. H2 risk PARTIALLY ABSORBED. **Q1 FY27 forecast ¥869B net profit (~48× prior year per Nikkei T1 May 15)** + market cap surpassed Toyota June 12 = **VLSI T+24h is small signal on massive fundamental re-rating**. Provisional H1-H4 reweight: H1 40%→45%; H2 30%→25%; H3 stable 20%; H4 stable 10%. Formal T+24h grade still ~June 19.
+
+---
+
+**Prior material synthesis update:** 2026-06-14 PM4 (token-cost-elasticity U8 candidate UNIVERSAL falsifier verified via 3-subagent fan-out — Benedict Evans framework + telecom historical analog + AI efficiency frontier; non-default read #9 added: **U8 demand-side efficiency-driven compression risk is real and EMPIRICALLY supported** by telecom equipment vendor historical pattern (Ericsson revenue flat 2000-2024 despite data traffic 1500-2000×; Cisco 6 years flat while internet traffic 5-6×; RAN -22% 2022-2024 while 5G subs grew); FIRST empirical U8-adjacent signal IDENTIFIED — DDR5 RDIMM surpassed HBM in per-wafer profitability Q1 2026 per TrendForce/Digitimes T2; HBM forecasters do NOT model efficiency (structural methodology gap); HU8b PARTIAL firing posterior 45% (largest weight); F1-F12 → F1-F13 with U8/F13 added as universal demand-side; held cohort cascade — HYNIX direct compounder still bull but F13 elevated to monthly-watch; MRVL custom-Si rent partially exposed to ASIC consolidation; SUMCO/SNDK/MURATA less U8-exposed; H1 structural-regime posterior at 75% UNCHANGED — H1 and U8 are independent questions). Prior material update 2026-06-14 PM3 (2017-18 cycle peak signature + universals-vs-cycle-specific framework correction).
 
 ## 2026-06-14 PM4 — U8 candidate universal falsifier verified; first empirical signal firing (DDR5 > HBM profitability Q1 2026); F1 → F13
 
