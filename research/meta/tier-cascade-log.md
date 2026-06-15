@@ -35,6 +35,74 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 AM] Morning AI brief 67-source / 19-item triage — 4-item T1 verification → TC-10 N=9 + TC-4 acute-phase + T9 N=2 + B40.x N+3 scoped cascade
+
+**Trigger source:** user-shared morning AI Intelligence Brief 2026-06-15 (67 sources scanned, 19 items reported); 2-subagent parallel fan-out per Critical Rule #15 + LLM-native priming item 6 (Kioxia Day 3-4 pre-prep concurrent + 4-item morning brief T1 verification). Both subagents returned in same processing window.
+
+**Intake tier (per-item, post-verification — see full triage table in artifact):**
+- Item 1 (OpenAI 42-state AG): pre 🟡 → post **🟢 HARD** — T1 confirmed, B40 CLEAN
+- Item 2 (Google AI Overview): pre 🟡 → post **🟡 DIRECTIONAL preliminary + B40.3** — jurisdiction stripped (German court not US)
+- Item 3 (MSFT Copilot+ dGPU): pre 🟡 → post **🟢 strategic shift + 🟡 scope + B40.2 minor** — Phi Silica APIs only
+- Item 4 (Anthropic DC): pre 🟡 → post **🟢 HARD + B40.3** — Axios T1 not WSJ; 90-min Fable 5/Mythos 5 shutdown confirmed
+
+**Source:** 2 parallel research subagents covering native-en (Tom's Hardware / TNW / TechCrunch / TechTimes / Axios / Yahoo/Fortune / Nextgov / The Decoder / PPC.land / Windows News / Microsoft Learn T1) + native-de (Munich court reporting). Brief itself was T2 mixed-source; subagent verification surfaced the originating outlets + corrected attribution.
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-am-morning-brief-verification-cascade.md` — NEW artifact (full per-item triage + cluster updates + sources)
+- `signals/triangulation.md` TC-10 — N=8 → **N=9** with 42-state AG + Anthropic DC + sub-mechanism reweight (H_a 35%, H_b 35%, H_c 8%, H_d 40%)
+- `signals/triangulation.md` TC-4 — **acute-phase transition** note (Fable 5 / Mythos 5 90-min shutdown distinct from gradual drift)
+- `sector/themes.md` T9 — N=1 → **N=2 CONFIRMED-DIRECTION** with MSFT Build 2026 Phi Silica dGPU pivot
+- `meta/biases-watchlist.md` — B40.2 N=4 → **N=5** (MSFT scope-stripping); B40.3 N=3 → **N=5** (Google jurisdiction-stripping + Anthropic Axios-not-WSJ outlet-garbling); NEW sub-type B40.3c jurisdiction-to-implication mismatch added to taxonomy
+- `watchlist/candidates.md` — T9 N=2 cross-ref; NEW EU AI-deployment-liability candidate cluster (N=1)
+- `meta/tier-cascade-log.md` — THIS entry + Kioxia pre-prep entry SHA fill below
+
+**Files NOT touched (scoping rule fired correctly):**
+- All held cohort theses (HYNIX/SNDK/SUMCO/MURATA/MRVL/DDOG/NOW) — orthogonal to model-layer/regulatory cluster; chip/memory/passives demand orthogonal to which frontier lab is regulated
+- IBIDEN/CAMT/BESI theses (TSMC PLP cascade earlier this morning; no new datapoints for them here)
+- AGC + ARM (exited)
+- Portfolio files — no position changes (42-state AG affects private OAI; Anthropic acute-phase affects private; T9 N=2 doesn't trigger sizing math)
+- `meta/methodology.md`, `research/CLAUDE.md`, `meta/session-prime.md`, `meta/tags.md`, `INDEX.md` — no new principle/convention
+- `sector/where-we-are.md` — TC-10 already in synthesis ledger; TC-4 acute-phase note doesn't shift epoch read; T9 still CANDIDATE (N=3 promotion gate not met)
+- `predictions/grading-log.md`, `predictions/lessons.md` — no resolved predictions; no new lesson candidate (verifications validated existing harness disciplines working)
+
+**Stale flags fired:** none
+
+**Loop-validation note:** This is the SECOND real-data application of Principle #37 today (after TSMC PLP earlier this morning). Loop fired cleanly across both: brief tagged on intake → 2 subagents fired in parallel → 4 high-priority items verified → per-item tier reassessment → scoped cascade to 7 files (NOT held theses, NOT portfolio, NOT methodology) → log entry. **Two failures explicitly caught by verification:** (a) Google ruling jurisdiction-stripping would have created false US-precedent thesis in TC-10 if cascaded raw; (b) Anthropic source mis-attribution would have credited WSJ for Axios-native reporting. Both caught at verification step BEFORE cascade — exactly the value Principle #37 is designed to deliver.
+
+**Cascade-fatigue check:** 19 items in brief → 4 verified-actionable + 15 log-only. ~21% cascade-trigger rate. Within healthy range (high-noise briefs should produce few cascade triggers; 21% is concentrated near major regulatory events which is expected on a multi-state-AG day).
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
+### [2026-06-15] Kioxia VLSI Day 3-4 pre-prep monitoring — program lock + tipsheet H4 de-risk + Korean press calibration
+
+**Trigger source:** scheduled pre-event prep for Kioxia VLSI Symposium Day 3 (June 16 Honolulu, ~16h out). Single research subagent fan-out per Workflow #1 / Critical Rule #15. Cascade-vs-not discrimination: pre-prep is monitoring readiness, NOT new verified-data arrival → no cluster-state change → single-file update (the prediction file itself), no broader thesis cascade.
+
+**Intake tier:** 🟡 DIRECTIONAL (final) — program-day lock 🟢 (TFS1 session Tuesday June 16 3:25-5:30 PM HST at Hilton Hawaiian Village); tipsheet content de-risks H4 at abstract level (Q&A can re-fire); Korean press calibration on density-parity narrative pre-seeded against H2 Western "Kioxia behind" framing. **No cluster-state change** — signal density flat 48h pre-session.
+
+**Source:** subagent fan-out covering VLSI Symposium official program + MapYourShow (auth-walled for sub-IDs) + Mynavi/EE Times Japan native-jp + Tom's Hardware/Blocks-and-Files/AnandTech/ServeTheHome native-en + ETNews/Chosun Biz native-kr + tipsheet PDF references. Anchor sources: [TrendForce May 4 T2](https://www.trendforce.com/news/2026/05/04/news-kioxia-sandisk-to-demonstrate-qlc-nand-using-multi-stacked-cell-architecture-targeting-1000-layers/) + [Mynavi VLSI2026-5 T2](https://news.mynavi.jp/techplus/article/vlsi2026-5/) + [ETNews May 22 T1-kr](https://www.etnews.com/20260522000306) + [MapYourShow TFS1.3 T1](https://vlsi26.mapyourshow.com/8_0/sessions/session-details.cfm?ScheduleID=331).
+
+**Tier moves (scoped — only files actually intersecting):**
+- `predictions/2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md` — new "2026-06-15 PM update — Day 3-4 pre-prep monitoring" section: program lock + 🟡 narrative state + Day 3-eve hypothesis reweight (H1 40%→45%, H2 30%→25%, H3 20% held, H4 10% held) + monitoring sequence + native-en/jp search terms
+
+**Files NOT touched (scoping rule fired correctly):**
+- `companies/KIOXIA/thesis.md` — pre-prep is not a thesis-changing event; no new fundamental data
+- `companies/SNDK/thesis.md` — same
+- `signals/triangulation.md` TC-1 — no new datapoint for memory tightness cluster
+- All other held cohort theses (HYNIX/SUMCO/MURATA/MRVL/DDOG/NOW) — orthogonal
+- Portfolio files — no position changes
+- `meta/biases-watchlist.md` — no new B40.x instance from pre-prep
+- `predictions/grading-log.md` — status unchanged (still pending T+24h resolution ~June 19)
+
+**Stale flags fired:** none (file is 1 day old)
+
+**Cascade discrimination note:** demonstrates Principle #37's cascade-vs-not-cascade discrimination. Compare with prior TSMC PLP entry (8-file scoped cascade because Subagent B verified NEW T1 datapoints) vs this entry (single-file update because pre-prep is monitoring readiness, not new data arrival). The scoping rule prevents over-cascade in both directions.
+
+**Commit:** `c172ade` (filled in this 2026-06-15 AM morning brief cascade per lag-1 SHA-fill convention)
+
+---
+
 ### [2026-06-15] Principle #37 hook-enforcement layer shipped to repo mirror
 
 **Trigger source:** plan-mode follow-up cascade after the codification commits `7049a16` + `779ec88` landed; user re-entered plan mode 2026-06-15 PM and approved hook-enforcement plan via ExitPlanMode. Live-hook self-modification was blocked twice by auto-mode classifier ("agent-startup hook (Self-Modification)") — code shipped to `research/meta/hooks/` mirror with 1-step `cp` activation path so user retains explicit go/no-go on hook activation.

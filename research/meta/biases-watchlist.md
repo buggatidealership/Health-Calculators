@@ -1052,7 +1052,7 @@ Per `meta/codification-rule.md` §6 retroactive audit: B40 was originally "tempo
 
 **B40.1 — Stale-recycle (original):** secondary aggregators recycle older news as fresh. **N=12+ catches** (Meta-Scale ×3, HBM4 piece, Google-Intel TPU 2-day recycle, etc., + 2026-06-12 EVE Rubin CPX: SemiAnalysis Sept 10, 2025 article curated alongside fresh June 2026 items in evening brief, made-fresh by adjacency; resolved via subagent verification same-session — Workflow #9 macro-first ordering caught the contradiction at Step 0 BEFORE thesis cascade per `signals/cross-source-log/2026-06-12-evening-brief-22-item-triage-workflow9-applied.md` §5 + 2026-06-13 AM brief: SK Hynix Chey 3× by 2034 republished from June 11 harness anchor + Amazon 2.5B gal water republished from June 12 — both caught at Workflow #9 Step 0 before cascade + **2026-06-15 PM N+1: ETNews 2026-06-15 TSMC PLP article framed Samsung Electronics as "holding the upper hand" via 2019 Samsung Electro-Mechanics PLP acquisition — Subagent B verified this is partially stale for AI-chip segment (~2-year lag; current for mobile/consumer 2019-2024 framing; Samsung's AI PLP not yet confirmed in volume production for any AI accelerator customer as of June 2026). Partial-stale rather than full-stale because the 2019 acquisition fact itself is factually correct; the framing's currency for the AI context is what's stale.** Per `signals/cross-source-log/2026-06-15-pm-tsmc-plp-etnews-2subagent-verification-tc5-cascade.md`). VERIFIED-HIGH-CONFIDENCE. **Workflow #9 caught 3 stale-recycles in <48h (2026-06-12 EVE Rubin CPX + 2026-06-13 AM SK Hynix Chey 3× + 2026-06-13 EVE Musk-$1T 3rd-appearance + KPMG 3rd) — strongest empirical validation since codification; N=13+.**
 
-**B40.2 — Magnitude-inflation by rewording:** brief summarizers convert qualitative claims to quantitative-sounding statements. Examples this session: "prepares" → "announces"; rate-vs-stock garble in SpaceX Gigasat ("1 GW deployed" vs actual "1 GW/year production rate target"); opt-in → mandate (AWS Bedrock data-share); **2026-06-15 PM N+1: ETNews 2026-06-15 TSMC PLP article translated 양산 (production state) as "full-scale mass production" + "as early as next year [2027]" — contradicted by C.C. Wei T1-adjacent June 4 2026 "2-3 more years" → 2028-29 ramp consensus. Korean tech-press 양산 commonly means any production state beyond pilot, not necessarily volume ramp; translation/restatement inflated the timeline by ~1-2 generations** (per `signals/cross-source-log/2026-06-15-pm-tsmc-plp-etnews-2subagent-verification-tc5-cascade.md`). Pattern: load-bearing word (rate/stock, opt-in/mandate, draft/passed, **trial/volume**) silently swapped. CANDIDATE — N=4 instances logged June 2026; promotion threshold N=2+ met → CONFIRMED.
+**B40.2 — Magnitude-inflation by rewording:** brief summarizers convert qualitative claims to quantitative-sounding statements. Examples this session: "prepares" → "announces"; rate-vs-stock garble in SpaceX Gigasat ("1 GW deployed" vs actual "1 GW/year production rate target"); opt-in → mandate (AWS Bedrock data-share); 2026-06-15 PM TSMC PLP ETNews 양산 → "full-scale mass production" timeline-inflation; **2026-06-15 AM N+1: morning AI brief framed MSFT Copilot+ on dGPU as "potentially expanding Copilot capabilities to non-Copilot+ PCs" without scope-qualifier that ONLY Phi Silica APIs unlock on dGPU — Recall + Studio Effects + Live Captions remain NPU-only. Scope-stripping is the load-bearing inflation here: brief reader infers full Copilot+ portability when actual unlock is single API tier** (per `signals/cross-source-log/2026-06-15-am-morning-brief-verification-cascade.md`). Pattern: load-bearing word (rate/stock, opt-in/mandate, draft/passed, trial/volume, **full-feature-set/single-API**) silently swapped. **CONFIRMED — N=5 instances June 2026.**
 
 **B40.3 — Attribution-garbling:** secondary sources credit third-party research papers to the model vendor / large lab. Canonical: DeepSeek "FlashMemory" feature in June 10 evening brief = actually arXiv 2606.09079, Tencent AI Lab + Tsinghua authors, no DeepSeek affiliation; community GitHub repo name caused Reddit conflation. CANDIDATE — N=1 in 30 days; watch for second instance; if N=2+ in 60 days → CONFIRMED.
 
@@ -1084,6 +1084,30 @@ Per the B40.3 entry's own threshold ("if N=2+ in 60 days → CONFIRMED"):
 **Mechanism:** summarizers gravitate attribution toward the most-recognizable entity in the category (DeepSeek > Tencent-paper; Murata > Fenghua). The bigger the name, the higher the prior that a category-level behavior gets pinned on it specifically.
 **Enforcement:** subagent verification protocol step expanded — for any company-specific behavioral claim (restriction, suspension, price action, design win), demand the T1 entity-specific statement; if absent, check whether the behavior belongs to a DIFFERENT entity in the same category.
 **Status: CONFIRMED.** Composite B40 taxonomy now: B40.1 stale-recycle (VERIFIED-HIGH-CONFIDENCE, N=11+ as of 2026-06-15 with Songchuan staleness inflation), B40.2 magnitude-inflation (CONFIRMED, N=3), B40.3 attribution-garbling (**CONFIRMED N=3 + 1 retroactive — PROMOTED to VERIFIED-HIGH-CONFIDENCE 2026-06-15** with Songchuan ticker garble instance).
+
+### B40.3 N=5 instances (added 2026-06-15 AM) — Morning brief 2 sub-instances
+
+Per `signals/cross-source-log/2026-06-15-am-morning-brief-verification-cascade.md` — TWO B40.3 attribution-garbling instances in single morning brief:
+
+**Instance #4 — Google AI Overview jurisdiction stripped (B40.3 sub-type: jurisdiction-to-implication mismatch):**
+- Brief framing: "A court has held Google legally responsible for inaccurate information served through its AI Overview feature, potentially setting precedent for search engine liability in the AI era."
+- Actual: German Landgericht München I (Case 26 O 869/26), preliminary injunction May 28, 2026, defamation under German law, plaintiff Verlagshaus24, EUR 250k per-violation injunction, Google has appealed. NOT a US court. Section 230 unaffected. No US-applicable precedent.
+- The brief's "court has held" phrasing strips jurisdiction; reader infers US-applicable precedent. Original sources (The Decoder T2 / PPC.land T2 / MediaPost T2) all explicitly name "Munich" / "German court" — the garbling happened at brief-synthesis step, not at primary source.
+
+**Instance #5 — Anthropic DC source outlet garbled (B40.3 sub-type: outlet-to-claim mismatch):**
+- Brief attribution: "WSJ via Hacker News"
+- Actual T1 source: Axios June 14 2026 ("Anthropic flies staff to DC to clean up White House fight"). WSJ separately covered Anthropic export-control mechanics but the staff-DC-visit framing is Axios-native.
+- Content of the claim is accurate; outlet attribution is wrong.
+
+**Updated B40.3 taxonomy (3 sub-types now established):**
+- **B40.3a entity-to-action mismatch** (DeepSeek FlashMemory, Murata order-restriction)
+- **B40.3b entity-to-identifier mismatch** (Songchuan ticker garble 6202 vs 7788)
+- **B40.3c jurisdiction-to-implication mismatch** (Google Munich → US-precedent reading) — NEW sub-type 2026-06-15 AM
+- **Plus outlet-to-claim mismatch** (Anthropic Axios → "WSJ" attribution) — pattern N+1 within established outlet-misattribution sub-type
+
+**B40.3 counter: N=5 confirmed within 60 days.** VERIFIED-HIGH-CONFIDENCE status reinforced. Watch for whether morning-brief synthesis layer is a structural source of B40.3 garbling (brief-synthesis-as-attribution-stripping mechanism) — if N+1 within morning briefs continues, codify a hook to flag brief-source claims for verification before cascade.
+
+---
 
 ### B40.3 N=3 instance (added 2026-06-15) — Songchuan Precision ticker garble in 工商時報 article
 

@@ -704,6 +704,20 @@ Reuters T1 (Jun 10-11) on China's InP export-control regime + 2-subagent verific
 
 ## CoPoS / Glass-Core Packaging Cohort (added 2026-06-11; UPDATED 2026-06-15 PM — per `signals/cross-source-log/2026-06-15-pm-tsmc-plp-etnews-2subagent-verification-tc5-cascade.md` + prior `2026-06-11-copos-kuo-note-verification-neg-surprise-abf-inversion.md`)
 
+### 2026-06-15 AM cross-ref — Morning brief verification cascade (T9 N=2 + new EU AI-deployment-liability candidate cluster)
+
+Per `signals/cross-source-log/2026-06-15-am-morning-brief-verification-cascade.md`:
+
+- **T9 Consumer Hardware AI Swap CONFIRMED-DIRECTION at N=2.** Walsin AGM 2026-06-12 T1 (N=1) + Microsoft Build 2026 Phi Silica dGPU strategic pivot (N=2) converge from supply-side and platform-vendor sides on the same direction. N=3 promotion gate pending; watch for Apple CoreAI Mac-base expansion, AMD Ryzen AI dGPU integration, Snapdragon-alternative routing. **No new investable name surfaced at N=2**; sub-signal Qualcomm NPU moat erosion noted (no held cohort impact — ARM EXITED).
+
+- **NEW CANDIDATE cluster (N=1): EU AI search-engine deployment liability.** German Landgericht München I (Case 26 O 869/26) ruling Google AI Overviews are "independent, new, and substantive statements" making Google a publisher. Preliminary injunction under appeal; EUR 250k per-violation. **No US precedent** (Section 230 unaffected); first-instance German law only. **Investable expression today: none** — Google is global liability-holder; no upside name surfaces from N=1. Watch for N+1 same-segment within 90 days (EU AI Act Article 14 enforcement applications; UK CMA AI-deployment guidance; US state-level UDAP cases) → if N=3+ converges, cluster promotes to triangulation.md, reinforces TC-10 H_b regulatory-machinery sub-dimension.
+
+- **TC-10 sub-mechanism reweight** (does NOT change watchlist composition; affects sovereign-AI cohort directional weights): H_a 30%→35%; H_b 30%→35%; H_d 30%→40%. EU sovereign-AI cluster (CAP.PA / DTE.DE / OVH.PA / REY.MI / SU.PA / BE) bypass-route REINFORCED.
+
+- **TC-4 acute-phase transition** (Anthropic 90-min Fable 5 + Mythos 5 shutdown) does NOT change watchlist composition but warrants noting for enterprise-SaaS held cohort (DDOG/NOW) — observability is orthogonal to model-vendor regulatory crisis, but watch for Anthropic enterprise-renewal headlines that could carry through to AWS Bedrock partner exposure.
+
+---
+
 ### 2026-06-15 PM update — TSMC PLP / CoPoS ETNews 2-subagent cascade
 
 ETNews 2026-06-15 = signal-amplifying restatement (B40.1 partial-stale Samsung-incumbent + B40.2 timeline-inflation 2027) but Subagent B independently verified NEW T1 datapoints at substrate / equipment / OSAT layers that DO advance TC-5 to N=7. Cohort additions / reframings:

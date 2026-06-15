@@ -236,3 +236,66 @@ EV math (my model, back-of-envelope on ~€9K combined deployment):
 ## Position implication (Critical Rule #11)
 
 **Position implication: NO ACTION today (recommend Option B — reactive entry post-T+24h) — rationale: L14 was just falsified at N=1 on AVGO (2026-06-03) and L14-v2 expectations-exhaustion modifier (pre-print rally >10% → 0 to -15% T+24h) is the most likely active framework given Kioxia's profile (50× post-IPO, above consensus PT, 13 Buy/1 Sell). Cash abundance (~€120K Degiro dry powder per `portfolio/holdings.md`) means 1-week wait is zero opportunity cost. SNDK pre-event €5K top-up (Stage 2-3, better L14 setup) is the asymmetric partial path if user wants ANY pre-event exposure. Decision deferred to user on Option A/B/C split.**
+
+---
+
+## 2026-06-15 PM update — Day 3-4 pre-prep monitoring (program lock + tipsheet H4 de-risk + Korean press calibration)
+
+Per Kioxia Day 3-4 pre-prep subagent 2026-06-15 PM (single research subagent fan-out covering VLSI 2026 official program + Mynavi/EE Times Japan native-jp + Tom's Hardware/Blocks-and-Files/AnandTech native-en + ETNews/Chosun Biz native-kr):
+
+### 🟢 HARD program lock (final pre-event state)
+
+- **TFS1 session = Tuesday June 16, 3:25-5:30 PM HST (01:25-03:30 UTC June 17)** at Hilton Hawaiian Village
+- TFS1.3 = Samsung "Demonstration of Cell Multi-Bonding (CMB) Technology for Future Vertical NAND over 1k-Layer" — Samsung VP presenting
+- Kioxia "Flash Memory beyond 1,000 Word Lines" (M. Noda et al.) confirmed in TFS1 block; exact sub-ID auth-walled at MapYourShow → 🟡 DIRECTIONAL on placement, 🟢 HARD on session-day
+- Joint Kioxia/SanDisk MSA-CBA QLC paper — same TFS1 block per tipsheet
+- NEW: possibly separate Kioxia Schottky Source Contact paper (erase scalability beyond 1,000 word lines using CBA architecture) — adds disclosure surface
+- Day 4 = blank for Kioxia content; SK Hynix 4F2 VG-DRAM in tipsheet but session-date unconfirmed (Day 3 vs Day 4); Samsung leads all companies with 14 accepted papers
+
+### 🟡 DIRECTIONAL pre-event narrative state (NEW input to weighting)
+
+- **Tipsheet language EXPLICITLY de-risks H4 at abstract level**: tipsheet states the MSA-CBA architecture "overcomes key challenges including cell current degradation, wafer warpage, and large block (BLK) size." Author-curated abstract — Q&A can still re-surface caveats, but the framework-level claim is pre-published.
+- **Korean press framing is CALIBRATED on density-parity not layer-count** (ETNews May 22 T1-kr; Chosun via TrendForce; Korean Economic Daily): "Samsung approaches 1,000-layer threshold" framing dominates Korean coverage rather than "Kioxia behind." H2 (Western-press dominance "Samsung 900 vs Kioxia 332") is primarily Western-press risk, NOT universal.
+- **Counter-narrative pre-seeded** (TechTimes May 24 T2 + TrendForce June 12 T2): Kioxia BiCS10 332-layer expected to match Samsung V10 in Gbit/mm² density (59% density increase vs prior gen). Density-parity framing publicly available before session fires.
+- **No incremental tipsheet leaks in 48h pre-session** = pre-prep window does not warrant separate Day 1-2-style monitoring; the SESSION ITSELF is the information event
+
+### Pre-event hypothesis reweight (Day 3-eve, L25 explicit Bayesian update over PM-2 B45-corrected priors)
+
+| Hypothesis | PM-2 B45-corrected | Day 3-eve update | Rationale |
+|---|---|---|---|
+| H1 muted | 40% | **45%** | Tipsheet de-risks key challenges at abstract level + zero incremental 48h leaks = base-case "as expected" weight rises |
+| H2 Samsung dominates / "Kioxia behind" Western framing | 30% | **25%** | Korean press calibration pre-seeded density-parity counter-narrative; H2 is Western-press-risk subset, not universal |
+| H3 catalyst surprise | 20% | **20%** | Binary triggers unchanged (HBF mention OR hyperscaler customer OR 1000-layer firm date OR block-size solved). Two Kioxia papers (joint MSA-CBA + standalone Schottky) = mild surface-area increase but no specific signal |
+| H4 disappointment | 10% | **10%** | Tipsheet language de-risks at abstract; Q&A can re-fire residual warpage/yield/block-size caveats; net unchanged |
+
+### Monitoring sequence locked for Day 3 (single-pass triage)
+
+| Window (UTC June 17) | Source layer | What to watch |
+|---|---|---|
+| 01:25-03:30 | @VLSI_2026 / @KIOXIA / @sandisk live-tweet | Real-time Q&A reveals |
+| 03:30-05:00 | Tom's Hardware / Blocks and Files / AnandTech / ServeTheHome | First-publish Western framing — H2 activation gate |
+| 04:00-06:00 | EE Times Japan / Mynavi / PC Watch | Native-jp technical detail coverage |
+| 08:00-10:00 | ETNews / Chosun Biz | Korean amplification + Samsung-side framing |
+| (overnight) | Nikkei / Jiji + Kioxia IR post-session releases | Sidebar press / official statements |
+
+### Hypothesis-specific search terms ready
+
+- **H3 binary triggers** (native-en): "Kioxia VLSI HBF" / "Kioxia hyperscaler customer" / "Kioxia 1000 layer date" / "Noda Q&A reveal"
+- **H3 binary triggers** (native-jp): 「キオクシア HBF」「キオクシア 顧客 ハイパースケーラー」「1000層 日程」
+- **H4 binary triggers** (native-en): "Kioxia VLSI yield" / "Kioxia warpage problem" / "block size limitation NAND"
+- **H4 binary triggers** (native-jp): 「キオクシア 歩留まり」「反り 問題」「ブロックサイズ 制限」
+
+### Pre-prep verdict
+
+**GAPS-but-READY** per subagent: program-map confirmed at session-day level; sub-IDs within TFS1 auth-walled but doesn't affect monitoring (entire session = watch window). Day 4 program blank but reactive-to-Day-3-press triage adequate. Hypothesis triggers are binary + searchable. Single-pass monitoring sequence locked. Cluster-state unchanged pre-session (signal density flat 48h pre-session).
+
+### Files NOT touched by this pre-prep update (scoping rule, Principle #37)
+
+- `companies/KIOXIA/thesis.md` — pre-prep is not a thesis-changing event; no new fundamental data
+- `companies/SNDK/thesis.md` — same; pre-prep is monitoring readiness, not thesis update
+- `signals/triangulation.md` TC-1 — no new datapoint for memory tightness cluster (program lock != memory-market signal)
+- All other held cohort theses (HYNIX/SUMCO/MURATA/MRVL/DDOG/NOW) — orthogonal
+- Portfolio files — no position changes triggered
+- `meta/biases-watchlist.md` — no new B40.x instance from pre-prep
+
+Per `signals/cross-source-log/2026-06-15-pm-tsmc-plp-etnews-2subagent-verification-tc5-cascade.md` immediately preceding cascade demonstrates the cascade-vs-not-cascade discrimination Principle #37 enforces; this pre-prep update is the matching "no-cluster-state-change → update prediction file only, no broader cascade" application.
