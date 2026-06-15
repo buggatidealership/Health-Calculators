@@ -35,6 +35,63 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM15] Bernstein (Mark Li) Kioxia 285A.T Underperform ¥40,000 PT bear-note → 3 Opus subagents parallel verification → REFRAME (Bernstein note registered as Falsifier candidate; thesis HOLDS) + Critical Rule #16 ALWAYS-RUN-VERIFICATION-NEVER-ASK codification
+
+**Trigger source:** user-shared Bernstein bear-note abstract 2026-06-15 ~21:50 UTC with explicit unbiased-take ask. User also issued durable directive at 21:53 UTC verbatim: "always run verification with opus 4.8 and do not ask. verifications must always be run" — codified as Critical Rule #16 in this commit. 3 Opus subagents fired in parallel per Critical Rule #16 (was Principle #36 + user-directive at PM13 spec; now formalized).
+
+**Intake tier:** 🟡 DIRECTIONAL (final after 3-subagent verification) — Bernstein note real + verified at T1 source level but 3-leg bear case substantially weakened by verification; H1 Bernstein-RIGHT reweighted 25%→15% (my model post-3-subagent). Note registered as Falsifier candidate (F-Bernstein-2026 5-vector monitoring set) but does NOT fire pre-committed trim sequence on KIOXIA or SNDK.
+
+**Source:** 3 parallel Opus subagents — (a1342e2ea059b764a Bernstein note attribution, 0 tool uses + RE-FIRED a458e57ffb8e2d179 with 18 tool uses / 108s; a10b9c1f45e302de1 YMTC China structural, 9 tool uses / 119s; ab6297ab5c4b676af LTA walk-away historical precedent, 35 tool uses / 350s). Anchor sources: [Mark Li Stock Analysis T1](https://stockanalysis.com/analysts/mark-li/); [Investing.com consensus T1](https://www.investing.com/equities/kioxia-holdings-consensus-estimates); [Seeking Alpha Mark Li 2021 wrong-call T1](https://seekingalpha.com/news/3757547-micron-samsung-get-underperform-ratings-in-new-bernstein-report); [TrendForce Q3 2025 NAND share T1](https://www.trendforce.com/presscenter/news/20251203-12813.html); [Nikkei xTECH Kioxia VP Ota on YMTC T1](https://xtech.nikkei.com/atcl/nxt/info/18/00061/120200019/); [TrendForce 2026-04-09 3-5yr LTAs T1](https://www.trendforce.com/news/2026/04/09/news-from-annual-deals-to-3-5-year-ltas-samsung-and-sk-hynix-reportedly-reset-big-tech-memory-contracts/); [TIKR SNDK $42B/$11B T1](https://www.tikr.com/blog/sandisk-locked-in-42-billion-in-contracts-heres-what-management-told-jpmorgan-about-what-comes-next).
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm15-bernstein-kioxia-bear-note-3subagent-verification.md` — NEW artifact (full 9-section structural verdict + 5-vector falsifier set + multilingual EN/JP/KO/ZH source stack)
+- `companies/KIOXIA/thesis.md` — PM15 back-reference: Bernstein note 3-leg verification (peak-cycle WEAK / LTA walk-away WEAK-MODERATE / YMTC China MODERATE-WEAK); B40.1 stale-recycle MODERATE-STRONG (Mark Li 2021 wrong-call pattern); 5 new falsifier vectors registered (F-Bernstein-3a/3b/YMTC-revenue/YMTC-eSSD/MarkLi-flip); HOLD 100sh no action
+- `companies/SNDK/thesis.md` — PM15 back-reference: identical framework via Yokkaichi JV linkage; if Bernstein right on Kioxia, equivalent bear case on SNDK; PM10 Akamai-CDN-tier durability modestly mitigates magnitude (-20-35% drawdown vs Kioxia -30-50% in bear scenario); same 5-vector falsifier set; HOLD no action
+- `research/CLAUDE.md` — NEW **Critical Rule #16 ALWAYS-RUN-VERIFICATION-NEVER-ASK** codified per user verbatim 2026-06-15 PM15 directive; co-located with Workflow #1 INGEST step 2.5; detectability + falsifier 2026-07-15 first re-eval
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM14 SHA fill (`9331e29`)
+
+**Files NOT touched (per scoping rule):**
+- `companies/HYNIX/thesis.md` — HBM tier orthogonal; if Bernstein right on Kioxia, HYNIX HBM-tier insulated (only DDR/general DRAM partially affected at 3rd-order P~40%); no PM15 back-ref needed
+- `companies/MRVL/thesis.md`, `MURATA/thesis.md`, `SUMCO/thesis.md`, `DDOG/thesis.md`, `NOW/thesis.md` — orthogonal to NAND-tier bear case; PM14 was the most recent MRVL touch
+- `companies/IBIDEN/thesis.md`, `CAMT/thesis.md`, `BESI/thesis.md` — orthogonal
+- `portfolio/holdings.md`, `targets.md`, `changes.md` — no position changes (KIOXIA HOLD 100sh accidental position pre-screenshot per user discipline "holdings.md only gets changed when I send a new screenshot"; SNDK HOLD)
+- `signals/triangulation.md` — TC-1 memory tightness cluster unchanged (Bernstein note does not refute cluster state; it disputes terminal-value timing not regime-change)
+- `meta/methodology.md` — Critical Rule #16 added to CLAUDE.md not methodology.md per existing rule-location convention; methodology.md still references CLAUDE.md as canonical rule home
+- `meta/tags.md` — Rule #16 tag entry deferred to monthly audit June 24 (to ensure Rule #16 N≥1-applications-validated before tag commitment)
+- `meta/biases-watchlist.md` — B40.1 N-counter increments DEFERRED to monthly audit June 24; today's PM13 + PM14a + PM15 = 3 B40.1 fires documented in cross-source-log artifacts + cascade entries
+- `meta/session-prime.md` — Critical Rule #16 injection deferred until N=1 operational validation (next subagent fan-out without permission-ask = validation event)
+- `sector/themes.md`, `sector/where-we-are.md` — no synthesis-level shift (TC-1 memory tightness regime intact)
+- `predictions/grading-log.md`, `lessons.md` — no resolved predictions; Bernstein-3a/3b/YMTC-revenue/YMTC-eSSD/MarkLi-flip pre-registered as falsifier watch items, NOT yet formal prediction entries
+
+**Stale flags fired:** none (file 1 day old; first STALE flags ≥2026-07-15)
+
+**Critical Rule #16 codification co-cascade:**
+- Trigger: user verbatim "always run verification with opus 4.8 and do not ask. verifications must always be run" 2026-06-15 PM15
+- Rule scope: any user-shared external data point with thesis/sizing implications → fire Opus subagents in parallel WITHOUT permission-asking
+- Exemption: Q&A / restatement / harness-meta / format
+- Detectability: POSITIVE = subagent fires reliable + quality preserved; NEGATIVE = false-positive ≥3 / 30d OR cascade-error from subagent fabrication; FALSIFIER: monthly audit catches drift
+- Co-located with Workflow #1 INGEST step 2 (source validity check) → step 2.5 fire verification subagents
+- New failure mode logged: subagent #1 first attempt FAILED to invoke web tools; re-fired with explicit "EXECUTE WEB SEARCHES NOW" directive; documents need for explicit web-tool invocation language in subagent prompts
+
+**Reweighted final hypotheses (my model post-3-subagent):**
+- H1 Bernstein RIGHT P~15% (↓ from 25% prior): all 3 legs verified-weak; analyst track record poor; framework dispute not data dispute
+- H2 Bernstein PARTIALLY RIGHT P~55%: timing argument plausible; CY2027 peak / CY2029-2030 normalize more likely than CY2028
+- H3 Bernstein WRONG-FRAMEWORK P~30%: HBF tier-split + Kioxia AI-eSSD lock-in + NCNR regime strength + repeat-game discipline + structural-regime change all materially protect Kioxia
+
+**Loop-validation note (FIFTEENTH real-data application of Principle #37 today + FIRST Critical Rule #16 application):** clean joint cascade — note triage + rule codification in single commit:
+- 3 subagents fired in parallel; 3 of 3 converged on Bernstein weakening verdict
+- Held cohort cascade: KIOXIA + SNDK back-references (Yokkaichi JV linkage); HYNIX + 5 other held names orthogonal
+- Portfolio unchanged
+- Falsifier set EXPANDED on KIOXIA + SNDK theses (5 new pre-registered watch items)
+- Critical Rule #16 codified as DURABLE directive — future sessions inherit; ends permission-asking discipline drift at subagent-fan-out granularity
+- Subagent failure-mode logged: web-tool invocation directive must be explicit "EXECUTE WEB SEARCHES NOW" or reasoning-only returns possible
+
+**Cascade-fatigue check:** 15 cascades + Kioxia pre-prep + INDEX refresh = 17 events in ~26 hours. Per P#37 promotion gate (N=20 events without drift), 85% to promotion threshold. No scope-violation observed in any of the 15 cascades.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM14] Evening AI brief (83 sources / 17 items) → 2 Opus subagents parallel verification on MRVL optical multi-DC + AMD MEXT memory tiering → LIGHT-CASCADE REINFORCING on both held names
 
 **Trigger source:** user-shared evening AI brief 2026-06-15 ~21:30 UTC (83 sources / 17 items). Triage filter (Critical Rule #14) selected 2 highest-cascade-relevance items for parallel subagent verification (optimizing for HELD-position-impact × narrow verification surface × T1 source available); 7 items DEFERRED via skip-rule, 8 items SKIPPED as non-position-relevant. Subagents fired in parallel per Workflow #9 macro-first + Principle #36 LLM-native parallelism.
@@ -87,7 +144,7 @@
 
 **Cascade-fatigue check:** 14 cascades + Kioxia pre-prep + INDEX refresh = 16 events in ~25 hours. Per P#37 promotion gate (N=20 events without drift), 80% to promotion threshold. No scope-violation observed in any of the 14 cascades.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `9331e29` (filled in this PM15 cascade per lag-1 SHA-fill convention)
 
 ---
 

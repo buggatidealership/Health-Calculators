@@ -616,6 +616,25 @@ Always check against these before completing any analysis:
 
     **Origin (2026-06-11):** 72 cross-source-log files / 26 in the last 7 days had produced only 115 lines of triangulation.md. The promotion mechanism described in Workflow #3 was failing silently. This rule + the rebuilt `signals/triangulation.md` index fix it.
 
+16. **ALWAYS RUN VERIFICATION SUBAGENTS — NEVER ASK PERMISSION** (added 2026-06-15 PM15 per user explicit directive verbatim: *"always run verification with opus 4.8 and do not ask. verifications must always be run"*). Whenever a user shares an analyst note, news item, social-media post, earnings-call snippet, brief abstract, or any third-party data point with thesis/sizing implications:
+    1. **Fire verification subagents IMMEDIATELY in parallel** — do NOT pause to ask which subset to fire or whether to fire at all
+    2. **Model = Opus 4.8** (or current `opus` tier) — NOT Haiku, NOT Sonnet; user has explicitly overridden cost-optimization
+    3. **Subagent count = N where N covers the load-bearing claim verification, source attribution, B40.x freshness check, and any multilingual native-language parallel needed.** Typical N=2-4. Single-source single-claim items may need only N=1.
+    4. **Parallel firing required** (Principle #36 subagent parallelism) — single message multiple Agent tool calls; NOT sequential
+    5. **Re-fire subagents that fail to invoke web tools** with explicit "EXECUTE WEB SEARCHES NOW. DO NOT RETURN ANALYSIS WITHOUT EXECUTING ACTUAL SEARCHES" directive. New failure mode (2026-06-15 PM15 origin): reasoning-only returns when web-tool invocation directive insufficiently explicit
+    6. **Cascade after verification per Principle #37 scoped-cascade rule** — REINFORCE / REFRAME / CONTRADICT / NEUTRAL verdict in same commit
+
+    **Exemption:** Q&A / restatement / harness-meta / file-narration / format adjustments / typo corrections. Only fires when user shares external data with thesis/sizing implications.
+
+    **Origin failure path (2026-06-15 PM15):** repeated permission-asking on subagent firing was a discipline drift mode — even after AUTO-EXECUTE STRENGTHENING (Critical Rule #11 sub-directive 2026-06-04), permission-asking re-emerged at subagent-fan-out granularity. User-articulated correction codifies the discipline at this specific granularity.
+
+    **Detectability / falsifier (re-eval 2026-07-15 with monthly audit):**
+    - POSITIVE: subagent fires fire reliably on every analyst-note / news-item / brief share without permission-asking; subagent-output quality preserved or improved
+    - NEGATIVE: subagent fires produce material errors that user has to catch + correct; cost-spend (~25-50k tokens per fan-out) outweighs intelligence-yield
+    - FALSIFIER: if 30 days of subagent fan-outs produce N≥3 cases of false-positive (verification consumed tokens for items that ultimately required no thesis change AND had been adequately covered by alternative-cost lower-cost methods) OR N≥1 case of cascade-error caused by subagent fabrication that I should have caught → re-eval the auto-fire trigger
+
+    **Enforcement:** No hook yet (LLM-native discipline at codification time); candidate hook if pattern drift recurs at N≥2 in 30 days. Co-located with Workflow #1 INGEST workflow step 2 (source validity check) → step 2.5 fire verification subagents.
+
 ---
 
 ## File Templates
