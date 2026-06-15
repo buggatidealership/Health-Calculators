@@ -1539,3 +1539,48 @@ When new data lands (user-shared, my research output, or subagent result):
 **Promotion to Critical Rule #16:** pending N=2+ external verifications that the convention catches a B40.x or B46 instance the harness would otherwise have missed (per Principle #32 premortem).
 
 **First re-eval:** 2026-07-15 (monthly codification audit cycle).
+
+## Principle #38 candidate — Lead-Lag Variable Framework (added 2026-06-15 PM2)
+
+**The convention (one-line):** every tracking variable in the harness MUST be explicitly tagged as **LEAD** (acts BEFORE the market-moving event by some lead-time) or **LAG** (confirms AFTER the event). Variable construction defaults to LAG because LAG signals naturally surface from research-verified sources (filings, press releases, earnings); LEAD requires deliberate alt-data sourcing. Without the tag, sizing decisions get made on LAG variables and capture only consensus-level alpha.
+
+**Origin (N=1):** user pushback 2026-06-15 PM2 verbatim on the NBIS thesis tracking-variable framework: "you must use alternative data sources. Essentially, read one reason and infer what events, functions, or variables would proceed [precede]... what variables would lead before any of those variables to watch that you've listed actually happen." 8-subagent verification fan-out surfaced that the original 4-gate framework was 100% LAG-indicators; rebuilt at `companies/NBIS/tracking-variables.md` with LEAD stack first, LAG stack second, plus PAID/FREE tiering + native-language requirements + verified URLs.
+
+**The framework:**
+
+For every promotion gate / falsifier / monitoring variable in a thesis or cluster file, build BOTH:
+
+1. **LEAD indicator stack** (act before consensus) — each LEAD indicator gets:
+   - Verified working URL (subagent-confirmed accessibility tier: PUBLIC / FREE-WITH-REG / PAID / GATED)
+   - Estimated lead-time vs the gate event (historical case-calibrated where possible — pre-training estimates are usually wrong by 2-10×)
+   - Native-language requirement explicit
+   - Cross-gate efficiency (does the same source inform multiple gates?)
+
+2. **LAG indicator stack** (confirmation only) — explicit "do not chase" tagging
+   - These are press releases, earnings, sell-side PTs, 13F filings
+   - Useful for confirmation + grading-log; NOT for entry decisions
+
+3. **Convex hull / lateral check** (per LLM-native priming item 3): what world-state would make the LEAD indicators useless? What positive convex tail would fire ALL gates simultaneously?
+
+**Critical Rule #15 + Principle #38 interaction:** Critical Rule #15 enforces research-vs-recall tagging (T1/T2/T3); Principle #38 enforces lead-vs-lag tagging on top of source-tier. A T1 source can be either LEAD or LAG depending on whether the variable it surfaces is published BEFORE or AFTER the gate event. Both tags required.
+
+**Pre-training calibration warning (B45 + new B47 candidate):** my pre-training estimates of lead-times are usually wrong by 2-10×. Specific verified mis-calibrations from NBIS framework rebuild:
+- Sovereign RFP → contract: claimed 3-12 months; reality 1-2 months fast-track (Isambard-AI 5 weeks) OR 24-48 months regulated sovereign-cloud (Bleu France 32 months) — bimodal not unimodal
+- ENISA draft → CADA Level 3: claimed 3-6 months; reality 24+ months minimum (EUCS at 6 years no adoption)
+- Interconnect → online: claimed 6-18 months; reality 15-24 months grid-tied; 4-6 years greenfield generation (Meta Hyperion gas plant approval 2025 → operational 2030)
+- Job postings → capacity announcement: claimed 1-3 months; NO clean historical case verifies this — plausible but unverified
+
+**B47 candidate (new bias):** Pre-training lead-time conservatism. Pre-training systematically OVERSTATES lead-time for fast-track government action and UNDERSTATES lead-time for regulated EU processes. Origin: NBIS verification 2026-06-15 PM2. Watch for N=2 application — every thesis with explicit gate timing should be cross-checked against historical case calibration.
+
+**URL freshness as additional dimension:** subagent verification of the NBIS source list surfaced ~30% URL-decay rate over 2-3 years (`scihub.copernicus.eu` shut down 2023; `ruimtelijkeplannen.nl` deprecated 2024; ENISA RSS discontinued; `planning.gov.fi` doesn't exist; `aion.eu` doesn't exist; `appalti.gov.it` doesn't resolve). Every tracking-variable file must include URL-verification-date and be re-checked on monthly codification audit.
+
+**Status:** CANDIDATE pending N=2 application — next application: apply Lead-Lag Variable Framework to any TC cluster's existing tracking variables (TC-1 / TC-6 / TC-10 most likely candidates given their active cascade rate). Promotion gate: N=2 application + at least one case where LEAD indicator caught a signal LAG indicator would have missed (or vice versa — LAG-only chasing led to entry after consensus).
+
+**Retirement / refinement triggers (detectability, audit 2026-07-15):**
+- POSITIVE: at least one cascade event surfaces a signal via LEAD indicator that LAG-only tracking would have missed → framework is load-bearing
+- DECORATIVE: 30 days produce zero LEAD-vs-LAG distinctions that matter for sizing decisions → retire or refine
+- B47 monitoring: every gate-timing estimate gets retroactively case-calibrated; if pre-training estimates are within 25% of historical cases consistently, B47 dissolves; if 2-10× error persists, B47 promotes to CONFIRMED
+
+**Promotion to Critical Rule #17:** pending N=2+ application + at least one B47 catch (lead-time estimate corrected via historical case calibration that materially changed thesis gate timing).
+
+**First re-eval:** 2026-07-15 (monthly codification audit cycle, same date as Principle #37 re-eval).

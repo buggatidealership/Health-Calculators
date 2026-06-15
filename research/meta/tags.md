@@ -35,6 +35,7 @@
 - **B42** Expectations-exhaustion bias
 - **B43** Stage 4 reaction bias (NVDA Q2 FY27 context)
 - **B44** Chat-summary discipline drift from file-level discipline (CANDIDATE; N=6 intra-session 2026-06-11)
+- **B47** Pre-training lead-time conservatism (CANDIDATE N=1 origin NBIS 2026-06-15 PM2; pre-training systematically OVERSTATES lead-time for fast-track government action, UNDERSTATES for regulated EU processes; watch for N=2 application)
 
 ## Principles (meta/methodology.md)
 - **#1** Bottoms-up before outside view
@@ -51,6 +52,7 @@
 - **#35** CANDIDATE — Codification trigger rule (ADDED 2026-06-11; meta/codification-rule.md)
 - **#36** CANDIDATE — AI-native operating frame at capability scale
 - **#37** CANDIDATE — Truth-Tier Taxonomy + Scoped-Cascade Rule (ADDED 2026-06-15; meta/tier-cascade-log.md)
+- **#38** CANDIDATE — Lead-Lag Variable Framework (ADDED 2026-06-15 PM2; every tracking variable tagged LEAD vs LAG + verified URL + native-lang + lead-time historically-calibrated; NBIS first application at `companies/NBIS/tracking-variables.md`)
 
 ## Truth-Tier markers (Principle #37, ADDED 2026-06-15)
 - **🟢 HARD** — T1 receipt: filing / IR disclosure / gov data / court record / contract / audited spec. Citation URL or document path REQUIRED.

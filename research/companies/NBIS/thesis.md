@@ -1,6 +1,55 @@
 # Nebius (NBIS) — Thesis
 
-**Last updated:** 2026-06-15 PM (user-hypothesis 2-subagent + 1 background-duplicate verification on EU sovereign-AI bypass-route thesis + NDX inclusion June 22 confirmation; minor sizing/tier framework updated — see 2026-06-15 PM back-reference below)
+**Last updated:** 2026-06-15 PM2 (user methodology pushback on lag-vs-lead tracking variables → 8-subagent verification fan-out → 4 gates materially reframed + dedicated `tracking-variables.md` created with verified LEAD-indicator stack + Principle #38 candidate codified)
+
+## 2026-06-15 PM2 back-reference — Tracking-variable framework rebuilt LEAD-first per user pushback
+
+User pushback 2026-06-15 ~14:29 UTC verbatim: "you must use alternative data sources. Essentially, read one reason and infer what events, functions, or variables would proceed [precede]... what variables would lead before any of those variables to watch that you've listed actually happen."
+
+The 2026-06-15 PM thesis had 4 promotion gates that were **100% LAG indicators** (fire AFTER consensus catches up; buying after lag-indicator confirmation is buying after market-moving event is public). 8-subagent Opus verification fan-out (URL accessibility + lead-time historical case calibration + alt-data bucket completeness) rebuilt the framework. **Dedicated file at `companies/NBIS/tracking-variables.md`** holds the full LEAD stack first, LAG stack second, plus convex-hull lateral check.
+
+### 4 promotion gates MATERIALLY REFRAMED per verification
+
+| Gate (original) | Verified correction |
+|---|---|
+| 1 — Named additional sovereign deal ex-UK | **Bimodal lead-time** (NOT 3-12 months unimodal): 1-2 months fast-track (Isambard-AI 5 weeks) OR 24-48 months regulated sovereign-cloud (Bleu France 32 months). Track which bucket a signal falls into via TED.europa.eu API + BOAMP.fr + ANAC OCDS + Bundesregierung/Élysée RSS + Sentinel-2 + LobbyFacts.eu |
+| 2 — CADA Level 3 classification | **Years out NOT binary 2026** — CADA only adopted by Commission June 3 2026; EUCS precedent = 6 years no adoption. Reframe to "monitor CADA legislative trajectory + Commission delegated act schedule" (expected 12-24 months post-proposal = 2027-2028 earliest). Track via LobbyFacts.eu API + Euractiv free tier + Coreper register + ENISA email (RSS discontinued) |
+| 3 — Q2 2026 earnings EU-mix + 2.5 GW EMEA capacity | **EU-mix unobservable from public filings** (Nebius reports by business unit Core AI Cloud / TripleTen / Avride, NOT by geography). **2.5 GW EMEA end-2026 SPECULATIVE** — confirmed near-term sites = ~625 MW (310 Lappeenranta + 240 Béthune + 75 Mäntsälä). Reframe to LEAD proxies: TED + BOAMP API for EU wins; status.nebius.com outages for utilization stress (eu-north1 IPv4 exhaustion June 3 = precedent); SEC EDGAR Form 4 cluster buys CIK 1513845; Altindex LinkedIn employee growth; Sentinel-2 monthly site monitoring; SemiAnalysis NVDA channel checks (paid) for Vera Rubin allocation share |
+| 4 — EU InvestAI Gigafactory call names Nebius | **Gate condition NOT TRIGGERED YET** — EuroHPC formal call not yet launched as of June 15 2026; 76 EoIs received but no shortlist; expected late 2026 / H1 2027 realistic earliest per LUMI/Leonardo historical analogs. Track via EuroHPC JU newsroom + CORDIS + LobbyFacts.eu + member-state cabinet announcements + AION consortium via Scaleway press (AION has no dedicated website — confirmed non-existent) |
+
+### Critical URL corrections that affect actionability
+
+5 dead URLs + 4 wrong-agency assignments in my original framework (per subagent verification):
+- `appalti.gov.it` does NOT resolve → use `dati.anticorruzione.it/opendata` (ANAC OCDS API free swagger)
+- `evergabe.de` is private; official federal is `evergabe-online.de`
+- `ruimtelijkeplannen.nl` DEPRECATED 2024 → use `omgevingsloket.nl` + Omgevingswet API
+- `planning.gov.fi` does NOT exist → use `lupapiste.fi` + Ryhti national system (live 2026)
+- `scihub.copernicus.eu` shut down 2023 → use `dataspace.copernicus.eu`
+- BNetzA / ANSSI WRONG AGENCIES for Gigafactory pre-qualification (BNetzA = AI Act market surveillance; ANSSI = cybersecurity) → reassign to BMWK (Germany Federal Ministry for Economic Affairs)
+- `aion.eu` does NOT exist → monitor via Scaleway press + EDF press + Orange IR
+- ENISA RSS DISCONTINUED — email-alert mechanism replacement only
+- AML5 UBO registries (NL/DE/FR/IT/LU) CLOSED to public post-CJEU Nov 2022 ruling
+- GAIA-X / Nebius GitHub signal path does NOT EXIST (Nebius has zero GAIA-X public contributions; signal speculative)
+- TenneT / RTE / Fingrid interconnect named-applicant queues NOT PUBLIC (aggregate stats only; National Grid ESO at `data.nationalgrideso.com` is the ONLY European TSO with named-applicant queue, UK-specific)
+- NBIS does NOT use Greenhouse / Lever / Workday — proprietary ATS; use Altindex aggregator or LinkedIn directly
+
+### Pre-training lead-time conservatism caught (B47 candidate origin N=1)
+
+Pre-training estimates were wrong by 2-10× on 4 of 5 lead-times I gave:
+- Sovereign RFP→contract: claimed 3-12 months; reality bimodal 1-2 months fast-track OR 24-48 months regulated
+- ENISA→CADA: claimed 3-6 months; reality 24+ months minimum (EUCS at 6 years no adoption)
+- Interconnect→online: claimed 6-18 months; reality 15-24 months grid-tied OR 4-6 years greenfield generation
+- Job postings→capacity: claimed 1-3 months; NO clean historical case verifies this
+
+B47 codified at `meta/biases-watchlist.md` as candidate N=1. Watch for N=2 application — next thesis with explicit gate timing gets cross-checked.
+
+### Position implication update
+
+**Position implication: 🟡 DIRECTIONAL — NO ACTION on spot ($232-236) — Active-candidate framing maintained from 2026-06-02 (Aschenbrenner 5.6% 13G basis); entry-trigger frame remains Aschenbrenner-validated pullback to ~$205-210. Gate framework MATERIALLY CORRECTED: Gate 2 is YEARS out (multi-year monitoring, not binary 2026 fork); Gate 4 condition NOT triggered (formal EuroHPC call hasn't launched); Gate 3 EU-mix metric UNOBSERVABLE from public filings (needs LEAD proxies); Gate 1 lead-time bimodal (1-2mo fast-track or 24-48mo regulated). Dedicated LEAD-indicator monitoring stack at `companies/NBIS/tracking-variables.md` (15 verified free + 6 paid sources, ranked by signal-to-noise). 5-source minimum daily stack: TED API + SEC EDGAR Form 4 Atom (CIK 1513845) + status.nebius.com + EuroHPC newsroom + LobbyFacts.eu Nebius datacard. Per B45 regime base rate single-day moves +5-12% routine — do NOT over-read magnitude of June 22 inclusion auction reaction. Insider selling $131M T3M / zero buys remains yellow flag.**
+
+---
+
+**Prior last updated:** 2026-06-15 PM (user-hypothesis 2-subagent + 1 background-duplicate verification on EU sovereign-AI bypass-route thesis + NDX inclusion June 22 confirmation; minor sizing/tier framework updated — see 2026-06-15 PM back-reference below)
 
 ## 2026-06-15 PM back-reference — User hypothesis triage + NDX inclusion + EU sovereign-AI bypass thesis (3-way subagent convergence)
 

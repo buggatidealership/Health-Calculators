@@ -35,6 +35,43 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM2] NBIS Lead-Lag Variable Framework cascade (Principle #38 candidate + B47 candidate + 4 promotion gates materially reframed)
+
+**Trigger source:** user methodology pushback 2026-06-15 ~14:29 UTC verbatim "you must use alternative data sources... what variables would lead before any of those variables to watch that you've listed actually happen." Exposed that my 2026-06-15 PM tracking-variable framework was 100% LAG indicators.
+
+**Intake tier:** 🟢 HARD (final, post 8-subagent Opus verification fan-out) — multiple subagents converged on: (a) URL accessibility tiers verified per source; (b) lead-time historical case calibration corrected 4/5 estimates; (c) NBIS-specific corrections (CIK 1513845 confirmed; ATS proprietary not Greenhouse/Lever/Workday; EU-mix unobservable from public filings; 2.5 GW SPECULATIVE).
+
+**Source:** 8 parallel Opus subagents (1 re-fired after first attempt returned empty acknowledgment; 7 additional gate-specific + lead-time-calibration + missed-alt-data-bucket fan-out subagents). Token spend ~250k cumulative; 4 minutes wall-clock for slowest subagent.
+
+**Tier moves (scoped — only files actually intersecting):**
+- `companies/NBIS/tracking-variables.md` — NEW (verified LEAD-indicator stack with 15 free + 6 paid sources; LAG stack explicit "do not chase" tagged; convex hull lateral check; per-gate corrected monitoring sequence)
+- `companies/NBIS/thesis.md` — 2026-06-15 PM2 back-reference appended (NOT overwritten — existing 2026-06-02 Active-candidate + 2026-06-15 PM updates maintained); 4 promotion gates materially reframed with verified lead-times; Position-implication line updated with 5-source daily monitoring stack
+- `meta/methodology.md` — Principle #38 CANDIDATE codified (Lead-Lag Variable Framework) + B47 candidate noted (pre-training lead-time conservatism)
+- `meta/tags.md` — Principle #38 + B47 entries added
+- `meta/session-prime.md` §9b — Principle #38 convention block for cold-session injection
+- `meta/tier-cascade-log.md` — THIS entry + prior b693642 SHA fill below
+
+**Files NOT touched (per scoping rule):**
+- All held cohort theses (HYNIX/SNDK/SUMCO/MURATA/MRVL/DDOG/NOW) — orthogonal to NBIS tracking-variable framework; LEAD-LAG codification applies harness-wide but cascade to held theses happens organically on next per-thesis cascade event
+- IBIDEN/CAMT/BESI — TSMC PLP cascade earlier today; no overlap with NBIS framework
+- AGC/ARM (exited)
+- portfolio/holdings.md / targets.md / changes.md — no position changes (NBIS Active-candidate framing maintained; entry-trigger remains Aschenbrenner-validated pullback to $205-210)
+- `signals/triangulation.md` TC-10 — no new cluster instance from NBIS framework rebuild; existing TC-10 cell already references NBIS UK proof case
+- `signals/cross-source-log/2026-06-15-pm-nebius-2subagent-verification-eu-sovereign-bypass-thesis.md` — prior artifact stands as-is; new tracking-variables.md is the supplement
+- `research/CLAUDE.md` / `INDEX.md` — no new retrieval rule (could add one for tracking-variables files; defer to monthly audit)
+- `predictions/grading-log.md` / `lessons.md` — no resolved predictions; B47 candidate stays in biases-watchlist not lessons until verified through case
+- `meta/biases-watchlist.md` — B47 codification deferred to dedicated entry in next cascade (referenced in methodology.md + tags.md is sufficient anchor for now)
+
+**Stale flags fired:** none (file is 1 day old)
+
+**Loop-validation note (FOURTH real-data application of Principle #37 today):** verification fan-out caught 4/5 lead-time estimates wrong + 5 dead URLs + 4 wrong-agency assignments + EU-mix unobservability + 2.5 GW speculative + multiple missed alt-data buckets. **Principle #38 + B47 codification is the meta-insight FROM THE VERIFICATION ITSELF** — pre-training systematically defaults to LAG indicators because LAG sources naturally surface; building LEAD requires deliberate alt-data sourcing AND historical case calibration of lead-times. This generalizes beyond NBIS to ALL tracking-variable construction in the harness.
+
+**Subagent-failure-and-recovery note:** original re-fired subagent (a8bb2fe73dcdf856d) returned the full 20-URL table after 81 tool uses / 4-minute runtime. 7 background-fired subagents on parallel sub-scopes returned more focused per-gate verdicts. Net: 3-way+ convergence on URL corrections, 4-way+ convergence on lead-time corrections. Strong evidentiary base.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM] Nebius (NBIS) user-hypothesis 2-subagent verification (+1 background-duplicate) → 3-way convergence + EU sovereign-AI bypass-route REFRAMING + NDX inclusion confirmation cascade
 
 **Trigger source:** user-articulated hypothesis 2026-06-15 ~11:21 UTC verbatim: "[Nebius] are headquartered in France ... they might become the AI data center build out partner for most sovereign EU countries ... they also are getting added to the Nasdaq end of June ... what variables we must track." User explicitly flagged as "completely unverified assumption" and explicitly directed: "Use OPUS 4.8 for each sub agent" (not Haiku).
@@ -69,7 +106,7 @@
 
 **Cascade-fatigue check:** 3 cascades today (TSMC PLP morning + morning brief + NBIS PM) + 1 pre-prep (Kioxia) = 4 events in ~12 hours. Per Principle #37 promotion gate (N=20 cascade events without drift for CANDIDATE → CONFIRMED), tracking-rate is healthy and ahead of pace. No scope-violation observed in any of the 4 events (all held theses untouched except where direct intersection existed).
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `b693642` (filled in this 2026-06-15 PM2 Lead-Lag Variable Framework cascade per lag-1 SHA-fill convention)
 
 ---
 

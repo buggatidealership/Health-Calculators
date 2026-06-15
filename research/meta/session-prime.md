@@ -131,6 +131,16 @@
 
 **Status:** 🟡 CANDIDATE (Principle #37 born at directional pending 30-day operational test). Promotion gate: N=20 cascade events successfully logged without drift. First re-eval 2026-07-15.
 
+### §9b — Principle #38 CANDIDATE — Lead-Lag Variable Framework (added 2026-06-15 PM2)
+
+Every tracking variable in a thesis / cluster / candidate file must be tagged **LEAD** (acts BEFORE the market-moving event) or **LAG** (confirms AFTER) — explicitly. Default is LAG because LAG signals naturally surface from research-verified sources (filings / earnings / press releases); LEAD requires deliberate alt-data sourcing. Without the tag, sizing decisions get made on LAG variables and capture only consensus-level alpha.
+
+For every gate / falsifier / monitoring variable: build BOTH lead-indicator stack (verified URL + accessibility tier + native-lang + historically-calibrated lead-time) AND lag-indicator stack (explicit "do not chase" tagging). Plus convex-hull / lateral check per LLM-native priming item 3.
+
+**B47 candidate** (pre-training lead-time conservatism): pre-training estimates of lead-times are systematically wrong by 2-10×. NBIS origin (2026-06-15 PM2): sovereign RFP→contract claimed 3-12 months, reality bimodal (1-2 months fast-track OR 24-48 months regulated). ENISA→CADA claimed 3-6 months, reality 24+ months minimum. Pre-training OVERSTATES fast-track government action, UNDERSTATES regulated EU processes. Every gate-timing estimate gets retroactively case-calibrated.
+
+First application: `companies/NBIS/tracking-variables.md`. Next application N=2: any TC cluster's tracking variables (TC-1 / TC-6 / TC-10 most likely given active cascade rate).
+
 ## §10. ARCHITECTURE NOTE — how this file gets maintained
 
 Per Critical Rule #13 codification cascade discipline (updated 2026-06-12): every commit that adds a new bias / lesson / principle / critical rule / triangulation cluster MUST also update this file in the same commit. The `cascade-enforcement-hook.py` does not currently check for session-prime updates — manual enforcement until N≥2 skips trigger building `~/.claude/session-prime-cascade-hook.py`. Audit at 2026-07-12 + monthly thereafter: if codifications happened but session-prime wasn't updated, the maintenance discipline is broken and needs hook-enforcement.
