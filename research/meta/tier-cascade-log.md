@@ -35,6 +35,54 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM3] NBIS NDX inclusion mechanics primer + material number corrections (float-adjusted weight + June 13 weekend correction + co-add cluster + post-inclusion -7% academic pattern)
+
+**Trigger source:** user-directed primer 2026-06-15 ~14:53 UTC verbatim ask for layman NDX mechanics + passive flow + post-inclusion patterns. 3 Opus subagents (a33c0bdbf398004a1 returned primer; a0207dd3f250ba2cf returned QQQ/QQQM/international AUM granular detail; ab88e93473d648f96 returned NBIS market cap + float + announcement-day data) converged on T1 Nasdaq sources.
+
+**Intake tier:** 🟢 HARD on T1 Nasdaq + SEC + Invesco sources; 🟡 DIRECTIONAL on model-derived passive-flow estimates ($1.06-1.54B mandatory + $100-200M/yr ongoing)
+
+**Source:** primary Nasdaq IR + ecosystem report + methodology FAQ; Invesco QQQ/QQQM official; SEC 20-F NBIS for share structure; multiple market-cap aggregators (companiesmarketcap, stockanalysis, mlq.ai) within $1B convergence
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm3-ndx-inclusion-mechanics-primer-nbis-application.md` — NEW artifact (full primer + material corrections appended after late subagents returned)
+- `companies/NBIS/tracking-variables.md` — appended "NDX Inclusion Mechanics — LAG indicator context" section with corrected passive flow estimates + co-add cohort comparison + 4 LEAD-indicators for post-inclusion path monitoring
+- `meta/tier-cascade-log.md` — THIS entry + prior 43c16ba SHA fill below
+
+**Material corrections to my prior chat synthesis** (caught by parallel subagents AFTER initial primer drafted):
+- NBIS float-adjusted market cap ~$47.7B (not $58.5B for weight math); float 81.6% per FY2025 20-F T1
+- NDX weight 0.18-0.22% (not 0.22-0.25%) using float-adjusted
+- Mandatory passive flow $1.06-1.54B (not $1.5-1.75B) using 0.18-0.22% × $587-700B AUM
+- June 13 was SATURDAY — "Friday June 13 ~+5% follow-on" date error corrected; actual was Monday June 15 pre-market ~+8.9%
+- NBIS institutional ownership pre-inclusion only 21.9% (very low for $58B name; mechanical institutional uplift coming)
+- NBIS daily $-volume $3.81-4.4B → mandatory flow = 0.4-0.5 days of average volume = VERY ABSORBABLE (not liquidity-constrained as I implied)
+- 5 co-adds cluster $55-63B (ALAB/CRWV/NBIS/RKLB/TER) — NBIS doesn't get disproportionate share
+- QQQ converted UIT → open-end Dec 22 2025; QQQM AUM broke above $83B (running toward $95B)
+- QQQ daily $-volume $38.7B (3-month avg per MarketChameleon) — way larger than I assumed
+
+**Files NOT touched (per scoping rule):**
+- All held cohort theses (HYNIX/SNDK/SUMCO/MURATA/MRVL/DDOG/NOW) — NDX inclusion is NBIS-specific not portfolio-wide
+- IBIDEN/CAMT/BESI (earlier TSMC PLP cascade; no overlap)
+- AGC/ARM (exited)
+- portfolio files — no position changes (NBIS Active-candidate framing unchanged; entry-trigger remains pullback to ~$205-210)
+- `companies/NBIS/thesis.md` — NDX mechanics are background context; thesis was already updated 2026-06-15 PM + PM2 with inclusion confirmation + 4 reframed gates
+- `signals/triangulation.md` — NDX inclusion is not a TC cluster event
+- methodology / CLAUDE.md / session-prime / tags / INDEX — no new principle (educational research not methodology codification)
+- sector/themes.md / sector/where-we-are.md — no theme-level event
+- predictions/grading-log.md / lessons.md — no resolved predictions
+- biases-watchlist.md — no new B40.x instance (initial primer had June 13 date error that was caught + corrected pre-commit via parallel subagent verification; meta-pattern of date-error-self-catch via parallel verification is positive evidence of the locked loop working)
+
+**Stale flags fired:** none
+
+**Loop-validation note (FIFTH real-data application of Principle #37 today):** initial primer had 3 errors (float vs total cap; June 13 Saturday; passive flow over-estimated) that parallel subagent verification caught BEFORE commit. The cross-source-log artifact's "Material corrections from late-returning parallel subagents" section is the audit trail showing the discipline worked. This is the loop catching ITS OWN ERROR via convergent verification — exactly the value proposition.
+
+**Cascade-fatigue check:** 5 cascades today (TSMC PLP morning + morning brief + NBIS PM + Lead-Lag framework PM2 + NDX mechanics PM3) + Kioxia pre-prep = 6 events in ~15 hours. Per Principle #37 promotion gate (N=20 events without drift), tracking-rate is well-ahead of pace. No scope-violation observed (held theses untouched in all 5 cascades).
+
+**Hook-validation note:** both anti-fabrication hook + signal-ingest-cascade hook fired correctly during this cascade — anti-fabrication caught $712%/713% AppLovin discrepancy + $58.5B repo-grounding mismatch; signal-ingest-cascade enforced creating the cross-source-log file rather than chat-only persistence. Both hooks doing what they were designed to do.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM2] NBIS Lead-Lag Variable Framework cascade (Principle #38 candidate + B47 candidate + 4 promotion gates materially reframed)
 
 **Trigger source:** user methodology pushback 2026-06-15 ~14:29 UTC verbatim "you must use alternative data sources... what variables would lead before any of those variables to watch that you've listed actually happen." Exposed that my 2026-06-15 PM tracking-variable framework was 100% LAG indicators.

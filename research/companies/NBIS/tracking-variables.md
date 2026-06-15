@@ -141,8 +141,33 @@ What would make all 4 gates FIRE simultaneously (positive convex)?
 
 Both convex tail outcomes are P~10-15% (my model). Base case is gradual gate-by-gate close over 12-24 months.
 
+## NDX Inclusion Mechanics — LAG indicator context (added 2026-06-15 PM3)
+
+Per `signals/cross-source-log/2026-06-15-pm3-ndx-inclusion-mechanics-primer-nbis-application.md` (3-subagent verification with T1 Nasdaq sources):
+
+**NDX inclusion is a LAG event** — once announced June 12, the alpha was captured immediately. Mandatory passive flow ~$1.06-1.54 billion (using float-adjusted weight 0.18-0.22% × $587-700B AUM range) concentrates in June 19 close + June 22 open auctions. NBIS daily $-volume $3.81-4.4B means flow = 0.4-0.5 days of average volume — VERY ABSORBABLE, not liquidity-constrained.
+
+**Cumulative pre-effective gain already captured: ~+15-20%** (June 12 AH +6-13% + June 15 pre-market +8.9%). Residual mechanical squeeze into June 19-22 = ~3-5% (model estimate, B45 routine range — NOT extreme).
+
+**Ongoing structural flow: ~$100-200M/year** from QQQ + QQQM (model estimate) — small per-day but compounds; serves as structural floor.
+
+**Academic post-inclusion pattern: -7% cumulative over 50 days** ([EUR thesis T2](https://thesis.eur.nl/pub/33763/MA-Thesis-Robert-Kaptein.pdf)); SHARPER for high-momentum prior runs (NBIS profile matches APP / PLTR). QQQ's 8% daily AUM turnover means trader-side rotation accelerates the reversal vs pure-passive model.
+
+**Pre-inclusion NBIS institutional ownership only 21.9%** vs typical 70-85% for $58B NDX names — inclusion mechanically forces institutional UP; structurally positive for long-term price-discovery durability but means pre-inclusion AH spike was largely retail-front-running not institutional accumulation.
+
+**5 co-adds cluster $55-63B** (ALAB $63B / CRWV $55B / NBIS $58.5B / RKLB $59B / TER $63B) — NBIS doesn't get disproportionate passive flow share; co-add cohort splits demand 5 ways.
+
+**QQQ structural change: converted UIT → open-end ETF Dec 22, 2025**; expense ratio 0.20% → 0.18%; unlocked securities lending.
+
+**Key NDX-mechanics LEAD indicators** (the post-inclusion path that DOES have signal):
+- **Co-add CRWV / ALAB / RKLB / TER post-inclusion price action** = real-time A/B test of NBIS path; track via Yahoo Finance / Bloomberg June 22 onward
+- **QQQ daily net flows** post-June 22 — if QQQ outflows accelerate, NBIS gets less ongoing passive bid; track via [ETFdb.com/etf/QQQ](https://etfdb.com/etf/QQQ/) flow data
+- **NBIS short interest reports** (FINRA biweekly) — index-add typically triggers hedger-side short interest UP; track for unusual divergence
+- **NBIS Form 4 cluster pattern** post-June 22 — insiders selling INTO inclusion bid = warning; insiders holding = supportive
+
 ## Cross-references
 
 - `companies/NBIS/thesis.md` — 2026-06-15 PM2 back-reference linking to this file
-- `signals/cross-source-log/2026-06-15-pm-nebius-2subagent-verification-eu-sovereign-bypass-thesis.md` — original 2-subagent verification
+- `signals/cross-source-log/2026-06-15-pm-nebius-2subagent-verification-eu-sovereign-bypass-thesis.md` — original 2-subagent verification (June 22 inclusion + EU sovereign-AI bypass reframing)
+- `signals/cross-source-log/2026-06-15-pm3-ndx-inclusion-mechanics-primer-nbis-application.md` — NDX-inclusion mechanics primer (this section's source)
 - `meta/methodology.md` Principle #38 candidate — Lead-Lag Variable Framework (generalizes this discipline to all tracking variables across harness)
