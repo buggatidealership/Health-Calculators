@@ -35,6 +35,45 @@
 
 ## Entries (most recent first)
 
+### [2026-06-15 PM10] Mobile-data-collapse historical analogy → AI token-cost-reduction equity-value-capture framework (Kioxia = Qualcomm-PHY-analog; Sandisk = Akamai-CDN-analog; Yokkaichi JV = Tower REIT analog)
+
+**Trigger source:** user analogy question 2026-06-15 ~20:12 UTC asking how mobile-data cost reduction accrued across layers historically, and which layers innovated to drive the cost-down. Q&A synthesis on already-committed data (PM8 SNDK vs Kioxia tech comparison + PM9 token-cost-reduction time-horizon framework) + historical mobile-data pattern-matching — meta-inference layer; no new external data.
+
+**Intake tier:** 🟡 DIRECTIONAL (my-model historical-analogy framework; structural pattern reading from verified cellular standards history applied to NAND tier; complementary to PM8 + PM9 lenses)
+
+**Source:** synthesis from existing harness state — PM8 tech-leadership commit `4a916c8` + PM9 token-cost time-horizon commit `8945c78` + historical cellular standards / CDN industry pattern recognition
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-15-pm10-mobile-data-collapse-analogy-ai-token-cost-equity-value-capture-framework.md` — NEW (layer-by-layer mobile-data attribution + mapping to NAND/AI layers + N-th order cascade + lateral check on where analogy breaks + three-lens PM8+PM9+PM10 convergence summary)
+- `companies/KIOXIA/thesis.md` — PM10 cross-ref: Qualcomm-PHY-tier analog framing; long-term commoditization risk surfaces; three-lens convergence
+- `companies/SNDK/thesis.md` — PM10 cross-ref: Akamai/Cloudflare-CDN-tier analog framing; resilient rent via qualification-gate moats; hyperscaler-in-house long-term risk surfaces; three-lens convergence
+- `meta/tier-cascade-log.md` — THIS entry + prior `8945c78` SHA fill below
+
+**Files NOT touched (per scoping rule):**
+- portfolio/* — discipline-binding; no position changes recommended
+- All other held cohort theses — orthogonal to NAND-tier cost-down analogy
+- meta/methodology.md — PREMATURE to codify "cross-domain historical-analogy equity-value-capture framework" as Principle #39 at N=1; let evidence accumulate via PM8/PM9/PM10 trio first
+- meta/cross-domain-pattern-register.md — could note as candidate methodology pattern but defer to June 24 monthly audit
+- tags.md, session-prime.md, CLAUDE.md, INDEX.md — no new convention
+- signals/triangulation.md — no TC cluster state change
+- biases-watchlist.md — no new bias instance
+- sector/themes.md, where-we-are.md — no theme-level event
+- predictions/grading-log.md, lessons.md — no resolved predictions
+
+**Stale flags fired:** none
+
+**Three-lens convergence note (preserved in artifact):** PM8 = engineering bench-strength static moat; PM9 = cost-curve relevance by time horizon for consumer-AI inference economics; PM10 = historical equity-value-capture pattern by layer-type. All three converge on "holding both is complementary, not redundant; sizing is the question; company-quality is not." Three independent inference lenses arriving at consistent conclusion = strong evidential base for the position-quality read.
+
+**Loop-validation note (TWELFTH real-data application of Principle #37 today):** synthesis-only event; no new external data; cascade-worthy per Critical Rule #13 trigger (3) + (2). Per user explicit cascade authorization from earlier session pattern. Small write (4 files); held cohort untouched; portfolio unchanged.
+
+**Cascade-fatigue check:** 12 cascades + Kioxia pre-prep = 13 events in ~23 hours. Per Principle #37 promotion gate (N=20 events without drift), well past halfway to promotion threshold. No scope-violation observed in any of the 12 cascades. Day-end approaching; expect lower cascade rate tomorrow during VLSI Day 3 monitoring window.
+
+**Methodology candidate forming:** PM8 + PM9 + PM10 together constitute a "three-lens analytical framework" for evaluating tech-tier positioning under cost-down cycles (engineering quality + time-horizon + historical-analogy). If this pattern applies cleanly to a non-NAND sector pair (e.g., HBM-tier vs custom-Si-tier; or substrate-tier vs MLCC-tier) at next opportunity, codification candidate for Principle #39 at next monthly audit June 24.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM9] Token-cost-reduction layer analysis — Kioxia (silicon, long-term) vs Sandisk (system, near-term) time-horizon framework
 
 **Trigger source:** user-articulated question 2026-06-15 ~19:49 UTC asking which layer's innovation (Kioxia silicon vs Sandisk system) is more relevant for consumer-AI token cost reduction. User explicitly asked for probabilistic inference acknowledging "it might be both at different stacks." Q&A synthesis on already-committed data (PM8 SNDK vs Kioxia + PM3 NDX mechanics + TC-1 memory tightness anchor) — meta-inference layer; no new external data. User confirmed cascade explicitly: "If you feel that the additional resets that you have done is valuable to update the Kioxia log or the Soundus log, or if you have a nonspecific one, then do so."
@@ -70,7 +109,7 @@
 
 **Cascade-fatigue check:** 11 cascades + Kioxia pre-prep = 12 events in ~22 hours. Per Principle #37 promotion gate (N=20 events without drift), well past halfway to promotion threshold. No scope-violation observed in any of the 11 cascades. Pre-Kioxia-Day-3 cascade rate naturally elevated given user-driven active questioning today; expect lower rate tomorrow during VLSI Day 3 monitoring window.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `8945c78` (filled in this 2026-06-15 PM10 mobile-data-analogy cascade per lag-1 SHA-fill convention)
 
 ---
 
