@@ -20,6 +20,15 @@ Index of every prediction made by the system. Each row resolves to "pending" or 
 - H1-H4 trigger map operational; B45-corrected weights unchanged (H1 40% / H2 30% / H3 20% / H4 10%)
 - Day 1-2 monitoring active (June 14-15 JST); T+24h grade resolution ~June 19; T+72h ~June 22-25
 
+**Day 1-2 monitoring observation 2026-06-15 PM** per `signals/cross-source-log/2026-06-15-kioxia-vlsi-2026-day1-2-monitoring.md`:
+- NEGATIVE FINDING (high value): no live post-presentation coverage indexed for Day 1-2 (academic symposium norm; OnDemand June 24); T1.4 + 3 undisclosed papers PRE-PRESENTATION status confirmed
+- B40.1 VENUE CORRECTION: VLSI 2026 is in HONOLULU not Kyoto (Step 0 had stale-recycled pre-training; substance unaffected)
+- Pre-event rally assumption re-examined: 285A.T -11.68% Jun 8 (US semi selloff) then recovered to ~81,200 JPY Jun 13 = "rally" partially absorbed already → H2 exhaustion probability LOWER
+- Macro overlay: Q1 FY27 forecast ¥869B net profit (~48× prior year) DOMINATES VLSI signal; market cap > Toyota Jun 12
+- Provisional H1-H4 reweighting (my model, awaiting formal T+24h grade): H1 40%→45% (elevated); H2 30%→25% (lower); H3 stable 20%; H4 stable 10%
+- Critical watch June 16-17: Samsung TFS1.3 formal presentation Jun 16 = first real H2 vs H3 framing test; 285A.T Monday Jun 16 trading reaction
+- Formal T+24h grade still scheduled ~June 19
+
 ## Graded
 
 | Date made | Resolution | Ticker | Event | Prediction file | Grade file | Outcome |

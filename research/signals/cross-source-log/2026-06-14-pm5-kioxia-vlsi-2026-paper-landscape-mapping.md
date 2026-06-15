@@ -1,5 +1,7 @@
 # 2026-06-14 PM5 — Kioxia VLSI Symposium 2026 paper landscape mapping (Step 0 of approved Kioxia plan); T1.4 MSA-CBA joint Kioxia+Sandisk paper CONFIRMED as load-bearing event; Samsung TFS1.3 900L CMB June 16 = comparison bar threat; 3 undisclosed Kioxia papers = H3 wildcards
 
+**⚠️ B40.1 VENUE CORRECTION (added 2026-06-15 PM Day 1-2 monitoring):** This artifact incorrectly references "Kyoto" — VLSI Symposium 2026 is in HONOLULU. Kyoto was 2025; symposium alternates Honolulu/Kyoto annually per [vlsisymposium.org About](https://www.vlsisymposium.org/about/) T1. Stale-recycled pre-training data on alternating venue pattern. **Step 0 SUBSTANCE unaffected** (T1.4 identification, Samsung TFS1.3 timing, paper count, H1-H4 trigger map all stand). Full correction documented in `signals/cross-source-log/2026-06-15-kioxia-vlsi-2026-day1-2-monitoring.md` §1.
+
 **Workflow:** Workflow #5 GRADE preparation (Step 0 of approved plan in `/root/.claude/plans/enumerated-tickling-hartmanis.md`); single research subagent fan-out with native-jp source mandate.
 
 **Trigger:** User authorization 2026-06-14 22:25 UTC verbatim *"lets do kioxia. you have full authority"* + approved plan execution.
