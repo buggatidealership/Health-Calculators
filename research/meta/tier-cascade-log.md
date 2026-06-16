@@ -35,6 +35,70 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM19] Sakai Chemical 4078.T entry-decision dig — 1 Opus subagent multilingual JP+ZH+EN → PARTIAL THESIS FALSIFICATION (PM16 #1 ENTER candidate downgraded to WAIT/downsize; only 12% MLCC mix vs PM16 "pure-play" framing); Shoei Chemical 4970.T promoted to PM19 #1 ENTER; B46 candidate confirmation + L26 lesson candidate (industry-share ≠ equity-revenue-exposure)
+
+**Trigger source:** user resume directive 2026-06-16 ~09:40 UTC "Continue from where you left off" → executed PM16b queue #1 priority (Sakai Chemical 4078.T entry-decision dig). Per Critical Rule #16, fired 1 Opus subagent on 5 documented dig priorities without permission-asking (FIFTH operational application of Rule #16).
+
+**Intake tier:** 🟢 HARD (final after 1-subagent multilingual primary-source verification) — definitive PARTIAL THESIS FALSIFICATION via Sakai 決算短信 + 新中期経営計画 + Eastmoney 国瓷材料 customer disclosure.
+
+**Source:** 1 Opus subagent (a0d54fd5115b96d2d Sakai Chemical entry dig, 25 tool uses / 199s). Token cost ~41k. Anchor sources: [Sakai 決算短信 T1](https://www.sakai-chem.co.jp/wp/wp-content/uploads/2026/02/2026%E5%B9%B43%E6%9C%88%E6%9C%9F%E6%B1%BA%E7%AE%97%E7%9F%AD%E4%BF%A1.pdf) + [Sakai 新中期経営計画 T1](https://www.sakai-chem.co.jp/wp/wp-content/themes/sccojp/pdf/mid_term_managementplan_2024_2026.pdf) + [Eastmoney 国瓷材料 customer disclosure T1](https://emcreative.eastmoney.com/app_fortune/article/index.html?artCode=20260506213821185639210&postId=1703521910) + [TrendForce Murata rare-earth decouple T1](https://www.trendforce.com/news/2026/03/19/news-mlcc-giant-murata-reportedly-to-decouple-china-rare-earth-supply-in-3-years-as-risks-rise/).
+
+**🔴 KEY FINDING — PM16 PARTIAL THESIS FALSIFICATION:**
+1. **MLCC mix = ~12% of revenue** (Electronic Materials segment ¥10.0B of ¥81.4B FY26 per 決算短信 T1); BaTiO3 alone is SUBSET. Sakai is TiO2 pigment company (63% rev) with BaTiO3 sidecar. **Falsifier threshold per PM16b: "<50% MLCC mix → spillover thesis too narrow" — TRIGGERED.**
+2. **Guocai 国瓷材料 300285.SZ already supplying Murata + Samsung Electro-Mechanics in 2026** per Eastmoney T1; Samsung = Guocai #1 customer >30% rev; 18,000-ton 2026 capacity. **Sakai Western-customer moat ALREADY being penetrated.**
+3. **Murata "decouple China rare earth" 3yr plan applies to RARE EARTHS, NOT BaTiO3** — PM16 framing misapplied; different supply chains.
+4. **Valuation:** 27× P/E for 4-6% grower = NOT cheap; ~¥99B market cap.
+5. **Technical:** -7.4% day-after-+13% reversal = retail churn / momentum-trader pattern, NOT institutional accumulation.
+
+**🟢 PM19 WATCHLIST RE-RANKING (revised vs PM16b):**
+
+| Rank | Name | PM16b | PM19 | Rationale |
+|---|---|---|---|---|
+| #1 | Shoei Chemical 4970.T | #4 | **#1 ENTER candidate PROMOTED** | Nickel powder MLCC = cleaner mix per Verified Market Reports T2; data hygiene risk (4970 vs 7839) requires verify |
+| #2 | Toho Titanium 5727.T | #3 | **#2** (unchanged) | Dual exposure Ni + BaTiO3 precursor; +65% YoY partial-priced; ~87× fwd premium |
+| #3 | Add to MURATA 6981.T (HELD) on pullback | n/a | **NEW #3 alternative** | Cleanest expression of MLCC capex flow at integrator tier; chase-risk given +73.57% unrealized but most direct |
+| #4 | Sumitomo Metal Mining 5713.T | #2 | **#4 defensive sleeve** | Ni powder duopolist; mining-biz dilution; defensive size |
+| #5 | Ishihara Sangyo 4028.T | #5 | **#5 indirect Sakai play** (unchanged) | Murata JV with Fuji Titanium = MF Material captive supply; JV economics opaque |
+| WAIT | **Sakai Chemical 4078.T** | **#1 ENTER** | **WAIT / DOWNSIZE** | Partial thesis falsification; $5-8K MAX if entering at all (not $10-20K); entry trigger ¥5,000-5,400 retrace + Q1 FY27 Aug print |
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-16-pm19-sakai-chemical-4078-entry-decision-dig-partial-thesis-falsification.md` — NEW artifact (full 9-section dig + B46 candidate flag + L26 lesson candidate + revised watchlist ranking + Sakai-specific monitoring framework)
+- `watchlist/candidates.md` — Sakai Chemical entry REVISED with PM19 falsification header + retained PM16b framing for audit trail; Shoei Chemical entry PROMOTED to PM19 #1; PM16b framing retained for audit trail
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM18 SHA fill (`a156334`)
+
+**Files NOT touched (per scoping rule):**
+- All held cohort thesis files (MURATA / SNDK / HYNIX / KIOXIA / MRVL / DDOG / NOW / SUMCO) — orthogonal; MURATA "add on pullback" framing is watchlist-level alternative, not a thesis-state change to held position
+- `portfolio/holdings.md` — no position changes; PM17c refresh stands; user ~38% cash (~€73K) recommendation = HOLD pending Q1 FY27 Aug 2026 clarity
+- `signals/triangulation.md` — TC-6 (Japan MLCC tightness) cluster unchanged; Sakai falsification doesn't refute cluster, just refutes specific name-as-pure-play classification
+- `meta/methodology.md` — L26 lesson candidate noted but DEFERRED to monthly audit June 24 for formal codification
+- `meta/tags.md`, `research/CLAUDE.md`, `INDEX.md`, `meta/session-prime.md` — no new principle/convention
+- `meta/biases-watchlist.md` — B46 candidate confirmation noted but N-counter increment DEFERRED to monthly audit June 24
+- `sector/themes.md`, `sector/where-we-are.md` — no synthesis-level shift; MLCC raw-materials spillover thesis intact at cluster level (Shoei/Toho/MURATA-add are valid expressions); only Sakai-specific pure-play framing falsified
+- `predictions/grading-log.md`, `lessons.md` — L26 lesson candidate (industry-share ≠ equity-revenue-exposure) DEFERRED to monthly audit codification
+
+**Stale flags fired:** none
+
+**🔴 B46 CANDIDATE CONFIRMATION:** PM16 cascade Subagent C used dataintelo T2 industry-share framework to classify Sakai as "pure-play"; PM19 Subagent #1 drilled to Sakai primary-source segment-revenue breakdown and found 12% MLCC mix. This is exactly the B46 pattern: micro details (segment-level breakdown + Guocai customer disclosure) contradicting macro framing (general "pure-play" industry-share narrative). Generalizable lesson candidate L26: industry-share ≠ revenue-exposure at equity level; primary-source segment-revenue % REQUIRED before "pure-play" classification.
+
+**Loop-validation note (NINETEENTH real-data application of Principle #37; FIFTH Rule #16 operational application; FIRST in-session thesis-falsification via verification):**
+
+Clean PREDICT-workflow application demonstrating verification-before-entry discipline working as designed:
+- 1 subagent fired per Rule #16 without permission-asking
+- Sub#1 returned with strong T1 multilingual triangulation (Sakai 決算短信 + 新中期経営計画 + Eastmoney 国瓷材料 + TrendForce + Yahoo Finance JP)
+- PARTIAL THESIS FALSIFICATION on PM16 #1 ENTER candidate — exactly the kind of verification-before-entry catch the harness is designed for
+- Watchlist re-ranking executed (Shoei → #1; Sakai → WAIT/downsize)
+- Held cohort cascade: MURATA "add on pullback" surfaces as alternative (no position-action yet, watchlist-level)
+- Portfolio unchanged (€73K cash retained for Aug 2026 Q1 FY27 clarity)
+- L26 lesson candidate + B46 confirmation logged for monthly audit June 24
+
+**Critical Rule #16 fifth operational validation: POSITIVE (N=5 cumulative).** Subagent fired reliably; multilingual JP+ZH+EN parallel executed; cascade flowed clean per Principle #37; PREDICT workflow lessons.md + biases-watchlist.md discipline implicit in verification structure.
+
+**Cascade-fatigue check:** 19 cascades in tier-cascade-log + PM19 = 20 + Kioxia pre-prep + INDEX refresh = **22 events in ~38 hours**. P#37 N=20 promotion gate EXCEEDED. No scope-violation observed in any of the 19 cascades. **Principle #37 ready for VERIFIED promotion at June 24 monthly audit** with strong evidentiary base (N=22+; 0 scope-violations; 5 Rule #16 operational validations; ≥6 B40.x catches; 1 B46 candidate confirmation via thesis-falsification verification; 1 L26 lesson candidate surfaced).
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM18] AM AI brief (87 sources / 20 items) — 1 Opus subagent triage → 4-item B40.1 mass stale-recycle catch (SemiAnalysis Sept 2025 content) + PC-13 N=1 enrichment (Moussouris + "fix this code" prompt + Amazon conflict-of-interest); NO N=2 promotion (criterion not met); held cohort orthogonal
 
 **Trigger source:** user-shared AM AI Intelligence Brief 2026-06-16 Morning Edition ~09:30 UTC (87 sources / 20 items). Per Critical Rule #16, fired 1 Opus subagent for combined triage verification (FOURTH operational application of Rule #16).
@@ -107,7 +171,7 @@ Brief curator pulled SemiAnalysis Sept 2025 deep-dives and presented as June 202
 
 **Cascade-fatigue check:** 18 cascades + PM18 = 19 in tier-cascade-log + Kioxia pre-prep + INDEX refresh = **21 events in ~37 hours**. P#37 promotion gate (N=20 events without drift) **EXCEEDED**. No scope-violation observed in any of the 19 cascades. **Principle #37 ready for VERIFIED promotion at June 24 monthly audit** with strong evidentiary base.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `a156334` (filled in this PM19 cascade per lag-1 SHA-fill convention)
 
 ---
 
