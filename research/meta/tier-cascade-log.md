@@ -35,6 +35,85 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM24] MSFT Copilot Cowork GA today + usage-based pricing + DeepSeek "Cowork 1" exploration (user-shared via Axios/Ina Fried/Techmeme 18:34 UTC) — 1 Opus subagent T1 verification → CASCADE → **U8 token-cost-elasticity ratification N=1 → N=2** + NOW 2nd-order pricing pressure HOLD-monitor + DDOG mild positive + HYNIX mild HBM-bear falsifier candidate + SNDK/KIOXIA NAND-side REINFORCE; PM22 Flash Point thesis VALIDATED; TC-4 ceiling-capped reinforced
+
+**Trigger source:** user-shared 2026-06-16 ~18:34 UTC via Techmeme attribution. Per Rule #16, fired 1 Opus subagent (a8c0e2c7e22895546, TWELFTH operational). Innolux subagent (a2a431476720c6f67) failed API rate-limit; deferred re-fire.
+
+**Intake tier:** 🟢 HARD (final after T1 verification) — most load-bearing claims CONFIRMED for pricing pivot; EXPLORATORY for DeepSeek "Cowork 1" specification (2-6 week window).
+
+**Source:** [Axios Ina Fried 2026-06-16 T1](https://www.axios.com/2026/06/16/microsoft-copilot-cowork-tokenmaxxing-cowork) + [Microsoft 365 Blog 2026-06-16 T1](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/) + [Microsoft Foundry DeepSeek V4 T1](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-deepseek-v4-flash-and-v4-pro-in-microsoft-foundry/4515174) + named on-record Charles Lamanna EVP Copilot/Agents/Platform.
+
+**🟢 KEY FINDING — U8 CANDIDATE RATIFICATION N=1 → N=2:**
+3-source convergence on price-elasticity-up at enterprise tier:
+1. MSFT Copilot Cowork pricing pivot today T1 verified
+2. ServiceNow April 9 2026 Foundation/Advanced/Prime tier restructure T1
+3. Tokenmaxxing crisis Tom's Hardware/Fortune/Axios May 28 T1
+
+This is clearest enterprise signal yet that per-seat AI is broken for agents. Promotion-strong for monthly audit June 24.
+
+**🟢 Critical disambiguation:** MSFT Copilot Cowork (M365-integrated, GA today) DISTINCT FROM Anthropic Claude Cowork (Jan 2026 standalone desktop agent triggered $285B software selloff). Same name family different products. MSFT Cowork uses Anthropic Opus 4.8/Sonnet 4.6 as CHOICE + Frontier GPT-5.5 + Coming "Cowork 1" (Microsoft-tuned, likely DeepSeek-derived).
+
+**🟢 Pricing model:** $0.01/Copilot Credit usage-based; PayGo or P3 prepaid; Capacity Packs $200/mo = 25k credits. Prior model M365 Copilot = $30/user/mo flat seat. Adoption pain: 35.8% active seats; ChatGPT chosen 76% vs Copilot 18% per Redress T2. "30-40% cheaper per prompt vs Claude Cowork with M365 connector" per MSFT blog T1. Lamanna on-record: "users who do hundreds of tasks a week … costs can go very high."
+
+**🟢 DeepSeek V4 angle:** Already on Azure since May 2026 per Foundry blog T1. What's NEW = fine-tuning DeepSeek specifically as "Cowork 1" cheaper-tier. "Optional for customers" + "available in coming weeks" = ~2-6 week confirmation window. Geopolitical tension: MSFT hosting for enterprise but banning internally (Brad Smith Jan 2026 + House Select Committee April 2025 national security threat).
+
+**B40.x:**
+- B40.1 NOT stale-recycle (genuine fresh 2026-06-16 T1)
+- B40.2 CONFIRMED for pricing + EXPLORATORY for DeepSeek
+- B40.3 named on-record attribution (Charles Lamanna EVP)
+
+**Cluster cascade scoped per Principle #37:**
+- **NOW (HELD):** 🟡 2nd-order pressure moderate — April 2026 ServiceNow pricing pivot already partially anticipated; HOLD-monitor; Critical Rule #8 binding (no falsifier fired); NEW falsifier candidate registered (Q2 FY27 per-fulfiller defense vs per-task admission)
+- **DDOG (HELD):** 🟢 2nd-order mild positive — usage-based natively; LLM Observability TAM expansion via metered AI billing
+- **HYNIX GDR (HELD +7.80%):** 🟡 MIXED — mild HBM-headwind candidate via DeepSeek MLA/Engram architectures per [TechRadar T2](https://www.techradar.com/pro/deepseek-may-have-found-a-way-to-solve-the-ram-crisis-by-eliminating-the-need-for-expensive-hbm-for-ai-inference-and-training-yes-the-very-reason-why-dram-prices-went-up-by-5x-in-10-weeks); BUT broader inference scale-up = absolute volume-positive; NET NEUTRAL near-term; NEW falsifier candidate registered (Microsoft public statement DeepSeek-Cowork >25% agent traffic threshold)
+- **SNDK (HELD):** 🟢 REINFORCE — NAND-side benefits from broader inference deployment; cheaper agents → more eSSD/NAND demand; complements PM22 institutional consensus N=5
+- **KIOXIA (HOLD-until-falsifier):** 🟢 REINFORCE — same NAND-side cascade via Yokkaichi JV; complements PM22
+- **MRVL ~5.9% / MURATA +73.57% / SUMCO:** orthogonal
+- **TC-4 (Anthropic enterprise-trust drift):** REINFORCED — Cowork defaults Opus 4.8/Sonnet 4.6 BUT "30-40% cheaper" explicit ceiling-cap framing extends Suleiman lineage
+- **PM22 Flash Point / Citrini + AAPL Flash-MoE:** VALIDATED — sparse-MoE-on-Azure-at-enterprise-scale trajectory confirmed
+- **MSFT (ref):** Near-term margin neutral-to-mild-positive; long-term TAM-positive
+- **ANTH (private):** Ceiling-capped not displaced
+
+**Tier moves (scoped):**
+- `signals/cross-source-log/2026-06-16-pm24-msft-copilot-cowork-ga-usage-pricing-deepseek-u8-ratification-now-pressure-hbm-falsifier.md` — NEW artifact (full 9-section dig + U8 ratification + held cohort joint matrix + forward watch items + B40.x discipline)
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM23 SHA fill (`b768486`)
+
+**Files NOT touched (per scoping rule):** Held cohort thesis files deferred for batched update in next cascade — PM24 produces watch items + falsifier candidates rather than thesis-state changes; specifically NOW + DDOG + HYNIX + SNDK + KIOXIA each get noted but Rule #8 binding (no falsifier fired) = no thesis-state change required today; defer formal thesis back-references to PM25 or later cascade if multiple position-action-relevant updates accumulate. MRVL + MURATA + SUMCO + KIOXIA-orthogonal-IBIDEN/CAMT/BESI orthogonal. Portfolio unchanged (no position action). signals/triangulation.md no cluster-state change. meta/methodology.md U8 candidate promotion deferred to monthly audit June 24.
+
+**Stale flags fired:** none
+
+**🟢 U8 CANDIDATE RATIFICATION N=1 → N=2 (formal):** 3-source convergence (MSFT + ServiceNow + Tokenmaxxing crisis). Promotion-strong for monthly audit June 24 as VERIFIED Principle / Lesson candidate.
+
+**🔴 NEW falsifier candidates registered today (PM24):**
+- HYNIX: if MSFT public statement DeepSeek-Cowork serves >25% agent traffic → mild HBM-bear via MoE/MLA architectural shift
+- NOW: ServiceNow Q2 FY27 admission of per-task pivot exploration = TRIM signal; explicit per-fulfiller defense = bullish
+
+**Forward watch items (~6 weeks):**
+1. U8 N+3: 2-of-3 = (a) MSFT names "Cowork 1" as DeepSeek-derived; (b) Salesforce Agentforce consumption pivot; (c) Google Gemini Enterprise repricing
+2. TC-4 falsifier: if "Cowork 1" = Anthropic-tuned (NOT DeepSeek), thesis reverses
+
+**Position implication: NO ACTION today per Critical Rule #8 binding (no falsifier fired). Pre-committed trim sequences unchanged. Watch items + falsifier candidates pre-registered.**
+
+**Critical Rule #16 twelfth operational validation: POSITIVE (N=12 cumulative).**
+
+**Cascade-fatigue check:** 27 cascades in tier-cascade-log + PM24 = 28 + Kioxia pre-prep + INDEX refresh = **30 events in ~44 hours**. P#37 N=20 promotion gate EXCEEDED.
+
+**Monthly audit June 24 feed items consolidated (PM18-PM24):**
+- Principle #37 → VERIFIED promotion (N=30+; 0 scope-violations)
+- Critical Rule #16 → operational track record (N=12 fires; 0 false-positives)
+- B40.x → ≥9 stale-recycle catches week-of
+- B46 → 3 confirmations
+- L26 + L27 + L28 → triplet codification + Workflow #8 PM23 IBIDEN integration
+- B20/Principle #22 → 2 self-catches (Ishihara + Innolux)
+- L29 lesson candidate (PM21 imec/TSMC/ASML lab-to-fab vs HVM gap)
+- **U8 candidate N=2 ratification CONFIRMED today** → promotion-strong
+- Principle #38 (Lead-Lag) → N=3 ready
+- Principle #34 → N=2 ready
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM23] IBIDEN 4062.T (イビデン株式会社) Workflow #8 BOM-level deep-dig with L26+L27+L28 ordering — 1 Opus subagent native-JP IR primary → **L26/L27/L28 ALL PASS — FIRST PURE-PLAY PASS THIS WEEK** after PM19+PM19b+PM20 3-of-3 sidecar/private falsification pattern; BUT valuation EXTENDED (spot ¥19,250 above analyst avg target ¥16,218; 8.1× 12mo; fwd P/E 70.4); verdict WAIT FOR PULLBACK or 0.5% STARTER MAX; sizing tranches + Aug 2026 Q1 catalyst defined
 
 **Trigger source:** PM22 commit `a738844` elevated IBIDEN from PM5/PM6 deep-dig-queue (TIER S+) to PM22 #2 watchlist candidate after TSMC + Ibiden + Innolux CoPoS partnership verified T1. Per Rule #16 + Workflow #8 PREDICT discipline, fired 1 Opus subagent (afe93f467e342ea25, 36 tool uses / 284s, ELEVENTH operational application).
@@ -92,9 +171,9 @@
 
 **Critical Rule #16 eleventh operational validation: POSITIVE (N=11 cumulative).**
 
-**Cascade-fatigue check:** 26 cascades in tier-cascade-log + PM23 = 27 + Kioxia pre-prep + INDEX refresh = **29 events in ~42 hours**. P#37 N=20 promotion gate EXCEEDED. No scope-violation observed.
+**Cascade-fatigue check:** 26 cascades in tier-cascade-log + PM23 = 27 + Kioxia pre-prep + INDEX refresh = **29 events in ~42 hours**. P#37 N=20 promotion gate EXCEEDED.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `b768486` (filled in this PM24 cascade per lag-1 SHA-fill convention)
 
 ---
 
