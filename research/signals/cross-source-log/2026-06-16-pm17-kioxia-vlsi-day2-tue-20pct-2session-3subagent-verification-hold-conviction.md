@@ -1,3 +1,64 @@
+# 2026-06-16 PM17/PM17b — Kioxia (285A.T) VLSI Day 2 + Tuesday +16.65% 2-session move (PM17b PRICE-CORRECTED from +20.2%) — 3+2 Opus subagents parallel verification → HOLD-THROUGH PENDING USER DECISION (PM17b: Sub#2 air-pocket risk flag may have flipped asymmetric setup vs PM17 HOLD-WITH-CONVICTION; user paths (a) HOLD / (b) PARTIAL TRIM / (c) FULL EXIT surfaced)
+
+## ⚠️ PM17b CORRECTION HEADER (appended 2026-06-16 ~09:00 UTC)
+
+PM17 cascade artifact below contains stale-data errors corrected by PM17b 2-subagent verification (Sub#4 price reconciliation + Sub#5 IR-announcement attribution). Read corrections FIRST before consulting PM17 body:
+
+### Stale-data corrections (PM17b):
+
+1. **PM17 claimed Tue close ¥97,610 (+~7%)** based on Nikkei T1 rally headline. **CORRECTED: Tue settlement close = ¥94,720 (+4.19% day move from ¥90,910 Mon close)** per 3-source T1 convergence ([Investing.com T1](https://www.investing.com/equities/kioxia-holdings) + [stockanalysis.com T1](https://stockanalysis.com/quote/tyo/285A/) + [Yahoo Finance JP T1](https://finance.yahoo.co.jp/quote/285A.T) + user live broker confirmation). **¥97,610 was INTRADAY HIGH not close** — Nikkei used intraday peak as headline (B40.2 magnitude-inflation classic; "HBM4-headline / VWAP-reality" pattern).
+
+2. **PM17 claimed cumulative Friday→Tuesday +20.2%.** **CORRECTED: +16.65%** (¥94,720 vs ¥81,200 Friday close = +¥13,520 / share).
+
+3. **PM17 claimed 100sh MTM ~¥9,761,000 (~$62K) / unrealized ~+¥1,641,000 ≈ ~+$10,400 / +20.2%.** **CORRECTED: 100sh MTM = ¥9,472,000 (~$61,110 at ~¥155/USD) / unrealized +¥1,352,000 ≈ ~+$8,723 / +16.65%**. PM17 overstated MTM by ¥289,000 (~$1,865 paper P&L).
+
+4. **PM17 framed Sub#3's H1 muted-VLSI-reaction at P~50%; subsequent Sub#2 IR-attribution verification finding (PM17b) provides DEFINITIVE attribution: NO SPECIFIC KIOXIA IR/CORPORATE ANNOUNCEMENT** in Mon Jun 15 → Tue Jun 16 Tokyo session window. Rally is DRIFT/MOMENTUM-driven — "Stage 4 melt-up signature" without news. TDnet record: 2026-06-11 US ADR listing prep + 2026-06-12 officer stock-comp correction + 2026-06-13 routine; nothing fresh Mon/Tue. Most recent corporate news = 2026-05-27 executive officer updates + S&P/Fitch upgrades. "29× op income / 48× net income / Ota hyperscaler-2029" content = recycled May 15 earnings call, NOT new disclosure.
+
+### Sub#2 attribution breakdown (definitive verdict):
+- ~35% Structural-regime re-rating (post-May 15 earnings still propagating)
+- ~25% Sell-side PT chase (MS PT ¥3,900 pre-split equivalent per [Investing.com T2](https://www.investing.com/news/analyst-ratings/morgan-stanley-raises-kioxia-stock-price-target-to-jpy3900-on-ssd-demand-93CH-4234956); 14 buys avg PT ¥90,625)
+- ~20% ¥50T market-cap milestone (headline-trigger retail FOMO via [FN News T1](https://www.fnnews.com/news/202606160908066939) + [Newspim T1](https://www.newspim.com/news/view/20260616000399) + [Newsis T1](https://www.newsis.com/view/NISX20260616_0003671191))
+- ~15% Toyota overtake narrative crossing into global retail (per [Bloomberg Jun 3 T1](https://www.bloomberg.com/news/articles/2026-06-03/kioxia-edges-nearer-toyota-s-market-cap-in-shakeup-to-japan-inc) + [Seoul Economic Jun 12 T1](https://en.sedaily.com/international/2026/06/12/japans-kioxia-overtakes-toyota-to-become-top-by-market-cap))
+- ~5% VLSI Day 1-2 presence (reflexive; papers embargoed for OnDemand Jun 24)
+
+### Sub#2 CRITICAL NEW FRAMING — asymmetric setup MAY HAVE FLIPPED vs PM17:
+
+Sub#2 explicit quote: *"Catalyst-less +20% in 2 sessions = highest air-pocket risk in the current trajectory. Any disappointing Jun 24 VLSI OnDemand release or US ADR pricing news could unwind 10-15% in a single session. The asymmetry has flipped vs. early-June."*
+
+**Tension framing (my model):**
+- B45 regime-base-rate read (P~50%): +16.65% 2-session is routine for AI-supercycle cohort; not exhaustion-signal
+- Sub#2 Stage 4 melt-up specific read (P~35%): catalyst-less drift = specific subset with elevated drawdown probability; air-pocket risk Jun 24 OnDemand + US ADR pricing news
+- PM17 HOLD-THROUGH unchanged read (P~15%): stale Samsung news + pre-committed trim sequence + hedge cost > event move
+- Base rate (B45) speaks to magnitude; Sub#2 speaks to SPECIFIC pattern (no news → reflexive sentiment → air pocket); both can be simultaneously true
+
+### PM17b user-decision frame surfaced (Rule #11 material sizing pause):
+
+| Path | Rationale | Cost |
+|---|---|---|
+| (a) HOLD-THROUGH unchanged | PM17 verdict; B45 base rate; pre-committed trim sequence intact; let T+24h grade Jun 19 resolve | Air-pocket risk if Jun 24 OnDemand disappoints or US ADR pricing news lands negative |
+| (b) PARTIAL TRIM (25-50%) at ¥94,720 to lock realized | De-risk Stage 4 melt-up; convert paper P&L to realized; retain residual upside | Tax implications + lose half upside if rally continues; reverses harness PM6/PM17 framework |
+| (c) FULL EXIT lock all +16.65% gain (~+$8,723) | Maximum de-risking on catalyst-less drift | Reverses pre-T+24h-grade discipline; misses structural-regime continuation |
+
+**My recommendation:** Path (a) HOLD-THROUGH still defensible — T+24h grade Jun 19 is 3 days away; B45 base rate; Bernstein bear at -57.8% gap = framework-error compounding; Sub#2 air-pocket framing valid but specific to ~10-15% retracement on disappointment (not thesis-breaking).
+
+### Sub#4 Tuesday OHLC (settle dispute):
+
+| Field | Value (¥) | Source |
+|---|---|---|
+| Prior close (Mon 6/15) | 90,910 | [stockanalysis T1](https://stockanalysis.com/quote/tyo/285A/) |
+| Open | ~93,910 (provisional) | Google Finance snippet [T2] |
+| High | **97,610** | Investing.com day range [T1] (this is what Nikkei headline used) |
+| Low | 90,920 | Investing.com day range [T1] |
+| **Close (settlement)** | **¥94,720** | 3-source T1 convergence + user live broker |
+
+### B40.2 STALE-DATA / MAGNITUDE-INFLATION INCIDENT LOG:
+
+**Pattern:** Nikkei JP rally article used intraday peak as headline number ("HBM4-headline / VWAP-reality" recurring pattern). Multi-source verification REQUIRED for Japanese broker headlines before book-marking. Future sessions: settlement close from TSE/Yahoo Finance JP/Stockanalysis/Investing.com convergence; Nikkei article = T2 for spot price purposes, T1 for narrative only.
+
+---
+
+# Original PM17 body (numerical values INFLATED — see corrections above)
+
 # 2026-06-16 PM17 — Kioxia (285A.T) VLSI Day 2 + Tuesday +20% 2-session move — 3 Opus subagents parallel verification → HOLD WITH CONVICTION (regime not VLSI-leak; Samsung 900L 3-week-stale; HOLD-THROUGH Wed UTC night TFS1.3 session)
 
 **Workflow:** SCENARIO-UPDATE + TRIANGULATE

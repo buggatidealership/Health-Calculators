@@ -35,6 +35,70 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM17b] CORRECTION — PM17 stale-data fix (Tue close ¥97,610 → ¥94,720; +20.2% → +16.65%; MTM ¥9,761,000 → ¥9,472,000) + Sub#2 definitive NO-IR-ANNOUNCEMENT attribution + Sub#2 air-pocket risk flag (asymmetric setup may have flipped vs PM17 verdict)
+
+**Trigger source:** user explicit correction 2026-06-16 ~08:51 UTC: *"what exactly was announced by Keokseo in the last twenty four hours while the Japanese market was open... Keokseo closed at ninety four thousand seven hundred and twenty Japanese yen"*. User provided live broker print contradicting PM17 ¥97,610 close (which was Nikkei rally headline). User also asked attribution question (specific announcement vs pure macro/sentiment). Per Critical Rule #16, fired 2 Opus subagents in parallel WITHOUT permission-asking (THIRD operational application of Rule #16).
+
+**Intake tier:** 🟢 HARD (final after 2-subagent verification) — settled price dispute definitively at T1 source level; settled attribution question definitively (NO Kioxia IR Mon-Tue Japan window); surfaced critical new framing (Sub#2 air-pocket risk asymmetry flip).
+
+**Source:** 2 parallel Opus subagents — (a6f1ccad897b346c0 price reconciliation Sub#4, 12 tool uses / 82s; ad12690867fb108b6 Kioxia IR announcement attribution Sub#5, 22 tool uses / 165s). Total ~55k subagent tokens.
+
+**🔴 CRITICAL CORRECTIONS LOGGED (PM17 stale-data fix):**
+1. **Tue 2026-06-16 settlement close = ¥94,720** (NOT ¥97,610 as PM17 framed) — 3-source T1 convergence + user live broker confirmation
+2. **¥97,610 was INTRADAY HIGH** quoted in Nikkei rally article = B40.2 magnitude-inflation classic (HBM4-headline / VWAP-reality pattern)
+3. **Cumulative Friday→Tuesday move = +16.65%** (not +20.2%); day move = +4.19% (not +7%)
+4. **100sh MTM corrected = ¥9,472,000** (not ¥9,761,000); **unrealized +¥1,352,000 ≈ ~+$8,723 ≈ +16.65%** (not ¥1,641,000 / +$10,400 / +20.2%); PM17 overstated by ¥289,000 (~$1,865)
+5. **NO specific Kioxia IR announcement** in 24h Japan-market window per Sub#2 TDnet record verification + native-JP IR search; +16.65% rally = DRIFT/MOMENTUM "Stage 4 melt-up signature" without news
+6. **Sub#2 attribution breakdown:** ~35% structural-regime re-rating + ~25% sell-side PT chase + ~20% ¥50T milestone retail FOMO + ~15% Toyota overtake narrative + ~5% VLSI Day 1-2 reflexive (papers embargoed for OnDemand Jun 24)
+
+**🔴 SUB#2 CRITICAL NEW FRAMING — asymmetric setup MAY HAVE FLIPPED vs PM17 HOLD-WITH-CONVICTION verdict:**
+
+Sub#2 verbatim: *"Catalyst-less +20% in 2 sessions = highest air-pocket risk in the current trajectory. Any disappointing Jun 24 VLSI OnDemand release or US ADR pricing news could unwind 10-15% in a single session. The asymmetry has flipped vs. early-June."*
+
+Tension framing (my model):
+- B45 regime-base-rate read (P~50%): +16.65% 2-session is routine for AI-supercycle cohort
+- Sub#2 Stage 4 melt-up specific read (P~35%): catalyst-less drift = subset with elevated drawdown probability
+- PM17 HOLD-THROUGH unchanged read (P~15%): stale Samsung news + pre-committed trim sequence + hedge cost > event move
+
+Both can be simultaneously true (B45 speaks to magnitude; Sub#2 to specific pattern). User-decision frame surfaced per Critical Rule #11 (material sizing change warrants pause): (a) HOLD-THROUGH unchanged; (b) PARTIAL TRIM 25-50% lock realized; (c) FULL EXIT. **My recommendation: Path (a) HOLD-THROUGH still defensible — T+24h grade Jun 19 is 3 days away; B45 binding; Bernstein bear -57.8% gap from spot = framework-error compounding; Sub#2 air-pocket flag valid but specific to ~10-15% retracement, not thesis-breaking.** USER JUDGMENT PENDING.
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-16-pm17-kioxia-vlsi-day2-tue-20pct-2session-3subagent-verification-hold-conviction.md` — PM17b CORRECTION HEADER prepended; PM17 body retained for audit trail (numerical values flagged as inflated; corrected values in header); Sub#2 IR-attribution finding integrated; Sub#2 air-pocket risk framing integrated; user-decision frame integrated
+- `companies/KIOXIA/thesis.md` — PM17b correction: all stale spot/MTM/move values corrected; Sub#2 NO-IR-ANNOUNCEMENT attribution integrated; Sub#2 air-pocket framing added; position implication reframed from "HOLD WITH CONVICTION" (PM17) to "HOLD-THROUGH PENDING USER DECISION" with (a)/(b)/(c) paths surfaced
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM17 SHA fill (`dc7a584`)
+
+**Files NOT touched (per scoping rule):**
+- `companies/SNDK/thesis.md` — Yokkaichi JV co-cascade implication unchanged (Sub#2 found no Kioxia-specific announcement that changes SNDK read); PM17 back-ref still applies
+- `companies/HYNIX/thesis.md`, `MRVL/thesis.md`, `MURATA/thesis.md`, `DDOG/thesis.md`, `NOW/thesis.md`, `SUMCO/thesis.md` — orthogonal
+- `portfolio/holdings.md`, `targets.md`, `changes.md` — no position changes (user decision pending; "holdings.md only gets changed when I send a new screenshot" discipline)
+- `signals/triangulation.md` — TC-1 cluster unchanged
+- `meta/methodology.md`, `meta/tags.md`, `research/CLAUDE.md`, `INDEX.md`, `meta/session-prime.md` — no new principle/convention
+- `meta/biases-watchlist.md` — B40.2 incident (Nikkei intraday-peak-as-headline = "HBM4-headline / VWAP-reality" pattern) DEFERRED to monthly audit June 24 (documented in PM17 cross-source-log + this entry)
+- `predictions/grading-log.md` — T+24h grade resolution ~June 19 unchanged; PM17b documents pre-T+24h state with corrected numbers
+- `predictions/lessons.md` — Sub#4 recommended adding "always verify Japanese broker headlines against settlement print before remarking book" as lesson; defer to monthly audit unless user wants L26 codification now
+- `sector/themes.md`, `sector/where-we-are.md` — no synthesis-level shift
+
+**Stale flags fired:** none (file 1 day old; first STALE flags ≥2026-07-15)
+
+**Critical Rule #16 third operational validation: POSITIVE (N=3 cumulative).** 2 subagents fired in parallel; both returned with strong T1 multilingual triangulation; settled price dispute definitively + settled attribution question definitively.
+
+**B46 candidate flag (worth tracking for monthly audit):** Sub#2's framing of catalyst-less drift = potentially ex-post rationalization of structural-regime macro story. If Jun 24 OnDemand disappoints and rally unwinds 10-15%, this confirms B46 (micro details contradicting macro signal). Pre-register for grade.
+
+**Loop-validation note (EIGHTEENTH real-data application of Principle #37 today + THIRD Rule #16 operational application + FIRST in-session B40.2 self-catch from user feedback):** clean correction cascade:
+- User caught stale data (¥97,610 close) within ~10 min of PM17 commit; corrected via 2-subagent verification
+- Sub#4 settled price dispute at T1 source level
+- Sub#5 (Sub#2 in PM17 numbering) settled attribution question definitively
+- 3 critical corrections logged in same commit (price; MTM math; attribution framing)
+- Held cohort cascade: KIOXIA back-reference corrected; SNDK PM17 cascade unchanged (no Kioxia-specific announcement that changes SNDK read)
+- Portfolio unchanged
+- User-decision frame surfaced for material sizing question (Rule #11 pause)
+
+**Cascade-fatigue check:** 18 cascades + Kioxia pre-prep + INDEX refresh = 20 events in ~37 hours. **N=20 P#37 promotion threshold REACHED.** No scope-violation observed in any of the 18 cascades. **Principle #37 ready for VERIFIED promotion at June 24 monthly audit** with strong evidentiary base (N=20 cascades; 0 scope-violations; 3 Rule #16 operational validations; multiple B40.x catches; multiple held-cohort REINFORCE/REFRAME cascades).
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM17] Kioxia (285A.T) VLSI Day 2 + Tuesday +20% 2-session move → 3 Opus subagents parallel verification (SECOND Rule #16 operational application) → HOLD WITH CONVICTION (regime not VLSI-leak; B40.1 stale-news on Samsung 900L; HOLD-THROUGH Wed UTC TFS1.3 session)
 
 **Trigger source:** session resume 2026-06-16 ~08:34 UTC; user explicit directive *"It's still the time critical today, the Keioksia one. I let you lead"*. Critical Rule #16 applied (codified PM15) — fired 3 Opus subagents in parallel without permission-asking. SECOND operational application of Rule #16 since codification (first was PM16 yesterday).
@@ -96,7 +160,7 @@ Clean joint cascade:
 
 **Cascade-fatigue check:** 17 cascades + Kioxia pre-prep + INDEX refresh = 19 events in ~36 hours. Per P#37 promotion gate (N=20 events without drift), **95% to promotion threshold**. No scope-violation observed in any of the 17 cascades. **Principle #37 ready for VERIFIED promotion at June 24 monthly audit** with strong evidentiary base.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `dc7a584` (filled in this PM17b correction cascade per lag-1 SHA-fill convention)
 
 ---
 
