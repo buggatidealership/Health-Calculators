@@ -35,6 +35,107 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM20b] SK Hynix ADR listing mid-July user-shared news + 1 Opus subagent native-KR primary verification → PARTIALLY VERIFIED with B40.2 magnitude correction ($14-25B actual range vs $27B headline upper-bound); HYNIX thesis REINFORCED; HOLD GDR core NO pre-event trim per Rule #8; cluster cascade SNDK direct beneficiary + MRVL mild 2nd-order positive + KIOXIA mixed (parallel ADR offset)
+
+**Trigger source:** user-shared news 2026-06-16 ~14:26 UTC + "additional news that needs fact checking and cascading" directive. Per Rule #16, fired 1 Opus subagent (a70878ed055db5cb4) with native-KR primary mandate (EIGHTH operational application).
+
+**Intake tier:** 🟡 DIRECTIONAL (final after verification) — Most load-bearing claims VERIFIED T1; $27B figure OVERSTATED (IB consensus actual proceeds = $14B; gap reflects ADR pricing DISCOUNT to KRX).
+
+**Source:** [Herald Business 단독 2026-04-16 T1](https://biz.heraldcorp.com/article/10718746) + [KED Global 2026-06-16 T1](https://www.kedglobal.com/korean-chipmakers/newsView/ked202606160007) + [Hankyung T1](https://www.hankyung.com/article/2026032307911) + [시사저널e T1](https://www.sisajournal-e.com/news/articleView.html?idxno=420055) + [Asia Business Daily T1](https://www.asiae.co.kr/en/article/stock-etc/2026061615183463621) + [CNBC T1](https://www.cnbc.com/2026/03/25/sk-hynix-confidential-us-listing-adr-ai-memory.html) + [SEC F-6EF KIOXIA parallel T1](https://www.sec.gov/Archives/edgar/data/0002053383/000101915526000048/kholdingsf6ef.htm) + [Edgen $14B T2](https://www.edgen.tech/news/post/sk-hynix-to-list-in-us-with-14-billion-adr-offering).
+
+**🔴 KEY FINDINGS:**
+1. ADR listing process in final stages; SEC approval expected ~week of June 22; mid-July timing tightened from prior Aug consensus
+2. 2.5% outstanding shares offering (17.8M new shares) — VERIFIED T1
+3. **$27B claim OVERSTATED — IB consensus actual proceeds = $14B; headline math $25.1B = 2.5% × $1.005T market cap; gap = ADR DISCOUNT to KRX (Korean shares already trade rich)**
+4. 100% primary issuance VERIFIED — funds Yongin + Indiana + HBM4 capex acceleration
+5. B40.1 PARTIAL RECYCLE (original Herald April 16; today's KED update concrete SEC progress)
+6. B40.2 PARTIAL HIT (magnitude inflation on $27B vs $14B actual)
+7. B40.3 PASS (4+ outlets converged; SK Hynix denied only 100조원 magnitude not ADR size)
+
+**Cluster cascade scoped per Principle #37:**
+- HYNIX (HELD GDR R-account +€1,515 unrealized / +€4,266.90 lifetime): THESIS REINFORCED; HOLD core NO pre-event trim per Rule #8 (no falsifier fired)
+- SNDK (HELD): DIRECT BENEFICIARY — HBF JV partner with SK Hynix benefits from partner capex acceleration
+- MRVL (HELD ~5.9%): MILD 2nd-order positive — better HBM supply for Trainium custom-Si
+- KIOXIA (HOLD-until-falsifier): MIXED — HBF cannibalization risk on eSSD if SK Hynix accelerates BUT Kioxia's own SEC F-6EF ADR uplift offsets in same cycle
+- MURATA / DDOG / NOW / SUMCO: orthogonal
+
+**Tier moves (scoped):**
+- `signals/cross-source-log/2026-06-16-pm20b-sk-hynix-adr-mid-july-verification-partially-verified-hold-gdr-core.md` — NEW artifact
+- `companies/HYNIX/thesis.md` — PM20b back-reference: thesis REINFORCED, GDR HOLD core, $14-25B math, NEW falsifier candidate (ADR >5% discount KRX with weak book = US demand insufficient signal)
+- `companies/SNDK/thesis.md` — PM20b back-reference: HBF JV partner cascade direct beneficiary
+- `companies/MRVL/thesis.md` — PM20b back-reference: mild 2nd-order positive
+- `companies/KIOXIA/thesis.md` — PM20b back-reference: mixed (parallel ADR offset)
+- `meta/tier-cascade-log.md` — THIS entry
+
+**Files NOT touched:** MURATA / DDOG / NOW / SUMCO theses orthogonal; portfolio/holdings.md no position changes; signals/triangulation.md TC-1 cluster REINFORCED but no new cluster-state instance; methodology / tags / CLAUDE / INDEX / session-prime no new principle.
+
+**Stale flags fired:** none
+
+**Critical Rule #16 eighth operational validation: POSITIVE (N=8 cumulative).**
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
+### [2026-06-16 PM20] 4-name Degiro MLCC comparative diligence (SMM 5713.T + Sumitomo Electric 5802.T + Ishihara Sangyo 4028.T + Taiyo Yuden 6976.T) — 1 Opus subagent native-JP primary → THIRD CONSECUTIVE THESIS-FALSIFICATION (3-of-4 fail L26 mix threshold); Taiyo Yuden ONLY pure-play (~71% MLCC mix); L28 lesson candidate joins L26+L27 codification triplet; Ishihara forward-trajectory correction per B20/Principle #22 hook self-catch
+
+**Trigger source:** user confirmed Degiro availability 2026-06-16 ~12:13 UTC for 4 of 9 PM19b watchlist names. Per Rule #16, fired 1 Opus subagent (a4d24fddd45028433) for COMPARATIVE diligence per L26 + L27 ordering rule (SEVENTH operational application).
+
+**Intake tier:** 🟢 HARD (final after primary-source verification) — definitive 3-of-4 sidecar finding via segment-revenue % primary-source verification.
+
+**Source:** 1 Opus subagent multilingual JP + EN; anchor sources [SMM IR segment T1](https://www.smm.co.jp/ir/financial/segment/) + [Sumitomo Electric IR T1](https://sumitomoelectric.com/jp/ir/library) + [Ishihara IR T1](https://www.iskweb.co.jp/ir/results/) + [Dempa MF Material JV T1](https://dempa-digital.com/article/470674) + [BigGo Taiyo Yuden T1](https://finance.biggo.com/news/5hr2FJ4BX0tZvRTv1JbB) + [marketrepo Taiyo Yuden T2](https://marketrepo.tokyo/articles/d20260404_c6976_taiyo_yuden_mlcc_growth.php) + [Murata FY26 cluster T1](https://corporate.murata.com/-/media/corporate/about/newsroom/news/irnews/irnews/2026/0430/25q4-e-fls.ashx).
+
+**🔴 KEY FINDING — 3-of-4 SIDECARS FAIL L26:**
+
+| Name | MLCC mix % verified | L26 verdict |
+|---|---|---|
+| Taiyo Yuden 6976.T | ~71% capacitor seg | 🟢 PURE-PLAY (only one) |
+| SMM 5713.T | <3% (Cu/Au commodity 65%) | 🔴 SIDECAR FAILS L26 |
+| Sumitomo Electric 5802.T | <1-2% (59% auto wire harness) | 🔴 SIDECAR FAILS L26 |
+| Ishihara Sangyo 4028.T | <2% consol equity-method snapshot | 🟡 SIDECAR snapshot BUT segment-trajectory hook self-catch applied — forward-trajectory option-value via MF Material 10% JV stake captive Murata 13-year offtake + 2027 new plant could re-rate Ishihara 15-25% over 24-36mo SOTP basis IF MF Material capex flow-through materializes |
+
+**🟢 PM20 WATCHLIST RE-RANKING:**
+
+| Rank | Name | PM19b | PM20 | Sizing if user enters |
+|---|---|---|---|---|
+| **#1** | Taiyo Yuden 6976.T | Tier-2 #2 | **PM20 #1 ENTER post-pullback** | €5-6K (cluster concentration cap) |
+| #2 | Ishihara Sangyo 4028.T | PM19b #5 indirect | **PM20 #2 speculative** if forward-trajectory thesis appeals | €2-3K speculative |
+| SKIP | SMM 5713.T | PM19b #1 ENTER | **SKIP as MLCC play** (commodity-cycle defensible separately) | n/a |
+| SKIP | Sumitomo Electric 5802.T | PM19b #2 NEW | **SKIP as MLCC play** (auto/EV thesis interesting separately) | n/a |
+
+**🔴 L28 LESSON CANDIDATE (defer to monthly audit June 24 — joint with L26 + L27 triplet):** "Industry-market-share data (SMM #1 Ni-powder 18% global; Shoei "Ni paste leader"; Sakai "BaTiO3 25% global") is NOT a substitute for segment-revenue % at the parent-company level. Pure-play falsifier must be applied at the listed-parent P&L, not at the captive product line." Combined L26 + L27 + L28 codification rule for monthly audit: pure-play verification ORDER must execute (a) listed-status via native-language exchange master → (b) ticker disambiguation → (c) primary-source segment-revenue % at parent-co level → (d) forward-trajectory modeling per B20/Principle #22 to avoid snapshot-dismissal of embedded option value.
+
+**🔴 B46 candidate hardened to N=3 confirmations:** PM19 Sakai + PM19b Shoei + PM20 SMM/Sumitomo Electric/Ishihara = 3 consecutive PM thesis-falsifications via verification this week. All from PM16b reliance on secondary-aggregator industry-share framing. Promotion-strong for monthly audit June 24.
+
+**Segment-trajectory hook self-catch:** B20 / Principle #22 application on Ishihara — "MF Material JV ownership only 10%" snapshot was used to dismiss; hook caught the anti-pattern; corrected with 12-24mo + 24-36mo + SOTP re-rating forward modeling.
+
+**Tier moves (scoped):**
+- `signals/cross-source-log/2026-06-16-pm20-4name-degiro-mlcc-comparative-diligence-3-of-4-sidecars-l28-lesson-taiyo-yuden-pure-play.md` — NEW artifact (full 9-section dig with joint matrices + forward-trajectory correction)
+- `watchlist/candidates.md` — Taiyo Yuden promoted to PM20 #1 ENTER post-pullback (limit-order ¥13,500-¥14,500 €5-6K); SMM/Sumitomo Electric demoted from PM19b ENTER to SKIP-as-MLCC-play with commodity-cycle separate-thesis caveat; Ishihara revised to speculative-forward-trajectory €2-3K candidate with falsifier (MF Material P/L share IR disclosure required)
+- `meta/tier-cascade-log.md` — THIS entry
+
+**Files NOT touched:** All held cohort thesis files — Taiyo Yuden is watchlist not yet held; MURATA HELD orthogonal (Taiyo Yuden = second-MLCC-integrator joint thesis not Murata-direct cascade); HYNIX / SNDK / MRVL / KIOXIA / DDOG / NOW / SUMCO orthogonal to MLCC raw-materials cluster. Portfolio unchanged (limit-order is conditional, no active buy).
+
+**Stale flags fired:** none
+
+**Critical Rule #16 seventh operational validation: POSITIVE (N=7 cumulative). FIRST in-session segment-trajectory hook self-catch.**
+
+**Cascade-fatigue check:** 20 cascades in tier-cascade-log + PM20 = 21 + PM20b = 22 + Kioxia pre-prep + INDEX refresh = **24 events in ~40 hours**. P#37 N=20 promotion gate EXCEEDED. No scope-violation observed.
+
+**Monthly audit June 24 feed items consolidated (PM18 + PM19 + PM19b + PM20 + PM20b combined):**
+- Principle #37 → VERIFIED promotion (N=24+; 0 scope-violations)
+- Critical Rule #16 → operational track record (N=8 fires; 0 false-positives)
+- B40.x → ≥8 stale-recycle catches week-of (aggregator-freshness-discipline rule strong candidate)
+- B46 → 3 confirmations (Sakai + Shoei + 3-of-4 sidecar)
+- L26 + L27 + L28 → industry-share ≠ segment-revenue + verify-listed-status + apply-at-parent-co triplet codification
+- B20 / Principle #22 → segment-trajectory hook self-catch (Ishihara) = working as designed
+- Principle #38 → N=3 ready for promotion
+- Principle #34 → N=2 ready for promotion
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM19b] Shoei Chemical entry-decision dig — 1 Opus subagent ticker disambiguation → STOP CONDITION: SHOEI IS PRIVATE / UNLISTED (PM19 #1 ENTER promotion VOIDED); SMM 5713.T promoted to PM19b #1 ENTER + Sumitomo Electric 5802.T added as Namics back-door; L27 lesson candidate (verify listed-status BEFORE MLCC-mix %; ordering matters); B46 hardened (2 consecutive PM19+PM19b thesis-falsifications)
 
 **Trigger source:** continuation of PM19 queue per user resume directive 2026-06-16 ~09:55 UTC "Continue from where you left off" → executed Shoei dig as next-priority autonomous action. Per Critical Rule #16, fired 1 Opus subagent with ticker disambiguation as critical pre-condition (SIXTH operational application).
@@ -103,17 +204,7 @@ Clean STOP-CONDITION cascade:
 
 **Cascade-fatigue check:** 20 cascades in tier-cascade-log + PM19b = 21 + Kioxia pre-prep + INDEX refresh = **23 events in ~38.5 hours**. P#37 N=20 promotion gate EXCEEDED. No scope-violation observed in any of the 20 cascades.
 
-**Monthly audit June 24 feed items consolidated:**
-- Principle #37 → VERIFIED promotion (N=23+ events; 0 scope-violations)
-- Critical Rule #16 → operational track record (N=6 fires; 0 false-positives)
-- B40.x → ≥6 stale-recycle catches week-of (aggregator-freshness-discipline rule candidate)
-- B46 → 2 confirmations (Sakai + Shoei thesis-falsification via verification)
-- L26 → industry-share ≠ equity-revenue-exposure (formal codification candidate)
-- L27 → verify listed-status BEFORE mix % (formal codification candidate; joint with L26)
-- Principle #38 (Lead-Lag) → N=3 ready for promotion
-- Principle #34 → N=2 ready for promotion
-
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `2f4a210` (filled in this PM20/PM20b cascade per lag-1 SHA-fill convention)
 
 ---
 
