@@ -35,6 +35,65 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM22] Citrini "Flash Point" + TSMC/Ibiden/Innolux CoPoS Digitimes + AMD MEXT stale + AAPL Flash-MoE WWDC NEW (user-shared 14:53 UTC) — 1 Opus subagent multilingual EN+JP+zh-TW → STRONG REINFORCE SNDK + KIOXIA HBF thesis (institutional consensus N=5 crystallizing this month); HYNIX anti-fragile both sides; Innolux 3481.TW NEW candidate (TSMC CoPoS partner); IBIDEN deep-dig elevated; B40.1 Citrini stale-recycle flag
+
+**Trigger source:** user-shared 3 items 2026-06-16 ~14:53 UTC: Citrini "Flash Point: Ways Past the DRAM Tax" deep-dive images + TSMC/Ibiden/Innolux CoPoS Digitimes report + AMD MEXT + AAPL flash focus extension. Per Rule #16, fired 1 Opus subagent multilingual mandate (TENTH operational application).
+
+**Intake tier:** 🟢 HARD (final after triple-verification) — Citrini publication B40.1 stale-recycle (last week's State of Themes); TSMC/Ibiden/Innolux Digitimes B40.1 PASS (fresh today); AMD MEXT B40.1 STALE-CONFIRM (PM14b coverage); AAPL Flash-MoE NEW VERIFY (genuine institutional signal).
+
+**Source:** 1 Opus subagent (a907f63a17de500c5, 22 tool uses / 179s). Anchor sources: [Citrini Research State of Themes June 2026 T1](https://www.citriniresearch.com/p/state-of-the-themes-june-2026) + [Digitimes EN TSMC/Innolux/Ibiden CoPoS 2026-06-16 T1](https://www.digitimes.com/news/a20260616PD217/tsmc-innolux-ibiden-packaging-cowos.html) + [Digitimes zh-TW 電子時報 T1](https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?CnlID=1&Cat=40&id=0000758841_AJV7G8PH5KBC540867F4K) + [SanDisk HBF Standardization T1](https://www.sandisk.com/company/newsroom/press-releases/2026/2026-02-25-sandisk-and-sk-hynix-begin-global-standardization-of-next-generation-memory-solution-high-bandwidth-flash-hbf) + [Apple WWDC AFM 3 Flash-MoE T1](https://cryptobriefing.com/apple-afm3-core-advanced-on-device-ai/) + [VentureBeat Apple T1](https://venturebeat.com/technology/on-device-ai-agents-hit-a-hard-memory-limit-apples-new-architecture-routes-around-it) + [IEEE H3 paper T1](https://ieeexplore.ieee.org/document/11371745) + [TrendForce HBM 20% DRAM wafer 2026 T1](https://www.trendforce.com/news/2025/12/26/news-ai-reportedly-to-consume-20-of-global-dram-wafer-capacity-in-2026-hbm-gddr7-lead-demand/).
+
+**🟢 KEY FINDING — INSTITUTIONAL CONSENSUS N=5 CRYSTALLIZING this month on flash-as-DRAM-bypass thesis:**
+1. SanDisk + SK Hynix HBF Standardization Consortium launched 2026-02-25 (T1)
+2. AMD MEXT acquisition 2026-06-15 (T1; covered PM14b)
+3. Apple WWDC Flash-MoE AFM 3 Core Advanced 20B-param June 2026 (T1 — streams weights from NVMe flash to GPU)
+4. IEEE H3 Hybrid HBM+HBF paper (T1)
+5. Citrini Research "State of Themes June 2026" (T1 last week; recycled today via Twitter)
+
+**🔴 B40.x summary:**
+- Citrini publication (Item A): B40.1 STALE-RECYCLE FLAG — recycled from last week per Item C self-disclosure; cost-per-GB numbers VERIFY within tolerance (HBM ~25% DRAM wafer = TrendForce 23% T1; 55× cost gap math consistent)
+- TSMC/Ibiden/Innolux Digitimes (Item B): B40.1 PASS (genuine fresh 2026-06-16 T1)
+- AMD MEXT (Item C primary): B40.1 STALE-CONFIRM (already covered PM14b 2026-06-15)
+- AAPL Flash-MoE (Item C secondary): NEW genuine institutional signal verified
+
+**Cluster cascade scoped per Principle #37:**
+- **SNDK (HELD +27.09%):** STRONGEST REINFORCE — PM8/PM9/PM10 three-lens framework institutionally validated by N=5 consensus; trade moved "edge insight" → "thematic mainstream"; 1st-derivative re-rating captured (+27% YTD); 2nd-derivative (HBF samples H2 2026 → revenue 2027) NOT yet in numbers; HOLD/ADD-ON-DIPS NOT a trim trigger
+- **KIOXIA (HOLD-until-falsifier 100sh):** DIRECT REINFORCE — Yokkaichi JV partner of SNDK; same HBF supply benefit; original HOLD STRENGTHENED
+- **HYNIX (HELD GDR +7.80%):** MIXED-NET-POSITIVE — anti-fragile on BOTH sides (HBM monopolist + HBF JV co-developer); HBM4 ramp 2026-2028 dominates near-term; flash-bypass long-term risk 5-10yr distant
+- **MRVL (HELD ~5.9%):** 2nd-order positive — flash-tier custom-Si controllers / NVMe-attach benefits
+- **MURATA / DDOG / NOW / SUMCO:** orthogonal
+- **IBIDEN 4062.T (PM5/PM6 watchlist):** RE-EVALUATE — CoPoS glass partner role T1 confirmed; deep-dig priority ELEVATED
+- **Innolux 3481.TW NEW CANDIDATE:** TSMC CoPoS partner; semi packaging <10% of TWD 226.72B revenue but growing 10× YoY per [Taiwan News T2](https://www.taiwannews.com.tw/news/6320066); native-zh-TW IR verify + Degiro/N26 access verify pending
+
+**Tier moves (scoped):**
+- `signals/cross-source-log/2026-06-16-pm22-citrini-flash-point-tsmc-ibiden-innolux-copos-amd-aapl-flash-3-item-verification-strong-reinforce-sndk-kioxia.md` — NEW artifact (full 8-section triple-verification + institutional consensus N=5 documentation + held cohort joint matrix + 4 new investable candidates ranked)
+- `companies/SNDK/thesis.md` — PM22 back-reference: STRONGEST REINFORCE; PM8/PM9/PM10 institutionally validated; HOLD/ADD-ON-DIPS NOT trim trigger
+- `companies/KIOXIA/thesis.md` — PM22 back-reference: DIRECT REINFORCE via Yokkaichi JV partner cascade; HOLD-until-falsifier STRENGTHENED
+- `companies/HYNIX/thesis.md` — PM22 back-reference: anti-fragile both sides; HBM4 dominates near-term; NEW falsifier candidate for HBF stack-density approaching HBM3E within 2 generations
+- `companies/MRVL/thesis.md` — PM22 back-reference: 2nd-order positive flash-tier custom-Si controllers
+- `watchlist/candidates.md` — Innolux 3481.TW NEW #1 PM22 candidate with full directional signal events tracking + L26+L27+L28 verify status documented
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM21 SHA fill (`ab77d8c`)
+
+**Files NOT touched:** MURATA / DDOG / NOW / SUMCO theses orthogonal; portfolio/holdings.md no position changes; signals/triangulation.md TC-1 cluster REINFORCED but no new cluster-state instance; methodology / tags / CLAUDE / INDEX no new principle.
+
+**Stale flags fired:** none
+
+**NEW Innolux #1 candidate + IBIDEN re-evaluation + SIMO + Phison surfaced:**
+- #1 Innolux 3481.TW (TPE; semi packaging <10% rev but 10× YoY trajectory)
+- #2 IBIDEN 4062.T (already on PM5/PM6 watchlist; deep-dig elevation)
+- #3 Silicon Motion SIMO (NASDAQ; US-listed pure-play NAND controller)
+- #4 Phison Electronics 8299.TWO (TPEx; NAND controller IP leader 2000+ patents)
+
+**NEW HYNIX falsifier candidate:** if HBF stack-density approaches HBM3E within 2 generations OR hyperscaler HBM contract renewals slow on flash-tier substitution → SECOND-order trim trigger. Add to F2 + F13 + Bernstein-pattern + PM20b ADR-discount-KRX falsifier-monitoring set.
+
+**Critical Rule #16 tenth operational validation: POSITIVE (N=10 cumulative).**
+
+**Cascade-fatigue check:** 25 cascades in tier-cascade-log + PM22 = 26 + Kioxia pre-prep + INDEX refresh = **28 events in ~41.5 hours**. P#37 N=20 promotion gate EXCEEDED.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM21] imec/TSMC/ASML 2D TMD 300mm wafer 50nm CPP VLSI 2026 announcement (user-shared 14:41 UTC) → 1 Opus subagent multilingual EN+Dutch+zh-TW → VERIFIED genuine VLSI 2026 fresh (NOT B40.1 stale); LIGHT-CASCADE / LOG-ONLY for held cohort; SUMCO thesis intact (300mm Si substrate unaffected — TMDs deposited on top); ASML reference-watchlist read-through (EUV monopoly extends to 2040+); 24-36mo+ strategic horizon signal NOT 6-24mo investable
 
 **Trigger source:** user-shared news 2026-06-16 ~14:41 UTC + "news that needs verification and cascade". Per Rule #16, fired 1 Opus subagent (a005cc2acb7230eeb) with multilingual EN + Dutch + native-zh-TW primary mandate (NINTH operational application).
@@ -76,7 +135,7 @@
 
 **Cascade-fatigue check:** 24 cascades in tier-cascade-log + PM21 = 25 + Kioxia pre-prep + INDEX refresh = **27 events in ~41 hours**. P#37 N=20 promotion gate EXCEEDED. No scope-violation observed in any of the 24 cascades.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `ab77d8c` (filled in this PM22 cascade per lag-1 SHA-fill convention)
 
 ---
 

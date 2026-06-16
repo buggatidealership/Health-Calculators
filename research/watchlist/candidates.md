@@ -101,6 +101,26 @@ For each watchlist name below, the open questions for tomorrow's dig:
 | Thesis hook | Dual exposure: Ni powder + BaTiO3 precursor titanium per [Toho Titanium ultra-fine Ni T1](https://www.toho-titanium.co.jp/en/products/ni/); +65% YoY shows partial pricing in |
 | Falsifier | Titanium pricing oversupply (aero/defense alt demand softens) → drag on stock unrelated to MLCC thesis |
 
+### Innolux Corp (3481.TW) — 🟢 **PM22 NEW #1 CoPoS Glass Substrate Cluster Candidate** (TSMC + Ibiden + Innolux 3-way CoPoS Digitimes T1 verified 2026-06-16)
+
+**Why this name surfaced 2026-06-16 PM22 (for cold-read):** Per `signals/cross-source-log/2026-06-16-pm22-citrini-flash-point-tsmc-ibiden-innolux-copos-amd-aapl-flash-3-item-verification-strong-reinforce-sndk-kioxia.md`. [Digitimes EN 2026-06-16 T1](https://www.digitimes.com/news/a20260616PD217/tsmc-innolux-ibiden-packaging-cowos.html) + [Digitimes zh-TW 電子時報 T1](https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?CnlID=1&Cat=40&id=0000758841_AJV7G8PH5KBC540867F4K) confirm TSMC working with Ibiden + Innolux on CoPoS Glass Substrate Development Project. Innolux is the Taiwanese display/panel maker pivoting to semi glass substrate. PRE-ENTRY L26+L27+L28 verify status: (a) listed-status TPE:3481 CONFIRMED ([stockanalysis T1](https://stockanalysis.com/quote/tpe/3481/)); (b) ticker disambiguation 3481.TW = Innolux Corp display/panel CONFIRMED; (c) **segment-revenue %: semi packaging panels currently <10% of TWD 226.72B revenue per [Taiwan News T2](https://www.taiwannews.com.tw/news/6320066); monthly shipments grew 4M→40M units YoY = early but accelerating** — per L26 falsifier <30% = sidecar at snapshot; B20/Principle #22 forward-trajectory check: TSMC CoPoS pilot 2026 / trials 2027 / mass prod 2028-2029 per [techpowerup T2](https://www.techpowerup.com/339963/tsmc-prepares-cowos-to-copos-shift-with-750-x-620-mm-panels) suggests semi packaging revenue % could compound 2× CAGR over 2-3yr; SOTP re-rating if semi packaging crosses 15-20% revenue threshold.
+
+**DIRECTIONAL SIGNAL EVENTS to track for entry:**
+
+| Event | What it signals | When |
+|---|---|---|
+| Innolux Q2 FY26 earnings | Semi packaging revenue % disclosure; pivot trajectory verification | Aug-26 |
+| TSMC CoPoS pilot line first-silicon | Innolux supplier qualification + revenue contribution timing | Q4 2026 / H1 2027 |
+| Innolux semi packaging revenue % >15% threshold | Pure-play promotion trigger | Watch quarterly |
+| TSMC CoPoS mass production confirmation 2028-2029 | Multi-year revenue ramp validation | 2027-2028 |
+
+**Pre-entry diligence required:**
+- Degiro / N26 availability check for 3481.TW (TWSE access)
+- Native-zh-TW IR primary-source segment breakdown verification (latest 年報/季報)
+- Cost basis context: TWD 226.72B revenue + display panel cyclical base + semi packaging accelerator option-value
+
+**Falsifier:** TSMC CoPoS timeline slippage >12mo OR Innolux losing CoPoS qualification to alternative supplier (e.g., AGC / Corning / Asahi Glass).
+
 ### Shoei Chemical — 🔴 **REMOVED PM19b — PRIVATE / UNLISTED — NOT TRADEABLE**
 
 Per `signals/cross-source-log/2026-06-16-pm19b-shoei-chemical-private-stop-condition-l27-lesson-candidate.md`: Shoei Chemical Inc. (昭栄化学工業 — the actual Ni-paste / MLCC nickel-powder leader) is **PRIVATELY HELD — NOT listed on any public exchange.** PM16b ticker conflict 4970 vs 7839 resolved: BOTH belong to UNRELATED companies (4970 = Toyo Gosei Kogyo photoresist; 7839 = SHOEI Co. helmets; 3537 = Shoei Yakuhin oleochemicals; 9385 = Shoei Corp real estate). Bloomberg "Z" suffix (7867113Z:JP) = private-company convention. Confirmed via Baseconnect 未上場 T1 + Bloomberg T1 + Crunchbase/PitchBook/CBInsights T2 + JPX IPO calendar (no Shoei Chemical entry). **PM19 #1 promotion VOIDED.** Ni-paste oligopoly (Shoei + Heraeus + Namics + Daiken) is ~80% privately held; public-market expression structurally limited.
