@@ -35,6 +35,77 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM27] MSFT-ORCL $3B cloud capacity lease deal collapse (user-shared Business Insider via Reuters wire 2026-06-16) → 1 Opus subagent T1/T2 verification → LIGHT-CASCADE (Oracle officially disputed same-day; B40.3 single-outlet attribution risk; modal H1+H3 blend); held cohort mild positive (MRVL/HYNIX/SNDK Azure-buildout-continues); TC-10 neocloud cluster (NBIS/CoreWeave/IREN) positive read-through; **🔴 CRITICAL ADJACENT MRVL Maia-Broadcom replacement-risk surfaced per Sherwood T2 — DEFERRED to tomorrow for dedicated subagent verification per user agreement**
+
+**Trigger source:** user-shared 2026-06-16 ~22:50 UTC. Per Rule #16, fired 1 Opus subagent (a9657bd6ae327e4d4, FIFTEENTH operational).
+
+**Intake tier:** 🟡 DIRECTIONAL — primary T2 (BI single-outlet) + T1 Reuters wire amplification + Oracle official rebuttal "inaccurate" same-day; modal H1+H3 blend.
+
+**Source:** [Reuters via TradingView T2](https://www.tradingview.com/news/reuters.com,2026:newsml_FWN42O0MQ:0-microsoft-walked-away-from-a-3-billion-deal-to-lease-oracle-cloud-capacity-over-security-concerns-business-insider/) + [Reuters via Investing.com T1 Oracle rebuttal](https://www.investing.com/news/stock-market-news/microsofts-cloud-infrastructure-talks-with-oracle-collapse-business-insider-reports-4745676) + [Futurum Oracle Q2 FY26 T1](https://futurumgroup.com/insights/oracle-q2-fy-2026-cloud-grows-capex-rises-for-ai-buildout/) + [DCD MSFT neocloud $33B T1](https://www.datacenterdynamics.com/en/news/microsoft-to-get-100000-nvidia-gb300s-under-nebius-deal-has-signed-more-than-33bn-in-capacity-agreements-with-neoclouds/) + [Sherwood MRVL Maia-Broadcom T2](https://sherwood.news/markets/microsoft-is-in-talks-to-shift-its-custom-chip-business-to-broadcom-from-marvell-report/) (orthogonal adjacent finding).
+
+**🔴 KEY FINDINGS:**
+1. MSFT-ORCL deal: $3B+ incremental capacity lease ABANDONED per BI; Oracle DISPUTED details same-day ("inaccurate; MSFT both partner and customer"); mechanism likely FedRAMP-on-public-cloud architectural gap (Oracle won't retrofit)
+2. MSFT-ORCL partnership ONGOING: Oracle Database@Azure +817% YoY Q2 FY26 (T1); expanded 14→33 regions; abandoned $3B is INCREMENTAL not existing
+3. MSFT capacity-crunch: $80B unfulfilled Azure backlog (T1 Nadella); $33B+ neocloud commitments (Nebius $19.4B + IREN $9.7B + CoreWeave + Nscale + Lambda); $60B total neocloud spend
+4. **🔴 ADJACENT MRVL Sherwood T2: MSFT in talks to shift Maia custom Si from MARVELL to BROADCOM** — orthogonal to MSFT-ORCL but DOMINANT MRVL narrative; potentially MATERIAL to HELD MRVL position (~5.9% +7.26% unrealized)
+
+**Hypothesis weighting (my model):**
+- H1 Genuine security/FedRAMP gap: 40%
+- H2 "Security" cover for pricing/terms: 30%
+- H3 Multi-factor mega-deal collapse: 25%
+- H4 Story misframed/B40 issue: 5%
+- Modal: H1+H3 blend
+
+**B40.x:**
+- B40.1 FRESH (distinct from March-2026 winbuzzer TX DC event)
+- B40.2 magnitude $3B verified across wire pickups
+- B40.3 SINGLE-OUTLET RISK — only BI primary + Reuters amplification ≠ independent verification; T2-borderline-T3
+
+**Cluster cascade scoped per Principle #37:**
+- MRVL: Mild positive on MSFT-ORCL event (in-house Maia continues if external leasing constrained); **BUT Sherwood Broadcom-replacement-risk = dominant MRVL narrative; deferred to tomorrow dedicated subagent verification per user agreement**
+- HYNIX GDR: Mild positive — $33B+ neocloud commitments + in-house Azure buildout = HBM4 demand intact
+- SNDK: Mild positive — Azure NAND-tier buildout continues; CMX integration PM25 unaffected
+- KIOXIA / MURATA / DDOG / NOW / SUMCO: orthogonal
+- MSFT (ref): Capacity-discipline + selectivity signal; consistent with PM24 Copilot Cowork pricing pivot
+- ORCL (ref): Mild bear if H1 heavy; counterbalanced by Stargate + DB@Azure +817%
+- **NBIS / CoreWeave / IREN / Nscale / Lambda (TC-10 neocloud watchlist):** POSITIVE READ-THROUGH — every $ MSFT doesn't spend at OCI = higher P incremental neocloud allocation
+- TC-4 (Anthropic enterprise-trust drift): adjacency confirmed — FedRAMP-as-gatekeeper structurally durable
+- TC-10 (sovereign-AI): adjacency confirmed — FedRAMP = US-sovereign compliance gate; PC-13 commercial parallel
+- U8 (token-cost-elasticity): mild adjacent — capacity remains constrained → pricing power persists per PM24
+
+**🔴 MRVL Maia-Broadcom adjacent finding pre-verification framing (my model):**
+- H1 (P~30%): MSFT genuinely shifting Maia silicon to AVGO → MRVL revenue concentration risk materializes → potential MRVL trim trigger
+- H2 (P~45%): MSFT exploring dual-source as negotiating leverage / commercial risk-mitigation → mild bear MRVL pricing power but not displacement
+- H3 (P~20%): Sherwood report exploratory single-source; deal doesn't materialize → no impact
+- H4 (P~5%): Story misframed / B40 issue
+
+**MRVL falsifier candidate registered (pending tomorrow's verification):** if MSFT publicly confirms shift to AVGO for Maia custom Si OR MRVL Q2 FY27 print discloses Maia-program revenue degradation → potential MRVL trim trigger.
+
+**Tier moves (scoped):**
+- `signals/cross-source-log/2026-06-16-pm27-msft-orcl-3b-deal-collapse-light-cascade-mrvl-maia-broadcom-deferred.md` — NEW artifact (full 8-section synthesis: source verification + Oracle rebuttal + B40.x discipline + hypothesis distribution + held cohort joint matrix + NBIS/neocloud cluster positive read-through + 🔴 MRVL Maia-Broadcom adjacent finding deferred to tomorrow)
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM26 SHA fill (`0e74e78`)
+
+**Files NOT touched (per scoping rule):** All held cohort thesis files — PM27 LIGHT-CASCADE no thesis-state change required; MRVL adjacent finding deferred to dedicated PM28 subagent verification tomorrow. Portfolio unchanged. signals/triangulation.md TC-10 cluster watchlist note deferred to batched update. Methodology / tags / CLAUDE / INDEX no new principle. meta/biases-watchlist.md no new B-instance (B40.3 single-outlet risk documented in cross-source-log).
+
+**Stale flags fired:** none
+
+**Forward watch items:**
+1. Second corroborating outlet WSJ/Bloomberg/Information picking up $3B/FedRAMP framing within 72h → promotes T2→T1
+2. MSFT capacity-call language on next earnings (Jul-2026)
+3. ORCL Q4 FY26 commentary on failed mega-deal or accelerated FedRAMP-public-cloud roadmap
+4. Neocloud commitment cadence (MSFT additional >$5B neocloud deal within 90 days = OCI dollars redirected → positive NBIS/CoreWeave/IREN cluster)
+5. **🔴 MRVL Maia-Broadcom verification subagent (TOMORROW)** — potentially material for HELD MRVL position; deferred per user agreement
+
+**Position implication: 🟡 NO ACTION today** per Critical Rule #8 binding (no written falsifier fired). Pre-committed trim sequences unchanged.
+
+**Critical Rule #16 fifteenth operational validation: POSITIVE (N=15 cumulative).**
+
+**Cascade-fatigue check:** 30 cascades in tier-cascade-log + PM27 = 31 + Kioxia pre-prep + INDEX refresh = **33 events in ~47 hours**. P#37 N=20 promotion gate EXCEEDED.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM26] Shanghai Securities News (上海证券报 T1) Huaqiangbei MLCC reporter investigation 2026-06-16 21:06 → 1 Opus subagent native-zh-CN + native-JP + EN parallel verification → STRONG REINFORCE MURATA thesis (PM16 PRICE STORY N+ ratification) + Taiyo Yuden 6976.T (太陽誘電) PM20 #1 ENTER entry-timing accelerator + NEW TDK 6762.T (TDKコーポレーション) WL-ADD candidate via Critical Rule #9 bypass-route + TC-6 cluster N=6 promotion; B40.2 magnitude correction (user-translated +3-5×/+8-10× = actual "doubled ~+100%" spot per stcn primary; +8-10× from adjacent channel chatter NOT this article)
 
 **Trigger source:** user-shared Shanghai Securities News article 2026-06-16 21:06 KST/CST. Per Rule #16, fired 1 Opus subagent (a3daacc6012d1a12a, 18 tool uses / 168s, FOURTEENTH operational application) with native-zh-CN + native-JP + EN parallel.
