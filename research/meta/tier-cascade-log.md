@@ -35,6 +35,85 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM25] User-shared 3-vendor flash-as-predictive-memory pattern (NVIDIA CMX + AMD MEXT + Apple AFM 3) + lateral WDC/STX question → 1 Opus subagent verification (after 2 prior rate-limit failures) → NVIDIA CMX VERIFIED T1 FRESH (GTC March 16 2026); PM22 institutional consensus N=5 → N=6; WDC/STX rally H1 ~55% PARTIAL CONFIRMATION via HDD-cold-tier-cascade; SNDK + KIOXIA STRONGER REINFORCE; HYNIX MIXED-NET-POSITIVE; SKIP WDC/STX (cluster + 4-6× higher-beta alpha-via-SNDK + late-cycle valuation); QMCO tape reference watchlist; Critical Rule #9 bypass-route framework applied
+
+**Trigger source:** user-shared 2026-06-16 ~19:15-19:19 UTC: (1) directional synthesis of 3-vendor flash-tier pattern; (2) lateral question on WDC/STX rally attribution. Per Rule #16, fired 1 Opus subagent abe4b192dd2a46d44 (THIRTEENTH operational; after 2 prior rate-limit failures: Innolux a2a431476720c6f67 + CMX a2892ffe56a531c4d).
+
+**Intake tier:** 🟢 HARD (final after T1 multi-source verification) — NVIDIA CMX VERIFIED + 3-vendor pattern triangulation threshold MET + WDC/STX moves verified + H1 reweighted ~55% via HDD-cold-tier-cascade reasoning.
+
+**Source:** [NVIDIA CMX T1](https://www.nvidia.com/en-us/data-center/ai-storage/cmx/) + [NVIDIA Developer Blog T1](https://developer.nvidia.com/blog/introducing-nvidia-bluefield-4-powered-inference-context-memory-storage-platform-for-the-next-frontier-of-ai/) + [NVIDIA Newsroom GTC 2026 T1](https://nvidianews.nvidia.com/news/nvidia-launches-bluefield-4-stx-storage-architecture-with-broad-industry-adoption) + [NAND Research T1](https://nand-research.com/nvidia-stx-cmx-infrastructure-for-agentic-ai-context-storage/) + [Solidigm T1](https://www.solidigm.com/products/technology/what-is-cmx-context-memory-storage.html) + [TIKR WDC T1](https://www.tikr.com/blog/western-digital-stock-is-up-115-in-2026-heres-whats-driving-the-rally) + [Barchart STX T1](https://www.barchart.com/story/news/2102976/up-195-ytd-3-reasons-why-seagate-stock-could-keep-rallying) + [FX Leaders SNDK T1](https://www.fxleaders.com/news/2026/06/16/sandisk-surges-620-ytd-as-ai-memory-boom-drives-record-profits-but-valuation-debate-intensifies/) + [Winbuzzer HDD shortage T1](https://winbuzzer.com/2026/02/18/wd-seagate-2026-hard-drive-shortage-ai-data-centers-xcxwbn/) + [Futurum capex T1](https://futurumgroup.com/insights/ai-capex-2026-the-690b-infrastructure-sprint/) + 15 more T1/T2.
+
+**🟢 KEY FINDING — NVIDIA CMX = Context Memory eXtension VERIFIED:**
+- Announced GTC 2026 March 16 (T-3mo from today; B40.1 FRESH)
+- Co-launched with BlueField-4 STX (Vera-class DPU)
+- Pod-level Ethernet-attached flash tier "G3.5" between local + enterprise storage
+- SSD partners: Solidigm + KIOXIA + Samsung
+- Storage partners: DDN/Dell/Everpure/Hitachi Vantara/HPE/IBM/NetApp/Nutanix/VAST/WEKA
+- Hyperscaler/neocloud partners: CoreWeave/Crusoe/IREN/Lambda/Nebius/OCI/Vultr/Mistral
+- 5× tokens/sec + 5× power efficiency long-context inference
+
+**3-vendor pattern triangulation MET (PM22 N=5 → N=6):**
+1. SanDisk + SK Hynix HBF Standardization Feb 2026
+2. AMD MEXT acquisition June 2026 (PM14b)
+3. Apple WWDC Flash-MoE AFM 3 June 2026 (PM22)
+4. IEEE H3 Hybrid HBM+HBF paper
+5. Citrini Research "State of Themes June 2026"
+6. **NVIDIA CMX GTC March 2026** (TODAY confirmed as 3rd vendor leg)
+
+**🟢 WDC/STX rally verified MASSIVE:**
+- WDC: +100-115% YTD; +191% 6mo; close $653.53 (+16.1% on 2026-06-15) — Morgan Stanley PT $488→$650; Q3 rev $3.34B +45% YoY
+- STX: +195-224% YTD; +17% 30d; ~$1,080 — Barclays PT $1,000 OW; Mozaic 4+ 44TB shipping
+- SNDK (HELD): +509-620% YTD (~$2,107) — LEADING by 4-6× per FX Leaders T1 + TradingKey T1
+- HYNIX (HELD): +248% YTD ($1T market cap)
+- MU: +210% YTD
+
+**🔴 CRITICAL TELL:** SNDK +509-620% vs WDC +115% = NAND LEADING HDD by 4-6× = NAND outperformance reflects flash tier-promotion premium.
+
+**🟢 H1/H2/H3 REWEIGHTED:**
+- H1 CONFIRMS user's lateral thesis (flash takes warm-tier → displaced data cascades to HDD cold tier): **~55%** (both NAND AND HDD sold out simultaneously T1; Citrini Flash promotion minutes→seconds rule; CMX G3.5 = MORE data lifecycle stages = MORE total bytes = HDD demand UP; WD's own blog argues "Flash and HDDs Both Win")
+- H2 CONTRADICTS (flash eats HDD): ~10%
+- H3 ORTHOGONAL (generic capex): ~35% (hyperscaler capex ~$700B 2026 → $820B 2027 with "all supply-constrained" per Futurum T1)
+
+**🟢 CRITICAL RULE #9 BYPASS-ROUTE FRAMEWORK APPLIED (HDD nearline shortage binding constraint):**
+- Substitution to QLC NAND eSSDs at warm-cold-tier boundary → SNDK + KIOXIA + Samsung NAND beneficiary
+- Substitution to HBF stacked-flash at hotter-cold-tier → SNDK + HYNIX (anti-fragile both sides)
+- Tape LTO at extreme-cold-tier deepest archive → **Quantum (QMCO) reference watchlist non-consensus bypass beneficiary**
+- Alternative topology: object storage on QLC eSSDs → NAND value chain
+- Second-source qualification: HDD oligopoly = WDC + STX duopoly captures constraint rent
+
+**Cluster cascade scoped per Principle #37:**
+- SNDK (HELD): STRONGER REINFORCE — direct CMX/MEXT/AFM 3 beneficiary; 2nd-derivative HBF revenue 2027 not in numbers; per TradingKey T1 +509% YTD
+- KIOXIA (HOLD-until-falsifier): STRONGER REINFORCE — likely CMX SSD supplier per Solidigm/KIOXIA/Samsung partners list
+- HYNIX GDR (HELD): MIXED-NET-POSITIVE — NAND tailwind partially offsets HBM marginal pressure; anti-fragile both sides per PM22
+- MRVL ~5.9% (HELD): MILD REINFORCE — NVMe controller + NVLink Fusion + Celestial AI exposed to flash-tier interconnect per Marvell SEC 8-K T1
+- MURATA / SUMCO / DDOG / NOW (HELD): orthogonal
+- **WDC + STX (not held; user lateral question)**: SKIP — DO NOT ADD as new positions (3 binding reasons: cluster concentration ~77% + SNDK 4-6× higher-beta alpha capture + WDC P/E 39× vs 5yr median 11.6× = late-cycle entry risk)
+- **Quantum QMCO (ref watchlist)**: tape LTO extreme-cold-tier non-consensus bypass beneficiary — log as reference watchlist note
+
+**Tier moves (scoped):**
+- `signals/cross-source-log/2026-06-16-pm25-3vendor-flash-tier-nvidia-cmx-wdc-stx-lateral-h1-partial-confirm-sndk-kioxia-stronger-reinforce-skip-wdc-stx.md` — NEW artifact (full 8-section synthesis: NVIDIA CMX T1 verification + 3-vendor triangulation MET + WDC/STX H1/H2/H3 reweight + Critical Rule #9 bypass-route + held cohort joint matrix + 4 falsifiers + 25+ source URLs)
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM24 SHA fill (`e9193fe`)
+
+**Files NOT touched (per scoping rule):** Held cohort thesis files — PM25 reinforces existing thesis state without triggering position action; held cohort thesis-state changes deferred to PM26+ if multiple position-action-relevant updates accumulate. PM24 already added MSFT-related back-references; PM22 already added 5-source HBF JV institutional consensus back-references; PM25 N=6 update can be batched at monthly audit. Portfolio unchanged. signals/triangulation.md TC-1 cluster REINFORCED but no new instance. methodology / tags / CLAUDE / INDEX no new principle. meta/biases-watchlist.md no new B-instance. watchlist/candidates.md NO add (WDC/STX SKIP recommendation; QMCO reference-only note).
+
+**Stale flags fired:** none
+
+**Falsifiers pre-registered (4 total):**
+1. WDC/STX UNDERPERFORM SNDK by 30%+ over next 90 days → H1 weakens
+2. SanDisk HBF first samples H2 2026 slip >6 months → 2nd-derivative SNDK weakens
+3. MSFT "Cowork 1" names Anthropic-tuned (NOT DeepSeek) → PM24 U8 thesis weakens
+4. NVIDIA Rubin Ultra reveals NO CMX integration → 3-vendor pattern hardening weakens
+
+**Critical Rule #16 thirteenth operational validation: POSITIVE (N=13 cumulative).** 2 prior rate-limit failures successfully recovered.
+
+**Cascade-fatigue check:** 28 cascades in tier-cascade-log + PM25 = 29 + Kioxia pre-prep + INDEX refresh = **31 events in ~45 hours**. P#37 N=20 promotion gate EXCEEDED.
+
+**Position implication: NO ACTION today** per Critical Rule #8 binding (no falsifier fired; user's thesis ADDS to existing held thesis state without position action). Pre-committed trim sequences unchanged.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM24] MSFT Copilot Cowork GA today + usage-based pricing + DeepSeek "Cowork 1" exploration (user-shared via Axios/Ina Fried/Techmeme 18:34 UTC) — 1 Opus subagent T1 verification → CASCADE → **U8 token-cost-elasticity ratification N=1 → N=2** + NOW 2nd-order pricing pressure HOLD-monitor + DDOG mild positive + HYNIX mild HBM-bear falsifier candidate + SNDK/KIOXIA NAND-side REINFORCE; PM22 Flash Point thesis VALIDATED; TC-4 ceiling-capped reinforced
 
 **Trigger source:** user-shared 2026-06-16 ~18:34 UTC via Techmeme attribution. Per Rule #16, fired 1 Opus subagent (a8c0e2c7e22895546, TWELFTH operational). Innolux subagent (a2a431476720c6f67) failed API rate-limit; deferred re-fire.
