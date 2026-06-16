@@ -35,6 +35,51 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM21] imec/TSMC/ASML 2D TMD 300mm wafer 50nm CPP VLSI 2026 announcement (user-shared 14:41 UTC) → 1 Opus subagent multilingual EN+Dutch+zh-TW → VERIFIED genuine VLSI 2026 fresh (NOT B40.1 stale); LIGHT-CASCADE / LOG-ONLY for held cohort; SUMCO thesis intact (300mm Si substrate unaffected — TMDs deposited on top); ASML reference-watchlist read-through (EUV monopoly extends to 2040+); 24-36mo+ strategic horizon signal NOT 6-24mo investable
+
+**Trigger source:** user-shared news 2026-06-16 ~14:41 UTC + "news that needs verification and cascade". Per Rule #16, fired 1 Opus subagent (a005cc2acb7230eeb) with multilingual EN + Dutch + native-zh-TW primary mandate (NINTH operational application).
+
+**Intake tier:** 🟡 DIRECTIONAL (final after multilingual T1 verification) — genuine VLSI 2026 fresh result; framing "at scale" inflates lab-to-fab integration milestone vs production volume reality.
+
+**Source:** [Electronics Weekly EN T1](https://www.electronicsweekly.com/news/business/imec-asml-and-tsmc-develop-integration-route-for-2d-material-based-n-and-pfets-2026-06/) + [TechPowerUp EN T1](https://www.techpowerup.com/349987/asml-tsmc-and-imec-achieve-300-mm-integration-of-2d-material-transistors-with-50-nm-pitch) + [Bits&Chips Dutch/Belgian T1](https://bits-chips.com/article/asml-tsmc-and-imec-scale-2d-transistors-to-50nm-pitch-on-300mm-wafers/) + [DigiTimes T1](https://www.digitimes.com/news/a20260616VL216/tsmc-asml-imec-transistor-manufacturing-materials.html) + [TechNews TW zh-TW T1](https://technews.tw/2026/06/16/imec-tsmc-and-asml-advance-2d-transistor-development/) + [cnYES zh-TW T1](https://news.cnyes.com/news/id/6501185) + [UDN Money zh-TW T1](https://money.udn.com/money/story/11162/9569922) + [ChinaTimes zh-TW T1](https://www.chinatimes.com/realtimenews/20260616003468-260410) + [imec event page T1](https://www.imec-int.com/en/events/2025-symposium-vlsi-technology-and-circuits) + [Semiconductor Today IEDM Dec 2025 precursor T1](https://www.semiconductor-today.com/news_items/2025/dec/imec-151225.shtml) + [IEEE Xplore IEDM 2023 precursor T1](https://ieeexplore.ieee.org/document/10413874/).
+
+**🟢 Key technical verification (T1 confirmed):**
+- n-type: MoS₂ monolayer; p-type: WS₂/WSe₂ (closes historical p-type bottleneck)
+- CPP 50nm = node-competitive with TSMC N3 ~48-51nm
+- Channel length ~28nm; yield 94% operational (Imax/Imin >10⁵)
+- EUV single-patterning (low-NA, ASML-optimized)
+- 300mm silicon substrate (TMD deposited ON TOP — critical for SUMCO read)
+- Application = BEOL + wafer backside + ultra-scaled logic; NOT front-end channel replacement
+- Time-to-commercialization: realistically 2035-2040+ (10-15yr); IRDS roadmap places 2D channels at sub-A7/sub-1nm
+
+**B40.x:** B40.1 NOT stale (genuine fresh today VLSI 2026; IEDM Dec 2025 was single-device WSe2 precursor, today is CMOS-integrated 300mm wafer step forward) + B40.2 PARTIAL HIT ("at scale" framing inflates 94% yield test-devices vs production volume) + B40.3 T1 source but single conference paper / joint press release.
+
+**Cluster cascade scoped per Principle #37:**
+- **SUMCO (HELD per holdings.md PM17c):** 🟢 NEUTRAL-to-mild-positive — 300mm Si substrate UNAFFECTED (TMDs deposited on top); BEOL/backside integration may LIFT ASPs long-term; NO 6-24mo thesis change; falsifier pre-registered for IF "2D-native" non-silicon substrates emerge
+- **TSMC (ref):** Long-term tech leadership reinforced; no near-term P&L impact
+- **ASML (ref watchlist):** STRONGEST READ-THROUGH — EUV monopoly extends to 2040+ (2D TMD requires EUV single-patterning at scaled pitch)
+- MRVL / HYNIX / SNDK / MURATA / KIOXIA / DDOG / NOW: orthogonal (memory cell physics ≠ logic; MLCC passive; NAND cell physics; software orthogonal)
+
+**Tier moves (scoped):**
+- `signals/cross-source-log/2026-06-16-pm21-imec-tsmc-asml-2d-tmd-300mm-vlsi2026-verified-light-cascade-log-only.md` — NEW artifact (full 7-section dig + joint-state matrix + forward watch items + L29 lesson candidate)
+- `meta/tier-cascade-log.md` — THIS entry
+
+**Files NOT touched:** ALL held cohort thesis files — orthogonal or 24-36mo+ horizon does not warrant thesis-state update (per subagent recommendation "no writes for held names"); SUMCO thesis intact at current state (falsifier pre-registered in cross-source-log artifact only); portfolio/holdings.md unchanged; signals/triangulation.md no cluster-state change; methodology/tags/CLAUDE/INDEX no new principle.
+
+**Stale flags fired:** none
+
+**🔴 SUMCO falsifier pre-registered (per cross-source-log §5):** if "2D-native" non-silicon substrates emerge (sapphire / SiC for direct 2D TMD growth replacing 300mm Si wafers), SUMCO thesis structural pressure on 10-15yr horizon. Current state T1 verified: NO evidence today; 300mm Si substrate baseline CONFIRMED in this VLSI 2026 paper. Watch trigger: academic papers / imec/TSMC/ASML announcements citing non-silicon substrate replacement. Pre-register monitoring through Q4 2026 IEDM + 2027 VLSI papers.
+
+**L29 lesson candidate (defer to monthly audit June 24 — combine with L26+L27+L28 if applicable):** "Industry breakthrough press releases pairing imec + foundry + equipment partner are characteristically inflated at headline level ('major first', 'at scale') but genuinely technically meaningful at paper level. Discipline: always separate 'demonstrated on 300mm' (yield + integration milestone) from 'ready for HVM' (process maturity + cost). 10-15yr gap between lab-to-fab and HVM is normal."
+
+**Critical Rule #16 ninth operational validation: POSITIVE (N=9 cumulative).**
+
+**Cascade-fatigue check:** 24 cascades in tier-cascade-log + PM21 = 25 + Kioxia pre-prep + INDEX refresh = **27 events in ~41 hours**. P#37 N=20 promotion gate EXCEEDED. No scope-violation observed in any of the 24 cascades.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM20b] SK Hynix ADR listing mid-July user-shared news + 1 Opus subagent native-KR primary verification → PARTIALLY VERIFIED with B40.2 magnitude correction ($14-25B actual range vs $27B headline upper-bound); HYNIX thesis REINFORCED; HOLD GDR core NO pre-event trim per Rule #8; cluster cascade SNDK direct beneficiary + MRVL mild 2nd-order positive + KIOXIA mixed (parallel ADR offset)
 
 **Trigger source:** user-shared news 2026-06-16 ~14:26 UTC + "additional news that needs fact checking and cascading" directive. Per Rule #16, fired 1 Opus subagent (a70878ed055db5cb4) with native-KR primary mandate (EIGHTH operational application).
@@ -73,7 +118,7 @@
 
 **Critical Rule #16 eighth operational validation: POSITIVE (N=8 cumulative).**
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `138c123` (filled in this PM21 cascade per lag-1 SHA-fill convention)
 
 ---
 
