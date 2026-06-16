@@ -35,6 +35,88 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM19b] Shoei Chemical entry-decision dig — 1 Opus subagent ticker disambiguation → STOP CONDITION: SHOEI IS PRIVATE / UNLISTED (PM19 #1 ENTER promotion VOIDED); SMM 5713.T promoted to PM19b #1 ENTER + Sumitomo Electric 5802.T added as Namics back-door; L27 lesson candidate (verify listed-status BEFORE MLCC-mix %; ordering matters); B46 hardened (2 consecutive PM19+PM19b thesis-falsifications)
+
+**Trigger source:** continuation of PM19 queue per user resume directive 2026-06-16 ~09:55 UTC "Continue from where you left off" → executed Shoei dig as next-priority autonomous action. Per Critical Rule #16, fired 1 Opus subagent with ticker disambiguation as critical pre-condition (SIXTH operational application).
+
+**Intake tier:** 🟢 HARD (final — definitive STOP CONDITION via 5-source primary-source convergence). Subagent halted §2-7 analysis per protocol when ticker disambiguation revealed Shoei = PRIVATE.
+
+**Source:** 1 Opus subagent (a0db18138527e1024 Shoei dig + ticker disambiguation, 16 tool uses / 116s). Token cost ~31k.
+
+**🔴 KEY FINDING — SHOEI CHEMICAL IS PRIVATE / NOT TRADEABLE:**
+
+| Candidate ticker | Actual company | Listed |
+|---|---|---|
+| 4970.T | 東洋合成工業 Toyo Gosei Kogyo (photoresist) | YES — but NOT Shoei |
+| 7839.T | SHOEI Co. (motorcycle helmets) | YES — but NOT Shoei Chemical |
+| 3537.T | Shoei Yakuhin (oleochemicals) | YES — but NOT Shoei Chemical |
+| 9385.T | Shoei Corp (real estate) | YES — but NOT Shoei Chemical |
+| **昭栄化学工業 Shoei Chemical Inc.** | Ni-paste / Ni-powder MLCC leader | **NO — PRIVATELY HELD** |
+
+Convergent evidence: Baseconnect 未上場 T1 + Bloomberg 7867113Z:JP "Z" suffix private-company convention T1 + Crunchbase/PitchBook/CBInsights T2 + JPX IPO calendar (no entry) T1. Ni-paste oligopoly (Shoei + Heraeus + Namics + Daiken) is ~80% privately held.
+
+**🟢 PM19b WATCHLIST RE-RANKING (revised vs PM19):**
+
+| Rank | Name | PM19 | PM19b |
+|---|---|---|---|
+| **#1** | **Sumitomo Metal Mining 5713.T** | #4 defensive sleeve | **#1 ENTER PROMOTED** (only true listed Ni-powder pure-ish play post-Shoei elimination) |
+| **#2 NEW** | **Sumitomo Electric 5802.T** | n/a | **NEW #2 ADDITION** (back-door Ni-paste via Namics private subsidiary) |
+| #3 | Toho Titanium 5727.T | #2 | #3 (unchanged) |
+| #4 | Add to MURATA 6981.T on pullback | #3 alternative | #4 alternative (unchanged) |
+| #5 | Ishihara Sangyo 4028.T | #5 | #5 (unchanged) |
+| WAIT | Sakai Chemical 4078.T | WAIT/downsize | WAIT/downsize (unchanged) |
+| **REMOVED** | **Shoei Chemical** | **#1 ENTER** | **REMOVED — PRIVATE / not tradeable** |
+
+**Tier moves (scoped):**
+- `signals/cross-source-log/2026-06-16-pm19b-shoei-chemical-private-stop-condition-l27-lesson-candidate.md` — NEW artifact (full 8-section STOP-CONDITION cascade + L27 lesson candidate + B46 hardening note + revised watchlist + portfolio action)
+- `watchlist/candidates.md` — Shoei entry REVISED with PM19b REMOVED header + PRIVATE / UNLISTED status documented; SMM 5713.T entry REVISED with PM19b PROMOTED header + L26 native-JP IR pre-entry verify caveat; Sumitomo Electric 5802.T NEW entry added with Namics back-door framing
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM19 SHA fill (`691fef1`)
+
+**Files NOT touched (per scoping rule):**
+- All held cohort thesis files — orthogonal; portfolio unchanged
+- `portfolio/holdings.md` — no position changes; user awaiting broker-availability check before any entry
+- `signals/triangulation.md` — TC-6 unchanged
+- `meta/methodology.md` — L27 lesson candidate noted but DEFERRED to monthly audit June 24 codification (combine with L26 from PM19 as joint ordering rule)
+- `meta/biases-watchlist.md` — B46 candidate further hardened via 2 consecutive falsifications; N-counter increment DEFERRED to monthly audit
+- `meta/cross-domain-pattern-register.md` — no new pattern; PC-13 unchanged
+- `sector/themes.md`, `sector/where-we-are.md` — no synthesis shift
+- `predictions/grading-log.md`, `lessons.md` — L26 + L27 both deferred to monthly audit June 24 for joint codification
+
+**Stale flags fired:** none
+
+**🔴 L27 LESSON CANDIDATE (defer to monthly audit June 24):** **Pure-play candidate verification ORDER must be:** (1) FIRST verify publicly listed and tradeable on TSE/NYSE/NASDAQ/etc.; (2) SECOND confirm correct ticker (disambiguate from similarly-named entities); (3) THIRD verify MLCC-mix / pure-play % via primary-source segment-revenue breakdown (per L26 from PM19). Industry-share / commodity-market-position data is NOT a substitute for any of these. **PM16b assumed (1) without checking and PM19 promoted to #1 ENTER on the false assumption.** Combined L26 + L27 codification target: Critical Rule #17 or extension of Critical Rule #14 / Critical Rule #15.
+
+**🔴 B46 CANDIDATE HARDENED:** PM16b → PM19 + PM19b pattern = 2 consecutive PM thesis-falsifications via verification (Sakai PM19 mix-falsification + Shoei PM19b listed-status-falsification). Both originated from PM16b cascade's reliance on secondary-aggregator industry-share framing without primary-source verification. Stronger evidentiary base for B46 promotion at monthly audit June 24.
+
+**Loop-validation note (TWENTIETH real-data application of Principle #37; SIXTH Rule #16 operational application; SECOND in-session thesis-falsification via verification):**
+
+Clean STOP-CONDITION cascade:
+- 1 subagent fired per Rule #16 without permission-asking
+- Sub#1 returned definitive STOP CONDITION via 5-source primary-source convergence
+- §2-7 NOT executed per protocol (correct — don't analyze wrong company); subagent discipline working as designed
+- Watchlist re-ranking executed (SMM → #1 PROMOTED; Sumitomo Electric → NEW #2; Shoei → REMOVED)
+- L27 lesson candidate codified for monthly audit
+- B46 hardened (2 consecutive falsifications)
+- Held cohort cascade: NO thesis-state changes; portfolio unchanged
+
+**Critical Rule #16 sixth operational validation: POSITIVE (N=6 cumulative).** Subagent fired reliably; stop-condition protocol respected; cascade flowed clean per Principle #37.
+
+**Cascade-fatigue check:** 20 cascades in tier-cascade-log + PM19b = 21 + Kioxia pre-prep + INDEX refresh = **23 events in ~38.5 hours**. P#37 N=20 promotion gate EXCEEDED. No scope-violation observed in any of the 20 cascades.
+
+**Monthly audit June 24 feed items consolidated:**
+- Principle #37 → VERIFIED promotion (N=23+ events; 0 scope-violations)
+- Critical Rule #16 → operational track record (N=6 fires; 0 false-positives)
+- B40.x → ≥6 stale-recycle catches week-of (aggregator-freshness-discipline rule candidate)
+- B46 → 2 confirmations (Sakai + Shoei thesis-falsification via verification)
+- L26 → industry-share ≠ equity-revenue-exposure (formal codification candidate)
+- L27 → verify listed-status BEFORE mix % (formal codification candidate; joint with L26)
+- Principle #38 (Lead-Lag) → N=3 ready for promotion
+- Principle #34 → N=2 ready for promotion
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM19] Sakai Chemical 4078.T entry-decision dig — 1 Opus subagent multilingual JP+ZH+EN → PARTIAL THESIS FALSIFICATION (PM16 #1 ENTER candidate downgraded to WAIT/downsize; only 12% MLCC mix vs PM16 "pure-play" framing); Shoei Chemical 4970.T promoted to PM19 #1 ENTER; B46 candidate confirmation + L26 lesson candidate (industry-share ≠ equity-revenue-exposure)
 
 **Trigger source:** user resume directive 2026-06-16 ~09:40 UTC "Continue from where you left off" → executed PM16b queue #1 priority (Sakai Chemical 4078.T entry-decision dig). Per Critical Rule #16, fired 1 Opus subagent on 5 documented dig priorities without permission-asking (FIFTH operational application of Rule #16).
@@ -95,7 +177,7 @@ Clean PREDICT-workflow application demonstrating verification-before-entry disci
 
 **Cascade-fatigue check:** 19 cascades in tier-cascade-log + PM19 = 20 + Kioxia pre-prep + INDEX refresh = **22 events in ~38 hours**. P#37 N=20 promotion gate EXCEEDED. No scope-violation observed in any of the 19 cascades. **Principle #37 ready for VERIFIED promotion at June 24 monthly audit** with strong evidentiary base (N=22+; 0 scope-violations; 5 Rule #16 operational validations; ≥6 B40.x catches; 1 B46 candidate confirmation via thesis-falsification verification; 1 L26 lesson candidate surfaced).
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `691fef1` (filled in this PM19b cascade per lag-1 SHA-fill convention)
 
 ---
 

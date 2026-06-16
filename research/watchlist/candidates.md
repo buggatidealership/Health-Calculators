@@ -75,7 +75,13 @@ For each watchlist name below, the open questions for tomorrow's dig:
 | Chinese MLCC AEC-Q200 auto qual breakthrough | Accelerates Tier-1 share loss → Tier-1 reactionary capex → upstream BaTiO3 demand | Watch continuous |
 | Murata China rare-earth decoupling progress | If domestic Japan supply chain prioritized → Sakai positively-leveraged | Quarterly Murata IR |
 
-### Sumitomo Metal Mining (5713.T) — RANK 2
+### Sumitomo Metal Mining (5713.T) — 🟢 **PM19b PROMOTED: defensive sleeve → #1 ENTER CANDIDATE** (post-Shoei elimination; only true listed Ni-powder pure-ish play)
+
+**Why this name PROMOTED 2026-06-16 PM19b (for cold-read):** PM19b Shoei dig revealed Shoei Chemical (the named Ni-paste leader) is PRIVATELY HELD — not tradeable. SMM emerges as the ONLY listed Ni-powder pure-ish play available to public-market investors. PM16b ranking framed SMM as "defensive sleeve" due to mining-business dilution of MLCC purity; PM19b promotion reflects scarcity of listed alternatives at the Ni-paste / Ni-powder tier post-Shoei elimination. **PRE-ENTRY native-JP 有価証券報告書 segment-revenue % verification REQUIRED** per L26 lesson candidate.
+
+### Sumitomo Electric (5802.T) — 🟢 **PM19b NEW #2 — Namics back-door entry**
+
+**Why this name added 2026-06-16 PM19b (for cold-read):** PM19b Subagent #1 identified Sumitomo Electric as parent of Namics (private Ni-paste competitor to Shoei). Public-market back-door for Namics exposure. New candidate; **PRE-ENTRY native-JP 有価証券報告書 segment-revenue % verification REQUIRED** per L26 — specifically what % of SE revenue is Namics MLCC paste vs broader electrical/electronics conglomerate. Diversified-conglomerate dilution likely; sizing should reflect actual segment mix.
 
 **Why this name surfaced 2026-06-15 PM16 (for cold-read):** MLCC inner electrode = nickel paste (T1 supplier ecosystem); Subagent C identified Sumitomo Metal Mining + JFE Mineral (private) + Shoei Chemical + Toho Titanium as the Top-5 holding **>60% global Ni powder share** per [Verified Market T1](https://www.verifiedmarketreports.com/product/nickel-powder-for-mlcc-electrode-market/). SMM ranked #2 not #1 because the nickel mining business dilutes MLCC purity (vs Sakai Chemical's near-pure BaTiO3 exposure); but offsetting that, SMM has **large-cap liquidity advantage + defensive market-cap size + Ni LME optionality**. Adds as a Murata-direct-upstream play with lower volatility than Sakai for sizing-balanced exposure. Was NOT a Subagent C single-day breakout candidate (no late-May/June pop empirically confirming yet) — included as a defensive sleeve, not a momentum entry.
 
@@ -95,7 +101,9 @@ For each watchlist name below, the open questions for tomorrow's dig:
 | Thesis hook | Dual exposure: Ni powder + BaTiO3 precursor titanium per [Toho Titanium ultra-fine Ni T1](https://www.toho-titanium.co.jp/en/products/ni/); +65% YoY shows partial pricing in |
 | Falsifier | Titanium pricing oversupply (aero/defense alt demand softens) → drag on stock unrelated to MLCC thesis |
 
-### Shoei Chemical (4970.T) — 🟢 **PM19 PROMOTED: PM16b #4 → PM19 #1 ENTER candidate** (Sakai partial falsification displaces; Shoei is cleaner mix)
+### Shoei Chemical — 🔴 **REMOVED PM19b — PRIVATE / UNLISTED — NOT TRADEABLE**
+
+Per `signals/cross-source-log/2026-06-16-pm19b-shoei-chemical-private-stop-condition-l27-lesson-candidate.md`: Shoei Chemical Inc. (昭栄化学工業 — the actual Ni-paste / MLCC nickel-powder leader) is **PRIVATELY HELD — NOT listed on any public exchange.** PM16b ticker conflict 4970 vs 7839 resolved: BOTH belong to UNRELATED companies (4970 = Toyo Gosei Kogyo photoresist; 7839 = SHOEI Co. helmets; 3537 = Shoei Yakuhin oleochemicals; 9385 = Shoei Corp real estate). Bloomberg "Z" suffix (7867113Z:JP) = private-company convention. Confirmed via Baseconnect 未上場 T1 + Bloomberg T1 + Crunchbase/PitchBook/CBInsights T2 + JPX IPO calendar (no Shoei Chemical entry). **PM19 #1 promotion VOIDED.** Ni-paste oligopoly (Shoei + Heraeus + Namics + Daiken) is ~80% privately held; public-market expression structurally limited.
 
 **Why this name surfaced 2026-06-15 PM16 (for cold-read):** Nickel paste is the second key upstream input for MLCC inner electrodes (alongside Ni powder); Subagent C identified Shoei Chemical as the leader in Ni paste vs private competitors Heraeus + Namics (DIC subsidiary). Ranked #4 because: (a) the broader Ni paste market is smaller TAM than BaTiO3 dielectric powder (so leverage to MLCC capex is lower); (b) **DATA HYGIENE RISK FLAGGED** by Subagent C — ticker 4970 in some feeds conflicts with Shoei Co 7839; before any entry, MUST disambiguate via primary IR source; (c) Murata's rare-earth-decoupling 3-year plan (T1 TrendForce Mar 19 2026) could conceivably include vertical integration of Ni paste, which would compress this name's TAM at the largest customer. Defensive bench candidate.
 
