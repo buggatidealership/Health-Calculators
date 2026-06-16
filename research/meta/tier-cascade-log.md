@@ -35,6 +35,70 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM26] Shanghai Securities News (上海证券报 T1) Huaqiangbei MLCC reporter investigation 2026-06-16 21:06 → 1 Opus subagent native-zh-CN + native-JP + EN parallel verification → STRONG REINFORCE MURATA thesis (PM16 PRICE STORY N+ ratification) + Taiyo Yuden 6976.T (太陽誘電) PM20 #1 ENTER entry-timing accelerator + NEW TDK 6762.T (TDKコーポレーション) WL-ADD candidate via Critical Rule #9 bypass-route + TC-6 cluster N=6 promotion; B40.2 magnitude correction (user-translated +3-5×/+8-10× = actual "doubled ~+100%" spot per stcn primary; +8-10× from adjacent channel chatter NOT this article)
+
+**Trigger source:** user-shared Shanghai Securities News article 2026-06-16 21:06 KST/CST. Per Rule #16, fired 1 Opus subagent (a3daacc6012d1a12a, 18 tool uses / 168s, FOURTEENTH operational application) with native-zh-CN + native-JP + EN parallel.
+
+**Intake tier:** 🟢 HARD (final after T1 multi-source verification) — Shanghai Securities News stcn.com primary T1 + Eastmoney + Yicai mirrors + TrendForce + Digitimes + eeNewsEurope cross-source convergence ≥4.
+
+**Source:** [Shanghai Securities News stcn.com 3965041 T1](https://www.stcn.com/article/detail/3965041.html) + [Eastmoney mirror T1.5](https://finance.eastmoney.com/a/202606163773323618.html) + [Yicai mirror T1.5](https://www.yicai.com/brief/103233159.html) + [Cnstock SSN portal T1](https://www.cnstock.com/commonDetail/726898) + [eeNewsEurope T1.5](https://www.eenewseurope.com/en/ai-drives-mlcc-shortage/) + [Digitimes T1 Taiyo Yuden price hikes](https://www.digitimes.com/news/a20260417PD209/taiyo-yuden-mlcc-murata-electronic-components-price.html) + [TrendForce T1 SEMCO double-digit](https://www.trendforce.com/news/2026/02/24/news-samsung-electro-mechanics-reportedly-weighs-double-digit-mlcc-price-hike-in-april-amid-ai-demand/) + [Ctee T1 Walsin AGM](https://www.ctee.com.tw/news/20260614700033-439901) + [Kabutan 6981 Murata T1](https://kabutan.jp/stock/?code=6981) + [BigGo Taiyo Yuden 6976 T1](https://finance.biggo.com/news/5hr2FJ4BX0tZvRTv1JbB) + [TDK product T1](https://product.tdk.com/en/techlibrary/applicationnote/mlcc-solution-for-data-center-psu.html).
+
+**🔴 KEY FINDING — B40.2 MAGNITUDE CORRECTION:**
+- User-translated "+3-5× / +8-10×" NOT in stcn primary article
+- Actual article quote: "多数产品目前的报价相较5月份已经翻倍" = "most products' quotes have DOUBLED vs May" (~+100%)
+- Specific Murata example cited: GRM31CR61A476KE15L at RMB 600-635/2000pcs vs ~RMB 300/2000pcs in May = ~+100%
+- +8-10× came from ADJACENT channel chatter ([36Kr T2](https://www.36kr.com/p/3845611027728640) + [Eastmoney channel note T2](https://caifuhao.eastmoney.com/news/20260531195206810222420)) NOT stcn primary
+
+**🟢 DISTRIBUTION-CHANNEL vs OEM-CONTRACT DISCRIMINATION (critical analytical filter):**
+- Huaqiangbei distributor SPOT: "DOUBLED" (~+100%) — NOT MURATA revenue
+- OEM contract: +15-35% AI/auto / +6-13% consumer per Murata Apr-1 verified PM16 + SEMCO +double-digit Apr T1 + Taiyo Yuden +6-13% May T1 — what flows to MURATA P&L
+- Spot signal indicates demand pressure that WILL re-rate next OEM-contract round 1-2 quarters out; spot doubling ≠ MURATA blended ASP doubling
+- PM16 PRICE STORY framework HOLDS; magnitude expectations remain disciplined
+
+**Cluster cascade scoped per Principle #37:**
+- **MURATA (村田製作所 6981.T) HELD +73.57%:** STRONGEST REINFORCE — distributor-spot doubling on Murata-branded P/N (GRM31CR61A476KE15L explicitly cited) = real-time demand-pressure proof; PM16 PRICE STORY thesis N+ ratification; HOLD; ADD-ON-PULLBACK candidacy STRENGTHENED
+- **Taiyo Yuden (太陽誘電 6976.T) PM20 #1 ENTER:** ENTRY-TIMING ACCELERATOR — dispersion between "doubled spot" and "+6-13% contract" is widest for TY among Big-3 → highest contract-reset leverage 1-2Q out
+- **🆕 TDK (TDKコーポレーション 6762.T) NEW WL-ADD CANDIDATE** — surfaced via Critical Rule #9 bypass-route framework; 30% capex to passives + 100V high-density MLCC ready + AI-datacenter named core capex direction + 25-30% CAGR target FY31; PRE-WL-ADD L26+L27+L28 verification subagent REQUIRED before formal watchlist add (segment-revenue % at parent-co level critical given TDK is multi-segment electronics conglomerate)
+- YAGEO 2327.TW: mild positive — Tier-2 capital-discipline play
+- Walsin 6285.TW: confirmed alignment per Ctee T1 AGM "shortage to 2027+"
+- MURATA raw-material cluster (5713.T / 5802.T / 5727.T / 4028.T): mild positive correlated rally (NOT pure-play thesis per PM20 falsification at <3% MLCC mix parent-co level)
+- HYNIX / SNDK / KIOXIA / MRVL / DDOG / NOW / SUMCO: orthogonal
+- IBIDEN 4062.T (PM23) / Innolux 3481.TW (PM22): orthogonal (substrate ≠ MLCC)
+
+**🟢 TC-6 CLUSTER N=6 PROMOTION (Critical Rule #14 signal-density detection):**
+N≥6 same-direction same-segment signals last 90 days:
+1. Murata Apr-1 +15-35% AI/auto (PM16 verified)
+2. Taiyo Yuden +6-13% effective May per Digitimes T1
+3. SEMCO +double-digit April per TrendForce T1
+4. Walsin AGM 2026-06-12 "shortage to 2027+" per Ctee T1
+5. TrendForce H2-2026 "high-end MLCC mild upside" per Sina T2
+6. **TODAY: Shanghai Securities News 2026-06-16 Huaqiangbei spot-channel confirmation T1**
+
+**Promote to high-conviction cluster.** No contrarian signals identified.
+
+**Tier moves (scoped):**
+- `signals/cross-source-log/2026-06-16-pm26-shanghai-securities-news-huaqiangbei-mlcc-investigation-murata-strongest-reinforce-tdk-wl-add-candidate-tc6-n6.md` — NEW artifact (full 8-section synthesis: B40.2 magnitude correction + distribution-channel vs OEM-contract discriminator + held cohort joint matrix + Critical Rule #9 bypass-route + TC-6 N=6 promotion + 30+ source URLs)
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM25 SHA fill (`b8c6aea`)
+
+**Files NOT touched:** All held cohort thesis files except MURATA — PM26 STRENGTHENS existing PM16 PRICE STORY thesis without new thesis-state-change requirement (REINFORCE not REFRAME); MURATA back-reference deferred to next cascade for batched update given ~6 cascades touching MURATA today (PM16/PM22/PM24/PM25/PM26 all + base PM4 800V); watchlist Taiyo Yuden entry-timing accelerator note + TDK 6762.T WL-ADD-PENDING-VERIFY deferred to next batched watchlist update (avoid multiple consecutive watchlist edits in same hour). signals/triangulation.md TC-6 cluster N=6 promotion deferred to next batched update. Portfolio unchanged. Methodology / tags / CLAUDE / INDEX no new principle. meta/biases-watchlist.md no new B-instance (B40.2 magnitude-correction documented in cross-source-log not biases-watchlist per N-counter discipline).
+
+**Stale flags fired:** none
+
+**Critical Rule #16 fourteenth operational validation: POSITIVE (N=14 cumulative).**
+
+**Cascade-fatigue check:** 29 cascades in tier-cascade-log + PM26 = 30 + Kioxia pre-prep + INDEX refresh = **32 events in ~46 hours**. P#37 N=20 promotion gate EXCEEDED.
+
+**Forward watch items + falsifiers:**
+- Murata FY27 Q1 print (Jul 2026) gross margin <40% or OM <22% → contract-tier price story not landing as expected (Murata-specific falsifier)
+- Hyperscaler MLCC inventory build → CY26 H2 spot price retracement (B40.1 bubble unwind risk for cluster)
+- Tier-2 China qual breakthroughs on hyperscaler AEC-equivalent specs <18mo → frontier moat compression (cluster-wide risk)
+
+**Position implication: 🟡 NO ACTION today** per Critical Rule #8 binding (no written falsifier fired). MURATA HOLD/ADD-ON-PULLBACK framework strengthens; Taiyo Yuden PM20 #1 ENTER framework intensifies (€5-6K target sizing); TDK 6762.T pre-WL-ADD L26+L27+L28 verification queued for next session.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM25] User-shared 3-vendor flash-as-predictive-memory pattern (NVIDIA CMX + AMD MEXT + Apple AFM 3) + lateral WDC/STX question → 1 Opus subagent verification (after 2 prior rate-limit failures) → NVIDIA CMX VERIFIED T1 FRESH (GTC March 16 2026); PM22 institutional consensus N=5 → N=6; WDC/STX rally H1 ~55% PARTIAL CONFIRMATION via HDD-cold-tier-cascade; SNDK + KIOXIA STRONGER REINFORCE; HYNIX MIXED-NET-POSITIVE; SKIP WDC/STX (cluster + 4-6× higher-beta alpha-via-SNDK + late-cycle valuation); QMCO tape reference watchlist; Critical Rule #9 bypass-route framework applied
 
 **Trigger source:** user-shared 2026-06-16 ~19:15-19:19 UTC: (1) directional synthesis of 3-vendor flash-tier pattern; (2) lateral question on WDC/STX rally attribution. Per Rule #16, fired 1 Opus subagent abe4b192dd2a46d44 (THIRTEENTH operational; after 2 prior rate-limit failures: Innolux a2a431476720c6f67 + CMX a2892ffe56a531c4d).
