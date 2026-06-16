@@ -35,6 +35,109 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM18] AM AI brief (87 sources / 20 items) — 1 Opus subagent triage → 4-item B40.1 mass stale-recycle catch (SemiAnalysis Sept 2025 content) + PC-13 N=1 enrichment (Moussouris + "fix this code" prompt + Amazon conflict-of-interest); NO N=2 promotion (criterion not met); held cohort orthogonal
+
+**Trigger source:** user-shared AM AI Intelligence Brief 2026-06-16 Morning Edition ~09:30 UTC (87 sources / 20 items). Per Critical Rule #16, fired 1 Opus subagent for combined triage verification (FOURTH operational application of Rule #16).
+
+**Intake tier:** 🟡 DIRECTIONAL (final) — brief net analytical-value LOW (mostly stale Sept 2025 SemiAnalysis content recycled); PC-13 N=1 enrichment is the lone substantive cascade-worthy item; held cohort orthogonal.
+
+**Source:** 1 Opus subagent (aa25bb71639a9e267 combined triage of SemiAnalysis cluster B40.1 verification + Fable 5 freshness verification + Rubin CPX stale-check, 10 tool uses / 114s). Token cost ~31k. Anchor sources: [SemiAnalysis xAI Colossus 2 2025-09-16 T1](https://semianalysis.com/2025/09/16/xais-colossus-2-first-gigawatt-datacenter/) + [SemiAnalysis AWS Trainium 2025-09-03 T1](https://newsletter.semianalysis.com/p/amazons-ai-resurgence-aws-anthropics-multi-gigawatt-trainium-expansion) + [SemiAnalysis Rubin CPX 2025-09 T1](https://newsletter.semianalysis.com/p/another-giant-leap-the-rubin-cpx-specialized-accelerator-rack) + [Register Fable 5 fix-this-code 2026-06-15 T1](https://www.theregister.com/security/2026/06/15/feds-freaked-over-fable-5-after-simple-fix-this-code-prompt-not-jailbreak-says-researcher/) + [Fortune Moussouris 2026-06-15 T1](https://fortune.com/2026/06/15/fix-this-code-three-words-behind-us-government-shut-down-anthropic-fable-mythos-ai-models-katie-moussouris-open-letter/) + [Axios Amazon conflict T1](https://www.axios.com/2026/06/13/anthropic-amazon-white-house).
+
+**🔴 KEY FINDING — 4-item B40.1 MASS STALE-RECYCLE CATCH:**
+
+| Brief item | SemiAnalysis original | Pub date | Already in harness? |
+|---|---|---|---|
+| #15 xAI Colossus 2 1GW | xAI's Colossus 2 First Gigawatt | 2025-09-16 | YES (HYNIX thesis PM6 EVE) |
+| #17 AWS-Anthropic Trainium | Amazon AI Resurgence Multi-GW Trainium | 2025-09-03 | YES (MRVL thesis PM6 EVE) |
+| #18 Huawei Ascend HBM | Huawei Ascend Production Ramp HBM bottleneck | mid-2025 | YES (HYNIX thesis PM6 EVE TC-1 N=13) |
+| #16 Nvidia Rubin CPX | Another Giant Leap Rubin CPX Accelerator | 2025-09-09 NVIDIA AI Summit | YES (absorbed Sept 2025) |
+
+Brief curator pulled SemiAnalysis Sept 2025 deep-dives and presented as June 2026 fresh news. Whole "Infrastructure & Hardware" cluster recycled. **B40.1 fires hard on 4 items.** Pattern consistent with PM6/PM13/PM14a/PM15/PM17 aggregator-curation recycling.
+
+**🟢 ONLY GENUINELY FRESH item: #2 Anthropic Fable 5 "fix this code" trigger detail (2026-06-15 fresh):** PC-13 N=1 entry enriched with 3 new sub-vectors per Verge/Register/TechCrunch/Fortune/CyberScoop/Axios T1 cluster. Sub-vectors added: (1) trigger threshold trivially low (3-word prompt sufficient); (2) technical case contested by cyber community (100+ signatories, Moussouris-led letter); (3) Amazon conflict-of-interest weaponized regulator vector (incumbent triple role). **NOT N=2 promotion** — criterion requires DIFFERENT event/regulator/jurisdiction, not richer detail on same June 13 Anthropic event.
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-16-pm18-am-brief-b40-1-mass-stale-recycle-catch-pc13-n1-enrichment.md` — NEW artifact (full triage of 20 items + 4-item B40.1 mass-catch documentation + PC-13 N=1 enrichment + Rule #16 efficiency-win note + B40.x weekly scorecard)
+- `meta/cross-domain-pattern-register.md` PC-13 entry — N=1 instance ENRICHED with Moussouris researcher attribution + "fix this code" trigger prompt sequence + cyber community contestation + escalation chain detail + Amazon conflict-of-interest vector + 3 new sub-vector additions; promotion gate explicitly NOT MET notation
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM17c SHA fill (`9065560`)
+
+**Files NOT touched (per scoping rule):**
+- All held cohort thesis files (KIOXIA / MRVL / HYNIX / SNDK / MURATA / DDOG / NOW / SUMCO) — orthogonal; SemiAnalysis stale items already absorbed in PM6 EVE cascade or were never new datapoints; PC-13 N=1 enrichment doesn't directly hit held cohort (no AMZN/ANTH held)
+- `portfolio/holdings.md` — no position changes; PM17c refresh stands
+- `signals/triangulation.md` — TC-1 / TC-4 / TC-10 unchanged (PC-13 mentions TC-4 cross-ref but no cluster-state change today)
+- `companies/NBIS/thesis.md` — already references PC-13 N=1 90-min precedent as bypass-route demand driver; no new datapoint changes NBIS read
+- `meta/methodology.md`, `meta/tags.md`, `research/CLAUDE.md`, `INDEX.md`, `meta/session-prime.md` — no new principle/convention
+- `meta/biases-watchlist.md` — B40.1 N-counter increment DEFERRED to monthly audit June 24 (today's 4-item mass-catch documented in cross-source-log + this entry; cumulative week-of B40.1 catches now ≥6)
+- `sector/themes.md`, `sector/where-we-are.md` — no synthesis-level shift
+- `predictions/grading-log.md`, `lessons.md` — no resolved predictions; pre-codification candidate noted: AGGREGATOR-FRESHNESS-DISCIPLINE rule for monthly audit if B40.1 mass-recycle pattern continues
+
+**Stale flags fired:** none (file 1 day old; first STALE flags ≥2026-07-15)
+
+**Net cascade verdict for held cohort:**
+| Name | Today's brief impact | Cascade verdict |
+|---|---|---|
+| MRVL | AWS Trainium recycled Sept 2025; already absorbed | NEUTRAL |
+| HYNIX | xAI Colossus 2 + Huawei HBM recycled; already absorbed | NEUTRAL |
+| SNDK | Rubin CPX recycled; no new prefill data affecting HBF moat | NEUTRAL |
+| MURATA / KIOXIA / DDOG / NOW / SUMCO | Orthogonal | NEUTRAL |
+
+**No held-cohort thesis-state changes; NO position action; pre-committed trim sequences unchanged.** Forward watch: if model-export regime EXPANDS to compute-tier (Trainium hardware / HBM modules), that would tag MRVL + HYNIX — pre-registered.
+
+**Rule #16 efficiency win logged:** Sub#1 caught Rubin CPX as stale BEFORE I fired a 2nd subagent on it as "fresh new architecture-shift signal" — saved ~25-30k token cost. Pattern: combined-triage subagent more efficient than item-specific subagents when items are clustered around same source (SemiAnalysis here).
+
+**Critical Rule #16 fourth operational validation: POSITIVE (N=4 cumulative).** Subagents fired reliably; B40.1 mass-catch surfaced via subagent triage; PC-13 N=1 enrichment correctly limited (NOT premature N=2 promotion); held cohort cascade discipline maintained.
+
+**B40.x weekly scorecard (cumulative PM13-PM18):**
+- PM13 B40.1 NO + B40.2 mild + B40.3 moderate
+- PM14a B40.1 partial + B40.2 hit
+- PM14b B40.1 PASS + B40.2 partial + B40.3 PASS
+- PM15 B40.1 MODERATE-STRONG (Mark Li recycled framework) + B40.2 mild + B40.3 low
+- PM16 B40.1 NOT recycled + B40.2 mild + B40.3 moderate
+- PM17 B40.2 magnitude-inflation (Nikkei intraday-peak-as-headline)
+- PM17b B40.3 attribution-garbling self-catch (recall-based cost basis)
+- **PM18 B40.1 MASS-CATCH 4 items + B40.3 mild**
+- **Cumulative B40.1 catches week-of: ≥6** — pre-codification candidate: AGGREGATOR-FRESHNESS-DISCIPLINE rule for monthly audit if pattern persists
+
+**Loop-validation note (EIGHTEENTH real-data application of Principle #37; FOURTH Rule #16 operational application):** clean light-cascade with mass-B40.1-catch:
+- 1 subagent fired (efficiency-optimized vs originally planned 2)
+- Sub#1 returned strong T1 triangulation with original publication dates for all 4 stale items
+- B40.1 mass-catch logged + PC-13 N=1 enriched + held cohort confirmed orthogonal
+- Portfolio unchanged
+- Rule #16 efficiency-win noted (combined-triage > item-specific when same-source cluster)
+
+**Cascade-fatigue check:** 18 cascades + PM18 = 19 in tier-cascade-log + Kioxia pre-prep + INDEX refresh = **21 events in ~37 hours**. P#37 promotion gate (N=20 events without drift) **EXCEEDED**. No scope-violation observed in any of the 19 cascades. **Principle #37 ready for VERIFIED promotion at June 24 monthly audit** with strong evidentiary base.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
+### [2026-06-16 PM17c] CORRECTION + holdings.md refresh per Degiro screenshot 2026-06-16 — KIOXIA cost basis corrected (recall-based ¥81,200 ref → screenshot-grounded €490.69/share ≈ ¥91,180/share); MTM corrected (+$8,723 → +$2,066); HOLD-until-falsifier confirmed per user explicit directive
+
+**Trigger source:** user shared Degiro screenshot 2026-06-16 ~09:21 UTC + verbatim decision *"for now, I think I'm just gonna hold. until the falsifier."* Per user discipline "holdings.md only gets changed when I send a new screenshot" — screenshot received, updated.
+
+**Intake tier:** 🟢 HARD (T1 broker-grounded data + user explicit decision verbatim)
+
+**Source:** user-shared Degiro mobile screenshot 2026-06-16 ~09:21 UTC + user explicit verbatim directive 2026-06-16 ~09:25 UTC
+
+**Tier moves (scoped):**
+- `portfolio/holdings.md` — FULL REFRESH per 2026-06-16 screenshot: total €192,316.61 (+€7,897 vs 6/14); KIOXIA Holdings Corp ADDED (100sh ED account, +€1,903.89 unrealized, +€1,897.43 total; ~€49,069 cost basis back-calculated); cash ~68% → ~38% (KIOXIA accidental purchase absorbed cash); memory cluster ~50% → ~77% of invested (elevated single-cluster concentration); per-position appreciation deltas logged; Murata consolidated single line in screenshot flagged for next-screenshot verification
+- `companies/KIOXIA/thesis.md` — Position-implication line corrected: HOLD-THROUGH UNTIL FALSIFIER-FIRES per user verbatim + Critical Rule #8 binding; cost basis ~€490.69/share = ~¥91,180/share (broker-grounded, NOT Friday ¥81,200 reference my PM17 framing used); actual unrealized +€1,903.89 (+3.88%) = ~+$2,066 USD (NOT +$8,723 PM17b inflated); strategic-exit-via-N26-rebuy framework retained as falsifier-contingent option; pre-committed trim sequence unchanged
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM17b SHA fill (`da98b23`)
+
+**Files NOT touched:** SNDK + HYNIX + MURATA + MRVL + DDOG + NOW + SUMCO theses (no Kioxia-specific change affects them); KIOXIA cost-basis correction was internal-thesis fix only; signals/triangulation.md unchanged; methodology / tags / CLAUDE / INDEX / session-prime no new principle.
+
+**Stale flags fired:** none
+
+**🔴 PM17c B40.3 SELF-CATCH:** recall-based cost basis was off by ~€10,000 (PM17b stated cost ~¥81,200 × 100 = ¥8.12M; actual broker cost ~€49,069 ≈ ¥9.12M). Lesson candidate: **cost basis MUST come from broker screenshot, NEVER from recall of public spot prices around purchase window**. Defer formal L26 codification to monthly audit June 24.
+
+**Strategic-exit framework retained** (user clarified atomic-100sh constraint on Degiro + N26 alternative): sell Degiro 100sh → realize +€1,903.89 ≈ ~+$2,066 → re-buy on N26 at chosen $-sizing → free ~€31-40K capital for redeployment. Main benefit = CAPITAL FREEDOM not realized-gain magnitude. Triggers if any written falsifier fires.
+
+**User explicit decision verbatim 2026-06-16 ~09:25 UTC:** *"for now, I think I'm just gonna hold. until the falsifier."* Critical Rule #8 binding. NO written falsifier has fired (F1/F2/F-Bernstein-3a/3b/YMTC-revenue/YMTC-eSSD/MarkLi-flip all NO firing).
+
+**Commit:** `9065560` (filled in this PM18 cascade per lag-1 SHA-fill convention)
+
+---
+
 ### [2026-06-16 PM17b] CORRECTION — PM17 stale-data fix (Tue close ¥97,610 → ¥94,720; +20.2% → +16.65%; MTM ¥9,761,000 → ¥9,472,000) + Sub#2 definitive NO-IR-ANNOUNCEMENT attribution + Sub#2 air-pocket risk flag (asymmetric setup may have flipped vs PM17 verdict)
 
 **Trigger source:** user explicit correction 2026-06-16 ~08:51 UTC: *"what exactly was announced by Keokseo in the last twenty four hours while the Japanese market was open... Keokseo closed at ninety four thousand seven hundred and twenty Japanese yen"*. User provided live broker print contradicting PM17 ¥97,610 close (which was Nikkei rally headline). User also asked attribution question (specific announcement vs pure macro/sentiment). Per Critical Rule #16, fired 2 Opus subagents in parallel WITHOUT permission-asking (THIRD operational application of Rule #16).
