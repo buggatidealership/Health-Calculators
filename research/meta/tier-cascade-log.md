@@ -35,6 +35,71 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM17] Kioxia (285A.T) VLSI Day 2 + Tuesday +20% 2-session move → 3 Opus subagents parallel verification (SECOND Rule #16 operational application) → HOLD WITH CONVICTION (regime not VLSI-leak; B40.1 stale-news on Samsung 900L; HOLD-THROUGH Wed UTC TFS1.3 session)
+
+**Trigger source:** session resume 2026-06-16 ~08:34 UTC; user explicit directive *"It's still the time critical today, the Keioksia one. I let you lead"*. Critical Rule #16 applied (codified PM15) — fired 3 Opus subagents in parallel without permission-asking. SECOND operational application of Rule #16 since codification (first was PM16 yesterday).
+
+**Intake tier:** 🟢 HARD (final after 3-subagent verification) — pre-event verification of Wed Jun 17 UTC TFS1.3 session (Samsung 900L CMB paper); Tuesday +20% 2-session move attribution reconciled; Samsung 900L narrative correctly identified as 3-week-stale (B40.1 heavy); position implication HOLD WITH CONVICTION confirmed.
+
+**Source:** 3 parallel Opus subagents — (a74fd6212bece9e53 Tue trading + JP/KR press, 24 tool uses / 191s; a665515b6e7089167 VLSI Day 1-2 ex-post coverage multilingual EN/JP/KR/ZH, 24 tool uses / 164s; ab7bdec96e4aa0203 TFS1.3 pre-event positioning multilingual, 22 tool uses / 172s). Total ~117k subagent tokens. Anchor sources: [Nikkei Kioxia rally + ¥50T cap T1](https://www.nikkei.com/article/DGXZQOUB150Q50V10C26A6000000/); [minkabu 285A.T T1](https://minkabu.jp/stock/285A); [MapYourShow TFS1.3 session T1](https://vlsi26.mapyourshow.com/8_0/sessions/session-details.cfm?ScheduleID=331); [ETNews Samsung 900단 May 22 T1](https://www.etnews.com/20260522000306); [Bloomberg JP JPM/Citi PT raises T1](https://www.bloomberg.com/jp/news/articles/2026-05-18/TF7J9RKK3NY800).
+
+**Tier moves (scoped — only files actually intersecting):**
+- `signals/cross-source-log/2026-06-16-pm17-kioxia-vlsi-day2-tue-20pct-2session-3subagent-verification-hold-conviction.md` — NEW artifact (full 8-section structural verdict + reconciled H1-H4 reweight + B40.1 stale-news flag + Wed Jun 17 live-event watch items + Samsung TFS1.3 metric tracking + lateral falsifiers + T+24h grade pre-positioning)
+- `companies/KIOXIA/thesis.md` — PM17 back-reference: Tue +20% 2-session move attribution (regime not VLSI-leak); ¥51.7T cap milestone (Japan 2nd-ever); 100sh MTM update ~¥9,761,000 (~$62K, ~+¥1,641,000 unrealized); date-channel correction TFS1=Day 2 not Day 3; B40.1 heavy on Samsung 900L (3-week-stale); reweighted H1-H4 (H1 50% / H2 25% / H3 10% / H4 15%); HOLD-THROUGH no action; pre-registered Wed Jun 17 watch items + 4 falsifiers; Bernstein gap from spot now -59%
+- `companies/SNDK/thesis.md` — PM17 back-reference: Yokkaichi JV co-cascade reinforced via JP "world-first" framing T1 + ChoiceStock Korean note T2 implying Samsung/SK diversifying portfolio in response to Kioxia NAND price-leadership; comparison-bar threat de-risked; no SNDK price update this session
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM16b SHA fill (`59010a1`)
+
+**Files NOT touched (per scoping rule):**
+- `companies/HYNIX/thesis.md` — HBM tier orthogonal to NAND-tier Kioxia/Samsung 900L narrative; if anything mildly REINFORCES (Korean press explicitly framing Samsung/SK diversification = HBM tier insulated regardless)
+- `companies/MURATA/thesis.md` — MLCC cluster orthogonal to NAND; PM16/PM16b were the most recent MURATA touches
+- `companies/MRVL/thesis.md`, `DDOG/thesis.md`, `NOW/thesis.md`, `SUMCO/thesis.md` — orthogonal to NAND-tier
+- `companies/IBIDEN/thesis.md`, `CAMT/thesis.md`, `BESI/thesis.md` — orthogonal
+- `portfolio/holdings.md`, `targets.md`, `changes.md` — no position changes (KIOXIA HOLD 100sh accidental position pre-screenshot per user discipline "holdings.md only gets changed when I send a new screenshot"; SNDK HOLD)
+- `signals/triangulation.md` — TC-1 memory tightness cluster intact + REINFORCED at Kioxia-specific tier; no cluster-state change
+- `meta/methodology.md`, `meta/tags.md`, `research/CLAUDE.md`, `INDEX.md`, `meta/session-prime.md` — no new principle/convention; Rule #16 already in CLAUDE.md
+- `meta/biases-watchlist.md` — B40.1 PM17 N-counter increment DEFERRED to monthly audit June 24 (today's stale-news flag on Samsung 900L documented in cross-source-log artifact + cascade entry)
+- `sector/themes.md`, `sector/where-we-are.md` — no synthesis-level shift; structural-regime narrative reinforced not refreshed
+- `predictions/grading-log.md` — pre-registration still Pending; T+24h grade resolution ~June 19 unchanged; PM17 documents pre-T+24h state for grade record
+- `predictions/lessons.md` — no resolved predictions yet; lateral falsifiers pre-registered as Wed Jun 17 watch items not formal prediction entries
+
+**Stale flags fired:** none (file 1 day old; first STALE flags ≥2026-07-15)
+
+**🔴 KEY CORRECTIONS LOGGED in this cascade:**
+1. **Stale-spot-data correction:** yesterday's PM15/PM16 cascades operated on Friday 14 Jun close ¥81,200; actual progression Mon ¥90,910 (+11.96%) → Tue ¥97,610 (+~7%); cumulative +20.2% in 2 sessions in harness blind spot
+2. **TFS1 day-naming correction:** TFS1 is Day 2 Tuesday Honolulu (Wed JST morning), NOT "Day 3" per PM6 framing; UTC/JST math was correct
+3. **Samsung 900L narrative attribution correction:** Subagent #1 read Tue +7% as "leak priced in" but Subagent #3 caught that news was 3-week-stale (May 22 disclosure); +20% move is structural-regime/PT-chase/¥50T psychological, NOT VLSI-event-specific leak; reconciliation = H1 dominant 50% (Sub#3 framing) over Sub#1's H3 dominant 55%
+
+**Reweighted H1-H4 distribution (my model, post-PM17 3-subagent):**
+- H1 muted-VLSI-reaction (structural regime dominates) **P~50%** (Sub#3 framing dominant)
+- H2 exhaustion/sell-the-news Wed open **P~25%** (post-+20% tactical profit-take vulnerability)
+- H3 positive Kioxia surprise NEW Wed disclosure **P~10%** (Sub#3 found no Wed Kioxia paper; downweight)
+- H4 Samsung-shock dominates **P~15%** (DOWNWEIGHT HARD; 6 convergent sources May 22-28 frame prototype not production)
+
+**N-th order cascade markers (my model — IF base case H1 holds):**
+- 1st order (P>80%): TFS1.3 lands as "interesting research milestone"; no major price reaction at Japan Wed open
+- 2nd order (P~60%): Korean press re-amplifies as "1000단 카운트다운" roadmap milestone; NO Kioxia narrative damage
+- 3rd order (P~40%): Bernstein Mark Li publishes covering note next 2-3 weeks (rare; sole-bear pressure intensifying)
+- 4th order (P~20%): Mid-July IEEE Xplore OnDemand June 24 full-text drop = real technical evaluation; secondary leg MSA-CBA hardens
+
+**Loop-validation note (SEVENTEENTH real-data application of Principle #37; SECOND Rule #16 operational application):**
+
+Clean joint cascade:
+- 3 subagents fired in parallel per Rule #16 without permission-asking ✅
+- All 3 returned with strong T1/T2 multilingual triangulation (EN+JP+KR+ZH) ✅
+- Sub#1 + Sub#3 framing reconciliation surfaced (Sub#1 "leak priced in" mis-attributed; Sub#3 stale-news correction dominant)
+- 3 critical corrections logged (stale spot data; TFS1 day-naming; Samsung 900L attribution)
+- Held cohort cascade: KIOXIA + SNDK back-references (Yokkaichi JV linkage); HYNIX + 5 other held names + 3 packaging watchlist names orthogonal — explicitly NOT touched
+- Portfolio unchanged
+- Pre-registered Wed Jun 17 live-event watch items + 4 falsifiers + 4 Samsung-specific metrics + 3 Kioxia-specific metrics
+
+**Critical Rule #16 second operational validation: POSITIVE (N=2 cumulative).** Subagents fired reliably + multilingual parallel executed + cascade flowed clean per Principle #37. Discipline-drift check passed: did NOT pause to ask "which subagents to fire."
+
+**Cascade-fatigue check:** 17 cascades + Kioxia pre-prep + INDEX refresh = 19 events in ~36 hours. Per P#37 promotion gate (N=20 events without drift), **95% to promotion threshold**. No scope-violation observed in any of the 17 cascades. **Principle #37 ready for VERIFIED promotion at June 24 monthly audit** with strong evidentiary base.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-15 PM16] Zephyr (X @zephyr_z9) + Citrini Research MLCC commentary → 3 Opus subagents parallel verification (FIRST operational application of Critical Rule #16) → REINFORCE MURATA HELD as PRICE story + Sakai Chemical 4078.T NEW #1 ENTER candidate (raw materials spillover T1-confirmed)
 
 **Trigger source:** user-shared 2026-06-15 ~22:08 UTC: (1) ~600-word Zephyr/Citrini MLCC market commentary text + (2) 2 charts (Citrini Research infographic + Low-end MLCC S/D balance %). User said "I have one other piece for today. same approach as before" — applying Critical Rule #16 codified PM15 (always run verification with opus 4.8 + don't ask). 3 Opus subagents fired in parallel WITHOUT permission-asking.
@@ -100,7 +165,7 @@ Clean joint cascade:
 
 **Cascade-fatigue check:** 16 cascades + Kioxia pre-prep + INDEX refresh = 18 events in ~26 hours. Per P#37 promotion gate (N=20 events without drift), **90% to promotion threshold.** No scope-violation observed in any of the 16 cascades. **Principle #37 ready for VERIFIED promotion at June 24 monthly audit** with strong evidentiary base.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `4c14d9e` (filled in this PM17 cascade per lag-1 SHA-fill convention; PM16b watchlist enhancement was follow-up commit `59010a1`)
 
 ---
 
