@@ -101,6 +101,46 @@ For each watchlist name below, the open questions for tomorrow's dig:
 | Thesis hook | Dual exposure: Ni powder + BaTiO3 precursor titanium per [Toho Titanium ultra-fine Ni T1](https://www.toho-titanium.co.jp/en/products/ni/); +65% YoY shows partial pricing in |
 | Falsifier | Titanium pricing oversupply (aero/defense alt demand softens) → drag on stock unrelated to MLCC thesis |
 
+### IBIDEN (4062.T / イビデン株式会社) — 🟢 **PM23 #2 CANDIDATE — L26/L27/L28 PURE-PLAY PASS but VALUATION EXTENDED — WAIT FOR PULLBACK or 0.5% STARTER MAX**
+
+**Why this name PROMOTED 2026-06-16 PM23 (for cold-read):** Per `signals/cross-source-log/2026-06-16-pm23-ibiden-4062-deep-dig-l26-l27-l28-pure-play-pass-valuation-extended-wait-for-pullback.md`. **FIRST pure-play PASS this week after PM19 Sakai (12% MLCC sidecar) + PM19b Shoei (PRIVATE non-investable) + PM20 SMM/Sumitomo Electric/Ishihara (3-of-3 sidecar falsification).** L26 verified at primary source: Electronics segment ~53% FY26 (¥220.7B / +23.4% YoY) → ~66% FY27 guide (¥330B); Ceramics ~22% fading; AI-server FCBGA dominant in Electronics per [Kabutan T1](https://kabutan.jp/stock/?code=4062) + [SMBC Nikko Froggy T1](https://froggy.smbcnikko.co.jp/70149/) + [Investing.com guidance T1](https://www.investing.com/news/stock-market-news/ibiden-shares-surge-on-strong-annual-earnings-guidance-4678950). 70-80% global FCBGA AI-server share per [Globe and Mail T2](https://www.theglobeandmail.com/investing/markets/stocks/IBIDF/pressreleases/10864/ibiden-to-invest-500-billion-in-expanding-ic-package-substrate-capacity-for-ai-and-high-performance-servers/) + [Digitimes T1](https://www.digitimes.com/news/a20260204PD227/ibiden-expansion-capacity-production-plant.html). L28 industry-share aligns with parent-co revenue mix — no gap. TSMC + Ibiden + Innolux CoPoS validation data 100% verified per PM22 (warpage -16% / CTE -19% / modulus +31% / resistance -27% / inductance -42%). BOM-level: Vera Rubin ABF substrate unit cost ~$100→$200 = +100%; rack content value $11,200→$20,300 = +82%; 2-interposer split package beyond JEDEC.
+
+| Attribute | Value (research-verified 2026-06-16 T1) |
+|---|---|
+| Latest spot | **¥19,250 (+7.69% on CoPoS news)** per Kabutan T1 |
+| Market cap | ~¥5.1T (~$32B) |
+| Investability | Yes — TSE Prime Nikkei 225 accessible via Degiro |
+| 52-week range | **¥2,853 → ¥23,145 = 8.1× in 12 months** (extreme reflexivity) |
+| **Analyst avg target** | **¥16,218 — BELOW spot** per [Minkabu T1](https://minkabu.jp/stock/4062) |
+| Trailing P/E / fwd P/E FY27 | **88.9 / 70.4** per [GuruFocus T2](https://www.gurufocus.com/stock/TSE%3A4062/summary) |
+| FY27 sales guide | ¥500B (+20%) |
+| FY28 OP target | **¥150B (raised from ¥90B)** = hockey-stick |
+| Capex commitment | **¥500B FY26-FY28** (Gama ¥220B + Ono ¥280B) = 2.5× capacity by FY28; Phoenix AZ fab $1.2B / 30,000 panels/month by late-2027 |
+| Thesis hook | First true AI-packaging pure-play in PM16b→PM23 cluster; CoPoS partner verified; FCBGA Vera Rubin BOM doubling |
+| **Falsifier** | If CoPoS pushed beyond 2029 OR SEMCO breaks into Western frontier AI FCBGA OR Vera Rubin demand miss |
+
+**🔴 CRITICAL — VALUATION EXTENDED:** spot above all analyst targets; 8.1× 12mo move; B45 regime-binding caution applies (15-30% drawdown probability before resuming for stocks above consensus PT). **CoPoS mass production 2028-2029 = 2-3 year capex-drag deferral window.**
+
+**Sizing tranches (per €73K cash; subagent recommendation):**
+
+| Tranche | Size | Trigger |
+|---|---|---|
+| Starter (anchor; OPTIONAL) | 0.5% = €960 | TODAY at spot ¥19,250 |
+| Tranche 1 | +1% = €1,920 | Pullback to **¥15,000-15,500** (re-test of recent consolidation base) |
+| Tranche 2 | +0.5% = €960 | Aug 2026 Q1 FY27 earnings beat-and-raise |
+| Max position | **2% = €3,840** | DO NOT exceed given valuation extension + MURATA +73.57% AI-packaging overlap |
+
+**Cluster concentration impact:** Adding IBIDEN at 2% lifts memory/MLCC/AI-packaging cluster ~77% → ~79% — WITHIN discipline if memory/MLCC independently trimmed; otherwise raises concentration risk.
+
+**DIRECTIONAL SIGNAL EVENTS to track for entry:**
+
+| Event | What it signals | When |
+|---|---|---|
+| Aug 2026 Q1 FY27 earnings | FY27 guide upgrade likely given strong FY28 OP target raise; earnings beat-and-raise = Tranche 2 trigger | Aug 2026 |
+| CoPoS Innolux pilot line at VisEra first-silicon | Substrate roadmap validation; Ibiden share commitment confirmation | H2 2026 |
+| Phoenix AZ fab milestone (late-2027) | 30,000 panels/month capacity online; CHIPS Act grant execution | Late 2027 |
+| Pullback to ¥15,000-15,500 | Re-test of recent consolidation base; B45 base-rate-consistent retracement | Watch continuous |
+
 ### Innolux Corp (3481.TW) — 🟢 **PM22 NEW #1 CoPoS Glass Substrate Cluster Candidate** (TSMC + Ibiden + Innolux 3-way CoPoS Digitimes T1 verified 2026-06-16)
 
 **Why this name surfaced 2026-06-16 PM22 (for cold-read):** Per `signals/cross-source-log/2026-06-16-pm22-citrini-flash-point-tsmc-ibiden-innolux-copos-amd-aapl-flash-3-item-verification-strong-reinforce-sndk-kioxia.md`. [Digitimes EN 2026-06-16 T1](https://www.digitimes.com/news/a20260616PD217/tsmc-innolux-ibiden-packaging-cowos.html) + [Digitimes zh-TW 電子時報 T1](https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?CnlID=1&Cat=40&id=0000758841_AJV7G8PH5KBC540867F4K) confirm TSMC working with Ibiden + Innolux on CoPoS Glass Substrate Development Project. Innolux is the Taiwanese display/panel maker pivoting to semi glass substrate. PRE-ENTRY L26+L27+L28 verify status: (a) listed-status TPE:3481 CONFIRMED ([stockanalysis T1](https://stockanalysis.com/quote/tpe/3481/)); (b) ticker disambiguation 3481.TW = Innolux Corp display/panel CONFIRMED; (c) **segment-revenue %: semi packaging panels currently <10% of TWD 226.72B revenue per [Taiwan News T2](https://www.taiwannews.com.tw/news/6320066); monthly shipments grew 4M→40M units YoY = early but accelerating** — per L26 falsifier <30% = sidecar at snapshot; B20/Principle #22 forward-trajectory check: TSMC CoPoS pilot 2026 / trials 2027 / mass prod 2028-2029 per [techpowerup T2](https://www.techpowerup.com/339963/tsmc-prepares-cowos-to-copos-shift-with-750-x-620-mm-panels) suggests semi packaging revenue % could compound 2× CAGR over 2-3yr; SOTP re-rating if semi packaging crosses 15-20% revenue threshold.

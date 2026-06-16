@@ -35,6 +35,69 @@
 
 ## Entries (most recent first)
 
+### [2026-06-16 PM23] IBIDEN 4062.T (イビデン株式会社) Workflow #8 BOM-level deep-dig with L26+L27+L28 ordering — 1 Opus subagent native-JP IR primary → **L26/L27/L28 ALL PASS — FIRST PURE-PLAY PASS THIS WEEK** after PM19+PM19b+PM20 3-of-3 sidecar/private falsification pattern; BUT valuation EXTENDED (spot ¥19,250 above analyst avg target ¥16,218; 8.1× 12mo; fwd P/E 70.4); verdict WAIT FOR PULLBACK or 0.5% STARTER MAX; sizing tranches + Aug 2026 Q1 catalyst defined
+
+**Trigger source:** PM22 commit `a738844` elevated IBIDEN from PM5/PM6 deep-dig-queue (TIER S+) to PM22 #2 watchlist candidate after TSMC + Ibiden + Innolux CoPoS partnership verified T1. Per Rule #16 + Workflow #8 PREDICT discipline, fired 1 Opus subagent (afe93f467e342ea25, 36 tool uses / 284s, ELEVENTH operational application).
+
+**Intake tier:** 🟢 HARD (final after primary-source verification) — L26/L27/L28 PASS verified at native-JP IR primary; valuation-extension flag dominant constraint.
+
+**Source:** 1 Opus subagent native-JP + EN + native-zh-TW multilingual. Anchor: [Kabutan T1](https://kabutan.jp/stock/?code=4062) + [Matsui Securities T1](https://finance.matsui.co.jp/stock/4062/index) + [Ibiden IR JP T1](https://www.ibiden.co.jp/ir/library/securities/) + [BigGo FY26 results T1](https://finance.biggo.jp/news/jpx_tdnet_140120260505517290) + [SMBC Nikko Froggy T1](https://froggy.smbcnikko.co.jp/70149/) + [Investing.com FY27 guidance T1](https://www.investing.com/news/stock-market-news/ibiden-shares-surge-on-strong-annual-earnings-guidance-4678950) + [Minkabu T1](https://minkabu.jp/stock/4062) + [Digitimes EN T1](https://www.digitimes.com/news/a20260616PD217/tsmc-innolux-ibiden-packaging-cowos.html) + [Globe and Mail T2](https://www.theglobeandmail.com/investing/markets/stocks/IBIDF/pressreleases/10864/ibiden-to-invest-500-billion-in-expanding-ic-package-substrate-capacity-for-ai-and-high-performance-servers/) + [Morgan Stanley BOM via LeoinAI T2](https://leoinai.substack.com/p/nvidia-vera-rubin-bill-of-materials-morgan-stanley) + [GuruFocus T2](https://www.gurufocus.com/stock/TSE%3A4062/summary).
+
+**🟢 KEY FINDING — L26/L27/L28 ALL PASS:**
+- L27 listed-status: 4062.T = Ibiden Co Ltd TSE Prime Nikkei 225 constituent; Degiro accessible
+- **L26 parent-co segment-revenue: Electronics ~53% FY26 (¥220.7B / +23.4% YoY) → ~66% FY27 guide (¥330B); Ceramics ~22% fading**; AI-server FCBGA dominant in Electronics → **PURE-PLAY (>50% mix)**
+- L28 industry-share aligns with parent-co revenue mix (70-80% global FCBGA AI-server share matches Electronics dominance) — no industry-share-vs-equity-revenue gap
+
+**🟢 BOM-level verification (Workflow #8):**
+- Blackwell (GB200/GB300) ABF substrate ~$100 → Vera Rubin (VR200) ~$200 = **+100% unit cost**
+- Rack content value $11,200 → $20,300 = **+82%**
+- Substrate beyond JEDEC; 2-interposer split package
+- Ibiden share at AI-server FCBGA tier: 70-80%
+- CoPoS validation data 100% VERIFIED per PM22 T2 claims (warpage -16% / CTE -19% / modulus +31% / resistance -27% / inductance -42%)
+- Roadmap: 310×310mm panel 2025 → VisEra mini-line 2026 → trial 2027 → **mass prod 2028-2029** (C.C. Wei "no shortcuts")
+- ¥500B capex commitment FY26-FY28 (Gama ¥220B + Ono ¥280B) = 2.5× capacity FY28; Phoenix AZ fab $1.2B + $320M CHIPS Act grant
+
+**🔴 KEY CONSTRAINT — VALUATION EXTENDED:**
+- Spot ¥19,250 (+7.69% on CoPoS news) ABOVE analyst avg target ¥16,218
+- 52-week range ¥2,853 → ¥23,145 = **8.1× in 12 months**
+- Trailing P/E 88.9 / fwd P/E FY27 70.4 / P/B 9.7 / EV/EBITDA 33.0
+- B45 regime-binding caution: 8.1× 12mo + ATH + above-consensus-PT typically 15-30% drawdown before resuming
+- CoPoS payoff deferred 2028-2029 = 2-3yr capex-drag window
+
+**Cluster cascade scoped per Principle #37:**
+- **IBIDEN 4062.T watchlist:** PM22 #2 → **PM23 #2 CANDIDATE with full sizing tranches + entry triggers**; WAIT FOR PULLBACK to ¥15,000-15,500 or 0.5% starter MAX; max 2% (€3,840) per cluster concentration discipline
+- **MURATA (HELD +73.57%):** Orthogonal stack layer (MLCC ≠ substrate); IBIDEN add = COMPLEMENTARY second vertical not redundant factor
+- **All other held cohort:** unchanged (substrate ≠ memory cell-physics; ≠ MLCC; ≠ software)
+- **Innolux 3481.TW (PM22 NEW #1):** unchanged; deep-dig pending broker availability check
+- **NVDA (ref):** Vera Rubin platform = BOM doubling thesis driver
+- **TSMC (ref):** CoPoS roadmap leadership reinforced
+- **Korean SEMCO (KRX-locked):** casualty if ABF frontier sustained at Japanese leadership
+
+**Tier moves (scoped):**
+- `signals/cross-source-log/2026-06-16-pm23-ibiden-4062-deep-dig-l26-l27-l28-pure-play-pass-valuation-extended-wait-for-pullback.md` — NEW artifact (full 11-section Workflow #8 deep-dig + L26/L27/L28 verification + sizing tranches + cross-stack cascade + H1-H4 reweight)
+- `watchlist/candidates.md` — IBIDEN entry PROMOTED to PM23 #2 candidate with full directional signal events tracking + sizing tranches + L26/L27/L28 verify status documented
+- `meta/tier-cascade-log.md` — THIS entry + lag-1 PM22 SHA fill (`a738844`)
+
+**Files NOT touched:** All held cohort thesis files — IBIDEN is watchlist not yet held; MURATA HELD orthogonal stack layer; portfolio/holdings.md unchanged (limit-order conditional); meta/methodology.md (L26/L27/L28 codification deferred to monthly audit June 24).
+
+**Stale flags fired:** none
+
+**🟢 IBIDEN reweighted hypotheses (my model post-deep-dig):**
+- H1 PURE-PLAY ENTER P~25% (was 35%) — thesis PASSES L26 but valuation extension means simple ENTER too permissive
+- H2 MIXED EXPOSURE speculative P~10% (was 40%) — falsified: NOT mixed, IS pure-play
+- H3 SIDECAR FALSIFY P~0% (was 25%) — L26 falsifier did NOT fire
+- **H-NEW VALUATION-EXTENDED PURE-PLAY wait-for-pullback P~65%** — Sub#1's actual verdict
+
+**Lesson learned (defer to monthly audit June 24):** L26+L27+L28 ordering discipline catches BOTH sidecar falsifications (Sakai/Shoei/SMM/SE/Ishihara 3-of-3 pattern) AND pure-play+valuation-extended scenarios (IBIDEN). The verification discipline works as designed — not all "pure-play passes L26" = "enter now"; sequencing matters (thesis-PASS + valuation-CHECK both required before sizing decision).
+
+**Critical Rule #16 eleventh operational validation: POSITIVE (N=11 cumulative).**
+
+**Cascade-fatigue check:** 26 cascades in tier-cascade-log + PM23 = 27 + Kioxia pre-prep + INDEX refresh = **29 events in ~42 hours**. P#37 N=20 promotion gate EXCEEDED. No scope-violation observed.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM22] Citrini "Flash Point" + TSMC/Ibiden/Innolux CoPoS Digitimes + AMD MEXT stale + AAPL Flash-MoE WWDC NEW (user-shared 14:53 UTC) — 1 Opus subagent multilingual EN+JP+zh-TW → STRONG REINFORCE SNDK + KIOXIA HBF thesis (institutional consensus N=5 crystallizing this month); HYNIX anti-fragile both sides; Innolux 3481.TW NEW candidate (TSMC CoPoS partner); IBIDEN deep-dig elevated; B40.1 Citrini stale-recycle flag
 
 **Trigger source:** user-shared 3 items 2026-06-16 ~14:53 UTC: Citrini "Flash Point: Ways Past the DRAM Tax" deep-dive images + TSMC/Ibiden/Innolux CoPoS Digitimes report + AMD MEXT + AAPL flash focus extension. Per Rule #16, fired 1 Opus subagent multilingual mandate (TENTH operational application).
@@ -90,7 +153,7 @@
 
 **Cascade-fatigue check:** 25 cascades in tier-cascade-log + PM22 = 26 + Kioxia pre-prep + INDEX refresh = **28 events in ~41.5 hours**. P#37 N=20 promotion gate EXCEEDED.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `a738844` (filled in this PM23 cascade per lag-1 SHA-fill convention)
 
 ---
 
