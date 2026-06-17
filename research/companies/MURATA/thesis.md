@@ -476,6 +476,24 @@ Revenue grows 12-18% annually. AI server segment grows but at lower 25% CAGR. Mu
 3. **Samsung Electro-Mechanics announces major NVDA design win at Murata's expense.** Duopoly tilts.
 4. **Smartphone MLCC demand collapses faster than AI server grows.** Net company revenue at risk.
 
+## Pre-registered TRIM TRIGGERS (cycle-management, added 2026-06-17 pre-€10K-add-decision)
+
+**Distinct from thesis falsifiers above.** Falsifiers break the structural volume thesis; these triggers manage the cyclical pricing-premium phase. Volume thesis can stay intact while pricing premium normalizes — Position implication: PARTIAL TRIM not EXIT when these fire.
+
+Per Workflow #1 INGEST + Critical Rule #8 (NEVER SELL ON MACRO HEADWIND WITHOUT THESIS FALSIFICATION — these are PRE-WRITTEN falsifiers tied to specific MLCC-cycle stage indicators, NOT macro noise):
+
+1. **Tier-2 China qualification breakthrough headlines.** Fenghua (000636.SZ) / Three-Circle (300408.SZ) / Sunlord (002138.SZ) / Walsin (2492.TW) clearing AEC-Q200 or hyperscaler qual gates at high-cap AI-server tier. Currently blocked ≥18mo per `signals/cross-source-log/2026-06-16-pm26-...md` + PM16/PM20. **Trigger condition:** specific NVDA/MSFT/META design-win announcement OR Big-3 hyperscaler RFQ shortlist inclusion for AI-server MLCC qual. **Action:** PARTIAL TRIM 25% on first headline; full re-assessment if 2nd Tier-2 win within 90 days.
+
+2. **Big-3 (Murata/Taiyo Yuden/SEMCO) capacity-utilization disclosures dropping below ~90%.** Indicates capacity-expansion phase outpacing demand. Currently lead times 16-40 weeks per `signals/cross-source-log/2026-06-16-pm26-...md` = supply tight. **Trigger condition:** Murata earnings call or IR-day disclosure of utilization <90% in 2 consecutive quarters AND/OR explicit price-stability or rollback guidance for next FY. **Action:** PARTIAL TRIM 25%; reassess H2-2026 vs H1-2027 capex digestion timing.
+
+3. **Lead-time normalization below ~12 weeks.** Currently 16-24 weeks broad, 26-40 weeks high-cap low-ESL per `signals/cross-source-log/2026-06-16-pm26-...md` + [eeNewsEurope T1.5](https://www.eenewseurope.com/en/ai-drives-mlcc-shortage/). **Trigger condition:** Digitimes / TrendForce / eeNewsEurope reporting Big-3 lead times <12 weeks for high-cap AI-server SKUs in 2 consecutive monthly briefs. **Action:** PARTIAL TRIM 25%; pricing power likely peaking.
+
+**Sequencing logic:** Triggers can fire independently or in combination. Any 2-of-3 firing within a 90-day window = upgrade to **HALF-TRIM (50% reduction)** rather than 25%. All 3 firing = full exit-from-add-position (return to baseline pre-add sizing).
+
+**Re-eval / falsifier of these triggers:** if 30 days post-trigger-fire show the alert was a false-positive (e.g., utilization dip was inventory-cycle noise, not capacity overhang; lead-time normalization was customer destocking not supply expansion), re-add the trimmed sizing at the post-trim price. Built-in self-correction discipline per Critical Rule #11 AUTO-EXECUTE STRENGTHENING.
+
+**Why this exists (decision-tree anchor):** Pre-registering these triggers BEFORE the proposed user-suggested add ensures the cyclical-vs-structural distinction is operationalized at sizing-decision time, not retroactively rationalized after the fact. The thesis is durable on volume per 2026-06-17 chat-discussion first-principles analysis (5+ year persistence), but pricing premium phase is 18-36 months — these triggers detect the phase transition.
+
 ## Blind spots / what I may have missed
 
 Per user instruction 2026-05-21: "Whenever you finish research, think about what might you have missed."

@@ -215,6 +215,20 @@ Per `signals/cross-source-log/2026-06-16-pm19b-shoei-chemical-private-stop-condi
 |---|---|
 | Thesis hook | FY27 op profit guide ¥30B (+50%); B/B 1.25 (capacitor 1.31); AI-server MLCC +80% FY26 guidance per [BigGo T1](https://finance.biggo.com/news/5hr2FJ4BX0tZvRTv1JbB); Murata co-trade candidate |
 
+**Pre-registered TRIM TRIGGERS (cycle-management, added 2026-06-17, shared with MURATA cluster per Critical Rule #8 binding):**
+
+Distinct from thesis falsifiers. These manage cyclical pricing-premium phase (18-36mo durable per 2026-06-17 first-principles persistence analysis). Volume thesis can stay intact while pricing premium normalizes — Position implication: PARTIAL TRIM not EXIT when these fire. **Same 3 triggers apply to Taiyo Yuden as to Murata because both are TC-6 cluster names with shared pricing-cycle exposure** (Murata leader contract-anchor; TY higher-leverage pure-play; both compress on same capacity-response signal):
+
+1. **Tier-2 China qualification breakthrough headlines** — Fenghua / Three-Circle / Sunlord / Walsin clearing AEC-Q200 or hyperscaler qual gates at high-cap AI-server tier. Currently blocked ≥18mo per `signals/cross-source-log/2026-06-16-pm26-...md` + PM16/PM20. **Trigger:** specific NVDA/MSFT/META design-win OR Big-3 hyperscaler RFQ shortlist inclusion. **Action:** PARTIAL TRIM 25% Taiyo Yuden position on first headline; full re-assessment if 2nd Tier-2 win within 90 days.
+
+2. **Big-3 capacity-utilization disclosures dropping below ~90%** — indicates capacity-expansion phase outpacing demand. Currently lead times 16-40 weeks = supply tight. **Trigger:** Murata OR Taiyo Yuden earnings call discloses utilization <90% in 2 consecutive quarters AND/OR explicit price-stability/rollback guidance for next FY. **Action:** PARTIAL TRIM 25%; reassess H2-2026 vs H1-2027 capex digestion timing.
+
+3. **Lead-time normalization below ~12 weeks** — currently 16-24wk broad, 26-40wk high-cap per `signals/cross-source-log/2026-06-16-pm26-...md`. **Trigger:** Digitimes / TrendForce / eeNewsEurope reporting Big-3 lead times <12 weeks for high-cap AI-server SKUs in 2 consecutive monthly briefs. **Action:** PARTIAL TRIM 25%; pricing power likely peaking.
+
+**Sequencing:** Any 2-of-3 firing in 90-day window = HALF-TRIM (50% reduction). All 3 firing = full exit-from-Taiyo-Yuden-add (return to pre-entry baseline). Self-correction discipline: if 30 days post-trigger-fire shows false-positive (utilization dip = inventory noise, not capacity overhang), re-add at post-trim price.
+
+**Cluster trim-sequencing within TC-6:** Taiyo Yuden trims FIRST (higher beta, pure-play exposure = first to feel demand peak); MURATA trims SECOND (contract-anchor lag of 1-2 quarters per existing thesis falsifier set + PM26 dispersion analysis). This sequencing applies if user enters both names; if only one name held, single-name triggers apply at 25%/50%/100% sequence.
+
 ### Equipment — DEFERRED (wait for confirmation signal)
 
 **Ulvac (6728.T)** — FY25 revenue -3.8%; MLCC mix <10% of ¥251B per [Eulerpool T2](https://eulerpool.com/stock/JP3126190002). Equipment thesis NOT yet activating. Wait for Q3'26 earnings MLCC equipment order signal before adding to ENTER watchlist.
