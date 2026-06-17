@@ -494,6 +494,29 @@ Per Workflow #1 INGEST + Critical Rule #8 (NEVER SELL ON MACRO HEADWIND WITHOUT 
 
 **Why this exists (decision-tree anchor):** Pre-registering these triggers BEFORE the proposed user-suggested add ensures the cyclical-vs-structural distinction is operationalized at sizing-decision time, not retroactively rationalized after the fact. The thesis is durable on volume per 2026-06-17 chat-discussion first-principles analysis (5+ year persistence), but pricing premium phase is 18-36 months — these triggers detect the phase transition.
 
+### ⚠️ OPEN-ENDED INFERENCE CLAUSE (added 2026-06-17 per user meta-discipline correction)
+
+**The 3 pre-registered triggers above are FLOOR not CEILING. They are KNOWN trim-trigger types based on the current cycle thesis. When user shares a new piece of news, Claude MUST run BOTH checks:**
+
+1. **Pattern-match against the 3 pre-registered triggers** (known-known cycle indicators)
+2. **Lateral inference for novel trim-signal types NOT yet codified.** Examples of novel categories that could emerge (illustrative, not exhaustive):
+   - Hyperscaler internalization announcement (e.g., MSFT/META/GOOG building captive MLCC capacity — currently P~10% but if announced, novel trim signal)
+   - Geopolitical export-control on Japanese MLCC to specific markets
+   - New substitute material breakthrough at AI-server power-rail tier (currently physics-blocked but watch for solid-state cap / supercap density inflection)
+   - Demand-side architecture shift reducing MLCC count per AI board (e.g., on-package power-delivery integration / monolithic capacitor stacks)
+   - Upstream supply disruption compressing Murata margin WITHOUT volume hit (BaTiO3 / Ni-paste / silver pricing shock)
+   - Murata-specific operational misstep (factory fire / qual issue / management change)
+   - Hyperscaler capex visibility quarter-on-quarter step-down before MLCC supply-response phase
+   - Currency shock (JPY weakening dramatically vs USD — would actually be POSITIVE for Murata, but reverse case = negative)
+
+3. **If a novel trim-signal candidate is identified:** surface EXPLICITLY with reasoning + propose codification as new pre-registered trigger #4/#5/etc. + flag intent-to-trim for user authorization. Do NOT silently apply existing triggers to a novel signal type, AND do NOT dismiss novel signals because they don't match the codified list.
+
+**User verbatim 2026-06-17:** *"you must also remain broad enough and contextualize if there might be a data point that pushes towards you in fearing that trimming might be reasonable... not only limiting yourself to the triggers that you've added to the list, but also having enough open mindedness or open reasoning capabilities to not only put them into the buckets of the trim triggers that you have added, but you must also remain broad enough and contextualize"*
+
+**Failure mode this prevents:** closed-list pattern-matching blindness — future-me sees a trim-worthy signal but doesn't recognize it because it's not in the pre-registered taxonomy. **B47 CANDIDATE codification:** add to `meta/biases-watchlist.md` next monthly audit as N=1 candidate; promotion to verified bias on N=2 instance within 30 days (Principle #32 premortem). This pattern likely generalizes BEYOND MLCC cluster to ALL pre-registered falsifier/trigger sets in the harness.
+
+**Operational discipline binding:** ANY user-shared news on MURATA / Taiyo Yuden / TC-6 cluster names → respond with EXPLICIT 2-step check ("Pre-registered trigger match: [Y/N + which one]. Novel trim-signal candidate: [Y/N + rationale + proposed new trigger if Y]"). Make the open-ended inference visible, not invisible.
+
 ## Blind spots / what I may have missed
 
 Per user instruction 2026-05-21: "Whenever you finish research, think about what might you have missed."
@@ -529,6 +552,25 @@ Per user instruction 2026-05-21: "Whenever you finish research, think about what
 - Verified pricing power (April 2026 hike per [TrendForce](https://www.trendforce.com/news/2026/03/17/news-mlcc-giant-murata-reportedly-confirms-april-1-price-hike-on-key-components/))
 - Token-Volume Filter passes cleanly
 - 5-7 year duration thesis
+
+## 2026-06-17 FORWARD DECISION-INTENT — USER-INTENT to ADD €10K to MURATA (not yet executed; awaiting buy confirmation + screenshot)
+
+**User decision 2026-06-17 verbatim:** *"I'll probably add ten k to Murata just because based on your findings and your research, this is the leader so far in the market."*
+
+**Decision rationale (per same-session chat-discussion analysis):**
+- Leader thesis confirmed: Murata is THE AI-server high-cap MLCC leader; GRM31CR61A476KE15L explicitly cited in PM26 Shanghai Securities News T1 as having spot doubled
+- Contract-anchor pricing power durable through cycle (vs Taiyo Yuden spot-leverage)
+- Position-management overhead avoided (vs adding Taiyo Yuden as new ticker)
+- First-principles persistence analysis 2026-06-17: volume thesis 5+ years durable (physics-binding, no substitution); pricing premium phase 18-36 months
+- Pre-registered trim triggers + OPEN-ENDED INFERENCE CLAUSE (above) provide exit discipline before entry — Critical Rule #8 binding satisfied
+
+**Execution status:** PENDING — user has not yet confirmed actual buy with price + share count. Per holdings.md canonical rule ("Only gets changed when I send a new screenshot"), holdings.md NOT updated yet; `portfolio/changes.md` will receive executed-trade entry upon user confirmation of buy with price + shares + Degiro fill timestamp.
+
+**Post-execution cascade plan (on user "bought X at €Y" confirmation):**
+1. Append `portfolio/changes.md` entry: date / ticker / qty / fill price / cost basis €10K + spread / executing account
+2. Wait for next user-shared Degiro screenshot → update `portfolio/holdings.md`
+3. Re-compute MURATA % allocation: current ~1.6% → estimated post-add ~6.8% of €192K Degiro balance (depending on actual fill price)
+4. Re-confirm trim triggers + open-ended inference clause are LIVE for the new combined position size
 
 If anything, the thesis supports SLIGHTLY larger sizing (toward 13-14%) given the structural tailwinds. But: blind spots (current valuation, smartphone segment, capital intensity) argue for staying at current weight pending more verification.
 
