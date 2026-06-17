@@ -35,6 +35,93 @@
 
 ## Entries (most recent first)
 
+### [2026-06-17 AM7] User explicit NBIS UK deal deep-dive + sovereign-AI stack strategy inference 2-subagent verification COMPLETE — **🔴 NBIS WL-ADD P2 PROMOTION** (was REFERENCE-WATCHLIST) + **🔴 PC-14 N=2 → N=3+ Asia mirror sub-cluster CONFIRMED** (Korea AI Basic Act binding Jan 2026 + Japan 2026 AI Basic Plan + Taiwan AI Basic Act Dec 2025 + India IndiaAI Mission = 4-country independent convergence; doctrine now THREE-CONTINENT verified universal) + **CRITICAL framing correction: £1.7 billion is NBIS OWN CapEx commitment NOT UK gov procurement** + Workflow #9 MACRO-FIRST 5-step pipeline executed (9-layer sovereign-AI stack defined + 5-archetype taxonomy + per-sovereign matrix 12 sovereigns + N+1/N+2 forward trajectory inference) + **DSIT AIRR managed-service tender = actual PC-14 N=3 UK binary trigger event** (H2 2026 expected) + 5 NEW sovereign-AI watchlist candidates (OVHcloud Euronext OVH / Capgemini Euronext CAP / SK Telecom ADR SKM / NTT Data TSE 9613 + 3 pre-IPO private: Mistral / Cohere-Aleph Alpha / Sakana AI) + held cohort cascade matrix (corrected for actual held names; Subagent B over-attributed VRT/GEV/ETN/CRDO/NVDA/PLTR/CRWD as "in harness" — NOT held per holdings.md PM17c)
+
+**Trigger source:** User explicit 2026-06-17 verbatim request: *"Can you dig into Nedias? What was the deal they made with the UK? The task at hand is to identify what governments will employ in terms of strategy for sovereign AI. Essentially, what is the stack of sovereign AI? And what exactly are the specifics of the deal? ... so there's one side, which is you have to infer the strategy governments will employ for sovereign AI, which I think is still trying to be developed. But you can probably see initial signs of what is being done. But you can then extrapolate what the next step will be."*. Per Critical Rule #16 + Workflow #9 macro-first, fired 2 Opus subagents in parallel (a793d013df11e4383 NBIS-UK + a56bf91f6368d7fd7 sovereign-AI stack) = TWENTY-THIRD + TWENTY-FOURTH operational Rule #16 applications.
+
+**Intake tier:** 🟢 HARD on NBIS UK deal (BusinessWire 2026-06-08 + GOV.UK London Tech Week + Kao Data DCD + NBIS newsroom T1) + 🟢 HARD on UK sovereign-AI architecture (Isambard-AI Bristol HMG funding + AI Hardware Plan £1.1 billion GOV.UK T1 + AISI safety eval + Sovereign AI Fund £500 million April 2026) + 🟢 HARD on PC-14 N=3 Asia confirmation (Korea AI Basic Act binding Jan 2026 + Japan 2026 AI Basic Plan + Taiwan AI Basic Act Dec 2025 + India IndiaAI Mission all primary or T1 verified) + 🟡 DIRECTIONAL on N+1/N+2 forward trajectory per archetype (my model with named pattern-matches per Workflow #9 step 3 quality bar).
+
+**Sources (sample of key load-bearing T1 citations; full register in AM7 file):**
+- NBIS UK: [BusinessWire T1 2026-06-08](https://www.businesswire.com/news/home/20260607207219/en/Nebius-expands-in-UK-with-more-NVIDIA-powered-infrastructure-more-customers-and-more-cloud-capabilities-for-agentic-and-enterprise-AI) + [NBIS newsroom T1](https://nebius.com/newsroom/nebius-expands-in-uk-with-more-nvidia-powered-infrastructure-more-customers-and-more-cloud-capabilities-for-agentic-and-enterprise-ai) + [GOV.UK London Tech Week T1](https://www.gov.uk/government/news/britain-powers-ahead-on-ai-with-billions-of-pounds-of-new-investment-and-thousands-of-jobs-secured-as-london-tech-week-wraps-up) + [DCD Kao Data T2](https://www.datacenterdynamics.com/en/news/nebius-signs-22mw-capacity-agreement-with-kao-data-in-the-uk/)
+- UK sovereign-AI architecture: [GOV.UK AI Hardware Plan T1](https://www.gov.uk/government/publications/uk-ai-hardware-plan/uk-ai-hardware-plan) + [University of Bristol Isambard-AI T1](https://www.bristol.ac.uk/research/centres/bristol-supercomputing/articles/2025/isambard-ai-supercomputer-powers-500m-uk-sovereign-ai-fund.html) + [AISI.gov.uk T1](https://www.aisi.gov.uk/) + [GOV.UK AI Opportunities Action Plan One Year On T1](https://www.gov.uk/government/publications/ai-opportunities-action-plan-one-year-on/ai-opportunities-action-plan-one-year-on)
+- NBIS competitive moat: [CNBC NVDA $2B T1](https://www.cnbc.com/2026/03/11/nebius-nvidia-ai-cloud.html) + [CMS Law Cloud Act vs UK Sovereignty white paper T1](https://cms-lawnow.com/en/ealerts/2026/02/white-paper-demystifying-the-debate-on-the-us-cloud-act-vs-european-uk-data-sovereignty-in-the-context-of-cloud-services)
+- Sovereign-AI 9-layer stack: [White House AI Action Plan July 2025 T1](https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf) + [EuroHPC Jan 2026 T1](https://eurohpc-ju.europa.eu/eurohpc-jus-mandate-expanded-under-new-regulation-amendment-2026-01-20_en) + [CNAS Sovereign AI Index T1](https://interactives.cnas.org/reports/sovereign-ai-index/) + [McKinsey sovereign AI agenda T2](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/tech-forward/the-sovereign-ai-agenda-moving-from-ambition-to-reality)
+- PC-14 N=3 Asia mirror: [Korea Herald T1 SKT A.X K1](https://www.koreaherald.com/article/10546363) + Japan 2026 AI Basic Plan METI + Taiwan AI Basic Act Dec 2025 + [BharatGen T1](https://bharatgen.com/) + [ORF IndiaAI Mission T1](https://www.orfonline.org/expert-speak/operationalising-india-s-sovereign-ai-stack-from-intent-to-capability)
+
+## 🔴 KEY FINDINGS
+
+**1. NBIS UK £1.7 billion = NBIS OWN CapEx commitment (supply-side), NOT UK government procurement (demand-side) — CRITICAL framing correction.** Prior PC-13 entry implicitly framed as demand-side revenue. Reality: NBIS building 4 UK AI compute sites (65 MW total by 2027; Kao Data Harlow Essex 22 MW first confirmed, 10-year lease); customers commercial (Revolut, Prima Mente, enterprise) NOT HMG.
+
+**2. The actual PC-14 N=3 UK trigger is DSIT AIRR managed-service-provider tender** (live 2026 procurement). If NBIS wins/shortlisted → upgrades to ACTIVE. If US-domiciled (AWS/Azure/GCP/CoreWeave) wins → falsifies "UK requires non-US-jurisdiction compute at procurement-tier" thesis. Outcome H2 2026 expected.
+
+**3. NBIS = sovereign-AI canonical pure-play** — Amsterdam Dutch domicile = outside US Cloud Act jurisdiction = structural moat for UK/EU government workloads that cannot tolerate US-law data subpoena. NVIDIA $2 billion March 2026 = ~8.3% stake via warrants. Israel template proven ($140 million sovereign supercomputer tender win + Mega Or $880 million 80MW build). Yandex heritage fully decoupled July 2024 ($5.4 billion divestiture).
+
+**4. Sovereign-AI 9-layer stack architecture defined per first principles + verified gov strategy docs:** Compute / Cloud / Foundation Model / Fine-tune / Data / Application / Governance / Workforce / Regulatory. **Layer 9 (regulatory) is the LEVERAGE LAYER** — EU is only bloc with binding cross-member enforcement (AI Act).
+
+**5. 5-archetype taxonomy:** A (Full-Stack Autarky: China mature, India aspiring), B (Defense-Integration Bifurcation: US dominant, AU/CA following), C (Domestic-Vendor Preference / National Champion: France, Germany, EU, Japan, Korea, Taiwan-HW), D (Hyperscaler-with-Sovereignty-Clauses: UAE, Saudi, Japan-hybrid, India-hybrid), E (Hybrid Open-Weight Anchor: Global South, ASEAN periphery — emergent vs original candidate list).
+
+**6. Forward trajectory N+1 / N+2 inference per archetype** — convergence at compute + data residency layers (all archetypes need NVIDIA / power infra / DCs); divergence at foundation model + regulatory layers. Archetype C N+1 (12-24mo): **intelligence/defense anchor scales into civilian gov IT** — France 1M civil servant Mistral rollout is the TEMPLATE; France healthcare (AP-HP) / education / social security H2 2026 - H1 2027 procurement cycles. Archetype C N+2 (24-48mo): transatlantic trusted bloc (Cohere-Aleph Alpha) + French bloc (Mistral/OVHcloud/ChapsVision) replace MSFT/Google enterprise AI in EU public sector = multi-billion-euro contract opportunity.
+
+**7. 🔴 PC-14 PROMOTION N=2 → N=3+ via Asia mirror confirmation (3-continent verified universal doctrine).** Korea AI Basic Act IN FORCE Jan 2026 (BINDING) + Japan 2026 AI Basic Plan Jan 2026 + Taiwan AI Basic Act Dec 2025 + India IndiaAI Mission OPERATIONALIZING = 4-country independent convergence. PC-14 entry in `meta/cross-domain-pattern-register.md` updated with Asia mirror sub-cluster ENRICHMENT section.
+
+**8. NEW Investable cohort screen — 5 sovereign-AI watchlist candidates added:** NBIS (PROMOTED WL-ADD P2; was REFERENCE-WATCHLIST) + OVHcloud (Euronext OVH; FR sovereign cloud) + Capgemini (Euronext CAP; EU SI) + SK Telecom ADR (NYSE SKM; Korean sovereign AI) + NTT Data (TSE 9613; Japan gov IT). Pre-IPO watch: Mistral / Cohere-Aleph Alpha / Sakana AI.
+
+**Cluster cascade scoped per Principle #37 (per-name cascades in this commit):**
+- **HYNIX thesis** — 🟢 STRONG POSITIVE 5-archetype sovereign-AI convergence; HBM demand structural decade-long mandate
+- **MRVL thesis** — 🟢 NET POSITIVE 5-vector custom-Si demand pool expansion; thesis reinforced on EIGHT independent vectors in 48-hour window
+- **SNDK thesis** — 🟢 NET POSITIVE 4-archetype sovereign storage demand (compounds with AM6b NAND shortage thesis)
+- **KIOXIA thesis** — 🟢 NET POSITIVE 4-archetype + Japan-specific Sakana/SoftBank sovereign storage pull-through
+- **DDOG thesis** — 🟢 STRONG POSITIVE — EU AI Act observability mandate direct commercial opportunity; PC-14 N=3+ multi-jurisdiction structural mandate
+- **NOW thesis** — 🟡 EU+ASIA SOVEREIGN-AI WATCH (expanded scope from AM6b which was EU-only; Asia confirmation extends risk class to Korea/Japan/Taiwan gov accounts)
+- **SUMCO thesis** — 🟢 NET POSITIVE multi-archetype wafer demand, particularly EU 300mm wafer from EuroHPC gigafactories
+- **MURATA + Taiyo Yuden** — orthogonal at this resolution; MURATA forward €10K add intent UNCHANGED; open-ended inference clause check returned NO trim-trigger fires from sovereign-AI synthesis
+- **watchlist/candidates.md** — NEW Sovereign-AI cohort section appended (NBIS WL-ADD P2 + 4 new sovereign-AI candidates + 3 pre-IPO watch)
+- **cross-domain-pattern-register.md PC-14** — N=2 → N=3+ Asia mirror sub-cluster enrichment section added
+
+**Files NOT touched (per scoping rule):**
+- `signals/triangulation.md` TC-10 formalization to VERIFIED HIGH-CONFIDENCE DEFERRED to June 24 monthly audit (PC-14 N=3+ promotion = strong signal that TC-10 promotion gate now exceeded; batch at audit)
+- `meta/methodology.md` / `meta/tags.md` / `research/CLAUDE.md` count references DEFERRED to June 24 housekeeping batch
+- `meta/biases-watchlist.md` B47 (closed-list pattern-matching blindness) candidate ENRICHMENT N+1 evidence accrued (AM6b open-ended inference clause firing correctly) but NOT yet N=2 codification trigger; June 24 audit
+- `predictions/lessons.md` no new lesson candidate
+- `portfolio/*` no position changes (NBIS WL-ADD P2 = pre-entry pending user decision; MURATA forward €10K add intent UNCHANGED)
+- `companies/MURATA/thesis.md` + `companies/SUMCO/thesis.md` orthogonal-or-already-cascaded — minimal AM7 back-ref OR skip per scoping
+- `companies/NBIS/` — NEW thesis folder to be created if/when user upgrades NBIS to ACTIVE position; for now AM7 + watchlist entry suffice
+
+**Stale flags fired:** none (all signals fresh within 24-72h; sovereign-AI architecture verified from Q1 2025 - Q1 2026 gov strategy docs all current)
+
+**Forward watch items (priority-ordered):**
+1. **PC-14 N=3+ codification** to `meta/cross-domain-pattern-register.md` — ENRICHMENT section added in this commit
+2. **DSIT AIRR tender outcome H2 2026** = binary watch event for NBIS WL-ADD P2 → ACTIVE upgrade
+3. **NBIS Nasdaq-100 inclusion 2026-06-22** = index-buying tailwind; don't chase
+4. **France healthcare AP-HP / education / social security AI procurement** (H2 2026 - H1 2027) = Archetype C N+1 confirmation
+5. **EU AI Act first enforcement action** (H1 2027 expected) = Archetype C N+2 + DDOG observability validation
+6. **NOW Q3 FY27 earnings call** = sovereign-AI competitive pressure commentary milestone
+7. **Korea "AI for Everyone" consortium narrowing 2027** + Japan METI GENIAC selection = Archetype C Asia mirror N+1
+8. **Cohere-Aleph Alpha + Mistral IPO watch** = first publicly listed Archetype C foundation model pure-plays if materialize
+9. **B47 codification (closed-list pattern-matching blindness)** = N+1 evidence accrued; June 24 audit
+10. **TC-10 promotion to VERIFIED HIGH-CONFIDENCE** = June 24 monthly audit (PC-14 N=3+ promotion makes TC-10 gate exceeded by margin)
+
+**Position implications (all 🟡/🟢 HOLD per Critical Rule #8 binding; no portfolio action today):**
+- HYNIX: 🟢 HOLD GDR / ADD ON WEAKNESS — STRONG POSITIVE 5-archetype convergence
+- MRVL: 🟡 HOLD ~5.9% (44sh) — NET POSITIVE 5-vector; 8 reinforcing vectors in 48h
+- SNDK: 🟢 HOLD — STRONG REINFORCE + sovereign-AI tailwind
+- KIOXIA: 🟡 HOLD-until-falsifier — STRONG REINFORCE + Japan sovereign-AI tailwind
+- MURATA: 🟡 HOLD; **forward €10K add intent UNCHANGED** — no novel trim-signal fires
+- SUMCO: 🟡 HOLD — net positive on multi-archetype wafer demand
+- DDOG: 🟢 HOLD — STRONG POSITIVE EU AI Act observability mandate
+- NOW: 🟡 HOLD with EU+ASIA SOVEREIGN-AI WATCH (expanded scope) — 6-18mo monitoring
+- **NBIS (NEW WL-ADD P2):** starter €500-1,000 / max €3,000-5,000; entry discipline = don't chase post-Nasdaq-100 inclusion squeeze 2026-06-22; ideal entry post-inclusion mechanical selling exhaustion OR macro pullback
+
+**Critical Rule #16 operational validations: POSITIVE N=23 + N=24 (Subagents A + B today). Cumulative N=24.**
+
+**Cascade-fatigue check:** AM batch (`3e57881`) + AM6 triage (`5b55c8c`) + AM6b (`451dc3c`) + hook-fire-log (`adb77ea`) + PC-14 codification (`400e10b`) + AM7 (this commit) = **6 commits since session-start ~10 hours ago**; total events ~48 in ~52 hours since 2026-06-15 PM27 baseline. P#37 N=20 promotion gate FAR EXCEEDED. Cascade hygiene holding via scoped per-name updates only.
+
+**Loop-validation note:** AM7 is the first proper Workflow #9 MACRO-FIRST application for the sovereign-AI layer (Step 0 subagent fan-out + Step 1 9-layer first-principles + Step 2 per-sovereign metric matrix + Step 3 5-archetype + N+1/N+2 future inference + Step 4 NBIS company tie-in + held cohort cascade). Critical Rule #15 macro-anchor discipline applied: research-verified vs recall-based tagging on every load-bearing claim. Subagent over-attribution catch (VRT/GEV/ETN/CRDO/NVDA/PLTR/CRWD listed as "in harness" — corrected against `portfolio/holdings.md` PM17c canonical) is the kind of self-correction Critical Rule #11 AUTO-EXECUTE STRENGTHENING anticipates.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-17 AM6b] Morning AI brief 2-subagent verification COMPLETE — **🔴 BIFURCATION DOCTRINE N=1 → N=2 PROMOTION** via Item 16 France DGSI drops Palantir for ChapsVision + Germany BfV parallel action (Lecornu explicitly cited Fable 5 cutoff as catalyst); **🔴 NOW NEW EU SOVEREIGN-AI PROCUREMENT WATCH CONDITION** (4 trigger conditions, 25%/50%/100% partial-trim sequencing per MURATA/Taiyo Yuden convention); NAND shortage Silicon Motion Duann Computex 2026 B40.0 FRESH N=6+ STRONG REINFORCE SNDK/KIOXIA; AMD-Mext SAME EVENT AS PM22 + 1day framing (NOT B40.1 stale-recycle of older story; Mext is real Santa Clara startup mext.ai $10.6M raised CEO Gary Smerdon ex-AMD); SMIC N+3 Kirin 9030 32.5nm metal pitch vs Intel 18A 36nm = misleading framing (Intel 18A PowerVia deliberate; SMIC 38% density lag, 5-6× DUV multi-patterning at operating loss, ONE product Huawei Mate 80 Pro Max, NOT licensable third party); TC-10 REINFORCE WITH CEILING + Item 16 STRONG +1 → TC-10 PROMOTION GATE REACHED for June 24 audit; Anthropic-Trump Ramp data TC-4 NEEDS-REFRAME 3-way split (defense/commercial/lagging-composition); 7 thesis updates batched (SNDK + KIOXIA + HYNIX + MRVL + NOW + DDOG + SUMCO)
 
 **Trigger source:** 2-subagent parallel verification of 2026-06-17 morning AI brief (70 sources / 16 items). Per Critical Rule #16, subagents a5440dd3c0e1bc111 (Item 12 + 14) + a2349e43d7a133a8a (Items 5/15/16) = TWENTY-FIRST + TWENTY-SECOND operational Rule #16 applications.

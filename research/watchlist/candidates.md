@@ -1019,3 +1019,55 @@ Kuo CoPoS note (T3, June 10-11) verified via 2 subagents: pilot line June 2026 +
 - **Camtek (CAMT) — EXISTING P1 watchlist — CoPoS vector ADDS** (panel/glass inspection; Q1-26 OSAT orders >$90M T1)
 - **ASMPT — coverage CORRECTION:** panel-plating NEXX SOLD to Applied Materials May 2026 (T2 TrendForce) — AMAT consolidates panel plating; trim ASMPT CoPoS expectations
 - **Mitsui (5706.T) — explicitly NO new vector:** HVLP foil feeds low-loss CCL server boards, NOT ABF-GCP build-up (electroless seed, no foil; T3 reasoned) — P-2 wrong-product-category discipline applied to AVOID a false vector
+
+
+---
+
+## Sovereign-AI cohort (added 2026-06-17 AM7 per `signals/cross-source-log/2026-06-17-am7-nbis-uk-deal-deep-verification-sovereign-ai-stack-9layer-5archetype-pc14-n3-asia-promotion.md` + PC-14 N=3+ Universal Sovereign-AI Bifurcation Doctrine 3-continent promotion)
+
+### 🔴 NBIS (Nebius Group, NASDAQ) — **PROMOTED REFERENCE-WATCHLIST → WL-ADD P2** 2026-06-17 AM7
+
+**Why this name promoted:** Per Subagent A deep verification of NBIS UK £1.7 billion June 8 deal. **Critical framing correction:** £1.7B is NBIS OWN CapEx commitment (4 UK sites totaling 65 MW by 2027; Kao Data Harlow 22 MW first; 10-year lease) NOT UK government procurement contract. NBIS = sovereign-AI canonical pure-play with Amsterdam Dutch domicile = outside US Cloud Act jurisdiction = structural moat for UK/EU government workloads. NVIDIA $2 billion March 2026 = ~8.3% stake via warrants. Israel template proven ($140M sovereign supercomputer tender win + Mega Or $880M 80MW DC build). Q1 2026 revenue $399M (+684% YoY); FY2026 guidance $3.0-3.4B revenue / $7-9B ARR exit / 40% adj EBITDA margin / $20-25B CapEx; $9.3B cash; $20B+ contracted backlog (MSFT $19.4B + META $2.9B). Nasdaq-100 inclusion effective 2026-06-22.
+
+**The actual PC-14 N=3 UK trigger:** DSIT (Department for Science, Innovation and Technology) is running a LIVE TENDER (2026) for a managed-service-provider to deliver cloud compute into AIRR (AI Research Resource). If NBIS wins or is shortlisted → upgrades to ACTIVE (direct UK gov revenue contract). If AWS/Azure/GCP/CoreWeave (US-domiciled) wins → falsifies "UK requires non-US-jurisdiction compute at procurement-tier" thesis. Tender outcome H2 2026 expected.
+
+| Attribute | Value |
+|---|---|
+| Tier candidate | WL-ADD P2 (was REFERENCE-WATCHLIST) |
+| Sizing | starter €500-1,000 / max €3,000-5,000 |
+| Entry discipline | Do NOT chase post-Nasdaq-100 inclusion squeeze (2026-06-22 effective); ideal entry post-inclusion mechanical selling exhaustion OR macro pullback |
+| Investability | NASDAQ-listed (NBIS), USD-denominated, Degiro accessible |
+| Falsifiers (5) | (1) DSIT AIRR tender awarded to AWS/Azure/GCP/CoreWeave; (2) US Cloud Act reform OR UK-US Data Access Agreement neutralizing Dutch-domicile advantage; (3) NVIDIA supply allocation shift; (4) NCSC/GCHQ security concern raised against NBIS specifically; (5) CapEx outpaces revenue scaling ($20-25B CapEx on $3.0-3.4B revenue = massive negative FCF; capital markets tightening = funding risk) |
+| Yandex heritage risk | RESOLVED — July 2024 $5.4B divestiture; Dutch + Israeli management nationalities post-restructure; no public GCHQ/NCSC concern raised |
+
+### NEW high-conviction sovereign-AI watchlist candidates
+
+- **OVHcloud (Euronext: OVH) — added 2026-06-17 AM7**
+  - Source signal: Subagent B sovereign-AI stack synthesis — French-domiciled sovereign cloud; Mistral distribution channel; EU AI Act compliance moat
+  - Why interesting: Archetype C (EU domestic-vendor preference) + Archetype E (Global South lower-cost EU-jurisdiction inference) double exposure
+  - Investability: Euronext Paris listed; Degiro accessible
+  - Status: WATCHLIST P2 — evaluate liquidity, float, growth trajectory; Scaleway (private) is direct comp
+
+- **Capgemini (Euronext: CAP) — added 2026-06-17 AM7**
+  - Source signal: Subagent B — EU sovereign AI system integrator extracting value from all Archetype C deployments
+  - Why interesting: France Mistral 1M civil servant rollout = Capgemini implementation contract (historically); EU AI Act compliance consulting = new recurring revenue; lower-risk expression of Archetype C thematic
+  - Investability: Euronext Paris listed; Degiro accessible
+  - Status: WATCHLIST P3 — defensive sovereign-AI services play
+
+- **SK Telecom ADR (NYSE: SKM) — added 2026-06-17 AM7**
+  - Source signal: Subagent B — Korea sovereign AI cornerstone (A.X K1 519B-param hyperscale model Dec 2025 + government-designated GPU infra provider)
+  - Why interesting: Korea $735B sovereign AI initiative execution play; dividend yield + AI growth angle; PC-14 N=3+ Asia mirror confirmed via Korea AI Basic Act Jan 2026 (BINDING)
+  - Investability: NYSE ADR; Degiro accessible
+  - Status: WATCHLIST P3 — dividend payer + sovereign AI option value
+
+- **NTT Data (TSE: 9613) — added 2026-06-17 AM7**
+  - Source signal: Subagent B — Japan government IT + Physical AI deployment vendor
+  - Why interesting: undercover Japan sovereign AI play; Japan 2026 AI Basic Plan execution; Physical AI alignment per harness state
+  - Investability: TSE listed; Degiro accessible (Japan TSE access confirmed for Murata/Sumco/Kioxia)
+  - Status: WATCHLIST P3 — Japan sovereign AI option
+
+### Pre-IPO watch (private, monitor for IPO event)
+
+- **Mistral AI (private, France)** — Archetype C national champion; 1M French civil servant deployment (€700K Jun 2026 contract); $830M Mistral DC debt (Bruyères-le-Châtel 13,800 GB300 GPUs); IPO pathway watch
+- **Cohere-Aleph Alpha (private, post-merger April 2026 $20B)** — first transatlantic sovereign AI pure-play if IPO materializes; serves DE/CA/potentially UK/AU sovereign accounts; could be EU's PLTR equivalent
+- **Sakana AI (private, Japan)** — Series B $135M, $2.65B valuation Nov 2025; METI/NEDO backed; Physical AI focus; pre-IPO watch

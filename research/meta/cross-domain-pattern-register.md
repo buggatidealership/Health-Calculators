@@ -171,6 +171,38 @@ Different national payers code the same AI capability years apart — the diverg
 
 **Status:** **PROMOTED N=1 → N=2 (verified pattern)** per AM6b verdict 2026-06-17. Cross-sovereign convergence (US + France/Germany) sufficient to promote per Principle #32 promotion-discipline. Distinct sovereign actors taking independent actions with same underlying mechanism in <30-day window.
 
+### 🔴 PC-14 N=2 → N=3+ ENRICHMENT 2026-06-17 AM7 — Asia mirror sub-cluster CONFIRMED via 4-country convergence
+
+Per `signals/cross-source-log/2026-06-17-am7-nbis-uk-deal-deep-verification-sovereign-ai-stack-9layer-5archetype-pc14-n3-asia-promotion.md` (Subagent B sovereign-AI stack synthesis): the pre-registered N=3 watch trigger (b) "Asia mirror (Japan / Korea / Taiwan / India) sovereign AI doctrine codification" is ALREADY CONFIRMED via independent 4-country convergence:
+
+1. **Korea AI Basic Act IN FORCE Jan 2026 (BINDING)** per [Korea Herald T1](https://www.koreaherald.com/article/10546363) — Korea's first hyperscale model SKT A.X K1 (519B params Dec 2025); $735B sovereign AI initiative (Samsung $230B + infra $300B); 50 data centers by 2030; 3GW Jeollanam-do facility
+2. **Japan 2026 AI Basic Plan APPROVED Jan 2026** — $135B AI push (Jan 2026 Budget); GENIAC METI accelerator; Sakana AI Series B $135M $2.65B val Nov 2025; SoftBank-OpenAI partnership; ABCI 3.0
+3. **Taiwan AI Basic Act PASSED Dec 2025** — TWD 31.1B ($1B) 2026 budget; Ten Major AI Infrastructure Plan; TSMC anchor (55% AI/HPC revenue 2025); goal top-5 global compute by 2040
+4. **India IndiaAI Mission OPERATIONALIZING** — INR 10,300+ crore committed; Yotta Bhashini sovereign AI cloud on gov platforms Feb 2026; BharatGen (17B MoE on NVIDIA NeMo); Bhashini multilingual; DPDPA 2023
+
+**Each is an INDEPENDENT sovereign government codifying Archetype C (domestic-vendor preference) or hybrid Archetype C+D with binding regulatory enforcement.** Korea AI Basic Act + Japan AI Basic Plan + Taiwan AI Basic Act = THREE binding national legislations within 12-month window. India operationalization = procurement-tier confirmation.
+
+**Strict ruling: PC-14 promoted N=2 → N=3+ (effectively N=5+ if counting Korea/Japan/Taiwan/India individually as distinct sovereign actors).** Doctrine is now THREE-CONTINENT (US + EU + Asia) verified universal sovereign-AI bifurcation.
+
+**REFRAMED implication:** "The moat is not capability — it is sovereignty integration" — verified across the world's major economic blocs. Multi-jurisdiction compliance and sovereignty-alignment now the dominant strategic variable for AI vendor durability.
+
+**Remaining N=3+ pre-registered watches (still pending after Asia confirmation):**
+- (a) UK GCHQ/NCSC formal sovereign-AI procurement (DSIT AIRR tender outcome = binary event; H2 2026 expected) — NBIS WL-ADD P2 thesis hinges on this
+- (c) US civilian-agency extension beyond defense (OMB M-25-21 metrics; FY2027 budget items)
+- (d) EU AI Act first enforcement action targeting US-domiciled AI in critical infra (H1 2027 expected)
+- (e) China reverse pattern: emergency-order on Western-AI access (BRI open-weight export deliberate strategy confirmation)
+
+**Detectability / falsifier (re-eval 2026-09-17 with 90-day audit) — UPDATED post-Asia confirmation:**
+- POSITIVE: PC-14 promoted from N=2 to N=3+ on this AM7 cascade; load-bearing for ALL US-domiciled enterprise SaaS with EU/Asia government exposure
+- NEGATIVE: would require simultaneous rollback by US + EU + Asia of doctrine codification (extremely unlikely given binding regulatory enforcement now in place across 3 continents)
+- FALSIFIER: France/Germany/Korea REVERSE doctrine within 90 days (functionally impossible given EU AI Act + Korea AI Basic Act binding legislation + EUR 655M French sovereign budget commitment)
+
+### Held cohort + watchlist N=3 enrichment cascade (per AM7 commit; see for per-name details)
+- **NBIS WL-ADD P2 PROMOTION** (was REFERENCE-WATCHLIST) — sovereign-AI canonical pure-play; PC-14 N=3 UK trigger = DSIT AIRR tender
+- NEW SOVEREIGN-AI WATCHLIST CANDIDATES surfaced: OVHcloud (Euronext OVH; FR sovereign cloud), Capgemini (Euronext CAP; EU sovereign-AI system integrator), SK Telecom ADR (NYSE SKM; Korean sovereign AI), NTT Data (TSE 9613; Japan gov IT)
+- NOW EU SOVEREIGN-AI WATCH condition (codified AM6b) ENRICHED — Asia confirmation strengthens 6-18mo monitoring thesis
+- DDOG STRONG POSITIVE — EU AI Act observability mandate direct commercial opportunity
+
 **Detectability / falsifier (re-eval 2026-09-17 with 90-day audit):**
 - POSITIVE: N=3+ within 90 days (UK / Asia / China reverse all candidates); pattern becomes load-bearing for ALL US-domiciled enterprise SaaS thesis with EU/Asia government exposure
 - NEGATIVE: 90 days pass with zero N=3 instances → pattern degrades to "regional EU + US bifurcation" not universal; thesis weakened on transferability to Asia

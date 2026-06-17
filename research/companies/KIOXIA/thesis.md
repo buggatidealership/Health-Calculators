@@ -1,5 +1,9 @@
 # Kioxia Holdings (285A.T / キオクシア) — Thesis
 
+**2026-06-17 AM7 cross-ref — 🟢 NET POSITIVE 4-archetype sovereign storage demand (Yokkaichi JV mirror of SNDK):** Per `signals/cross-source-log/2026-06-17-am7-nbis-uk-deal-deep-verification-sovereign-ai-stack-9layer-5archetype-pc14-n3-asia-promotion.md`. PC-14 N=3+ Asia confirmation particularly relevant — **Japan 2026 AI Basic Plan + Sakana Series B + SoftBank-OpenAI partnership = Japan sovereign-AI domestic storage demand pull-through.** Combined with US (DoD), EU (sovereign storage), Gulf (HUMAIN). **Position implication: 🟡 HOLD-until-falsifier (Critical Rule #8 binding) — sovereign-AI structural tailwind reinforces; WD/Kioxia merger speculation watch remains corporate-structure monitor not falsifier.**
+
+---
+
 **2026-06-17 AM6b cross-ref — 🟢 STRONG REINFORCE via Item 12 NAND shortage + Item 14 AMD-Mext (Yokkaichi JV mirror of SNDK; same demand picture):** Per `signals/cross-source-log/2026-06-17-am6b-morning-brief-2subagent-verification-bifurcation-doctrine-n2-promotion-now-watch-eu-sovereign-ai.md`. Yokkaichi Fab 6 JV ties = KIOXIA supply moves with SNDK supply; Kioxia-specific: revenue **+80% QoQ in 1Q26** per TrendForce T1 confirmed (Subagent A verification). New corporate-structure wildcard surfaced as MONITORING item: **WD/Kioxia merger speculation** (Elliott Management exit per Japanese media June 2026; NOT a thesis falsifier — corporate-structure event distinct from underlying NAND-AI demand thesis). AMD-Mext as new institutional flash buyer adds N+1 pull-through demand. Item 16 (France EUR 655M sovereign AI package) mildly positive on EU storage demand. **Position implication: 🟡 HOLD-until-falsifier (Critical Rule #8 binding; per user explicit 2026-06-16 ~09:25 UTC) — STRONG REINFORCE thesis intact; WD/Kioxia merger watch added as corporate-structure monitor (NOT falsifier); no portfolio action.**
 
 ---
