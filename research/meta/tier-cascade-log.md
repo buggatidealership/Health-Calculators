@@ -35,6 +35,93 @@
 
 ## Entries (most recent first)
 
+### [2026-06-17 AM batch] 5-subagent fan-out — 3 PM-deferred verifications resolved (MRVL Maia-Broadcom B40.1 STALE-RECYCLE catch + TDK 6762 L28 FAIL SIDECAR + Innolux 3481 L28 FAIL pre-revenue SKIP) + 2 evening-brief AI-cluster verifications (HBM SemiAnalysis B40.1 stale-recycle BUT thesis stronger + Anthropic cluster TC-4/TC-10/U8/PC-13 + NEW BIFURCATION DOCTRINE meta-pattern N=1)
+
+**Trigger source:** (a) PM27/PM26/PM22 deferred queue items per yesterday's user agreement ("agreed — defer to tomorrow"); (b) user-shared 2026-06-16 evening AI brief (86 sources / 20 items). Per Rule #16, fired 5 Opus subagents in parallel (a80c596d34bd10df3 MRVL + a46836dd556919e41 TDK + aaf850c57cff87cac Innolux + af707341a82248705 HBM + ad563bd862ea08764 Anthropic cluster = SIXTEENTH through TWENTIETH operational Rule #16 applications).
+
+**Intake tier:** 🟢 HARD on TDK (L28 FAIL via T1 IR + multi-source) + 🟢 HARD on Innolux (L28 FAIL via T1 IR + Digitimes + TWSE) + 🟢 HARD on MRVL B40.1 catch (Sherwood T2 → The Information Dec 2025 T1 origin verified) + 🟢 HARD on HBM B40.1 catch (SemiAnalysis Aug 12 2025 publication date verified) + 🟡 DIRECTIONAL on Anthropic cluster (TC-4 reliability vector T1, TC-10 STRONG +1 T1 DOJ filing, U8 N=3 CANDIDATE pending PM24 source, PC-13 N=1 enriched not incremented). 🔴 BIFURCATION DOCTRINE meta-pattern N=1 candidate.
+
+**Sources (multi-vector, fully cited in artifacts):**
+- AM1 MRVL: [Sherwood T2](https://sherwood.news/markets/microsoft-is-in-talks-to-shift-its-custom-chip-business-to-broadcom-from-marvell-report/) → [Yahoo Finance T1 2025-12-09](https://finance.yahoo.com/news/marvell-stock-falls-microsoft-broadcom-130457554.html) + [Barchart T1 2025-12-15 CEO denial](https://markets.financialcontent.com/concordmonitor/article/barchart-2025-12-15-marvells-ceo-says-the-company-didnt-lose-any-orders-why-was-wall-street-so-worried-and-how-should-you-play-mrvl-stock-here) + [Microsoft Maia 200 T1 2026-01-26](https://blogs.microsoft.com/blog/2026/01/26/maia-200-the-ai-accelerator-built-for-inference/) + [Marvell Q1 FY27 IR T1 2026-05-27](https://investor.marvell.com/news-events/press-releases/detail/1023/marvell-technology-inc-reports-first-quarter-of-fiscal-year-2027-financial-results)
+- AM2 TDK: [TDK IR FY26 Q4 T1 2026-04-28](https://www.tdk.com/en/ir/ir_events/conference/2026/4q_2.html) + [Investing.com TDK](https://www.investing.com/equities/tdk-corp.) + native-JP note.com analyst community
+- AM3 Innolux: [Digitimes EN 2026-06-16 T1](https://www.digitimes.com/news/a20260616PD217/tsmc-innolux-ibiden-packaging-cowos.html) + [BigGo Finance FY25 Q4 T1](https://finance.biggo.com/news/twse_major_3481_1150310_152204) + [BigGo Finance C.C. Wei T1](https://finance.biggo.com/news/kLg0kp4BrX5PFN7BKrXD) + [Taipei Times 2024-08-16 Tainan plant sale](https://www.taipeitimes.com/News/biz/archives/2024/08/16/2003822291)
+- AM4 HBM: [SemiAnalysis original Aug 12 2025](https://newsletter.semianalysis.com/p/scaling-the-memory-wall-the-rise-and-roadmap-of-hbm) + [Micron IR T1](https://investors.micron.com/news-releases/news-release-details/micron-high-volume-production-hbm4-designed-nvidia-vera-rubin) + [blocksandfiles ICMSP T1 2026-01-06](https://blocksandfiles.com/2026/01/06/nvidia-standardizes-gpu-cluster-kv-cache-offload-to-nvme-ssds/)
+- AM5 Anthropic cluster: [TechTimes 2026-06-16 Claude outage T1](https://www.techtimes.com/articles/318514/20260616/claude-outage-tenth-disruption-12-days-exposes-anthropic-infrastructure-strain.htm) + [Register 2026-06-15 Fable 5 T1](https://www.theregister.com/security/2026/06/15/feds-freaked-over-fable-5-after-simple-fix-this-code-prompt-not-jailbreak-says-researcher/5255827) + [OpenRouter DeepSeek V4 Pro T1](https://openrouter.ai/deepseek/deepseek-v4-pro) + [cloudzero Claude pricing T1](https://www.cloudzero.com/blog/claude-api-pricing/) + [TechCrunch DOJ xAI T1 2026-06-16](https://techcrunch.com/2026/06/16/doj-claims-xais-unpermitted-gas-turbines-are-a-matter-of-national-economic-and-energy-security/)
+
+## 🔴 KEY FINDINGS
+
+**1. MRVL Maia-Broadcom: B40.1 STALE-RECYCLE catch.** Sherwood re-amplification of The Information ~2025-12-05/07 T1 story (~6 months old). H1 (full shift) 30%→10%; H2 (dual-source leverage) 45%→**55% MODAL**; EV at-risk ~0.7% of $11B FY27 = IMMATERIAL. **HOLD ~5.9% confirmed.** PM27 user-aligned deferral was correct call.
+
+**2. TDK 6762.T: L28 FAIL SIDECAR.** Passive Components 23.7%; MLCC subset ~10%; ATL battery 40.9% dominates. Lagging Murata/Taiyo Yuden in MLCC rally (+152% vs +270-563%) — market correctly pricing exposure ratio. **DEMOTE to P3 SIDECAR** (€500 starter / €1,500 max if entered).
+
+**3. Innolux 3481.TW: L28 FAIL pre-revenue + 2.9× consensus HIGH.** CoPoS = NT$0; FOPLP <0.1%; HVM 2028-2029. Stock +410% from trough at NT$56 vs analyst HIGH NT$27. **SKIP at NT$56** — venture-tier only; revisit if NT$25-30 + TSMC qualification passes.
+
+**4. HBM SemiAnalysis B40.1 STALE-RECYCLE (Aug 2025 article)** BUT underlying thesis STRONGER post-Aug-2025: HBM4 mass production Feb 2026; NVIDIA ICMSP standardized NVMe KV cache Jan 2026; HBF JV Feb 2026. HYNIX **STRONG REINFORCE** (sole-source Maia 200 + ~67% Rubin HBM4 + TSMC base die premium ASP + 2026 sold out). SNDK + KIOXIA **REINFORCE** via NVMe KV cache standardization + HBF. **TC-1 N=6→N=7 promotion candidate.**
+
+**5. Anthropic cluster verification:** Claude outage REAL (10th in 12 days, infra strain, NOT political interference per HN T3 speculation). Fable 5 Register report REAL but SAME event as PM18 PC-13 N=1 (enriches NOT increments). DeepSeek V4 Pro $0.435/$0.87 vs Claude Sonnet $3/$15 = ~6% output / ~14.5% input like-tier ("5% of Claude" defensible for output-heavy Sonnet comp). DOJ xAI gas turbines T1 confirmed via court docket. TC-4 N=11→N=13 (added INFRASTRUCTURE-RELIABILITY vector). TC-10 STRONG +1 (approaching promotion gate). U8 N=3 CANDIDATE pending PM24 source check.
+
+**6. 🔴 NEW META-PATTERN: BIFURCATION DOCTRINE (N=1 codification candidate).** PC-13 (gov SHUTS DOWN AI like Fable 5) + Item D (gov SHIELDS xAI from environmental lawsuit) appear contradictory but resolve to **SELECTIVE doctrine**: defense-integrated AI = PROTECTED, non-integrated AI = SHUTDOWN-ELIGIBLE. **Single-sentence framing: "The moat is not capability — it is defense integration."** Pre-registered N=2 triggers logged for monitoring. Per Principle #32 premortem: HOLD codification until N=2 within 60 days.
+
+## Hypothesis weighting (MRVL post-verification, my model)
+- H1 Full shift AVGO: P~10% (-20pp from PM27)
+- H2 Dual-source/leverage: P~55% MODAL (+10pp)
+- H3 Didn't materialize: P~28% (+8pp)
+- H4 Misframed/B40: P~7% (+2pp)
+
+## B40.x meta-pattern this week
+- B40.1 STALE-RECYCLE catches today: AM1 Sherwood (MRVL) + AM4 SemiAnalysis (HBM) = 2 fires
+- Cumulative this week: PM18 (4 items) + PM22 (1 Citrini) + PM26 (translation-magnitude) + AM1 + AM4 = **9 distinct B40.1 catches in 6 days**
+- B40.x discipline is the load-bearing aggregator-staleness defense. Promotion-strong empirical track record.
+
+## Cluster cascade scoped per Principle #37 (per-name cascades in this commit)
+- **MRVL thesis** — AM5 bifurcation doctrine POSITIVE + AM1 B40.1 catch HOLD-reinforcement (2 vectors)
+- **HYNIX thesis** — AM4 STRONG REINFORCE + AM5 TC-10 positive (2 vectors)
+- **SNDK thesis** — AM4 REINFORCE + AM5 U8 mild positive (2 vectors)
+- **KIOXIA thesis** — AM4 REINFORCE + AM5 U8 mild positive (2 vectors)
+- **DDOG thesis** — AM5 U8 mild positive
+- **NOW thesis** — AM5 TC-4 elevated watch slight negative
+- **MURATA + SUMCO** — orthogonal (no thesis touch)
+- **watchlist/candidates.md** — TDK DEMOTE to P3 SIDECAR + Innolux DEMOTE to SKIP (2 updates)
+
+## Files NOT touched (per scoping rule)
+- `companies/MURATA/thesis.md` + `companies/SUMCO/thesis.md` — orthogonal; AM4 implications mild positive (MURATA via MLCC count per board + ¥80B capex) but no thesis-state change required since already PM22+PM26 reinforced
+- `signals/triangulation.md` TC-1/TC-4/TC-10 promotion updates DEFERRED to next monthly audit cycle (June 24) batched per Critical Rule #14 N=3+ AND thesis-reframe gates
+- `meta/cross-domain-pattern-register.md` Bifurcation Doctrine PC-14 candidate addition DEFERRED pending N=2 (Principle #32 premortem)
+- `meta/methodology.md` / `meta/tags.md` / `research/CLAUDE.md` — no new principle/rule codification
+
+## Stale flags fired: none (all signals fresh or stale-recycle catches surfaced AS stale)
+
+## Forward watch items
+1. PM24 source check on U8 — was N=2 based on DeepSeek V3/R2 or V4 Pro? If V3/R2, AM5 V4 Pro = N=3 promotion-strong
+2. TC-10 promotion gate: 3rd distinct vector → formal triangulation update at June 24 monthly audit
+3. TC-1 N=6→N=7 promotion: NVIDIA ICMSP standardization Jan 2026 = institutional-imprimatur signal that meets promotion threshold; formalize at June 24
+4. BIFURCATION DOCTRINE N=2 watch: EU/UK gov action shielding-or-shutting-down frontier AI; additional US gov shutdown of non-defense-integrated frontier model; US gov formal defense-integration designation for ANT/OpenAI
+5. MRVL Q2 FY27 print (~Aug 2026) — Maia-program revenue degradation = H1 upgrade trigger
+6. Kioxia VLSI Symposium remaining sessions June 17-18 (TONIGHT TFS1.3 ~01:25-03:30 UTC Wed); T+48h Kioxia grade Fri Jun 19
+7. AVGO earnings calls — any explicit MSFT-Maia win = H1 upgrade trigger
+8. Innolux H2 2026 glass interposer SAMPLE submission outcome (TSMC qualification gate)
+
+**Position implications (all 🟡 HOLD per Critical Rule #8 binding):**
+- MRVL: HOLD ~5.9% (44sh) — reinforced on 2 vectors (Maia continuity + bifurcation doctrine)
+- HYNIX: HOLD GDR / CONSIDER ADD ON WEAKNESS — STRONG REINFORCE
+- SNDK + KIOXIA: HOLD — REINFORCE
+- DDOG: HOLD — mild positive
+- NOW: HOLD with elevated watch — slight negative near-term
+- MURATA + SUMCO: HOLD — orthogonal
+- TDK: MONITOR — no new position (€0); P3 SIDECAR demoted
+- Innolux: SKIP at NT$56 — revisit at NT$25-30 + TSMC qualification
+
+## Critical Rule #16 operational validations: POSITIVE N=16 through N=20 (5 today)
+## Critical Rule #14 SIGNAL DENSITY DETECTION applied per artifact (each cross-source-log file documents segment-classification + recent-90-day grep + cluster status)
+
+**Cascade-fatigue check:** PM28 (`2c2c728`) + AM batch (5 cross-source-log files + 6 thesis updates + 2 watchlist updates + this entry) = **40 events in ~50 hours**. P#37 N=20 promotion gate FAR EXCEEDED. Cascade hygiene holding via scoped per-name updates only (no blanket sweep).
+
+**Loop-validation note:** This is the first batched AM cascade since PM27 evening pause. Demonstrates that deferred verification protocol (PM27 user agreement) produces value-add via B40.1 catches that immediate-reaction would have propagated. PM27 deferral logic worked; AM batch resolution captured 2 stale-recycle catches + 3 fresh structural signals + 1 new meta-pattern candidate.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-16 PM28] Principle #37 hook-enforcement live activation RE-ATTEMPT — classifier-blocked AGAIN at `cp` step (backup step succeeded this time); activation remains pending user manual `cp` outside agent
 
 **Trigger source:** plan file `/root/.claude/plans/enumerated-tickling-hartmanis.md` referenced in session-start system reminder this turn; auto mode active; plan explicitly authorized re-attempt (Step 3 anticipated classifier-block as most-likely outcome). Pre-flight all checks passed (mirror 386/319 lines; live 312/266 lines; no `.bak.2026-06-16` collision; `py_compile` clean on both mirror files).
@@ -82,7 +169,7 @@
 
 **Position implication: 🟡 NO ACTION today** — harness-level activation deferred to user manual step; no portfolio change. Held cohort untouched.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `2c2c728` (filled in AM batch cascade per lag-1 SHA-fill convention)
 
 ---
 

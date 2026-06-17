@@ -141,7 +141,17 @@ For each watchlist name below, the open questions for tomorrow's dig:
 | Phoenix AZ fab milestone (late-2027) | 30,000 panels/month capacity online; CHIPS Act grant execution | Late 2027 |
 | Pullback to ¥15,000-15,500 | Re-test of recent consolidation base; B45 base-rate-consistent retracement | Watch continuous |
 
-### Innolux Corp (3481.TW) — 🟢 **PM22 NEW #1 CoPoS Glass Substrate Cluster Candidate** (TSMC + Ibiden + Innolux 3-way CoPoS Digitimes T1 verified 2026-06-16)
+### Innolux Corp (3481.TW) — 🔴 **DEMOTED 2026-06-17 AM3 to VENTURE-OPTION-only / SKIP at current price — L28 FAIL pre-revenue + narrative fully rerated +410% from trough**
+
+**🔴 2026-06-17 AM3 verification (Opus subagent aaf850c5, EIGHTEENTH operational Rule #16 application):** Per `signals/cross-source-log/2026-06-17-am3-innolux-3481-l28-pre-revenue-skip-narrative-fully-rerated.md`. **L27 PASS** (TWSE 3481.TW active; Interactive Brokers confirmed access; Degiro Taiwan UNCERTAIN). **L26 FAIL pre-revenue** — CoPoS-specific revenue **NT$0**; FOPLP NT$100M / NT$226.7B = **0.044% of sales (rounding error)**; "non-display 35-51%" is automotive cockpit/HMI, NOT packaging. **L28 FAIL — OPTION-pre-revenue tier.** TSMC C.C. Wei (Jun 2026 shareholder meeting T1): CoPoS pilot established but "no shortcuts" + "**at least 2-3 years away**"; HVM **2028-2029** per TrendForce + WCCFTech triangulation. Innolux is NAMED VALIDATION PARTNER NOT qualified production supplier. **2024 Tainan plant SALE to TSMC for NT$17B = NEGATIVE signal** (liquidated major fab to TSMC, not added packaging capacity). **B45 regime-corrected priors:** spot NT$56.10 vs **52w low NT$11 = +410% from trough**; **analyst consensus avg NT$19.47, HIGH NT$27 → current NT$56 is 2.9× consensus HIGH; -52% downside to highest sell-side target.** Forward P/E 62.5× on near-zero earnings = textbook "narrative ahead of fundamentals."
+
+**Status: 🔴 SKIP at NT$56+ — VENTURE-OPTION-only tier (sub-1% portfolio if entered).** Revisit only if (a) price corrects to NT$25-30 range AND (b) H2 2026 glass interposer sample PASSES TSMC validation (binary). AUO is equally positioned TWSE peer with same TFT-LCD glass-processing heritage.
+
+**Falsifier:** Innolux announces binding CoPoS supply agreement w/ TSMC + revenue guidance, OR packaging revenue exceeds 5% of total in any quarterly filing → revisit L28.
+
+---
+
+### Innolux Corp (3481.TW) — [Original PM22 surfacing — superseded by AM3 demote above] — was 🟢 **PM22 NEW #1 CoPoS Glass Substrate Cluster Candidate** (TSMC + Ibiden + Innolux 3-way CoPoS Digitimes T1 verified 2026-06-16)
 
 **Why this name surfaced 2026-06-16 PM22 (for cold-read):** Per `signals/cross-source-log/2026-06-16-pm22-citrini-flash-point-tsmc-ibiden-innolux-copos-amd-aapl-flash-3-item-verification-strong-reinforce-sndk-kioxia.md`. [Digitimes EN 2026-06-16 T1](https://www.digitimes.com/news/a20260616PD217/tsmc-innolux-ibiden-packaging-cowos.html) + [Digitimes zh-TW 電子時報 T1](https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?CnlID=1&Cat=40&id=0000758841_AJV7G8PH5KBC540867F4K) confirm TSMC working with Ibiden + Innolux on CoPoS Glass Substrate Development Project. Innolux is the Taiwanese display/panel maker pivoting to semi glass substrate. PRE-ENTRY L26+L27+L28 verify status: (a) listed-status TPE:3481 CONFIRMED ([stockanalysis T1](https://stockanalysis.com/quote/tpe/3481/)); (b) ticker disambiguation 3481.TW = Innolux Corp display/panel CONFIRMED; (c) **segment-revenue %: semi packaging panels currently <10% of TWD 226.72B revenue per [Taiwan News T2](https://www.taiwannews.com.tw/news/6320066); monthly shipments grew 4M→40M units YoY = early but accelerating** — per L26 falsifier <30% = sidecar at snapshot; B20/Principle #22 forward-trajectory check: TSMC CoPoS pilot 2026 / trials 2027 / mass prod 2028-2029 per [techpowerup T2](https://www.techpowerup.com/339963/tsmc-prepares-cowos-to-copos-shift-with-750-x-620-mm-panels) suggests semi packaging revenue % could compound 2× CAGR over 2-3yr; SOTP re-rating if semi packaging crosses 15-20% revenue threshold.
 
@@ -728,12 +738,12 @@ Origin: 2026-06-06 PM user-articulated framework — "DC buildout 50% cancellati
   - Investability: US listed (NASDAQ)
   - Status: WATCHLIST — small-cap volatility caveat; secondary to CRUS for audio exposure
 
-- **TDK Corporation (6762.T) — added 2026-06-06**
-  - Source signal: Consumer-swap 3rd-order cascade (motion sensors via InvenSense subsidiary; MLCC + battery cross-exposure)
+- **TDK Corporation (6762.T) — added 2026-06-06; 🔴 DEMOTED 2026-06-17 AM2 to P3 SIDECAR per L28 FAIL**
+  - Source signal: Consumer-swap 3rd-order cascade (motion sensors via InvenSense subsidiary; MLCC + battery cross-exposure); PM26 elevated to TC-6 cluster MLCC bypass-route candidate
   - Linked causal chain: Context-aware AI needs IMU/motion sensors + AI PC MLCCs + EV battery → TDK 4-way exposure
-  - Why interesting: Diversified electronics conglomerate; InvenSense MEMS motion sensors for context-aware AI; secondary MLCC supplier; rare 4-way consumer-AI exposure
+  - **🔴 2026-06-17 AM2 L26+L27+L28 verification (Opus subagent a46836dd, SEVENTEENTH operational Rule #16 application):** Per `signals/cross-source-log/2026-06-17-am2-tdk-6762-l28-fail-sidecar-demote-mlcc-thesis-conglomerate-battery-dominant.md`. **L27 PASS** (TSE Prime 6762.T + TTDKY sponsored ADR); **L26 FAIL pure-play** — Passive Components segment = **23.7% of FY26 revenue ¥593.2B / ¥2,504.8B**; MLCC subset estimated ~9-12% of total; ATL battery **40.9% (¥1,025.2B) DOMINATES**. TDK is structurally a BATTERY name. **L28 FAIL — SIDECAR vs Taiyo Yuden 71% pure-play benchmark = 0.14× exposure ratio.** 1y price beta +152% from trough is LAGGING vs Murata (+270-320%) and Taiyo Yuden (+400-560%) in same MLCC rally — consistent with market correctly pricing TDK at ~10% MLCC exposure.
   - Investability: Japan TSE INVESTABLE
-  - Status: WATCHLIST — secondary priority vs Murata (already held); useful as diversified consumer-AI conglomerate exposure
+  - **Status: 🔴 DEMOTED to P3 SIDECAR / reference-only — DO NOT size as Taiyo Yuden equivalent for MLCC thesis.** If entered as sidecar: starter ≤€500 (~0.14× Taiyo Yuden sizing per exposure ratio); max €1,500-2,000. Falsifier for re-promotion: passive component segment crosses 35%+ of group revenue in 2 consecutive quarters via AI data center MLCC growth AND mgmt discloses MLCC-specific AI revenue >¥150B annually, OR battery divest signaled.
 
 ### Existing watchlist names with consumer-hardware-swap angle ADDED (cross-reference, not new entries)
 
