@@ -96,6 +96,7 @@
 - **PC-10** Stale-cohort-spec compute burn
 - **PC-12** Geopolitical bottleneck via export control (NEW 2026-06-11; InP N=1)
 - **PC-13** Government emergency-order model-shutdown precedent (NEW 2026-06-15 PM3; Anthropic Fable 5/Mythos 5 90-min Commerce Dept shutdown N=1 origin; binary acute regulatory action distinct from TC-4 gradual drift; watch N=2 within 90 days; first re-eval 2026-09-13)
+- **PC-14** **Universal Sovereign-AI Bifurcation Doctrine** (PROMOTED N=2→N=3+ via 3-continent convergence 2026-06-17 AM7; meta-pattern: every major sovereign state independently converges on "domestic-sovereignty-integrated AI PROTECTED / foreign-domiciled AI SHUTDOWN-ELIGIBLE"; N=1 US bifurcation AM5 + N=2 EU France/Germany AM6b + N=3+ Asia mirror Korea AI Basic Act + Japan 2026 AI Basic Plan + Taiwan AI Basic Act Dec 2025 + India IndiaAI Mission; codified meta/cross-domain-pattern-register.md PC-14 entry; "the moat is not capability — it is sovereignty integration"; first re-eval 2026-09-17)
 
 ## Triangulation clusters (signals/triangulation.md)
 - **TC-1** Memory tightness multi-tier
