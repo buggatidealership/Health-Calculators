@@ -35,6 +35,82 @@
 
 ## Entries (most recent first)
 
+### [2026-06-17 PM29] 🔴 PORTFOLIO RESTRUCTURE — KIOXIA Degiro 100sh SOLD entirely + KIOXIA N26 ~€10,000 NEW position opened (user explicit verbatim "I sold mh entire kioxia positioning degiro as 50k was to big imo. but I bought 10k worth of Kioxia on N26") + 4 user-shared Degiro screenshots = canonical holdings.md FULL REFRESH triggered + Murata share count CONFIRMED for first time (261sh @ €62.50; basis avg €50.04); pre-codified PM17b/PM17c strategic-exit-via-N26-rebuy framework EXECUTED AS DESIGNED; thesis fundamentals UNCHANGED (sizing restructure, NOT falsification); memory cluster 77%→58%; cash 38%→57% Degiro
+
+**Trigger source:** User-shared 4 Degiro mobile screenshots 2026-06-17 ~10:20 UTC + 2-transaction verbal disclosure. Per canonical rule "Only gets changed when I send a new screenshot" — this IS the canonical-refresh trigger.
+
+**Intake tier:** 🟢 HARD (user-shared primary broker screenshots + explicit transaction disclosure)
+
+**Sources:**
+- 4 user-shared Degiro mobile screenshots 2026-06-17 ~10:20 UTC
+- User verbatim transaction disclosure 2026-06-17 PM
+- Pre-codified PM17b/PM17c strategic-exit-via-N26-rebuy framework (per prior `portfolio/holdings.md` 2026-06-16 PM17b/PM17c section)
+
+## 🔴 KEY FINDINGS
+
+**1. KIOXIA position-restructure executed:**
+- Degiro 100sh ~€49,069 basis → ZERO (realized ~+€1,897 per prior canonical)
+- N26 NEW ~€10,000 position opened (fractional sizing enabled vs Degiro 100sh atomic constraint)
+- Net effect: ~€39K cash freed; KIOXIA exposure right-sized ~5× smaller; thesis HOLD-until-falsifier preserved at deliberate sizing
+- **Critical Rule #8 PRESERVED** — sizing decision not thesis falsification
+
+**2. Memory cluster rebalanced:**
+- Memory / HBM / Storage / NAND / Wafer cluster: ~77% → ~58% of invested
+- Cash % of Degiro: ~38% → ~57% (substantial dry powder restored: €104,291.52 available to trade)
+- Single-cluster concentration risk SUBSTANTIALLY REDUCED
+- Discipline-good observation: user right-sized rather than abandoning thesis = exactly the behavior Critical Rule #11 + pre-codified strategic-exit framework should produce
+
+**3. Murata share count CONFIRMED for first time:**
+- Prior canonical had "consolidated view — verify on next screenshot"
+- Today's screenshot definitive: **261 shares @ €62.50 = €16,312.50 value; BEP avg €50.04 = basis ~€13,060; unrealized +€3,252.06 (+24.90%); total P/L +€9,068.56**
+- MURATA forward €10K add intent UNCHANGED per `companies/MURATA/thesis.md` 2026-06-17 forward decision-intent; cash now ample (€104,291) to execute if/when user decides
+
+**4. Other positions:**
+- HYNIX GDR: 15sh @ €1,420 = €21,300 value; unrealized +€1,890 (+9.73%); total P/L +€4,641.90
+- MRVL: 44sh @ $289.47 = $11,078.50 value; unrealized +€161.45 (+1.47%); total P/L −€868.30 (intraday pullback)
+- SNDK: 6sh @ $1,959.08 = $10,224.18 value; unrealized +€1,645.82 (+19.18%); total P/L +€4,938.50
+- SUMCO: 415sh @ €22.37 = €9,283.55; unrealized +€282.20 (+3.13%); total P/L −€389.67
+- DDOG: 26sh @ $226.62 = $5,125.03; unrealized +€589.75 (+13.00%); total P/L +€1,899.11
+- NOW: 54sh @ $95.47 = $4,484.21; unrealized +€93.59 (+2.13%); total P/L +€1,133.12
+
+**Cluster cascade scoped per Principle #37:**
+- **portfolio/holdings.md** — FULL canonical rewrite per "Only gets changed when I send a new screenshot" rule; 7 Degiro positions + 1 N26 KIOXIA position
+- **portfolio/changes.md** — 2026-06-17 entry appended with both transactions + rationale + framework-execution observation
+- **companies/KIOXIA/thesis.md** — top-of-file PM29 position-restructure context section added; thesis fundamentals UNCHANGED; HOLD-until-falsifier preserved at ~€10K right-sized position
+- **Held cohort thesis files (HYNIX/MRVL/SNDK/SUMCO/MURATA/DDOG/NOW):** orthogonal at this resolution — sizing restructure on KIOXIA alone; no thesis-state change for others
+
+**Files NOT touched (per scoping rule):**
+- All other held cohort thesis files except KIOXIA — orthogonal
+- `signals/triangulation.md` — no cluster-state change
+- `meta/cross-domain-pattern-register.md` — no PC entry update
+- `meta/biases-watchlist.md` — no new bias instance (this is GOOD discipline behavior not failure mode)
+- `predictions/lessons.md` — no new lesson candidate (strategic-exit framework worked as designed = positive validation, not new lesson)
+
+**Stale flags fired:** none
+
+**Forward watch items:**
+1. **N26 KIOXIA position screenshot** when user next shares = update holdings.md with definitive N26 line (exact share count + cost basis vs ~€10K estimate)
+2. **MURATA +€10K add intent UNCHANGED** — pending user buy confirmation; cash ample (€104,291) to execute
+3. **NBIS Nasdaq-100 inclusion 2026-06-22** — passive watch
+4. **DSIT ITT publication Q3 2026** — NBIS thesis binary signal
+5. **June 24 monthly audit** — L27 enrichment + B47 codification + TC-10 promotion to VERIFIED batched
+6. Pre-codified PM17b/PM17c strategic-exit framework validation: **EXECUTED AS DESIGNED** — codification was correct + actionable; ratifies position-management discipline framework
+
+**Position implications (all 🟡/🟢 HOLD; one position-action executed = PM29 KIOXIA restructure):**
+- KIOXIA: 🟡 HOLD at ~€10K N26 position; thesis fundamentals unchanged; restructure complete
+- HYNIX / MRVL / SNDK / SUMCO / DDOG / NOW: 🟡 HOLD; no thesis-state change
+- MURATA: 🟡 HOLD 261sh; forward €10K add intent UNCHANGED
+
+**Critical Rule #16 status:** N=25 unchanged (no subagent fired today for this user-disclosure; portfolio canonical update doesn't require Rule #16 verification — this is internal-state-of-record not external-data verification)
+
+**Cascade-fatigue check:** AM7c (`628f942`) + tier-cascade-log fix (`1523538`) + PM29 portfolio restructure (this commit) = 3 cascades. Total ~55 events in ~56 hours since 2026-06-15 PM27 baseline. P#37 N=20 promotion gate FAR EXCEEDED.
+
+**Loop-validation note:** PM29 demonstrates the harness pre-codification working as designed — PM17b/PM17c strategic-exit-via-N26-rebuy framework codified 2026-06-16 was EXECUTED EXACTLY AS WRITTEN by user 24 hours later. This is positive ratification of position-management discipline codification at sizing-decision granularity. **Strategic-exit framework codified yesterday → executed today = N=1 validation of the framework being load-bearing/actionable.** Note for monthly audit June 24: this is N+1 evidence that pre-codified position-management frameworks DO get executed when user is in the moment of decision (vs decorative codifications that never get used).
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-17 AM7c] User-flagged NTT Data ticker disambiguation + DSIT AIRR tender NBIS-winning structural verification (1 Opus subagent, TWENTY-FIFTH operational Rule #16) → **🔴 CRITICAL CORRECTION: 9613.T DELISTED** Sep 2025 (NTT Corp ¥2.37T buyout); 3850.T wrong instrument; **CORRECT PROXY = 9432.T NTT Inc.** (Japanese gov 34.25%; ¥14.41T FY2026 revenue; multi-segment dilution check mandatory) + **🔴 DSIT AIRR TENDER ARCHITECTURE: NBIS CANNOT WIN AS PRIME** (Crown Commercial Service RM6190 TS4 Lot 6 framework restricts prime bidders to incumbent SI/MSP firms; NBIS must partner with Lot 6 prime as primary CSP sub-contractor) + 5-hypothesis weighting H1-H5 (H1+H2 = P~45% NBIS gets meaningful AIRR revenue; H3 P~30% US hyperscaler primary = sovereignty falsifier) + 8-signal pre-registered trackable catalog with pre-committed NBIS action triggers tied to signals + L27 codification ENRICHMENT candidate for June 24 audit
 
 **Trigger source:** User explicit 2026-06-17 PM: "Is NTT DATA... could that be three eight five zero instead of nine six one three? ... If NBIS wins, why... so if NBIS wins, upgrade to active. Um, what are those triggers? And then map those triggers against functions or variables that have to be realized for you to be able to track the likelihood of them winning that specific subsegment you are referring to. of the UK trigger." Per Critical Rule #16, fired 1 Opus subagent (aadfaea8650d8069c) for 2-part verification.

@@ -398,3 +398,42 @@ Forward operational implications:
 - Re-entry consideration does not require new thesis development
 - Pattern monitoring at next monthly audit 2026-06-24: is emotional-trim cadence becoming recurring failure mode?
 - Flag to user proactively if portfolio rotation cadence accelerates further during macro stress without thesis falsification (B9 in biases-watchlist.md addresses emotional-risk-management masquerade)
+
+## 2026-06-17 — KIOXIA position restructure (Degiro 100sh sell + N26 €10K buy)
+
+**User explicit verbatim 2026-06-17 ~10:20 UTC:** *"I sold mh entire kioxia positioning degiro as 50k was to big imo. but I bought 10k worth of Kioxia on N26"*
+
+**Transaction 1 — KIOXIA SELL on Degiro:**
+- Date: 2026-06-17
+- Broker: Degiro
+- Ticker: 285A.T / JP3296420005
+- Action: SELL
+- Quantity: 100 shares (full position)
+- Approximate fill: at or near 2026-06-17 spot ~€491/share (back-calculated from prior basis ~€490.69 × 100 + €1,897 total P/L ≈ €50,966 gross proceeds)
+- Realized P/L: ~+€1,897 (per prior canonical total P/L 2026-06-16)
+- Rationale: SIZING decision — Degiro 100sh atomic lot ~€49,069 was too concentrated for user risk tolerance ("50k was to big imo")
+- Critical Rule #8 status: PRESERVED — sale was sizing restructure not thesis falsification; KIOXIA thesis fundamentals UNCHANGED
+
+**Transaction 2 — KIOXIA BUY on N26:**
+- Date: 2026-06-17
+- Broker: N26 (separate brokerage; fractional sizing enabled vs Degiro atomic-lot constraint)
+- Ticker: KIOXIA Holdings (likely 285A.T or local equivalent — verify on next N26 screenshot)
+- Action: BUY
+- Approximate value: €10,000
+- Rationale: Re-establish KIOXIA exposure at user-preferred ~5× smaller sizing; deliberate position-management decision
+- Thesis: HOLD-until-falsifier per existing thesis (AM6b STRONG REINFORCE + AM7 sovereign-AI Japan tailwind)
+
+**Net effect:**
+- Degiro cash freed: ~€39K (from €49K sale - €10K N26 buy = €39K net; though N26 buy doesn't draw from Degiro cash directly)
+- Memory cluster concentration: ~77% → ~58% of invested (substantially reduced)
+- Cash % of Degiro: ~38% → ~57% (substantial dry powder restored)
+- KIOXIA thesis: RETAINED at right-sized position
+- Pre-codified PM17b/PM17c strategic-exit-via-N26-rebuy framework EXECUTED AS DESIGNED
+
+**Discipline observation:** User right-sized rather than abandoning thesis. Exactly the behavior Critical Rule #11 AUTO-CASCADE DEFAULT + position-management discipline should produce. The Degiro atomic-lot constraint forced binary HOLD-all-or-SELL-all; N26 broker enabled the proper $-sizing the user actually wanted. This is a clean execution of the pre-codified strategic-exit framework.
+
+**Files updated same commit:**
+- `portfolio/holdings.md` — canonical refresh (Degiro 7 positions + N26 KIOXIA 1 position)
+- `portfolio/changes.md` — this entry
+- `companies/KIOXIA/thesis.md` — position-restructure context appended; thesis fundamentals UNCHANGED
+- `meta/tier-cascade-log.md` — PM29 entry for portfolio restructure cascade

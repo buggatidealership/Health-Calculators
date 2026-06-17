@@ -1,5 +1,9 @@
 # Kioxia Holdings (285A.T / キオクシア) — Thesis
 
+**🔴 2026-06-17 PM29 POSITION RESTRUCTURE (thesis fundamentals UNCHANGED):** User executed pre-codified PM17b/PM17c strategic-exit-via-N26-rebuy framework today. Per `portfolio/changes.md` 2026-06-17 entry: SOLD entire 100sh Degiro position (~€49,069 basis; realized ~+€1,897); BOUGHT ~€10,000 KIOXIA on N26 (separate broker; fractional sizing enabled vs Degiro 100sh atomic lot constraint). User explicit verbatim: *"I sold mh entire kioxia positioning degiro as 50k was to big imo. but I bought 10k worth of Kioxia on N26"*. **Net effect:** memory cluster concentration ~77% → ~58% of invested; ~€39K cash freed; KIOXIA exposure right-sized to ~5× smaller; thesis HOLD-until-falsifier preserved at deliberate sizing. **Critical Rule #8 status: PRESERVED** — sale was SIZING decision not thesis falsification. AM6b STRONG REINFORCE + AM7 sovereign-AI Japan tailwind (Japan 2026 AI Basic Plan + Sakana AI + SoftBank-OpenAI partnership = Japan sovereign-AI domestic storage pull-through) all INTACT. Discipline-good observation: user right-sized rather than abandoning thesis — exactly the behavior pre-codified strategic-exit framework anticipated.
+
+---
+
 **2026-06-17 AM7 cross-ref — 🟢 NET POSITIVE 4-archetype sovereign storage demand (Yokkaichi JV mirror of SNDK):** Per `signals/cross-source-log/2026-06-17-am7-nbis-uk-deal-deep-verification-sovereign-ai-stack-9layer-5archetype-pc14-n3-asia-promotion.md`. PC-14 N=3+ Asia confirmation particularly relevant — **Japan 2026 AI Basic Plan + Sakana Series B + SoftBank-OpenAI partnership = Japan sovereign-AI domestic storage demand pull-through.** Combined with US (DoD), EU (sovereign storage), Gulf (HUMAIN). **Position implication: 🟡 HOLD-until-falsifier (Critical Rule #8 binding) — sovereign-AI structural tailwind reinforces; WD/Kioxia merger speculation watch remains corporate-structure monitor not falsifier.**
 
 ---
