@@ -35,6 +35,82 @@
 
 ## Entries (most recent first)
 
+### [2026-06-17 AM7c] User-flagged NTT Data ticker disambiguation + DSIT AIRR tender NBIS-winning structural verification (1 Opus subagent, TWENTY-FIFTH operational Rule #16) → **🔴 CRITICAL CORRECTION: 9613.T DELISTED** Sep 2025 (NTT Corp ¥2.37T buyout); 3850.T wrong instrument; **CORRECT PROXY = 9432.T NTT Inc.** (Japanese gov 34.25%; ¥14.41T FY2026 revenue; multi-segment dilution check mandatory) + **🔴 DSIT AIRR TENDER ARCHITECTURE: NBIS CANNOT WIN AS PRIME** (Crown Commercial Service RM6190 TS4 Lot 6 framework restricts prime bidders to incumbent SI/MSP firms; NBIS must partner with Lot 6 prime as primary CSP sub-contractor) + 5-hypothesis weighting H1-H5 (H1+H2 = P~45% NBIS gets meaningful AIRR revenue; H3 P~30% US hyperscaler primary = sovereignty falsifier) + 8-signal pre-registered trackable catalog with pre-committed NBIS action triggers tied to signals + L27 codification ENRICHMENT candidate for June 24 audit
+
+**Trigger source:** User explicit 2026-06-17 PM: "Is NTT DATA... could that be three eight five zero instead of nine six one three? ... If NBIS wins, why... so if NBIS wins, upgrade to active. Um, what are those triggers? And then map those triggers against functions or variables that have to be realized for you to be able to track the likelihood of them winning that specific subsegment you are referring to. of the UK trigger." Per Critical Rule #16, fired 1 Opus subagent (aadfaea8650d8069c) for 2-part verification.
+
+**Intake tier:** 🟢 HARD on NTT Data 9613.T delisting (JPX delisting notice T1 + NTT Data press release T1 + Data Center Frontier T2 verified) + 🟢 HARD on 3850.T NTT Data Intramart wrong-instrument verification (TradingView TSE:3850 T2 + StockAnalysis TYO:3850 T2) + 🟢 HARD on NTT Inc. 9432.T as correct proxy (StockAnalysis TYO:9432 T2 + SimplyWallSt TSE:9432 T2) + 🟢 HARD on DSIT AIRR tender mechanics (Find a Tender notice 009957-2026 T1 + 081657-2025 T1 + Crown Commercial Service TS4 framework T1) + 🟡 DIRECTIONAL on NBIS winning hypothesis weighting (my model with structural-architecture constraint embedded; H1+H2 P~45% base case; H3 P~30% sovereignty falsifier)
+
+**Sources (sample of key load-bearing T1 citations; full register in AM7c file):**
+- NTT delisting: [JPX delisting notice T1 2025-08-29](https://www.jpx.co.jp/english/news/1023/20250829-12.html) + [NTT DATA press release T1 2025-09](https://www.nttdata.com/global/en/news/press-release/2025/september/092500) + [NTT Corp Timely Disclosure PDF T1 2025-06](https://group.ntt/en/ir/library/timely_disclosure/2025/pdf/015.pdf)
+- DSIT AIRR tender: [Find a Tender 009957-2026 T1](https://www.find-tender.service.gov.uk/Notice/009957-2026) + [Find a Tender 081657-2025 T1](https://www.find-tender.service.gov.uk/Notice/081657-2025) + [CCS TS4 framework launch T1](https://www.crowncommercial.gov.uk/news/technology-services-4-framework-launch) + [PublicTechnology DSIT £250M T2](https://www.publictechnology.net/2025/10/02/business-and-industry/dsit-alerts-market-to-250m-cloud-plans-to-support-massive-ai-power-up/) + [UKAuthority DSIT AIRR T2](https://www.ukauthority.com/articles/dsit-launches-procurement-for-uk-s-ai-cloud-compute-capacity-expansion)
+- NBIS UK positioning: [Nebius UK Harlow/Kao Data DCD T2 2026-06-08](https://www.datacenterdynamics.com/en/news/nebius-signs-22mw-capacity-agreement-with-kao-data-in-the-uk/) + [Nebius UK Blackwell Ultra Nov 2025 newsroom T1](https://nebius.com/newsroom/nebius-ai-cloud-arrives-in-uk-with-one-of-the-country-s-first-advanced-nvidia-ai-infrastructure-deployments)
+
+## 🔴 KEY FINDINGS
+
+**1. NTT Data 9613.T DELISTED Sep 2025 — AM7 watchlist add was wrong instrument.** User-flagged catch ("could that be 3850 instead of 9613") surfaced BOTH right question (3850 NOT correct) AND deeper miss (9613 itself gone). NTT Corp 9432.T tender offer 2025-05-09 → completed 2025-06-19 at ¥2.37T (~$16.4B); cancellation ratio 256,029,428:1; TSE delisting executed 2025-09-26. NTT Data Group now 100%-owned private subsidiary of NTT Inc.
+
+**2. CORRECT INVESTABLE PROXY = 9432.T NTT Inc.** Japanese government (Minister of Finance) retains 34.25% ownership stake = direct sovereign-AI exposure via gov-owned parent. ¥14.41 trillion FY2026 revenue. NTT publicly stated strategy: integrate NTT Data government IT capabilities into unified AI + IOWN photonics network push. **MULTI-SEGMENT DILUTION CHECK MANDATORY per Principle #22 before any sizing** — analogous to TDK 6762 SIDECAR DEMOTE pattern (AM2 verification 2026-06-17): 9432 is conglomerate (telecom + NTT Data + IOWN + Docomo); sovereign-AI exposure DILUTED within ¥14.41T total revenue → risk that 9432 fails L26 pure-play test.
+
+**3. 🔴 DSIT AIRR TENDER STRUCTURAL FINDING — NBIS CANNOT WIN AS PRIME.** FTS notice 2026/S 000-009957; £214,439,710 ex-VAT / £250,000,000 inc-VAT; Crown Commercial Service RM6190 TS4 Lot 6 framework; ~3-year contract to March 2029 + 1-yr extension to March 2030; ITT NOT yet released as of 2026-06-17 (PIN/market-engagement phase). **Architecture = ONE single managed-service provider (MSP) acting as strategic cloud broker (NOT direct compute tender).** Only suppliers already appointed to TS4 Lot 6 can bid as PRIME. **NBIS is NOT known to be on Lot 6.** NBIS realistic winning path: (a) get appointed to Lot 6, OR (b) partner with Lot 6 prime (Computacenter / Insight / Unisys / Capita / IBM UK / Fujitsu UK / CGI UK / Atos-Eviden UK) as primary CSP sub-contractor.
+
+**4. 5-hypothesis weighting (my model, structural-architecture-aware):**
+- H1 NBIS primary/sole CSP under winning prime MSP = P~20%
+- H2 NBIS in multi-CSP panel under winning prime = P~25%
+- **H3 US hyperscaler primary CSP (sovereignty falsifier) = P~30%**
+- H4 Alt European/UK primary (OVH/UKCloud/Nscale) = P~10%
+- H5 Tender restructured/delayed = P~15%
+- **H1+H2 combined = P~45% NBIS gets meaningful AIRR revenue base case**
+
+**5. 8-signal pre-registered trackable catalog with pre-committed action triggers** (codified in `watchlist/candidates.md` NBIS entry):
+- Signal #1: DSIT ITT publication on FTS UK (single most important; expected Q3 2026)
+- Signal #3: NBIS or Lot 6 MSP prime announces partnership for AIRR bid → **upgrade NBIS to small starter €500-1,000**
+- Signal #5: CMA cloud market investigation final decision (H2 2026; asymmetric)
+- Signal #6: DSIT shortlist / award NBIS → **upgrade NBIS to ACTIVE position with full sizing (max €3,000-5,000)**
+- Signal #8: Yandex political block raised in UK procurement context → **DOWNGRADE WL-ADD P2 to REFERENCE-ONLY**
+
+**6. L27 codification ENRICHMENT candidate flagged for June 24 audit:** AM7 watchlist added 9613.T without applying L27 verify-listed-status discipline at watchlist-add granularity. Recall-based ticker was 9-month-stale. Rule should require live-listing verification at watchlist-add time, not just at sizing-decision time. User catch via "could that be 3850" surfaced both immediate question AND structural gap. **B47 N+1 evidence** (closed-list pattern-matching blindness): pre-training ticker recall = closed-list assumption that 9613 was current.
+
+**Cluster cascade scoped per Principle #37 (per-name cascades in this commit):**
+- **watchlist/candidates.md** — NTT Data entry REPLACE 9613.T with 9432.T NTT Inc. + delisting flag + 3850.T wrong-instrument flag + multi-segment dilution caveat; **NBIS entry ENRICHED with full DSIT tracking framework** (5-hypothesis weighting + 8-signal trackable catalog + pre-committed action triggers)
+- **meta/deep-dig-queue.md RANK #5** — NTT Data entry same correction + L27 enrichment note
+- **No held cohort impact** — DSIT/sovereign-AI architecture is orthogonal to MURATA/HYNIX/SNDK/KIOXIA/MRVL/SUMCO/DDOG/NOW direct positioning; open-ended inference clause check returned NO trim-trigger fires for TC-6 cluster
+
+**Files NOT touched (per scoping rule):**
+- `companies/NBIS/thesis.md` — DEFERRED creation; NBIS WL-ADD P2 + DSIT framework lives in watchlist entry for now; will create dedicated thesis folder if/when NBIS upgrades to ACTIVE (per pre-committed Signal #6 trigger)
+- `signals/triangulation.md` — no cluster-state change; TC-10 promotion to VERIFIED still deferred to June 24 audit
+- `meta/cross-domain-pattern-register.md` — no PC entry update; PC-14 N=3+ already captured in PC-14 Asia mirror enrichment AM7
+- `meta/biases-watchlist.md` B47 codification — N+1 evidence accrued but DEFERRED to June 24 audit
+- `meta/methodology.md` L27 enrichment — DEFERRED to June 24 audit
+- `portfolio/*` — no position changes; NBIS WL-ADD P2 + MURATA forward €10K add intent both unchanged
+- `companies/*/thesis.md` — orthogonal at this resolution (no held cohort thesis-state change)
+
+**Stale flags fired:** 9613.T DELISTING was 9 months stale in harness pre-training — caught at watchlist-add granularity not at sizing-decision; L27 enrichment candidate addresses
+
+**Forward watch items:**
+1. **DSIT ITT publication on FTS UK (Q3 2026)** = single most load-bearing signal for NBIS thesis
+2. **NBIS + Lot 6 prime partnership announcement** = pre-committed Signal #3 trigger fires → small starter upgrade
+3. **CMA cloud market investigation decision (H2 2026)** = asymmetric signal
+4. **NTT Inc. 9432.T L26 segment-revenue verification** required BEFORE any sizing — multi-segment dilution check is the gating diligence
+5. **June 24 monthly audit** — L27 enrichment + B47 codification + TC-10 promotion to VERIFIED batched
+
+**Position implications (all 🟡/🟢 HOLD per Critical Rule #8 binding; no portfolio action today):**
+- NBIS: 🟡 HOLD WL-ADD P2 pending Signal #1 (ITT publication); entry discipline UNCHANGED
+- NTT Inc. 9432.T: NEW WATCHLIST P3 — pending L26 segment-revenue % verification before any sizing
+- 9613.T: REMOVED (delisted)
+- 3850.T: REMOVED (wrong instrument)
+- All held cohort: NO ACTION
+
+**Critical Rule #16 operational validations: POSITIVE N=25 (Subagent today). Cumulative N=25.**
+
+**Cascade-fatigue check:** AM7 (`67b36c6`) + pattern-housekeeping (`1531f11`) + deep-dig-queue AM7 update (`695d7af`) + AM7c (this commit) = 4 commits since AM7. Total ~52 events in ~54 hours since 2026-06-15 PM27 baseline. P#37 N=20 promotion gate FAR EXCEEDED. Cascade hygiene holding.
+
+**Loop-validation note:** AM7c demonstrates L27 discipline working AFTER user-flagged catch — but ALSO surfaces that L27 was NOT applied at AM7 watchlist-add granularity (user catch surfaced the gap). The codification candidate (L27 ENRICHMENT for June 24 audit) IS the system learning from its own miss — Principle #37 audit-trail discipline applied to ticker disambiguation specifically.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-17 AM7] User explicit NBIS UK deal deep-dive + sovereign-AI stack strategy inference 2-subagent verification COMPLETE — **🔴 NBIS WL-ADD P2 PROMOTION** (was REFERENCE-WATCHLIST) + **🔴 PC-14 N=2 → N=3+ Asia mirror sub-cluster CONFIRMED** (Korea AI Basic Act binding Jan 2026 + Japan 2026 AI Basic Plan + Taiwan AI Basic Act Dec 2025 + India IndiaAI Mission = 4-country independent convergence; doctrine now THREE-CONTINENT verified universal) + **CRITICAL framing correction: £1.7 billion is NBIS OWN CapEx commitment NOT UK gov procurement** + Workflow #9 MACRO-FIRST 5-step pipeline executed (9-layer sovereign-AI stack defined + 5-archetype taxonomy + per-sovereign matrix 12 sovereigns + N+1/N+2 forward trajectory inference) + **DSIT AIRR managed-service tender = actual PC-14 N=3 UK binary trigger event** (H2 2026 expected) + 5 NEW sovereign-AI watchlist candidates (OVHcloud Euronext OVH / Capgemini Euronext CAP / SK Telecom ADR SKM / NTT Data TSE 9613 + 3 pre-IPO private: Mistral / Cohere-Aleph Alpha / Sakana AI) + held cohort cascade matrix (corrected for actual held names; Subagent B over-attributed VRT/GEV/ETN/CRDO/NVDA/PLTR/CRWD as "in harness" — NOT held per holdings.md PM17c)
 
 **Trigger source:** User explicit 2026-06-17 verbatim request: *"Can you dig into Nedias? What was the deal they made with the UK? The task at hand is to identify what governments will employ in terms of strategy for sovereign AI. Essentially, what is the stack of sovereign AI? And what exactly are the specifics of the deal? ... so there's one side, which is you have to infer the strategy governments will employ for sovereign AI, which I think is still trying to be developed. But you can probably see initial signs of what is being done. But you can then extrapolate what the next step will be."*. Per Critical Rule #16 + Workflow #9 macro-first, fired 2 Opus subagents in parallel (a793d013df11e4383 NBIS-UK + a56bf91f6368d7fd7 sovereign-AI stack) = TWENTY-THIRD + TWENTY-FOURTH operational Rule #16 applications.
