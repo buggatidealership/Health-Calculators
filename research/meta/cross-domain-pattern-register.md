@@ -136,6 +136,68 @@ Different national payers code the same AI capability years apart — the diverg
 **Transfer rule (if promoted):** for ANY input under export-control regime, the rent goes to the non-controlling country's most-scaled producer; check if that producer is pure-play or diversified, and apply segment-trajectory math accordingly. The pure-play vs diversified distinction is the load-bearing variable for whether the rent reaches equity holders.
 **Status:** CANDIDATE; need N=2 cross-check before promotion. Watch: any Reuters/FT/Nikkei article on Ga/Ge rent migration; any Sumitomo/JX segment-revenue disclosure that breaks out InP economics.
 
+### PC-14: Universal Sovereign-AI Bifurcation Doctrine (NEW PATTERN PROMOTED N=2 candidate → N=2 verified, added 2026-06-17 AM6b)
+
+**Mechanism (META-PATTERN):** Every major sovereign state actor INDEPENDENTLY converges on the same architecture for frontier AI procurement and access — **domestic-sovereignty-integrated AI is PROTECTED; foreign-domiciled AI is SHUTDOWN-ELIGIBLE.** The "sovereignty qualifier" varies by state (US: defense-integration; France/Germany/EU: domestic-domicile; likely Asia: hybrid) but the underlying logic is identical: dependency on out-of-jurisdiction AI = strategic vulnerability → kill-switch / replacement-stack architecture. Each sovereign deploys both sides of the bifurcation simultaneously: SHIELD protected AI from legal/competitive interference (DOJ-xAI gas turbines; Mistral civil-service procurement); SHUTDOWN-ELIGIBLE foreign or non-integrated AI (Fable 5 export directive; Palantir replacement). The doctrine is NOT US-specific — it is universal regulatory convergence; investable implication is structural bifurcation of the global frontier-AI vendor landscape into sovereign-protected stacks.
+
+**Single-sentence framing:** "The moat is not capability — it is sovereignty integration." Capability differentials matter LESS than jurisdictional integration; the dominant variable for vendor durability becomes sovereignty-alignment with the target market.
+
+**Distinction from PC-13:** PC-13 captures the NARROW mechanism (executive-order shutdown precedent at vendor layer); PC-14 captures the BROADER meta-pattern (universal sovereign bifurcation doctrine across multiple states with multi-faceted shield-and-shutdown deployment). PC-13 is a sub-instance of PC-14's "shutdown-eligible" side. PC-14 includes the shield-side (DOJ-xAI; Mistral) that PC-13 doesn't capture, and the cross-sovereign convergence (France + Germany independently arriving at same architecture) that PC-13 doesn't address.
+
+**N=1 instance — US (per `signals/cross-source-log/2026-06-17-am5-anthropic-cluster-claude-outage-fable5-deepseek-v4-doj-xai-tc4-tc10-u8-bifurcation-doctrine-candidate.md` codified AM5 2026-06-17):**
+- **SHIELD side:** DOJ Motion to Intervene filed 2026-06-15 in NAACP v xAI environmental lawsuit (T1 [TechCrunch 2026-06-16](https://techcrunch.com/2026/06/16/doj-claims-xais-unpermitted-gas-turbines-are-a-matter-of-national-economic-and-energy-security/) + Bloomberg Law docket). DOJ explicit framing: xAI Grok = "one of only four proprietary state-of-the-art AI models" supporting Pentagon Department of War mission-critical operations across Secret/Top-Secret classified networks. DOJ asks NAACP suit dismissed with prejudice to prevent xAI's 57-59 unpermitted turbines (Colossus Memphis + Colossus 2 Southaven) from being shut down.
+- **SHUTDOWN-ELIGIBLE side:** Commerce Department export-control directive 2026-06-12 5:21pm ET to Anthropic targeting Fable 5 + Mythos 5 with 90-minute compliance window (per existing PC-13 N=1 instance). Anthropic disabled both models globally. Trigger: Amazon researcher "fix this code" prompt finding (technically trivial; cyber community contested via Moussouris-led open letter).
+- **Sovereignty qualifier:** defense-integration. Defense-integrated AI = protected; non-defense-integrated AI = shutdown-eligible.
+
+**N=2 instance — EU/France + Germany (per `signals/cross-source-log/2026-06-17-am6b-morning-brief-2subagent-verification-bifurcation-doctrine-n2-promotion-now-watch-eu-sovereign-ai.md` codified AM6b 2026-06-17):**
+- **SHIELD side:** EUR 655M French sovereign AI investment package incl. Mistral chatbot for ~1M civil servants (of 2.6M total), public-health AI assistant, new public data platform per [Startup Fortune T1](https://startupfortune.com/france-drops-palantir-for-a-local-rival-and-hands-every-civil-servant-a-mistral-ai-assistant/). Bpifrance-backed ChapsVision (~$1B valuation post-2024; $90M latest raise) selected for DGSI deployment.
+- **SHUTDOWN-ELIGIBLE side:** DGSI (France Direction Générale de la Sécurité Intérieure — domestic intelligence agency) drops Palantir for ChapsVision ArgonOS 2026-06-16 per [Bloomberg T1](https://www.bloomberg.com/news/articles/2026-06-16/french-security-service-to-replace-palantir-with-local-software) + [Euronews T1](https://www.euronews.com/business/2026/06/16/dgsi-drops-palantir-for-french-firm-says-sebastien-lecornu) + [Theatrum Belli T1-FR](https://theatrum-belli.com/la-dgsi-quitte-palantir-pour-chapsvision-et-sa-plateforme-argonos/). 10-year Palantir relationship; 3-year renewal announced Dec 2025 reversed in June 2026 (6 months after renewal — extraordinary). **PM Sébastien Lecornu explicitly cited Fable 5 access cutoff as catalyst** ("capable of cutting off access to the Anthropic model") even though Palantir ≠ Anthropic. Spillover logic: US gov can force any US tech firm to revoke access → US domicile = vector risk. **Germany BfV (Bundesamt für Verfassungsschutz) parallel announcement in SAME ANNOUNCEMENT WINDOW** per [Militarnyi T2](https://militarnyi.com/en/news/german-intelligence-french-chapsvision/) = 2 European intel agencies in 1 announcement cycle.
+- **Sovereignty qualifier:** domestic-domicile. Domestic-domiciled AI = protected; foreign-domiciled (US) AI = shutdown-eligible.
+
+**Key cross-N convergence finding:** France/Germany independently arrived at the same architecture as US, with the SAME stated logic ("we cannot rely on partners capable of cutting off access" = direct mirror of US "supply-chain risk = dependency risk" framing). This is independent convergence, not US-imitation, indicating the doctrine emerges from structural sovereign-AI strategic constraints, not from any specific US political dynamics.
+
+**Investable transfer rule (1st/2nd/3rd order, P-weighted, my model):**
+- 1st order (P>80%): EU/UK government accounts increasingly favor EU-domiciled AI vendors (Mistral, ChapsVision, OVHcloud, etc.); US AI vendors lose government share in EU jurisdictions
+- 2nd order (P~60%): Same logic extends from intelligence agencies to civilian government IT — any US-domiciled SaaS deployed in EU gov accounts faces same risk class as Palantir (kill-switch logic applies to ANY US dependency). **HELD NOW position has WATCH condition per `companies/NOW/thesis.md` 2026-06-17 AM6b codification** — 4 trigger conditions registered; 25%/50%/100% partial-trim sequencing
+- 3rd order (P~40%): EU-domiciled AI cohort gains structural rerating tailwind (Mistral private; ChapsVision private; OVHcloud accessible; investable expression limited but EU semiconductor + sovereign-compute infra REINFORCED)
+- 4th order (P~20%): Asia mirror — Japan METI / Korea NIS / Taiwan / India follow with their own sovereign-AI doctrines; favorable for native ecosystem players (Sony, NTT Data, Naver, Samsung SDS, TSMC sovereign-compute customer, etc.)
+
+**Pre-registered N=3 watch (90-day window through 2026-09-17):**
+- (a) UK GCHQ / NCSC formal sovereign-AI procurement action (most likely near-term trigger; Five Eyes coordination dynamics)
+- (b) Asia mirror (Japan METI / Korea NIS / Taiwan / India) sovereign AI doctrine codification
+- (c) US bifurcation extends to civilian agency level (not just defense) for non-US AI vendors
+- (d) EU AI Act enforcement actions targeting US-domiciled AI in critical infrastructure
+- (e) China reverse pattern: emergency-order on Western-AI access using same national-security framing (would confirm universality, not just Western convergence)
+
+**Status:** **PROMOTED N=1 → N=2 (verified pattern)** per AM6b verdict 2026-06-17. Cross-sovereign convergence (US + France/Germany) sufficient to promote per Principle #32 promotion-discipline. Distinct sovereign actors taking independent actions with same underlying mechanism in <30-day window.
+
+**Detectability / falsifier (re-eval 2026-09-17 with 90-day audit):**
+- POSITIVE: N=3+ within 90 days (UK / Asia / China reverse all candidates); pattern becomes load-bearing for ALL US-domiciled enterprise SaaS thesis with EU/Asia government exposure
+- NEGATIVE: 90 days pass with zero N=3 instances → pattern degrades to "regional EU + US bifurcation" not universal; thesis weakened on transferability to Asia
+- FALSIFIER: France/Germany REVERSE the Palantir decision within 90 days (unlikely given EUR 655M sovereign budget commitment + bureaucratic momentum) → would suggest doctrine is contestable rather than structural
+- COMPLICATION: existing PC-13 N=1 promotion criterion was "DIFFERENT event/regulator/jurisdiction" — PC-14 has BROADER scope (meta-pattern across multiple mechanisms) so PC-13 sub-instance counting toward PC-14 N is appropriate
+
+**Held cohort impact (per AM6b cascade — already committed `451dc3c`):**
+- **NOW** — NEW EU SOVEREIGN-AI WATCH CONDITION (6-18mo monitoring, 4 trigger conditions registered, 25/50/100% partial-trim sequencing)
+- MRVL — MILD POSITIVE (EU sovereign AI = new custom-Si demand pool outside US)
+- HYNIX — Mild positive (sovereign AI compute = HBM demand across stacks)
+- SNDK / KIOXIA — Mild positive (sovereign AI compute = storage demand)
+- SUMCO — Slight positive (EU 300mm wafer demand from European fabs)
+- DDOG — Mild positive (sovereign AI = observability demand)
+- MURATA — Orthogonal at this resolution
+
+**Cross-references:**
+- `signals/cross-source-log/2026-06-17-am5-anthropic-cluster-claude-outage-fable5-deepseek-v4-doj-xai-tc4-tc10-u8-bifurcation-doctrine-candidate.md` — N=1 candidate origin (US side)
+- `signals/cross-source-log/2026-06-17-am6b-morning-brief-2subagent-verification-bifurcation-doctrine-n2-promotion-now-watch-eu-sovereign-ai.md` — N=2 promotion (France/Germany side)
+- `companies/NOW/thesis.md` — NEW EU sovereign-AI WATCH falsifier set (4 triggers)
+- `companies/MRVL/thesis.md` — bifurcation doctrine positive pathway via defense-integration
+- `meta/tier-cascade-log.md` AM5 + AM6b entries — full cascade documentation
+- PC-13 — narrow shutdown-eligible mechanism (sub-instance of PC-14)
+- TC-4 (Anthropic enterprise-trust drift) — adjacent cluster (must bifurcate by buyer segment post-PC-14 promotion)
+- TC-10 (sovereign-AI + export-control) — broader cluster context; PC-14 is the codified META-PATTERN within TC-10
+
+**Transfer rule:** for any enterprise-AI vendor thesis with multi-jurisdictional government exposure, classify by sovereignty-alignment: (a) protected in target jurisdiction (domestic or strategic-integrated), (b) shutdown-eligible in target jurisdiction (foreign-domiciled, non-strategic-integrated), (c) ambiguous (depends on jurisdiction-specific bifurcation criteria). Weight thesis durability a > c >> b. The pure-play vs diversified-sovereignty distinction is the load-bearing variable for whether vendor revenue is structurally durable vs subject to kill-switch.
+
 ## Micro-to-macro chain (where this register sits)
 
 ```
