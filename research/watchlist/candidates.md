@@ -1040,6 +1040,33 @@ Kuo CoPoS note (T3, June 10-11) verified via 2 subagents: pilot line June 2026 +
 | Falsifiers (5) | (1) DSIT AIRR tender awarded to AWS/Azure/GCP/CoreWeave; (2) US Cloud Act reform OR UK-US Data Access Agreement neutralizing Dutch-domicile advantage; (3) NVIDIA supply allocation shift; (4) NCSC/GCHQ security concern raised against NBIS specifically; (5) CapEx outpaces revenue scaling ($20-25B CapEx on $3.0-3.4B revenue = massive negative FCF; capital markets tightening = funding risk) |
 | Yandex heritage risk | RESOLVED — July 2024 $5.4B divestiture; Dutch + Israeli management nationalities post-restructure; no public GCHQ/NCSC concern raised |
 
+**🔴 DSIT AIRR tender NBIS-winning structural framework (added 2026-06-17 AM7c per `signals/cross-source-log/2026-06-17-am7c-...md` Subagent verification):**
+
+**🔴 CRITICAL ARCHITECTURAL FINDING:** DSIT AIRR tender (FTS notice 2026/S 000-009957; £214,439,710 ex-VAT / £250,000,000 inc-VAT; Crown Commercial Service RM6190 TS4 Lot 6 framework; ~3-year contract to March 2029 + 1-yr extension to March 2030) is procuring ONE single MANAGED-SERVICE PROVIDER acting as STRATEGIC CLOUD BROKER. **NBIS is NOT on TS4 Lot 6 = NBIS CANNOT win as PRIME contractor.** NBIS realistic path: (a) get appointed to Lot 6, OR (b) partner with Lot 6 prime (Computacenter / Insight / Unisys / Capita / IBM UK / Fujitsu UK / CGI UK / Atos-Eviden UK type firms) as primary CSP sub-contractor.
+
+**5-hypothesis weighting (my model per AM7c Subagent):**
+- **H1** NBIS primary/sole CSP under winning prime MSP — direct UK gov revenue: **P~20%**
+- **H2** NBIS in multi-CSP panel under winning prime — partial validation: **P~25%**
+- **H3** US hyperscaler (AWS/Azure/GCP) primary CSP — NBIS excluded (sovereignty falsifier): **P~30%**
+- **H4** Alt European/UK provider primary (OVH/UKCloud/Nscale) — NBIS excluded: **P~10%**
+- **H5** Tender restructured/delayed: **P~15%**
+- **H1 + H2 combined = P~45% NBIS gets meaningful AIRR revenue base case**
+
+**Top-8 pre-registered trackable signals (the actionable framework for monitoring NBIS winning probability):**
+1. **DSIT publishes ITT on FTS UK** (single most important signal; expected Q3 2026; defines evaluation criteria + sovereignty scoring) — source find-tender.service.gov.uk (search "AIRR" or ocds-h6vhtk-05a227)
+2. ITT evaluation criteria contains "data residency / jurisdiction / sovereignty / security classification" terms explicit — source FTS ITT + Computer Weekly / PublicTechnology
+3. **NBIS or Lot 6 MSP prime announces partnership / teaming agreement for AIRR bid** — source NBIS newsroom + UK IT trade press; event-driven monitor weekly
+4. CCS / GCA publishes Lot 6 supplier list update confirming NBIS or new entrants — source gca.gov.uk/agreements/RM6190:6/lot-suppliers
+5. **CMA cloud market investigation final decision (strategic market status for AWS/Azure)** — expected H2 2026; asymmetric signal (if CMA restricts hyperscalers → raises H1+H2; if CMA finds no action → raises H3)
+6. DSIT shortlist / award notice published on FTS UK — expected H2 2026; thesis validator or falsifier
+7. NBIS quarterly revenue / UK revenue disclosure (6-K SEC filings) — quarterly Q3/Q4 2026
+8. Yandex / Russia heritage raised in UK Parliament / NCSC review / press in procurement context — ongoing alert-basis
+
+**Pre-committed action triggers tied to signals:**
+- Signal #3 fires (NBIS + Lot 6 prime partnership) → re-evaluate sizing upgrade from WL-ADD P2 to small starter (€500-1,000)
+- Signal #6 fires (DSIT awards NBIS as primary CSP via prime MSP) → upgrade to ACTIVE position; full sizing per AM7 (max €3,000-5,000)
+- Signal #8 fires (Yandex political block raised in UK procurement context) → DOWNGRADE WL-ADD P2 to REFERENCE-ONLY; thesis falsifier
+
 ### NEW high-conviction sovereign-AI watchlist candidates
 
 - **OVHcloud (Euronext: OVH) — added 2026-06-17 AM7**
@@ -1060,11 +1087,13 @@ Kuo CoPoS note (T3, June 10-11) verified via 2 subagents: pilot line June 2026 +
   - Investability: NYSE ADR; Degiro accessible
   - Status: WATCHLIST P3 — dividend payer + sovereign AI option value
 
-- **NTT Data (TSE: 9613) — added 2026-06-17 AM7**
-  - Source signal: Subagent B — Japan government IT + Physical AI deployment vendor
-  - Why interesting: undercover Japan sovereign AI play; Japan 2026 AI Basic Plan execution; Physical AI alignment per harness state
-  - Investability: TSE listed; Degiro accessible (Japan TSE access confirmed for Murata/Sumco/Kioxia)
-  - Status: WATCHLIST P3 — Japan sovereign AI option
+- **🔴 NTT Inc. (TSE: 9432) — CORRECTED 2026-06-17 AM7c** (was NTT Data 9613.T which is now DELISTED per [JPX delisting notice T1 2025-08-29](https://www.jpx.co.jp/english/news/1023/20250829-12.html); NTT Corp took NTT Data private September 2025 for ¥2.37 trillion / ~$16.4 billion buyout; NTT Data Group now wholly-owned subsidiary of NTT Inc. 9432.T; user-flagged ticker disambiguation 2026-06-17 caught the stale-recall — 3850.T is NTT Data Intramart subsidiary, NOT right ticker either; L27 codification candidate ENRICHMENT for June 24 audit: extend verify-listed-status discipline to watchlist-add granularity not just sizing-decision)
+  - Source signal: AM7 Subagent B Japan-government-IT framing + AM7c Subagent verification ticker correction
+  - Why interesting: 9432 = listed proxy for sovereign-AI Japan-gov-IT exposure (Japanese gov retains 34.25% ownership stake); NTT Data government IT contracts now sit within consolidated private subsidiary; NTT IOWN photonics network + AI integration strategy
+  - Investability: TSE Prime large-cap; Degiro accessibility HIGH confidence (same tier as Murata 6981 / Sumco 3436 / Kioxia 285A)
+  - **🔴 Critical pre-entry diligence (L26 + Principle #22 segment-trajectory):** 9432 is CONGLOMERATE play (telecom + NTT Data subsidiary + IOWN + Docomo); sovereign-AI exposure DILUTED within ¥14.41 trillion FY2026 total revenue — multi-segment dilution check MANDATORY before any sizing; analogous to TDK 6762 SIDECAR DEMOTE pattern (AM2 verification)
+  - Status: WATCHLIST P3 — pending L26 segment-revenue % verification at sovereign-AI-attributable revenue
+  - **Flag 3850.T (NTT Data Intramart) as wrong instrument** — small-cap BPM software subsidiary; indirect public-sector exposure only
 
 ### Pre-IPO watch (private, monitor for IPO event)
 

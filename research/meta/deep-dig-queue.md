@@ -165,12 +165,13 @@ Rank order per binding-constraint proximity + thesis-depth-gap + cross-correlati
    - Cross-correlation: HYNIX (Korean HBM supply chain), MRVL (custom-Si)
    - Specific dig vectors: (a) Korea gov GPU infra contract value; (b) A.X K1 commercial deployment scope; (c) sovereign AI initiative $735B SKT attribution; (d) "AI for Everyone" consortium status (5→4→2 by 2027); (e) dividend yield + AI growth combined return profile
 
-5. **NTT Data — RANK #5 — Japan government IT vendor + Physical AI**
-   - Trigger: Japan 2026 AI Basic Plan + ABCI 3.0 + Sakana AI ecosystem; NTT Data is Japan-gov-preferred IT vendor
-   - **TICKER DISAMBIGUATION REQUIRED:** 9613.T (NTT Data Group parent) vs 3850.T (potential subsidiary — user-flagged 2026-06-17 PM; subagent verification in flight aadfaea8650d8069c)
-   - Source seed: NTT Data Q1 FY26 results; Japan METI procurement disclosures
-   - Cross-correlation: KIOXIA (Japan sovereign storage), SUMCO (Japan wafer), MURATA (Japan electronics adjacent)
-   - Specific dig vectors: (a) Japan government revenue concentration; (b) AI services + Physical AI revenue trajectory; (c) Sakana AI / GENIAC partnership status; (d) ticker disambiguation conclusion (NEEDS subagent verdict before sizing)
+5. **🔴 NTT Inc. (TSE: 9432) — RANK #5 — CORRECTED 2026-06-17 AM7c** (per `signals/cross-source-log/2026-06-17-am7c-...md` Subagent verification — was NTT Data 9613.T which DELISTED 2025-09-26; 3850.T = NTT Data Intramart BPM subsidiary, wrong instrument; user-flagged catch)
+   - Trigger: Japan 2026 AI Basic Plan + ABCI 3.0 + Sakana AI ecosystem; NTT Data government IT contracts now wholly within NTT Inc. private subsidiary; 9432.T = listed proxy with Japanese gov 34.25% ownership
+   - **🔴 Critical pre-entry diligence:** 9432 is CONGLOMERATE (telecom + NTT Data + IOWN + Docomo); sovereign-AI exposure DILUTED within ¥14.41 trillion FY2026 total revenue — multi-segment dilution check MANDATORY per Principle #22; analogous to TDK 6762 SIDECAR DEMOTE pattern (AM2 verification) — risk that NTT 9432 fails L26 pure-play test
+   - Source seed: NTT Inc. Q1 FY27 IR (post-acquisition consolidated results); Japan METI procurement disclosures; NTT IOWN strategy disclosures
+   - Cross-correlation: KIOXIA (Japan sovereign storage), SUMCO (Japan wafer), MURATA (Japan electronics adjacent), Sakana AI (Japan foundation model)
+   - Specific dig vectors: (a) sovereign-AI / NTT Data subsidiary contribution to consolidated revenue (L26 % at parent-co); (b) IOWN photonics network sovereign-AI infra exposure; (c) Japan government revenue concentration; (d) Sakana AI / GENIAC partnership status; (e) Japanese gov 34.25% ownership as bull-case sovereign-protected status anchor
+   - **L27 enrichment candidate flagged for June 24 audit:** AM7 watchlist added 9613.T without applying live-listing verification at watchlist-add granularity; rule should extend verify-listed-status discipline from sizing-decision-time to watchlist-add-time; user catch via ticker-disambiguation surfaced this gap
 
 ### Pre-IPO watch deep-dive queue (no listed shares; track for IPO event)
 
