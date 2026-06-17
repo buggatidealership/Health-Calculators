@@ -35,6 +35,57 @@
 
 ## Entries (most recent first)
 
+### [2026-06-17 PM30] MURATA ADD execution tranche 1 of 2 (DCA split) — user executed ~€5,000 BUY on Degiro today; remaining ~€5,000 pending next down day at user discretion; partial execution of €10K forward intent logged 2026-06-17 PM (yesterday); thesis fundamentals UNCHANGED; pre-committed trim triggers UNCHANGED; open-ended inference clause check returned NO novel signals
+
+**Trigger source:** User explicit verbatim 2026-06-17 PM: *"I added 5k to Murrata today so I dca into it and buy another 5k into it on a down day."*
+
+**Intake tier:** 🟢 HARD (user-disclosed transaction; primary)
+
+## 🔴 KEY FINDINGS
+
+**1. MURATA ADD tranche 1 executed:** ~€5,000 BUY on Degiro today; estimated ~80sh at ~€62.50/share spot
+**2. Tranche 2 PENDING:** ~€5,000 on next user-defined down day
+**3. Combined target = €10K total add** (matches yesterday's logged forward intent per `companies/MURATA/thesis.md` 2026-06-17 forward decision-intent section)
+**4. DCA-split discipline observation:** good sizing behavior — reduces single-fill timing risk
+**5. Thesis status:** UNCHANGED (AM6b STRONG REINFORCE + AM7 sovereign-AI MLCC infra-required across 5 archetypes all INTACT)
+
+**Open-ended inference clause check (per MURATA 2026-06-17 codified discipline):** No novel trim-signal candidate fires from PM29 portfolio restructure OR AM7 sovereign-AI cascade. Pre-registered trim triggers UNCHANGED. ADD rationale UNCHANGED. Pass.
+
+**Cluster concentration post-add (my model):**
+- Pre-tranche-1: Physical AI / MLCC ~19% of invested (€16,312 / €87,808)
+- Post-tranche-1: ~24% of invested (€21,312 / €92,808)
+- Post-tranche-2 complete (~€26K MURATA): ~28% of invested (€26,312 / €97,808)
+- Still within tolerable single-cluster concentration vs prior KIOXIA-driven ~77% memory concentration on Degiro
+
+**Cluster cascade scoped per Principle #37:**
+- `portfolio/changes.md` — PM30 entry with tranche 1 details + pending tranche 2 + cash impact estimate
+- `companies/MURATA/thesis.md` — top-of-file PM30 ADD execution section added; forward decision-intent section preserved below for context; position implication BUY tranche 1 of 2
+- `meta/tier-cascade-log.md` — this entry
+- **`portfolio/holdings.md` NOT updated** per canonical rule "Only gets changed when I send a new screenshot" — will refresh on next user-shared Degiro screenshot showing 341sh+ MURATA position
+- Held cohort thesis files orthogonal — no thesis-state change for non-MURATA names
+
+**Stale flags fired:** none
+
+**Forward watch items:**
+1. MURATA tranche 2 execution (~€5,000 on next user-discretion down day) — completes €10K total add
+2. Next Degiro screenshot — refresh holdings.md with new MURATA share count + new cost basis weighted average
+3. Other pending queue items unchanged (Kioxia VLSI TFS1.3 tonight; NBIS Nasdaq-100 inclusion 06-22; DSIT ITT Q3 2026; CMA H2 2026; June 24 monthly audit)
+
+**Position implications (KIOXIA + MURATA portfolio actions only today; all other held cohort 🟡 HOLD no change):**
+- MURATA: 🟢 BUY tranche 1 of 2 executed €5,000; tranche 2 pending; thesis fundamentals UNCHANGED
+- KIOXIA: 🟡 HOLD via N26 ~€10K (from PM29 today); thesis fundamentals UNCHANGED
+- All other held cohort: 🟡 HOLD no change
+
+**Critical Rule #16 status:** N=25 unchanged (no subagent fired today for this user-disclosure; portfolio transaction doesn't require external verification — this is internal-state-of-record).
+
+**Cascade-fatigue check:** PM29 (`57f5fb5`) + PM30 (this commit) = 2 portfolio-action cascades today. Total ~57 events in ~57 hours since 2026-06-15 PM27 baseline. P#37 N=20 promotion gate FAR EXCEEDED.
+
+**Loop-validation note:** PM30 = 2nd consecutive portfolio-action cascade today (after PM29 KIOXIA restructure). Both cleanly executed pre-codified frameworks: PM29 = strategic-exit-via-N26-rebuy framework (codified 2026-06-16 PM17b/PM17c); PM30 = MURATA forward decision-intent (codified 2026-06-17 PM). **N=2 validation in 24h that pre-codified position-management frameworks DO get executed when user is in the moment of decision** (vs decorative codifications that never get used). Note for monthly audit June 24: this is a recurring positive pattern — forward-intent logging + pre-codified frameworks = actionable harness behavior.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-17 PM29] 🔴 PORTFOLIO RESTRUCTURE — KIOXIA Degiro 100sh SOLD entirely + KIOXIA N26 ~€10,000 NEW position opened (user explicit verbatim "I sold mh entire kioxia positioning degiro as 50k was to big imo. but I bought 10k worth of Kioxia on N26") + 4 user-shared Degiro screenshots = canonical holdings.md FULL REFRESH triggered + Murata share count CONFIRMED for first time (261sh @ €62.50; basis avg €50.04); pre-codified PM17b/PM17c strategic-exit-via-N26-rebuy framework EXECUTED AS DESIGNED; thesis fundamentals UNCHANGED (sizing restructure, NOT falsification); memory cluster 77%→58%; cash 38%→57% Degiro
 
 **Trigger source:** User-shared 4 Degiro mobile screenshots 2026-06-17 ~10:20 UTC + 2-transaction verbal disclosure. Per canonical rule "Only gets changed when I send a new screenshot" — this IS the canonical-refresh trigger.

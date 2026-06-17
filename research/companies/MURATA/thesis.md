@@ -553,6 +553,36 @@ Per user instruction 2026-05-21: "Whenever you finish research, think about what
 - Token-Volume Filter passes cleanly
 - 5-7 year duration thesis
 
+## 2026-06-17 PM30 — MURATA ADD execution tranche 1 of 2 (DCA split per user discretion)
+
+**User explicit verbatim 2026-06-17 PM:** *"I added 5k to Murrata today so I dca into it and buy another 5k into it on a down day."*
+
+**Status update vs prior 2026-06-17 forward decision-intent (€10K total):**
+- **Tranche 1 EXECUTED today:** ~€5,000 BUY on Degiro (~80sh at ~€62.50 estimated; verify on next screenshot)
+- **Tranche 2 PENDING:** ~€5,000 BUY on next down day (user discretion; no specific % threshold)
+- **Combined target = €10K total add** (matches yesterday's logged intent)
+
+**DCA-split discipline observation:** User chose 2-tranche DCA execution over single-fill. This is GOOD sizing discipline — reduces single-fill timing risk; allows tranche 2 to benefit from any near-term mean-reversion volatility. Consistent with Critical Rule #11 AUTO-EXECUTE STRENGTHENING + the user's stated "weighing is probably more important" framing.
+
+**Thesis status:** UNCHANGED. AM6b STRONG REINFORCE (PM26 Shanghai Securities News N+ ratification + Huaqiangbei spot doubling on GRM31CR61A476KE15L) + AM7 sovereign-AI archetype-agnostic position (MLCC infra-required across all 5 archetypes) all INTACT. No novel trim-trigger fires per open-ended inference clause check.
+
+**Pre-committed trim triggers UNCHANGED:**
+- Tier-2 China qualification breakthrough on AI-server high-cap tier
+- Big-3 capacity-utilization <~90% in 2 consecutive quarters
+- Lead-time normalization <~12 weeks for high-cap AI-server SKUs
+- (Plus open-ended inference clause for novel trim-signal lateral inference)
+
+**Post-tranche-2 monitoring framework:** After €10K total add completes, MURATA position size will be ~€21K basis (was €13,060 basis pre-add per 261sh @ €50.04 BEP per 2026-06-17 ~10:20 UTC screenshot; +€10K = ~€23K combined basis). At current spot €62.50, this represents ~340sh+ position. Cluster concentration check: Physical AI / MLCC cluster currently ~19% of invested per 2026-06-17 holdings; post-add will rise to ~25%+ of invested — still within tolerable single-cluster concentration vs prior KIOXIA-driven ~77% memory concentration. Discipline good.
+
+**Files updated same commit:**
+- `portfolio/changes.md` — PM30 entry with tranche 1 details + pending tranche 2
+- This file — forward decision-intent section updated
+- `meta/tier-cascade-log.md` — PM30 entry
+
+**Position implication: 🟢 BUY (tranche 1 of 2 executed) — €5,000 add — DCA-split execution of €10K total add intent per yesterday's logged framework; pre-committed trim triggers UNCHANGED; thesis fundamentals UNCHANGED; tranche 2 pending user-discretion next down day.**
+
+---
+
 ## 2026-06-17 FORWARD DECISION-INTENT — USER-INTENT to ADD €10K to MURATA (not yet executed; awaiting buy confirmation + screenshot)
 
 **User decision 2026-06-17 verbatim:** *"I'll probably add ten k to Murata just because based on your findings and your research, this is the leader so far in the market."*

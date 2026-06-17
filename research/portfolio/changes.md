@@ -437,3 +437,35 @@ Forward operational implications:
 - `portfolio/changes.md` — this entry
 - `companies/KIOXIA/thesis.md` — position-restructure context appended; thesis fundamentals UNCHANGED
 - `meta/tier-cascade-log.md` — PM29 entry for portfolio restructure cascade
+
+## 2026-06-17 PM30 — MURATA add execution (tranche 1 of 2 via DCA)
+
+**User explicit verbatim 2026-06-17 PM:** *"I added 5k to Murrata today so I dca into it and buy another 5k into it on a down day."*
+
+**Transaction — MURATA BUY tranche 1:**
+- Date: 2026-06-17
+- Broker: Degiro (existing MURATA position 261sh per 2026-06-17 ~10:20 UTC screenshot)
+- Ticker: MUR1 / JP3914400001
+- Action: BUY
+- Approximate value: €5,000 (DCA tranche 1 of 2)
+- Estimated shares: ~80sh at ~€62.50/share (back-of-envelope; verify on next screenshot)
+- Rationale: Partial execution of €10K forward add intent logged 2026-06-17 per `companies/MURATA/thesis.md`; DCA-split discipline to reduce single-fill timing risk
+- Critical Rule #8 status: PRESERVED — sizing add per existing thesis; no new bull-case data required (AM6b STRONG REINFORCE + AM7 sovereign-AI Japan tailwind unchanged)
+
+**Pending — MURATA BUY tranche 2:**
+- Date: TBD (next down day per user discretion)
+- Approximate value: €5,000 (DCA tranche 2 of 2)
+- Trigger: user-defined "down day" (no specific % threshold stated)
+- Completion target: €10K total add (matches yesterday's logged forward intent)
+
+**Open-ended inference clause check (per MURATA 2026-06-17 codified discipline):** No novel trim-signal candidate fires from PM29 portfolio restructure OR sovereign-AI cascade since yesterday's add-intent logging. Pre-registered trim triggers unchanged. ADD rationale UNCHANGED since 2026-06-17 logged intent. DCA-split execution = good sizing discipline (vs full €10K single-fill timing risk).
+
+**Cash impact (estimated):**
+- Degiro cash €104,291.52 → ~€99,291 (back-of-envelope; verify on next screenshot)
+- After tranche 2 completes: ~€94,291 Degiro cash remaining
+
+**Files updated same commit:**
+- `portfolio/changes.md` — this entry
+- `companies/MURATA/thesis.md` — forward decision-intent section updated to reflect partial execution + remaining tranche
+- `meta/tier-cascade-log.md` — PM30 entry for MURATA tranche-1 cascade
+- `portfolio/holdings.md` — NOT updated (per canonical rule "Only gets changed when I send a new screenshot"); will refresh on next user-shared Degiro screenshot
