@@ -35,6 +35,79 @@
 
 ## Entries (most recent first)
 
+### [2026-06-17 PM31] User-shared anonymous tweet "Dongshan Precision/Source Photonics ramp is much bigger than I thought" → 1 Opus subagent verification (TWENTY-SIXTH operational Rule #16; native-ZH parallel) → 🟢 SIGNAL VERIFIED FRESH B40.0 (Dongshan $1.2B capex commitment announced 2026-06-16 evening + Q1 2026 Source Photonics 22.69%→52.92% group profit share jump in ONE quarter + capacity ramp Q2 2026 ~9M units/month → Q4 2026 ~22M units/month → FY2027 300M annual target); **REFERENCE-ONLY for harness** (002384.SZ Shenzhen A-share + private subsidiary, NOT investable for European brokerage); 🟡 MILD POSITIVE 2nd-order cross-correlation read for MRVL only (Ara T DSP pull-through for Source Photonics 800G/1.6T modules shipped to Meta/MSFT US hyperscalers); 1.6T = "Year One at scale 2026" cluster-level confirmation (1M+ 2025 → 5M+ 2026 = 5× YoY shipments); PC-14 N=3+ Taiwan WEAK ENFORCEMENT variance note (Hsinchu national security review TRIGGERED but Chinese acquisition COMPLETED September 2025 — intra-pattern variance not contradiction)
+
+**Trigger source:** User-shared unattributed tweet quote 2026-06-17 PM. Per Critical Rule #16, fired 1 Opus subagent (a0bc35b5c98277063) with multilingual native-ZH parallel mandate.
+
+**Intake tier:** 🟢 HARD on facts (Dongshan + Source Photonics + $1.2B capex + Q1 2026 disclosures all T1 multi-source Digitimes/Caixin/Yicai/NBD/Sina Finance verified); 🔴 T4 on tweet attribution (exact quote not surfaced in indexed searches; treat as paraphrase of underlying 2026-06-16 disclosure).
+
+**Sources (sample of key T1 citations; full register in PM31 file):**
+- [Digitimes T1 2026-06-17 Dongshan PCB $1.2B AI optical capacity expansion](https://www.digitimes.com/news/a20260617VL207/dongshan-precision-pcb-capacity-expansion.html)
+- [NBD T1 2026-06-16 东山精密12亿美元投资计划](https://www.nbd.com.cn/articles/2026-06-16/4428575.html)
+- [Sina Finance T1 2026-06-17 东山精密拟投资12亿美元](https://finance.sina.com.cn/tech/roll/2026-06-17/doc-inicsmhx7170832.shtml)
+- [Caixin Global T1 2026-04-22 Apple supplier Dongshan rallies AI demand](https://www.caixinglobal.com/2026-04-22/apple-supplier-dongshan-precision-rallies-on-ai-driven-demand-102436817.html)
+- [Yicai Global T1 Dongshan Source Photonics acquisition](https://www.yicaiglobal.com/news/chinas-dongshan-precision-soars-after-unveiling-plan-to-buy-optical-parts-maker-source-photonics)
+- [Digitimes T1 2025-07-02 Taiwan national security review trigger](https://www.digitimes.com/news/a20250702PD244/dongshan-precision-acquisition-optical-communications-electronics-taiwan.html)
+- [Marvell IR T1 1.6T DSP platform](https://investor.marvell.com/news-events/press-releases/detail/1013/marvell-ushers-in-the-1-6t-era-with-expanded-optical-dsp-platform-redefining-ai-data-center-end-to-end-connectivity)
+
+## 🔴 KEY FINDINGS
+
+**1. Tweet signal FRESH (B40.0) — three simultaneous ramps explain "bigger than I thought":**
+- **Ramp 1 (Q1 2026 actuals):** Source Photonics 22.69% (FY2025) → 52.92% (Q1 2026) of group profit in ONE quarter
+- **Ramp 2 (capacity):** Q2 2026 ~9M units/month → Q4 2026 ~22M units/month = ~2.4× in calendar 2026; FY2027 300M annual / FY2028 1B / FY2029 2B target
+- **Ramp 3 (FRESH 2026-06-16):** $1.2B capex commitment, fully self-funded, explicit stated reason "current capacity already cannot absorb downstream continuously growing order flow"; product focus 800G/1.6T for "overseas leading cloud service providers and compute hardware vendors" (Meta confirmed 3M unit 800G prior; MSFT 2M unit 1.6T procurement $3B value potentially in scope)
+
+**2. Source Photonics = vertically integrated EML chip + module supplier; Chinese parent (Dongshan) owns Taiwan Hsinchu fab + Changzhou + Chengdu sites.** One of very few globally with chip-to-module vertical integration.
+
+**3. 800G/1.6T cluster context — 2026 is "Year One at scale":** Global 1.6T shipments 1M+ 2025 → 5M+ 2026 (5× YoY); 800G+1.6T share 19.5% 2024 → 60%+ by end 2026.
+
+**4. Held cohort cascade — only MRVL materially affected:**
+- MRVL: 🟡 MILD POSITIVE 2nd-order — Source Photonics 1.6T modules need DSP; MRVL Ara T = lead platform; Meta/MSFT module modules almost certainly use MRVL DSP; **caveat: Chinese-domestic modules likely use Chinese DSP (not MRVL pull-through)**
+- HYNIX: 🟡 Positive 3rd-order (very distal — more AI servers = more HBM)
+- MURATA: 🟡 Very mild positive 2nd-order (MLCC on optical transceiver PCBs; commodity ASP)
+- SNDK/KIOXIA/SUMCO/DDOG/NOW: ORTHOGONAL
+
+**5. PC-14 N=3+ variance note (NOT a counter update):** Taiwan national security review TRIGGERED but Chinese acquisition COMPLETED = WEAK ENFORCEMENT case for Taiwan vs STRONG ENFORCEMENT in US/France/Germany. Intra-pattern variance not contradiction; PC-14 doctrine holds but enforcement strength varies by sovereign capability/willingness.
+
+**6. Investability REFERENCE-ONLY:** 002384.SZ Shenzhen A-share + Source Photonics private subsidiary — neither investable for European retail brokerage. Signal serves exclusively as (a) cross-correlation evidence on 800G/1.6T ramp accelerating beyond prior estimates; (b) mild MRVL tailwind read; (c) Chinese optical capability advancing despite export-control pressure (geopolitical context, not MRVL franchise impairment).
+
+**Cluster cascade scoped per Principle #37 (per-name cascades in this commit):**
+- `signals/cross-source-log/2026-06-17-pm31-...md` — master synthesis file
+- `companies/MRVL/thesis.md` — top-of-file PM31 cross-ref added with mild-positive 2nd-order pull-through read + new monitoring signal (Source Photonics customer-level DSP disclosure)
+- `meta/tier-cascade-log.md` — this entry
+- Other held cohort theses orthogonal — no state change
+
+**Files NOT touched (per scoping rule):**
+- HYNIX / SNDK / KIOXIA / SUMCO / MURATA / DDOG / NOW thesis files — orthogonal or magnitude too low to warrant back-ref; no thesis-state change
+- `meta/cross-domain-pattern-register.md` PC-14 — NOT updated; Taiwan WEAK enforcement is intra-pattern variance not contradiction; monitor for monthly audit
+- `signals/triangulation.md` — no cluster-state change
+- `watchlist/candidates.md` — Dongshan + Source Photonics NOT added (REFERENCE-ONLY per investability)
+- `portfolio/*` — no position changes
+
+**Stale flags fired:** none (all signals fresh within 48h)
+
+**Forward watch items:**
+1. **Source Photonics customer-level DSP disclosure** — MRVL confirmed = mild upgrade; Chinese DSP confirmed = thesis-neutral
+2. MRVL Q2 FY27 print Aug 2026 — optical DSP revenue trajectory
+3. Source Photonics Q2 2026 print — confirms ramp continuation
+4. InnoLight (Chinese competitor) Q2 2026 disclosures — China optical capacity overall picture
+5. NVIDIA / hyperscaler optical procurement announcements — pull-through signal
+6. Taiwan national security review NEXT case — does enforcement strengthen post-Source Photonics completion?
+
+**Position implications (all 🟡 HOLD; no portfolio action today):**
+- MRVL: 🟡 HOLD ~5.9% (44sh) — mild corroborating data point; not a thesis-changer
+- All other held cohort: 🟡 HOLD no change
+
+**Critical Rule #16 operational validation: POSITIVE N=26 (Subagent today). Cumulative N=26.**
+
+**Cascade-fatigue check:** PM30 MURATA tranche-1 (`163a630`) + PM31 Dongshan tweet (this commit) = 2 cascades since PM29. Total ~58 events in ~58 hours since 2026-06-15 PM27 baseline. P#37 N=20 promotion gate FAR EXCEEDED.
+
+**Loop-validation note:** PM31 demonstrates Critical Rule #16 working as designed on user-shared T4 unattributed tweet — subagent verification surfaced (a) underlying facts T1-verified; (b) tweet IS a real signal (not a fabrication or stale-recycle); (c) verdict is REFERENCE-ONLY for investability reasons but MILD POSITIVE 2nd-order for held cohort. The "verify before cascade" discipline turned an unattributed tweet into a usable harness data point with appropriate magnitude calibration (not overstated).
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-17 PM30] MURATA ADD execution tranche 1 of 2 (DCA split) — user executed ~€5,000 BUY on Degiro today; remaining ~€5,000 pending next down day at user discretion; partial execution of €10K forward intent logged 2026-06-17 PM (yesterday); thesis fundamentals UNCHANGED; pre-committed trim triggers UNCHANGED; open-ended inference clause check returned NO novel signals
 
 **Trigger source:** User explicit verbatim 2026-06-17 PM: *"I added 5k to Murrata today so I dca into it and buy another 5k into it on a down day."*
