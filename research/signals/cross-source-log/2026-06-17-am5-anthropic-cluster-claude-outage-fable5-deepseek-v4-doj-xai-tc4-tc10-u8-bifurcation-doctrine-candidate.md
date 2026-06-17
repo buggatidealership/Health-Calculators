@@ -77,6 +77,8 @@
 - Cannot confirm without PM24 source review. If PM24 N=2 was V3/R2-based → AM5 V4 Pro intensification = genuine N=3. If PM24 already incorporated V4 Pro → re-narration.
 - **STRICT RULING: U8 N=3 CANDIDATE — hold at N=2 pending PM24 source verification. Do NOT promote.**
 
+**POST-WRITE PM24 SOURCE CHECK (2026-06-17 same-session resolution):** Per `signals/cross-source-log/2026-06-16-pm24-...md` §5 + Line 134: PM24's N=2 ratification was explicitly built on 3-source convergence including **DeepSeek MLA/MoE cost-curve** as load-bearing input. PM24 Line 134 pre-registered the N+3 triggers as: (a) MSFT explicitly names "Cowork 1" as DeepSeek-derived; (b) Salesforce Agentforce moves to consumption model; (c) Google Gemini Enterprise repricing. **AM5 Item C (V4 Pro $0.435/$0.87 pricing demonstration via Howard Chen Substack) is NOT any of the 3 pre-registered N+3 triggers.** V4 Pro pricing was already public via MS Foundry hosting (May 2026 per [techcommunity Microsoft Foundry T1](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-deepseek-v4-flash-and-v4-pro-in-microsoft-foundry/4515174)) and was part of PM24's underlying N=2 evidence base. **CONCLUSION: AM5 Item C is enrichment of N=2, NOT an N=3 increment. U8 stays at N=2.** Next eligible N=3 trigger remains one of the pre-registered (a)/(b)/(c) per PM24.
+
 ---
 
 ## Item D — DOJ xAI gas turbines national security
