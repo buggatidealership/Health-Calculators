@@ -1,5 +1,29 @@
 # ServiceNow (NOW) — Thesis
 
+**🔴 2026-06-17 AM6b cross-ref — NEW EU SOVEREIGN-AI PROCUREMENT WATCH CONDITION (6-18mo monitoring item):** Per `signals/cross-source-log/2026-06-17-am6b-morning-brief-2subagent-verification-bifurcation-doctrine-n2-promotion-now-watch-eu-sovereign-ai.md`. **🔴 BIFURCATION DOCTRINE PROMOTED N=1 → N=2** via France DGSI dropping Palantir for ChapsVision ArgonOS + Germany BfV parallel action in same announcement window (Subagent B T1 verification: [Bloomberg 2026-06-16](https://www.bloomberg.com/news/articles/2026-06-16/french-security-service-to-replace-palantir-with-local-software) + [Euronews](https://www.euronews.com/business/2026/06/16/dgsi-drops-palantir-for-french-firm-says-sebastien-lecornu) + [Militarnyi BfV parallel](https://militarnyi.com/en/news/german-intelligence-french-chapsvision/) + [Theatrum Belli T1-FR](https://theatrum-belli.com/la-dgsi-quitte-palantir-pour-chapsvision-et-sa-plateforme-argonos/)). PM Lecornu explicitly cited Fable 5 access cutoff as catalyst — spillover logic: US gov can force any US tech firm to revoke access → US domicile = vector risk. EUR 655M French sovereign AI package incl. Mistral chatbot for 1M civil servants + public-health assistant + new public data platform.
+
+**🔴 NEW NOW FALSIFIER REGISTERED (pre-committed trim sequence, Critical Rule #8 binding):**
+
+*Distinct from existing thesis falsifiers — this manages structural EU government-account risk class shared with Palantir post-bifurcation-doctrine N=2 promotion. Per `companies/MURATA/thesis.md` 2026-06-17 OPEN-ENDED INFERENCE CLAUSE convention.*
+
+Trigger conditions (any of):
+1. **Specific EU government contract loss for NOW** (national / regional / EU-institution) cited as "sovereignty / digital kill switch" reasoning
+2. **France / Germany / EU institutional procurement guidance** formally adding US-domiciled SaaS to "high-vendor-risk" categorization (EU AI Act Article 6 or successor classification)
+3. **NOW EU revenue concentration disclosure** (Q2/Q3/Q4 FY27) showing material EU government / regulated-industry account churn
+4. **NOW management Q3 FY27 earnings call commentary** on sovereign-AI competitive pressure in EU
+
+Sequencing logic: Trigger #1 alone = log N=1 + assess magnitude; Triggers #1+#2 OR Trigger #3 material = **PARTIAL TRIM 25% NOW** (consistent with MURATA/Taiyo Yuden trim sequencing); Trigger #4 + customer-name disclosure = re-eval HOLD vs TRIM.
+
+Self-correction discipline: if 30 days post-fire shows false-positive (e.g., procurement guidance reversed; account churn was idiosyncratic), re-add trimmed sizing at post-trim price.
+
+**Cascade context — REFRAMED bifurcation doctrine (per AM6b promotion):** "Every major sovereign state actor is independently converging on the same architecture — domestic-sovereignty-integrated AI is PROTECTED; foreign-domiciled AI is SHUTDOWN-ELIGIBLE. Same underlying logic, applied nationally by each state." US version = defense-integration as qualifier; French/German version = domestic-domicile as qualifier. **NOW US-domicile + workflow-SaaS deployment in EU government accounts = same structural risk class as Palantir** (lower data-sensitivity than Palantir Gotham, but same kill-switch logic applies to any US-domiciled SaaS dependency).
+
+**🟡 Position implication: HOLD with NEW EU SOVEREIGN-AI WATCH** — no action today (no falsifier has fired); 6-18mo monitoring item; first formal monitoring milestone NOW Q3 FY27 earnings call commentary.
+
+Also today: Item 5 Anthropic-Trump feud + Ramp data (TC-4 NEEDS-REFRAME 3-way split, NOT WEAKENED) — enterprise AI adoption breadth rising = ServiceNow workflow AI expansion opportunity (mild positive offsetting the watch condition near-term).
+
+---
+
 **2026-06-17 AM5 cross-ref — TC-4 (Anthropic enterprise-trust drift) +1 reliability vector + Fable 5 regulatory uncertainty → slight negative near-term:** Per `signals/cross-source-log/2026-06-17-am5-anthropic-cluster-claude-outage-fable5-deepseek-v4-doj-xai-tc4-tc10-u8-bifurcation-doctrine-candidate.md`. **🟡 SLIGHT NEGATIVE near-term / NEUTRAL medium-term — 10 Claude outages in 12 days from Anthropic directly undermines enterprise AI workflow trust; NOW platform embeds AI agents** (T1 [TechTimes 2026-06-16](https://www.techtimes.com/articles/318514/20260616/claude-outage-tenth-disruption-12-days-exposes-anthropic-infrastructure-strain.htm)). Plus regulatory uncertainty around frontier models (Fable 5 export directive 2026-06-12) creates procurement hesitation for enterprise AI integrations. Mild positive offset (1) lower-cost alternatives mean more enterprise AI experimentation, some of which routes through NOW workflows; (2) bifurcation doctrine = defense-AI workflow opportunity if NOW positions for gov/defense sector. **TC-4 cluster N=11→N=13 (added INFRASTRUCTURE-RELIABILITY vector distinct from prior governance vectors); approaching but NOT yet promotion-grade without 3rd distinct vector (customer churn / contract cancellation).** Position implication: 🟡 HOLD with elevated watch — no size change today — monitor enterprise AI procurement signals at NOW + watch for Q2 FY27 enterprise customer commentary on AI workflow uptime/trust.
 
 ---

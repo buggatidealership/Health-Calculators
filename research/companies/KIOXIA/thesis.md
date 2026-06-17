@@ -1,5 +1,9 @@
 # Kioxia Holdings (285A.T / キオクシア) — Thesis
 
+**2026-06-17 AM6b cross-ref — 🟢 STRONG REINFORCE via Item 12 NAND shortage + Item 14 AMD-Mext (Yokkaichi JV mirror of SNDK; same demand picture):** Per `signals/cross-source-log/2026-06-17-am6b-morning-brief-2subagent-verification-bifurcation-doctrine-n2-promotion-now-watch-eu-sovereign-ai.md`. Yokkaichi Fab 6 JV ties = KIOXIA supply moves with SNDK supply; Kioxia-specific: revenue **+80% QoQ in 1Q26** per TrendForce T1 confirmed (Subagent A verification). New corporate-structure wildcard surfaced as MONITORING item: **WD/Kioxia merger speculation** (Elliott Management exit per Japanese media June 2026; NOT a thesis falsifier — corporate-structure event distinct from underlying NAND-AI demand thesis). AMD-Mext as new institutional flash buyer adds N+1 pull-through demand. Item 16 (France EUR 655M sovereign AI package) mildly positive on EU storage demand. **Position implication: 🟡 HOLD-until-falsifier (Critical Rule #8 binding; per user explicit 2026-06-16 ~09:25 UTC) — STRONG REINFORCE thesis intact; WD/Kioxia merger watch added as corporate-structure monitor (NOT falsifier); no portfolio action.**
+
+---
+
 **2026-06-17 AM5 cross-ref — U8 token-cost-elasticity mild positive via flash-cache pathway:** Per `signals/cross-source-log/2026-06-17-am5-anthropic-cluster-claude-outage-fable5-deepseek-v4-doj-xai-tc4-tc10-u8-bifurcation-doctrine-candidate.md`. **🟡 MILD POSITIVE — DeepSeek V4 Pro pricing (~6% of Claude Sonnet 4.6 output like-tier) demonstrates token-cost elasticity continuing.** Cheaper inference per token → more inference volume → more KV cache offload demand → tier-3/tier-4 NAND adoption tailwind. Same logic as SNDK. Position implication: 🟡 HOLD — no action — mild ratchet on existing flash-cache thesis.
 
 ---

@@ -1,5 +1,9 @@
 # Sumco Corporation (3436.T) — Thesis
 
+**2026-06-17 AM6b cross-ref — 🟡 NET AMBIGUOUS (slight positive); EU sovereign compute infra wafer demand vs Chinese substitution watch:** Per `signals/cross-source-log/2026-06-17-am6b-morning-brief-2subagent-verification-bifurcation-doctrine-n2-promotion-now-watch-eu-sovereign-ai.md`. Item 16 France EUR 655M sovereign AI stack = mildly positive on **EU 300mm wafer demand from European fabs** (Intel Ireland, STMicroelectronics, GlobalFoundries Dresden EU Chips Act expansion); sovereign AI compute build-out requires substantial 300mm wafer feedstock. Item 15 SMIC N+3 Kirin 9030 = **cautionary watch on Chinese wafer self-sufficiency thesis** (3-5yr horizon; SMIC N+3 is single-product, NOT licensable third-party, yield-constrained — doesn't displace SUMCO premium 300mm wafer demand near-term). Net: **TC-10 sovereign-AI bifurcation is net neutral-to-slightly-positive for Western fab demand** because each sovereign stack needs its own wafer feedstock. **Position implication: 🟡 HOLD 415sh (per holdings.md +€311.25 unrealized) — no action — net ambiguous slight positive; sovereign-AI exposure thesis intact; monitor Chinese substitution 3-5yr horizon.**
+
+---
+
 **Last updated:** 2026-06-14 PM2 (DRAM ASP 60-year trend-line break verified — H1 structural-regime posterior 75%; SUMCO direct wafer-supplier compounder regardless of HBM-vs-DRAM mix)
 
 ## 2026-06-14 PM2 back-reference — DRAM 60-year trend-break = SUMCO direct compounder

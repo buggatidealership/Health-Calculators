@@ -35,6 +35,111 @@
 
 ## Entries (most recent first)
 
+### [2026-06-17 AM6b] Morning AI brief 2-subagent verification COMPLETE — **🔴 BIFURCATION DOCTRINE N=1 → N=2 PROMOTION** via Item 16 France DGSI drops Palantir for ChapsVision + Germany BfV parallel action (Lecornu explicitly cited Fable 5 cutoff as catalyst); **🔴 NOW NEW EU SOVEREIGN-AI PROCUREMENT WATCH CONDITION** (4 trigger conditions, 25%/50%/100% partial-trim sequencing per MURATA/Taiyo Yuden convention); NAND shortage Silicon Motion Duann Computex 2026 B40.0 FRESH N=6+ STRONG REINFORCE SNDK/KIOXIA; AMD-Mext SAME EVENT AS PM22 + 1day framing (NOT B40.1 stale-recycle of older story; Mext is real Santa Clara startup mext.ai $10.6M raised CEO Gary Smerdon ex-AMD); SMIC N+3 Kirin 9030 32.5nm metal pitch vs Intel 18A 36nm = misleading framing (Intel 18A PowerVia deliberate; SMIC 38% density lag, 5-6× DUV multi-patterning at operating loss, ONE product Huawei Mate 80 Pro Max, NOT licensable third party); TC-10 REINFORCE WITH CEILING + Item 16 STRONG +1 → TC-10 PROMOTION GATE REACHED for June 24 audit; Anthropic-Trump Ramp data TC-4 NEEDS-REFRAME 3-way split (defense/commercial/lagging-composition); 7 thesis updates batched (SNDK + KIOXIA + HYNIX + MRVL + NOW + DDOG + SUMCO)
+
+**Trigger source:** 2-subagent parallel verification of 2026-06-17 morning AI brief (70 sources / 16 items). Per Critical Rule #16, subagents a5440dd3c0e1bc111 (Item 12 + 14) + a2349e43d7a133a8a (Items 5/15/16) = TWENTY-FIRST + TWENTY-SECOND operational Rule #16 applications.
+
+**Intake tier:** 🟢 HARD on Item 12 (Tom's Hardware 2026-06-16 + Computex 2026 live Duann interview + N=6+ corroboration) + 🟢 HARD on Item 14 (AMD official blog T1 + The Register + TrendForce + SiliconANGLE; same-event-as-PM22 verified) + 🟢 HARD on Item 16 (Bloomberg T1 + Euronews T1 + Theatrum Belli T1-FR + Militarnyi BfV T2; Lecornu explicit Fable 5 cite) + 🟡 DIRECTIONAL on Item 15 (SemiAnalysis STEEL T1 + TechInsights independent T1 + Tom's Hardware T1; framing-correction layer required) + 🟡 DIRECTIONAL on Item 5 (TechCrunch T1 + Ramp T1 primary data; methodology limitation requires bifurcated read)
+
+**Sources (sample of key load-bearing T1 citations; full register in AM6b file):**
+- Item 12: [Tom's Hardware Duann interview 2026-06-16](https://www.tomshardware.com/pc-components/ssds/the-retail-ssd-market-has-almost-disappeared-says-silicon-motion-exec-pc-oems-are-buying-third-party-drives-as-direct-nand-supply-dries-up) + [SNDK Q3 FY26 SEC 8-K](https://www.sec.gov/Archives/edgar/data/0002023554/000162828026028879/sndkq3-26ex991xpressrelease.htm) + [TrendForce May 2026 +83.7% QoQ](https://www.trendforce.com/presscenter/news/20260525-13058.html)
+- Item 14: [AMD official blog](https://www.amd.com/en/blogs/2026/amd-acquires-mext-for-memory-optimization.html) + [The Register 2026-06-16](https://www.theregister.com/systems/2026/06/16/amds-mext-buy-shows-how-ai-could-solve-the-ram-shortage-it-created/5257352) + [TrendForce 2026-06-16](https://www.trendforce.com/news/2026/06/16/news-amd-acquires-mext-to-address-ai-memory-bottlenecks-with-tech-that-makes-nand-act-like-dram/)
+- Item 16: [Bloomberg 2026-06-16](https://www.bloomberg.com/news/articles/2026-06-16/french-security-service-to-replace-palantir-with-local-software) + [Euronews 2026-06-16](https://www.euronews.com/business/2026/06/16/dgsi-drops-palantir-for-french-firm-says-sebastien-lecornu) + [Theatrum Belli T1-FR](https://theatrum-belli.com/la-dgsi-quitte-palantir-pour-chapsvision-et-sa-plateforme-argonos/) + [Militarnyi BfV parallel](https://militarnyi.com/en/news/german-intelligence-french-chapsvision/)
+- Item 15: [SemiAnalysis STEEL Lab teardown](https://newsletter.semianalysis.com/p/steel-smic-n3-teardown) + [TechInsights independent](https://www.techinsights.com/blog/smic-n3-confirmed-kirin-9030-analysis-reveals-how-close-smic-5nm) + [Intel Newsroom 18A specs](https://newsroom.intel.com/client-computing/intel-unveils-panther-lake-architecture-first-ai-pc-platform-built-on-18a)
+- Item 5: [TechCrunch 2026-06-16](https://techcrunch.com/2026/06/16/anthropics-latest-feud-with-the-trump-admin-may-actually-help-it-sales-data-suggests/) + [Ramp June 2026 index](https://ramp.com/leading-indicators/ai-index-june-2026) + [Anthropic CFO court filing per Yahoo Finance](https://finance.yahoo.com/news/anthropic-executives-pentagon-blacklisting-could-020003461.html)
+
+## 🔴 KEY FINDINGS
+
+**1. BIFURCATION DOCTRINE PROMOTION N=1 → N=2 (strict ruling via Item 16 alone)**
+- Pre-registered AM5 N=2 trigger (a) "EU/UK gov action either shielding or shutting down frontier AI model" satisfied cleanly
+- France DGSI + Germany BfV = 2 European intel agencies in 1 announcement window
+- Lecornu explicitly cited Fable 5 access cutoff as catalyst (spillover logic: US gov can force any US tech to revoke access → US domicile = vector risk)
+- Item 5 Anthropic-Ramp does NOT count toward promotion (commercial signal, not gov action under triggers (a)/(b)/(c))
+- **CRITICAL REFRAME:** Original US-centric doctrine ("defense-integrated PROTECTED / non-defense-integrated SHUTDOWN-ELIGIBLE") expands to UNIVERSAL doctrine ("Every sovereign state actor is independently converging on the same architecture — domestic-sovereignty-integrated PROTECTED; foreign-domiciled SHUTDOWN-ELIGIBLE")
+- Recommend codification as **PC-14 Universal Sovereign-AI Bifurcation Doctrine** in `meta/cross-domain-pattern-register.md` (separate atomic commit for cleanliness)
+
+**2. NOW EU SOVEREIGN-AI WATCH CONDITION (new falsifier set registered)**
+- 4 trigger conditions with 25%/50%/100% partial-trim sequencing (consistent with MURATA/Taiyo Yuden convention)
+- NOW US-domicile + workflow-SaaS deployment in EU gov accounts = same structural risk class as Palantir
+- 6-18mo monitoring item; first formal milestone NOW Q3 FY27 earnings call commentary
+- Open-ended inference clause (per `companies/MURATA/thesis.md` 2026-06-17 codification) APPLIED — this is a NOVEL trim-signal candidate identified via lateral inference NOT pattern-matching against pre-registered triggers
+
+**3. NAND shortage B40.0 FRESH + N=6+ TRIANGULATED → SNDK/KIOXIA STRONG REINFORCE**
+- Nelson Duann (Silicon Motion SVP) Computex 2026 verbatim quote verified
+- N=6+ T1/T2 cross-source convergence
+- SNDK Q3 FY26 SEC 8-K: datacenter +645% YoY; consumer $820M declining sequentially; $42B backlog
+- TrendForce Top-5 NAND +83.7% QoQ 1Q26; enterprise SSD prices +53-58% QoQ
+- Structural undersupply: demand ~20-22% YoY vs supply +15-17% YoY
+
+**4. AMD-Mext SAME EVENT AS PM22 (not new institutional N+ ratification)**
+- MEXT is real Santa Clara startup (mext.ai, founded 2023, $10.6M raised, CEO Gary Smerdon ex-AMD/Fusion-io)
+- PM22 tracking 2026-06-15 was correct — MEXT was ALWAYS the company name, not codename
+- The Register article is +1 day interpretive layer; cumulative B40.1 catch +1 = 10 in 7 days
+- New U8-adjacent sub-thesis: "AI memory tiering (flash-substitutes-for-DRAM) as structural NAND demand driver" — N=1 actor (AMD); pre-registered N+ triggers (NVIDIA/Intel parallel product OR hyperscaler public adoption)
+
+**5. SMIC N+3 framing correction + TC-10 REINFORCE WITH CEILING**
+- 32.5nm metal pitch headline misleading: Intel 18A ships at 36nm by deliberate PowerVia architectural choice, NOT capability ceiling (supports 32nm min in high-density library)
+- SMIC density 113.4 MTr/mm² vs Intel 18A 238 MTr/mm² = -38% lag
+- 5-6× DUV multi-patterning (zero EUV access); yield well below 80-90% EUV-typical; production at operating loss; state-subsidized; ONE product (Mate 80 Pro Max); NOT licensable third-party
+- Commercial moat erosion timeline for MRVL/HYNIX = **5-7 years NOT 2-3 years**
+
+**6. Anthropic-Trump Ramp data TC-4 NEEDS-REFRAME (NOT WEAKENED)**
+- B40.x CRITICAL CLARIFICATION: Two Ramp moments collapsed in TechCrunch narrative
+- 41% Anthropic May 2026 spend reflects MAY transactions, BEFORE June 12 Fable 5 cutoff — "feud boost" is forward-projected by Kharazian, NOT measured outcome
+- VentureBeat T2 methodology critique: Ramp tracks WHICH companies pay NOT how much spend volume; breadth ≠ revenue depth
+- Anthropic CFO Krishna Rao court filing confirms real defense-adjacent damage: $100M+ FDA deal loss + $180M+ financial institution pipeline disruption; $500M+ public-sector guidance degraded
+- TC-4 3-way bifurcation: (a) DEFENSE-ADJACENT confirmed hesitation; (b) COMMERCIAL counter-signal real; (c) LAGGING SIGNAL RISK on revenue-quality composition
+
+**Cluster cascade scoped per Principle #37:**
+- **SNDK + KIOXIA:** STRONG REINFORCE thesis updates committed
+- **HYNIX:** NET NEUTRAL to mild positive (SMIC framing correction + EU sovereign AI demand); thesis update committed
+- **MRVL:** MILD POSITIVE on three vectors (China-framing correction + EU sovereign AI custom-Si demand pool + Mext SSD controller pull); thesis update committed
+- **NOW:** 🔴 NEW EU SOVEREIGN-AI WATCH CONDITION + 4 trigger conditions registered as falsifier set; thesis update committed
+- **DDOG:** MILD POSITIVE (Anthropic enterprise adoption breadth + sovereign AI compute observability); thesis update committed
+- **SUMCO:** NET AMBIGUOUS slight positive (EU 300mm wafer demand vs Chinese substitution 3-5yr); thesis update committed
+- **MURATA:** orthogonal; open-ended inference clause check returned NO trim-trigger fires (per AM6 triage); forward €10K add intent UNCHANGED
+
+**Files NOT touched (per scoping rule):**
+- `signals/triangulation.md` TC-10 formalization to VERIFIED HIGH-CONFIDENCE DEFERRED to June 24 monthly audit (promotion gate reached but formal codification batched)
+- `meta/cross-domain-pattern-register.md` PC-14 Bifurcation Doctrine codification DEFERRED to next atomic commit (separate scope; will commit alone for cleanliness per Principle #32 promotion discipline)
+- `meta/biases-watchlist.md` B47 (closed-list pattern-matching blindness) candidate ENRICHMENT — this AM6b is N+1 EVIDENCE for B47 candidate (open-ended inference clause fired correctly on NOW WATCH novel-signal lateral inference) but NOT yet N=2 codification trigger; June 24 audit
+- `predictions/lessons.md` no new lesson candidate
+- `portfolio/*` no position changes (forward MURATA €10K add intent unchanged)
+- `meta/methodology.md` / `meta/tags.md` / `research/CLAUDE.md` no new principle/rule codification
+
+**Stale flags fired:** none (all signals fresh within 24-48h)
+
+**Forward watch items:**
+1. **PC-14 codification** — next atomic commit
+2. **TC-10 promotion to VERIFIED** — June 24 monthly audit
+3. **B47 promotion to verified bias** — June 24 audit (AM6b NOW WATCH novel-inference fire = N+1 evidence)
+4. **Bifurcation Doctrine N=3 watch:** UK GCHQ/NCSC, Asia mirror (Japan/Korea/Taiwan/India), US civilian-agency extension, EU AI Act enforcement
+5. **AMD-Mext deployment milestones:** first hyperscaler customer disclosure; NVIDIA/Intel parallel-product responses
+6. **NOW Q3 FY27 earnings call** — formal sovereign-AI competitive pressure commentary monitoring milestone
+7. **Anthropic Q3 FY26 disclosure** — actual defense vs commercial revenue mix to validate TC-4 3-way bifurcation
+8. **MRVL Q2 FY27 print Aug 2026** — Maia program revenue + China revenue concentration
+9. **Kioxia VLSI Symposium June 17-18 TFS1.3 TONIGHT ~01:25-03:30 UTC**; T+48h grade Fri Jun 19
+
+**Position implications (all 🟡/🟢 HOLD per Critical Rule #8 binding; no portfolio action today):**
+- SNDK: 🟢 HOLD — STRONG REINFORCE; pre-committed trim trigger NAND new-supply impulse <2H27 consensus
+- KIOXIA: 🟢 HOLD-until-falsifier; WD merger watch corporate-structure monitor
+- HYNIX: 🟡 HOLD GDR / ADD ON WEAKNESS; SMIC NEUTRAL on HBM thesis; CXMT remains right threat vector
+- MRVL: 🟡 HOLD ~5.9% (3rd reinforcing vector today)
+- MURATA: 🟡 HOLD; forward €10K add intent UNCHANGED
+- SUMCO: 🟡 HOLD; net ambiguous slight positive
+- DDOG: 🟡 HOLD; mild positive
+- **NOW: 🟡 HOLD with NEW EU SOVEREIGN-AI WATCH** (6-18mo monitoring; first milestone Q3 FY27 earnings call)
+
+**Critical Rule #16 operational validations: POSITIVE N=21 + N=22 (Subagents A + B today). Cumulative N=22.**
+
+**Cascade-fatigue check:** AM batch (`3e57881`) + AM6 triage (`5b55c8c`) + AM6b = **43+ events in ~51 hours.** P#37 N=20 promotion gate FAR EXCEEDED. Cascade hygiene holding via scoped per-name updates.
+
+**Loop-validation note:** AM6b demonstrates the open-ended inference clause (codified yesterday per `companies/MURATA/thesis.md` 2026-06-17) firing correctly — NOW EU sovereign-AI WATCH condition is a NOVEL trim-signal candidate identified via lateral inference (not pattern-match against pre-registered triggers). This is N+1 evidence for B47 codification at June 24 audit. The MURATA/Taiyo Yuden trim-trigger framework expanded to NOW with cluster-appropriate adaptation (US-domicile risk class instead of MLCC capacity-utilization).
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-17 AM batch] 5-subagent fan-out — 3 PM-deferred verifications resolved (MRVL Maia-Broadcom B40.1 STALE-RECYCLE catch + TDK 6762 L28 FAIL SIDECAR + Innolux 3481 L28 FAIL pre-revenue SKIP) + 2 evening-brief AI-cluster verifications (HBM SemiAnalysis B40.1 stale-recycle BUT thesis stronger + Anthropic cluster TC-4/TC-10/U8/PC-13 + NEW BIFURCATION DOCTRINE meta-pattern N=1)
 
 **Trigger source:** (a) PM27/PM26/PM22 deferred queue items per yesterday's user agreement ("agreed — defer to tomorrow"); (b) user-shared 2026-06-16 evening AI brief (86 sources / 20 items). Per Rule #16, fired 5 Opus subagents in parallel (a80c596d34bd10df3 MRVL + a46836dd556919e41 TDK + aaf850c57cff87cac Innolux + af707341a82248705 HBM + ad563bd862ea08764 Anthropic cluster = SIXTEENTH through TWENTIETH operational Rule #16 applications).
@@ -118,7 +223,7 @@
 
 **Loop-validation note:** This is the first batched AM cascade since PM27 evening pause. Demonstrates that deferred verification protocol (PM27 user agreement) produces value-add via B40.1 catches that immediate-reaction would have propagated. PM27 deferral logic worked; AM batch resolution captured 2 stale-recycle catches + 3 fresh structural signals + 1 new meta-pattern candidate.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** `3e57881` (filled in AM6b cascade per lag-1 SHA-fill convention)
 
 ---
 
