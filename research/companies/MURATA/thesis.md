@@ -553,6 +553,27 @@ Per user instruction 2026-05-21: "Whenever you finish research, think about what
 - Token-Volume Filter passes cleanly
 - 5-7 year duration thesis
 
+## 🔴 2026-06-18 PM33 — TRANCHE-2 €5K EXECUTED — €10K total add COMPLETE per PM30 forward decision-intent
+
+**User verbatim 2026-06-18 PM:** *"Um, out of five k to the Meraka position, I think waiting for a trim or waiting for a pullback might not be the best obvious choice, especially in a market that is a bit more exuberant and is more narrative driven. If the narrative gets reinforced, it's probably better to buy than to wait as pullbacks are quite scarce when it comes to the, uh, semi stocks."*
+
+**Transaction:**
+- ~75 shares added (261sh PM29 → 336sh PM33) at ~€63.90 spot = ~€4,793 deployment
+- BEP weighted from €50.039973 → €53.669443 = +€3.629470 per share
+- €10K total add intent per PM30 forward decision-intent NOW COMPLETE (tranche-1 €5K PM30 + tranche-2 €5K PM33)
+
+**Discipline observation:** User's narrative-driven entry rationale REVERSED the PM30 "DCA wait for down day" framing without waiting for explicit down day. Same rationale also applied to NBIS NEW position + SUMCO add same day (see `portfolio/changes.md` PM33 + `companies/NBIS/thesis.md` PM33). User chose conviction over wait-discipline per AUTO-EXECUTE STRENGTHENING.
+
+**Thesis status:** PM32 STRONGEST REINFORCE intact (TrendForce 2026-06-17 BOM verification + Tome plant new info + supply constraint window 3-5 quarters minimum). NO trim signals triggered (pre-registered 3 triggers + 1 novel candidate #4 ODM channel-stuffing all NOT yet fired).
+
+**Cluster impact post-tranche-2:**
+- Physical AI / MLCC cluster: ~19% (PM29) → ~18% of invested (diluted by NBIS + SUMCO simultaneous adds)
+- MURATA single-name concentration: now 336sh × €63.90 = €21,470 = ~18% of invested
+
+**Position implication: 🟡 HOLD — no further size change** — €10K total add COMPLETE; pre-registered trim triggers UNCHANGED; PM32 NOVEL TRIM-SIGNAL CANDIDATE #4 (ODM channel-stuffing reversal H1 2027) WATCH active; next material thesis events Murata Q1 FY27 earnings (~Jul 2026) + Q4 2026 ODM order data + Q1 2027 channel inventory commentary.
+
+---
+
 ## 🔴 2026-06-18 PM32 — TrendForce CSP In-House ASIC MLCC concentration release 2026-06-17 T1 PRIMARY → STRONGEST REINFORCE + Murata Tome plant NEW INFO + NOVEL TRIM-SIGNAL CANDIDATE registered (ODM channel-stuffing reversal H1 2027 candidate)
 
 Per `signals/cross-source-log/2026-06-18-pm32-trendforce-mlcc-csp-asic-concentration-h2-26-bom-mi450-7-3x-vera-rubin-1-56x-murata-strongest-reinforce-novel-trim-signal-odm-hoard.md` (1 Opus subagent verification TWENTY-NINTH operational Rule #16). **TrendForce 2026-06-17 PRIMARY** ([trendforce.com presscenter 20260617-13107](https://www.trendforce.com/presscenter/news/20260617-13107.html)) = most powerful single confirmation of Murata thesis since July 2025 47μF 0402 product announcement. **BOM-level demand verified:** AMD MI450 47μF 2.5V X6S 0402 1,440 → **10,544 units per board** (~7.3× via aluminum-electrolytic + tantalum → MLCC PDN architecture revision; world-first 47μF 0402 Murata-only product moat per [Murata 2025-07-10](https://www.murata.com/news/capacitor/ceramiccapacitor/2025/0710)) + NVIDIA Vera Rubin 100μF 4V X6S 0805 320 → **500 units per board** (~1.56×). **Pricing power thesis ratified:** April 2026 15-35% price hike already in effect; B/B ratio Murata above 1.0; lead times 8 → 20 weeks for high-cap X6S.

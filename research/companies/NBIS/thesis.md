@@ -1,5 +1,34 @@
 # Nebius (NBIS) — Thesis
 
+**🔴 2026-06-18 PM33 — ENTRY EXECUTED today via user 4-screenshot disclosure; WL-ADD P2 → ACTIVE upgrade; transparent deviation flag per AUTO-EXECUTE STRENGTHENING discipline**
+
+**Tier:** ACTIVE (HELD 58sh; basis ~€14,907; spot €248; currently -€530.80 / -3.50% unrealized; ~12% of invested per holdings.md PM33 canonical)
+**Position size:** ~14% of invested (NBIS NEW cluster: Sovereign-AI compute)
+**Anti-fragility:** 3/5 scenarios (my model — strong in PC-14 sovereign-AI / non-US-jurisdiction compute scenarios; weak in US-hyperscaler-internalization scenarios)
+
+User rationale verbatim 2026-06-18 PM (also applies to MURATA tranche-2 + SUMCO add same day): *"in a market that is a bit more exuberant and is more narrative driven. If the narrative gets reinforced, it's probably better to buy than to wait as pullbacks are quite scarce when it comes to the, uh, semi stocks."*
+
+**🔴 Deviation flag (transparent per Critical Rule #11 AUTO-EXECUTE STRENGTHENING):**
+
+| Pre-committed AM7c framework | Actual execution PM33 | Delta |
+|---|---|---|
+| Sizing: starter €500-1,000 / max €3,000-5,000 | ~€14,907 basis | **3-5× the pre-committed max** |
+| Timing: do NOT chase post-Nasdaq-100 inclusion squeeze 2026-06-22; ideal entry = post-inclusion mechanical selling exhaustion OR macro pullback | Entered 4 days BEFORE Nasdaq-100 inclusion (2026-06-18 vs 2026-06-22) | **OPPOSITE of pre-committed timing** (entered into pre-inclusion momentum) |
+| Trigger framework: Signal #3 (NBIS + Lot 6 prime partnership) → small starter; Signal #6 (DSIT awards NBIS) → ACTIVE upgrade; Signal #8 (Yandex political block) → DOWNGRADE | Entered without Signal #3 or #6 firing; based on AM8 thesis directional upgrade H1+H2 ~45%→52-55% + user narrative-driven philosophy | Pre-committed signal-trigger discipline NOT followed |
+
+**Discipline-honest framing:** User chose conviction-led entry over pre-codified framework discipline. Decision is rational given (a) AM8 thesis directional strengthening, (b) ~€39K cash freed from KIOXIA restructure (€14.9K = ~14% of available cash deployed = reasonable in portfolio terms), (c) user's stated narrative-driven market observation. **But framework was explicitly violated.** My job per discipline: document transparently, NOT second-guess; cascade properly; update monitoring framework going forward.
+
+**Going-forward framework UNCHANGED:** All AM7c Signal #1-#8 trackable triggers + 6 falsifiers still apply for future sizing decisions + trim/exit triggers. Deviation is on ENTRY only; WATCH framework remains binding.
+
+**🔴 NEW post-PM33 entry-deviation falsifier registered:**
+- If Nasdaq-100 inclusion 2026-06-22 mechanical bid REVERSES sharply on inclusion day (>10% drop intraday) = market signal that pre-codified "wait for post-inclusion exhaustion" framework was right and user-entry-today was wrong → re-evaluate sizing
+
+**Codification candidate for June 24 monthly audit:** does "narrative-driven entry" override pre-committed wait triggers? If YES → re-calibrate all AM7c-style "wait for X" frameworks to acknowledge user preference for momentum-led entry. If NO → flag this PM33 deviation in monthly audit grading + strengthen framework discipline.
+
+**Position implication: 🟡 HOLD — no further size change pending pre-committed signal-trigger fires** — entry executed today via user-discretion deviation from AM7c framework; sizing now ~14% of invested (3× pre-codified max); going-forward framework UNCHANGED (Signal #1-#8 trackable triggers + 6 falsifiers all binding); next material event Nasdaq-100 inclusion 2026-06-22 (4 days; potential short-term volatility); next material thesis event DSIT ITT publication Q3 2026.
+
+---
+
 **Last updated:** 2026-06-15 PM2 (user methodology pushback on lag-vs-lead tracking variables → 8-subagent verification fan-out → 4 gates materially reframed + dedicated `tracking-variables.md` created with verified LEAD-indicator stack + Principle #38 candidate codified)
 
 ## 2026-06-15 PM2 back-reference — Tracking-variable framework rebuilt LEAD-first per user pushback

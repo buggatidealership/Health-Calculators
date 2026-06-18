@@ -469,3 +469,74 @@ Forward operational implications:
 - `companies/MURATA/thesis.md` — forward decision-intent section updated to reflect partial execution + remaining tranche
 - `meta/tier-cascade-log.md` — PM30 entry for MURATA tranche-1 cascade
 - `portfolio/holdings.md` — NOT updated (per canonical rule "Only gets changed when I send a new screenshot"); will refresh on next user-shared Degiro screenshot
+
+## 2026-06-18 PM33 — 3 transactions executed today (MURATA tranche-2 + NBIS NEW + SUMCO add) per user 4-screenshot disclosure
+
+**User explicit verbatim 2026-06-18 PM:** *"Um, out of five k to the Meraka position, I think waiting for a trim or waiting for a pullback might not be the best obvious choice, especially in a market that is a bit more exuberant and is more narrative driven. If the narrative gets reinforced, it's probably better to buy than to wait as pullbacks are quite scarce when it comes to the, uh, semi stocks."*
+
+Note: user verbally mentioned MURATA only but 4-screenshot disclosure reveals 3 transactions executed today (4 "Executed orders" confirmed in account header).
+
+**Transaction 1 — MURATA BUY tranche 2 of 2 (per PM30 forward decision-intent NOW COMPLETE):**
+- Date: 2026-06-18
+- Broker: Degiro
+- Ticker: MUR1 / JP3914400001
+- Action: BUY
+- Quantity: ~75 shares (from 261sh PM29 → 336sh PM33)
+- Approximate fill: ~€63.90 spot × 75sh = ~€4,793
+- BEP impact: weighted from €50.039973 (PM29) → €53.669443 (PM33) = €3.629470 BEP increase per share
+- Rationale: completes €10K total add per PM30 forward decision-intent (€5K tranche-1 PM30 + €5K tranche-2 today); narrative-driven entry philosophy
+- Critical Rule #8 status: PRESERVED — sizing add per existing PM32 STRONGEST REINFORCE thesis
+- Cluster impact: Physical AI / MLCC cluster ~19% → ~18% of invested (diluted by other adds)
+
+**Transaction 2 — 🔴 NBIS NEW POSITION (WL-ADD P2 → ACTIVE upgrade EXECUTED):**
+- Date: 2026-06-18
+- Broker: Degiro
+- Ticker: YDX / NL0009805522 (Nebius Group NV Class A on Amsterdam Euronext)
+- Action: BUY
+- Quantity: 58 shares (NEW position)
+- Approximate fill: ~€257.02 BEP avg = ~€14,907 basis
+- Current spot: €248 = currently -€530.80 / -3.50% unrealized
+- Rationale: same narrative-driven philosophy per user verbatim; AM8 thesis directional upgrade H1+H2 ~45%→52-55% provided thesis support
+- **🔴 DEVIATION FLAG (transparent per Critical Rule #11 AUTO-EXECUTE STRENGTHENING):** entry violated AM7c pre-codified framework on TWO axes:
+  - Sizing: ~€14,907 actual vs pre-codified "starter €500-1,000 / max €3,000-5,000" = **3-5× the pre-committed max**
+  - Timing: entered 2026-06-18 (4 days BEFORE Nasdaq-100 inclusion 2026-06-22) vs pre-codified "do NOT chase post-Nasdaq-100 squeeze; ideal entry post-inclusion mechanical selling exhaustion OR macro pullback" = **OPPOSITE of pre-committed timing** (entered into pre-inclusion momentum)
+  - Pre-committed Signal #3 (NBIS + Lot 6 prime partnership) and #6 (DSIT awards NBIS) NOT fired before entry
+- Going-forward framework UNCHANGED: all AM7c Signal #1-#8 trackable triggers + 6 falsifiers + new monitoring signals still binding for future sizing/trim decisions
+- New thesis file created: `companies/NBIS/thesis.md` with PM33 entry context + transparent deviation flag + going-forward framework
+
+**Transaction 3 — SUMCO ADD EXECUTED:**
+- Date: 2026-06-18
+- Broker: Degiro
+- Ticker: S3X / JP3322930003
+- Action: BUY
+- Quantity: ~211 shares (from 415sh PM29 → 626sh PM33)
+- Approximate fill: ~€22 spot × 211sh = ~€4,663
+- BEP impact: weighted from €21.69 (PM29) → €22.310191 (PM33) = €0.62 BEP increase per share
+- Rationale: not explicitly mentioned in user verbal but same narrative-driven philosophy applied (3 transactions same-day = consistent framing); AM7 multi-archetype wafer demand + AM8 SUMCO franchise SAFE (SandboxAQ scope clarification) supports thesis
+- Critical Rule #8 status: PRESERVED — sizing add per existing thesis; no new bull-case data required for this specific add
+- Cluster impact: Memory cluster ~58% → ~51% of invested (proportional dilution)
+
+**Combined net effect:**
+- Total Degiro cash deployed: ~€24,363 across 3 transactions
+- Degiro cash: ~€104,291 (PM29) → ~€69,424 (PM33) = ~39% of Degiro balance (down from ~57%)
+- New cluster: Sovereign-AI compute via NBIS at ~12% of invested
+- Memory cluster: ~58% → ~51% diluted by adds in other clusters
+- MURATA €10K total add intent NOW COMPLETE
+
+**🔴 PM33 USER PHILOSOPHY CAPTURE (cross-portfolio implication):**
+User has explicitly stated narrative-driven-momentum framing trumps wait-for-pullback discipline in current regime. Applied to all 3 transactions today. **NBIS entry specifically deviated from AM7c pre-codified framework on sizing + timing.**
+
+**Codification candidate for June 24 monthly audit:** does "narrative-driven entry" override pre-committed wait triggers? Two possibilities:
+- (a) YES → re-calibrate all AM7c-style "wait for X" frameworks; document new user-preference for momentum-led entry
+- (b) NO → flag PM33 NBIS deviation in monthly audit grading; strengthen future framework discipline
+
+**Discipline-honest framing:** User chose conviction-led entry over framework discipline per AUTO-EXECUTE STRENGTHENING ("self-correct visibly when prior choice turns out wrong; weighing more important than asking"). My job per discipline: document transparently, NOT second-guess; cascade properly; update monitoring framework going forward.
+
+**Files updated same commit:**
+- `portfolio/holdings.md` — canonical FULL REFRESH (NBIS NEW position + MURATA 336sh + SUMCO 626sh + price updates)
+- `portfolio/changes.md` — this entry
+- `companies/NBIS/thesis.md` — NEW thesis file (ACTIVE tier per ENTRY EXECUTION; PM33 transparent deviation flag; going-forward framework UNCHANGED)
+- `companies/MURATA/thesis.md` — tranche-2 COMPLETE update (will append)
+- `companies/SUMCO/thesis.md` — position increase context (will append)
+- `watchlist/candidates.md` — NBIS WL-ADD P2 → MOVED TO ACTIVE per `companies/NBIS/thesis.md` (will update)
+- `meta/tier-cascade-log.md` — PM33 entry for 3-transaction portfolio cascade

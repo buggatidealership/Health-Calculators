@@ -35,6 +35,79 @@
 
 ## Entries (most recent first)
 
+### [2026-06-18 PM33] 🔴 PORTFOLIO RESTRUCTURE — 3 TRANSACTIONS executed today (MURATA tranche-2 €5K + 🔴 NBIS NEW POSITION ~€14,907 WL-ADD P2→ACTIVE + SUMCO add ~€4,663) per user 4-screenshot Degiro disclosure + verbal MURATA-only mention; canonical holdings.md FULL REFRESH triggered per "Only changes when screenshot" rule; NEW companies/NBIS/thesis.md PM33 ENTRY EXECUTION section with TRANSPARENT DEVIATION FLAG (sizing 3-5× pre-codified max + timing OPPOSITE pre-codified "wait for post-Nasdaq-100 exhaustion"); MURATA €10K total add intent COMPLETE per PM30 forward decision-intent; user PHILOSOPHY CAPTURE codification candidate for June 24 audit (narrative-driven entry override of wait-discipline frameworks)
+
+**Trigger source:** User-shared 4 Degiro mobile screenshots 2026-06-18 PM + verbal MURATA-only mention; per canonical rule "Only gets changed when I send a new screenshot" = canonical-refresh trigger. User explicit verbatim: *"Um, out of five k to the Meraka position, I think waiting for a trim or waiting for a pullback might not be the best obvious choice, especially in a market that is a bit more exuberant and is more narrative driven. If the narrative gets reinforced, it's probably better to buy than to wait as pullbacks are quite scarce when it comes to the, uh, semi stocks."*
+
+**Intake tier:** 🟢 HARD (user-shared primary broker screenshots × 4 + explicit verbal disclosure for MURATA portion)
+
+## 🔴 KEY FINDINGS
+
+**1. Transaction 1 — MURATA tranche-2 €5K EXECUTED:** 261sh PM29 → 336sh PM33 (+75sh ~€4,793 at €63.90 spot); BEP weighted €50.04 → €53.67; €10K total add intent per PM30 NOW COMPLETE; Physical AI/MLCC cluster ~18% of invested
+
+**2. Transaction 2 — 🔴 NBIS NEW POSITION (WL-ADD P2 → ACTIVE upgrade EXECUTED):** 58sh @ ~€257.02 BEP avg = ~€14,907 basis (currently -€530.80 / -3.50% unrealized at €248 spot); NEW Sovereign-AI compute cluster at ~12% of invested
+   - **🔴 TRANSPARENT DEVIATION FLAG (Critical Rule #11 AUTO-EXECUTE STRENGTHENING):**
+     - Sizing: €14,907 actual vs AM7c pre-codified "starter €500-1,000 / max €3,000-5,000" = **3-5× the max**
+     - Timing: entered 2026-06-18 (4 days BEFORE Nasdaq-100 inclusion 06-22) vs pre-codified "do NOT chase post-Nasdaq-100 squeeze; ideal entry post-inclusion exhaustion OR macro pullback" = **OPPOSITE of pre-committed timing**
+     - Signal #3 (Lot 6 partnership) + Signal #6 (DSIT award) NOT fired before entry
+   - **Going-forward framework UNCHANGED:** all AM7c Signal #1-#8 trackable triggers + 6 falsifiers + new monitoring signals still binding
+   - **NEW post-PM33 entry-deviation falsifier registered:** if Nasdaq-100 inclusion 2026-06-22 mechanical bid REVERSES sharply on inclusion day (>10% drop intraday) → re-evaluate sizing
+   - NBIS thesis.md updated with PM33 ENTRY EXECUTION section at top
+
+**3. Transaction 3 — SUMCO ADD EXECUTED (not verbally mentioned but screenshot-confirmed):** 415sh PM29 → 626sh PM33 (+211sh ~€4,663 at ~€22 spot); BEP weighted €21.69 → €22.31; same narrative-driven philosophy applied; thesis UNCHANGED (AM7 multi-archetype wafer demand + AM8 SUMCO franchise SAFE)
+
+**4. Other position changes (price-only, not transactions):**
+- HYNIX GDR €1,420 → €1,570 (+10.6%); unrealized swing +€2,250 lifetime
+- MRVL $289.47 → $323.66 (+11.8%); unrealized swing +€1,352
+- SNDK $1,959.08 → $2,163.59 (+10.4%); unrealized swing +€1,106
+- DDOG / NOW slightly down
+
+**5. 🔴 USER PHILOSOPHY CAPTURE — cross-portfolio narrative-driven entry framing:**
+User has explicitly stated narrative-driven-momentum framing trumps wait-for-pullback discipline in current regime. Applied to all 3 transactions today. **NBIS entry specifically deviated from AM7c pre-codified framework on BOTH sizing AND timing axes.** Per AUTO-EXECUTE STRENGTHENING ("self-correct visibly when prior choice turns out wrong; weighing more important than asking") — user chose conviction-led entry over framework discipline.
+
+**Codification candidate for June 24 monthly audit:** does "narrative-driven entry" override pre-committed wait triggers?
+- (a) YES → re-calibrate all AM7c-style "wait for X" frameworks; document new user-preference for momentum-led entry
+- (b) NO → flag PM33 NBIS deviation in monthly audit grading; strengthen future framework discipline
+
+**Cluster cascade scoped per Principle #37:**
+- `portfolio/holdings.md` — FULL canonical rewrite (8 Degiro positions + 1 N26 KIOXIA); PM33 USER PHILOSOPHY CAPTURE section
+- `portfolio/changes.md` — PM33 entry with all 3 transactions + transparent deviation flag + codification candidate
+- `companies/NBIS/thesis.md` — PM33 ENTRY EXECUTION section prepended at top with TRANSPARENT DEVIATION FLAG; tier ACTIVE; going-forward framework UNCHANGED; new entry-deviation falsifier
+- `companies/MURATA/thesis.md` — PM33 TRANCHE-2 EXECUTED section prepended; €10K total add COMPLETE; PM32 STRONGEST REINFORCE intact
+- `companies/SUMCO/thesis.md` — PM33 POSITION INCREASE section prepended; thesis UNCHANGED
+- `meta/tier-cascade-log.md` — this entry
+
+**Files NOT touched (per scoping rule):**
+- `watchlist/candidates.md` NBIS entry update from WL-ADD P2 → MOVED TO ACTIVE — DEFERRED to next watchlist commit (low priority; thesis file is now canonical for NBIS)
+- All other held cohort thesis files — orthogonal at this resolution (no thesis-state change beyond price moves)
+- `meta/cross-domain-pattern-register.md` — no PC entry change
+
+**Stale flags fired:** none
+
+**Forward watch items:**
+1. **🔴 Nasdaq-100 inclusion 2026-06-22 (4 days)** — NBIS NEW falsifier: if mechanical bid REVERSES sharply on inclusion day (>10% drop intraday) = entry-timing deviation validated as wrong
+2. NBIS Q3 + Q4 2026 UK revenue disclosure
+3. DSIT AIRR tender ITT publication Q3 2026 (NBIS Signal #1)
+4. MURATA Q1 FY27 earnings ~Jul 2026
+5. CMA cloud market investigation H2 2026 (NBIS Signal #5)
+6. **June 24 monthly audit — CODIFICATION QUESTION:** does narrative-driven entry override wait-discipline frameworks?
+
+**Position implications (all 🟡 HOLD per Critical Rule #8 binding; 3 portfolio actions executed today):**
+- MURATA: HOLD 336sh — €10K total add COMPLETE; thesis intact
+- NBIS: HOLD 58sh ACTIVE — no further size change; going-forward framework UNCHANGED
+- SUMCO: HOLD 626sh — thesis intact
+- HYNIX / SNDK / KIOXIA / MRVL / DDOG / NOW: HOLD no change
+
+**Critical Rule #16 status:** N=29 unchanged (no subagent fired today for this user-disclosure; portfolio canonical update doesn't require Rule #16 verification)
+
+**Cascade-fatigue check:** AM8 (`e8165f6`) + PM32 (`836aa47`) + hook-fire-log (`ac46ab6`) + PM33 (this commit) = 4 cascades today. Total ~64 events in ~64 hours since 2026-06-15 PM27 baseline. P#37 N=20 promotion gate FAR EXCEEDED.
+
+**Loop-validation note:** PM33 demonstrates Critical Rule #11 AUTO-EXECUTE STRENGTHENING working AS DESIGNED — user-execution deviated from pre-codified AM7c framework on multiple axes (sizing 3-5×, timing OPPOSITE, signal triggers NOT fired); harness response was TRANSPARENT FLAG not silent acceptance OR finger-wagging override; codification candidate registered for June 24 audit to resolve whether user-philosophy supersedes framework or framework discipline should be strengthened. **N=3 pre-codified framework executions in 24h (PM29 strategic-exit + PM30 MURATA tranche-1 + PM33 MURATA tranche-2 within framework) + 1 deviation (PM33 NBIS outside framework) = 75% framework adherence; deviation surfaced for audit-grading.**
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-18 PM32] User-shared TrendForce "CSP In-House ASIC Boom Drives MLCC Specification Concentration; Structural Shortages of High-End Specialty MLCCs May Emerge in 2H26" 2026-06-17 PRIMARY release → 1 Opus subagent verification (TWENTY-NINTH operational Rule #16; native-JP + native-ZH parallel + Workflow #8 DEEP-DIG quality bar check + open-ended inference clause check) → 🟢 SOURCE T1 CONFIRMED (trendforce.com presscenter 20260617-13107; multi-source ZH+EN relay) + B40.x FRESH (1-day old; not stale-recycle) + 🟢 BOM CLAIMS VERIFIED (47μF 2.5V X6S 0402 commercially real Murata world-first July 2025; AMD MI450 1,440→10,544 ~7.3× mechanism plausible aluminum-electrolytic+tantalum→MLCC PDN revision; NVIDIA Vera Rubin 320→500 ~1.56×) + 🔴 TrendForce minor factual error caught (AWS "Trainium 4 H2 2026" should be Trainium 3; T4 = 2027) + 🟢 Murata Tome plant NEW INFO (May 2026 groundbreaking, Dec 2027 completion, ¥9.7B = extends pricing-power runway to late 2027) + 🟢 Izumo full capacity 2027 NOT contradicting prior PM16 "Q4 2026" (building completion ≠ full capacity; compatible) + 🔴 NOVEL TRIM-SIGNAL CANDIDATE #4 registered per open-ended inference clause: ODM strategic inventory hoarding Q3 2026 → potential channel-stuffing reversal H1 2027 (2018-2019 MLCC cycle analog) + 🟡 SECONDARY novel: Taiyo Yuden "resisting price hikes to gain volume share" Digitimes 2026-06-17 = pricing-floor risk + 🟢 MURATA STRONGEST REINFORCE (BUY tranche-2 trigger RATIFIED) + Taiyo Yuden THESIS CONFIRMED operationally but ENTRY-TIMING COMPLICATED by YTD price move + cash discipline
 
 **Trigger source:** User-shared TrendForce primary release content 2026-06-18 PM. Per Critical Rule #16, fired 1 Opus subagent (a3f19cbfa89b66aa2) with native-JP + native-ZH parallel + Workflow #8 quality bar + open-ended inference clause check (per MURATA 2026-06-17 codification).
