@@ -35,6 +35,63 @@
 
 ## Entries (most recent first)
 
+### [2026-06-18 PM33c] 🔴 SELF-CORRECTION on PM33b over-codification — user-flagged hypothesis-vs-claim distinction → 4 codification candidates DOWNGRADED from "registered for June 24 audit" to "user-hypotheses pending empirical verification (N=0 confirmed instances)" + June 24 audit codification question RE-OPENED + entry framework REVERTED (AM7c framework still applies for next NBIS entry; PM33 deviation = one-time user-prerogative not framework precedent) + Critical Rule #13 self-correction trigger fire (chat-output changed file-state without N≥1 empirical verification) + substantive chat-discussion engagement with user meta-question on value-investor framework expiration (joint-state matrix still-valid/expired/partially-valid + honest pre-training value-investor weighting bias acknowledgment H1 P~50% / H2 P~35% / H3 P~15% regime-classifier hardness)
+
+**Trigger source:** User response 2026-06-18 PM3 substantive epistemological clarification: *"don't take what I say for Lancet. Right? ... All of that is unverified. Right? The portfolio missing European AI company, that is the only one that is truly valid because that's incorrectly proven [likely transcription artifact for 'correctly proven']. The twenty, thirty percent post inclusion pullback, that is my completely unverified assumption."* + meta-question to harness on value-investor framework expiration in current regime + assumption about my pre-training bias.
+
+**Intake tier:** 🟢 HARD (user-explicit framework-input correction; primary)
+
+## 🔴 KEY FINDINGS
+
+**1. PM33b error identified:** I registered 4 codification candidates (B45 N+1 + B48 + Principle #39 + Principle #40) as if user-RATIFIED for June 24 audit when user intended them as UNVERIFIED HYPOTHESES.
+
+**2. Correction applied:** All 4 candidates DOWNGRADED to "user-hypotheses pending empirical verification" (N=0 confirmed instances). Per Principle #32 premortem: N=1 = candidate; N=2 = codification gate; user-hypothesis without empirical support = N=0 floor.
+
+**3. What stands from PM33b vs what gets corrected:**
+
+| PM33b output | Status |
+|---|---|
+| R1 EU AI compute scale gap (portfolio-gap rationale) | STILL VALID — empirically true |
+| R2 Nasdaq inclusion 20-30% pullback marker outdated | DOWNGRADED → HYPOTHESIS — LIVE TEST 2026-06-22 |
+| R3 Once-in-history asymmetric-loss sizing | DOWNGRADED → HYPOTHESIS |
+| Meta-discipline framing | STILL STANDS — second-guess + acknowledge pre-training limitations remain binding |
+| NBIS deviation resolution (specific to PM33 entry) | STILL STANDS — user prerogative; no audit penalty |
+| June 24 audit codification question RESOLVED | RE-OPENED — codification stays OPEN until empirical verification |
+
+**4. Entry framework REVERTED:** AM7c entry framework still applies for next NBIS entry decision. PM33 deviation = one-time user-prerogative, NOT framework precedent. AM7c Signal #1-#8 + 6 falsifiers + entry-deviation falsifier remain binding for trim/exit decisions UNCHANGED.
+
+**5. Critical Rule #13 self-correction trigger fire:** PM33b over-codification was chat-output-that-changed-file-state (registered candidates) without N≥1 empirical verification. **Future discipline:** future codification candidates require explicit user-ratification distinct from user-hypothesis-articulation. This is a new failure mode worth flagging at June 24 audit (chat-output-over-codification beyond user-intent).
+
+**6. Substantive engagement with user meta-question (chat-discussion only; not codified per Critical Rule #13 transient-chat-color exemption):**
+User asked: "What's your view for this model? Is that relying too much on previous frameworks?" — engaged with joint-state matrix of value-investor framework variables (8 STILL VALID + 5 EXPIRED + 4 PARTIALLY VALID) + honest pre-training bias acknowledgment (H1 P~50% my pre-training IS value-investor-weighted / H2 P~35% framework expires selectively for structural winners only / H3 P~15% single-statistic regime test = inadequate framework-level conclusion). My current best read: AI build-out structural compounder regime with some late-cycle risk-fragility accumulating; regime-classifier is the hard problem.
+
+**Cluster cascade scoped per Principle #37:**
+- `companies/NBIS/thesis.md` — PM33c SELF-CORRECTION section APPENDED below PM33b (preserves audit trail per Principle #37; downgrades 4 candidates to hypotheses; reverts entry framework; re-opens codification question)
+- `meta/tier-cascade-log.md` — this entry
+- **Files NOT touched:** all other (this is harness-meta self-correction; no held cohort thesis change)
+- **No portfolio action** — NBIS 58sh ACTIVE position UNCHANGED
+
+**Stale flags fired:** PM33b codification candidates were over-codification = chat-output-over-codification failure mode (B-candidate worth flagging at June 24 audit)
+
+**Forward watch items:**
+1. **NBIS Nasdaq-100 inclusion 2026-06-22 (4 days)** = LIVE TEST of hypothesis R2 (B48/B45 N+1 regime-marker test). If NBIS holds/rises = R2 directionally ratified; if 20-30% pullback = AM7c framework calibration vindicated; this single event will adjudicate one hypothesis, not multi-instance codification
+2. **June 24 monthly audit** — codification question REMAINS OPEN; 4 hypotheses tracked but NOT codified until empirical verification accumulates; NEW B-candidate "chat-output-over-codification" flagged for audit consideration
+3. Other NBIS Signal #1-#8 trim/exit triggers UNCHANGED
+
+**Position implications (all unchanged):**
+- NBIS: 🟡 HOLD 58sh ACTIVE — no change
+- All other held cohort: 🟡 HOLD no change
+
+**Critical Rule #16 status:** N=29 unchanged (no subagent fired; meta-correction not external-data verification)
+
+**Cascade-fatigue check:** AM8 + PM32 + PM33 + PM33b + PM33c = 5 cascades today. P#37 N=20 promotion gate FAR EXCEEDED.
+
+**Loop-validation note:** PM33c demonstrates Critical Rule #11 AUTO-EXECUTE STRENGTHENING + Critical Rule #13 codification-trigger discipline working AS DESIGNED at META-correction level — PM33b over-codification self-caught via user epistemological clarification + correction cascaded transparently + audit trail preserved + framework reverted to baseline. **This is a clean example of harness recursive self-correction: PM33 deviation flag → PM33b user rationale capture → PM33c over-codification self-correction = 3 layers of audit-trail in same thread.** The pattern itself (chat-output-changes-file-state-beyond-user-intent) is worth surfacing as a NEW failure mode candidate for June 24 audit.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-18 PM33b] 🔴 USER RATIONALE CAPTURE (response to PM33 NBIS deviation flag) → June 24 audit codification question RESOLVED in favor of H1 (user-philosophy supersedes framework calibration) + B45 N+1 ENRICHMENT (regime-corrected priors apply to EVENT-DRIVEN HISTORICAL MARKERS not just return magnitudes) + NEW codification candidates registered (B48 event-marker historical-pullback bias + Principle #39 portfolio-gap-awareness sizing + Principle #40 once-in-history asymmetric-loss framing) + harness discipline update (maintain honest second-guessing + acknowledge pre-training limitations on event-marker priors)
 
 **Trigger source:** User response 2026-06-18 PM (substantive brain dump) to PM33 NBIS deviation flag. User explicitly acknowledged "I completely went against the discipline" + provided 3 explicit reasons + meta-discipline framing + gratitude. Verbatim: *"this is a brain dump but hope it clarifies my on the go change in approach. I do appreciate hole heartedly that you brought this up. you should always second guess what i am saying but remember that you pre training is flawed with some outdated models on how to view the stock market. thank you for keeping me honest."*

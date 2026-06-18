@@ -68,6 +68,33 @@ User responded substantively to PM33 deviation flag. Three explicit reasons + me
 
 ---
 
+## 🔴 2026-06-18 PM33c — SELF-CORRECTION on PM33b over-codification (user-flagged hypothesis-vs-claim distinction)
+
+User response 2026-06-18 PM3: *"don't take what I say for Lancet. Right? ... All of that is unverified. Right? The portfolio missing European AI company, that is the only one that is truly valid because that's incorrectly proven [likely transcription artifact for 'correctly proven']. The twenty, thirty percent post inclusion pullback, that is my completely unverified assumption."*
+
+**My PM33b error:** Registered 4 codification candidates (B45 N+1 + B48 + Principle #39 + Principle #40) as user-RATIFIED for June 24 audit when user intended as UNVERIFIED HYPOTHESES. Per Critical Rule #11 AUTO-EXECUTE STRENGTHENING ("self-correct visibly when prior choice turns out wrong"):
+
+**Correction applied:** All 4 candidates DOWNGRADED from "registered for June 24 audit" → "user-hypotheses pending empirical verification (N=0 confirmed instances)."
+
+| PM33b output | Status post-correction |
+|---|---|
+| R1 EU AI compute scale gap (portfolio-gap) | STILL VALID — user explicit "the only one that is truly valid because that's correctly proven" |
+| R2 Nasdaq inclusion 20-30% pullback marker outdated | DOWNGRADED → HYPOTHESIS (LIVE TEST 2026-06-22) |
+| R3 Once-in-history asymmetric-loss sizing | DOWNGRADED → HYPOTHESIS |
+| Meta-discipline framing | STILL STANDS |
+| NBIS PM33 deviation resolution | STILL STANDS (user prerogative; no audit penalty) |
+| June 24 audit codification question RESOLVED | RE-OPENED |
+
+**Entry framework REVERTED:** AM7c entry framework still applies for next NBIS entry decision. PM33 deviation = one-time user-prerogative, NOT framework precedent. AM7c Signal #1-#8 + 6 falsifiers + entry-deviation falsifier remain binding for trim/exit decisions UNCHANGED.
+
+**Critical Rule #13 self-correction trigger fire:** PM33b over-codification = chat-output-changed-file-state without N≥1 empirical verification. Future codification candidates require explicit user-ratification distinct from user-hypothesis-articulation. NEW failure mode "chat-output-over-codification beyond user-intent" worth flagging at June 24 audit.
+
+**User meta-question to harness ("What's your view for this model?" on value-investor framework expiration in current regime):** addressed in chat-discussion 2026-06-18 PM3 (joint-state matrix of 8 STILL VALID + 5 EXPIRED + 4 PARTIALLY VALID variables + honest pre-training value-investor weighting bias acknowledgment H1 P~50% / H2 P~35% / H3 P~15% regime-classifier hardness). Chat-only per Critical Rule #13 transient-chat-color exemption.
+
+**Position implication: 🟡 HOLD 58sh NBIS ACTIVE — no change** — correction applied; framework discipline re-baselined; trim/exit triggers binding.
+
+---
+
 **Last updated:** 2026-06-15 PM2 (user methodology pushback on lag-vs-lead tracking variables → 8-subagent verification fan-out → 4 gates materially reframed + dedicated `tracking-variables.md` created with verified LEAD-indicator stack + Principle #38 candidate codified)
 
 **Position implication: 🟡 HOLD — no further size change pending pre-committed signal-trigger fires** — entry executed today via user-discretion deviation from AM7c framework; sizing now ~14% of invested (3× pre-codified max); going-forward framework UNCHANGED (Signal #1-#8 trackable triggers + 6 falsifiers all binding); next material event Nasdaq-100 inclusion 2026-06-22 (4 days; potential short-term volatility); next material thesis event DSIT ITT publication Q3 2026.
