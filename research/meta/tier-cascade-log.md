@@ -35,6 +35,67 @@
 
 ## Entries (most recent first)
 
+### [2026-06-18 AM9] 🟢 Tim Cook WSJ memory price-hike OEM-tier ratification + Subagent B forward-signal cluster
+
+**Trigger source:** User-shared 2026-06-18 AM AI news brief (multi-item). 2 Opus 4.8 subagents parallel-fired per Critical Rule #16 (always-verify-no-ask).
+
+**Intake tier:** 🟢 HARD (Subagent A — T1 WSJ Cook direct quote + multi-source corroboration) + 🟡 DIRECTIONAL (Subagent B — T1/T2 verified but forward-signal cluster below 12-month catalyst threshold)
+
+**Source:** Master cross-source-log `signals/cross-source-log/2026-06-18-am9-morning-brief-2subagent-verification-tim-cook-apple-memory-openai-shazeer-estonia-uk-ai.md` (consolidates both subagent verdicts + held cohort cascade matrices + position implications + N=20+ T1/T2 source URLs)
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/HYNIX/thesis.md` § AM9 cross-ref (prepended) — claim "OEM-tier pricing pass-through ratified at Apple" 🟡 → 🟢 (was hyperscaler-tier confirmed via AM4/AM7; now consumer-OEM-tier added)
+- `companies/SNDK/thesis.md` § AM9 cross-ref (prepended) — claim "NAND pricing pass-through working" 🟡 → 🟢 (Cook OEM acceptance + SNDK +11% real-time market validation = thesis FULLY VALIDATED)
+- `companies/KIOXIA/thesis.md` § AM9 cross-ref (prepended) — claim "Yokkaichi JV pricing intact" 🟡 → 🟢 (Apple paying 2× Kioxia NAND directly confirmed)
+- `signals/cross-source-log/2026-06-18-am9-...md` — NEW master cross-source-log artifact
+
+**Files NOT touched (no claim intersection per Principle #37 scoped-cascade discipline):**
+- `companies/MRVL/thesis.md`, `companies/MURATA/thesis.md`, `companies/SUMCO/thesis.md` — orthogonal to memory pricing
+- `companies/DDOG/thesis.md`, `companies/NOW/thesis.md`, `companies/NBIS/thesis.md` — Subagent B items (Shazeer/Estonia/UK Cabinet) below thesis-impact threshold per Critical Rule #11 detectability discipline (avoiding rote "HOLD-no-change" cascade entries; audit trail preserved in master cross-source-log only)
+- All `sector/`, `meta/cross-domain-pattern-register.md` (Estonia PC-14 N+1 candidate but 2027+ pilot timeline = forward signal NOT codification gate; audit trail preserved for June 24 monthly audit consideration)
+
+**Stale flags fired:** none
+
+**Critical brief-framing corrections embedded in master cross-source-log:**
+1. Cook venue is WSJ (NOT BBC — BBC was secondary aggregator + Omdia analyst color)
+2. "Fourfold" magnitude is journalist/analyst characterization (NOT Cook direct quote; Cook qualitative only — "huge" / "unsustainable")
+3. HBM NOT mentioned by Cook (HBM is hyperscaler-tier; Apple uses LPDDR — "fourfold" in some secondary sources CONFLATES HBM with LPDDR pricing)
+4. Shazeer brief framing "Google Character.AI founder" CONFLATES two roles across 2-yr gap (he was Google VP Engineering + Gemini co-lead at point of hire after $2.7B Aug 2024 return; Character.AI was 2021-2024 prior chapter)
+5. UK "AI influencer" is The Register editorial framing of job-spec language; official title = "AI Innovation Director, Future Civil Service, Cabinet Office" SCS2 (£100,000-£163,000 per Women in Tech Jobs T2)
+
+**B40.x freshness:** all 4 items FRESH ≤48h. PASS.
+
+**B45 regime priors check:** Apple historical base rate for public price-hike warning = ~10+ years (Apple absorbed tariffs 2018-19, 2018 DRAM spike, COVID supply chain) — Cook public "unavoidable" OUTSIDE historical distribution. Genuine supply-demand inflection from AI wafer reallocation; NOT reflexive "exhaustion" language; multi-source verified at TrendForce + Kioxia management + Samsung/SK Hynix contract behavior. Regime is real; 2027+ duration is the open variable.
+
+**Triangulation check (Critical Rule #14):** TC-1 (memory tightness) gets OEM-tier ratification N+1 reinforcement. 3-source convergence at multi-tier validation: TrendForce contract data (supply-side) + Kioxia exec "sold out" (vendor-side) + Cook "unsustainable" (consumer-OEM-side) = triangulation threshold MET at OEM-tier. No new TC entry; logged in TC-1 trajectory via per-thesis updates.
+
+**Macro-anchor check (Critical Rule #15):** Cook quote IS macro-anchor — connects nitty-gritty per-name pricing thesis to CEO-tier institutional ratification. PASS.
+
+**Critical Rule #16 status:** N+2 verification fires (Subagent A Tim Cook + Subagent B Shazeer/Estonia/UK Cabinet) — both Opus 4.8 per user mandate; both required EXECUTE-WEB-SEARCHES re-fire directive embedded in initial prompt.
+
+**Forward watch items:**
+1. Apple FY26 Q3 earnings call (~Jul-Aug 2026) — explicit pricing + GM guidance
+2. iPhone 18 launch pricing (~Sep 2026) — base/Pro vs iPhone 17 actuals; demand-destruction test
+3. Other OEM follow-on — HP/Acer/ASUS H2 2026 earnings memory commentary
+4. Memory supplier IR on Apple LTA renegotiation — SK Hynix/Samsung quarterly cadence shift per Kuo; Q2 SK Hynix earnings = next data point
+5. 2027 NAND/DRAM supply adds — Kioxia/SK Hynix/Samsung capacity utilization for regime-change signal
+6. Estonia AI ID pilot 2027+ (PC-14 N+1 watch, not catalyst)
+7. UK Sovereign AI Unit £500M April 2026 procurement track (larger confirmed NBIS-relevant vector than Cabinet Office SCS2 hire)
+
+**Position implications (consolidated):**
+- HYNIX 🟢 HOLD 15sh GDR — no size change — OEM-tier ratification = STRONG REINFORCE
+- SNDK 🟢 HOLD 6sh — no size change — STRONG REINFORCE; +11% real-time market validation
+- KIOXIA 🟡 HOLD-until-falsifier ~€10K N26 — STRONG REINFORCE per Critical Rule #8 binding
+- DDOG / MRVL / MURATA / NOW / SUMCO / NBIS — orthogonal or mild-positive below thesis-impact threshold; no action
+
+**Cascade-fatigue check:** AM8 + PM32 + PM33 + PM33b + PM33c + AM9 = 6 cascades in 24h window. AM9 cleanly within Principle #37 scoped-cascade rule (3 thesis touches + 1 cross-source-log + 1 cascade-log = appropriate scope for T1 OEM-tier news + companion forward-signal cluster).
+
+**Loop-validation note:** AM9 demonstrates Critical Rule #16 (always-verify-no-ask) working as designed — both subagents fired in parallel without permission-asking; Subagent B caught 2 critical brief-framing errors (Shazeer Google-vs-Character.AI conflation; UK "AI influencer" vs official "AI Innovation Director" title) before they could propagate. Subagent A's "fourfold" magnitude check distinguished Cook direct quote ("huge" / "unsustainable") from journalist/analyst characterization — preserving B40.x verification discipline at the magnitude-substitution layer.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-18 PM33c] 🔴 SELF-CORRECTION on PM33b over-codification — user-flagged hypothesis-vs-claim distinction → 4 codification candidates DOWNGRADED from "registered for June 24 audit" to "user-hypotheses pending empirical verification (N=0 confirmed instances)" + June 24 audit codification question RE-OPENED + entry framework REVERTED (AM7c framework still applies for next NBIS entry; PM33 deviation = one-time user-prerogative not framework precedent) + Critical Rule #13 self-correction trigger fire (chat-output changed file-state without N≥1 empirical verification) + substantive chat-discussion engagement with user meta-question on value-investor framework expiration (joint-state matrix still-valid/expired/partially-valid + honest pre-training value-investor weighting bias acknowledgment H1 P~50% / H2 P~35% / H3 P~15% regime-classifier hardness)
 
 **Trigger source:** User response 2026-06-18 PM3 substantive epistemological clarification: *"don't take what I say for Lancet. Right? ... All of that is unverified. Right? The portfolio missing European AI company, that is the only one that is truly valid because that's incorrectly proven [likely transcription artifact for 'correctly proven']. The twenty, thirty percent post inclusion pullback, that is my completely unverified assumption."* + meta-question to harness on value-investor framework expiration in current regime + assumption about my pre-training bias.
@@ -88,7 +149,7 @@ User asked: "What's your view for this model? Is that relying too much on previo
 
 **Loop-validation note:** PM33c demonstrates Critical Rule #11 AUTO-EXECUTE STRENGTHENING + Critical Rule #13 codification-trigger discipline working AS DESIGNED at META-correction level — PM33b over-codification self-caught via user epistemological clarification + correction cascaded transparently + audit trail preserved + framework reverted to baseline. **This is a clean example of harness recursive self-correction: PM33 deviation flag → PM33b user rationale capture → PM33c over-codification self-correction = 3 layers of audit-trail in same thread.** The pattern itself (chat-output-changes-file-state-beyond-user-intent) is worth surfacing as a NEW failure mode candidate for June 24 audit.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** 085c925
 
 ---
 
