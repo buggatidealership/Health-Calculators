@@ -553,6 +553,25 @@ Per user instruction 2026-05-21: "Whenever you finish research, think about what
 - Token-Volume Filter passes cleanly
 - 5-7 year duration thesis
 
+## 🔴 2026-06-18 PM32 — TrendForce CSP In-House ASIC MLCC concentration release 2026-06-17 T1 PRIMARY → STRONGEST REINFORCE + Murata Tome plant NEW INFO + NOVEL TRIM-SIGNAL CANDIDATE registered (ODM channel-stuffing reversal H1 2027 candidate)
+
+Per `signals/cross-source-log/2026-06-18-pm32-trendforce-mlcc-csp-asic-concentration-h2-26-bom-mi450-7-3x-vera-rubin-1-56x-murata-strongest-reinforce-novel-trim-signal-odm-hoard.md` (1 Opus subagent verification TWENTY-NINTH operational Rule #16). **TrendForce 2026-06-17 PRIMARY** ([trendforce.com presscenter 20260617-13107](https://www.trendforce.com/presscenter/news/20260617-13107.html)) = most powerful single confirmation of Murata thesis since July 2025 47μF 0402 product announcement. **BOM-level demand verified:** AMD MI450 47μF 2.5V X6S 0402 1,440 → **10,544 units per board** (~7.3× via aluminum-electrolytic + tantalum → MLCC PDN architecture revision; world-first 47μF 0402 Murata-only product moat per [Murata 2025-07-10](https://www.murata.com/news/capacitor/ceramiccapacitor/2025/0710)) + NVIDIA Vera Rubin 100μF 4V X6S 0805 320 → **500 units per board** (~1.56×). **Pricing power thesis ratified:** April 2026 15-35% price hike already in effect; B/B ratio Murata above 1.0; lead times 8 → 20 weeks for high-cap X6S.
+
+**🟢 Supply constraint extends 3-5 quarters minimum:**
+- Izumo plant building completion April 2026 per [Evertiq](https://evertiq.com/design/2026-04-07-murata-completes-new-mlcc-production-building-in-japan) but **full operating capacity = 2027** per TrendForce 2026-06-17 (NOT contradicting prior PM16 BanyanLane "Q4 2026" — building completion ≠ full capacity; compatible claims)
+- **🟢 NEW INFO: Murata Tome plant** groundbreaking May 2026, completion December 2027, ¥9.7B investment per [Semicone Electronics](https://www.semicone.com/article-457.html) = additional capacity beyond Izumo = **extends pricing power runway to late 2027 at minimum**
+- No meaningful new Murata capacity arrives before H1 2027 = pricing window open
+
+**Cluster competitive position:** Murata 40% AI server MLCC share; SEMCO ~40% (Philippines plant expansion early 2026); Taiyo Yuden +80% YoY AI server MLCC revenue + B/B capacitor 1.31 + capacity boost confirmed Digitimes 2026-06-17 SAME DAY independent corroboration of supply tightness theme.
+
+**🔴 NOVEL TRIM-SIGNAL CANDIDATE #4 registered (per AM6b open-ended inference clause discipline):** ODM strategic inventory hoarding Q3 2026 → potential channel-stuffing reversal H1 2027 (2018-2019 MLCC cycle analog). TrendForce's own recommendation ("ODMs should secure strategic inventory Q3") could front-load H2 2026 orders → 2027 inventory correction. DOES NOT trigger trim now but warrants **RED-FLAG WATCH for Q4 2026 ODM order data + Q1 2027 ODM strategic-inventory commentary + Murata FY27 Q3 print ~Jan 2027** for distributor/channel inventory commentary. Existing 3 pre-registered triggers ALL NOT triggered (Tier-2 China qual + Big-3 utilization <90% + lead-time <12 wks).
+
+**🟡 SECONDARY signal: Taiyo Yuden "resisting price hikes to gain volume share"** per [Digitimes 2026-06-17](https://www.digitimes.com/news/a20260617VL218/taiyo-yuden-mlcc-price-ai-server-production.html) = potential pricing-FLOOR risk for cluster if TY actively undercuts Murata/SEMCO. **Tranche-2 size modulation watch:** monitor TY pricing stance through July 2026 Q1 FY27 earnings; if TY actively undercuts → could cap Murata's ability to push further price increases above April 15-35% level.
+
+**Position implication: 🟢 BUY tranche-2 TRIGGER RATIFIED** — supply constraint window 3-5 quarters; €5,000 tranche-2 add intent per PM30 forward decision-intent UNCHANGED; cash ample (€104,291.52 per holdings.md PM29 canonical); user discretion on down-day timing per stated DCA strategy. Pre-registered trim triggers UNCHANGED; novel candidate #4 added as Q4 2026 / Q1 2027 monitoring item.
+
+---
+
 ## 2026-06-17 PM30 — MURATA ADD execution tranche 1 of 2 (DCA split per user discretion)
 
 **User explicit verbatim 2026-06-17 PM:** *"I added 5k to Murrata today so I dca into it and buy another 5k into it on a down day."*

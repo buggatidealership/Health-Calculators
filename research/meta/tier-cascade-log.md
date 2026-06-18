@@ -35,6 +35,62 @@
 
 ## Entries (most recent first)
 
+### [2026-06-18 PM32] User-shared TrendForce "CSP In-House ASIC Boom Drives MLCC Specification Concentration; Structural Shortages of High-End Specialty MLCCs May Emerge in 2H26" 2026-06-17 PRIMARY release → 1 Opus subagent verification (TWENTY-NINTH operational Rule #16; native-JP + native-ZH parallel + Workflow #8 DEEP-DIG quality bar check + open-ended inference clause check) → 🟢 SOURCE T1 CONFIRMED (trendforce.com presscenter 20260617-13107; multi-source ZH+EN relay) + B40.x FRESH (1-day old; not stale-recycle) + 🟢 BOM CLAIMS VERIFIED (47μF 2.5V X6S 0402 commercially real Murata world-first July 2025; AMD MI450 1,440→10,544 ~7.3× mechanism plausible aluminum-electrolytic+tantalum→MLCC PDN revision; NVIDIA Vera Rubin 320→500 ~1.56×) + 🔴 TrendForce minor factual error caught (AWS "Trainium 4 H2 2026" should be Trainium 3; T4 = 2027) + 🟢 Murata Tome plant NEW INFO (May 2026 groundbreaking, Dec 2027 completion, ¥9.7B = extends pricing-power runway to late 2027) + 🟢 Izumo full capacity 2027 NOT contradicting prior PM16 "Q4 2026" (building completion ≠ full capacity; compatible) + 🔴 NOVEL TRIM-SIGNAL CANDIDATE #4 registered per open-ended inference clause: ODM strategic inventory hoarding Q3 2026 → potential channel-stuffing reversal H1 2027 (2018-2019 MLCC cycle analog) + 🟡 SECONDARY novel: Taiyo Yuden "resisting price hikes to gain volume share" Digitimes 2026-06-17 = pricing-floor risk + 🟢 MURATA STRONGEST REINFORCE (BUY tranche-2 trigger RATIFIED) + Taiyo Yuden THESIS CONFIRMED operationally but ENTRY-TIMING COMPLICATED by YTD price move + cash discipline
+
+**Trigger source:** User-shared TrendForce primary release content 2026-06-18 PM. Per Critical Rule #16, fired 1 Opus subagent (a3f19cbfa89b66aa2) with native-JP + native-ZH parallel + Workflow #8 quality bar + open-ended inference clause check (per MURATA 2026-06-17 codification).
+
+**Pre-subagent duplication check:** Article NOT previously shared per `companies/MURATA/thesis.md` + cross-source-log grep — Izumo plant referenced in PM16 but not these specific BOM numbers / CSP ASIC platform mapping / 8→20 wks X6S lead times / B/B since April 2026 / LTA priority allocation framework / Q3-Q4 2026 shortage conversion forecast.
+
+**Intake tier:** 🟢 HARD on source (TrendForce T1 PRIMARY + multi-source ZH/EN relay) + 🟢 HARD on directional BOM claims (mechanism verified via Digitimes March 2026 aluminum/tantalum→MLCC trend) + 🟡 MEDIUM on exact 10,544 figure (single-sourced TrendForce supplier survey; no SemiAnalysis-class teardown; ±20-30% uncertainty band on absolute, HIGH on directional) + 🔴 MINOR factual error (TrendForce Trainium 4 should be Trainium 3)
+
+**Sources (sample of key T1; full register in PM32 file):**
+- TrendForce: [presscenter 20260617-13107](https://www.trendforce.com/presscenter/news/20260617-13107.html)
+- Native-ZH relay: [TechNews 科技新報 2026-06-17](https://technews.tw/2026/06/17/csp-asic-mlcc-2h26/) + [第一財經 Yicai](https://www.yicai.com/news/103235013.html)
+- BOM mechanism: [Digitimes 2026-03-02 tantalum→MLCC trend](https://www.digitimes.com/news/a20260302PD222/ai-server-expansion-component-panasonic-infrastructure.html)
+- Murata 47μF 0402 world-first: [Murata 2025-07-10](https://www.murata.com/news/capacitor/ceramiccapacitor/2025/0710) + [BusinessWire 2025-07-09](https://www.businesswire.com/news/home/20250709615978/en/Murata-Begins-Worlds-First-Mass-Production-of-47F-Multilayer-Ceramic-Capacitor-in-0402-inch-Size)
+- Murata Izumo + Tome: [Evertiq April 2026](https://evertiq.com/design/2026-04-07-murata-completes-new-mlcc-production-building-in-japan) + [Semicone Tome](https://www.semicone.com/article-457.html)
+- Taiyo Yuden capacity boost: [Digitimes 2026-06-17](https://www.digitimes.com/news/a20260617VL218/taiyo-yuden-mlcc-price-ai-server-production.html)
+- TPU 8t/i: [Google blog 2026-04-22](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/)
+- Trainium 4 actual = 2027: [NextPlatform 2025-12-03](https://www.nextplatform.com/2025/12/03/with-trainium4-aws-will-crank-up-everything-but-the-clocks/)
+
+**Cluster cascade scoped per Principle #37:**
+- `companies/MURATA/thesis.md` — PM32 STRONGEST REINFORCE section added at top with Tome plant new info + NOVEL TRIM-SIGNAL CANDIDATE #4 registered + tranche-2 BUY trigger RATIFIED
+- `watchlist/candidates.md` — Taiyo Yuden entry-timing nuance: thesis confirmed operationally but ENTRY-TIMING COMPLICATED by YTD ~+447% + "resisting price hikes" Digitimes June 17 margin nuance; recommend 30-40% of intended position size if entering, add on pullback to FY26 earnings July/Aug 2026 — **DEFERRED to next watchlist commit (low priority; Taiyo Yuden not held)**
+- All other held cohort (HYNIX/SNDK/KIOXIA/SUMCO/MRVL/DDOG/NOW): orthogonal at this resolution; no thesis-state change
+
+**Files NOT touched:**
+- `companies/SNDK/thesis.md` + `companies/KIOXIA/thesis.md` + `companies/HYNIX/thesis.md` + `companies/SUMCO/thesis.md` + `companies/MRVL/thesis.md` + `companies/DDOG/thesis.md` + `companies/NOW/thesis.md` — orthogonal at this resolution
+- `watchlist/candidates.md` Taiyo Yuden entry update — deferred (low priority; not held; PM20 #1 ENTER entry-timing-accelerator status preserved from PM26)
+- `portfolio/*` — no position changes (€5K tranche-2 BUY intent UNCHANGED per PM30; user discretion on down-day timing)
+- `meta/cross-domain-pattern-register.md` — no PC entry change
+- `meta/biases-watchlist.md` B47 — N+2/N+3 evidence accruing (TrendForce assumed Trainium 4 H2 2026 without verifying current generation; closed-list pattern-matching blindness third-party instance) but DEFERRED to June 24 monthly audit batch
+
+**Stale flags fired:** none new (PM32 itself is FRESH; TrendForce Trainium 4 vs 3 = factual error not stale-recycle)
+
+**Forward watch items (PM32-specific):**
+1. **MURATA tranche-2 €5K execution** — user discretion; cash ample
+2. **Murata Q1 FY27 earnings (~Jul 2026)** — high-spec MLCC mass production timeline + April hike landing
+3. **Taiyo Yuden Q1 FY27 earnings (~Aug 2026)** — TY pricing stance verification (resist or align with Murata/SEMCO?) + FY27 guidance
+4. **🔴 Q4 2026 ODM order data + Q1 2027 ODM commentary** = pre-registered watch for NOVEL TRIM-SIGNAL CANDIDATE #4 (channel-stuffing reversal)
+5. CSP ASIC ramp confirmation: TPU 8t/i year-end + Trainium 3 H2 2026 + MTIA 400 H2 2026 actuals
+6. **Murata Izumo full capacity ramp 2027** + **Murata Tome plant completion Dec 2027** = supply normalization timing
+7. Chinese tier-2 (Three-Circle 300408.SZ / Fenghua 000636.SZ) AI-server-tier qualification breakthrough = pre-registered trim trigger #1
+
+**Position implications:**
+- **MURATA: 🟢 BUY tranche-2 TRIGGER RATIFIED** — €5,000 tranche-2 intent UNCHANGED per PM30; supply constraint window 3-5 quarters; cash ample (€104,291.52 per holdings.md PM29 canonical); user discretion on down-day timing
+- **Taiyo Yuden (WL P1 #1):** 🟡 THESIS CONFIRMED operationally; ENTRY-TIMING COMPLICATED by YTD ~+447%; if entering, size 30-40% of intended position
+- **HYNIX / SNDK / KIOXIA / SUMCO / MRVL / DDOG / NOW: 🟡 HOLD no change** — orthogonal
+
+**Critical Rule #16 operational validation: POSITIVE N=29 (Subagent today). Cumulative N=29.**
+
+**Cascade-fatigue check:** AM8 (`e8165f6`) + PM32 (this commit) = 2 cascades today. Total ~62 events in ~62 hours since 2026-06-15 PM27 baseline. P#37 N=20 promotion gate FAR EXCEEDED.
+
+**Loop-validation note:** PM32 demonstrates open-ended inference clause working AS DESIGNED — pre-registered triggers checked first (3/3 NOT triggered), then lateral inference surfaced 1 NOVEL trim-signal candidate (ODM channel-stuffing reversal H1 2027) + 1 SECONDARY signal (TY price-resist margin nuance) + 1 thesis EXTENDER (Murata Tome plant) + 1 TrendForce minor factual error caught (Trainium 4 vs 3). Codification trigger fires for NOVEL trim-signal candidate #4 registration to MURATA cluster framework. **N=3 codification trigger applications today (this cascade alone) — clear positive ratification of open-ended inference clause being load-bearing.**
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-18 AM8] User-shared 2026-06-17 evening AI brief (74 sources) → 2 Opus subagents parallel verification (TWENTY-SEVENTH + TWENTY-EIGHTH operational Rule #16) → 🔴 Item A Anthropic ban B40.x STALE-RECYCLE / N=1 ENRICHMENT ruling (PC-13 STAYS N=1 strict; G7 Evian Macron/Modi political response NOT new EO; brief "now extended" editorially misleading — original June 12 order already contained full scope per Anthropic X post) + ✅ PC-14 N=3+ DIRECTIONAL enrichment via G7 Macron "turn off switch" + Modi "critical infrastructure" statements + ✅ NBIS H1+H2 directional upgrade ~45%→~52-55% (recall-based magnitude; formal framework re-run pending) + 🟢 Item B DeepSeek+CXMT Entity List hold-off CONFIRMED FRESH (CNBC T1 longest gap in over a decade; TC-10 enforcement asymmetry primary-source documented STRICT-US-AI vs LENIENT-Chinese-AI; CRITICAL CROSS-LINK: CXMT protected → medium-term HYNIX HBM substitution risk live 2028-2030) + Item C Huawei Ascend 910C POST-TRAINING-ONLY 1.6T DeepSeek V4 Pro CONFIRMED (NOT pre-training; brief conflates; possible 9-day stale-recycle Gigazine June 8; PC-14 Archetype A trajectory marginal acceleration 2028-2030 → 2027-2029 NOT step-change) + 🟢 Item D COHR 4x InP wafer + Coherent 1.6T-DR8 CONFIRMED Marvell Ara DSP OEM (concrete NOT speculative; 2027-2028 timeline; MRVL 6th-vector reinforce this week) + 🟢 Item E DC construction lag REAL per Jefferies (24 GW announced vs 12 GW under construction = net BULL for memory cluster scarcity duration extension; B45 anti-bear discipline: physical-supply not demand constraint) + Item F SandboxAQ CHIPS $500M = fab process chemistry NOT silicon alternatives (SUMCO franchise SAFE) + 🔴 PM31 Source Photonics $1.2B UNVERIFIED in English search flag for review
 
 **Trigger source:** User-shared 2026-06-17 evening AI brief 2026-06-18 AM. Per Critical Rule #16, fired 2 Opus subagents in parallel (a324ded67584ed458 Anthropic/DeepSeek/Huawei cluster + abaca29f4ce29bfd5 Optics/DC/SandboxAQ cluster).
