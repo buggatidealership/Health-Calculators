@@ -1067,6 +1067,19 @@ Kuo CoPoS note (T3, June 10-11) verified via 2 subagents: pilot line June 2026 +
 - Signal #6 fires (DSIT awards NBIS as primary CSP via prime MSP) → upgrade to ACTIVE position; full sizing per AM7 (max €3,000-5,000)
 - Signal #8 fires (Yandex political block raised in UK procurement context) → DOWNGRADE WL-ADD P2 to REFERENCE-ONLY; thesis falsifier
 
+**🔴 2026-06-18 AM8 THESIS DIRECTIONAL UPGRADE — H1+H2 ~45%→~52-55% (recall-based magnitude per AM8 Subagent A; formal NBIS-DSIT framework re-run pending):**
+Per `signals/cross-source-log/2026-06-18-am8-evening-brief-2subagent-anthropic-stale-recycle-pc13-n1-deepseek-cxmt-entity-list-reprieve-coherent-mrvl-ara-dsp-confirmed-dc-lag-jefferies-sandboxaq.md`. Three converging signals materially strengthen NBIS thesis without portfolio action trigger:
+
+1. **G7 Evian France June 15-17 sovereignty discourse** — Macron "if US from one day to the next can turn off the switch" ([Bloomberg T1 2026-06-17](https://www.bloomberg.com/news/articles/2026-06-17/macron-seeks-way-around-trump-s-ban-on-anthropic-s-ai-models)) + Modi "democratic nations must have unfettered access to top AI models to protect critical infrastructure" ([TechCrunch T1 2026-06-17](https://techcrunch.com/2026/06/17/world-leaders-want-american-ai-they-just-dont-want-america-to-be-able-to-turn-it-off/)) = G7-leader-validated bifurcation doctrine; validates Amsterdam-domicile moat thesis publicly
+2. **US DC construction lag** ([Jefferies via The Register T1](https://www.theregister.com/on-prem/2026/06/17/only-half-of-us-datacenter-capacity-planned-for-2026-is-actually-under-construction/5257781)) — announced 24 GW vs under construction 12 GW 2026 = relative demand pull for non-US-jurisdiction compute (NBIS Amsterdam moat strengthens)
+3. **China full-stack autarky pressure** (Huawei Ascend 910C post-train + DeepSeek/CXMT Entity List reprieve) = increased European incentive for own neutral-jurisdiction compute stack
+
+**Directional upgrade rationale:** All 3 vectors point same direction (positive); none counter-act. Magnitude estimate ~7-10 percentage point increase = ~45% → ~52-55%. **CAVEAT (Critical Rule #15):** this is recall-based magnitude estimate; formal NBIS-DSIT 8-signal trackable catalog re-run NOT executed this session. Treat as directional confidence increase, NOT precise probability update.
+
+**No portfolio action triggered.** Entry discipline UNCHANGED per AM7c pre-codified framework (do NOT chase post-Nasdaq-100 inclusion squeeze 2026-06-22; ideal entry post-inclusion mechanical selling exhaustion OR macro pullback). Pre-committed action triggers above UNCHANGED.
+
+**New monitoring signal registered:** "trusted partners" scheme discussed at G7 Evian — if converts to formal EU/UK/JP/KR reciprocal-access EO framework = potential PC-13 N=2(b) trigger + secondary read-through to NBIS H1+H2.
+
 ### NEW high-conviction sovereign-AI watchlist candidates
 
 - **OVHcloud (Euronext: OVH) — added 2026-06-17 AM7**

@@ -35,6 +35,69 @@
 
 ## Entries (most recent first)
 
+### [2026-06-18 AM8] User-shared 2026-06-17 evening AI brief (74 sources) → 2 Opus subagents parallel verification (TWENTY-SEVENTH + TWENTY-EIGHTH operational Rule #16) → 🔴 Item A Anthropic ban B40.x STALE-RECYCLE / N=1 ENRICHMENT ruling (PC-13 STAYS N=1 strict; G7 Evian Macron/Modi political response NOT new EO; brief "now extended" editorially misleading — original June 12 order already contained full scope per Anthropic X post) + ✅ PC-14 N=3+ DIRECTIONAL enrichment via G7 Macron "turn off switch" + Modi "critical infrastructure" statements + ✅ NBIS H1+H2 directional upgrade ~45%→~52-55% (recall-based magnitude; formal framework re-run pending) + 🟢 Item B DeepSeek+CXMT Entity List hold-off CONFIRMED FRESH (CNBC T1 longest gap in over a decade; TC-10 enforcement asymmetry primary-source documented STRICT-US-AI vs LENIENT-Chinese-AI; CRITICAL CROSS-LINK: CXMT protected → medium-term HYNIX HBM substitution risk live 2028-2030) + Item C Huawei Ascend 910C POST-TRAINING-ONLY 1.6T DeepSeek V4 Pro CONFIRMED (NOT pre-training; brief conflates; possible 9-day stale-recycle Gigazine June 8; PC-14 Archetype A trajectory marginal acceleration 2028-2030 → 2027-2029 NOT step-change) + 🟢 Item D COHR 4x InP wafer + Coherent 1.6T-DR8 CONFIRMED Marvell Ara DSP OEM (concrete NOT speculative; 2027-2028 timeline; MRVL 6th-vector reinforce this week) + 🟢 Item E DC construction lag REAL per Jefferies (24 GW announced vs 12 GW under construction = net BULL for memory cluster scarcity duration extension; B45 anti-bear discipline: physical-supply not demand constraint) + Item F SandboxAQ CHIPS $500M = fab process chemistry NOT silicon alternatives (SUMCO franchise SAFE) + 🔴 PM31 Source Photonics $1.2B UNVERIFIED in English search flag for review
+
+**Trigger source:** User-shared 2026-06-17 evening AI brief 2026-06-18 AM. Per Critical Rule #16, fired 2 Opus subagents in parallel (a324ded67584ed458 Anthropic/DeepSeek/Huawei cluster + abaca29f4ce29bfd5 Optics/DC/SandboxAQ cluster).
+
+**Intake tier:** 🟢 HARD on all 6 underlying facts (multi-source T1 cross-verified); 🔴 SPECULATIVE on tweet/brief FRAMING (Item A editorially misleading; Item C possibly stale-recycled; PM31 Source Photonics $1.2B English-search-unverified).
+
+**Sources (key load-bearing T1; full register in AM8 file):**
+- Item A: [Anthropic X post T1](https://x.com/AnthropicAI/status/2065597531644743999) + [Fortune T1 2026-06-13](https://fortune.com/2026/06/13/anthropic-disables-fable-mythos-export-controls-national-security-threat/) + [Bloomberg T1 2026-06-17](https://www.bloomberg.com/news/articles/2026-06-17/macron-seeks-way-around-trump-s-ban-on-anthropic-s-ai-models) + [TechCrunch G7 T1 2026-06-17](https://techcrunch.com/2026/06/17/world-leaders-want-american-ai-they-just-dont-want-america-to-be-able-to-turn-it-off/)
+- Item B: [CNBC T1 2026-06-17](https://www.cnbc.com/2026/06/17/us-deepseek-blacklist-cxmt-national-security-risks-.html)
+- Item C: [Tom's Hardware T2](https://www.tomshardware.com/tech-industry/artificial-intelligence/huawei-led-team-claims-it-post-trained-deepseeks-1-6-trillion-parameter-models-on-ascend-910c-chips) + [SCMP T2](https://www.scmp.com/tech/article/3356117/huawei-chips-refine-deepseek-model-major-leap-chinas-ai-self-reliance) + [Pandaily T2](https://pandaily.com/ascend-910c-1-6-trillion-parameter-training-jun2026)
+- Item D: [Coherent press release T1 2026-06-16](https://www.globenewswire.com/news-release/2026/06/16/3312664/11543/en/Coherent-Announces-a-CHIPS-Letter-of-Intent-for-50-Million-to-Expand-World-Leading-Manufacturing-Facility-for-AI-Infrastructure.html) + [Coherent 1.6T-DR8 OFC 2025 T1](https://www.coherent.com/news/press-releases/silicon-photonics-based-transceiver-modules) + [Marvell IR optical DSP T1](https://www.marvell.com/solutions/data-center/optical-dsp.html)
+- Item E: [The Register Jefferies T1 2026-06-17](https://www.theregister.com/on-prem/2026/06/17/only-half-of-us-datacenter-capacity-planned-for-2026-is-actually-under-construction/5257781)
+- Item F: [NIST T1 2026-06-17](https://www.nist.gov/news-events/news/2026/06/department-commerce-announces-definitive-agreement-sandboxaq-500-million)
+
+**Cluster cascade scoped per Principle #37 (per-name cascades in this commit):**
+- `companies/MRVL/thesis.md` — AM8 cross-ref: COHR 4x InP + 1.6T-DR8 Marvell Ara DSP CONCRETE OEM; 6th-vector reinforce this week
+- `companies/HYNIX/thesis.md` — AM8 cross-ref: MIXED near-term POSITIVE (DC construction lag + CXMT sanction-delay extends HBM scarcity) / medium-term WATCH (CXMT protected for Ascend HBM 2028-2030 horizon); new monitoring signal CXMT HBM3E milestones + Ascend 910C 2027 ramp
+- `watchlist/candidates.md` — NBIS WL-ADD P2 entry directional upgrade H1+H2 ~45%→~52-55% (recall-based magnitude); 3 converging signals all positive direction; entry discipline UNCHANGED; new monitoring signal "trusted partners" scheme
+
+**Files NOT touched (per scoping rule):**
+- `companies/SNDK/thesis.md` + `companies/KIOXIA/thesis.md` — POSITIVE direction from DC construction lag confirmation but magnitude not enough to warrant individual back-ref (compound on existing thesis)
+- `companies/SUMCO/thesis.md` — NEUTRAL across all 6 items; Item F SandboxAQ confirms Si wafer franchise SAFE (no thesis-state change)
+- `companies/MURATA/thesis.md` — mild negative timing only from DC construction lag; no novel trim-signal candidate (open-ended inference clause check returned no fires); €5K tranche-2 add intent UNCHANGED
+- `companies/DDOG/thesis.md` + `companies/NOW/thesis.md` — orthogonal; NOW EU+ASIA SOVEREIGN-AI WATCH condition directionally strengthened (AM6b) but no formal thesis change
+- `meta/cross-domain-pattern-register.md` PC-13 + PC-14 — NO formal codification updates required (PC-13 enrichment-only; PC-14 directional already captured AM7 Asia mirror enrichment)
+- `meta/biases-watchlist.md` B47 — N+2 evidence (closed-list pattern-matching blindness on Anthropic ban scope; assumed brief framing was correct without primary source check) but DEFERRED to June 24 audit batch
+- `signals/triangulation.md` — TC-10 enforcement asymmetry primary-source documentation worth adding to TC-10 cluster note at June 24 audit
+- `portfolio/*` — no position changes (NBIS WL-ADD P2 sizing pre-committed UNCHANGED; MURATA forward tranche-2 €5K UNCHANGED)
+
+**Stale flags fired:** Item A editorially misleading (B40.x catch; original June 12 scope re-framed as June 17 extension); Item C possible 9-day-stale (Gigazine June 8 vs brief surface June 17); PM31 Source Photonics $1.2B re-verification flagged
+
+**Forward watch items:**
+1. Anthropic legal/political response trajectory (appeal? court action? Trump admin walk-back?)
+2. **G7 "trusted partners" scheme** — converts to formal EU/UK/JP/KR reciprocal-access EO = PC-13 N=2(b) trigger
+3. **Ascend 910C PRE-TRAINING demonstration** (vs post-training only) = PC-14 Archetype A step-change trigger
+4. **CXMT HBM3E production milestones** — does CXMT reach HBM3E specs at volume <2028? = HYNIX medium-term risk acceleration
+5. **DSIT AIRR ITT publication Q3 2026** — NBIS WL-ADD P2 binary upgrade trigger
+6. **CMA cloud market investigation H2 2026** — asymmetric NBIS signal
+7. **NBIS Q3 + Q4 2026 UK revenue disclosure** — CapEx-to-revenue thesis migration
+8. **PM31 Source Photonics $1.2B re-verification** if news flow recurs
+9. **June 24 monthly audit batched items** (TC-10 promotion + B47 N+2 codification + L27 enrichment + MURATA detectability check + TC-10 enforcement asymmetry documentation)
+
+**Position implications (all 🟡/🟢 HOLD per Critical Rule #8 binding; no portfolio action today):**
+- MRVL: 🟡 HOLD ~5.9% (44sh) — 6-vector reinforce this week; COHR concrete OEM DSP confirmation incremental positive 2027-2028 not 2026
+- HYNIX: 🟡 HOLD GDR (15sh) — near-term POSITIVE / medium-term WATCH CXMT
+- NBIS WL-ADD P2: 🔴 THESIS DIRECTIONALLY STRENGTHENED H1+H2 ~45%→~52-55% — entry discipline UNCHANGED; pre-committed action triggers UNCHANGED
+- SNDK / KIOXIA: 🟢 HOLD — DC construction lag extends scarcity
+- MURATA: 🟡 HOLD; €5K tranche-2 add intent UNCHANGED
+- SUMCO / DDOG: 🟡 HOLD; orthogonal
+- NOW: 🟡 HOLD with EU+ASIA WATCH condition directionally strengthened
+
+**Critical Rule #16 operational validations: POSITIVE N=27 + N=28 (Subagents today). Cumulative N=28.**
+
+**B40.x running tally:** 11 distinct catches in 10 days (PM18 4 + PM22 1 + PM26 1 + AM1 1 + AM4 1 + AM6 1 + AM8 Item A 1 + AM8 Item C 1 possible).
+
+**Cascade-fatigue check:** PM30 MURATA tranche-1 (`163a630`) + PM31 Dongshan tweet (`e7d9ee3`) + AM8 (this commit) = 3 cascades since session-restart. Total ~60 events in ~58 hours since 2026-06-15 PM27 baseline. P#37 N=20 promotion gate FAR EXCEEDED.
+
+**Loop-validation note:** AM8 demonstrates strict B40.x + Principle #32 promotion-discipline working as designed. Item A original-scope verification via Anthropic primary X post prevented PC-13 N=2 false-promotion based on editorially-misleading brief framing. Subagent A multi-source G7 confirmation provided high-confidence political-response read while strictly distinguishing from new enforcement action. Subagent B independently surfaced PM31 Source Photonics $1.2B unverification flag = harness self-correction in action.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-17 PM31] User-shared anonymous tweet "Dongshan Precision/Source Photonics ramp is much bigger than I thought" → 1 Opus subagent verification (TWENTY-SIXTH operational Rule #16; native-ZH parallel) → 🟢 SIGNAL VERIFIED FRESH B40.0 (Dongshan $1.2B capex commitment announced 2026-06-16 evening + Q1 2026 Source Photonics 22.69%→52.92% group profit share jump in ONE quarter + capacity ramp Q2 2026 ~9M units/month → Q4 2026 ~22M units/month → FY2027 300M annual target); **REFERENCE-ONLY for harness** (002384.SZ Shenzhen A-share + private subsidiary, NOT investable for European brokerage); 🟡 MILD POSITIVE 2nd-order cross-correlation read for MRVL only (Ara T DSP pull-through for Source Photonics 800G/1.6T modules shipped to Meta/MSFT US hyperscalers); 1.6T = "Year One at scale 2026" cluster-level confirmation (1M+ 2025 → 5M+ 2026 = 5× YoY shipments); PC-14 N=3+ Taiwan WEAK ENFORCEMENT variance note (Hsinchu national security review TRIGGERED but Chinese acquisition COMPLETED September 2025 — intra-pattern variance not contradiction)
 
 **Trigger source:** User-shared unattributed tweet quote 2026-06-17 PM. Per Critical Rule #16, fired 1 Opus subagent (a0bc35b5c98277063) with multilingual native-ZH parallel mandate.
