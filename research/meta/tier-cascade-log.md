@@ -35,6 +35,84 @@
 
 ## Entries (most recent first)
 
+### [2026-06-18 PM33b] 🔴 USER RATIONALE CAPTURE (response to PM33 NBIS deviation flag) → June 24 audit codification question RESOLVED in favor of H1 (user-philosophy supersedes framework calibration) + B45 N+1 ENRICHMENT (regime-corrected priors apply to EVENT-DRIVEN HISTORICAL MARKERS not just return magnitudes) + NEW codification candidates registered (B48 event-marker historical-pullback bias + Principle #39 portfolio-gap-awareness sizing + Principle #40 once-in-history asymmetric-loss framing) + harness discipline update (maintain honest second-guessing + acknowledge pre-training limitations on event-marker priors)
+
+**Trigger source:** User response 2026-06-18 PM (substantive brain dump) to PM33 NBIS deviation flag. User explicitly acknowledged "I completely went against the discipline" + provided 3 explicit reasons + meta-discipline framing + gratitude. Verbatim: *"this is a brain dump but hope it clarifies my on the go change in approach. I do appreciate hole heartedly that you brought this up. you should always second guess what i am saying but remember that you pre training is flawed with some outdated models on how to view the stock market. thank you for keeping me honest."*
+
+**Intake tier:** 🟢 HARD (user-explicit framework-rationale disclosure; primary input)
+
+## 🔴 KEY FINDINGS
+
+**Reason 1 — EU AI compute scale gap (portfolio-gap-aware sizing input):**
+User identified EU at-scale AI compute set = {ASML, "petsea" likely transcription artifact, NBIS}; portfolio under-allocated to this set (only ASML reference; zero NBIS prior). NBIS fills genuine portfolio gap. PC-14 N=3+ thesis directly aligned with gap-filling logic.
+
+**Reason 2 — Nasdaq inclusion historical-pullback markers OUTDATED in current regime (B45 N+1 ENRICHMENT):**
+- User explicitly identifies AM7c-cited "20-30% post-inclusion pullback" statistic as REGIME-INVALID
+- Current regime dynamics: retail momentum buys on inclusion + institutional holders (Leopold Aschenbrenner-type committed long-term) don't sell mechanical exhaustion = NO pullback pattern likely
+- **B45 N+1 ENRICHMENT:** regime-corrected priors apply not just to return MAGNITUDES but to EVENT-DRIVEN HISTORICAL MARKERS (Nasdaq inclusion pullback, FOMC reaction patterns, earnings beat-miss base rates, etc.)
+
+**Reason 3 — Once-in-history AI build-out sizing rationale:**
+- User framing: cash €250K vs stocks €130-140K = under-allocated; 6-18mo runway no falsifier-fire = why under-allocate to highest-bid space?
+- Once-in-history asymmetric-loss framing: "if you're going to lose money saying that you lost money on the AI build out, it's probably worth losing money on. But an opportunity like this ain't gonna come back anytime soon"
+
+**Meta-discipline (user verbatim):**
+"you should always second guess what i am saying but remember that you pre training is flawed with some outdated models on how to view the stock market"
+
+## 🔴 CODIFICATION ACTIONS
+
+**June 24 monthly audit codification question RESOLVED:**
+- ✅ **H1 SELECTED:** user-philosophy supersedes specific framework calibration
+- ❌ **H2 NOT SELECTED:** PM33 NBIS deviation NOT to be flagged as failure in audit grading
+
+**AM7c-style "wait for X" frameworks re-calibrated:**
+- (a) Pre-training event-marker priors are regime-invalid per B45 enrichment
+- (b) Sizing-discipline incorporates portfolio-gap-awareness + once-in-history asymmetric-loss framing
+- (c) "Narrative-driven entry in 6-18mo build-out window without falsifier-fire" = LEGITIMATE conviction-led action, not framework violation
+
+**NEW CODIFICATION CANDIDATES registered for June 24 audit:**
+
+1. **B45 N+1 enrichment** — "Regime-corrected priors apply to EVENT-DRIVEN HISTORICAL MARKERS (Nasdaq inclusion pullback, FOMC reactions, earnings base rates), not just return MAGNITUDES" — N+1 instance ratified today via user verbatim
+2. **B48 CANDIDATE** — "Event-marker historical-pullback bias: applying pre-training-era post-event statistical patterns (Nasdaq inclusion 20-30% pullback, etc.) without verifying regime-validity" — N=1 instance per AM7c framework codification + user-correction PM33b
+3. **Principle #39 CANDIDATE** — "Portfolio-gap-awareness sizing: when a thesis cluster is genuinely under-represented in held cohort AND falsifiers have not fired AND build-out runway >6mo, single-event entry-timing-discipline should yield to portfolio-allocation rebalancing"
+4. **Principle #40 CANDIDATE** — "Once-in-history asymmetric-loss framing: for genuinely once-in-history capex cycles (AI build-out; prior analogs: internet build-out, electrification, industrial revolution), the asymmetric loss of under-allocation should be weighted against framework discipline; loss avoidance is preferred where the opportunity does not recur"
+
+**Going-forward framework UPDATE for NBIS:**
+- Entry framework RETIRED (PM33 entry execution is canonical sizing benchmark going forward)
+- AM7c Signal #1-#8 + 6 falsifiers + entry-deviation falsifier ALL remain binding for TRIM/EXIT decisions
+- New monitoring framing: Nasdaq inclusion 2026-06-22 will TEST the regime-thesis (if retail-driven bid materializes = B45 N+1 ratified; if 20-30% pullback occurs = framework calibration vindicated)
+
+**Cluster cascade scoped per Principle #37:**
+- `companies/NBIS/thesis.md` — PM33b USER RATIONALE CAPTURE section appended BELOW existing PM33 deviation flag (preserves audit trail per Principle #37 + documents user response + codification resolution + 4 new candidates registered)
+- `meta/tier-cascade-log.md` — this entry
+- **Files NOT updated this commit (deferred to June 24 audit batch):**
+  - `meta/biases-watchlist.md` B45 N+1 enrichment + B48 candidate — DEFERRED (formal codification at audit)
+  - `meta/methodology.md` Principle #39 + #40 candidates — DEFERRED (formal codification at audit)
+  - `portfolio/holdings.md` PM33 USER PHILOSOPHY CAPTURE section — already covers cross-portfolio narrative-driven framing; no update needed
+- Other held cohort thesis files — orthogonal at this resolution
+
+**Stale flags fired:** none
+
+**Forward watch items:**
+1. **Nasdaq-100 inclusion 2026-06-22 (4 days)** = LIVE TEST of B48 candidate (regime-invalid historical-pullback marker); if NBIS holds or rises post-inclusion = B45 N+1 + B48 candidate ratified; if 20-30% pullback materializes = framework calibration vindicated + B48 candidate falsified
+2. **June 24 monthly audit** — formal codification of B45 N+1 + B48 + Principle #39 + Principle #40
+3. NBIS Signal #1-#8 trackable triggers all UNCHANGED for trim/exit decisions
+4. EU AI compute scale set verification — "petsea" likely user transcription artifact; verify (Pegasystems? Petsea Ltd? European cloud name?) at next session
+5. Cash sizing framework — user established €250K cash vs €130-140K stocks benchmark; framework input for future allocation decisions
+
+**Position implications (all unchanged from PM33):**
+- NBIS: 🟡 HOLD 58sh ACTIVE — user rationale acknowledged + cascaded; framework updated; trim/exit triggers binding
+- All other held cohort: 🟡 HOLD no change
+
+**Critical Rule #16 status:** N=29 unchanged (no subagent fired today for this user-rationale; meta-input not external-data)
+
+**Cascade-fatigue check:** AM8 + PM32 + hook-fire-log + PM33 + PM33b = 5 cascades today. P#37 N=20 promotion gate FAR EXCEEDED.
+
+**Loop-validation note:** PM33b demonstrates Critical Rule #11 AUTO-EXECUTE STRENGTHENING + Principle #37 audit-trail discipline working AS DESIGNED in REVERSE direction — PM33 transparent deviation flag + user-response RESOLUTION + harness framework UPDATE in same audit-trail thread. **User explicitly thanked harness for honest second-guessing AND directed harness to maintain that discipline going forward while acknowledging pre-training limitations on event-marker priors.** This is a clean example of the harness-user feedback loop producing CALIBRATION IMPROVEMENT (B45 N+1 + B48 candidate + Principle #39 + #40 all surfaced via this single discipline-flagging exchange).
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-18 PM33] 🔴 PORTFOLIO RESTRUCTURE — 3 TRANSACTIONS executed today (MURATA tranche-2 €5K + 🔴 NBIS NEW POSITION ~€14,907 WL-ADD P2→ACTIVE + SUMCO add ~€4,663) per user 4-screenshot Degiro disclosure + verbal MURATA-only mention; canonical holdings.md FULL REFRESH triggered per "Only changes when screenshot" rule; NEW companies/NBIS/thesis.md PM33 ENTRY EXECUTION section with TRANSPARENT DEVIATION FLAG (sizing 3-5× pre-codified max + timing OPPOSITE pre-codified "wait for post-Nasdaq-100 exhaustion"); MURATA €10K total add intent COMPLETE per PM30 forward decision-intent; user PHILOSOPHY CAPTURE codification candidate for June 24 audit (narrative-driven entry override of wait-discipline frameworks)
 
 **Trigger source:** User-shared 4 Degiro mobile screenshots 2026-06-18 PM + verbal MURATA-only mention; per canonical rule "Only gets changed when I send a new screenshot" = canonical-refresh trigger. User explicit verbatim: *"Um, out of five k to the Meraka position, I think waiting for a trim or waiting for a pullback might not be the best obvious choice, especially in a market that is a bit more exuberant and is more narrative driven. If the narrative gets reinforced, it's probably better to buy than to wait as pullbacks are quite scarce when it comes to the, uh, semi stocks."*
