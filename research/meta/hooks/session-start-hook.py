@@ -33,6 +33,7 @@ TODO_PATH = Path("/home/user/Health-Calculators/research/meta/todo.md")
 PREDICTIONS_LOG_PATH = Path("/home/user/Health-Calculators/research/predictions/grading-log.md")
 BOTTLENECKS_PATH = Path("/home/user/Health-Calculators/research/sector/bottlenecks.md")
 TIER_CASCADE_LOG_PATH = Path("/home/user/Health-Calculators/research/meta/tier-cascade-log.md")
+SUBAGENT_LEDGER_PATH = Path("/home/user/Health-Calculators/research/meta/subagent-cost-yield-ledger.md")
 
 REPO_PATH = Path("/home/user/Health-Calculators")
 
@@ -302,9 +303,122 @@ def build_briefing() -> str | None:
                 )
             lines.append("")
 
+    # Subagent cost-yield ledger surfacing (Critical Rule #16 instrumentation,
+    # added 2026-06-19 H2). Surface past-7-day entry count + yield distribution;
+    # flag if ≥2 ZERO entries in past 7 days (early warning for Rule #16
+    # falsifier proximity) or cumulative 30-day cost > 1M tokens (budget signal).
+    # Feeds the 2026-07-15 Rule #16 detectability re-eval at file head.
+    if SUBAGENT_LEDGER_PATH.exists():
+        ledger_summary = parse_ledger_recent(SUBAGENT_LEDGER_PATH, window_days=7)
+        if ledger_summary["fires"] > 0:
+            lines.append("🔍 SUBAGENT COST-YIELD (past 7 days, Critical Rule #16):")
+            lines.append(
+                f"  {ledger_summary['fires']} fires | "
+                f"HIGH {ledger_summary['high']} / MEDIUM {ledger_summary['medium']} / "
+                f"LOW {ledger_summary['low']} / FRAMING-ERROR-CAUGHT {ledger_summary['fec']} / "
+                f"ZERO {ledger_summary['zero']}"
+            )
+            if ledger_summary["zero"] >= 2:
+                lines.append(
+                    f"  🚨 RULE #16 YIELD WARNING — {ledger_summary['zero']} ZERO entries "
+                    f"in past 7 days; falsifier threshold ≥3 over 30 days (re-eval 2026-07-15)"
+                )
+            if ledger_summary["cost_30d_estimate"] > 1_000_000:
+                lines.append(
+                    f"  💰 COST-BUDGET WARNING — 30-day estimated cost "
+                    f"~{ledger_summary['cost_30d_estimate'] // 1000}k tokens; "
+                    f"audit yield/cost ratio before next fan-out"
+                )
+            lines.append("")
+
     lines.append("Read /home/user/Health-Calculators/research/meta/todo.md for full backlog.")
     lines.append("=== END BRIEFING ===")
     return "\n".join(lines)
+
+
+def parse_ledger_recent(path: Path, window_days: int = 7) -> dict:
+    """
+    Parse `meta/subagent-cost-yield-ledger.md` for entries dated within the past
+    `window_days`. Returns a dict with:
+        - fires: total count of entries in window
+        - high / medium / low / fec / zero: yield-class counts
+        - cost_30d_estimate: extrapolated 30-day cost estimate (tokens)
+
+    Entry format (per H2 file-birth specification):
+        ### [YYYY-MM-DD {AM/PM-slot}] {summary}
+        ...
+        **Material yield class:** HIGH / MEDIUM / LOW / FRAMING-ERROR-CAUGHT / ZERO
+        **Estimated token cost:** ~{X-Y}k
+
+    Failures are silent — never break the session-start briefing on parse errors.
+    """
+    summary = {
+        "fires": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "fec": 0,
+        "zero": 0,
+        "cost_30d_estimate": 0,
+    }
+
+    try:
+        text = path.read_text()
+    except Exception:
+        return summary
+
+    entry_re = re.compile(r"^###\s*\[(\d{4}-\d{2}-\d{2})[^\]]*\]\s*(.+?)$", re.MULTILINE)
+    matches = list(entry_re.finditer(text))
+    if not matches:
+        return summary
+
+    today = date.today()
+    window_cutoff = today - timedelta(days=window_days)
+    window_cost_total = 0
+    window_fire_total = 0
+
+    for i, m in enumerate(matches):
+        try:
+            entry_date = datetime.strptime(m.group(1), "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if entry_date < window_cutoff:
+            continue
+
+        start = m.end()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        body = text[start:end]
+
+        yield_match = re.search(
+            r"\*\*Material yield class:\*\*\s*([A-Z\-]+)", body
+        )
+        if yield_match:
+            yc = yield_match.group(1).strip()
+            summary["fires"] += 1
+            window_fire_total += 1
+            if yc == "HIGH":
+                summary["high"] += 1
+            elif yc == "MEDIUM":
+                summary["medium"] += 1
+            elif yc == "LOW":
+                summary["low"] += 1
+            elif yc.startswith("FRAMING"):
+                summary["fec"] += 1
+            elif yc == "ZERO":
+                summary["zero"] += 1
+
+        cost_match = re.search(r"\*\*Estimated token cost:\*\*\s*~?(\d+)(?:-(\d+))?k", body)
+        if cost_match:
+            low_k = int(cost_match.group(1))
+            high_k = int(cost_match.group(2)) if cost_match.group(2) else low_k
+            window_cost_total += ((low_k + high_k) // 2) * 1000
+
+    if window_fire_total > 0:
+        days_in_window = min(window_days, max((today - window_cutoff).days, 1))
+        per_day_cost = window_cost_total / days_in_window
+        summary["cost_30d_estimate"] = int(per_day_cost * 30)
+
+    return summary
 
 
 def parse_stale_tier_entries(path: Path, threshold_days: int = 30) -> list:

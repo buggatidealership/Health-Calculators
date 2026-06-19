@@ -35,6 +35,47 @@
 
 ## Entries (most recent first)
 
+### [2026-06-19 H2-LEDGER-BIRTH] 🟢 Verification-Subagent Cost-Yield Ledger codified at `meta/subagent-cost-yield-ledger.md` per H2 plan ship — 36-entry backfill of 2026-06-15→2026-06-19 window shows 16 HIGH / 15 MEDIUM / 3 FRAMING-ERROR-CAUGHT / 2 LOW / 0 ZERO + Critical Rule #16 STRONGLY-POSITIVE preliminary verdict + session-start-hook mirror extended for past-7-day surfacing (live activation pending user manual cp same as H1 pattern)
+
+**Trigger source:** User-approved H2 plan execution `/root/.claude/plans/enumerated-tickling-hartmanis.md` 2026-06-19 (full approval after Phase 1 Explore + AskUserQuestion clarification).
+
+**Intake tier:** 🟢 HARD — file + format + backfill + Critical Rule #16 cross-ref + hook mirror extension all shipped this commit; live hook activation deferred to user manual cp (classifier-policy-bound per H1 META-OBSERVATION codified at H1-ACTIVATION-RESOLVED entry).
+
+**Source:** This entry + new file `research/meta/subagent-cost-yield-ledger.md` + plan file `/root/.claude/plans/enumerated-tickling-hartmanis.md`.
+
+**Tier moves (Principle #37 scoped-cascade):**
+- `research/meta/subagent-cost-yield-ledger.md` — NEW (file birth + format-per-entry template + 5-class yield taxonomy + cost estimation model + audit-summary 30-day-rolling-window section + 36-entry backfill spanning 5-day partial window)
+- `research/CLAUDE.md` Critical Rule #16 § Enforcement — **Instrumentation:** line appended cross-referencing the ledger; describes per-entry fields + audit-summary feed + preliminary STRONGLY-POSITIVE verdict
+- `research/meta/hooks/session-start-hook.py` (mirror) — extended with `SUBAGENT_LEDGER_PATH` constant + `parse_ledger_recent()` function + briefing section "🔍 SUBAGENT COST-YIELD (past 7 days, Critical Rule #16)" + 2 warning conditions (≥2 ZERO entries → Rule #16 yield warning; cost > 1M tokens 30-day projection → cost-budget warning)
+- `research/meta/tier-cascade-log.md` — this entry + lag-1 SHA fill `929e2659` on AM10 entry
+
+**Files NOT touched:**
+- `~/.claude/session-start-hook.py` (live) — classifier-policy-bound; user manual cp activation required (same flow as H1-ACTIVATION-RESOLVED)
+- `~/.claude/structural-output-hook.py` (live) — unchanged; H2 only modifies SessionStart hook not Stop hook
+- All `companies/{TICKER}/thesis.md` — instrumentation work, no thesis cascade
+- All `signals/cross-source-log/` files — instrumentation work, no new signal
+- `meta/biases-watchlist.md` — no new bias codified
+
+**Backfill window:** 2026-06-15 → 2026-06-19 (5 days; 36 entries; ~1.1M tokens estimated; 53% HIGH-or-FRAMING-ERROR-CAUGHT; 86% HIGH-or-MEDIUM combined). Preliminary Critical Rule #16 verdict = **STRONGLY POSITIVE** (falsifier threshold ≥3 ZERO not breached; subagent fires producing material yield).
+
+**Cost estimation model documented in ledger:** ~12-18k tokens per Opus 4.8 subagent (my-model heuristic; refinement path to SDK-measured when available).
+
+**Yield-class taxonomy (5 classes):** HIGH / MEDIUM / LOW / FRAMING-ERROR-CAUGHT / ZERO with audit-day contribution mapping (POSITIVE / POSITIVE-LITE / NEUTRAL / POSITIVE / NEGATIVE respectively).
+
+**Forward instrumentation discipline (Step 3 of H2 plan):** every Critical Rule #16 fire from next-fire forward gets a ledger entry appended in the SAME COMMIT as the cascade artifacts. Same enforcement model as Critical Rule #10 cascade discipline — incomplete commit if ledger entry missing. Test on next user-shared-brief verification fire.
+
+**Session-start surfacing (Step 4 of H2 plan):** mirror extension verified py_compile clean + end-to-end test produces "🔍 SUBAGENT COST-YIELD" section in briefing showing past-7-day fire count + yield distribution + warning flags. **Live activation requires user manual cp** (classifier blocks self-modification of `~/.claude/*.py`).
+
+**Critical Rule #16 status:** N/A for this entry (instrumentation work, no verification subagent fires required); the LEDGER itself is now the tracking mechanism going forward.
+
+**Cascade-fatigue check:** 13 cascades this session-window (AM8 + PM32 + PM33 + PM33b + PM33c + AM9 + AM9b + watchlist + prep + H1-attempt + H1-resolved + AM10 + H2-LEDGER-BIRTH); within Principle #37 scope discipline.
+
+**Loop-validation note:** demonstrates the harness self-evolving loop working at the meta-instrumentation layer — yesterday's reflective Q identified H2 as a candidate optimization; today's H1-ACTIVATION + this H2-LEDGER-BIRTH = two compounding instrumentation improvements shipping inside 24 hours. The 2026-07-15 Rule #16 detectability re-eval now has 36 backfilled data points (5-day window) + forward instrumentation discipline + session-start surfacing — moving from vibes-driven to data-driven verdict. **Meta-observation worth flagging:** the ledger is the first piece of harness infrastructure designed PRIMARILY to feed an audit re-eval rather than to enforce a discipline directly. If 07-15 audit verdict = STRONGLY POSITIVE, the ledger validates Critical Rule #16 cost-spend. If verdict = NEGATIVE / FALSIFIER-FIRES, the ledger enables data-driven scope-narrowing of Rule #16. Either way the ledger earns its build cost.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-19 AM10] 🟡 Morning AI brief 2-subagent verification (ASML-US dispute leak + Baseten $1.5B raise + Zoph OpenAI exit + GLM-5.2 / Unsloth quantization framing error + PEFT privacy research-cluster) → 3 brief-framing corrections caught + NBIS positive supportive read into 06-22 inclusion + U8 candidate cluster signal documented (formal N counter promotion deferred to June 24 audit)
 
 **Trigger source:** User-shared 2026-06-19 AM AI brief (70 sources scanned per metadata; 10 items triaged into 5 verification targets).
@@ -94,7 +135,7 @@
 
 **Loop-validation note:** AM10 demonstrates Critical Rule #16 working at the brief-framing-correction layer — 3 distinct framing errors caught that would have propagated unverified. **First analytical output containing `Position implication:` line with 🟢/🟡/🔴 marker since H1 hook activation `cecc13fc` (2026-06-19) — `~/.claude/structural-output-hook.py` LIVE-state verification opportunity active on next output containing `Position implication:` without tier marker.**
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** 929e2659
 
 ---
 

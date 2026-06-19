@@ -635,6 +635,8 @@ Always check against these before completing any analysis:
 
     **Enforcement:** No hook yet (LLM-native discipline at codification time); candidate hook if pattern drift recurs at N≥2 in 30 days. Co-located with Workflow #1 INGEST workflow step 2 (source validity check) → step 2.5 fire verification subagents.
 
+    **Instrumentation (added 2026-06-19 H2):** every Critical Rule #16 verification-subagent fire logs to `meta/subagent-cost-yield-ledger.md` (append-on-cascade-commit discipline, same-commit-as-cascade-artifacts enforcement model per Critical Rule #10). Per-entry: subagent count + estimated token cost (~12-18k per Opus 4.8 subagent) + items verified + per-subagent yield class (HIGH / MEDIUM / LOW / FRAMING-ERROR-CAUGHT / NEUTRAL) + brief-framing errors caught + thesis cascade triggered + position implication delta + audit-day classification. Audit Summary section at file head auto-maintained 30-day rolling window feeds the 2026-07-15 re-eval directly. Backfill at file birth: 36 entries 2026-06-15→2026-06-19 (5-day partial window) showing 16 HIGH / 15 MEDIUM / 3 FRAMING-ERROR-CAUGHT / 2 LOW / 0 ZERO = preliminary STRONGLY POSITIVE Rule #16 verdict (falsifier threshold ≥3 ZERO not breached).
+
 ---
 
 ## File Templates
