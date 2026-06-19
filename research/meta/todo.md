@@ -423,9 +423,18 @@
   - Cascade: principle-applications-log.md entry + biases-watchlist.md B45 status update + CLAUDE.md banner refresh if needed
   - Linked: `meta/biases-watchlist.md` B45, `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md`
 
+- [ ] **P0 / harness / 2026-06-19** [INFRA] — Configure `bash research/meta/hooks/install.sh` as environment setup script in Claude Code on Web UI (DURABLE HOOK ACTIVATION; requires laptop access)
+  - Origin: 2026-06-19 H1-CONTAINER-EPHEMERALITY-FIX `ce008ea6` discovery — remote-execution containers reset `~/.claude/` to base config each session, wiping all hook installs from prior sessions. H1-ACTIVATION-RESOLVED `cecc13fc` was true for ~12 hours then evaporated. Mirror-plus-manual-cp is per-session activation; durable activation requires setup script in environment config UI.
+  - Action: Open Claude Code on Web environment config UI for the `buggatidealership/Health-Calculators` repo. Find the "Setup script" / "Environment setup" field. Enter exactly: `bash research/meta/hooks/install.sh`. Save.
+  - Verification on next fresh session: `ls -la ~/.claude/session-start-hook.py ~/.claude/structural-output-hook.py ~/.claude/settings.json` should show all three present.
+  - Without this: every session starts with NO research-OS hooks active — Position-implication tier marker enforcement, session-start briefing, anti-fabrication, cascade-enforcement, 10+ Stop hooks all NOT firing. Discipline reverts to LLM-native-only.
+  - Trade-off: ~1 second added to container provisioning per session in exchange for hook persistence across all future sessions
+  - Falsifier: 2026-07-19 30-day audit checks `hook-fire-log.md` for daily fires; if no fires logged after configuring setup script, durability didn't take and per-session manual `bash install.sh` falls back as workaround
+  - Linked: `meta/hooks/DURABLE-ACTIVATION.md` (full instructions + verification protocol + fallback), `meta/hooks/install.sh`, `meta/hooks/README.md` Activation section, commit `ce008ea6`
+
 - [ ] **P0 / harness / 2026-06-12** [INFRA] — Activate session-prime-hook in ~/.claude/settings.json (USER AUTHORIZATION REQUIRED)
   - Origin: 2026-06-12 user-proposed reference-system architecture to force every fresh session to load load-bearing ledger items. File + hook + docs built and smoke-tested; auto-mode classifier blocked settings.json edit (correctly — wiring auto-executing startup hook requires explicit authorization).
-  - Action: add a second hook entry to the SessionStart hooks array in ~/.claude/settings.json: `{"type":"command","command":"~/.claude/session-prime-hook.py"}` after the existing session-start-hook.py entry.
+  - Action: add a second hook entry to the SessionStart hooks array in ~/.claude/settings.json: `{"type":"command","command":"~/.claude/session-prime-hook.py"}` after the existing session-start-hook.py entry. NOTE: after H1-CONTAINER-EPHEMERALITY-FIX `ce008ea6`, this edit also needs to be made in the MIRROR at `research/meta/hooks/settings.json` so install.sh-driven activation picks it up — otherwise the edit reverts at next container restart.
   - Trade-off: ~10K extra tokens per cold session start (NOT on resume) in exchange for higher baseline calibration from first turn
   - Falsifier already in place: 2026-07-12 30-day audit checks for measurable reduction in bias-recurrence rate; retire both file + hook if no measurable benefit
   - Linked: `meta/session-prime.md`, `meta/hooks/session-prime-hook.py`, `meta/hook-fire-log.md` (logs each fire)
