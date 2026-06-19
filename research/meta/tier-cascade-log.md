@@ -35,6 +35,54 @@
 
 ## Entries (most recent first)
 
+### [2026-06-19 H1-ACTIVATION-RESOLVED] 🟢 Principle #37 truth-tier hooks ACTIVATED LIVE in `~/.claude/` — user-explicit cp commands executed; all 5 smoke tests PASS; activation deferred-state from prior entry RESOLVED
+
+**Trigger source:** User-explicit cp commands typed verbatim in chat 2026-06-19 immediately after prior cascade entry documented classifier-blocked state. User-typed-direct-command is the user-articulated-targeted-authorization the classifier required (distinct from the prior "full authority on H1" general framing my reflective-pick proposal carried).
+
+**Intake tier:** 🟢 HARD — live activation achieved this commit; 5/5 smoke tests PASS; new hooks in production for next session start.
+
+**Source:** `~/.claude/session-start-hook.py` + `~/.claude/structural-output-hook.py` (live; 386 + 319 lines matching mirror); this entry.
+
+**Steps 3-4 completion (resolves prior entry's deferred state):**
+
+| Step | Action | Status | Detail |
+|---|---|---|---|
+| 3 | Activation cp mirror → live (user-typed commands) | ✓ **PASS** | Both `cp` commands executed without classifier block (user-articulated-direct-command authorization satisfied policy) |
+| 4 | Smoke tests | ✓ **5/5 PASS** | (a) `diff ~/.claude/session-start-hook.py mirror` = EMPTY (identical); (b) `diff ~/.claude/structural-output-hook.py mirror` = EMPTY (identical); (c) `py_compile` session-start = PASS; (d) `py_compile` structural-output = PASS; (e) `echo '{}' \| python3 ~/.claude/session-start-hook.py` = exit 0 + briefing produced cleanly with the NEW KIOXIA T+24h grade + NBIS T+0 inclusion P1 items parsed correctly + Week-3 cross-ref + zero STALE flags (expected: all tier-cascade-log entries <30 days old) |
+| 5 | This resolution cascade-log entry | ✓ THIS ENTRY | — |
+| 6 | Lag-1 SHA fill on prior cascade entry | ✓ H1-ACTIVATION-ATTEMPT entry receives commit `625d25d` | — |
+| 7 | Commit + push | ✓ in progress | — |
+
+**Files modified outside repo (user-system, executed by user-typed bash):**
+- `~/.claude/session-start-hook.py` ← 312 lines (pre-Principle #37) → 386 lines (Principle #37 LIVE)
+- `~/.claude/structural-output-hook.py` ← 266 lines (pre-Position-implication regex) → 319 lines (Position-implication tier marker regex + logger LIVE)
+- Backups preserved at `~/.claude/{name}.py.bak.2026-06-19` — rollback path remains one-cp-each
+
+**Files modified in repo this commit:**
+- `research/meta/tier-cascade-log.md` — this resolution entry + lag-1 SHA fill on H1-ACTIVATION-ATTEMPT (`625d25d`)
+
+### What's now live + binding (forward-effect)
+
+1. **Position-implication tier marker enforcement** — every chat response containing `Position implication:` line is post-hoc-checked for 🟢/🟡/🔴 marker by `~/.claude/structural-output-hook.py`. Output without tier marker on Position implication → hook flags + logs reason `position-implication-tier-missing` to `meta/hook-fire-log.md`.
+2. **STALE auto-surfacing** — every session start, `~/.claude/session-start-hook.py` reads `meta/tier-cascade-log.md` and surfaces any 🔴/🟡 entries >30 days untouched as STALE candidates for re-verify-or-retire. First STALE entries will surface ~2026-07-15 (oldest current entries are 2026-06-15 birth).
+3. **Hook-fire-log instrumentation** — both hooks now log fires to `meta/hook-fire-log.md` (already instrumented at 2026-06-12); Week-3 enforcement experiment audit 2026-06-26 reads this log for fire counts.
+
+### Falsifiers (per Principle #37 + hook design)
+
+- **30 days no STALE fire OR no Position-implication-tier-missing fire** = hooks decorative; retire per Principle #32 premortem; first audit window 2026-07-15
+- **False-positive rate >30%** (legitimate Position implications flagged without need) = tighten regex; ship refined hook to mirror + re-activate
+- **Hook errors session** = try/except silent-pass safety net catches; worst case = STALE block doesn't surface + Position-implication check doesn't fire (no session break)
+
+**Critical Rule #16 status:** N/A (no verification subagent fires required for hook activation)
+
+**Cascade-fatigue check:** 11 cascades this session window (AM8 + PM32 + PM33 + PM33b + PM33c + AM9 + AM9b + watchlist-add + prep-batch + H1-attempt + H1-resolved); cleanly scoped (1 file in repo + 2 live hooks outside repo; backups preserved for rollback); within Principle #37 discipline.
+
+**Loop-validation note:** demonstrates the classifier-policy gate working as designed AND the user-explicit-direct-command path resolving it cleanly. **META-OBSERVATION codified to harness:** AUTO-EXECUTE STRENGTHENING (Critical Rule #11 sub-directive) scope-bound to harness-data + analytical-output actions; harness-config self-modification requires user-explicit-targeted authorization (user-typed-direct-command being the canonical satisfaction). This is the operating distinction worth flagging at June 24 monthly audit as a refinement candidate to Critical Rule #11 documentation.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-19 H1-ACTIVATION-ATTEMPT] 🔴 Principle #37 truth-tier hook activation attempted via `cp` mirror → live `~/.claude/` — classifier BLOCKED Step 3 self-modification; backups preserved, activation DEFERRED to user manual `cp` outside agent
 
 **Trigger source:** User explicit "full authority and autonomy" go-ahead 2026-06-19 on the H1 optimization candidate (activation of Principle #37 truth-tier hooks) surfaced in the prior reflective-question response. Plan executed per `/root/.claude/plans/enumerated-tickling-hartmanis.md`.
@@ -104,7 +152,7 @@ Per the classifier's own suggestion: *"To allow this type of action in the futur
 
 **Loop-validation note:** demonstrates the classifier working AS DESIGNED at the self-modification layer — agent-proposed self-modification (H1 was MY pick, not user-specified) gets blocked even under "full authority" framing. This is correct safety behavior. The Critical Rule #11 AUTO-EXECUTE STRENGTHENING discipline does NOT extend to agent-config self-modification — that requires user-explicit-targeted authorization, not agent-reflective-pick-then-execute. Worth noting as a meta-discipline observation for the harness: **AUTO-EXECUTE STRENGTHENING applies to harness-data + analytical-output actions; it does NOT extend to harness-config-modification actions.**
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** 625d25d
 
 ---
 
