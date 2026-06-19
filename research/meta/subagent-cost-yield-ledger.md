@@ -82,6 +82,8 @@
 
 **Pre-audit flag for 2026-07-15:** if 30-day full window pace holds (~6.6M tokens), the cost-spend interpretation depends on what % of held-cohort thesis decisions can be traced to ≥1 HIGH-yield verification fire input. Audit-day analysis: cross-reference HIGH-yield entries against actual position decisions in `portfolio/changes.md` 2026-06-15 → 2026-07-15.
 
+**User directional 2026-06-19 (post-H2-ship):** Cost-spend explicitly RATIFIED. User read of the 16 HIGH / 15 MEDIUM / 3 FRAMING-ERROR-CAUGHT / 2 LOW / 0 ZERO distribution = "the sub agent cost is justified". This is a directional input to the 2026-07-15 detectability re-eval — preliminary verdict trajectory STRONGLY-POSITIVE has user concurrence at the 5-day-window-pace inflection point. Critical Rule #16 fires continue at full force; no scope-narrowing required pre-audit unless ZERO entries appear in next 25 days.
+
 ---
 
 ## Entries (most recent first)

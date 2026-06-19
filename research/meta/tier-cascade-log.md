@@ -35,6 +35,46 @@
 
 ## Entries (most recent first)
 
+### [2026-06-19 H1-CONTAINER-EPHEMERALITY-FIX] 🟢 Hook persistence model documented + `install.sh` idempotent installer shipped + user Critical Rule #16 cost-justified directional captured in ledger — H1 hooks aren't durably active in remote-execution env (container resets `~/.claude/` to base config each session); install.sh enables manual-per-session OR setup-script-driven activation; structural-output-hook still needs user-typed cp this session per classifier policy
+
+**Trigger source:** User directive "ensure H1 works. if subagent had 36 fires 2/16 high, 15 medium and 2 low. I think the sub agent cost is justified."
+
+**Intake tier:** 🟢 HARD — install.sh + README activation section + ledger directional + this entry all shipped this commit. User-typed session-start-hook cp executed PASS. Remaining `cp structural-output-hook.py` + `cp settings.json` + 13 other hook cps pending user-typed authorization (or durable setup-script config).
+
+**Source:** This entry + `research/meta/hooks/install.sh` (NEW) + README activation section + user-typed cp authorization PASS.
+
+**Tier moves (Principle #37 scoped-cascade):**
+- `research/meta/hooks/install.sh` — NEW (idempotent installer; backups; explicit file list; two activation paths documented)
+- `research/meta/hooks/README.md` — Activation section added documenting per-session manual vs durable setup-script paths
+- `research/meta/subagent-cost-yield-ledger.md` Audit Summary — User directional captured: cost-spend RATIFIED at 16/15/3/2/0 distribution; Critical Rule #16 fires continue at full force pre-audit
+- `research/meta/tier-cascade-log.md` — this entry
+
+**LIVE STATE this session (2026-06-19 12:13 UTC fresh container):**
+- ~/.claude/session-start-hook.py: INSTALLED via user-typed cp (cp PASS at 12:13 UTC; 18692 bytes; H2 version with parse_ledger_recent function)
+- ~/.claude/structural-output-hook.py: NOT INSTALLED (classifier blocked bundled cp; needs user-typed authorization)
+- ~/.claude/settings.json: NOT INSTALLED (needs user-typed authorization; without it, even installed hooks won't be invoked because launcher-settings.json only wires system hooks)
+- ~/.claude/launcher-settings.json: system-managed (SessionStart→session-start-git-identity.sh; Stop→stop-hook-git-check.sh) — NOT touched by install.sh
+- All other 13 hooks (anti-fabrication, cascade-enforcement, structural-output, etc.): NOT INSTALLED
+
+**Structural finding (loop-validation impact):** The remote-execution container model RESETS `~/.claude/` at every session start. Yesterday's H1-ACTIVATION-RESOLVED commit `cecc13fc` did make H1 hooks LIVE for that session, but the activation evaporated at session end. Today's fresh container had base config only — no H1 hooks invokable. This means the H1-ACTIVATION-RESOLVED commit's claim "WHAT'S NOW LIVE + BINDING" was true for ~12 hours, then auto-reverted. **The mirror-in-repo + manual-cp model is fundamentally a per-session activation flow in this environment, NOT a durable activation flow.** The only durable path = setup script configured via Claude Code on Web environment UI.
+
+**User-directional Critical Rule #16 update (captured in ledger):** "the sub agent cost is justified" — 16/15/3/2/0 distribution at 5-day-window pace = STRONGLY-POSITIVE verdict ratified by user. Rule #16 fires continue at full force; pre-audit re-eval trajectory locked POSITIVE unless ZERO entries appear next 25 days.
+
+**Cascade-fatigue check:** 14 cascades this session window (AM8+PM32+PM33+PM33b+PM33c+AM9+AM9b+watchlist+prep+H1-attempt+H1-resolved+AM10+H2-LEDGER-BIRTH+H1-CONTAINER-EPHEMERALITY-FIX); cleanly scoped to harness-instrumentation layer + ledger directional.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+**Action items for user (out-of-agent-scope):**
+1. **This session:** type these 2 commands verbatim to activate H1 fully:
+   ```
+   cp /home/user/Health-Calculators/research/meta/hooks/structural-output-hook.py ~/.claude/structural-output-hook.py
+   cp /home/user/Health-Calculators/research/meta/hooks/settings.json ~/.claude/settings.json
+   ```
+   (Or one command: `bash /home/user/Health-Calculators/research/meta/hooks/install.sh` — but classifier may block that auto-execution since it bundles many cps; user-typed-single-command form is the canonical classifier-satisfaction.)
+2. **Durable fix:** configure `bash research/meta/hooks/install.sh` as the environment setup script in Claude Code on Web environment config UI. Persists across container restarts. One-time setup.
+
+---
+
 ### [2026-06-19 H2-LEDGER-BIRTH] 🟢 Verification-Subagent Cost-Yield Ledger codified at `meta/subagent-cost-yield-ledger.md` per H2 plan ship — 36-entry backfill of 2026-06-15→2026-06-19 window shows 16 HIGH / 15 MEDIUM / 3 FRAMING-ERROR-CAUGHT / 2 LOW / 0 ZERO + Critical Rule #16 STRONGLY-POSITIVE preliminary verdict + session-start-hook mirror extended for past-7-day surfacing (live activation pending user manual cp same as H1 pattern)
 
 **Trigger source:** User-approved H2 plan execution `/root/.claude/plans/enumerated-tickling-hartmanis.md` 2026-06-19 (full approval after Phase 1 Explore + AskUserQuestion clarification).

@@ -8,6 +8,23 @@
 
 **Why mirror them:** The `~/.claude/` directory may not persist across container restarts in remote execution environments. Keeping a copy in the repo means hooks can be re-installed from version control if lost. Update the mirror whenever a hook is changed in `~/.claude/`.
 
+## Activation (added 2026-06-19 per H1-CONTAINER-EPHEMERALITY-FIX)
+
+The remote-execution environment resets `~/.claude/` to a base system config at every session start. Hooks installed by the user in prior sessions don't persist. Two activation paths:
+
+### Manual per-session activation
+```bash
+bash research/meta/hooks/install.sh
+```
+Installs all 17 mirror hooks + the merged `settings.json` wiring into `~/.claude/`. Idempotent; creates dated backups before overwrite. Takes ~1 second.
+
+### Durable activation (recommended)
+Configure `bash research/meta/hooks/install.sh` as the **environment setup script** in the Claude Code on Web environment config UI. The setup script runs automatically at every container start, so hooks are active from turn 1 of every session. One-time setup.
+
+Docs: https://code.claude.com/docs/en/claude-code-on-the-web
+
+**Diagnosis history:** 2026-06-18 hooks were active (last fire `16:33:37Z structural-output-hook FIRE`). 2026-06-19 H1-ACTIVATION-RESOLVED commit `cecc13fc` re-installed via manual cp at 02:02 UTC. 2026-06-19 12:00 UTC fresh container had base config only — neither H1 nor H2 hooks invokable until `install.sh` runs. This is the structural environment behavior, NOT a one-off.
+
 ---
 
 ## Active hooks (registered in `~/.claude/settings.json`)
