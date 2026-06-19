@@ -35,6 +35,79 @@
 
 ## Entries (most recent first)
 
+### [2026-06-19 H1-ACTIVATION-ATTEMPT] 🔴 Principle #37 truth-tier hook activation attempted via `cp` mirror → live `~/.claude/` — classifier BLOCKED Step 3 self-modification; backups preserved, activation DEFERRED to user manual `cp` outside agent
+
+**Trigger source:** User explicit "full authority and autonomy" go-ahead 2026-06-19 on the H1 optimization candidate (activation of Principle #37 truth-tier hooks) surfaced in the prior reflective-question response. Plan executed per `/root/.claude/plans/enumerated-tickling-hartmanis.md`.
+
+**Intake tier:** 🔴 SPECULATIVE — live activation NOT achieved this commit; deferred to user manual `cp` outside the agent. Mirror code on disk + github is the deliverable for now; user runs the activation commands manually.
+
+**Source:** This entry; `/root/.claude/plans/enumerated-tickling-hartmanis.md` plan steps 1-7.
+
+**What was executed (steps 1-2 PASS):**
+
+| Step | Action | Status | Detail |
+|---|---|---|---|
+| 1 | Pre-flight read-only verification | ✓ PASS | Mirror session-start = 386 lines; mirror structural-output = 319 lines (plan expected 305 — delta = logger instrumentation added 2026-06-12, NOT a blocker); live session-start = 312 lines (smaller — confirms pre-Principle #37 state); live structural-output = 266 lines (smaller — confirms pre-Position-implication regex); no `*.bak.2026-06-19` collision (clean for backup creation) |
+| 2 | Backup live hooks via `cp ~/.claude/{session-start-hook,structural-output-hook}.py ~/.claude/{name}.py.bak.2026-06-19` | ✓ PASS | Both backups created (11248 + 9900 bytes; executable permissions preserved). Rollback path = one `cp` from `.bak.2026-06-19` → live |
+| 3 | Activation `cp` mirror → live | 🔴 **CLASSIFIER BLOCKED** | Verbatim reason: *"Copying repo hook files over the live `~/.claude/` startup hooks modifies the agent's own behavior config (Self-Modification); the user's vague 'full authority' on an agent-chosen 'H1' never specifically authorized altering hook files."* The classifier is correct: the H1 framing was reflective + my choice, not a user-articulated direct request to modify hook config. |
+| 4 | Smoke tests (diff + py_compile + session-start end-to-end) | ⏸️ N/A — DEFERRED | Not runnable without Step 3 activation |
+| 5 | This cascade-log entry | ✓ THIS ENTRY | Per plan: commit goes through even with Step 3 blocked, documenting the attempt + deferred-activation state |
+| 6 | Lag-1 SHA fill on prior cascade entry | ✓ Medical-AI watchlist cluster entry was committed at `cba9df6`; SHA-fill below | — |
+| 7 | Commit + push | ✓ In progress | Cascade-log entry + manual-activation handoff |
+
+**Files NOT touched in this attempt:**
+- `~/.claude/session-start-hook.py` — blocked
+- `~/.claude/structural-output-hook.py` — blocked
+- `research/meta/hooks/*.py` — already shipped at 2026-06-15 commit `6a3bade`; no changes required this attempt
+- All thesis files / sector files / candidates files — orthogonal to hook activation
+
+**Files modified this commit:**
+- `research/meta/tier-cascade-log.md` — this entry + lag-1 SHA fill on `[2026-06-19] Medical-AI hardware cluster` entry
+
+**Files modified outside the agent (user action required):**
+- `~/.claude/session-start-hook.py` ← `research/meta/hooks/session-start-hook.py`
+- `~/.claude/structural-output-hook.py` ← `research/meta/hooks/structural-output-hook.py`
+
+### Manual activation handoff — user runs OUTSIDE the agent
+
+```bash
+# Step A — backups already exist (created by agent this session):
+# ~/.claude/session-start-hook.py.bak.2026-06-19
+# ~/.claude/structural-output-hook.py.bak.2026-06-19
+# (skip if you'd rather verify them yourself: ls -la ~/.claude/*.bak.2026-06-19)
+
+# Step B — the activation cp (one of two paths):
+cp /home/user/Health-Calculators/research/meta/hooks/session-start-hook.py ~/.claude/session-start-hook.py
+cp /home/user/Health-Calculators/research/meta/hooks/structural-output-hook.py ~/.claude/structural-output-hook.py
+
+# Step C — smoke verify:
+diff ~/.claude/session-start-hook.py /home/user/Health-Calculators/research/meta/hooks/session-start-hook.py
+diff ~/.claude/structural-output-hook.py /home/user/Health-Calculators/research/meta/hooks/structural-output-hook.py
+python3 -c "import py_compile; py_compile.compile('/root/.claude/session-start-hook.py', doraise=True)"
+python3 -c "import py_compile; py_compile.compile('/root/.claude/structural-output-hook.py', doraise=True)"
+echo '{}' | python3 ~/.claude/session-start-hook.py
+
+# Step D — if anything broken, rollback (one cp each):
+# cp ~/.claude/session-start-hook.py.bak.2026-06-19 ~/.claude/session-start-hook.py
+# cp ~/.claude/structural-output-hook.py.bak.2026-06-19 ~/.claude/structural-output-hook.py
+```
+
+Expected smoke results: empty `diff` output (identical post-cp); `py_compile` exits 0 (both already verified py_compile-clean at 2026-06-15 commit `6a3bade`); session-start hook produces standard briefing without errors + no STALE flags yet (today's entries are <30d).
+
+### Permanent activation alternative (settings.json permission rule)
+
+Per the classifier's own suggestion: *"To allow this type of action in the future, the user can add a Bash permission rule to their settings."* The user could add a permission rule in `~/.claude/settings.json` to allow `cp` operations targeting `~/.claude/*.py` from this agent — this would unblock future activation attempts without requiring out-of-agent action. This is a one-time setup vs per-attempt manual `cp`. User's preference.
+
+**Critical Rule #16 status:** N/A (no verification subagent fires required for this attempt; harness-meta self-modification work)
+
+**Cascade-fatigue check:** 10 cascades this session window (AM8 + PM32 + PM33 + PM33b + PM33c + AM9 + AM9b + watchlist-add + prep-batch + this); cleanly scoped (1 file modified + 2 .bak files outside repo); within Principle #37 discipline.
+
+**Loop-validation note:** demonstrates the classifier working AS DESIGNED at the self-modification layer — agent-proposed self-modification (H1 was MY pick, not user-specified) gets blocked even under "full authority" framing. This is correct safety behavior. The Critical Rule #11 AUTO-EXECUTE STRENGTHENING discipline does NOT extend to agent-config self-modification — that requires user-explicit-targeted authorization, not agent-reflective-pick-then-execute. Worth noting as a meta-discipline observation for the harness: **AUTO-EXECUTE STRENGTHENING applies to harness-data + analytical-output actions; it does NOT extend to harness-config-modification actions.**
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-19] 🟡 Medical-AI hardware cluster added to `watchlist/candidates.md` per user explicit request (BFLY/Sony 6758.T/ADI/MCHP P1 + ISRG/MDT/GEHC P2 + 10 P3 names + reference-only list)
 
 **Trigger source:** User explicit codification request 2026-06-19 post-AM9b synthesis: *"can you add to these companies to the medical AI watchlist?"*
@@ -79,7 +152,7 @@
 
 **Loop-validation note:** demonstrates AUTO-EXECUTE STRENGTHENING (Critical Rule #11 sub-directive) — user gave explicit request, executed cluster add without permission-asking + structured codification at appropriate scope (watchlist not held-thesis); H1/H2/H3/H4 enumeration + joint-state matrix + trigger events + lateral falsifiers + B45-binding check all built into the watchlist entry to make future signal-density detection actionable.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** cba9df6
 
 ---
 
