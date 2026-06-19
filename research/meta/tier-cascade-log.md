@@ -35,6 +35,54 @@
 
 ## Entries (most recent first)
 
+### [2026-06-19] 🟡 Medical-AI hardware cluster added to `watchlist/candidates.md` per user explicit request (BFLY/Sony 6758.T/ADI/MCHP P1 + ISRG/MDT/GEHC P2 + 10 P3 names + reference-only list)
+
+**Trigger source:** User explicit codification request 2026-06-19 post-AM9b synthesis: *"can you add to these companies to the medical AI watchlist?"*
+
+**Intake tier:** 🟡 DIRECTIONAL (cluster thesis research-verified via AM9b Subagent 2 + Critical Rule #15 macro-anchor PASS + Critical Rule #16 verification fires already executed AM9b; per-name conviction insufficient for sizing = watchlist not position-tier)
+
+**Source:** `watchlist/candidates.md` § "Medical-AI hardware cluster — added 2026-06-19"
+
+**Tier moves:**
+- `watchlist/candidates.md` — NEW cluster section (~170 lines) with origin chronology + common thesis + joint-state matrix + H1/H2/H3/H4 cluster hypotheses + trigger events + lateral falsifiers + investability check + promotion gate + linked source files
+- `meta/tier-cascade-log.md` — this entry + lag-1 SHA fill (`7ebcf5c`) on AM9b entry
+
+**Files NOT touched (Principle #37 scoped-cascade):**
+- All `companies/{TICKER}/thesis.md` — watchlist add is pre-thesis; per-name thesis files built only on promotion-gate trigger event firing (per Critical Rule #11 framework). BFLY/Sony/ADI/MCHP/ISRG/MDT/GEHC etc. NOT yet promoted; no thesis file needed
+- Held-cohort theses — already addressed in AM9b (no held-cohort thesis-mover exposure)
+- `sector/where-we-are.md` — medical AI adjacent vertical not core AI-infra synthesis shift
+- `meta/cross-domain-pattern-register.md` — Midjourney-image-gen→hardware still N=1; pattern N+1 trigger registered as a promote-event in cluster watch table
+
+**Codification justification (Critical Rule #13 §2):** User explicit request changes position-relevant variable (candidate watchlist composition) — NOT chat-output-over-codification per PM33c failure mode (which was me registering candidates beyond user intent). This is user-asked codification = appropriate per §2.
+
+**B45 regime priors:** cluster watch table explicitly registers single-day >+15% moves as B45-binding check (don't reflexively trim/sell without regime base rate consultation). Embedded into trigger-event monitoring table.
+
+**Cluster H1/H2/H3/H4 hypothesis weights (my model, embedded in candidates.md):**
+- H1 (medical-AI HW proliferates structurally) ~50%
+- H2 (cluster plateaus) ~30%
+- H3 (regulatory tightening) ~15%
+- H4 lateral (NVDA Clara moat erosion / rotation within cluster) ~5%
+
+**Macro-anchor (Critical Rule #15) status:** PASS via AM9b — Subagent 2 produced fresh sector first-principles state ≤24h ago; pattern-match P-9 Akamai middle-layer rent-capture identified at Holoscan regulatory moat layer; load-bearing claims tagged research-verified [2026-06-18 AM9b] [T1/T2/T3] vs recall-based per claim.
+
+**Investability check status (PASS per CLAUDE.md investability filter):**
+- All P1 names: NASDAQ + TSE Japan accessible via Degiro direct or pink-sheet ADR
+- All P2 names: NASDAQ + NYSE accessible
+- P3 STM Euronext + AMS-OSRAM SIX Swiss: verify Degiro access before sizing
+- All other P3: NASDAQ accessible
+
+**Critical Rule #11 position implication for cluster:** 🟡 **MONITOR — no position taken — awaiting ≥1 trigger event + per-name thesis build before sizing.** Cluster = NEW investable surface (sector adjacency to held AI-infra cohort), NOT add-to-existing-thesis. 9 named trigger events registered in cluster watch table.
+
+**Stale flags fired:** none
+
+**Cascade-fatigue check:** AM8 + PM32 + PM33 + PM33b + PM33c + AM9 + AM9b + this = 8 cascades in 30h. This cascade is small-scope (1 watchlist file + 1 audit-trail entry) following user explicit add-request; cleanly within Principle #37 discipline.
+
+**Loop-validation note:** demonstrates AUTO-EXECUTE STRENGTHENING (Critical Rule #11 sub-directive) — user gave explicit request, executed cluster add without permission-asking + structured codification at appropriate scope (watchlist not held-thesis); H1/H2/H3/H4 enumeration + joint-state matrix + trigger events + lateral falsifiers + B45-binding check all built into the watchlist entry to make future signal-density detection actionable.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-18 AM9b] 🟡 Midjourney Medical division verification + AI-medical-hardware sector extrapolation per user 4-axis request (USE-of-AI side effects + medical-hardware-as-AI-use-case + hardware component growth + AI utility/task-fulfillment requirements)
 
 **Trigger source:** User-shared AM brief item ("Midjourney pivots to medical hardware") + explicit user redirect away from held-cohort cascade toward sector-extrapolation. 2 Opus 4.8 subagents parallel-fired per Critical Rule #16.
@@ -86,7 +134,7 @@
 
 **Cascade-fatigue check:** AM8 + PM32 + PM33 + PM33b + PM33c + AM9 + AM9b = 7 cascades in 30h window. AM9b cleanly within Principle #37 scope discipline (1 file touched + audit-trail entry + zero held-thesis cascade per explicit user scope redirect).
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** 7ebcf5c
 
 ---
 

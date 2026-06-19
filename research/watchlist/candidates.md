@@ -427,6 +427,97 @@ These events move the whole TC-10 H2 weighting (currently P~55% structural, my m
 | Competitor SOFC scale-up announcement (FuelCell Energy, Mitsubishi) | BE pricing power dimension | Continuous |
 | Bloom-Oracle Phase 1 (Cheyenne) operational delivery on schedule late-2026 | Execution credibility on 900 MW project | Late 2026 |
 
+## Medical-AI hardware cluster — added 2026-06-19 (per user explicit add request following AM9b Midjourney/BFLY verification)
+
+### Session-origin chronology
+
+- 2026-06-17/18: Midjourney announced full-body ultrasonic CT scanner (USCT) using Butterfly Network ($BFLY) ultrasound-on-chip silicon under disclosed deal terms (BFLY 8-K 2025-11-17): $15M upfront + $10M/yr × 5yr + up to $9M milestones = up to ~$74M total over 5yr ([MarketChameleon T2 analysis](https://marketchameleon.com/articles/b/2026/6/18/butterfly-network-ultrasound-on-chip-midjourney-full-body-imaging-74m-opportunity))
+- 2026-06-18 AM9b: 2 Opus 4.8 subagents verified + synthesized 4-axis sector extrapolation per user request → `signals/cross-source-log/2026-06-18-am9b-midjourney-medical-bfly-deal-ai-medical-hardware-sector-extrapolation-4-axis-user-request.md`
+- 2026-06-19: user explicit codification request: "can you add to these companies to the medical AI watchlist?"
+
+### Common cluster thesis (research-verified [2026-06-18 AM9b] [T1/T2])
+
+Medical-AI hardware is in an **edge-first inflection** (research-verified): FDA AI/ML SaMD clearances accelerated from ~692 cumulative (Oct 2023) → ~1,450 (end 2025), with **295 cleared in 2025 alone (~24.6/month)** ([Innolitics T2 2025 Year-in-Review](https://innolitics.com/articles/year-in-review-ai-ml-medical-device-k-clearances/)); 2026 YTD March 24 + April 27 clearances. **74-76% radiology** historically but new clearances trending EDGE-FIRST because FDA's Jan 2025 Lifecycle Management Draft Guidance + Predetermined Change Control Plan (PCCP) framework reward sealed validated models on edge SoCs. **HBM exposure = zero** in medical AI (cloud-side training only for pathology foundation models / drug discovery); **LPDDR + medical AFE + medical CMOS + edge inference accelerators** = the load-bearing component vectors.
+
+**Macro-first first-principles read (research-verified):** the binding constraint for medical-AI hardware proliferation is NOT compute (Jetson Orin 8-275 TOPS already suffices for most use cases) but **REGULATORY pre-validation** — NVIDIA Clara Holoscan MGX is the only platform pre-certified for IEC 60601 medical-grade safety, which is the actual moat. Competitor edge-AI silicon vendors (Hailo, Mythic, SiMa.ai, EdgeCortix) lack medical reference designs at the OS/SDK level = 2-3 year qualification cycle barrier.
+
+**Pattern-match (P-* register, Critical Rule #15 step 3):** P-9 Akamai/Cloudflare middle-layer rent capture analog identified at the Holoscan-regulatory-moat layer — moat is in the certification stack, not silicon.
+
+### Joint-state matrix — cluster candidates (NEW additions per user explicit request)
+
+| Rank | Ticker | Exchange | Investability | Exposure mechanism | Strength | Source tier |
+|---|---|---|---|---|---|---|
+| **P1** | **BFLY** (Butterfly Network) | NASDAQ | ✓ (US) | Ultrasound-on-chip silicon + Butterfly Embedded licensing + **disclosed Midjourney deal up to ~$74M / 5-yr** | HIGH (pure-play, small-cap) | T1 (8-K) + T2 (Bloomberg, MarketChameleon) |
+| **P1** | **6758.T Sony** | TSE Tokyo | ✓ (per CLAUDE.md investability filter: Japan TSE accessible via direct or pink-sheet ADR) | IMX medical CMOS sensors — ~$95M 2025 segment, 24% op margin, expanded 300mm capacity, Karl Storz 8K endoscopy partnership; customers Olympus/Stryker/Medtronic | MEDIUM (small mix vs total Sony but cleanest medical CMOS pure-play exposure) | T3 [Reportprime](https://www.reportprime.com/medical-cmos-image-sensor-r3951/company) — single source caveat |
+| **P1** | **ADI** (Analog Devices) | NASDAQ | ✓ (US) | Medical AFE leader; medical-imaging AFE upgrades 2025; vital-sign sensor front-ends | MEDIUM-HIGH (segment growing ~24% CAGR per T3 directional) | T3 [Global Growth Insights](https://www.globalgrowthinsights.com/market-reports/medical-analog-front-ends-market-104148): medical AFE $583M (2025) → $3.29B (2033) @ 24.13% CAGR |
+| **P1** | **MCHP** (Microchip) | NASDAQ | ✓ (US) | MICS-band implant RF, long-life medical-grade MCUs, FDA-friendly long EOL (10+ yr lifecycle requirement favors MCHP structurally) | MEDIUM (boring but FDA long-EOL regulatory regime favors asymmetrically) | T2 / recall-based — verify before sizing decision |
+| **P2** | **ISRG** (Intuitive Surgical) | NASDAQ | ✓ (US) | da Vinci 5 AI Case Insights, motion-scaling AI; 17% YoY procedure growth Q2 2025; ~3M+ annual procedures globally; 180 da Vinci 5 placed Q2 2025 vs 70 prior yr; 13-15% 2026 guide | HIGH (direct end-product) | T1 [Intuitive Q2 2025 8-K](https://www.sec.gov/Archives/edgar/data/0001035267/000103526725000183/q225ex-991earningsrelease.htm) |
+| **P2** | **MDT** (Medtronic) | NYSE | ✓ (US) | Multi-vector: Hugo robot (Dec 2025 FDA urology), Simplera Sync CGM + MiniMed 780G closed-loop (FDA Apr 2025), AiBLE spine, GI Genius | HIGH multi-vector | T1 [Medtronic Simplera Sync Apr 2025](https://news.medtronic.com/2025-04-18-New-Simplera-Sync-TM-sensor-for-the-MiniMed-TM-780G-System-now-FDA-approved) |
+| **P2** | **GEHC** (GE HealthCare) | NASDAQ | ✓ (US) | Edison platform + Vscan Air POCUS + radiology AI suite + AI on every modality | HIGH | T2 |
+| **P3** | **NVDA** (already universe-tracked) | NASDAQ | ✓ (US) — already held context | **Clara Holoscan MGX REGULATORY moat** at edge medical AI (>1,000 ecosystem customers early 2026); cloud-side pathology foundation model training | MEDIUM-HIGH (medical segment small for total NVDA but defensible moat — moat is in IEC 60601 pre-certification not silicon) | T1 [NVIDIA Clara Holoscan](https://www.nvidia.com/en-us/clara/medical-devices/) |
+| **P3** | **TXN** (Texas Instruments) | NASDAQ | ✓ (US) | Low-power wearable health AFE line 2025; medical analog mix | MEDIUM | T2 |
+| **P3** | **STM** (STMicroelectronics) | NYSE/Euronext | ✓ | Medical AFE + MCU + implantable-grade chips | MEDIUM | recall-based |
+| **P3** | **AMS-OSRAM** | SIX Swiss | ✓ (likely Degiro EU access; verify before sizing) | Specialty optical sensors for medical (pulse oximetry, spectroscopy) | MEDIUM | recall-based |
+| **P3** | **EW** (Edwards Lifesciences) | NYSE | ✓ (US) | AI structural heart imaging + HemoSphere hemodynamic monitoring | MEDIUM | recall-based |
+| **P3** | **NXPI** (NXP) | NASDAQ | ✓ (US) | Medical AFE + UWB for patient positioning | LOW-MEDIUM | recall-based |
+| **P3** | **SLAB** (Silicon Labs) | NASDAQ | ✓ (US) | BLE / LE Audio in hearing aids + medical wearables | LOW-MEDIUM | recall-based |
+| **P3** | **QRVO** (Qorvo) | NASDAQ | ✓ (US) | UWB + RF for medical wearables + hearing aids | LOW | recall-based |
+| **P3** | **ALGM** (Allegro Microsystems) | NASDAQ | ✓ (US) | Current sensors + magnetic position (surgical robotics joint encoders) | LOW-MEDIUM | recall-based |
+| **P3** | **VICR** (Vicor) | NASDAQ | ✓ (US) | Isolated medical power modules for OR/imaging (IEC 60601 compliant DC-DC) | LOW-MEDIUM | recall-based |
+| **P3** | **IDXX** (IDEXX) | NASDAQ | ✓ (US) | Vet AI imaging (AI-augmented blood diagnostics + AI radiology vetted-grade) | MEDIUM (adjacent vertical) | recall-based |
+
+**Reference-only (already universe-tracked or non-pure-play):** TEM (Tempus AI cloud-compute consumer not HW), RXRX (Recursion drug discovery cloud-GPU consumer), SDGR (Schrödinger drug discovery cloud), MSFT (Nuance DAX + Paige.AI partnership = cloud AI medical, not novel HW), GOOGL (Verily + MedLM + Isomorphic Labs).
+
+### Cluster-level hypothesis weighting (H1/H2/H3, my model)
+
+| H | Description | P |
+|---|---|---|
+| **H1** | **Medical-AI hardware proliferates structurally** (FDA AI/ML SaMD clearance run-rate sustains ~25/mo through 2026; PCCP + edge-first design pulls hardware revenue ahead of cloud revenue in medical AI) → P1 cohort (BFLY/Sony/ADI/MCHP) outperforms over 12-24mo | ~50% |
+| **H2** | **Cluster plateaus** (clearance rate flat at ~300/yr; LLM convergence pulls clinical documentation OUT of SaMD INTO FTC space; edge silicon ROI under-delivers vs hyperscaler cloud growth) → cluster underperforms broader AI-infra basket | ~30% |
+| **H3** | **Regulatory tightening** (FDA closes wellness-pathway loophole post-Midjourney precedent + EU MDR clinical investigation barrier) → adoption decelerates; HW timeline stretches → cluster underperforms | ~15% |
+| **H4** (lateral) | **NVDA Clara Holoscan moat erodes** (Hailo/Mythic/SiMa.ai announce IEC 60601 reference designs) → NVDA medical edge share threatened but cluster broadly intact; rotation within cluster | ~5% |
+
+### Trigger events that promote watchlist → position (per Critical Rule #11 framework-codification gate)
+
+| Event | Direction | Cluster names affected | Watch horizon |
+|---|---|---|---|
+| BFLY Q3/Q4 2026 earnings show embedded-licensing line item growth from Midjourney milestones | H1 confirm | BFLY direct | Quarterly |
+| FDA AI/ML SaMD 2026 full-year clearance count ≥330 (vs 295 in 2025) | H1 confirm | Cluster broad | End 2026 |
+| Any private edge-AI silicon vendor announces IEC 60601 medical SDK + reference design | H4 trigger | NVDA share at risk; rotation within cluster | Continuous |
+| Midjourney FDA dialogue communication on diagnostic clearance path | H1 vs H3 adjudicator | BFLY direct; ISRG/MDT proxy | 6-12mo |
+| Hailo / Mythic / SiMa.ai medical reference design announcement | H4 trigger | NVDA Clara moat erosion | Continuous |
+| 2nd or 3rd image-gen company (Stability / Black Forest Labs) follows Midjourney into hardware | Pattern N+1 → PC candidate elevation | Cluster broad | Continuous |
+| da Vinci 5 + Hugo procedure attach rate to AI Case Insights features Q3/Q4 2026 | H1 confirm strength | ISRG / MDT direct | Quarterly |
+| Sony 6758.T quarterly disclosure of medical-CMOS segment growth >25% YoY | H1 confirm | Sony direct | Quarterly |
+| ADI / TXN / STM medical AFE segment guidance ≥20% growth in next FY | H1 confirm | ADI/TXN/STM direct | FY guidance cycles |
+| Any cluster name single-day move >+15% on regulatory news | B45-binding check (don't reflexively trim/sell; verify regime base rate) | Cluster broad | Continuous |
+
+### Lateral falsifiers (what would invalidate cluster thesis)
+
+1. FDA AI/ML SaMD 2026 clearance count <250 (vs 295 in 2025) = trajectory inflection — would re-eval H1 vs H2
+2. CMS reimbursement codes denied for AI-augmented procedures (no economic incentive for adoption) — cluster broadly hit
+3. AI-related medical device adverse event triggers FDA recall + regulatory tightening cascade — H3 ratified
+4. Hyperscaler (MSFT/GOOG/AMZN) launches managed medical-AI infrastructure service that bypasses dedicated edge hardware (cloud-first becomes economically dominant again) — H2 ratified
+
+### Investability check status
+
+- **All P1 names: investable via Degiro** (NASDAQ + TSE direct or pink-sheet ADR for Sony per CLAUDE.md filter)
+- **P2 names: investable via Degiro** (NASDAQ + NYSE)
+- **P3 STM:** Euronext Paris — investable per Degiro EU access (verify before sizing)
+- **P3 AMS-OSRAM:** SIX Swiss — verify Degiro access before sizing
+- All other P3 names: NASDAQ — investable
+
+### Promotion gate (per Critical Rule #11 + ## How these watchlist entries promote to position section below)
+
+Per established framework: names move watchlist → position when (1) ≥1 directional trigger event above fires in same direction as cluster thesis, AND (2) User explicit go-decision, AND (3) Per-name thesis file built with full Bull/Bear/Base + falsifiers per CLAUDE.md template, AND (4) Sizing logic explicit (Watchlist starter band 1-3% typical for novel cluster; cash >50% discipline maintained).
+
+**Position implication for cluster (Critical Rule #11):** 🟡 **MONITOR — no position taken — awaiting ≥1 trigger event from table above + per-name thesis build before sizing decision.** Cluster represents novel sector adjacency to held AI-infra cohort; per AM9b analysis no held-cohort thesis-mover exposure exists, so this cluster is a **new investable surface** not an add-to-existing-thesis.
+
+**Linked source files:**
+- Master cross-source-log: `signals/cross-source-log/2026-06-18-am9b-midjourney-medical-bfly-deal-ai-medical-hardware-sector-extrapolation-4-axis-user-request.md`
+- Cascade log entry: `meta/tier-cascade-log.md` [2026-06-18 AM9b]
+- Existing medical-AI framework reference: `meta/medical-ai-evaluation-framework.md` (4-gate filter + Type A/B archetypes)
+
 ## How these watchlist entries promote to position
 
 Per Critical Rule #11 + framework-codification gate (Critical Rule #11d): names move from watchlist → position when:
