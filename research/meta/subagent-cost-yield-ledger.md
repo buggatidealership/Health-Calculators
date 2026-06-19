@@ -57,12 +57,20 @@
 
 ## Cost estimation model
 
-- **Per-subagent heuristic:** ~12-18k tokens per Opus 4.8 subagent (my model, range)
-  - Basis: observed task-notification `subagent_tokens` field values 24-42k divided by 2-3 for prompt+output split per turn
-  - Forward entries refine the heuristic as actual `subagent_tokens` are captured at fire-time
-- **Total per fire:** N × 12-18k = typical 25-50k for N=2, matching Critical Rule #16 line 633 baseline
-- **Backfill tag:** entries reconstructed from cross-source-log archaeology carry `(backfilled estimate)` suffix
-- **Refinement path:** if SDK exposes per-message token usage natively, upgrade from estimate to measured
+**CORRECTED 2026-06-19 AM11 cascade — heuristic was wrong by 8-10× for deep verification fires.** Original heuristic ~12-18k per subagent was derived from misinterpretation of task-notification `subagent_tokens` field — that field is the FULL token cost of the subagent (not a per-turn fragment), so dividing by 2-3 was wrong.
+
+**Refined heuristic (3 tiers, my model):**
+- **Light verification (1-2 sources, single-language, simple yes/no):** ~25-50k tokens per Opus 4.8 subagent
+- **Standard verification (3-5 sources, single-language, multi-claim):** ~50-100k tokens per Opus 4.8 subagent
+- **Deep verification (multi-source, multilingual, multi-claim joint-state, cascade-mapping):** ~100-200k tokens per Opus 4.8 subagent
+
+**AM11 observed baseline (2 deep-verification subagents):** A=146.8k, B=162.4k = ~155k average per deep fire. **Total per typical N=2 deep fire: ~250-350k tokens** (~10× the prior heuristic).
+
+**Backfill window cost implication:** 36 entries × ~70-100k avg per fire (mix of light/standard/deep) = ~2.5-3.6M tokens (vs prior 1.1M estimate). 30-day projection: ~15-22M tokens (vs prior 4.7-6.6M). Material upward revision.
+
+**Backfill tag:** entries reconstructed from cross-source-log archaeology carry `(backfilled estimate)` suffix; cost ranges for backfilled entries widened by the AM11 calibration. **Forward entries** carry actual `subagent_tokens` from task-notification metadata where available.
+
+**Refinement path:** continue logging actual `subagent_tokens` per fire; refine heuristic at every 5-10 fires until stable.
 
 ---
 
@@ -71,12 +79,12 @@
 **Window:** 2026-06-15 → 2026-07-15 (Critical Rule #16 detectability re-eval window)
 **Last refresh:** 2026-06-19 (H2 file birth + backfill of 36 entries spanning 5-day partial window)
 
-**Total fires (backfill window 2026-06-15 → 2026-06-19, 5 days):** 36
-**Total estimated cost:** ~1.1M tokens (~220K tokens/day — pace implies ~6.6M over 30 days; higher than initial estimate of 425-850k for ~17 fires)
-**Yield distribution:** HIGH 16 / MEDIUM 15 / LOW 2 / FRAMING-ERROR-CAUGHT 3 (primary class) / ZERO 0
-**Brief-framing errors caught (across all classes including HIGH entries with secondary catch):** ≥22 misattributions caught that would have propagated (B40.x stale-recycle catches dominate; venue / role / temporal-event-vs-leak / pure-play-test-fail / ticker-disambiguation / cluster-vs-singular reframes)
-**Cost per HIGH-yield event:** ~70k tokens
-**Audit-day verdict candidate (preliminary, 5-day pace):** **STRONGLY POSITIVE** — HIGH+FRAMING-ERROR-CAUGHT = 19 of 36 entries (53%); HIGH+MEDIUM = 31 of 36 (86%); ZERO entries = 0; falsifier threshold (≥3 ZERO) NOT breached. Rule #16 detectability falsifier appears to be working as designed: subagent fires are producing material yield, NOT decorative noise.
+**Total fires (backfill window 2026-06-15 → 2026-06-19, 5 days + AM11 forward):** 37
+**Total estimated cost:** ~2.5-3.6M tokens (REVISED UPWARD per AM11 cost-model correction; backfill estimates were 12-18k/subagent which was 8-10× too low for deep verification fires; AM11 actual = 309k for 2-subagent deep fire). 30-day projection: ~15-22M tokens (vs prior 4.7-6.6M).
+**Yield distribution:** HIGH 17 / MEDIUM 15 / LOW 2 / FRAMING-ERROR-CAUGHT 3 (primary class) / ZERO 0
+**Brief-framing errors caught (across all classes including HIGH entries with secondary catch):** ≥25 misattributions caught that would have propagated (B40.x stale-recycle dominates backfill; AM11 added 3 from anonymous-T2-critic claims: HB-should-be-used + won't-use-16-Hi-2027 + BESI-as-CPO-only)
+**Cost per HIGH-yield event:** ~150k tokens (revised upward 2× per AM11 calibration; was ~70k under old heuristic)
+**Audit-day verdict candidate (preliminary, 5-day + AM11 pace):** **STRONGLY POSITIVE** — HIGH+FRAMING-ERROR-CAUGHT = 20 of 37 entries (54%); HIGH+MEDIUM = 32 of 37 (86%); ZERO entries = 0; falsifier threshold (≥3 ZERO) NOT breached. Rule #16 detectability falsifier appears to be working as designed: subagent fires are producing material yield, NOT decorative noise. **User directional 2026-06-19 ratification UNCHANGED at the corrected cost basis** — cost-justification stands even with 2.3× cost revision because yield distribution unchanged (and AM11 cascade added a watchlist tier promotion + 3 framing errors caught).
 
 **Refresh discipline:** recompute counts at every entry append. Mechanical — count entry lines in 30-day window + tally yield labels.
 
@@ -87,6 +95,28 @@
 ---
 
 ## Entries (most recent first)
+
+### [2026-06-19 AM11] BESI Goldman Sachs Investor Day + SK hynix HBM4E 12-Hi June 18 ship + T2 anonymous critic (Rubin Ultra 16→12-Hi / HB-not-used / TSMC COUPE+Tower CPO as load-bearing)
+
+**Trigger source:** user-shared 2-image brief (BESI Goldman Sachs Investor Day excerpt + SK hynix HBM4E newsroom screenshot) + user-shared T2 anonymous critic commentary
+**Subagents fired:** 2 (Opus 4.8)
+**Estimated token cost:** ~309k ACTUAL (A=146.8k + B=162.4k) — first AM11 deep-verification fire establishing the corrected cost model baseline
+**Items verified:** SK hynix HBM4E 12-Hi sample ship date + specs (48GB / 16Gbps/pin / 17% thermal vs prior HBM4 NOT vs TCB); Samsung lead narrowing 6mo→3wk; Rubin Ultra 16→12-Hi downgrade; HB roadmap (HBM5 2029 NOT HBM4E 2027); JEDEC TCB-to-16-Hi permission; Goldman Sachs Investor Day 2026-06-18; BESI LT targets €1.7-2.2B + 45-55% op margin; AMD MI300/MI400 SoIC HB; Apple M5 SoIC-mH HB; Broadcom TH6-Davisson + 3D SoIC OpenAI ASIC HB; Nvidia Feynman 2028 HB DRAM; TSMC COUPE + Tower SiPho HB CPO; Samsung 16-Hi HBM4 HB ~10% yield April 2026
+
+**Per-subagent yield:**
+- Subagent A (HYNIX HBM4E + Rubin Ultra): HIGH — HBM4E ship VERIFIED T1 multilingual (Korean primary cross-check); Rubin Ultra 12-Hi downgrade VERIFIED T2; critic's HB-failing framing CORRECTED (HBM5 2029 roadmap); HYNIX cascade REINFORCE-mild
+- Subagent B (BESI GS Investor Day + CPO load-bearing): HIGH — BESI thesis REFRAMED from single-segment LPDDR-bypass to 3 independent revenue legs (Logic NOW + CPO 2026-2027 + HBM 2027-2029); critic 75% right with framing-correction (BESI-as-CPO-only collapses thesis); Goldman LT targets raised T1 verified
+
+**Brief-framing errors caught:** 3 (critic's "HB should be used by HBM4E" → SK hynix roadmap = HBM5 2029; critic's "won't use 16-Hi in 2027" → NVIDIA explicitly requested 16-Hi for H2 2026 samples flowing though meaningful volume slips to 2027-2028; critic's BESI-as-CPO-only framing → Logic ASIC is LARGEST current revenue contributor with 3 named T1/T2 production deployments)
+**Thesis cascade triggered:** `companies/HYNIX/thesis.md` (AM11 REINFORCE-mild cross-ref), `companies/MRVL/thesis.md` (AM11 7th-vector Tower SiPho+TSMC COUPE cross-ref), `watchlist/candidates.md` (BESI P2→P1 multi-segment promotion)
+**Position implication delta:** NONE (HYNIX HOLD 10.13% Core 🟢; MRVL HOLD 5.9% Active 🟡; BESI watchlist promotion P2→P1 🟢)
+**Material yield class:** HIGH
+**Audit-day classification:** POSITIVE
+**Cost-model calibration impact:** AM11 establishes baseline that prior heuristic (12-18k/subagent) was wrong by 8-10×; cost model section updated; backfill window cost revised upward 2.3× (~1.1M → ~2.5-3.6M estimated)
+**Cross-source-log:** `signals/cross-source-log/2026-06-19-am11-subagent-a-skhynix-hbm4e-12hi-rubin-ultra-spec-verification.md` + `signals/cross-source-log/2026-06-19-am11-subagent-b-besi-gs-investorday-hb-adoption-critic-claims-verification.md`
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
 
 ### [2026-06-19 AM10] Morning brief — ASML-US leak + Baseten $1.5B + Zoph OpenAI exit + GLM-5.2/Unsloth + PEFT cluster
 

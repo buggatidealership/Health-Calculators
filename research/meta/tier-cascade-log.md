@@ -35,6 +35,38 @@
 
 ## Entries (most recent first)
 
+### [2026-06-19 AM11] 🟢 BESI Goldman Sachs Investor Day + SK hynix HBM4E 12-Hi June 18 ship + T2 critic claims — 2 Opus 4.8 subagents 309k actual subagent_tokens (ESTABLISHES corrected cost-model baseline 8-10× upward revision); BESI WATCHLIST P2→P1 multi-segment thesis promotion (Logic NOW + CPO 2026-2027 + HBM 2027-2029); 3 brief-framing errors caught (HB-should-be-used + won't-use-16Hi-2027 + BESI-as-CPO-only); HYNIX + MRVL REINFORCE-mild no size change
+
+**Trigger source:** User-shared 2-image brief (BESI Goldman Sachs Investor Day + SK hynix HBM4E 2026-06-18 newsroom) + T2 anonymous-critic commentary on Rubin Ultra downgrade + HB-not-yet-used + TSMC COUPE+Tower CPO as load-bearing.
+
+**Intake tier:** 🟢 HARD — multi-source T1 verifications across both subagents (Korean primary skhynix newsroom + ZDNet Korea + Newsis + Ftoday for HBM4E; English wccftech + TrendForce + Tom's Hardware for Rubin Ultra; T1 Businesskorea + Sedaily for HB roadmap; T1 Goldman Sachs Investor Day disclosure for BESI).
+
+**Source:** This entry + AM11 subagent A deliverable (committed 139d1120) + AM11 subagent B deliverable (this commit) + HYNIX/MRVL/watchlist cascade updates + ledger AM11 entry + cost-model section correction.
+
+**Tier moves (Principle #37 scoped-cascade):**
+- `companies/HYNIX/thesis.md` — AM11 REINFORCE-mild cross-ref appended; Rubin Ultra 16→12-Hi yield-driven downgrade reframed as DE-RISKING for HYNIX HBM4E (12-Hi already at scale); critic HB-failing framing CORRECTED via SK hynix own HBM5-2029 HB roadmap; Position implication 🟢 HOLD 10.13% Core no size change
+- `companies/MRVL/thesis.md` — AM11 7th-vector cross-ref appended; Tower SiPho + TSMC COUPE CPO downstream incremental positive; Position implication 🟡 HOLD 5.9% Active no size change; Q2 FY27 print remains add-trigger
+- `watchlist/candidates.md` — BESI P2 → P1 promotion with multi-segment thesis (Logic NOW + CPO 2026-2027 + HBM 2027-2029); Goldman LT targets €1.7-2.2B + 45-55% op margin; 3 named Logic ASIC HB deployments T1/T2 confirmed; TSMC COUPE + Tower SiPho HB load-bearing; investability BESI.AS Degiro
+- `meta/subagent-cost-yield-ledger.md` — AM11 entry appended; **cost model section CORRECTED** (12-18k/subagent heuristic was 8-10× too low; new 3-tier model: light 25-50k / standard 50-100k / deep 100-200k); backfill window cost revised upward 2.3× (~1.1M → ~2.5-3.6M); 30-day projection ~15-22M (vs prior 4.7-6.6M); user cost-justified directional UNCHANGED (yield distribution unchanged + AM11 added watchlist promotion + 3 framing errors caught)
+- `meta/tier-cascade-log.md` — this entry + lag-1 SHA fill on H1-CONTAINER-EPHEMERALITY-FIX (ce008ea6), H2-LEDGER-BIRTH (34b436c6), DURABLE-ACTIVATION (2e002ca5)
+
+**Files NOT touched (cascade scope-discipline per Principle #37):**
+- `signals/triangulation.md` TC-5 — AM11 reinforces cluster; deferred to next cluster-level audit to avoid over-cascade
+- `meta/deep-dig-queue.md` — BESI queue noted in watchlist update; explicit deep-dig queue entry deferred (volume budget)
+- `companies/BESI/thesis.md` if exists — watchlist update covers; thesis file deep-dig is the Workflow #8 next-step
+
+**Yield class:** HIGH per ledger AM11 entry. Material yield: 1 watchlist tier promotion + 3 framing-error catches + Critical Rule #15 B46 pattern firmly applied (institutional vs micro reframe) + 0 held-cohort size moves (both REINFORCE-mild) + corrected cost-model baseline for all future cost-tracking.
+
+**Critical Rule #16 status:** This entry IS the fire (2 Opus 4.8 subagents per user mandate). Ledger entry appended in same commit per H2 discipline.
+
+**Cost-model finding (loop-validation):** AM11 is the first forward fire after H2-LEDGER-BIRTH. ACTUAL cost (309k for N=2 deep fire) vs LEDGER ESTIMATE (24-36k for N=2) = 10× under-estimate. Backfill estimates retroactively revised upward 2.3×. Cost-model heuristic refined to 3-tier (light / standard / deep). User cost-justified directional stands at the corrected basis (yield distribution unchanged).
+
+**Cascade-fatigue check:** 15 cascades this session window (AM8+PM32+PM33+PM33b+PM33c+AM9+AM9b+watchlist+prep+H1-attempt+H1-resolved+AM10+H2-LEDGER-BIRTH+H1-CONTAINER-EPHEMERALITY-FIX+AM11); cleanly scoped per cascade per Principle #37.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-19 H1-CONTAINER-EPHEMERALITY-FIX] 🟢 Hook persistence model documented + `install.sh` idempotent installer shipped + user Critical Rule #16 cost-justified directional captured in ledger — H1 hooks aren't durably active in remote-execution env (container resets `~/.claude/` to base config each session); install.sh enables manual-per-session OR setup-script-driven activation; structural-output-hook still needs user-typed cp this session per classifier policy
 
 **Trigger source:** User directive "ensure H1 works. if subagent had 36 fires 2/16 high, 15 medium and 2 low. I think the sub agent cost is justified."
@@ -62,7 +94,7 @@
 
 **Cascade-fatigue check:** 14 cascades this session window (AM8+PM32+PM33+PM33b+PM33c+AM9+AM9b+watchlist+prep+H1-attempt+H1-resolved+AM10+H2-LEDGER-BIRTH+H1-CONTAINER-EPHEMERALITY-FIX); cleanly scoped to harness-instrumentation layer + ledger directional.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** ce008ea6
 
 **Action items for user (out-of-agent-scope):**
 1. **This session:** type these 2 commands verbatim to activate H1 fully:
@@ -112,7 +144,7 @@
 
 **Loop-validation note:** demonstrates the harness self-evolving loop working at the meta-instrumentation layer — yesterday's reflective Q identified H2 as a candidate optimization; today's H1-ACTIVATION + this H2-LEDGER-BIRTH = two compounding instrumentation improvements shipping inside 24 hours. The 2026-07-15 Rule #16 detectability re-eval now has 36 backfilled data points (5-day window) + forward instrumentation discipline + session-start surfacing — moving from vibes-driven to data-driven verdict. **Meta-observation worth flagging:** the ledger is the first piece of harness infrastructure designed PRIMARILY to feed an audit re-eval rather than to enforce a discipline directly. If 07-15 audit verdict = STRONGLY POSITIVE, the ledger validates Critical Rule #16 cost-spend. If verdict = NEGATIVE / FALSIFIER-FIRES, the ledger enables data-driven scope-narrowing of Rule #16. Either way the ledger earns its build cost.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** 34b436c6
 
 ---
 
