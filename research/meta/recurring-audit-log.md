@@ -87,6 +87,64 @@ User confirmed 2026-05-21 they primarily interact via Claude Code on phone (web/
 
 ---
 
+## RECURRING-AUDIT: 2026-06-19 — Two-bracket LLM-native experiment, week-2 check (on-time)
+
+**Trigger:** scheduled — SessionStart hook elevated ⏰ DUE TODAY
+**Session attended:** user away (autonomous)
+**Effort:** ~10 min (logger-based read replaces transcript archaeology)
+
+**Method:** read `research/meta/hook-fire-log.md` for structural-output-hook FIRE entries in window 2026-06-12 → 2026-06-19. Logger was instrumented at the 2026-06-12 week-1 audit commit; week-2 is the first window to use the committed log instead of transcript archaeology.
+
+**Genuine deduplicated structural-output-hook fires:**
+
+| Date | Fires |
+|---|---|
+| 2026-06-12 | 0 (1 smoke-test entry excluded per audit convention) |
+| 2026-06-13 | 2 (06:42Z + 19:58Z) |
+| 2026-06-14 | 2 (07:48Z + 15:20Z) |
+| 2026-06-15 | 0 |
+| 2026-06-16 | 0 |
+| 2026-06-17 | 1 (14:01Z) |
+| 2026-06-18 | 1 (16:33Z) |
+| 2026-06-19 | 0 (partial; current session ongoing) |
+| **Total week-2 (06-12→19)** | **6** |
+
+**Comparison vs prior windows:**
+- Week-1 baseline 06-01→07: 8 fires (transcript archaeology)
+- Zero-fire window 06-06→12: 0 fires
+- Week-2 06-12→19: **6 fires** (rebounded from 0)
+
+**Logger verification:** PASS. No cross-check anomalies — logger-recorded fires match observed analytical-output cascade activity in the window (AM6b/AM7/AM7c/AM8/PM30-33/PM33b/PM33c/AM9 = high analytical density). Logger working as designed.
+
+**Hypothesis reweighting (my model, vs week-1 prior H2 P~45% / H1 P~35% / H3 P~10% / measurement-confound P~10%):**
+
+| H | Description | Week-1 P | Week-2 P | Direction |
+|---|---|---|---|---|
+| H1 | Plateau (priming decorative; fires correlate w/ analytical workload) | 35% | **50%** | UP — week-2 rebound from 0→6 invalidates clean decrease trajectory |
+| H2 | Decrease (priming materially shifts default mode) | 45% | **20%** | DOWN — single-week zero was likely exemption-swallow during heavy meta-discussion, not behavior shift |
+| H3 | Increase (architecture wrong; behavioral discipline higher leverage) | 10% | **10%** | flat |
+| H4 NEW | No signal — fire rate dominated by analytical-content-volume not priming effect | — | **20%** | NEW candidate; this and H1 are jointly the most-likely reads |
+
+**Self-detection check (week-1 audit registered):** "if week-2 check finds fires in transcripts but not in hook-fire-log.md, the logger is broken." Logger-recorded count = 6; no separate transcript-archaeology pass was run (the whole point of instrumenting the logger was to retire transcript archaeology). Self-detection signal: PASS by construction.
+
+**Material confound to flag for 30-day close:** without a normalizer for "analytical-content-volume per session," week-vs-week comparison is noise-bounded. Week 06-06→12 was heavy harness-meta (Critical Rule #13/#14/#15 codifications + Principle #37 file births = exemption-swallow); week 06-12→19 was heavy held-cohort cascade work (multiple held-name thesis updates = full structural-output-hook trigger surface). The fire-rate difference may be 100% workload-mix-driven and 0% priming-effect.
+
+**Decision per pre-registered matrix:**
+- KEEP both hooks (H1 + H4 jointly P~70%; H1 + H4 + H3 all argue "hook is correlated with workload, not causal-driver of structure-discipline drift")
+- Continue to week-3 check 2026-06-26 + week-4 check 2026-07-03
+- 30-day close 2026-07-01: if pattern matches H1 or H4, retire both hooks; if H2 reasserts, keep
+- **NEW codification consideration for week-3 audit:** quantify analytical-content-volume per session (e.g., # of thesis updates × # of analytical tokens) to denormalize fire-rate — without it, H4-vs-H2 indistinguishable
+
+**Files changed:**
+- `research/meta/recurring-audit-log.md` (this entry)
+- `research/meta/todo.md` (recurring item due date 06-19 → 06-26; updated H reweights in scope note)
+
+**Next cycle due:** 2026-06-26 (week-3 check); 30-day close 2026-07-01
+
+**Commit:** {to-be-filled-in-next-recurring-audit per lag-1 convention}
+
+---
+
 ## RECURRING-AUDIT: 2026-06-12 — Two-bracket LLM-native experiment, week-1 check (due 06-08, ran 4 days late)
 
 **Method:** transcript archaeology over `/root/.claude/projects/-home-user-Health-Calculators/*.jsonl` — grep for the fire-feedback string, then dedupe by per-second timestamp (forked/resumed transcript copies multiply-counted single events ~10x) and exclude quote-contamination (44 matches were the hook's own source code being read/discussed in transcripts, incl. 1 self-measurement artifact on 06-12 where the dedupe script itself matched).
