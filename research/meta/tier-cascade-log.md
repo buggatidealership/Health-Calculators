@@ -35,6 +35,61 @@
 
 ## Entries (most recent first)
 
+### [2026-06-18 AM9b] 🟡 Midjourney Medical division verification + AI-medical-hardware sector extrapolation per user 4-axis request (USE-of-AI side effects + medical-hardware-as-AI-use-case + hardware component growth + AI utility/task-fulfillment requirements)
+
+**Trigger source:** User-shared AM brief item ("Midjourney pivots to medical hardware") + explicit user redirect away from held-cohort cascade toward sector-extrapolation. 2 Opus 4.8 subagents parallel-fired per Critical Rule #16.
+
+**Intake tier:** 🟡 DIRECTIONAL (Subagent 1 verification = T1 Bloomberg + Midjourney corp blog + BFLY 8-K + Holz livestream; Subagent 2 sector context = mixed T1 FDA primary + T2 Innolitics/Mordor + T3 market-sizing reports)
+
+**Source:** Master cross-source-log `signals/cross-source-log/2026-06-18-am9b-midjourney-medical-bfly-deal-ai-medical-hardware-sector-extrapolation-4-axis-user-request.md`
+
+**Tier moves (scoped):**
+- NEW master cross-source-log artifact (this file)
+- `meta/tier-cascade-log.md` — this entry
+
+**Files NOT touched (per user explicit scope redirect + Principle #37 scoped-cascade):**
+- All held-cohort thesis files — user explicitly redirected scope away from held cohort; Subagent 2 confirms held cohort medical-AI exposure is LOW (LPDDR consumed via Jetson + medical SoCs but small mix; HBM zero medical exposure; MURATA medical-grade MLCC mix-positive but volume modest); none thesis-mover scale
+- `watchlist/candidates.md` — BFLY + 6758.T Sony + ADI + MCHP are novel surfaces but adding = codification beyond user-stated intent (sector mapping); audit trail preserved in master cross-source-log for user discretion on candidate add
+- `meta/cross-domain-pattern-register.md` — Midjourney image-gen→hardware = N=1; need ≥2 to flag PC candidate
+- `sector/where-we-are.md` — sector synthesis not materially shifted (medical AI = adjacent vertical, not core AI-infra thesis)
+
+**Critical brief-framing corrections embedded:**
+1. NOT a corporate pivot — Midjourney Medical is a NEW DIVISION alongside profitable image-gen business
+2. Hardware = full-body ultrasonic CT scanner (USCT) on Butterfly Network ($BFLY) ultrasound-on-chip silicon under disclosed $74M / 5-yr licensing deal (BFLY 8-K 2025-11-17)
+3. Launches via FDA "general wellness" pathway at Midjourney Spa SF end-2027 — NO FDA clearance; diagnostic clearance targeted for 3rd-gen scanner ~2028
+4. Prototype actual scan time ~20 min vs 60-sec marketing claim
+5. Prior art exists (Delphinus SoftVue ring-transducer USCT 510(k) 2014 + PMA 2021 breast-only) — Holz "first in 50 years" = marketing not technical fact
+6. Brief MISSED BFLY entirely — disclosed counterparty + investable angle
+
+**B40.x freshness:** all load-bearing items FRESH ≤48h. PASS.
+
+**B45 regime priors:** Holz aspirational metrics (50,000 scanners; 1B scans/month) flagged as MARKETING not modeled. BFLY single-day pop on news = B45-binding (don't reflexively call extreme without regime base rate).
+
+**Macro-anchor check (Critical Rule #15):** Subagent 2 produced fresh sector-state first-principles data on medical AI compute regime (FDA AI/ML SaMD clearance run-rate + edge-vs-cloud architecture trend + PCCP framework impact + Holoscan MGX moat); pattern-match against P-* register: regulatory pre-validation as moat resembles P-9 Akamai/Cloudflare middle-layer rent capture pattern. PASS.
+
+**Triangulation check (Critical Rule #14):** Midjourney/USCT/medical-AI-hardware = NEW SEGMENT (no prior cluster); pattern N=1 today. Log only; no triangulation promotion (skip-rule fires).
+
+**Critical Rule #16 status:** N+2 verification fires (both Opus 4.8 per user mandate; both EXECUTE-WEB-SEARCHES-NOW directive). N=33 running total.
+
+**Novel investable surfaces (NEW to harness — flagged for user discretion):**
+- **BFLY** (Butterfly Network) — pure-play ultrasound-on-chip; $74M/5yr Midjourney deal materially shifts revenue mix; brief missed entirely
+- **6758.T Sony** — under-followed medical CMOS pure-play; ~$95M 2025 segment 24% op margin
+- **ADI** (Analog Devices) — medical AFE segment growing ~24% CAGR (T3 directional)
+- **MCHP** (Microchip) — boring beneficiary of FDA long-EOL regime + medical-grade MCU long lifecycles
+- **NVDA Clara Holoscan MGX moat** — already obvious but Subagent 2 identified the REGULATORY pre-validation as the moat (not silicon)
+
+**User's 4 axes — synthesis summary (full in master file):**
+1. **USE-of-AI side effects:** AI surface area expands chat/text/image-gen → multimodal real-time sensor-stream inference; FHIR + PCCP frameworks may BACKFLOW provenance/attestation requirements to general LLM enterprise contracts; edge-inference biased as default mode (closed-loop automation mandates deterministic edge)
+2. **Medical hardware as AI use case:** 5 archetypes (modality reconstruction / intra-op guidance / closed-loop physiology / edge population screening / ambient documentation); first 4 hardware-dependent, drive component growth
+3. **Hardware component growth (nth-order):** 1st-order edge inference accelerators + sensors + medical AFEs win; 2nd-order FDA PCCP + 10-yr EOL favors long-EOL vendors (MCHP/TXN/ADI/ST/ON Semi) structurally; 3rd-order thermally-managed SiPs (NPU+LPDDR+AFE) favor OSATs; 4th-order Holoscan-style regulatory pre-validation = new bottleneck protecting NVDA share asymmetrically
+4. **AI utility taxonomy:** 6 access requirements (multimodal streams / EHR / population baselines / provenance / privacy / PCCP+OTA); 5 task classes (detection / quantification / decision support / closed-loop automation / documentation); HIGHEST-VALUE TASKS require edge deterministic compute → medical hardware is FORCING FUNCTION for edge-AI compute architecture growth (not cloud-AI growth)
+
+**Cascade-fatigue check:** AM8 + PM32 + PM33 + PM33b + PM33c + AM9 + AM9b = 7 cascades in 30h window. AM9b cleanly within Principle #37 scope discipline (1 file touched + audit-trail entry + zero held-thesis cascade per explicit user scope redirect).
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-18 AM9] 🟢 Tim Cook WSJ memory price-hike OEM-tier ratification + Subagent B forward-signal cluster
 
 **Trigger source:** User-shared 2026-06-18 AM AI news brief (multi-item). 2 Opus 4.8 subagents parallel-fired per Critical Rule #16 (always-verify-no-ask).
@@ -92,7 +147,7 @@
 
 **Loop-validation note:** AM9 demonstrates Critical Rule #16 (always-verify-no-ask) working as designed — both subagents fired in parallel without permission-asking; Subagent B caught 2 critical brief-framing errors (Shazeer Google-vs-Character.AI conflation; UK "AI influencer" vs official "AI Innovation Director" title) before they could propagate. Subagent A's "fourfold" magnitude check distinguished Cook direct quote ("huge" / "unsustainable") from journalist/analyst characterization — preserving B40.x verification discipline at the magnitude-substitution layer.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** cf99bc9
 
 ---
 
