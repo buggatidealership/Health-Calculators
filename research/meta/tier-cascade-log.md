@@ -35,6 +35,69 @@
 
 ## Entries (most recent first)
 
+### [2026-06-19 AM10] 🟡 Morning AI brief 2-subagent verification (ASML-US dispute leak + Baseten $1.5B raise + Zoph OpenAI exit + GLM-5.2 / Unsloth quantization framing error + PEFT privacy research-cluster) → 3 brief-framing corrections caught + NBIS positive supportive read into 06-22 inclusion + U8 candidate cluster signal documented (formal N counter promotion deferred to June 24 audit)
+
+**Trigger source:** User-shared 2026-06-19 AM AI brief (70 sources scanned per metadata; 10 items triaged into 5 verification targets).
+
+**Intake tier:** 🟡 DIRECTIONAL (mixed T1 originator + T2 confirmation; both subagents Opus 4.8 per Critical Rule #16)
+
+**Source:** Master cross-source-log `signals/cross-source-log/2026-06-19-am10-morning-brief-2subagent-verification-asml-leak-baseten-15b-zoph-openai-exit-glm52-unsloth-framing-error-peft-research-cluster.md`
+
+**Tier moves (scoped):**
+- `companies/NBIS/thesis.md` § AM10 cross-ref (prepended above PM33 ENTRY EXECUTED section) — claim "Baseten comp valuation supportive of NBIS ACTIVE thesis" + "GLM-5.2 sovereign-AI Jevons fit" 🟡 → 🟢 supportive (does NOT trigger ADD; does NOT contradict deviation flag)
+- `meta/tier-cascade-log.md` — this entry + lag-1 SHA fill `cecc13fc` on H1-ACTIVATION-RESOLVED entry
+
+**Files NOT touched (per Principle #37 scoped-cascade discipline + Critical Rule #11 detectability rule):**
+- `companies/HYNIX/thesis.md`, `companies/MRVL/thesis.md`, `companies/SNDK/thesis.md`, `companies/KIOXIA/thesis.md` — small-magnitude positives below thesis-impact threshold per detectability discipline (avoiding rote HOLD entries violating varied-output rule)
+- `companies/DDOG/thesis.md`, `companies/NOW/thesis.md` — weak signals stack to "net mildly positive" but no thesis-mover; audit trail preserved in master cross-source-log
+- `companies/MURATA/thesis.md`, `companies/SUMCO/thesis.md` — orthogonal
+- `meta/biases-watchlist.md` U8/B47 entry — U8 N counter promotion DEFERRED to June 24 monthly audit batch (cluster signal documented in master cross-source-log; over-codification beyond direct user authorization avoided per PM33c failure mode)
+- `meta/cross-domain-pattern-register.md` — ASML "Leak-without-evidence enforcement signaling" pattern N=1 candidate (need ≥2 for PC-* candidate codification)
+- `signals/triangulation.md` — TC-4 +0.5 N-equivalent + U8 +1 candidate signal documented in master cross-source-log; formal triangulation entry deferred (TC-4 increment is sub-N=1 noise; U8 deferred to June 24 audit)
+
+**Critical brief-framing corrections embedded in master cross-source-log:**
+1. **GLM-5.2 "82% power 84% less volume" = UNSLOTH 2-bit GGUF quantization, NOT Zhipu architecture step-change** — Unsloth reduced GLM-5.2 from 1.51TB FP16 → 217-239GB (84% size reduction) at ~82% accuracy retention via internal Unsloth benchmark. **Brief reader could conflate as model-design breakthrough; misattribution.**
+2. **ASML-US "dispute" underlying event = April 2026 Lutnick personal meetings with ASML executives; 2026-06-19 news = the LEAK of those meetings.** Underlying stale at conversation level but information flow to market is fresh.
+3. **PEFT "a privacy backdoor discovered" actually = research-cluster of Feb-Jun 2026 ArXiv papers**; brief over-specifies as singular bombshell finding.
+
+**B40.x freshness:** all 5 items FRESH ≤48h. PASS.
+
+**B45 regime priors check:** ASML -2% NOT extreme; Baseten 22× ARR + 160% step-up NOT extreme by 2026 inference-layer base rate; both regime-typical. Pre-training value-investor frame would have called Baseten "bubble signal" — B45-corrected = regime-typical.
+
+**Critical Rule #14 signal-density check:**
+- TC-1 (memory tightness): GLM-5.2 quantization ambiguous (Jevons vs substitution); NO clean increment
+- TC-4 (Anthropic enterprise-trust drift): Zoph adds +0.5 N-equivalent weak positive (single executive churn too noisy for full N+1)
+- TC-10 (sovereign-AI + export-control): ASML strengthens PC-14 EU sovereign-AI bifurcation P~65%; GLM-5.2 Ascend 910B training strengthens PC-14 China archetype A — PC-14 already N=3+ promoted at AM7, no further promotion
+- U8 candidate cluster: GLM-5.2 vs GPT-5.5 1/6 cost-ratio signal documented; formal promotion DEFERRED to June 24 monthly audit
+
+**Critical Rule #15 macro-anchor:** Subagent A + B produced fresh sector-state data <48h ago; ASML pattern-match named; GLM-5.2 first-principles state (744B MoE / 1M context / MIT / Ascend 910B sovereign training = real architectural data point for PC-14 China archetype A). PASS.
+
+**Critical Rule #16 status:** N+2 verification fires (both Opus 4.8). Both returned with material brief-framing corrections (3 misattributions caught that would have propagated otherwise) — Critical Rule #16 yield this cycle = HIGH.
+
+**Held cohort joint-state net direction:**
+
+| Held | Net direction |
+|---|---|
+| **NBIS (58sh ACTIVE)** | **Net positive (Baseten + GLM-5.2 Jevons + sovereign-AI) — supportive into 06-22 inclusion** |
+| HYNIX | Net neutral (small positives + small negative cancel) |
+| KIOXIA / SNDK | Net mildly positive small |
+| MRVL | Net mildly positive small |
+| DDOG | Net mildly positive (4 weak signals stack) |
+| NOW | Net mildly positive (3 weak signals stack) |
+| SUMCO / MURATA | Neutral |
+
+**Position implications consolidated:**
+- NBIS 🟡 HOLD 58sh ACTIVE — no size change — AM10 stack supportive into 06-22 inclusion event
+- All other held: 🟡 HOLD no change (below thesis-impact threshold per detectability discipline)
+
+**Cascade-fatigue check:** 12 cascades in ~36h window (AM8 + PM32 + PM33 + PM33b + PM33c + AM9 + AM9b + watchlist + prep + H1-attempt + H1-resolved + AM10). AM10 cleanly within scope discipline (1 master + 1 thesis + 1 audit-trail entry).
+
+**Loop-validation note:** AM10 demonstrates Critical Rule #16 working at the brief-framing-correction layer — 3 distinct framing errors caught that would have propagated unverified. **First analytical output containing `Position implication:` line with 🟢/🟡/🔴 marker since H1 hook activation `cecc13fc` (2026-06-19) — `~/.claude/structural-output-hook.py` LIVE-state verification opportunity active on next output containing `Position implication:` without tier marker.**
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-19 H1-ACTIVATION-RESOLVED] 🟢 Principle #37 truth-tier hooks ACTIVATED LIVE in `~/.claude/` — user-explicit cp commands executed; all 5 smoke tests PASS; activation deferred-state from prior entry RESOLVED
 
 **Trigger source:** User-explicit cp commands typed verbatim in chat 2026-06-19 immediately after prior cascade entry documented classifier-blocked state. User-typed-direct-command is the user-articulated-targeted-authorization the classifier required (distinct from the prior "full authority on H1" general framing my reflective-pick proposal carried).
@@ -79,7 +142,7 @@
 
 **Loop-validation note:** demonstrates the classifier-policy gate working as designed AND the user-explicit-direct-command path resolving it cleanly. **META-OBSERVATION codified to harness:** AUTO-EXECUTE STRENGTHENING (Critical Rule #11 sub-directive) scope-bound to harness-data + analytical-output actions; harness-config self-modification requires user-explicit-targeted authorization (user-typed-direct-command being the canonical satisfaction). This is the operating distinction worth flagging at June 24 monthly audit as a refinement candidate to Critical Rule #11 documentation.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** cecc13fc
 
 ---
 
