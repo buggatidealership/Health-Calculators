@@ -85,6 +85,10 @@
   - Scope: Establish dedicated thesis if HVLP4 exposure is desired without Mitsui Stage 3-4 entry penalty. Check FY26 actuals + FY27 guidance + HVLP segment contribution + capacity disclosures + analyst PTs
   - Linked: `watchlist/candidates.md`
 
+- [ ] **P1 / research / 2026-06-19** [INDP, AF, POS, CAL] — KIOXIA T+24h GRADE WINDOW OPEN — execute grade per `predictions/grading-log.md` KIOXIA prep checklist (8 steps); requires market data subagent (285A.T + SNDK + HYNIX + MU price action Jun 16-19) + MSA-CBA paper verification subagent; T+72h grade follow-up ~2026-06-22
+
+- [ ] **P1 / research / 2026-06-22** [INDP, AF, POS, CAL] — NBIS Nasdaq-100 inclusion T+0 INCLUSION DAY — capture inclusion-day open price + first-day reaction per `predictions/2026-06-19-NBIS-nasdaq-100-inclusion-pre-registration.md`; T+5 grade ~2026-06-27 / T+15 ~2026-07-07 / T+30 PRIMARY ADJUDICATOR ~2026-07-22 (B48 candidate + R2 user-hypothesis empirical-verification test)
+
 - [ ] **P1 / research / 2026-06-14** [INDP, AF, POS, CAL] — Kioxia (285A.T) VLSI Symposium June 14-18 watch + L17 candidate test N=1 application (**PRE-REGISTRATION COMPLETE 2026-06-12** at `predictions/2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md`; pending Pending in `grading-log.md`; T+24h resolution ~June 19-22, T+72h ~June 22-25)
   - Origin: Kioxia 3-subagent deep-dive 2026-06-02 surfaced Stage 3 mid-melt-up with imminent CATEGORY EVENT catalyst (joint Kioxia/SanDisk MSA-CBA paper at VLSI Symposium Hawaii Jun 14-18). Forward P/E 6.24×; FY27 Q1 guide NP ¥869B = 48× YoY profit jump per [Nikkei Asia T1](https://asia.nikkei.com/business/tech/semiconductors/japan-s-kioxia-forecasts-48-fold-quarterly-profit-jump-on-ai-demand). User considering ~€4-5K initial entry parallel to SNDK SIZE UP.
   - Scope: (a) Monitor VLSI Symposium June 14-18 for joint MSA-CBA paper + 332-layer BiCS10 validation + 1000-layer roadmap commentary; (b) Track stock reaction T+24h to T+72h to validate L14 framework forward-application (L17 candidate); (c) If entry occurs, document as N=1 forward-application of L14 framework — pre-entry estimate +20-30% per Stage 3 + CATEGORY EVENT; if actual reaction +20-40%, L17 codified at N=1
@@ -179,6 +183,7 @@
 ### P2 — Existing items
 
 - [ ] **P3 / verification / 2026-06-24** [CAL, INDP, AF] — CONSOLIDATED Monthly Audit Cycle (FIRST CYCLE — merged 3 audits per user 2026-05-29)
+  - **PREP CHECKLIST COMPLETE 2026-06-19** at `meta/monthly-audit-prep-2026-06-24.md` — 10 batched candidates + Sections 2-10 (Critical Rule #11 detectability / AUTO-EXECUTE STRENGTHENING / source-reliability / bottleneck-forecast / portfolio-coherence / cross-domain-pattern-register / session-prime / INDEX-tags refresh / Critical Rule #16 detectability) + autonomous-completion authorization status pre-loaded + pre-batched grep commands ready
   - **CONSOLIDATION NOTE 2026-05-29**: Previously 3 separate June 24 items (codification audit + claim-verification audit + Principle #34/B38 monitoring). User-directed merge into single audit per "doesn't make sense to have it three times."
   - **PART A — Codification audit** (expanded scope per 2026-05-28): each gets the 3-question test:
     - Principles: #29 (segmented triangulation), #30 (comp-set verification), #31 (narrative-stage modifier), #32 (pre-action checkpoints), #33 (top-down capability decomposition + 2026-05-28 competition-intensity refinement), candidate #34 (Supplier-Side Cross-Layer Moat Decomposition — check for N=2+ validation)

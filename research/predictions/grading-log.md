@@ -11,6 +11,29 @@ Index of every prediction made by the system. Each row resolves to "pending" or 
 | Date made | Resolution target | Ticker | Event | Prediction file |
 |---|---|---|---|---|
 | 2026-06-12 | T+24h ~2026-06-19 to 22 (paper-dependent); T+72h ~06-22 to 25 | KIOXIA | VLSI Symposium 2026 joint Kioxia/SanDisk MSA-CBA paper (L14/L14-v2 forward-application test, L17 candidate N=1) | `2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md` |
+| **2026-06-19** | **T+5 ~2026-06-27 / T+15 ~2026-07-07 / T+30 ~2026-07-22 (primary adjudicator)** | **NBIS** | **Nasdaq-100 inclusion effective 2026-06-22 — B48 candidate "event-marker historical-pullback bias" adjudicator test + user R2 hypothesis empirical-verification** | `2026-06-19-NBIS-nasdaq-100-inclusion-pre-registration.md` |
+
+**KIOXIA T+24h grade WINDOW OPEN as of 2026-06-19 (today):** VLSI Symposium Day 5 (June 18) likely contains MSA-CBA paper presentation; T+24h stock-reaction grade actionable today through 2026-06-22. **GRADE PREP CHECKLIST:**
+1. Verify MSA-CBA paper actually presented June 14-18 (subagent + VLSI on-demand June 24+ access OR Kioxia/SanDisk co-press release)
+2. Pull 285A.T price action June 16-19 (Monday-Thursday JST close) — joint with US semi cohort macro overlay
+3. Pull SNDK + HYNIX + MU price action same window (Yokkaichi JV mirror + memory-cluster macro overlay)
+4. Compute T+24h stock reaction vs the pre-registered H1/H2/H3/H4 magnitude bands
+5. Classify into H bucket + apply 3-layer GRADE structure
+6. T+72h follow-up grade ~2026-06-22 to 25 for sustained vs faded magnitude
+7. Append lesson to `predictions/lessons.md` if generalizable insight emerges
+8. Update KIOXIA thesis with grade outcome + B48 candidate sister-test status
+
+**NBIS T+5/T+15/T+30 grade WINDOW OPENS 2026-06-22 INCLUSION DAY:** Inclusion-day open price = T+0 anchor for all 3 milestones. **PRE-EVENT PREP COMPLETE 2026-06-19:** pre-registration file locked with H1/H2/H3/H4 + falsifiers + bottoms-up magnitude bands + B45 regime-corrected priors + L21 sector regime overlay (Stage 2-3 = mild modifier, NOT severe-negative) + L15 INPUT-checklist discipline note on effective-date verification. **GRADE PREP CHECKLIST:**
+1. **2026-06-22 inclusion-day open price = T+0 anchor** (verify before T+5 grade run)
+2. Pull NBIS price action 2026-06-22 → 2026-07-22 (30-day window) — daily close + intra-window low
+3. Compute T+5 (06-27) + T+15 (07-07) + T+30 (07-22) returns + intra-window low
+4. Classify into H1/H2/H3/H4 bucket per criteria in pre-registration file
+5. Apply 3-layer GRADE structure (INPUT / COMPUTATION / REASONING)
+6. Flag independent positive catalysts during window (DSIT AIRR award, sovereign-AI contract, hyperscaler win) for H4 INPUT-confound check
+7. Append lesson if generalizable
+8. **B48 candidate codification gate decision:** H1 → promote to N=1; H2 → SPLIT remain N=0; H3 → R2 FALSIFIED + AM7c framework empirically vindicated; H4 → INPUT confound deferred
+9. **PM33 entry-timing retrospective:** H3 outcome → monthly audit grade entry "AUTO-EXECUTE STRENGTHENING calibration failure case"
+10. Update NBIS thesis with grade outcome + R2 hypothesis status + framework-discipline recalibration if material
 
 **Paper-landscape mapping COMPLETE 2026-06-14 PM5** per `signals/cross-source-log/2026-06-14-pm5-kioxia-vlsi-2026-paper-landscape-mapping.md` (Step 0 of approved Kioxia plan; user authorization 2026-06-14 22:25 UTC). Key inputs locked for T+24h grade:
 - T1.4 MSA-CBA joint paper CONFIRMED (M. Noda et al, Kioxia + Sandisk; world-first QLC on multi-stacked array with Cu wafer-to-wafer direct bonding; path to 1,000+ word lines)
