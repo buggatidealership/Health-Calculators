@@ -35,6 +35,49 @@
 
 ## Entries (most recent first)
 
+### [2026-06-20 AM12] 🟢 Memory-as-Inflation hypothesis verification (Semi Doped/Jukan tweet + Deutsche Bank Figure 7) — 2 Opus 4.8 subagents 288k actual; ASYMMETRIC COHORT RISK STRATIFICATION surfaced (load-bearing); Fed FEDS Note 2026-05-22 = FIRST T1 macro-institutional confirmation; 8 framing errors caught; 2 new bias-candidates (B47 + B48); 6-thesis cascade with NO size moves
+
+**Trigger source:** User-shared Semi Doped (@semidoped) tweet quoting Jukan (@jukan05) "More and more sell-side firms are saying that higher memory prices are becoming an inflationary headwind" + embedded Deutsche Bank Research Figure 7 chart (US PPI Electronic Components ~25-27% YoY 2026 vs flat 0-5% 2015-2024). User directive UNBIASED RESEARCH / directional signals / NOT validation or invalidation.
+
+**Intake tier:** 🟢 HARD — multi-source T1 + T2 verification across both subagents; Fed FEDS Note 2026-05-22 (T1 federalreserve.gov) is the load-bearing institutional anchor; multilingual cross-check (Korean/Japanese/Taiwanese press) MANDATED + executed; convex-hull lateral analysis with P-weights documented; 8 framing errors caught; 2 new bias candidates flagged.
+
+**Source:** This entry + 2 cross-source-log artifacts + 6 thesis cross-refs + ledger AM12 entry.
+
+**Tier moves (Principle #37 scoped-cascade):**
+- `signals/cross-source-log/2026-06-20-pm-subagent-a-memory-ppi-inflation-hypothesis-macro-verification.md` — NEW (Subagent A; macro chart verification + PPI propagation + historical analog + multilingual cross-check + cycle-peak consensus)
+- `signals/cross-source-log/2026-06-20-pm-subagent-b-memory-ppi-inflation-hypothesis-sellside-policy-risk.md` — NEW (Subagent B; sell-side timeline + Semi Doped verification + macro strategist coverage + policy/regulatory risk + macro response asymmetry + cohort risk stratification)
+- `companies/HYNIX/thesis.md` — AM12 cross-ref 🟢 DIRECT BENEFICIARY; Fed FEDS Note ratification; sector-vs-macro reframe; cycle-peak debate; NO size change
+- `companies/KIOXIA/thesis.md` — AM12 cross-ref 🟢 DIRECT BENEFICIARY; NAND cycle parallel; NO size change
+- `companies/SNDK/thesis.md` — AM12 cross-ref 🟢 DIRECT BENEFICIARY; NAND cycle parallel; NO size change
+- `companies/MURATA/thesis.md` — AM12 cross-ref 🟡 NET-NEGATIVE 2nd-order; passives-spillover-LIMITED partial protection per YRI Japan; hawkish-Fed tail-risk added; NO size change
+- `companies/MRVL/thesis.md` — AM12 cross-ref 🟡 NET-NEGATIVE 2nd-order; ASIC thesis intact at company level; equity-beta risk vector added; NO size change
+- `companies/NBIS/thesis.md` — AM12 cross-ref 🔴 LARGEST GROSS-DELTA RISK LEG (inclusion-play correlated to risk-on tape); pre-registration did NOT include macro-response risk; flag for inclusion-day 06-22 + T+5/15/30 watch; NO size change
+- `meta/subagent-cost-yield-ledger.md` — AM12 entry HIGH yield class; 288k actual cost; cost model HOLDING UP at 250-350k N=2-deep range
+- `meta/tier-cascade-log.md` — this entry + lag-1 SHA fill on 2026-06-20 JPM reconstruction entry (68d37a32)
+
+**Files NOT touched (cascade scope-discipline per Principle #37):**
+- `signals/triangulation.md` TC-1 — promotion candidate N+1 via Fed FEDS Note + Citi institutional ratification flagged for next cascade; not done this commit to keep scope tight
+- `meta/biases-watchlist.md` — B47 + B48 candidates flagged for next cascade (codification deferred to avoid over-cascade)
+- `sector/where-we-are.md` — Subagent B recommended update; deferred to next cascade
+- `meta/deep-dig-queue.md` — Subagent A recommended FRED-direct follow-up but env 403'd; deferred indefinitely until WebFetch unblocked
+- `CLAUDE.md` — finding doesn't rise to Critical Rule level; lives in cross-source-log + thesis cross-refs
+
+**Yield class:** HIGH per ledger AM12 entry. 1 new T1 macro-institutional datapoint (Fed FEDS Note) + 8 brief-framing errors caught + asymmetric cohort risk stratification surfaced as load-bearing analytical finding + 2 new bias-candidates (B47 + B48) + 1 new political-pressure signal (Senator Moreno April 2026 letter) + 0 size moves + 0 falsifier fires.
+
+**Critical Rule #16 status:** This entry IS the fire (2 Opus 4.8 subagents per user mandate). Ledger entry appended in same commit per H2 discipline.
+
+**Load-bearing analytical finding (worth surfacing):** ASYMMETRIC COHORT RISK STRATIFICATION. Direct memory-pricing-power names (HYNIX/KIOXIA/SNDK ≈ 36% of invested) BENEFIT from hypothesis being right. Cohort names without direct memory exposure (MURATA/MRVL/NBIS) NET RISK from hypothesis macro-propagating into hawkish-Fed equity drawdown, EVEN IF their underlying thesis stays intact. This is the kind of cross-cohort 2nd-order analysis that single-name-by-name evaluation misses; the joint-state matrix surfaces it.
+
+**Loop-validation note (cost model):** AM12 fire totalled 288k tokens (148.3k + 139.7k) — second deep N=2 fire after AM11 (309k = 146.8k + 162.4k). Two-fire sample average: ~300k per N=2 deep fire. Corrected ledger cost model (250-350k for N=2-deep) is HOLDING across both fires; baseline established for 30-day audit.
+
+**Critical Rule #15 application (B46 + B48 candidate):** Both subagents applied institutional-vs-micro reframe rigorously. Subagent A's sector-vs-macro distinction + Subagent B's narrative-correctness-vs-equity-beta-disconnect (B48 candidate) are two examples of the same B46 micro-vs-institutional pattern at different layers. Worth codifying the pattern in the biases-watchlist next cascade.
+
+**Cascade-fatigue check:** 17 cascades this session window (AM8+PM32+PM33+PM33b+PM33c+AM9+AM9b+watchlist+prep+H1-attempt+H1-resolved+AM10+H2-LEDGER-BIRTH+H1-CONTAINER-EPHEMERALITY-FIX+AM11+JPM-RECONSTRUCTION+AM12); within Principle #37 discipline.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-20] 🟡 JPM ASIC note (Harlan Sur) WebSearch reconstruction — main-loop WebSearch (NOT Critical Rule #16 subagent fire); WebFetch 403 environment finding documented; MRVL F-5 Trainium-demotion bear case PARTIALLY rebutted via JPM "on track" mgmt-meeting line; valuation-tension B46 candidate surfaced (JPM PT $130 vs consensus $221.93 vs spot $287)
 
 **Trigger source:** User-shared 4-name reading recommendation list (JPM ASIC note + SemiAnalysis + Bernstein + UBS Largan); user has no PDF access; user directive "try the websearch."
@@ -66,7 +109,7 @@
 
 **Cascade-fatigue check:** 16 cascades this session window (AM8+PM32+PM33+PM33b+PM33c+AM9+AM9b+watchlist+prep+H1-attempt+H1-resolved+AM10+H2-LEDGER-BIRTH+H1-CONTAINER-EPHEMERALITY-FIX+AM11+JPM-RECONSTRUCTION); within Principle #37 discipline.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** 68d37a32
 
 ---
 

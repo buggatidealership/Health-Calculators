@@ -96,6 +96,49 @@
 
 ## Entries (most recent first)
 
+### [2026-06-20 AM12] Memory-as-Inflation hypothesis verification (Semi Doped/Jukan tweet + Deutsche Bank Figure 7 chart)
+
+**Trigger source:** user-shared Semi Doped (@semidoped) tweet 2026-06-20 quoting Jukan (@jukan05) "More and more sell-side firms are saying that higher memory prices are becoming an inflationary headwind" + embedded Deutsche Bank Research Figure 7 chart (US PPI Electronic Components and Accessories YoY % change spiking to ~25-27% in 2026 vs flat 0-5% 2015-2024). User directive: UNBIASED research / directional signals / NOT validation or invalidation.
+**Subagents fired:** 2 (Opus 4.8)
+**Estimated token cost:** ~288k ACTUAL (A=148.3k + B=139.7k) — within corrected ledger 250-350k N=2-deep prediction; cost model HOLDING UP across AM11 + AM12 baselines
+**Items verified:** Deutsche Bank Figure 7 chart authenticity + magnitude; US PPI Electronic Components series-level data (FRED/BLS 403'd — verification gap); historical analog 2017-18 + 2021-22 cycles vs current; PPI→CPI propagation mechanics; Korean/Japanese/Taiwanese primary press cross-check; sell-side firm timeline; Semi Doped early-identification claim; macro strategist coverage (BCA/Strategas/Yardeni); memory price trajectory; demand-side decomposition; policy/regulatory risk vectors; macro response asymmetry (Fed/ECB/BoJ); held-cohort risk stratification
+
+**Per-subagent yield:**
+- Subagent A (Macro chart + PPI propagation + historical analog): HIGH — Chart directionally REAL but magnitude UNVERIFIED at series level; 6-7× prior cycle peaks unprecedented; macro-CPI propagation structurally CAPPED at ~15-30bps; sell-side cycle-peak MIXED; Korean/Japanese/Taiwanese press do NOT prominently adopt macro-inflation framing; demand-destruction risk surfacing first-tier (Cook + MediaTek + Realme); 5 framing errors caught; B47 candidate flagged
+- Subagent B (Sell-side timeline + policy risk + cohort risk stratification): HIGH — Fed FEDS Note 2026-05-22 (Barbarino/Diercks/Miran) +73% annualized = 9 SD above mean is FIRST T1 macro-institutional confirmation; sell-side converging at SECTOR-analyst level (DB Sanders, SemiAnalysis, Counterpoint, TrendForce, BofA) NOT YET macro-economist level; Semi Doped is T2/T3 specialist (Vikram Sekar+Austin Lyons substack/podcast); Semi Doped "before sell-side" claim defensible vs macro economists not vs sector analysts; **COHORT RISK SPLIT ASYMMETRIC** — HYNIX/KIOXIA/SNDK direct beneficiaries 36% invested; MURATA/MRVL/NBIS net-negative 2nd-order via hawkish-Fed equity-cohort drawdown; NBIS LARGEST GROSS-DELTA RISK LEG; Senator Moreno April 2026 letter = first political-attention signal; 3 framing errors caught; B48 candidate flagged
+
+**Brief-framing errors caught:** 8 total
+1. Chart label series mis-ID hazard (commodity WPU1178 vs industry-tier PCU)
+2. "Inflation headwind" conflates sector-margin vs macro-CPI-driver
+3. 25% YoY vs 4% YoY prior cycles = 6-7× regime-shift framing gets glossed
+4. YRI Japan reads passives spillover LIMITED — counter-anchor
+5. Demand-destruction risk surfacing first-tier (forward thesis question shifting)
+6. "30% capex" attribution should be SemiAnalysis (Dylan Patel) NOT Semi Doped — Semi Doped "before sell-side" defensible vs macro not vs sector
+7. "More and more sell-side firms" framing true at SECTOR level only, not MACRO level
+8. "Inflationary headwind" frame is BIDIRECTIONAL — same shape bullish for memory pricing is bearish for equity cohort via hawkish-Fed
+
+**Thesis cascade triggered:** `companies/HYNIX/thesis.md` (DIRECT BENEFICIARY 🟢), `companies/KIOXIA/thesis.md` (DIRECT BENEFICIARY 🟢), `companies/SNDK/thesis.md` (DIRECT BENEFICIARY 🟢), `companies/MURATA/thesis.md` (NET-NEGATIVE 2nd-order 🟡), `companies/MRVL/thesis.md` (NET-NEGATIVE 2nd-order 🟡), `companies/NBIS/thesis.md` (LARGEST GROSS-DELTA RISK LEG 🔴) — 6 thesis cross-refs this cascade
+
+**Position implication delta:** NONE — 0 size moves across cohort; 1 risk-vector addition (NBIS LARGEST GROSS-DELTA RISK LEG for inclusion-day macro-tape correlation watch)
+
+**Material yield class:** HIGH
+
+**Audit-day classification:** POSITIVE
+
+**New bias-candidates surfaced:** 2 candidates flagged for biases-watchlist next cascade
+- B47: "cycle-magnitude regime-shift framing-error" (applying 4% YoY prior-cycle base rate on 25% YoY current cycle = systematic mis-modeling both directions)
+- B48: "narrative-correctness-vs-equity-beta-disconnect" (thesis can be directionally correct AND equity-beta-exposed to same narrative's 2nd-order macro response)
+
+**Verification gap:** FRED + BLS direct fetches 403'd (same env constraint as JPM round); precise WPU1178 / PCU33443344 YoY% values remain UNVERIFIED at series level. Hypothesis HA (P~25%) — magnitude could be chart-render-artifact via series mis-ID — UNRESOLVED.
+
+**Convex hull (Subagent A P-weights, my model):** 75% probability mass on narrative being PARTIAL-WRONG or PARTIAL-OVERSTATED in some dimension; 25% on broadly-correct-as-stated.
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-20-pm-subagent-a-memory-ppi-inflation-hypothesis-macro-verification.md` + `signals/cross-source-log/2026-06-20-pm-subagent-b-memory-ppi-inflation-hypothesis-sellside-policy-risk.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-19 AM11] BESI Goldman Sachs Investor Day + SK hynix HBM4E 12-Hi June 18 ship + T2 anonymous critic (Rubin Ultra 16→12-Hi / HB-not-used / TSMC COUPE+Tower CPO as load-bearing)
 
 **Trigger source:** user-shared 2-image brief (BESI Goldman Sachs Investor Day excerpt + SK hynix HBM4E newsroom screenshot) + user-shared T2 anonymous critic commentary
