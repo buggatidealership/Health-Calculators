@@ -35,6 +35,41 @@
 
 ## Entries (most recent first)
 
+### [2026-06-20] 🟡 JPM ASIC note (Harlan Sur) WebSearch reconstruction — main-loop WebSearch (NOT Critical Rule #16 subagent fire); WebFetch 403 environment finding documented; MRVL F-5 Trainium-demotion bear case PARTIALLY rebutted via JPM "on track" mgmt-meeting line; valuation-tension B46 candidate surfaced (JPM PT $130 vs consensus $221.93 vs spot $287)
+
+**Trigger source:** User-shared 4-name reading recommendation list (JPM ASIC note + SemiAnalysis + Bernstein + UBS Largan); user has no PDF access; user directive "try the websearch."
+
+**Intake tier:** 🟡 DIRECTIONAL — entire reconstruction T2 source-tier (WebSearch snippets across multiple secondary outlets; no T1 PDF access; ~40-50% yield estimate). Falsifier: if user later obtains PDF and any load-bearing claim contradicts, this artifact gets correction header + MRVL thesis update re-evaluated.
+
+**Source:** This entry + `signals/cross-source-log/2026-06-20-jpm-asic-note-websearch-reconstruction.md` (NEW) + `meta/environment-constraints.md` (NEW) + MRVL/thesis.md update.
+
+**Tier moves (Principle #37 scoped-cascade):**
+- `signals/cross-source-log/2026-06-20-jpm-asic-note-websearch-reconstruction.md` NEW — full T2 reconstruction artifact; explicit T2-tagging throughout; falsifier protocol embedded
+- `companies/MRVL/thesis.md` — 2026-06-20 cross-ref appended; F-5 Trainium-demotion bear case PARTIALLY rebutted via JPM "on track" mgmt-meeting; valuation-tension B46 candidate surfaced (3 hypotheses with P-weights); 8-vector reinforcement accumulated this week; Position implication 🟡 HOLD 5.9% Active no size change; **T2 source-tier limit acknowledged** — reinforce is mild not strong
+- `meta/environment-constraints.md` NEW — WebFetch 403 finding across 7 domains (incl. JPM's own am.jpmorgan.com) documented; future-session-survival critical for tool-selection planning; lives in repo so persists across container restarts
+- `meta/tier-cascade-log.md` — this entry + lag-1 SHA fill on AM11 (5c093280)
+
+**Files NOT touched (cascade scope-discipline per Principle #37):**
+- `companies/HYNIX/thesis.md` — separate JPM HBM-shortage-to-2027 call surfaced in search but is NOT from THIS note; do not conflate sources
+- `watchlist/candidates.md` — no NEW investability surface (AVGO not held; ecosystem names Alchip/Socionext/GUC mentioned but no JPM-specific commentary surfaced)
+- `meta/deep-dig-queue.md` — AVGO out of scope; no new candidate
+- `meta/subagent-cost-yield-ledger.md` — this was MAIN-LOOP WebSearch NOT Critical Rule #16 Opus 4.8 fan-out; out of ledger scope by design (ledger tracks subagent fires only; separate instrumentation needed for main-loop tool-call cost-tracking if user wants holistic view)
+- `CLAUDE.md` — environment finding doesn't rise to Critical Rule level; lives in environment-constraints.md as operational quirk
+
+**Yield class:** MEDIUM. Net: 1 thesis-touching cross-ref (MRVL, T2 source-tier so mild reinforce not strong) + 1 environment-constraint discovery (highest-value byproduct — saves future sessions from re-discovering WebFetch 403 the hard way) + 1 valuation-tension B46 candidate flagged for future PDF cross-check + 0 size moves + 0 new candidates. Cost: ~6 WebSearch calls + 7 failed WebFetch. Material yield class: **MEDIUM** by ledger taxonomy (cascade direction confirmed without size change + audit-trail enrichment + B46 candidate surfaced).
+
+**Critical Rule #16 status:** N/A — this was not a Critical Rule #16 fire. Main-loop WebSearch on user-shared note title (not on thesis-relevant brief item that requires verification fan-out). Distinction matters for ledger scoping.
+
+**Cost-instrumentation finding (loop-validation):** ledger doesn't currently track main-loop tool-call costs (only Critical Rule #16 subagent_tokens). This session's ~6 WebSearch calls + extensive content extraction work was substantive (~2-3 turns of synthesis) but doesn't show up anywhere in cost-yield tracking. Candidate H3 for next harness optimization: extend ledger or build companion log for main-loop verification work. Flag for June 24 monthly audit.
+
+**Loop-validation note (B46 application):** the valuation-tension finding (JPM PT $130 vs consensus $221.93 vs spot $287) is itself a B46 candidate pattern — micro detail (JPM PT) vs institutional consensus framing. Per Critical Rule #15, when micro contradicts institutional, the FRAMING is incomplete. Three hypotheses generated with P-weights per priming hook #1; can't disambiguate without PDF; flagged in MRVL thesis update for future verification.
+
+**Cascade-fatigue check:** 16 cascades this session window (AM8+PM32+PM33+PM33b+PM33c+AM9+AM9b+watchlist+prep+H1-attempt+H1-resolved+AM10+H2-LEDGER-BIRTH+H1-CONTAINER-EPHEMERALITY-FIX+AM11+JPM-RECONSTRUCTION); within Principle #37 discipline.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-19 AM11] 🟢 BESI Goldman Sachs Investor Day + SK hynix HBM4E 12-Hi June 18 ship + T2 critic claims — 2 Opus 4.8 subagents 309k actual subagent_tokens (ESTABLISHES corrected cost-model baseline 8-10× upward revision); BESI WATCHLIST P2→P1 multi-segment thesis promotion (Logic NOW + CPO 2026-2027 + HBM 2027-2029); 3 brief-framing errors caught (HB-should-be-used + won't-use-16Hi-2027 + BESI-as-CPO-only); HYNIX + MRVL REINFORCE-mild no size change
 
 **Trigger source:** User-shared 2-image brief (BESI Goldman Sachs Investor Day + SK hynix HBM4E 2026-06-18 newsroom) + T2 anonymous-critic commentary on Rubin Ultra downgrade + HB-not-yet-used + TSMC COUPE+Tower CPO as load-bearing.
@@ -63,7 +98,7 @@
 
 **Cascade-fatigue check:** 15 cascades this session window (AM8+PM32+PM33+PM33b+PM33c+AM9+AM9b+watchlist+prep+H1-attempt+H1-resolved+AM10+H2-LEDGER-BIRTH+H1-CONTAINER-EPHEMERALITY-FIX+AM11); cleanly scoped per cascade per Principle #37.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** 5c093280
 
 ---
 
