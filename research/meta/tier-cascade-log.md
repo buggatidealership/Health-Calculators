@@ -35,6 +35,42 @@
 
 ## Entries (most recent first)
 
+### [2026-06-21] 🟢 FADU CMX article triage — SKIP-INVESTABILITY per L27 (no fan-out warranted); demand-side cohort reads already covered by PM25 + AM12 prior cascades (cascade-fatigue avoided)
+
+**Trigger source:** User-shared FADU blog 2026-06-15 (updated 2026-06-17) "Why FADU SSDs Are the Right Fit for NVIDIA CMX" — vendor-authored T3 promotional piece on FADU (KOSDAQ 263750) positioning as NVIDIA CMX (Context Memory eXtension) SSD vendor. User directive 2026-06-21: "go through it" + follow-up confirmation "FADU not directly investable... I don't have access to it on N26, nor on Zero."
+
+**Intake tier:** 🟢 HARD — investability decision made (SKIP per L27); no further verification warranted; light-cascade-log only.
+
+**Source:** This entry + watchlist/candidates.md SKIP-INVESTABILITY new section.
+
+**Decision:** SKIP full Critical Rule #16 fan-out + SKIP thesis cross-refs. Rationale:
+- FADU investability fails L27 broker-availability filter (N26 + Zero both no-access)
+- With investability gone, Subagent B (FADU financial profile + claims verification) scope evaporates entirely
+- Subagent A (CMX architecture + cohort implications) scope reduces to "verify what PM25 already verified" — duplicative
+- Cohort demand-side reads (KIOXIA/SNDK NAND-side + HYNIX HBM-scarcity reinforcement) ALREADY covered by PM25 (2026-06-16) 3-vendor flash-tier cascade + AM12 (2026-06-20) memory-as-inflation cascade — cascade-fatigue discipline says do not double-cascade for REINFORCE-mild reads aligned with prior cascades
+- Cost saved: ~250-350k subagent_tokens (deep N=2 fire NOT fired)
+
+**Tier moves (Principle #37 scoped-cascade):**
+- `watchlist/candidates.md` — NEW "SKIP — Investability filter fail (per L27)" section added; FADU 263750.KQ SKIP-INVESTABILITY entry with full rationale + falsifier-for-revisit (dual-list as ADR/depository receipt → re-open consideration)
+- `meta/tier-cascade-log.md` — this entry
+
+**Files NOT touched:**
+- All thesis files (HYNIX/KIOXIA/SNDK/MRVL/MURATA/NBIS) — cascade-fatigue discipline; PM25 + AM12 cover the demand-side cohort reads
+- `signals/cross-source-log/` — no synthesis artifact created (would force cascade-enforcement-hook back-refs we don't need)
+- `meta/subagent-cost-yield-ledger.md` — no Critical Rule #16 fire occurred; out of ledger scope by design
+
+**L27 application (codification candidate ENRICHMENT for June 24 audit):** This entry is the SECOND L27 application in 4 days (first was NTT 9613.T DELISTED catch via AM7c 2026-06-17). Pattern emerging: verify-listed-status / verify-broker-access at WATCHLIST-CONSIDERATION-TIME saves verification-fan-out cost on candidates that can't be acted on. L27 should formally codify both granularities (listed-status + broker-access). Flag for June 24 audit cycle.
+
+**Yield class:** LOW per cost-yield ledger taxonomy (signal documented; no thesis cascade; alternative-cost lower-cost method [direct triage without subagent fire] sufficed). Justifies the SKIP decision — exactly the "use lower-cost method when available" discipline.
+
+**Critical Rule #16 status:** N/A — no fan-out fire occurred; deliberate skip per investability gate.
+
+**Cascade-fatigue check:** 18 cascades this session window (AM8+PM32+PM33+PM33b+PM33c+AM9+AM9b+watchlist+prep+H1-attempt+H1-resolved+AM10+H2-LEDGER-BIRTH+H1-CONTAINER-EPHEMERALITY-FIX+AM11+JPM-RECONSTRUCTION+AM12+FADU-SKIP); 18th entry is by design the lightest possible (LOW yield, audit-trail-only) per cascade-fatigue discipline.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-20 AM12] 🟢 Memory-as-Inflation hypothesis verification (Semi Doped/Jukan tweet + Deutsche Bank Figure 7) — 2 Opus 4.8 subagents 288k actual; ASYMMETRIC COHORT RISK STRATIFICATION surfaced (load-bearing); Fed FEDS Note 2026-05-22 = FIRST T1 macro-institutional confirmation; 8 framing errors caught; 2 new bias-candidates (B47 + B48); 6-thesis cascade with NO size moves
 
 **Trigger source:** User-shared Semi Doped (@semidoped) tweet quoting Jukan (@jukan05) "More and more sell-side firms are saying that higher memory prices are becoming an inflationary headwind" + embedded Deutsche Bank Research Figure 7 chart (US PPI Electronic Components ~25-27% YoY 2026 vs flat 0-5% 2015-2024). User directive UNBIASED RESEARCH / directional signals / NOT validation or invalidation.
@@ -74,7 +110,7 @@
 
 **Cascade-fatigue check:** 17 cascades this session window (AM8+PM32+PM33+PM33b+PM33c+AM9+AM9b+watchlist+prep+H1-attempt+H1-resolved+AM10+H2-LEDGER-BIRTH+H1-CONTAINER-EPHEMERALITY-FIX+AM11+JPM-RECONSTRUCTION+AM12); within Principle #37 discipline.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** c031e603
 
 ---
 

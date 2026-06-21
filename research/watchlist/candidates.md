@@ -1204,3 +1204,12 @@ Per `signals/cross-source-log/2026-06-18-am8-evening-brief-2subagent-anthropic-s
 - **Mistral AI (private, France)** — Archetype C national champion; 1M French civil servant deployment (€700K Jun 2026 contract); $830M Mistral DC debt (Bruyères-le-Châtel 13,800 GB300 GPUs); IPO pathway watch
 - **Cohere-Aleph Alpha (private, post-merger April 2026 $20B)** — first transatlantic sovereign AI pure-play if IPO materializes; serves DE/CA/potentially UK/AU sovereign accounts; could be EU's PLTR equivalent
 - **Sakana AI (private, Japan)** — Series B $135M, $2.65B valuation Nov 2025; METI/NEDO backed; Physical AI focus; pre-IPO watch
+
+### SKIP — Investability filter fail (per L27 verify-listed-status-at-watchlist-add discipline)
+
+- **🔴 FADU Technology (KOSDAQ: 263750) — SKIP-INVESTABILITY 2026-06-21** per user broker confirmation (no access on N26 or Zero brokers)
+  - Source signal: FADU blog 2026-06-15 "Why FADU SSDs Are the Right Fit for NVIDIA CMX" (T3 vendor-promotional) — positioning as the NAND-controller SSD vendor for NVIDIA CMX (Context Memory eXtension) pod-shared KV cache architecture
+  - Why directionally interesting (had it been investable): Korean SSD-controller pure-play on CMX adoption; claims 64 TB E3.S 7.5mm + 14 GB/s sustained 1 MiB Gen5 + 3 DWPD + FDP/DOCA-Memos multi-model isolation delivering WAF ~1.0; potential pod-scale CMX SSD socket beneficiary if NVIDIA names them as approved vendor
+  - **Investability verdict:** SKIP — KOSDAQ small-cap access fails L27 broker-availability filter at watchlist-add granularity (N26 + Zero both confirmed no-access by user 2026-06-21). Discipline application: per L27 enrichment candidate (codification pending June 24 audit) extend verify-listed-status discipline from sizing-decision-time to watchlist-consideration-time — saves verification subagent fan-out cost on names that can't be acted on anyway
+  - Demand-side read for held cohort (held names cover this exposure via prior PM25 + AM12 cascades): CMX architecture demand-side spillover REINFORCES NAND cycle thesis (KIOXIA + SNDK direct beneficiaries via Yokkaichi JV NAND supply) + REINFORCES HYNIX HBM scarcity thesis (KV cache spillover from HBM into NAND tier confirms HBM-as-floor pricing power). No new cascade needed — duplicative vs prior PM25 + AM12 reads.
+  - **Falsifier for revisit:** if FADU dual-lists on a US ADR or LSE depository receipt accessible via N26/Zero, re-open watchlist consideration with full L26-L28 + Subagent verification fan-out
