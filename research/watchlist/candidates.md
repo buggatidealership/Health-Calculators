@@ -1199,6 +1199,26 @@ Per `signals/cross-source-log/2026-06-18-am8-evening-brief-2subagent-anthropic-s
   - Status: WATCHLIST P3 — pending L26 segment-revenue % verification at sovereign-AI-attributable revenue
   - **Flag 3850.T (NTT Data Intramart) as wrong instrument** — small-cap BPM software subsidiary; indirect public-sector exposure only
 
+### WATCH — L27-TIMING-DEFERRED (NEW sub-class 2026-06-21; investability + listed-status PASS, entry-timing FAIL)
+
+- **🟡 Knowledge Atlas Technology JSC Ltd / 北京智譜華章科技股份有限公司 (HKEX: 2513) — WATCH-TIMING-DEFERRED 2026-06-21 PM** (per `signals/cross-source-log/2026-06-21-pm-subagent-statehow-knowledge-atlas-glm52-verification.md`, 1 Opus 4.8 subagent 98.4k subagent_tokens)
+  - **Identity:** This IS Zhipu AI's listed parent vehicle. User's "Statehow Knowledge Atlas" name = voice-to-text phonetic-stab of "Zhipu" (智譜) + English company name "Knowledge Atlas" concatenated by speech engine. Per Subagent A 2026-06-21 PM GLM-5.2 deep dive (`signals/cross-source-log/2026-06-21-pm-subagent-a-glm52-zhipu-deep-dive-multilingual.md`).
+  - **Source signal:** User-shared name verification request 2026-06-21 PM + subagent T1 verification via HKEX news prospectus + CNBC/Bloomberg 2513-HK quote + Federal Register Entity List 2025-01-16 + Sina Finance/Eastmoney Chinese-name disclosure
+  - **Why directionally interesting:** Canonical foreign-investor-accessible direct play on the China sovereign-AI bifurcation thesis (PC-14 China Archetype A). MIT-licensed GLM-5.2 + 100,000 Huawei Ascend 910B training stack (zero NVIDIA dependency) = first frontier-tier MoE accomplished entirely on Chinese-sovereign compute. AA Index #4 globally / #1 open-weights model. Cost 1/6 of GPT-5.5 on coding workloads.
+  - **L27-DIMENSION VERDICTS:**
+    - ✅ **Broker access PASS** — Degiro confirms HKEX access (T1 [DEGIRO HKEX blog](https://www.degiro.com/uk/knowledge/blog/hkex-hongkong-stock-exchange))
+    - ✅ **Listed-status PASS** — HKEX 2513.HK confirmed live (T1 HKEX)
+    - ❌ **Entry timing FAIL** — Stock at HK$2,094 vs HK$116.20 IPO offer 2026-01-08 = **+1,702% in 5.5 months**; **+26% in last 24 hours alone** per [CNBC 2513-HK quote T1](https://www.cnbc.com/quotes/2513-HK); market cap ~HK$933.6B (~$120B USD)
+    - ⚠️ **Geopolitical MIXED** — Mainland OpCo Zhipu Beijing on US BIS Entity List 2025-01-15 (first Chinese LLM company); Affiliates Rule 50%-rollup currently SUSPENDED until **2026-11-10** per [Freshfields T2](https://blog.freshfields.us/post/102lvi4/bis-suspends-the-affiliates-rule-expanding-end-user-export-controls-for-one-yea); binary catalyst on un-suspension
+  - **B45 regime-check:** +1,702% YTD + +26% single-day moves are CONSISTENT with regime-corrected priors (6 of 15 AI-infrastructure basket >+200% in 17 months per B45 baseline). Do NOT flag as "extreme/stretched/exhaustion-signaling" reflexively. The move is in-cohort. **Late-cycle entry caution is the binding consideration, not magnitude framing.**
+  - **Conditional entry triggers (per subagent recommendation):**
+    1. >30% pullback from current HK$2,094 = ~HK$1,466 or below
+    2. 2026-11-10 Affiliates Rule unsuspension catalyst (binary geopolitical event)
+    3. GLM-6 post-launch exhaustion event (selling on next-gen-model news = classic pattern)
+  - **Convex hull (subagent P-weights, my model):** P~70% multi-model routing world makes 2513.HK durable multi-year compounder + current valuation justified by sovereign-stack moat; P~22% late-cycle entry trap (>30% pullback within 6mo creates entry); P~8% Affiliates Rule un-suspends 11-10 + retroactive Entity-List at parent → US-investor-restricted via EO 14105
+  - **Status: WATCH-TIMING-DEFERRED (new L27 sub-class)** — distinct from L27-BROKER-INACCESSIBLE pattern (FADU / Nan Ya). Document the new sub-class taxonomy in `meta/tags.md` at June 24 monthly audit.
+  - **Cohort impact:** NEUTRAL across held positions; only NBIS marginal 3rd-order negative (open-weights MIT GLM-5.2 may weaken neocloud inference unit economics over 12-24mo). PC-14 N≥4 increment via this entity = canonical China sovereign-stack direct play surfaced.
+
 ### Pre-IPO watch (private, monitor for IPO event)
 
 - **Mistral AI (private, France)** — Archetype C national champion; 1M French civil servant deployment (€700K Jun 2026 contract); $830M Mistral DC debt (Bruyères-le-Châtel 13,800 GB300 GPUs); IPO pathway watch

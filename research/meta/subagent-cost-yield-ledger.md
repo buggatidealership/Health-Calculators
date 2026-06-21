@@ -96,6 +96,47 @@
 
 ## Entries (most recent first)
 
+### [2026-06-21 PM-STATEHOW] Statehow Knowledge Atlas verification — "Statehow" = voice-to-text garble for Zhipu / Knowledge Atlas (HKEX 2513); IDENTITY-not-partnership; NEW L27-TIMING-DEFERRED sub-class; +1,702% YTD + 26% in 24h regime-typical per B45
+
+**Trigger source:** User-shared name "Statehow Knowledge Atlas" Hong Kong company + GLM-5.2 tie verification request 2026-06-21 PM
+**Subagents fired:** 1 (Opus 4.8, single-name scoped verification)
+**Estimated token cost:** ~98.4k ACTUAL (within 100-150k scoped-fire prediction; cost model holding across all 2026-06-21 fires)
+**Items verified:** Entity name resolution (transliteration latitude granted; subagent tested multiple variants); HKEX 2513 listing verification; GLM-5.2 tie verification (IDENTITY-not-partnership); L27 investability gate (broker access + listed-status + entry timing + geopolitical exposure); BIS Entity List exposure + Affiliates Rule suspension status
+
+**Per-subagent yield:** SUBSTANTIVE/HIGH — Name resolved to Knowledge Atlas Technology JSC Ltd / HKEX 2513.HK (北京智譜華章科技股份有限公司) = Zhipu AI's own listed parent vehicle; "Statehow" = phonetic-stab of "Zhipu" (智譜) concatenated with English company name "Knowledge Atlas" by speech engine. L27 broker access PASSES (Degiro confirms HKEX); entry timing FAILS (+1,702% YTD; +26% in last 24h; HK$2,094 vs HK$116.20 IPO offer; ~$120B market cap). NEW L27 sub-class needed: L27-TIMING-DEFERRED (distinct from L27-BROKER-INACCESSIBLE pattern of FADU/Nan Ya). BIS Entity List exposure (mainland OpCo 2025-01-15); Affiliates Rule SUSPENDED until 2026-11-10 (binary catalyst).
+
+**Brief-framing errors caught:** 3
+1. User implied SEPARATE entity "tied to" GLM-5.2 → ACTUAL: same entity (identity not partnership)
+2. FADU/Nan Ya L27 pattern would have falsely flagged 2513.HK as SKIP → NEW L27-TIMING-DEFERRED sub-class needed
+3. +1,702% YTD would have triggered "stretched/exhaustion" framing pre-B45 → B45 regime-check passes (in-cohort regime move); late-cycle entry caution remains binding but on different axis (timing not magnitude)
+
+**Thesis cascade triggered:** `watchlist/candidates.md` (2513.HK WATCH-TIMING-DEFERRED new entry + NEW L27-TIMING-DEFERRED sub-class section); NO held-cohort thesis updates (cohort impact LOW magnitude; NBIS only marginal 3rd-order negative already covered)
+
+**Position implication delta:** NONE — 0 size moves; 0 thesis-rating changes; 1 new watchlist candidate added (2513.HK WATCH-TIMING-DEFERRED); 1 new L27 sub-class taxonomy entry pending June 24 audit codification
+
+**Material yield class:** HIGH
+
+**Audit-day classification:** POSITIVE
+
+**New B40 sub-type candidate:** "phonetic-garble register" — voice-to-text pattern where Chinese-name pronunciation + English-listed-name concatenation produces unrecognizable garble (Statehow → Zhipu 智譜 / Knowledge Atlas). Joins B40.1 (stale-recycle) + B40.2 (anonymous-paraphrase) + B40.3 (attribution-garble) + B40.4 (conditional-rate-as-absolute-rate). **B40.5 candidate codification deferred to June 24 audit.**
+
+**L27 sub-class enrichment (5th L27 application this week strengthens pattern):**
+- L27-DELISTED-TICKER (AM7c 2026-06-17 — NTT 9613)
+- L27-BROKER-INACCESSIBLE (AM11-PM 2026-06-19 — FADU 263750.KQ; AM-NANYA 2026-06-21 — Nan Ya 1303.TW)
+- L27-SOURCE-AGGREGATOR-UNCONFIRMED (AM-KOREA-KITA 2026-06-21)
+- **L27-TIMING-DEFERRED (PM-STATEHOW 2026-06-21 — 2513.HK)** NEW
+- Combined pattern strength for June 24 audit codification: 5 applications across 5 distinct sub-classes in 4 days = L27 should formally codify multi-dimensional investability+timing+geopolitical gate
+
+**PC-14 implication:** 2513.HK is the canonical foreign-investor-accessible direct play on China Archetype A (sovereign-stack: GLM-5.2 + Huawei Ascend 910B + MindSpore + MIT license + HKEX listing). Increments PC-14 from N=3+ → N=4+ via this entity surface.
+
+**Cohort impact:** NEUTRAL across held positions; NBIS marginal 3rd-order negative (open-weights MIT GLM-5.2 may weaken neocloud inference unit economics 12-24mo) — already covered by AM12 cascade.
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-21-pm-subagent-statehow-knowledge-atlas-glm52-verification.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-21 PM] 3-Model Deep Dive — GLM-5.2 (Zhipu) + Fable 5 (Anthropic) + GPT-5.5 (OpenAI) head-to-head
 
 **Trigger source:** User directive "research GLM5.2 model. Do a deep dive. leave no stone unturned. then evaluate how it competes with Fable 5 and the latest gpt model"

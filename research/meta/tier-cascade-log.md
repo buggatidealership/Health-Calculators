@@ -35,6 +35,50 @@
 
 ## Entries (most recent first)
 
+### [2026-06-21 PM-STATEHOW] 🟢 Statehow Knowledge Atlas verification — voice-to-text garble resolved to Zhipu / Knowledge Atlas Technology JSC Ltd (HKEX 2513); NEW L27-TIMING-DEFERRED sub-class; 5th L27 application this week; +1,702% YTD regime-typical per B45; 1 new watchlist candidate added (2513.HK WATCH-TIMING-DEFERRED)
+
+**Trigger source:** User-shared name "Statehow Knowledge Atlas" Hong Kong company + GLM-5.2 tie verification request 2026-06-21 PM.
+
+**Intake tier:** 🟢 HARD — name identification CONFIRMED via T1 HKEX/CNBC/Bloomberg/Federal Register/Sina Finance multi-source; entity = Knowledge Atlas Technology JSC Ltd / 北京智譜華章科技股份有限公司 = Zhipu AI's listed parent vehicle (NOT a separate company); strongest possible verification outcome (identity not partnership).
+
+**Source:** This entry + cross-source-log artifact + ledger PM-STATEHOW entry + watchlist 2513.HK WATCH-TIMING-DEFERRED entry.
+
+**Tier moves (Principle #37 scoped-cascade):**
+- `signals/cross-source-log/2026-06-21-pm-subagent-statehow-knowledge-atlas-glm52-verification.md` NEW — full entity identification + L27 multi-dimensional verdict + B40.5 phonetic-garble register candidate + conditional entry triggers + convex hull
+- `watchlist/candidates.md` — NEW "WATCH — L27-TIMING-DEFERRED (NEW sub-class 2026-06-21)" section added; 2513.HK Knowledge Atlas / Zhipu entry with full identity resolution + L27 dimension verdicts + B45 regime-check + conditional entry triggers + cohort impact
+- `meta/subagent-cost-yield-ledger.md` — PM-STATEHOW entry HIGH yield class; 98.4k actual cost
+- `meta/tier-cascade-log.md` — this entry + lag-1 SHA fill on PM-3MODEL (eadfe42c)
+
+**Files NOT touched (cascade scope-discipline per Principle #37):**
+- All held cohort thesis files — cohort impact NEUTRAL; NBIS marginal 3rd-order negative already covered by AM12 cascade
+- `meta/biases-watchlist.md` B40.5 phonetic-garble register candidate codification deferred to June 24 monthly audit (with B40.4 + B47 + B48 + B49)
+- `meta/tags.md` L27-TIMING-DEFERRED sub-class codification deferred to June 24 audit (with L27 multi-dimensional framework)
+- `signals/triangulation.md` PC-14 N=3+ → N=4+ increment deferred to June 24 audit (with TC-10 + TC-4 + U8 from PM-3MODEL)
+- `predictions/inference-log.md` 70/22/8 convex-hull weighting (resolution 2026-11-10 + 2026-12-31) — deferred to predictions-log next cascade
+- `CLAUDE.md` — findings don't rise to Critical Rule level
+
+**Yield class:** HIGH per ledger PM-STATEHOW entry. 1 NEW watchlist candidate (2513.HK WATCH-TIMING-DEFERRED) surfaced from voice-to-text garble verification + 1 NEW L27 sub-class taxonomy (L27-TIMING-DEFERRED distinct from L27-BROKER-INACCESSIBLE pattern) + 1 NEW B40 sub-type candidate (B40.5 phonetic-garble register) + PC-14 China Archetype A canonical foreign-investor-accessible direct play surfaced + B45 regime-check binding application (do not flag +1,702% YTD reflexively) + 0 size moves + 0 held-cohort thesis updates.
+
+**Critical Rule #16 status:** Fired (1 Opus 4.8 single-name scoped). Ledger entry appended in same commit per H2 discipline.
+
+**Critical Rule #15 application:** User-implied SEPARATE entity tied to Zhipu → ACTUAL identity-not-partnership outcome. Subagent surfaced the framing-correction explicitly rather than running with user's implicit assumption. Discipline working as designed.
+
+**B45 regime-corrected priors application (binding):** +1,702% YTD + +26% single-day moves are CONSISTENT with regime baseline (6 of 15 AI-infrastructure basket >+200% in 17 months). Did NOT flag as extreme/stretched/exhaustion. Late-cycle entry caution is the binding consideration but on different axis (timing not magnitude).
+
+**L27 multi-dimensional codification candidate strengthening (5th L27 application this week across 5 distinct sub-classes):**
+1. L27-DELISTED-TICKER (NTT 9613 2026-06-17)
+2. L27-BROKER-INACCESSIBLE (FADU 263750.KQ 2026-06-19; Nan Ya 1303.TW 2026-06-21)
+3. L27-SOURCE-AGGREGATOR-UNCONFIRMED (Korean KITA chart 2026-06-21)
+4. **L27-TIMING-DEFERRED (2513.HK Knowledge Atlas 2026-06-21) NEW**
+
+Pattern strength: 5 applications / 5 distinct sub-classes / 4 days. June 24 audit should formally codify L27 as multi-dimensional investability+timing+geopolitical gate at WATCHLIST-CONSIDERATION-TIME granularity.
+
+**Cascade-fatigue check:** 22 cascades this session window (...+AM-NANYA+PM-3MODEL+PM-STATEHOW); within Principle #37 discipline.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-21 PM-3MODEL] 🟢 3-Model deep dive — GLM-5.2 + Fable 5 + GPT-5.5 head-to-head; 2 LOAD-BEARING findings missed by morning brief (Fable 5 OFFLINE since 06-12 under US BIS export control + GLM-5.2 Ascend/MindSpore zero-NVIDIA training stack); Pareto bifurcation finding = no single model dominant = no thesis-rerate trigger; cluster-level updates queued
 
 **Trigger source:** User directive 2026-06-21 PM "research GLM5.2 model. Do a deep dive. leave no stone unturned. then evaluate how it competes with Fable 5 and the latest gpt model"
@@ -80,7 +124,7 @@
 
 **Cascade-fatigue check:** 21 cascades this session window (...+AM12+FADU-SKIP+AM-KOREA-KITA+AM-NANYA+PM-3MODEL); within Principle #37 discipline.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** eadfe42c
 
 ---
 
