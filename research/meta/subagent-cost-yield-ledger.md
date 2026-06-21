@@ -96,6 +96,32 @@
 
 ## Entries (most recent first)
 
+### [2026-06-21 AM] Nan Ya E-glass / CCL upstream verification (Taiwan industry claim — UNVERIFIED LOAD-BEARING claim outcome; Critical Rule #15 enforcement working as designed)
+
+**Trigger source:** User-shared T3 Taiwan/Korean trade-press summary 2026-06-21 about Nan Ya Plastics (1303.TW) E-glass supply tightness + Kingboard 15% E-glass hike + ANONYMOUS "according to the industry" claim that NVIDIA accepted T-glass + E-glass mix for high-end AI servers. User flagged explicitly: "this one needs verification as it's a 'industry claim'." User confirmed Nan Ya 1303.TW NOT investable on N26 or Degiro → SKIP-INVESTABILITY per L27 (4th L27 application this week).
+**Subagents fired:** 1 (Opus 4.8, Option B scoped per L27 investability gate)
+**Estimated token cost:** ~134.3k ACTUAL — within Option B prediction (100-150k for scoped 1-subagent fire); corrected cost model holding across AM11 / AM12 / today fires (3-fire average ~150k per deep subagent)
+**Items verified:** Kingboard E-glass +15% hike timing + magnitude; Nan Ya Chairman Wu Chia-chao utilization comments; President Chou Ming-jen price negotiation; CCL + copper foil 80-90% utilization; electronic materials 60% revenue share target; global E-glass capacity conversion; NVIDIA capacity-locked claim; NVIDIA T+E mix-acceptance claim (LOAD-BEARING)
+
+**Per-subagent yield:**
+- Subagent: LOW-MEDIUM — Kingboard 15% hike VERIFIED at T2 across 4+ Taiwan press but framed as 4th hike of 2026 (cumulative 50%+ in 2025 + 10-20% per round in 2026) = STRUCTURAL CASCADE not discrete event (reframes user-paste-implied discrete-shock framing); LOAD-BEARING NVIDIA T+E mix-acceptance UNVERIFIED at any tier above T3 anonymous Taiwan whisper (zero T1 NVIDIA / zero named sell-side / zero OEM / zero Korean+Japanese cross-language ratification); IBIDEN cohort impact NEUTRAL (already-priced via 2026-06-15 PM5 MGC/Resonac 30% CCL hike + 2026-06-16 PM23 IBIDEN deep-dig); MRVL substrate-cost 2nd-order DE MINIMIS (single-digit-$ on multi-thousand-$ ASIC ASP); Nittobo Boseki adjacent P2 watchlist read pending NVIDIA mix-acceptance verification
+
+**Brief-framing errors caught:** 3
+1. User paste implied discrete "this week" 15% hike → reframed as marginal increment on KNOWN multi-quarter cascade (4th hike of 2026)
+2. "NVIDIA accepted T+E mix" presented as established fact → actually anonymous Taiwan-press whisper failing multi-language multi-tier cross-check
+3. "Locked up by NVIDIA supply chain" market-observer framing → unverified at any named-source tier
+
+**Thesis cascade triggered:** `companies/IBIDEN/thesis.md` (2026-06-21 AM cross-ref 🟡 NEUTRAL no thesis update); `companies/MRVL/thesis.md` (2026-06-21 AM cross-ref 🟡 NEUTRAL no thesis update); `watchlist/candidates.md` (Nan Ya 1303.TW SKIP-INVESTABILITY entry added per L27 — 2nd entry in L27 SKIP section after FADU)
+**Position implication delta:** NONE — 0 size moves; 0 thesis-rating changes; 1 watchlist SKIP-INVESTABILITY record added; 1 framing-correction documented (UNVERIFIED-LOAD-BEARING-CLAIM flag per Critical Rule #15)
+**Material yield class:** LOW-MEDIUM (genuine bottleneck signal at glass-fiber-cloth tier verified structurally + load-bearing NVIDIA-specific claim FAILED source-tier scrutiny + cohort impact already-priced via prior cascades). **Critical Rule #16 design intent VALIDATED:** the fire EARNED its cost by exposing the unverified claim — exactly the "verify before propagating" purpose
+**Audit-day classification:** POSITIVE-LITE (fire produced material verification outcome even though directional thesis impact was NEUTRAL/already-priced; LOW-MEDIUM yield is the honest classification; counts toward 30-day audit window)
+**Convex hull (subagent P-weights):** H1 (Taiwan-press positioning without ratification) 30%; **H2 (Kingboard hike verifies; NVIDIA mix-acceptance does NOT verify; partial-correct) = MODAL 40%**; H3 (all verifies at T1/T2) 20%; H4 (mix-acceptance denied or quality issue) 10%
+**New bias-candidate (B49 candidate flagged by subagent):** "single-origin-recycled-as-multi-source pattern" — if NVIDIA T+E mix-acceptance gets REPEATED in subsequent Taiwan press without NEW sources surfacing, log as systematic anti-pattern; codify in biases-watchlist at June 24 monthly audit
+**Cross-source-log:** `signals/cross-source-log/2026-06-21-am-subagent-nanya-eglass-ccl-upstream-supply-chain-verification.md`
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-20 AM12] Memory-as-Inflation hypothesis verification (Semi Doped/Jukan tweet + Deutsche Bank Figure 7 chart)
 
 **Trigger source:** user-shared Semi Doped (@semidoped) tweet 2026-06-20 quoting Jukan (@jukan05) "More and more sell-side firms are saying that higher memory prices are becoming an inflationary headwind" + embedded Deutsche Bank Research Figure 7 chart (US PPI Electronic Components and Accessories YoY % change spiking to ~25-27% in 2026 vs flat 0-5% 2015-2024). User directive: UNBIASED research / directional signals / NOT validation or invalidation.

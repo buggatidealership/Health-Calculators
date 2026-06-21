@@ -35,6 +35,49 @@
 
 ## Entries (most recent first)
 
+### [2026-06-21 AM-NANYA] 🟡 Nan Ya E-glass / CCL upstream verification — UNVERIFIED-LOAD-BEARING-CLAIM outcome (NVIDIA T+E mix-acceptance fails Critical Rule #15); Critical Rule #16 design intent VALIDATED (fire EARNED cost by exposing unverified claim); 4th L27 SKIP-INVESTABILITY application this week
+
+**Trigger source:** User-shared T3 Taiwan industry claim 2026-06-21 about Nan Ya (1303.TW SKIP-INVESTABILITY per L27 — user confirmed no access on N26 or Degiro) E-glass supply tightness + Kingboard 15% hike + ANONYMOUS NVIDIA T+E glass mix acceptance claim. User flagged explicitly: "this one needs verification as it's a 'industry claim'."
+
+**Intake tier:** 🟡 DIRECTIONAL — structural CCL-tightness signal T2 VERIFIED (4+ Taiwan press sources); LOAD-BEARING NVIDIA T+E mix-acceptance UNVERIFIED at any tier above T3 anonymous. Falsifier protocol: if NVIDIA mix-acceptance gets independent T1/T2 named-source ratification, re-open Nittobo P2 watchlist read.
+
+**Source:** This entry + cross-source-log artifact + 2 thesis cross-refs (IBIDEN + MRVL) + watchlist SKIP-INVESTABILITY entry for Nan Ya.
+
+**Tier moves (Principle #37 scoped-cascade):**
+- `signals/cross-source-log/2026-06-21-am-subagent-nanya-eglass-ccl-upstream-supply-chain-verification.md` NEW — full per-claim T-tier verification table + convex hull + cohort joint-state + B49 candidate flagged
+- `watchlist/candidates.md` — Nan Ya 1303.TW SKIP-INVESTABILITY entry added (2nd in L27 SKIP section after FADU; 4th L27 application this week)
+- `companies/IBIDEN/thesis.md` — 2026-06-21 AM cross-ref 🟡 NEUTRAL no thesis update (cohort impact already-priced via PM5 + PM23 prior cascades; Kingboard 15% hike is mid/low-end Chinese tier IBIDEN doesn't source from)
+- `companies/MRVL/thesis.md` — 2026-06-21 AM cross-ref 🟡 NEUTRAL no thesis update (substrate-cost 2nd-order DE MINIMIS at single-digit-$ on multi-thousand-$ ASIC ASP)
+- `meta/subagent-cost-yield-ledger.md` — 2026-06-21 AM entry LOW-MEDIUM yield class; 134.3k actual cost (Option B prediction holding 100-150k for scoped 1-subagent fire)
+- `meta/tier-cascade-log.md` — this entry + lag-1 SHA fill on AM-KOREA-KITA (14b05ba6)
+
+**Files NOT touched (cascade scope-discipline):**
+- HYNIX / KIOXIA / SNDK / MURATA / NBIS / BESI / Camtek / NBIS theses — out of glass-fiber upstream supply chain; no impact
+- Nittobo Boseki watchlist entry — read pending NVIDIA mix-acceptance verification; will revisit when/if T1 source surfaces (subagent's recommendation)
+- `meta/biases-watchlist.md` — B49 candidate "single-origin-recycled-as-multi-source pattern" flagged but codification deferred to June 24 monthly audit (with B47 + B48 from AM12)
+
+**Yield class:** LOW-MEDIUM per ledger taxonomy (genuine bottleneck signal verified structurally + load-bearing NVIDIA-specific claim FAILED + cohort impact already-priced). **Critical Rule #16 design intent VALIDATED** — fire EARNED its 134.3k cost by exposing the unverified load-bearing claim. Honest classification: this is what "verify before propagating" looks like in practice.
+
+**Critical Rule #16 status:** Fired (1 Opus 4.8 Option B scoped). Ledger entry appended in same commit per H2 discipline.
+
+**Critical Rule #15 application:** LOAD-BEARING claim (NVIDIA T+E mix-acceptance) had ZERO T1 NVIDIA disclosure + ZERO named sell-side ratification + ZERO server-OEM confirmation + ZERO Korean/Japanese cross-language ratification = single-origin Taiwan-press cluster (Economic Daily News) flagged as UNVERIFIED. Per Rule #15: if micro contradicts (or in this case fails to be substantiated by) credible institutional signal, FRAMING is incomplete — not the signal. Discipline binding: do NOT cascade thesis updates from unverified anonymous-source claims regardless of how compelling the directional read.
+
+**L27 pattern tracking (3rd application this week tracking pattern at 4 total since June 17):**
+1. AM7c 2026-06-17 — NTT 9613.T DELISTED catch (ticker-disambiguation tier)
+2. AM11 PM 2026-06-19 — FADU 263750.KQ SKIP-INVESTABILITY (KOSDAQ small-cap broker filter)
+3. AM-KOREA-KITA 2026-06-21 — Korean chart aggregator source format unconfirmed (T-tier-attribution)
+4. AM-NANYA 2026-06-21 — Nan Ya 1303.TW SKIP-INVESTABILITY (TWSE broker filter)
+
+Pattern strengthening for June 24 monthly audit codification — L27 should formally codify investability+broker-access verification at WATCHLIST-CONSIDERATION-TIME granularity (not just sizing-decision-time).
+
+**B49 candidate flagged by subagent:** "single-origin-recycled-as-multi-source pattern" — if NVIDIA T+E mix-acceptance gets REPEATED in subsequent Taiwan press without NEW sources surfacing, log as systematic anti-pattern. Joins B47 (cycle-magnitude regime-shift framing-error) + B48 (narrative-correctness-vs-equity-beta-disconnect) from AM12 as 3 bias-candidates queued for June 24 audit codification.
+
+**Cascade-fatigue check:** 20 cascades this session window (...+AM11+JPM-RECONSTRUCTION+AM12+FADU-SKIP+AM-KOREA-KITA+AM-NANYA); within Principle #37 discipline. AM-NANYA scope is appropriately light (LOW-MEDIUM yield = scope-matched outcome).
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-21 AM] 🟡 Korea Customs Service / KITA June 1-20 preliminary semiconductor export unit prices = INDEPENDENT T1 macro-institutional RATIFICATION of AM12 hypothesis; convex-hull HA collapses 25%→5-10%, HD strengthens 25%→40-50% (my model); HYNIX/KIOXIA/SNDK STRENGTHENED reads, NBIS macro-tape risk-watch STRENGTHENED for 06-22 inclusion-day; light cascade (no Critical Rule #16 fire)
 
 **Trigger source:** User-shared 4 chart images 2026-06-21 of South Korea semiconductor export unit-price trends June 1-20 preliminary data (DRAM excl modules +576% YoY $82,260/kg; DRAM incl modules +491% YoY $58,740/kg; NAND +546% YoY +28% M/M $72,784/kg; MCP HBM +119% YoY +15% M/M $95,939/kg — all per user-shared Korea Customs Service / KITA June 1-20 2026 preliminary data). Direct follow-up to AM12 hypothesis verification where Subagent A had a verification gap (FRED + BLS 403'd in this env).
@@ -69,7 +112,7 @@
 
 **Cascade-fatigue check:** 19 cascades this session window (...+AM11+JPM-RECONSTRUCTION+AM12+FADU-SKIP+AM-KOREA-KITA); within Principle #37 discipline. AM-KOREA-KITA entry is light-cascade-log scope per the "use lower-cost method when sufficient" discipline.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** 14b05ba6
 
 ---
 

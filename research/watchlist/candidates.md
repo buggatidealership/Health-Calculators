@@ -1207,6 +1207,13 @@ Per `signals/cross-source-log/2026-06-18-am8-evening-brief-2subagent-anthropic-s
 
 ### SKIP — Investability filter fail (per L27 verify-listed-status-at-watchlist-add discipline)
 
+- **🔴 Nan Ya Plastics (TWSE: 1303) — SKIP-INVESTABILITY 2026-06-21 AM** per user broker confirmation (no access on N26 or Degiro)
+  - Source signal: User-shared T3 Taiwan-press industry-claim 2026-06-21 about Nan Ya E-glass supply tightness + Kingboard 15% hike + ANONYMOUS "NVIDIA accepted T+E glass mix" claim
+  - Verified per `signals/cross-source-log/2026-06-21-am-subagent-nanya-eglass-ccl-upstream-supply-chain-verification.md` (1 Opus 4.8 subagent 134.3k subagent_tokens, Option B scoped): claims 1-4 + 7-8 VERIFIED at T2 (Taiwan financial press direct quotes from Wu Chia-chao + Chou Ming-jen + structural backdrop); claim 5 (NVIDIA capacity locked) NOT VERIFIED T3 anonymous; **claim 6 (NVIDIA T+E mix-acceptance) = UNVERIFIED LOAD-BEARING CLAIM per Critical Rule #15** (zero T1 NVIDIA disclosure, zero named sell-side ratification, zero OEM confirmation, zero Korean/Japanese cross-language ratification; single-origin Taiwan-press cluster Economic Daily News)
+  - **Investability verdict:** SKIP — TWSE 1303 access fails L27 broker-availability filter at N26 + Degiro (4th L27 application this week after NTT 9613 / FADU / Korean export aggregator unconfirmed)
+  - Demand-side read for held cohort / watchlist (covered by prior cascades): CCL upstream cost-pressure already incorporated via 2026-06-15 PM5 MGC/Resonac 30% CCL hike + 2026-06-16 PM23 IBIDEN deep-dig; Kingboard 15% E-glass hike is the 4th of 2026 (cumulative 50%+ in 2025 per subagent) = structural cascade NOT discrete event; cohort impact NEUTRAL/already-priced
+  - **Falsifier for revisit:** if Nan Ya dual-lists as US ADR or LSE accessible via N26/Degiro, OR if NVIDIA T+E mix-acceptance claim gets independent T1/T2 named-source ratification (would change adjacent-name Nittobo P2 read), re-open consideration
+
 - **🔴 FADU Technology (KOSDAQ: 263750) — SKIP-INVESTABILITY 2026-06-21** per user broker confirmation (no access on N26 or Zero brokers)
   - Source signal: FADU blog 2026-06-15 "Why FADU SSDs Are the Right Fit for NVIDIA CMX" (T3 vendor-promotional) — positioning as the NAND-controller SSD vendor for NVIDIA CMX (Context Memory eXtension) pod-shared KV cache architecture
   - Why directionally interesting (had it been investable): Korean SSD-controller pure-play on CMX adoption; claims 64 TB E3.S 7.5mm + 14 GB/s sustained 1 MiB Gen5 + 3 DWPD + FDP/DOCA-Memos multi-model isolation delivering WAF ~1.0; potential pod-scale CMX SSD socket beneficiary if NVIDIA names them as approved vendor

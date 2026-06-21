@@ -1,5 +1,9 @@
 # IBIDEN (4062.T) — Thesis (candidate stub)
 
+**🟡 2026-06-21 AM Nan Ya E-glass / CCL upstream verification cross-ref — already-priced; no thesis update needed:** Per `signals/cross-source-log/2026-06-21-am-subagent-nanya-eglass-ccl-upstream-supply-chain-verification.md` (1 Opus 4.8 subagent 134.3k subagent_tokens). User-shared T3 Taiwan industry claim about Nan Ya (1303.TW SKIP-INVESTABILITY) + Kingboard 15% E-glass hike + ANONYMOUS "NVIDIA T+E glass mix acceptance" claim — verified: Kingboard 15% hike is the 4th of 2026 (cumulative 50%+ in 2025 per subagent finding); structural cascade NOT discrete event; Kingboard 1888.HK is Chinese mid/low-end tier IBIDEN does NOT source from. **NVIDIA T+E mix-acceptance claim = UNVERIFIED LOAD-BEARING per Critical Rule #15** (zero T1 NVIDIA / zero named sell-side / zero OEM / zero Korean+Japanese cross-language ratification). **Cohort impact NEUTRAL — already-priced via 2026-06-15 PM5 MGC/Resonac 30% CCL hike cascade + 2026-06-16 PM23 deep-dig outcome.** No thesis update required. **Position implication: 🟡 UNCHANGED — P1 watchlist candidate (PM23 #2 PURE-PLAY PASS but VALUATION EXTENDED — WAIT FOR PULLBACK or 0.5% STARTER MAX); no candidacy change from this verification.**
+
+---
+
 **Last updated:** 2026-06-15 PM5 (Pharmicell-Doosan-NVDA CCL cascade — TC-5 N=7→N=8 CCL upstream layer added; MGC + Resonac 30% CCL price hike 2026 = mild input-cost headwind to monitor)
 
 ## 2026-06-15 PM5 back-reference — CCL upstream supply chain cascade (mild input-cost headwind)
