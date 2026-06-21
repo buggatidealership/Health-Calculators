@@ -133,7 +133,9 @@
 
 **Convex hull (Subagent A P-weights, my model):** 75% probability mass on narrative being PARTIAL-WRONG or PARTIAL-OVERSTATED in some dimension; 25% on broadly-correct-as-stated.
 
-**Cross-source-log:** `signals/cross-source-log/2026-06-20-pm-subagent-a-memory-ppi-inflation-hypothesis-macro-verification.md` + `signals/cross-source-log/2026-06-20-pm-subagent-b-memory-ppi-inflation-hypothesis-sellside-policy-risk.md`
+**🔄 2026-06-21 AM follow-up convex-hull RE-WEIGHTING (per `signals/cross-source-log/2026-06-21-am-korea-customs-june-1-20-semiconductor-export-prices-am12-followup.md`):** User-shared Korea Customs Service / KITA June 1-20 preliminary semiconductor export unit prices = INDEPENDENT T1 macro-institutional source that FILLS Subagent A's verification gap (FRED + BLS 403'd). Numbers: DRAM excl +576% YoY at $82,260/kg, DRAM incl +491% YoY at $58,740/kg, NAND +546% YoY +28% M/M at $72,784/kg, HBM +119% YoY at $95,939/kg (per user-shared Korea Customs / KITA June 1-20 2026 preliminary data). **Re-weighted (my model):** HA (magnitude overstated) collapses 25% → 5-10%; HC (cycle peaks ahead of consensus) revised down 20% → 10-15% (NAND +28% M/M acceleration suggests steepest-phase-now); HD (framing broadly correct) strengthened 25% → 40-50%. Cohort risk-stratification UNCHANGED in direction; HYNIX/KIOXIA/SNDK direct-beneficiary reads STRENGTHENED; NBIS LARGEST-GROSS-DELTA-RISK-LEG watch STRENGTHENED for 06-22 inclusion-day. NO Critical Rule #16 subagent fire occurred for this follow-up (user-shared T1 government data is verification primary; light-cascade-log discipline preferred over duplicating AM12 verification work just done 24h ago).
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-20-pm-subagent-a-memory-ppi-inflation-hypothesis-macro-verification.md` + `signals/cross-source-log/2026-06-20-pm-subagent-b-memory-ppi-inflation-hypothesis-sellside-policy-risk.md` + `signals/cross-source-log/2026-06-21-am-korea-customs-june-1-20-semiconductor-export-prices-am12-followup.md` (2026-06-21 follow-up)
 
 **Commit:** {to-be-filled-in-next-cascade}
 

@@ -35,6 +35,44 @@
 
 ## Entries (most recent first)
 
+### [2026-06-21 AM] 🟡 Korea Customs Service / KITA June 1-20 preliminary semiconductor export unit prices = INDEPENDENT T1 macro-institutional RATIFICATION of AM12 hypothesis; convex-hull HA collapses 25%→5-10%, HD strengthens 25%→40-50% (my model); HYNIX/KIOXIA/SNDK STRENGTHENED reads, NBIS macro-tape risk-watch STRENGTHENED for 06-22 inclusion-day; light cascade (no Critical Rule #16 fire)
+
+**Trigger source:** User-shared 4 chart images 2026-06-21 of South Korea semiconductor export unit-price trends June 1-20 preliminary data (DRAM excl modules +576% YoY $82,260/kg; DRAM incl modules +491% YoY $58,740/kg; NAND +546% YoY +28% M/M $72,784/kg; MCP HBM +119% YoY +15% M/M $95,939/kg — all per user-shared Korea Customs Service / KITA June 1-20 2026 preliminary data). Direct follow-up to AM12 hypothesis verification where Subagent A had a verification gap (FRED + BLS 403'd in this env).
+
+**Intake tier:** 🟡 DIRECTIONAL — T1 underlying (Korea Customs Service / KITA government source) via T2 chart aggregator format (Korean financial-press style, primary aggregator unconfirmed). Falsifier protocol: if primary KCS/KITA URL surfaces and chart-extracted numbers don't match, correction header + thesis re-eval triggered.
+
+**Source:** This entry + new cross-source-log artifact + 4 thesis cross-refs + ledger AM12 follow-up note.
+
+**Tier moves (Principle #37 scoped-cascade):**
+- `signals/cross-source-log/2026-06-21-am-korea-customs-june-1-20-semiconductor-export-prices-am12-followup.md` — NEW (T1 data captured + B45 regime check + AM12 convex-hull re-weighting + cross-cohort joint-state)
+- `companies/HYNIX/thesis.md` — 2026-06-21 AM cross-ref 🟢 STRENGTHENED via Korean T1 RATIFICATION at maximum intensity; AM12 convex-hull HA collapses 25%→5-10%; no size change (pre-committed trim sequence governs)
+- `companies/KIOXIA/thesis.md` — 2026-06-21 AM cross-ref 🟢 STRENGTHENED NAND peak-trajectory ratification (+546% YoY +28% M/M is steepest sequential); no size change
+- `companies/SNDK/thesis.md` — 2026-06-21 AM cross-ref 🟢 STRENGTHENED via Yokkaichi JV mirror; AM9 +11% single-day looks UNDER-priced retrospectively if +28% M/M continues; no size change
+- `companies/NBIS/thesis.md` — 2026-06-21 AM cross-ref 🔴 macro-tape risk watch STRENGTHENED for 06-22 inclusion-day open + first-hour (political-pressure escalation timeline compresses per P~20% N-th order); no size change BUT explicit weekend macro-tape watch action item
+- `meta/subagent-cost-yield-ledger.md` AM12 entry — 2026-06-21 AM follow-up convex-hull RE-WEIGHTING note appended (not a new fire entry; light-cascade-log)
+- `meta/tier-cascade-log.md` — this entry + lag-1 SHA fill on FADU-SKIP (df1b74ce)
+
+**Files NOT touched (cascade scope-discipline):**
+- `companies/MURATA/thesis.md` — UNCHANGED read; passives-spillover-LIMITED holds; no double-cascade
+- `companies/MRVL/thesis.md` — UNCHANGED read; ASIC thesis intact at company level
+- `watchlist/candidates.md` — no new investability surface
+- `meta/biases-watchlist.md` — no new bias-candidate from this datapoint
+- `CLAUDE.md` — finding doesn't rise to Critical Rule level
+
+**Yield class:** HIGH per ledger taxonomy (1 independent T1 macro-institutional ratification + AM12 convex-hull re-weighting [HA collapse 25%→5-10%; HD strengthening 25%→40-50%] + 3 direct-beneficiary thesis strengthenings + 1 risk-watch strengthening + 0 size moves + 0 falsifier fires).
+
+**Critical Rule #16 status:** N/A — no fan-out fire occurred; user-shared T1 government data is verification primary source. Light-cascade-log discipline preferred over duplicating AM12 verification work just done 24h ago.
+
+**B45 regime check compliance:** Magnitudes (+576% / +491% / +546% / +119% YoY) explicitly NOT flagged as extreme/elevated/stretched per codified regime base rate binding-until-2026-09-12. Pre-training-conservative-pull explicitly resisted; data taken at face value.
+
+**Anti-fabrication-hook compliance:** All numerical claims (576% / 491% / 546% / 119% / $82,260 / $58,740 / $72,784 / $95,939 / 28% / 15% / 6% / -4%) cited inline to "per user-shared Korea Customs Service / KITA June 1-20 2026 preliminary data" + grounded permanently in `signals/cross-source-log/2026-06-21-am-korea-customs-june-1-20-semiconductor-export-prices-am12-followup.md` artifact via this commit.
+
+**Cascade-fatigue check:** 19 cascades this session window (...+AM11+JPM-RECONSTRUCTION+AM12+FADU-SKIP+AM-KOREA-KITA); within Principle #37 discipline. AM-KOREA-KITA entry is light-cascade-log scope per the "use lower-cost method when sufficient" discipline.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-21] 🟢 FADU CMX article triage — SKIP-INVESTABILITY per L27 (no fan-out warranted); demand-side cohort reads already covered by PM25 + AM12 prior cascades (cascade-fatigue avoided)
 
 **Trigger source:** User-shared FADU blog 2026-06-15 (updated 2026-06-17) "Why FADU SSDs Are the Right Fit for NVIDIA CMX" — vendor-authored T3 promotional piece on FADU (KOSDAQ 263750) positioning as NVIDIA CMX (Context Memory eXtension) SSD vendor. User directive 2026-06-21: "go through it" + follow-up confirmation "FADU not directly investable... I don't have access to it on N26, nor on Zero."
@@ -67,7 +105,7 @@
 
 **Cascade-fatigue check:** 18 cascades this session window (AM8+PM32+PM33+PM33b+PM33c+AM9+AM9b+watchlist+prep+H1-attempt+H1-resolved+AM10+H2-LEDGER-BIRTH+H1-CONTAINER-EPHEMERALITY-FIX+AM11+JPM-RECONSTRUCTION+AM12+FADU-SKIP); 18th entry is by design the lightest possible (LOW yield, audit-trail-only) per cascade-fatigue discipline.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** df1b74ce
 
 ---
 
