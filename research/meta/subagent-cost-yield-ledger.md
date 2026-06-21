@@ -96,6 +96,49 @@
 
 ## Entries (most recent first)
 
+### [2026-06-21 PM] 3-Model Deep Dive — GLM-5.2 (Zhipu) + Fable 5 (Anthropic) + GPT-5.5 (OpenAI) head-to-head
+
+**Trigger source:** User directive "research GLM5.2 model. Do a deep dive. leave no stone unturned. then evaluate how it competes with Fable 5 and the latest gpt model"
+**Subagents fired:** 3 (Opus 4.8 parallel) — Subagent A GLM-5.2 / Subagent B Fable 5 / Subagent C GPT-5.5
+**Estimated token cost:** ~369.1k ACTUAL total (A=162.8k + B=107.5k + C=98.8k) — UNDER 450k estimate; per-subagent average ~123k = within standard deep verification range; cost model holding across AM11 (309k) + AM12 (288k) + AM-NANYA (134k) + today (369k) fires
+**Items verified:** 3-model architecture / benchmarks (AA Index, SWE-bench Verified+Pro, GPQA, AIME, HumanEval, AA-Omniscience, Agents' Last Exam, LMSYS) / pricing / licensing / deployment / corporate context / sovereign-stack dependency / regulatory exposure / ArrowTS "3x hallucination" claim methodology
+
+**Per-subagent yield:**
+- Subagent A (GLM-5.2): HIGH — 5 hard verifications including MIT license CONFIRMED + 100,000 Huawei Ascend 910B + MindSpore zero-NVIDIA training stack (PC-14 China Archetype A reinforcement) + AM10 framing-error refined (Unsloth quantization correct; separate Zhipu Ascend step-change under-weighted previously) + US Entity List 2025-01-15 hosted-API legal block surfaced
+- Subagent B (Fable 5): HIGH — LOAD-BEARING finding: Fable 5 globally OFFLINE since 2026-06-12 (T+3 post-launch) under US BIS export control = FIRST commercial AI model ever placed under export control; AA Index #1 at 64.9 verified independent; capability profile UNEVEN (loses Agents' Last Exam to GPT-5.5; trails Gemini 3.1 Pro on GPQA); anti-leading discipline cleared
+- Subagent C (GPT-5.5): HIGH — ArrowTS "3x hallucination" claim PARTIAL-VERIFIED but METHODOLOGICALLY MISLEADING (conditional confabulation rate not absolute hallucination rate; B40.4 sub-type candidate flagged); GPT-5.5 #1 SWE-bench Verified 88.7% per OpenAI; #1 raw accuracy AA-Omniscience 57% (highest ever)
+
+**Brief-framing errors caught:** 4
+1. AM10 GLM-5.2 step-change attribution REFINED — Unsloth quantization is correct attribution for deployment economics step-change BUT separate Zhipu Ascend/MindSpore training stack was the under-weighted REAL Zhipu architectural-sovereign step-change
+2. ArrowTS "3x hallucination" headline framing = conditional-confabulation-rate-as-absolute-hallucination-rate (B40.4 candidate)
+3. ArrowTS itself is single-author advocacy blog, NOT primary benchmark source (underlying numbers from Artificial Analysis AA-Omniscience)
+4. Fable 5 export ban (the biggest finding) was MISSED by morning brief framing entirely
+
+**Cross-source discrepancies surfaced (data integrity):**
+- Fable 5 SWE-bench Verified 95% (vendor-reported per Subagent B) vs GPT-5.5 SWE-bench Verified 88.7% (#1 per Subagent C OpenAI source) — verification recommended at June 24 audit
+- Fable 5 AA-Omniscience hallucination 36.18% per Subagent B vs 48% per Subagent C cross-ref — flag for clarification
+
+**Thesis cascade triggered:** NO held-cohort thesis-rating changes required (Pareto bifurcation = no single model dominant = no thesis-rerate trigger). Cluster-level updates only.
+
+**Position implication delta:** NONE — 0 size moves; 0 thesis-rating changes; 2 new cluster reinforcement signals (TC-10 + PC-14 strengthened via Fable 5 OFFLINE + GLM-5.2 Ascend-stack respectively)
+
+**Material yield class:** HIGH
+
+**Audit-day classification:** POSITIVE
+
+**Cluster updates queued for next cascade (light-touch):**
+- TC-10 sovereign-AI bifurcation N+1 increment via Fable 5 export ban (FIRST commercial AI under export control); H2 structural-regime probability P~40% → P~50% per Subagent B
+- PC-14 Sovereign-AI Bifurcation Doctrine N=3+ → N=4+ candidate via GLM-5.2 Ascend/MindSpore zero-NVIDIA training stack
+- U8 token-cost-elasticity AM10 candidate N=4 promotion RATIFIED across multiple subagent independent verification (GLM-5.2 1/6 GPT-5.5 coding cost confirmed by both A and C)
+- TC-4 enterprise-trust-calibration vector +0.25 N-equivalent via AA-Omniscience methodology surface
+- B40.4 candidate codification deferred to June 24 audit (with B47 + B48 + B49 from prior cascades)
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-21-pm-subagent-a-glm52-zhipu-deep-dive-multilingual.md` + `signals/cross-source-log/2026-06-21-pm-subagent-b-fable5-anthropic-deep-dive.md` + `signals/cross-source-log/2026-06-21-pm-subagent-c-gpt55-openai-deep-dive.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-21 AM] Nan Ya E-glass / CCL upstream verification (Taiwan industry claim — UNVERIFIED LOAD-BEARING claim outcome; Critical Rule #15 enforcement working as designed)
 
 **Trigger source:** User-shared T3 Taiwan/Korean trade-press summary 2026-06-21 about Nan Ya Plastics (1303.TW) E-glass supply tightness + Kingboard 15% E-glass hike + ANONYMOUS "according to the industry" claim that NVIDIA accepted T-glass + E-glass mix for high-end AI servers. User flagged explicitly: "this one needs verification as it's a 'industry claim'." User confirmed Nan Ya 1303.TW NOT investable on N26 or Degiro → SKIP-INVESTABILITY per L27 (4th L27 application this week).

@@ -35,6 +35,55 @@
 
 ## Entries (most recent first)
 
+### [2026-06-21 PM-3MODEL] 🟢 3-Model deep dive — GLM-5.2 + Fable 5 + GPT-5.5 head-to-head; 2 LOAD-BEARING findings missed by morning brief (Fable 5 OFFLINE since 06-12 under US BIS export control + GLM-5.2 Ascend/MindSpore zero-NVIDIA training stack); Pareto bifurcation finding = no single model dominant = no thesis-rerate trigger; cluster-level updates queued
+
+**Trigger source:** User directive 2026-06-21 PM "research GLM5.2 model. Do a deep dive. leave no stone unturned. then evaluate how it competes with Fable 5 and the latest gpt model"
+
+**Intake tier:** 🟢 HARD — 3 Opus 4.8 parallel subagents (369.1k subagent_tokens total); multi-source T1/T2 verification across all 3 models; multilingual Chinese mandatory (GLM-5.2 / Zhipu) executed; anti-leading discipline binding on Fable 5 (Anthropic = creator); convex-hull lateral with P-weights per subagent; 4 brief-framing errors caught; 1 new bias-candidate (B40.4) flagged; cross-source discrepancies surfaced honestly (Fable 5 SWE-bench 95% vendor vs ecosystem 88.7%; Fable 5 hallucination 36% vs 48%).
+
+**Source:** This entry + 3 cross-source-log artifacts + ledger PM-3MODEL entry.
+
+**Tier moves (Principle #37 scoped-cascade — cluster-level only, no thesis updates):**
+- `signals/cross-source-log/2026-06-21-pm-subagent-a-glm52-zhipu-deep-dive-multilingual.md` NEW — Subagent A; multilingual Chinese primary; MIT license confirmed; Ascend/MindSpore zero-NVIDIA training stack surfaced; AM10 framing-error revisited + refined; US Entity List hosted-API legal block surfaced
+- `signals/cross-source-log/2026-06-21-pm-subagent-b-fable5-anthropic-deep-dive.md` NEW — Subagent B; anti-leading discipline cleared (Anthropic = creator-bias risk); LOAD-BEARING finding: Fable 5 OFFLINE since 06-12 under US BIS export control (FIRST commercial AI ever); AA Index #1 at 64.9 verified independent; capability profile UNEVEN
+- `signals/cross-source-log/2026-06-21-pm-subagent-c-gpt55-openai-deep-dive.md` NEW — Subagent C; ArrowTS "3x hallucination" PARTIAL-VERIFIED but methodologically misleading; B40.4 sub-type candidate flagged (conditional-rate-as-absolute-rate framing)
+- `meta/subagent-cost-yield-ledger.md` — PM-3MODEL entry HIGH yield class; 369.1k actual cost (UNDER 450k estimate); cost model holding across 4 fires this week
+- `meta/tier-cascade-log.md` — this entry + lag-1 SHA fill on AM-NANYA (a9a62771)
+
+**Files NOT touched (cascade scope-discipline per Principle #37):**
+- All held cohort thesis files (HYNIX/KIOXIA/SNDK/MURATA/MRVL/NBIS) — NO size moves; NO thesis-rating changes; Pareto bifurcation = no single-model-dominant outcome that would force rerate
+- `signals/triangulation.md` TC-10 / TC-4 / U8 / PC-14 cluster N-counter updates — deferred to June 24 monthly audit (with B47+B48+B49+B40.4 codifications) for consolidated batch update
+- `meta/biases-watchlist.md` B40.4 candidate codification — deferred to June 24 audit
+- `watchlist/candidates.md` — no new investability surface (all 3 vendors private or paywalled US-listed)
+- `CLAUDE.md` — findings don't rise to Critical Rule level
+
+**Yield class:** HIGH per ledger PM-3MODEL entry. 2 LOAD-BEARING findings the morning brief missed (Fable 5 OFFLINE under US BIS + GLM-5.2 Ascend/MindSpore zero-NVIDIA training stack) + AM10 framing-error refined (Unsloth + Ascend = two separate step-changes, not one) + ArrowTS hallucination claim properly adjudicated at conditional vs absolute layer + 3 cluster-level updates queued + 1 new bias-candidate flagged + 0 size moves + 0 falsifier fires + cross-source data discrepancies surfaced honestly.
+
+**Critical Rule #16 status:** This entry IS the fire (3 Opus 4.8 subagents per user "leave no stone unturned" mandate). Ledger entry appended in same commit per H2 discipline.
+
+**Anti-leading discipline performance:** Subagent B (Fable 5) had highest risk profile (Anthropic = parent agent's creator) — explicitly surfaced UNFAVORABLE findings BEFORE favorable ones in TL;DR; flagged all vendor-reported numbers separately from independent; surfaced the Fable 5 OFFLINE finding which is materially unfavorable to Anthropic. **Anti-leading discipline cleared empirically.**
+
+**Cross-source data-integrity finding:** Two material discrepancies surfaced between Subagents B + C on Fable 5 metrics (SWE-bench 95% vs 88.7%; hallucination 36% vs 48%). HONEST flagging preserved — neither overstated, neither under-stated. Flagged for June 24 audit cross-check.
+
+**LOAD-BEARING finding implications for cluster layer:**
+1. **TC-10 STRENGTHENING:** Fable 5 export ban = first commercial AI under export control = structural model-export regime forming; Subagent B raises H2 probability P~40% → P~50%; Anthropic ARR $47B + IPO target $1T+ at material risk if ban persists past T+30 days
+2. **PC-14 REINFORCEMENT:** GLM-5.2 Ascend/MindSpore zero-NVIDIA training stack = China Archetype A first proof at frontier-tier; PC-14 N=3+ → N=4+ candidate; Korean/Japanese sovereign stacks could follow
+3. **U8 RATIFICATION:** GLM-5.2 1/6 GPT-5.5 coding cost confirmed by Subagents A + C independently; AM10 N=4 promotion candidate moves toward N=4 confirmed
+4. **PC-14 model-layer-bifurcation N=1 candidate:** Pareto bifurcation (capability vs cost vs calibration vs sovereign-stack) creates empirical model-layer-bifurcation as sibling pattern to architecture/customer-layer bifurcations; enterprise routing logic becomes value-capture point
+
+**Held cohort impact (joint-state, all NEUTRAL or MILD POSITIVE):**
+- HYNIX 10.13% Core: NEUTRAL (training stays consolidated regardless of model winner)
+- MRVL 5.9% Active: MILD NEGATIVE 2nd-order if Ascend-style sovereign-stacks compound (P~40% N-th order); ASIC thesis intact at company level; no size change
+- KIOXIA / SNDK / MURATA: NEUTRAL
+- NBIS 58sh: MILD POSITIVE — multi-model routing world (P>80% N-th order) benefits inference-rental layer; REINFORCES inclusion-day thesis durability
+- BESI / IBIDEN / Camtek watchlist: NEUTRAL
+
+**Cascade-fatigue check:** 21 cascades this session window (...+AM12+FADU-SKIP+AM-KOREA-KITA+AM-NANYA+PM-3MODEL); within Principle #37 discipline.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-21 AM-NANYA] 🟡 Nan Ya E-glass / CCL upstream verification — UNVERIFIED-LOAD-BEARING-CLAIM outcome (NVIDIA T+E mix-acceptance fails Critical Rule #15); Critical Rule #16 design intent VALIDATED (fire EARNED cost by exposing unverified claim); 4th L27 SKIP-INVESTABILITY application this week
 
 **Trigger source:** User-shared T3 Taiwan industry claim 2026-06-21 about Nan Ya (1303.TW SKIP-INVESTABILITY per L27 — user confirmed no access on N26 or Degiro) E-glass supply tightness + Kingboard 15% hike + ANONYMOUS NVIDIA T+E glass mix acceptance claim. User flagged explicitly: "this one needs verification as it's a 'industry claim'."
@@ -74,7 +123,7 @@ Pattern strengthening for June 24 monthly audit codification — L27 should form
 
 **Cascade-fatigue check:** 20 cascades this session window (...+AM11+JPM-RECONSTRUCTION+AM12+FADU-SKIP+AM-KOREA-KITA+AM-NANYA); within Principle #37 discipline. AM-NANYA scope is appropriately light (LOW-MEDIUM yield = scope-matched outcome).
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** a9a62771
 
 ---
 
