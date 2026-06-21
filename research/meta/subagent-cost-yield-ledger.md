@@ -96,6 +96,36 @@
 
 ## Entries (most recent first)
 
+### [2026-06-21 PM-IRAN-SHOCK] Iran-US shock Monday-open cohort stress-test — material H1-H4 weight recalibration; H4 stalled-but-not-broken P=45% modal; bear-case P=40% down from P=80%; NBIS pre-registered falsifier $223 zone surfaced; per Critical Rule #8 no falsifier fires from macro
+
+**Trigger source:** User flag 2026-06-21 evening "Iran-US talks are quite bad right now" + explicit "go ahead, dont ask. do it" directive for fuller subagent stress-test
+**Subagents fired:** 1 (Opus 4.8, scoped Monday-open cohort stress-test)
+**Estimated token cost:** ~102.2k ACTUAL (within 100-150k scoped-fire prediction; cost model holding across 5 fires today)
+**Items verified:** Iran walkout source-tier (Iran-semi-official Fars/Tasnim T2; NOT US/Iran official); Vance optimism statement T1; CNN backchannel-ongoing report; CENTCOM Saturday Hormuz operational data (55 ships + 17M barrels); Friday close baselines (Nikkei 71,250 / KOSPI 9,052 / Brent $80.57 / WTI $77.54 / VIX 16.41 / 10Y 4.46% / NBIS $286.69); NBIS mechanical bid sizing (>$800B AUM tracking, mandatory pre-open buying)
+
+**Per-subagent yield:** HIGH — material H1-H4 weight recalibration (my prior evening read was too bearish): H1 P=15% / H2 P=30% (was P=55%) / H3 P=10% (was P=25%) / H4 P=45% MODAL (was P=5%); bear-case (H2+H3) P=40% down from P=80% pre-subagent. NBIS pre-registered falsifier conditions surfaced ($223 zone = -10% from $286.69 intraday); Critical Rule #8 binding (no falsifier fires from macro). 5 critical Monday-morning watch levels identified (Brent Globex >$85 / Nikkei <70,500 / KOSPI <8,800 / NBIS pre-open >$260 vs <$240 / VIX >20 vs 18-20). Multilingual cross-check executed (Korean/Japanese/Persian/Arabic/English).
+
+**Brief-framing errors caught:** 3
+1. "Iran walked out = framework broken" framing → reframed via Vance optimism + CNN backchannel + CENTCOM data = "stalled but not broken"
+2. My prior P=80% bear-case framing (evening WebSearch only) → revised to P=40% post-subagent (data does not support aggressive escalation OR clean de-escalation)
+3. "Sell on macro headwind" framing → Critical Rule #8 binding rejection; no falsifier fires for any held name from macro alone
+
+**Thesis cascade triggered:** `companies/NBIS/thesis.md` (PM Iran-shock cross-ref 🔴 HOLD into inclusion with pre-registered falsifier $223 zone surfaced + 5 Monday-morning watch levels documented + bear-case probability mass materially reduced). NO other held-cohort thesis updates (Critical Rule #8 binding: macro alone does not fire falsifiers).
+
+**Position implication delta:** NONE — 0 size moves; 0 thesis-rating changes; NBIS cross-ref captures the AM12 LARGEST GROSS-DELTA RISK LEG classification + Iran-shock specific watch levels.
+
+**Material yield class:** HIGH (material recalibration of H1-H4 weights + pre-registered falsifier surfaced + 5 critical watch levels + Critical Rule #8 binding application + 0 size moves + 0 falsifier fires from macro per Rule #8 design intent)
+
+**Audit-day classification:** POSITIVE (Critical Rule #16 fire EARNED its cost by surfacing material weight recalibration; Critical Rule #8 binding application prevented potential over-reactive size moves; pre-registered NBIS falsifier ($223 zone) surfaced as binding gate vs ad-hoc macro reaction)
+
+**N-th order cascade confirmation:** 1st order (Brent direction by Tokyo open = cleanest read) / 2nd order (NBIS mechanical bid partially offsets macro risk-off) / 3rd order (per AM12 — hawkish-Fed crystallization timing potentially pulled forward) / 4th order (per AM12 — Hormuz disruption + memory-as-inflation + Iran-shock compound = AI capex moderation H2 2026 watch)
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-21-pm-subagent-iran-shock-monday-open-cohort-stress-test.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-21 PM-STATEHOW] Statehow Knowledge Atlas verification — "Statehow" = voice-to-text garble for Zhipu / Knowledge Atlas (HKEX 2513); IDENTITY-not-partnership; NEW L27-TIMING-DEFERRED sub-class; +1,702% YTD + 26% in 24h regime-typical per B45
 
 **Trigger source:** User-shared name "Statehow Knowledge Atlas" Hong Kong company + GLM-5.2 tie verification request 2026-06-21 PM
