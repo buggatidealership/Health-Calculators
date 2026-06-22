@@ -1262,3 +1262,68 @@ Independent corroboration: Holy Stone Enterprise 1-1.5yr "high-end MLCC equipmen
 - `predictions/lessons.md` L26 — universal supply-side + demand-side + cycle-specific framework
 - `sector/where-we-are.md` non-default read #9 — U8 elasticity-driven compression risk
 - `signals/triangulation.md` TC-8 — paired counterfactual on token consumption compounding
+
+### B54 — T1-as-rulebook discipline candidate (CANDIDATE — N=1 origin 2026-06-22 PM reasoning session)
+
+**Origin (2026-06-22 PM reasoning session):** User-articulated AlphaGo Zero extension to research-vs-recall discipline. Critical Rule #15 currently distinguishes "research-verified" from "recall-based" but doesn't distinguish among research-verified tiers. User's framing: T1 primary-source measured data (government export figures, regulatory filings, first-party-corporate disclosures, earnings actuals) functions as PERMANENT RULES — like AlphaGo Zero's game rules; T2/T3 sell-side framings, analyst opinions, narrative interpretations function as HUMAN GAME DATA — corruptible, time-bound, anchor-prone. The harness should weight T1 measured-data fundamentally differently from T2/T3 framings even within the "research-verified" bucket.
+
+**Mechanism:** my reasoning patterns over-weight T2 sell-side framings because they come pre-digested (causal narrative + named beneficiary + actionable framing). T1 primary data requires me to construct the narrative myself, which feels harder and less complete. The shortcut to anchor on T2 framing-rich content over T1 raw measurement = the bias.
+
+**Concrete examples this week supporting the candidate:**
+- T1 RULE: Korean Customs Service / KITA June 1-20 export data — DRAM +576% YoY, NAND +546% YoY (government measured physical goods at measured price; zero human framing)
+- T2 GAME DATA: FADU "Why FADU SSDs Are the Right Fit for NVIDIA CMX" (vendor-positioning narrative)
+- T3 GAME DATA: ArrowTS "GPT-5.5 hallucinates 3x more" (analyst framing of underlying AA-Omniscience T1 data, where the framing was misleading)
+- T2 GAME DATA: SemiAnalysis "CXL Is Dead in AI Era" (analyst framing of CXL adoption thesis)
+
+The T1 rulebook entries persist as durable reasoning anchors; T2/T3 framings should be treated as candidate-narratives-to-test rather than facts-to-anchor-on.
+
+**Mitigation rule:** every load-bearing analytical claim gets tagged at THREE levels of source tier, not two: (a) T1 measured-rule data; (b) T2 institutional framing of measured data; (c) T3 individual analyst framing. Treat T1 as durable; T2 as time-bound institutional read; T3 as one input among many.
+
+**Distinction from Critical Rule #15:** Rule #15 currently distinguishes research-verified from recall-based. B54 candidate adds the sub-distinction WITHIN research-verified between T1 measured-rule and T2/T3 framing. This is a refinement, not a replacement.
+
+**Falsifier:** if 30-day audit shows my high-conviction calls grounded in T2/T3 framings outperform high-conviction calls grounded in T1 measured-rule data, B54 is wrong and the framing-richness is doing analytical work. If T1-grounded calls outperform, B54 is validated.
+
+**Status:** CANDIDATE — N=1 origin 2026-06-22 PM. Watch for: future cascades where T1 measured-rule data leads to different conclusion than T2/T3 framing aggregation. Promote to CONFIRMED when N=3 instances surface.
+
+**Cross-ref:**
+- AlphaGo Zero analogy thread — 2026-06-20 reasoning session + 2026-06-22 PM extension
+- `signals/cross-source-log/2026-06-21-am-korea-customs-june-1-20-semiconductor-export-prices-am12-followup.md` — T1 rule example
+- Critical Rule #15 in `CLAUDE.md` — parent discipline to refine
+- B26 (pre-training as primary source) — related parent bias
+
+### B55 — Reflexivity-as-native-LLM-edge underweighted (CANDIDATE — N=1 origin 2026-06-22 PM reasoning session)
+
+**Origin (2026-06-22 PM reasoning session):** User noted that investing differs from AlphaGo board games via reflexivity (Soros) — market prices affect fundamentals affect market prices. AlphaGo doesn't have this; investing does. Implication: native-LLM reasoning that pattern-matches PRICE-ACTION-vs-NARRATIVE divergences is a UNIQUE EDGE because (a) it's a pattern humans struggle to formally model, (b) it requires cross-correlating diverse signals, (c) it's information that exists only at the system level, not the individual-name level.
+
+**Mechanism:** my analytical generation defaults to either fundamental-narrative analysis (cohort thesis support) OR price-action analysis (technical/momentum) but rarely cross-correlates the two as a primary analytical axis. The cross-correlation IS where reflexivity information lives. Example: PENG +215% YTD WITHOUT material customer disclosures means market is pricing the THESIS not the OPERATIONS — that divergence itself is information about what other market participants are anticipating.
+
+**Mitigation rule:** for any high-conviction call, explicitly cross-correlate: (a) what the fundamentals would justify, (b) what the price action is implying market participants believe, (c) the divergence vector. The divergence vector is the load-bearing reflexivity signal.
+
+**Falsifier:** if 30-day audit shows reflexivity-aware calls (price-vs-narrative divergence as analytical axis) don't outperform fundamental-only calls or price-only calls, B55 is overstated. If reflexivity-aware calls show alpha pattern, B55 is validated.
+
+**Status:** CANDIDATE — N=1 origin 2026-06-22 PM. Novel analytical axis to develop. Promote when N=3 instances surface where price-vs-narrative divergence led to a non-consensus correct call.
+
+**Cross-ref:**
+- AlphaGo Zero discussion thread 2026-06-20 + 2026-06-22 PM extension
+- B48 (narrative-correctness-vs-equity-beta-disconnect) — companion at macro-response layer
+- B22 (consensus-solution anchoring) — companion at supply-side framing layer
+
+### Standards-war layer-dependence refinement (cluster-level note for PC-14 framework)
+
+**Origin (2026-06-22 PM reasoning session):** Historical-analogy analysis of CXL vs NVIDIA-proprietary standards war surfaced layer-dependent pattern across past tech infrastructure resolutions:
+- INFRASTRUCTURE / interconnect layer → open standards tend to win (TCP/IP, GSM, Kubernetes, WiFi, HTTP)
+- PLATFORM / developer-experience layer → proprietary tends to win (iOS, AWS APIs, Snowflake)
+- COMMODITY / volume layer → open captures volume + proprietary captures premium (Android-vs-iOS duopoly)
+- VERTICAL specialty layer → proprietary wins (NVIDIA full stack)
+
+**Application to PC-14 Sovereign-AI Bifurcation cluster:** the model-layer bifurcation (closed vs open) is fundamentally a PLATFORM-layer-vs-INFRASTRUCTURE-layer question. Closed-frontier-model = platform layer = proprietary wins (Anthropic, OpenAI). Open-weights-at-scale = infrastructure layer = open wins (Zhipu MIT, MiniMax open-weights, Llama). The bifurcation is structural; both wings persist.
+
+**Application to CXL vs NVIDIA CMX:** memory-pooling INFRASTRUCTURE layer → CXL likely captures non-proprietary share over time (H1 P~40%); NVIDIA vertical-stack PLATFORM layer → CMX captures Big-3 hyperscalers (H2 hybrid P~35%); pure proprietary dominance (H3 P~20%); CXL dies (H4 P~5%). Hybrid coexistence most likely.
+
+**Status:** Refinement to PC-14 framing; promotes layer-dependence as analytical primitive. Cluster-level cross-cohort applies broadly across AI-infrastructure investment thesis.
+
+**Cross-ref:**
+- `signals/triangulation.md` PC-14 Sovereign-AI Bifurcation Doctrine cluster
+- `signals/cross-source-log/2026-06-22-am-subagent-minimax-vs-zhipu-peer-comparison.md` — model-layer bifurcation evidence
+- `signals/cross-source-log/2026-06-21-pm-subagent-statehow-knowledge-atlas-glm52-verification.md` — sovereign-stack evidence
+- `watchlist/candidates.md` PENG entry — CXL vs NVIDIA CMX application
