@@ -35,6 +35,46 @@
 
 ## Entries (most recent first)
 
+### [2026-06-22 AM-VERIFICATION] 🟢 Anthropic ARR + Zhipu/MiniMax revenue-mix verification — user enterprise-premium thesis CONFIRMED + REINFORCED via three-datapoint test; my AM-MINIMAX recommendation REVERSED (Zhipu > MiniMax now; was MiniMax > Zhipu); my training-data Anthropic ARR was wrong by 2× at end-2025; autonomous-fire discipline validated at 32k token cost
+
+**Trigger source:** User granted autonomous-fire authority for verification gaps identified during reasoning ("Whenever you feel or whenever through your reasoning and your inference, you start thinking three open questions I want to verify, just straight away go for it. Don't even ask me."). Three datapoints flagged in prior turn → fired directly without permission-asking.
+
+**Intake tier:** 🟢 HARD — three datapoints all RESOLVED at T1/T2; user thesis CONFIRMED + STRENGTHENED beyond user's own framing.
+
+**Source:** This entry + cross-source-log artifact + watchlist Zhipu PROMOTION + MiniMax DEMOTION + ledger AM-VERIFICATION entry.
+
+**Tier moves (Principle #37 scoped-cascade):**
+- `signals/cross-source-log/2026-06-22-am-subagent-anthropic-arr-zhipu-minimax-revenue-mix-verification.md` NEW — three datapoints resolved; Anthropic-OpenAI analog mapping confirmed; recommendation framework reversal documented
+- `watchlist/candidates.md` — Zhipu 2513.HK PROMOTED to PREFERRED PEER (enterprise-premium thesis verified); MiniMax 00100.HK DEMOTED to second-tier within L27-TIMING-DEFERRED basket; framing reversal documented with full subagent provenance
+- `meta/subagent-cost-yield-ledger.md` — AM-VERIFICATION entry HIGH yield class; 32.1k actual cost (UNDER prediction)
+- `meta/tier-cascade-log.md` — this entry + lag-1 SHA fill on AM-MINIMAX (da5349bc)
+
+**Files NOT touched:**
+- All held cohort thesis files (NEUTRAL; Critical Rule #8 binding)
+- `meta/biases-watchlist.md` B51 candidate codification (deferred to June 24 audit with B40.4/B40.5/B47/B48/B49/B50)
+- `signals/triangulation.md` PC-14 cluster (deferred to June 24 audit)
+- `CLAUDE.md` (findings don't rise to Critical Rule level)
+
+**Yield class:** HIGH. Recommendation REVERSAL pre-sizing-decision (MiniMax > Zhipu → Zhipu > MiniMax) + user thesis empirically confirmed + Anthropic-OpenAI analog STRONGER than user framed (Anthropic now LEADS OpenAI on ARR at $47B vs ~$25B, not just multiple premium) + my training-data Anthropic-ARR error surfaced explicitly + B51 candidate STRENGTHENED + cost-efficient at 32k tokens.
+
+**Critical Rule #16 status:** Fired (1 Opus 4.8 scoped tight, speed-over-depth). Ledger entry appended in same commit per H2 discipline.
+
+**Loop-validation note (multi-discipline tandem at execution-time):**
+- User pushback (epistemic challenge to my prior framing)
+- User autonomous-fire authority grant (process improvement)
+- Critical Rule #16 (verification discipline)
+- B45 regime-corrected priors (my training-data was wrong; verification surfaced it)
+
+Combined produced HIGH-VALUE recommendation reversal at 32k token cost (fraction of typical 100-150k scoped fire). Counter-factual: had I not fired, would have stayed with wrong MiniMax > Zhipu rec; user would have potentially acted on lower-conviction direction. Speed-over-depth scoping works when verification is narrow + targeted.
+
+**My-training-data-error surfaced explicitly:** Anthropic ARR end-2025 was $9B (per Sacra/SaaStr T2), NOT $4-5B per my training-recall. Subsequent doubling-every-6-weeks pace through H1 2026 = $47B May 2026. I would have under-modeled trajectory by ~10× if anchored on training-data recall instead of firing verification. B45 binding application: AI-supercycle regime moves DIFFERENTLY than pre-training data suggests.
+
+**Cascade-fatigue check:** 25 cascades this session window (...+PM-IRAN-SHOCK+AM-MINIMAX+AM-VERIFICATION); within Principle #37 discipline.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-22 AM-MINIMAX] 🟢 MiniMax (00100.HK) vs Zhipu (2513.HK) peer comparison — sizing-decision diligence; user open-source-monetization-hypothesis PARTIALLY FALSIFIED; correlation finding REJECTS split-bet thesis; WAIT BOTH preferred but if must act today MiniMax > Zhipu; new B50 candidate "correlated-peer-as-diversification-illusion"
 
 **Trigger source:** User 2026-06-22 AM follow-up to PM-STATEHOW Zhipu deep-dive synthesis: "run Minimax compared to [Zhipu]... check the growth in terms of users of the model as well. Right? Because, ultimately, the growth of the users is an alternative data point that you can use to model out potential revenue increase. But then open source models will always probably struggle a bit more." User sizing-imminent (HKEX ~25-30 min to close).
@@ -70,7 +110,7 @@
 
 **Cascade-fatigue check:** 24 cascades this session window (...+PM-3MODEL+PM-STATEHOW+PM-IRAN-SHOCK+AM-MINIMAX); within Principle #37 discipline.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** da5349bc
 
 ---
 

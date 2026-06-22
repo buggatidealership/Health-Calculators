@@ -96,6 +96,38 @@
 
 ## Entries (most recent first)
 
+### [2026-06-22 AM-VERIFICATION] Anthropic $47B ARR + Zhipu/MiniMax revenue-mix verification — user enterprise-premium thesis CONFIRMED + REINFORCED; recommendation REVERSED to Zhipu > MiniMax post-data; my training-data Anthropic ARR was wrong by 2× at end-2025
+
+**Trigger source:** User granted autonomous-fire authority for verification questions surfaced during reasoning; three datapoints flagged in prior turn (1. Anthropic ARR Subagent B $47B vs my training-recall $4-5B / 2. Zhipu 2025 revenue mix / 3. MiniMax 2025 revenue mix); user's enterprise-premium pushback needed empirical test before sizing-imminent decision
+**Subagents fired:** 1 (Opus 4.8, tight three-datapoint scope, speed-over-depth)
+**Estimated token cost:** ~32.1k ACTUAL (UNDER 50-80k scoped prediction — extremely efficient; cost model holding with downward adjustment for tight-scope fires)
+**Items verified:** Anthropic ARR trajectory ($9B end-2025 → $47B May 2026 = doubling every 6 weeks) + Anthropic vs OpenAI revenue leadership ($47B vs ~$25B); Zhipu segment mix (~100% B2B/B2G: on-prem 74% + cloud API 26%; sovereign/public 32%); MiniMax segment mix (67% consumer: Talkie 35% + Hailuo 33%; 33% enterprise: Open Platform +198% YoY)
+
+**Per-subagent yield:** HIGH — all three datapoints RESOLVED at T1/T2; user's enterprise-premium thesis SUPPORTED across all six sub-tests; Anthropic-OpenAI analog STRONGER than user framed (Anthropic now LEADS OpenAI on ARR, not just higher valuation multiple); my AM-MINIMAX recommendation reversed (was MiniMax > Zhipu; now Zhipu > MiniMax per enterprise-premium data); B45 application: training-data recall was wrong by 2× at end-2025 + 10× at May 2026 — exactly what B45 defends against
+
+**Brief-framing errors caught:** 3
+1. My AM-MINIMAX rec (MiniMax > Zhipu) was wrong direction — verified-reversed
+2. My training-data recall on Anthropic ARR (~$4-5B end-2025) was wrong by 2× — actual $9B; subsequent doubling-every-6-weeks pace through H1 2026 means I would have under-modeled trajectory dramatically
+3. "Forecasting precision = thesis quality" framing from B51 candidate STRENGTHENED — precision on consumer alt-data didn't beat enterprise category-size advantage when verified empirically
+
+**Thesis cascade triggered:** `watchlist/candidates.md` (Zhipu 2513.HK PROMOTED to PREFERRED PEER for L27-TIMING-DEFERRED basket; MiniMax 00100.HK DEMOTED; framing reversal documented with subagent verification provenance). NO held-cohort thesis updates.
+
+**Position implication delta:** Recommendation REVERSAL (MiniMax > Zhipu → Zhipu > MiniMax); 0 size moves; WAIT BOTH still preferred as L27 discipline but if breaking discipline today, Zhipu is the clear name.
+
+**Material yield class:** HIGH (recommendation reversal pre-sizing-decision + user thesis empirically confirmed + Anthropic-OpenAI analog strengthened + my training-data error surfaced explicitly + cost-efficient at 32k tokens; user autonomous-fire authority validated as discipline working at scale)
+
+**Audit-day classification:** POSITIVE (Critical Rule #16 + user-pushback + autonomous-fire discipline produced HIGH-VALUE recommendation reversal at 32k token cost; counter-factually: had I not fired, would have stayed with wrong MiniMax > Zhipu rec; user would have potentially acted on lower-conviction direction)
+
+**Loop-validation note:** Three-discipline tandem (user pushback + autonomous-fire authority + Critical Rule #16) produced honest recommendation reversal pre-sizing-decision at fractional cost (32k vs typical 100-150k scoped fire). Speed-over-depth scoping works when verification is narrow + targeted.
+
+**B51 candidate STRENGTHENED:** "forecasting-precision-as-thesis-quality confusion" — empirically tested via this cascade; MiniMax cleaner alt-data didn't beat Zhipu's enterprise-category-size advantage when verified. Codify at June 24 monthly audit with B40.4/B40.5/B47/B48/B49/B50.
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-22-am-subagent-anthropic-arr-zhipu-minimax-revenue-mix-verification.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-22 AM-MINIMAX] MiniMax (00100.HK) vs Zhipu (2513.HK) peer comparison for sizing-imminent decision; user open-source-monetization-hypothesis PARTIALLY FALSIFIED; correlation finding REJECTS split-bet thesis; WAIT BOTH preferred
 
 **Trigger source:** User asked for MiniMax peer comparison vs Zhipu post-PM-STATEHOW + this morning's Zhipu deep-dive synthesis context; sizing-imminent (~30 min HKEX close window); user-specific ask on USER-GROWTH metrics as alt-data revenue input + open-source-monetization-struggle hypothesis verification
