@@ -35,6 +35,32 @@
 
 ## Entries (most recent first)
 
+### [2026-06-22 PM-IBIDEN-BEAT-PROB] 🟡 IBIDEN 2026-08-05 Q1 FY27 earnings beat-probability data pack — BIMODAL print setup synthesized via native-LLM reasoning over 6-axis verified substrate; PM23 framework REFINED to STARTER + RESERVE-FOR-DIP
+
+**Trigger source:** User explicit directive 2026-06-22 PM under standing autonomous-fire-for-numerical-verification authority; 6-axis scope (historical peak margins / last earnings / next earnings / news flow / analyst consensus / sentiment-positioning) requiring substrate verification BEFORE native-LLM beat-probability synthesis. Subagent provides data; parent (me) owns reasoning synthesis applying B45+B54+B57+N-th order frameworks.
+
+**Intake tier:** 🟡 DIRECTIONAL (substrate is T1-anchored; synthesis is my-model probability convex hull over the substrate)
+**Source:** T1 = IBIDEN kessan tanshin May 11 + IR guide May 12 + TSMC June 16 CoPoS announcement + IBIDEN IR calendar Aug-05 print date. T2 = QUICK consensus aggregate + 17-analyst rating distribution + MS Equal Weight stale rating. T3 = sentiment indicators (short interest +32.3% MoM Feb 2026; profit-taking dynamic Jun 17-22).
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/IBIDEN/thesis.md` top-of-file — new PM-IBIDEN-BEAT-PROB cross-ref with 5-hypothesis joint distribution + B45/B54/B57/N-th order framework checks + refined PM23 framework (STARTER + RESERVE-FOR-DIP); 🟡 DIRECTIONAL tier on Position implication line (operational beat ~57% / positive stock reaction ~40% decoupled per ATH-zone dynamic)
+- `watchlist/candidates.md` IBIDEN entry — UPDATED header line + new PM-IBIDEN-BEAT-PROB cross-ref above the earlier PM-IBIDEN-VERIFY entry; PM23 framework REFINED to bimodal (STARTER 0.5% + RESERVE 1.5-2.5%); Aug-05 binary catalyst gate explicit
+- `meta/subagent-cost-yield-ledger.md` — new entry at top (47th fire, 73.2k tokens, HIGH yield class); audit summary recount (47 fires; HIGH 25 / MEDIUM 15 / LOW 2 / FRAMING-ERROR-CAUGHT 3 / ZERO 0)
+
+**Files NOT touched (no claim intersection):**
+- Held cohort thesis files (HYNIX/MRVL/KIOXIA/SNDK/MURATA/NBIS) — IBIDEN is watchlist not held; no held-cohort tier moves
+- `sector/scenarios.md` — single-name binary catalyst gate; no scenario reweight
+- `companies/INNOLUX/thesis.md` / `companies/AJINOMOTO/thesis.md` — both surfaced as adjacent beneficiaries in prior PM-IBIDEN-VERIFY cascade; PM-IBIDEN-BEAT-PROB adds no new adjacency data
+- `companies/LGINNOTEK/thesis.md` / `companies/SEMCO/thesis.md` — FC-BGA peers; only secondary implication is "post-print dip re-debate" already captured in N-th order 3rd-order; no per-file update needed yet
+
+**Stale flags fired:** None
+
+**Lag-1 SHA fill:** PM-IBIDEN-VERIFY entry from earlier today commit was 0b47b8a3. PM-CITRINI-JEFFERIES commit was bf15a2a7.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-22 AM-VERIFICATION] 🟢 Anthropic ARR + Zhipu/MiniMax revenue-mix verification — user enterprise-premium thesis CONFIRMED + REINFORCED via three-datapoint test; my AM-MINIMAX recommendation REVERSED (Zhipu > MiniMax now; was MiniMax > Zhipu); my training-data Anthropic ARR was wrong by 2× at end-2025; autonomous-fire discipline validated at 32k token cost
 
 **Trigger source:** User granted autonomous-fire authority for verification gaps identified during reasoning ("Whenever you feel or whenever through your reasoning and your inference, you start thinking three open questions I want to verify, just straight away go for it. Don't even ask me."). Three datapoints flagged in prior turn → fired directly without permission-asking.

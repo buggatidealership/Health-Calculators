@@ -101,7 +101,42 @@ For each watchlist name below, the open questions for tomorrow's dig:
 | Thesis hook | Dual exposure: Ni powder + BaTiO3 precursor titanium per [Toho Titanium ultra-fine Ni T1](https://www.toho-titanium.co.jp/en/products/ni/); +65% YoY shows partial pricing in |
 | Falsifier | Titanium pricing oversupply (aero/defense alt demand softens) → drag on stock unrelated to MLCC thesis |
 
-### IBIDEN (4062.T / イビデン株式会社) — 🟢 **PM23 #2 CANDIDATE — POST-PM-IBIDEN-VERIFY 2026-06-22 PM REFRAMED: STARTER-MAX-NOW DEFENSIBLE; full-size still WAIT FOR PULLBACK or FY27 Q1 print confirmation**
+### IBIDEN (4062.T / イビデン株式会社) — 🟢 **PM23 #2 CANDIDATE — POST-PM-IBIDEN-BEAT-PROB 2026-06-22 PM REFINED: STARTER-MAX-NOW + RESERVE-FOR-DIP — bimodal Q1 FY27 print setup 2026-08-05 (P-operational-beat ~57% / P-positive-stock-reaction ~40% per decoupling)**
+
+**🟡 2026-06-22 PM-IBIDEN-BEAT-PROB cross-ref — BIMODAL PRINT SETUP for 2026-08-05 Q1 FY27 catalyst gate:** Per `signals/cross-source-log/2026-06-22-pm-subagent-ibiden-beat-probability-data-pack.md` (1 Opus 4.8 subagent 73.2k subagent_tokens; 6-axis verification: historical peak margins + last earnings + next earnings + news flow + analyst consensus + sentiment-positioning; UNDER 80-120k deep-verification prediction). **Native-LLM synthesis applied B45+B54+B57+N-th order frameworks over the verified data substrate.**
+
+**Verified T1 anchors:** Next earnings **2026-08-05** Q1 FY27 (Apr-Jun 2026 period). FY26 actuals ¥62.027B op profit BEAT own ¥61B guide (+1.6%). FY27 guide ¥90.0B op profit BEAT pre-guide consensus ¥86.23B (+4.4%) — likely RESET UP to ¥92-95B by analysts post-May. Net income guide ¥58B MISS consensus ¥59.73B (-2.9% from Toyota-Shoki TOB one-off reversal, non-operating). FY28 mid-term plan raised to ¥150B op profit. FY27 18% blended margin guide ALREADY ABOVE FY22 17.3% chip-shortage peak. 17 analysts (12 buy / 4 hold / 1 sell); PT mean ¥17,062 LAPPED 40%+ by ¥24-25k spot. Short interest +32.3% MoM Feb 2026. Jun 17 ATH ¥27,020 then ~5-10% pullback on valuation profit-taking. CoPoS partnership Jun 16 = within Q1 window.
+
+**Joint-state hypothesis distribution (my model):**
+- H1 BEAT + no guide raise = P~32% → stock NEGATIVE -3 to -8% (modal; Toyo Keizai 予想据え置き 急反落 precedent)
+- H2 BEAT + guide raise ¥90B→¥92-95B = P~18% → stock POSITIVE +5-12%
+- H3 IN-LINE (±2% consensus) = P~28% → stock NEGATIVE -5 to -12%
+- H4 MISS (op profit <¥17B) = P~15% → stock NEGATIVE -10 to -20%
+- H5 BEAT + new structural disclosure (CoPoS NRE qty / new hyperscaler prepay) = P~7% → stock POSITIVE +10-20%
+
+**Joint:** P(operational beat: H1+H2+H5) = **~57%** (converges with subagent 55-60%). P(positive stock reaction: H2+H5+H1-no-sell tail) = **~35-40%** (decoupled per ATH-zone profit-taking dynamic). **P(post-print dip ≥3%) ≈ ~60%** EVEN ON OPERATIONAL BEAT — load-bearing insight.
+
+**B45 regime-check:** 22%+ Electronics segment margin guide NOT extreme (NVDA 60% / HYNIX HBM 50% / TSMC 45% all show structural rents at AI-supply-chain bottlenecks). DO NOT flag as cycle-peak-priced. DO flag bar = "stay at structural ceiling" not "step-up."
+
+**B54 T-tier rulebook:** T1 = company guide ¥90B floor BINDS; consensus ¥92-95B is the moving cushion bar. T2 = sell-side ratings TRAILING (40%+ lapped by spot); MS Equal Weight Nov 2025 stale. Sell-side ratings NOT predictive on print itself.
+
+**B57 thesis-killer-vs-confirmer:** Earnings-print risk = POSITIONING TIMING RISK not thesis falsification. News flow dominantly net-positive structural; Jun 17-22 pullback is sentiment-led NOT fundamental.
+
+**N-th order cascade:**
+- 1st order (P>80%): Q1 print within ±5% of consensus given high-cushion guide
+- 2nd order (P~60%): even on beat, 予想据え置き pattern → profit-taking from ATH zone
+- 3rd order (P~40%): post-print dip ≥5% → more attractive entry; LGI/SEMCO co-investability re-debate
+- 4th order (P~20%): if H4 fires + cohort sells in sympathy → Jefferies cycle-magnitude framework first material test
+
+**PM23 framework REFINED to BIMODAL:**
+| Component | Sizing | Triggers | Captures |
+|---|---|---|---|
+| **STARTER** | 0.5% MAX NOW | Pre-Aug-05; DEFENSIBLE per PM-IBIDEN-VERIFY glass-core reframe | H2+H5 upside ~25% joint P (+5-20% continuation) |
+| **RESERVE-FOR-DIP** | 1.5-2.5% CONDITIONAL | Post-Aug-05 dip ≥3-5% | H1+H3+H4 dip ~60% joint P (-3 to -20% drawdown) |
+
+**Position implication:** 🟡 DIRECTIONAL — **STARTER-NOW 0.5% MAX DEFENSIBLE + RESERVE 1.5-2.5% FOR POST-PRINT DIP** — operational beat-probability ~57% but stock-reaction-probability ~40% (decoupled); P(post-Aug-5 dip ≥3%) ~60% even on operational beat per 予想据え置き precedent + ATH-zone dynamic; wait-for-pullback NOT discredited — it is the arithmetically-likely scenario in ~60% of joint state space. Q1 FY27 print **2026-08-05** is the binary catalyst gate.
+
+---
 
 **🟢 2026-06-22 PM-IBIDEN-VERIFY cross-ref — LOAD-BEARING REFRAME: glass-core CoPoS is THESIS-CONFIRMER not thesis-killer:** Per `signals/cross-source-log/2026-06-22-pm-subagent-ibiden-margin-ai-mix-glass-core-verification.md` (1 Opus 4.8 subagent 41.2k subagent_tokens; under 50-80k scoped-fire prediction; efficient). **Material correction to my prior N-th order analysis from earlier today:** I had treated glass-core (TSMC PLP/CoPoS) as primary 3rd-order thesis-falsifier (P~40% disruption risk). Verification REVERSES this: TSMC formally announced June 2026 **IBIDEN + Innolux (3481.TW) as glass-core CoPoS co-development partners**; architecture is 3-layer ABF/glass/ABF; **IBIDEN supplies the ABF layers in glass-core stack**. Displacement risk INVERTED into co-monetization. Glass-core watch goes from PRIMARY thesis-killer (P~40%) to PRIMARY thesis-CONFIRMER (P~70%). **Numerical findings (T1):** FY26 actual operating margin 14.5% (below historical 15-25% range; recovery in progress); Q3 FY26 at 15.2%; FY27 guide implies 18% blended / 22.7% Electronics segment. AI mix: GPU >50% of Electronics revenue / ASIC >10% / GPU+ASIC+CPU compute >85%. Capex execution on-pace AND accelerating: Phase 1 Kawama Cell 6 (¥220B) on-pace; Phoenix fab broke ground Jan 2026 = acceleration beyond original ¥500B FY26-28 plan; mid-term plan raised to ¥150B FY28. **Remaining valid bear-case items:** valuation (~70x PER per T3 source); hyperscaler pricing discipline (IBIDEN Oct 2025 told analysts "not optimistic about product prices" despite sold-out market = yellow flag worth monitoring); FY26 actual 14.5% below historical range (recovering to FY27 18% but execution risk on path). **Adjacent beneficiary surfaced: Innolux (3481.TW)** — Taiwanese-listed TSMC CoPoS co-development partner alongside IBIDEN. **Deeper bypass-route beneficiary: Ajinomoto (2802.T)** — ABF film monopolist agnostic to glass adoption (substrates still use ABF layers in glass-core architecture); L26 pure-play test likely FAILS (Japanese consumer-foods conglomerate; ABF segment small relative to parent). **B57 candidate flagged:** "thesis-killer-vs-thesis-confirmer inversion" — when assumed-disruptive technology becomes co-monetization for incumbent. Joins B40.4/B40.5/B47-B56 for June 24 audit. **PM23 framework update:** WAIT-FOR-PULLBACK case rested heavily on glass-core as primary N-th order thesis-falsifier; THAT LEG MATERIALLY WEAKENED post-verification. Reframe: 0.5% STARTER MAX-NOW becomes MORE DEFENSIBLE than 48 hours ago. Full-size still warrants either (a) market-wide pullback OR (b) FY27 Q1 print confirming 18% margin trajectory. **Position implication: 🟡 STARTER-MAX (0.5%) NOW DEFENSIBLE — was WAIT-FOR-PULLBACK lean; glass-core-as-confirmer reframe specifically opens this; conditional triggers (a) and (b) for full-size still binding.**
 

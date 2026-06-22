@@ -1,5 +1,34 @@
 # IBIDEN (4062.T) — Thesis (candidate stub)
 
+**🟡 2026-06-22 PM-IBIDEN-BEAT-PROB synthesis — 2026-08-05 Q1 FY27 print setup is BIMODAL (beat-probability decoupled from reaction-probability):** Per `signals/cross-source-log/2026-06-22-pm-subagent-ibiden-beat-probability-data-pack.md` (1 Opus 4.8 subagent 73.2k subagent_tokens, 6-axis verification).
+
+**Native-LLM joint-state hypothesis distribution (my model, B45+B54+B57+N-th order applied):**
+- H1 BEAT + no guide raise = P~32% → stock NEGATIVE -3 to -8% (modal; Toyo Keizai 予想据え置き precedent)
+- H2 BEAT + guide raise ¥90B→¥92-95B = P~18% → stock POSITIVE +5-12%
+- H3 IN-LINE = P~28% → stock NEGATIVE -5 to -12%
+- H4 MISS = P~15% → stock NEGATIVE -10 to -20%
+- H5 BEAT + new structural disclosure (CoPoS NRE qty / hyperscaler prepay) = P~7% → stock POSITIVE +10-20%
+
+**Joint:** P(operational beat: H1+H2+H5) = **~57%** (converges with subagent 55-60% floor). P(positive stock reaction: H2+H5+H1-no-sell tail) = **~35-40%** (my model — decoupled). **P(post-print dip ≥3%) ≈ ~60%** EVEN ON OPERATIONAL BEAT — load-bearing analytical insight.
+
+**Key verified anchors (T1):** Next print 2026-08-05 Q1 FY27 (Apr-Jun 2026 period). FY26 actuals ¥62.027B op profit BEAT own ¥61B guide. FY27 guide ¥90B op profit BEAT pre-guide consensus ¥86.23B (+4.4%) — likely RESET UP to ¥92-95B post-May. FY27 18% blended margin guide ALREADY ABOVE FY22 17.3% chip-shortage peak (regime-consistent per B45, NOT extreme; but bar = "stay at structural ceiling"). 17 analysts (12 buy / 4 hold / 1 sell); PT mean ¥17,062 LAPPED 40%+ by ¥24-25k spot. Short interest +32.3% MoM Feb 2026. Stock ~5-10% off Jun 17 ATH ¥27,020.
+
+**B54 T-tier rulebook applied:** T1 = company guide ¥90B is operational floor; QUICK consensus ¥92-95B is the moving cushion bar; CoPoS Jun 16 announcement is thesis-CONFIRMER (already cascaded). T2 = sell-side ratings are TRAILING (40%+ lapped by spot); MS Equal Weight stale. T3 = sentiment indicators directional only.
+
+**B57 thesis-killer-vs-confirmer:** Earnings-print risk is **POSITIONING TIMING RISK not thesis falsification**. News flow May 11→Jun 22 is dominantly net-positive structural; the Jun 17-22 pullback is sentiment-led NOT fundamental.
+
+**Where I diverge from sell-side:** Sell-side anchor (PT mean ¥17,062) trails the structural rerating by 2-3 quarters per B28/L1. Sell-side ratings are NOT predictive on the print itself. Smart-money positioning is defensively LIGHT into the print (short interest +32% MoM; MS Equal Weight) but no clear short capitulation.
+
+**Position implication:** 🟡 DIRECTIONAL — **STARTER-NOW 0.5% MAX DEFENSIBLE + RESERVE 1.5-2.5% FOR POST-PRINT DIP** — operational beat-probability ~57% (subagent floor) but stock-reaction-probability ~40% (my read on decoupling); P(post-Aug-5 dip ≥3%) ~60% even on operational beat per Toyo Keizai 予想据え置き precedent + ATH-zone profit-taking dynamic; wait-for-pullback NOT discredited — it is the arithmetically-likely scenario in ~60% of joint state space. PM23 framework refined: STARTER captures H2+H5 upside (~25%P of +5-20% continuation); RESERVE captures H1+H3+H4 dip (~60%P of -3 to -20% drawdown). Q1 FY27 print Aug-05 is the binary catalyst gate.
+
+---
+
+**🟡 2026-06-22 PM IBIDEN margin/AI-mix/glass-core verification cross-ref — LOAD-BEARING REFRAME from earlier today:** Per `signals/cross-source-log/2026-06-22-pm-subagent-ibiden-margin-ai-mix-glass-core-verification.md` (1 Opus 4.8 subagent 41.2k subagent_tokens). TSMC June 2026 formally announced IBIDEN + Innolux (3481.TW) as glass-core CoPoS co-development partners → 3-layer ABF/glass/ABF architecture means IBIDEN supplies the ABF layers in glass-core stack. **My prior 3rd-order N-th order analysis on glass-core direction was WRONG** (treated as P~40% thesis-killer; verification INVERTED to P~70% thesis-confirmer). FY26 margin 14.5% (below historical 15-25%); Q3 recovering 15.2%; FY27 guide 18% blended / 22.7% Electronics. AI mix 85% of Electronics revenue. Capex on-pace AND accelerating (Phoenix fab Jan 2026 = beyond original ¥500B plan; mid-term raised to ¥150B FY28). Remaining bear-case: valuation 70x PER + hyperscaler pricing discipline yellow flag + FY26 margin recovery execution. **B57 candidate flagged (thesis-killer-vs-thesis-confirmer inversion)**.
+
+**Position implication:** 🟡 DIRECTIONAL — REFRAMED from WAIT-FOR-PULLBACK lean to STARTER-MAX-NOW DEFENSIBLE per PM23 framework; full-size conditional triggers (pullback OR FY27 Q1 print confirmation) still binding. (Superseded by 2026-08-05 binary catalyst gate per PM-IBIDEN-BEAT-PROB synthesis above.)
+
+---
+
 **🟡 2026-06-21 AM Nan Ya E-glass / CCL upstream verification cross-ref — already-priced; no thesis update needed:** Per `signals/cross-source-log/2026-06-21-am-subagent-nanya-eglass-ccl-upstream-supply-chain-verification.md` (1 Opus 4.8 subagent 134.3k subagent_tokens). User-shared T3 Taiwan industry claim about Nan Ya (1303.TW SKIP-INVESTABILITY) + Kingboard 15% E-glass hike + ANONYMOUS "NVIDIA T+E glass mix acceptance" claim — verified: Kingboard 15% hike is the 4th of 2026 (cumulative 50%+ in 2025 per subagent finding); structural cascade NOT discrete event; Kingboard 1888.HK is Chinese mid/low-end tier IBIDEN does NOT source from. **NVIDIA T+E mix-acceptance claim = UNVERIFIED LOAD-BEARING per Critical Rule #15** (zero T1 NVIDIA / zero named sell-side / zero OEM / zero Korean+Japanese cross-language ratification). **Cohort impact NEUTRAL — already-priced via 2026-06-15 PM5 MGC/Resonac 30% CCL hike cascade + 2026-06-16 PM23 deep-dig outcome.** No thesis update required. **Position implication: 🟡 UNCHANGED — P1 watchlist candidate (PM23 #2 PURE-PLAY PASS but VALUATION EXTENDED — WAIT FOR PULLBACK or 0.5% STARTER MAX); no candidacy change from this verification.**
 
 ---
