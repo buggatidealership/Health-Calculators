@@ -1336,25 +1336,43 @@ The T1 rulebook entries persist as durable reasoning anchors; T2/T3 framings sho
 - User-articulated 2026-06-04 AUTO-EXECUTE STRENGTHENING — same principle applied at fire-trigger level; B58 extends to fire-depth level
 - `meta/methodology.md` — depth-over-speed value should be promoted into Principle or methodology header
 
-### B59 — Snippet-discussion-first workflow (METHODOLOGY ADDITION — N=1 origin 2026-06-22 PM user directive)
+### B59 — Snippet-handling workflow v2 — VERIFICATION-FIRST then TL;DR (METHODOLOGY ADDITION — N=1 origin 2026-06-22 PM user directive; v1 SUPERSEDED same session per user logic-error correction)
 
-**User verbatim 2026-06-22 PM:** *"ideally, you give me a first principle based TLDR and share that with me so that I can then give my own opinion on the snippet because most of it is relatively technical or quite into the weeds in detail. Then I think we can do a back and forth discussion for these type of snippets. Or, again, these type of screenshots that I share."*
+**B59 v1 (SUPERSEDED 2026-06-22 PM same session):** initial codification placed TL;DR FIRST then user opinion then verification then cascade. User caught the logic error: TL;DR from pre-training BEFORE verification could anchor discussion on wrong premise (contradicts Critical Rule #15 macro-first research-anchored discipline + Critical Rule #16 fire-immediately mandate). My self-correction was prompted by user verbatim catch — the kind of harness-improving meta-application user does of the framework's own principles.
 
-**Origin (2026-06-22 PM):** Today's snippet handling defaulted to "extract → fire subagent → cascade → present synthesis" workflow. User wants "extract → TL;DR + first-principle read → user opinion → back-and-forth → fire if convergence on what's load-bearing → cascade." Better fit when not-sizing-imminent + user wants joint interpretation rather than autonomous-synthesis.
+**User verbatim 2026-06-22 PM (v2 correction):** *"the first principle TLDR should be verified because otherwise your first principle TLDR might be wrong or might be derived from a wrong premise. So... it should be input → immediate verification subagent fire → first principle TLDR → I can give my reaction and opinion → you can also already cascade."*
 
-**Refinement to Workflow #1 INGEST:** when sizing-imminent OR clear thesis-falsifier in snippet → fire subagent immediately per Critical Rule #16. When NOT-sizing-imminent + snippet is technical/in-weeds → deliver first-principle TL;DR FIRST → wait for user reaction → fire on the load-bearing premise(s) user surfaces via discussion. The two modes coexist; user state determines default.
+**B59 v2 corrected sequence:**
 
-**Heuristic to choose mode:**
-- User state = WAIT mode (H3 today): default to TL;DR-first discussion pattern
-- User state = sizing-imminent + clear catalyst: default to fire-immediately pattern
-- Snippet contains primary T1 data (earnings, filings, press release): can fire immediately even in WAIT mode
-- Snippet contains aggregator commentary / multi-author opinions / technical in-weeds detail: default to TL;DR-first
+| Step | Action | Rationale |
+|---|---|---|
+| 1 | User shares input (snippet/brief/screenshot/analyst note) | — |
+| 2 | **IMMEDIATE verification subagent fire** | Per Critical Rule #16 — fire on every analyst-note/brief/snippet with thesis implication; do not pause |
+| 3 | **First-principle TL;DR (NOW research-verified)** | Grounded in subagent-returned data + tier-tagged per Critical Rule #15; NOT pre-training recall |
+| 4 | **User reaction/opinion** | Informed by both TL;DR + verification data; back-and-forth surfaces what's most load-bearing |
+| 5 | **Cascade per Principle #37 scoped-cascade rule** | Parallel to discussion (not gated by it); thesis files + ledger + tier-cascade in same commit per Critical Rule #10 |
 
-**Status:** CANDIDATE — N=1 origin 2026-06-22 PM; apply forward from next snippet share; promote to methodology Workflow #1 INGEST refinement at first monthly audit 2026-07-22.
+**Logic improvement vs B59 v1:**
+1. Verification BEFORE TL;DR means synthesis is anchored on actual T1/T2 data not pre-training extrapolation
+2. User reaction is informed by ground-truth not my recall — quality of back-and-forth is higher
+3. Cascade happens alongside discussion rather than gated by it — operational discipline preserved
+4. Removes B58 cost-anchoring tension at decision-point — verification ALWAYS fires per Rule #16, no "should I fire?" hedge possible
+
+**Mode-selection heuristic (preserved from v1, refined for v2):**
+- ALL snippets with thesis-implication: fire verification subagent immediately per Critical Rule #16 — no mode-selection at fire-decision level
+- After fire returns: TL;DR-driven discussion is the default in WAIT mode; full-cascade-presented synthesis is the default in sizing-imminent mode
+- Snippet that's pure-restate / harness-meta (no new analytical signal): Critical Rule #16 exemption applies; skip fire; just discuss
+
+**Origin meta-note (worth preserving):** This B59 v1→v2 self-correction within a single session is itself an N=1 instance of the harness's fluid-self-evolving-loop working as designed. User caught the logic error, I acknowledged + updated, file reflects corrected version. The B59 v1 entry should be considered superseded for forward use.
+
+**Status:** CANDIDATE v2 — N=1 origin 2026-06-22 PM corrected same session; apply forward from next snippet share; promote to methodology Workflow #1 INGEST refinement at first monthly audit 2026-07-22.
 
 **Cross-ref:**
 - `meta/methodology.md` Workflow #1 INGEST (target home for promotion)
-- Critical Rule #16 — discussion-first is COMPLEMENT to fire-discipline, not contradiction (still fire on load-bearing premises after discussion converges)
+- Critical Rule #16 — verification-first IS Rule #16 applied at snippet-ingestion granularity
+- Critical Rule #15 — macro-first / research-anchored — B59 v2 sequence is direct application
+- B46 candidate — institutional-vs-micro contradiction surfaces only AFTER verification (v1 risked anchoring on wrong micro before macro verified)
+- B58 (cost-budget-anchoring) — B59 v2 dissolves the cost-decision-point that B58 was hedging against
 
 ### Standards-war layer-dependence refinement (cluster-level note for PC-14 framework)
 
