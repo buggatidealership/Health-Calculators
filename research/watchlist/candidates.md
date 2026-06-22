@@ -1,6 +1,65 @@
 # Watchlist Candidates
 
-**Last updated:** 2026-06-15 PM16 (MLCC raw-materials spillover cluster added — Sakai Chemical 4078.T #1 ENTER candidate + Sumitomo Metal Mining / Toho Titanium / Shoei Chemical / Ishihara Sangyo / YAGEO / Taiyo Yuden per Zephyr+Citrini 3-subagent verification cascade)
+**Last updated:** 2026-06-22 PM-MRVL-VS-ALAB (ALAB P2 watchlist entry FULL-FORMALIZED with DO-NOT-ENTER conditional triggers; user "smaller cap = more upside" hypothesis PARTIALLY VERIFIED + 2 framing-error catches: ALAB not "relatively small" anymore at ~$72-75B post-96%-monthly-rally / ALAB 2.2× MORE EXPENSIVE than MRVL on NTM Revenue not cheaper)
+
+---
+
+### 🔴 ALAB (Astera Labs, NASDAQ) — **WATCHLIST P2 — DO NOT ENTER AT CURRENT PRICE** (post-2026-06-22 PM-MRVL-VS-ALAB head-to-head verification)
+
+Per `signals/cross-source-log/2026-06-22-pm-subagent-mrvl-vs-alab-head-to-head-comparison.md` (1 Opus 4.8 subagent ~93.7k subagent_tokens; HIGH yield with 2 load-bearing framing-error catches).
+
+**Identity + current state (research-verified T1/T2):**
+- NASDAQ-listed; Degiro/N26 broker access PASS standard
+- Market cap **~$72-75B** as of 2026-06-22 (user-recall "relatively small" stale by 96% one-month rally; T2 multiple sources)
+- Nasdaq-100 index inclusion EFFECTIVE TODAY 2026-06-22 — passive buying COMPLETE
+- Spot price ~$413; ATH $421.20 hit Jun 18 (T2 MarketBeat); -1.9% off ATH
+- Trading 67% ABOVE consensus PT (~$247 average per T2 TIKR)
+- Q1 FY26 revenue $308.4M record +93% YoY (T1 [SEC 8-K](https://www.sec.gov/Archives/edgar/data/0001736297/000173629726000017/q126exhibit991.htm)); FY25 full year $852.5M +115% YoY (T1)
+- Q2 FY26 guide $355-365M; Q1 non-GAAP EPS $0.61 beat $0.18 est (+239%)
+- Customer concentration EXTREME: top 5 = ~90% revenue (T1 [10-Q](https://www.sec.gov/Archives/edgar/data/0001736297/000173629726000020/alab-20260331.htm))
+
+**Product franchise:**
+- Aries Smart DSP Retimers (PCIe/CXL) — market leader, deployed NVIDIA HGX/Hopper at volume
+- Taurus Ethernet Retimers (400G/800G) — smaller share vs MRVL
+- **Leo CXL Smart Memory Controllers** — first-to-market, Azure M-series LIVE (T1 [Astera Labs newsroom](https://www.asteralabs.com/news/astera-labs-leo-cxl-smart-memory-controllers-on-microsoft-azure-m-series-virtual-machines-overcome-the-memory-wall/))
+- Scorpio Smart Fabric Switch — newest; competes with MRVL XConn
+
+**Valuation comparison (load-bearing 2 framing-error catches):**
+- ALAB NTM EV/Revenue **~53×** (my model from T1+T2) vs MRVL **~23-24×** = **ALAB 2.2× MORE EXPENSIVE** not cheaper
+- ALAB NTM EV/EBITDA ~104× vs MRVL ~54× (T2 Multiples.vc) = ALAB ~1.9× more expensive
+- User "smaller cap = more upside" CATEGORICALLY FAILS — smaller dollar size + higher unit multiple = LESS margin of safety not more
+
+**MRVL vs ALAB overlap matrix:**
+- DIRECT head-to-head: PCIe retimers / CXL retimers / CXL memory / fabric switches (4 segments; ALAB leads 3, contested 1)
+- NON-OVERLAPPING (MRVL only): Optical DSP/CPO (Celestial AI $3.25B + Inphi) / Custom-ASIC design (Trainium 4 + Maia 200 + TPU)
+- MRVL's largest data center revenue segments have ZERO ALAB competition
+
+**Structural risks unique to ALAB vs MRVL:**
+1. Customer concentration HIGH (5 customers = 90% revenue vs MRVL diversified)
+2. CXL-dead risk HIGH — SemiAnalysis "CXL Is Dead In The AI Era" (T1 title confirmed); for ALAB, Leo CXL is core franchise; for MRVL, optical + ASIC 100% insulated
+3. NVIDIA vertical integration MEDIUM (PCIe Gen 6 technical complexity likely needs external retimers 2-3 more gens; risk is 2027-2029)
+4. Valuation fragility HIGH at current entry (53× NTM Rev + ATH + post-index-inclusion = bad risk-adjusted entry)
+
+**B45 regime-check:** +96% in past month + ~$72-75B market cap are NOT magnitude-extreme in current regime; B45 protects against magnitude-conservatism. But B45 does NOT make late-cycle entry-timing risk-free; entry-FAIL on timing axis binding.
+
+**Anti-fragility scoring (my model):**
+- MRVL: ~3-4/5 scenarios win
+- ALAB: ~2-3/5 (more concentrated; CXL-dead scenario eliminates Leo franchise)
+
+**Conditional entry triggers:** (1) >25-30% pullback from ATH to ~$295-315 range (NTM multiple compresses to ~40× — premium but defensible at 85%+ growth); (2) Q2 FY26 print confirming growth NOT index-inclusion-inflated (expected August 2026); (3) BOTH (1)+(2) must fire jointly for entry candidacy to open
+
+**Sizing-if-entered framework:** STARTER 0.5-1% MAX; full position 5-8% Active tier ONLY if both triggers fire + multi-quarter growth confirmation; NEVER chase ATH
+
+**Net read on user's hypothesis:**
+- ✅ Supported: ALAB has purer PCIe/CXL connectivity exposure; faster revenue growth (93% vs 28%); earlier-stage Recognition Stage 2-3 vs MRVL 3-4
+- ❌ Counter-evidence (load-bearing): ALAB already 2.2× more expensive on NTM Revenue multiple; "smaller cap = more upside" conflates dollar size with value
+- 🟡 Additive-vs-substitute read: NET ADDITIVE with modest substitution — ALAB pure-play complement + MRVL diversified exposure including uncontested optical/ASIC; holding both makes sense IF ALAB entered at right price (small starter on material pullback)
+
+**Position implication: 🔴 SPECULATIVE — DO NOT ENTER AT CURRENT PRICE (~$413; 67% above consensus PT; ATH zone; post-index-inclusion sell-the-news risk dominant)** — conditional entry at ~$295-315 + Q2 FY26 growth confirmation jointly required; this analysis REINFORCES MRVL HOLD discipline rather than threatening it (MRVL's optical + custom-ASIC franchises uncontested; XConn means competing in ALAB core not surrendering).
+
+---
+
+**Last updated (prior):** 2026-06-15 PM16 (MLCC raw-materials spillover cluster added — Sakai Chemical 4078.T #1 ENTER candidate + Sumitomo Metal Mining / Toho Titanium / Shoei Chemical / Ishihara Sangyo / YAGEO / Taiyo Yuden per Zephyr+Citrini 3-subagent verification cascade)
 
 ## MLCC raw-materials spillover cluster — added 2026-06-15 PM16
 
