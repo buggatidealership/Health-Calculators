@@ -79,9 +79,9 @@
 **Window:** 2026-06-15 → 2026-07-15 (Critical Rule #16 detectability re-eval window)
 **Last refresh:** 2026-06-19 (H2 file birth + backfill of 36 entries spanning 5-day partial window)
 
-**Total fires (backfill window 2026-06-15 → 2026-06-22, 7-day partial + AM11/forward):** 48 (was 47; +1 PM-ROTATION-EMPIRICAL 2026-06-22 PM)
-**Total estimated cost:** ~7.5M tokens (was ~7.4M; +91k PM-ROTATION-EMPIRICAL) — REVISED UPWARD per AM11 cost-model correction; backfill estimates were 12-18k/subagent which was 8-10× too low for deep verification fires. 30-day projection: ~15-22M tokens.
-**Yield distribution:** HIGH 26 / MEDIUM 15 / LOW 2 / FRAMING-ERROR-CAUGHT 3 (primary class — note PM-ROTATION-EMPIRICAL yielded 2 load-bearing framing errors caught as secondary outputs but classified primary HIGH given Q1 substrate value) / ZERO 0 (was 25/15/2/3/0; +1 HIGH PM-ROTATION-EMPIRICAL)
+**Total fires (backfill window 2026-06-15 → 2026-06-22, 7-day partial + AM11/forward):** 49 (was 48; +1 PM-CITADEL-TRAINIUM-FOLLOWUP 2026-06-22 PM)
+**Total estimated cost:** ~7.6M tokens (was ~7.5M; +66k PM-CITADEL-TRAINIUM-FOLLOWUP) — REVISED UPWARD per AM11 cost-model correction; backfill estimates were 12-18k/subagent which was 8-10× too low for deep verification fires. 30-day projection: ~15-22M tokens.
+**Yield distribution:** HIGH 26 / MEDIUM 16 / LOW 2 / FRAMING-ERROR-CAUGHT 3 (primary class — both PM-ROTATION-EMPIRICAL & PM-CITADEL-TRAINIUM-FOLLOWUP yielded 2 load-bearing framing errors each as secondary outputs but classified primary HIGH+MEDIUM respectively given substrate value) / ZERO 0 (was 26/15/2/3/0; +1 MEDIUM PM-CITADEL-TRAINIUM-FOLLOWUP)
 **Brief-framing errors caught (across all classes including HIGH entries with secondary catch):** ≥25 misattributions caught that would have propagated (B40.x stale-recycle dominates backfill; AM11 added 3 from anonymous-T2-critic claims: HB-should-be-used + won't-use-16-Hi-2027 + BESI-as-CPO-only)
 **Cost per HIGH-yield event:** ~150k tokens (revised upward 2× per AM11 calibration; was ~70k under old heuristic)
 **Audit-day verdict candidate (preliminary, 5-day + AM11 pace):** **STRONGLY POSITIVE** — HIGH+FRAMING-ERROR-CAUGHT = 20 of 37 entries (54%); HIGH+MEDIUM = 32 of 37 (86%); ZERO entries = 0; falsifier threshold (≥3 ZERO) NOT breached. Rule #16 detectability falsifier appears to be working as designed: subagent fires are producing material yield, NOT decorative noise. **User directional 2026-06-19 ratification UNCHANGED at the corrected cost basis** — cost-justification stands even with 2.3× cost revision because yield distribution unchanged (and AM11 cascade added a watchlist tier promotion + 3 framing errors caught).
@@ -95,6 +95,36 @@
 ---
 
 ## Entries (most recent first)
+
+### [2026-06-22 PM-CITADEL-TRAINIUM-FOLLOWUP] User-shared Citrini-style brief on Amazon-Trainium-external + Citadel-TPU triggered 3-premise verification — TWO LOAD-BEARING brief-framing errors caught (Citadel 30%/4x is quant-simulation narrow-workload NOT generalizable; Austin "XPU-neocloud-rack" framing is SPECULATIVE not data-grounded — ZERO neocloud Trainium commitments industry-wide); NBIS thesis STRUCTURALLY REINFORCED by all-neoclouds-Nvidia-locked finding (~$100B+ aggregate backlog 100% NVIDIA); same news-cluster as AM-TRAINIUM B40
+
+**Trigger source:** User-shared Citrini-style image-brief 2026-06-22 PM headlined "Amazon to sell Trainium chips externally" with Vik + Austin commentary. Same news cluster as AM-TRAINIUM cascade this morning (commit 4c049f48) per B40 freshness check.
+
+**Subagents fired:** 1 (Opus 4.8, scoped speed-over-depth on marginal-new-elements only; explicit non-duplication of AM-TRAINIUM substrate)
+**Estimated token cost:** ~66.0k ACTUAL (UNDER 50-80k scoped-fire prediction; efficient)
+**Items verified:** (1) Citadel Securities CTO Josh Woods quoted in WSJ ~Jun 20 2026 — confirmed real T1-origin (WSJ paywalled / T2-accessible via 3 secondaries); workload class = quantitative research / model testing / backtesting / parallel simulation 1M+ cores (NOT generic ML training/inference per 2024 Google Cloud case study T1); baseline hardware UNKNOWN (no H100/H200/B200 comparator in any accessible source); 30%/4x performance numbers also appear in Google Cloud Next 2026 Wrap-Up Apr 25 2026 (T1) WITHOUT Josh Woods attribution. (2) EE Times article "Amazon's Newest Gambit: Selling AI Chips" by Morten Block (Global Eng Director — trade-press analyst not news journalist) published **Jun 17 2026 — ONE DAY BEFORE TechCrunch Jun 18** which AM-TRAINIUM cascaded; primary source = Bloomberg Peter DeSantis interview; ZERO new facts vs AM-TRAINIUM substrate except "Trainium3 is 3nm" spec restatement. (3) Post-AM-TRAINIUM new enterprise/neocloud disclosures = NOT-FOUND; CoreWeave $66B+ Meta $21B anchor ALL-NVIDIA per Q1 2026 8-K T1; NBIS $45B Meta+Microsoft anchored ALL-NVIDIA; Lambda 100MW Blackwell Ultra Kansas City; Crusoe 45GW NVIDIA-stack; Together AI no Trainium disclosure.
+
+**Per-subagent yield:** MEDIUM (substrate value HIGH on NBIS-thesis-ratification + brief-framing-errors-caught; raw new data marginal vs AM-TRAINIUM cascade this morning — B40 same-cluster). **Two load-bearing framing corrections to user-shared brief:** (1) Citadel 30%/4x is workload-narrow + baseline-unknown — cannot generalize to TPU-vs-NVDA-AI-displacement; (2) Austin's "neoclouds may stand up XPU racks" is SPECULATIVE/aspirational with ZERO industry-data backing as of 2026-06-22 PM (~$100B+ aggregate neocloud backlog 100% NVIDIA-locked). **NBIS thesis STRUCTURALLY REINFORCED** at industry-data level — Nvidia-pure-play positioning is empirically correct; XPU-shift hypothesis has not materialized.
+
+**Brief-framing errors caught:** 2 LOAD-BEARING
+1. Citadel 30%/4x generalization → quant-simulation-narrow-workload reality (workload class + baseline both surfaced as gaps)
+2. Austin "XPU-neocloud-rack" speculation → all-neoclouds-Nvidia-locked industry data contradiction
+
+**Thesis cascade triggered:** `companies/NBIS/thesis.md` — PM-CITADEL-TRAINIUM-FOLLOWUP cross-ref at top; structural-thesis-ratification via industry-wide neocloud-all-Nvidia data; Position implication 🟢 HARD HOLD 58sh no size change. NO held-cohort cascade beyond NBIS (MRVL AM-TRAINIUM W2 modal confirmed but no new framing; HYNIX vendor-agnostic on HBM demand growth).
+
+**Position implication delta:** NONE direct (HOLD 58sh NBIS preserved across all current cross-refs); thesis-conviction marginally STRENGTHENED via empirical industry-data backing of Nvidia-pure-play frame.
+
+**Material yield class:** MEDIUM (brief-framing-error catches valuable; substrate value over AM-TRAINIUM cascade marginal; NBIS thesis ratification useful but not action-shifting; cost-efficient at 66k for 3-premise verification)
+
+**Audit-day classification:** POSITIVE — fire EARNED its cost by (a) catching 2 load-bearing framing errors in user-shared brief BEFORE any narrative-driven sizing decision, (b) verifying industry-wide neocloud Trainium adoption = ZERO (counter-anchor to Austin speculation), (c) confirming AM-TRAINIUM W2 modal at T+12h scale, (d) preserving NBIS thesis conviction at empirical-data level. Critical Rule #16 design intent VALIDATED.
+
+**B40.x temporal-freshness verdict:** SAME NEWS CLUSTER as AM-TRAINIUM (EE Times Jun 17 → TC Jun 18 → WSJ Jun 20). User's brief was Citrini repackaging within 5-day window. NOT a fresh signal; B40 pattern present but neutral here (subagent caught it explicitly + parent acknowledged).
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-22-pm-subagent-citadel-tpu-claim-citrini-trainium-followup.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
 
 ### [2026-06-22 PM-ROTATION-EMPIRICAL] User-proposed NOW+DDOG→IBIDEN rotation triggered 3-premise verification — MATERIAL FRAMING-ERROR-CAUGHT on Fable 5 leg (capability-arrived not capability-not-there); NUANCED-PARTIAL on agents-vs-humans (direction right magnitude overstated 8×); software cohort BIFURCATION confirmed at Q1 prints (DDOG +31% bifurcation-winner / NOW -14-17% bifurcation-loser); my modal rec H2 (P~40%) = TRIM NOW only, HOLD DDOG, enter IBIDEN from cash decoupled
 

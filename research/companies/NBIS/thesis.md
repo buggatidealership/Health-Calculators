@@ -1,5 +1,31 @@
 # Nebius (NBIS) — Thesis
 
+**🟢 2026-06-22 PM-CITADEL-TRAINIUM-FOLLOWUP cross-ref — NEOCLOUD-ALL-NVIDIA-STACK industry-wide data confirms NBIS Nvidia-pure-play positioning; Austin "XPU-rack" framing surfaced as SPECULATIVE not data-grounded; bull thesis ratified at industry-data level:** Per `signals/cross-source-log/2026-06-22-pm-subagent-citadel-tpu-claim-citrini-trainium-followup.md` (1 Opus 4.8 subagent 66.0k subagent_tokens; 3-premise verification on user-shared Citrini-style brief). User-shared brief carried Austin commentary speculating "neoclouds may stand up XPU racks." **Subagent verification ZERO neocloud Trainium commitments as of June 22 PM:**
+
+| Neocloud | Backlog | Stack | Trainium? |
+|---|---|---|---|
+| CoreWeave (CRWV) | $66B+ Meta $21B anchor | ALL NVIDIA | NO |
+| **NBIS (held)** | **$45B Meta+Microsoft anchored** | **ALL NVIDIA** | **NO** |
+| Lambda | 100MW Blackwell Ultra Kansas City | NVIDIA | NO |
+| Crusoe | 45GW expansion pipeline | NVIDIA | NO |
+| Together AI | (no Trainium disclosure) | NVIDIA-primary | NO |
+
+**Aggregate: ~$100B+ neocloud backlog 100% NVIDIA-locked.** Austin's "XPU-neocloud-rack" framing is SPECULATIVE/aspirational — NOT data-grounded as of 2026-06-22 PM. **This structurally reinforces NBIS thesis:** if Austin's XPU-shift hypothesis FAILS to materialize, NBIS captures the residual rental TAM as Nvidia-pure-play; if it DOES materialize over 18-24mo (low-P), NBIS still has multi-year mechanical bid + sovereign-AI Token Factory + UK deal anchoring revenue.
+
+**Citadel TPU "30%/4x" claim verified-but-narrow (per Premise 1):** workload class = quantitative-research parallel simulation (1M+ cores), NOT generic ML training/inference. Baseline hardware NOT specified in any accessible source. Cannot be used as evidence of broad TPU-vs-NVDA displacement on AI workloads. Brief framing implicitly generalized; verification corrects.
+
+**B40.x temporal-freshness:** Same news cluster as AM-TRAINIUM cascade this morning (EE Times Jun 17 → TC Jun 18 → WSJ Jun 20). 5 days old at most. Already-priced over the past week. NOT fresh actionable signal beyond AM-TRAINIUM.
+
+**N-th order cascade refined:**
+- 1st order (P>80%): Trainium external sales = slow rollout, FY28+ primary timeline per AM-TRAINIUM W2 modal
+- 2nd order (P~60%): Neoclouds remain Nvidia-locked through 2027 → NBIS thesis as Nvidia-pure-play gains conviction
+- 3rd order (P~40%): If TPU adoption stays narrow-workload-class (Citadel-style FinServ quant only) → broader NVDA CUDA moat intact → cycle-extension prior reinforced
+- 4th order (P~20%): Sovereign-AI Token Factory + UK deal + Meta/Microsoft anchor provide NBIS multi-year visibility regardless of XPU-shift outcome
+
+**Position implication:** 🟢 HARD — **HOLD 58sh — no size change — structural-thesis-ratification** — industry-wide neocloud data CONFIRMS NBIS Nvidia-pure-play positioning vs Austin's speculative XPU-rack framing; T+0 inclusion-day mechanics + Iran-shock H4 talks-resume-modal + AM12 macro-tape watch all preserved as PRIOR cross-refs binding; this cross-ref adds INDUSTRY-DATA-BACKED structural-thesis reinforcement layer.
+
+---
+
 **🔴 2026-06-21 PM Iran-shock pre-T+0-inclusion cross-ref — H4 talks-resume-within-48h became modal (P=45%); H2+H3 bear-case P=40% down from P=80% pre-subagent; pre-registered falsifier conditions surfaced ($223 zone = -10% from $286.69); mechanical bid vs macro-tape probability-weighted flat to +2%; HOLD into inclusion binding per Critical Rule #8:** Per `signals/cross-source-log/2026-06-21-pm-subagent-iran-shock-monday-open-cohort-stress-test.md` (1 Opus 4.8 subagent 102.2k subagent_tokens; multilingual Korean/Japanese/Persian/Arabic/English). User flagged Iran-US Switzerland talks deterioration tonight; subagent verification surfaced: Iran walkout confirmed Iran-semi-official (Fars/Tasnim T2) NOT US/Iran officials; **Vance publicly optimistic ("great progress in the last few hours") T1**; CNN reports backchannel ongoing; Hormuz operationally flowing per CENTCOM Saturday data (55 ships + 17M barrels transited despite Iranian "closure" rhetoric). Updated H1-H4 weights (my model): H1 framework-holds P=15% / H2 risk-off-without-kinetic P=30% / H3 active-kinetic P=10% / H4 stalled-but-not-broken-talks-resume-within-48h P=45% MODAL. **NBIS T+0 mechanical bid:** >$800B AUM tracking Nasdaq-100, mandatory pre-open buying; NBIS + ALAB + CRWV + RKLB + TER added June 22 quarterly rebalance; estimated $200-800M absorbed in 1-3 days per subagent. **Probability-weighted net Monday-open direction:** flat to +2% (wide variance H1-H4 from -7% to +8%). **Pre-registered falsifier conditions:** fires ONLY at >10% intraday drawdown from $286.69 close = $223 zone. **Critical Rule #8 binding:** macro risk-off does NOT fire NBIS-specific falsifier; only the $223 zone intraday does. **Critical Monday-morning watch levels:** Brent Globex >$85 (kinetic tier) / Nikkei first 15-min <70,500 (full risk-off) / KOSPI first hour <8,800 (HYNIX concentration triggers, S4 cohort correlation binding) / NBIS pre-open NY >$260 (mechanical bid winning) vs <$240 (macro winning) / VIX >20 (panic) vs 18-20 (risk-off only). **Position implication: 🔴 HOLD 58sh into inclusion T+0 — no size change pre-event — falsifier-only-fires-at-$223 discipline binding; first-hour macro tape watch active; AM12 LARGEST GROSS-DELTA RISK LEG classification preserved but bear-case probability mass materially reduced.**
 
 ---

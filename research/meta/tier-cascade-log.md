@@ -35,6 +35,32 @@
 
 ## Entries (most recent first)
 
+### [2026-06-22 PM-CITADEL-TRAINIUM-FOLLOWUP] 🟢 User-shared Citrini Trainium brief triggered scoped verification — 2 brief-framing errors caught (Citadel 30%/4x is narrow-workload not generalizable; Austin XPU-neocloud-rack is speculative not data-grounded); NBIS thesis STRUCTURALLY REINFORCED via all-neoclouds-Nvidia-locked industry data; same B40 cluster as AM-TRAINIUM
+
+**Trigger source:** User-shared Citrini-style image-brief 2026-06-22 PM headlined "Amazon to sell Trainium chips externally"; same news-cluster as AM-TRAINIUM cascade earlier today (B40 freshness check confirmed: EE Times Jun 17 → TC Jun 18 → WSJ Jun 20). Critical Rule #16 fire on thesis-implication brief share.
+
+**Intake tier:** 🟢 HARD (industry-data finding T1: CRWV Q1 2026 8-K + NBIS public backlog + GOOG Cloud Next 2026; Citadel Josh Woods quote T1-origin via WSJ paywalled / T2-accessible via 3 secondaries)
+**Source:** Subagent fire `signals/cross-source-log/2026-06-22-pm-subagent-citadel-tpu-claim-citrini-trainium-followup.md` (66.0k subagent_tokens; under 50-80k scoped target).
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/NBIS/thesis.md` top-of-file — new PM-CITADEL-TRAINIUM-FOLLOWUP cross-ref with industry-wide neocloud-all-Nvidia-locked data + Austin XPU-rack speculation surfaced as not-data-grounded; 🟢 HARD on Position implication (HOLD 58sh structurally-thesis-ratified vs prior Iran-shock + AM12 macro-tape + T+0 inclusion cross-refs all preserved)
+- `meta/subagent-cost-yield-ledger.md` — new entry at top (49th fire, 66.0k tokens, MEDIUM yield class, 2 load-bearing framing-errors caught); audit summary recount
+
+**Files NOT touched (no claim intersection):**
+- `companies/MRVL/thesis.md` — AM-TRAINIUM W2 modal CONFIRMED by absence of new external customers but no new framing surfaced; AM-TRAINIUM cross-ref this morning remains current
+- `companies/HYNIX/thesis.md` — vendor-agnostic on HBM demand growth (NVDA vs TPU both consume HBM); no differential cascade
+- `companies/{SNDK,KIOXIA,MURATA,SUMCO,IBIDEN,DDOG,NOW}/thesis.md` — no direct intersection with the marginal-new findings; PRIOR cross-refs current
+- `watchlist/candidates.md` — no new watchlist additions or status changes
+- `sector/where-we-are.md` — would benefit from Trainium-external + neocloud-Nvidia-lock data at next sector synthesis turn; DEFERRED per scoped-cascade rule (same-cluster as AM-TRAINIUM already-cascaded; no fresh inflection)
+
+**Stale flags fired:** None new. (Sector-level Fable 5 export-control follow-up from PM-ROTATION-EMPIRICAL earlier today STILL flagged as deferred-cascade item; no new addition.)
+
+**Lag-1 SHA fill:** PM-ROTATION-EMPIRICAL commit was 4c049f48. Constraints updates: 4996b535 + e3988dd3 + d8bb51b3.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-22 PM-ROTATION-EMPIRICAL] 🟡 User-proposed NOW+DDOG→IBIDEN rotation triggered 3-premise verification — MATERIAL FRAMING-ERROR-CAUGHT on Fable 5 leg (inverted signal direction); software cohort BIFURCATION confirmed at Q1 prints (DDOG winner / NOW loser); cascaded to both held names
 
 **Trigger source:** User brain dump 2026-06-22 PM proposing rotation NOW + DDOG → IBIDEN under standing autonomous-fire-for-numerical-verification authority; Critical Rule #16 fired on user-shared thesis-implication brief.
