@@ -1,8 +1,33 @@
 # Portfolio Constraints — Load-Bearing Framing
 
-**Last updated:** 2026-06-04 PM (initial creation from user disclosure 2026-06-04 PM)
+**Last updated:** 2026-06-22 PM (user explicit clarification: 3-year runway binding; ~€30k of €69k Degiro cash deployable; ~€39k runway-reserved)
 
-## User profile (disclosed 2026-06-04 PM)
+## 🔴 2026-06-22 PM USER CONSTRAINT CLARIFICATION — DEPLOYABLE-CASH BINDING
+
+**User verbatim 2026-06-22 PM:** *"I wanted to keep some cash on the sideline. So I wanna keep a three year runway and have the rest invested. Right? So in that regard, I don't have sixty nine left to deploy. I have roughly thirty left to deploy. So thirty k cache left to deploy."*
+
+| Cash bucket | Amount | Usage discipline |
+|---|---|---|
+| Degiro total cash (per `portfolio/holdings.md` 2026-06-18 PM33 canonical) | €69,423.90 | — |
+| **Runway-reserved (3-year)** | **~€39k** | UNTOUCHABLE for equity deployment; covers sequence-of-returns risk per indefinite-investor-as-career horizon |
+| **DEPLOYABLE cash** | **~€30k** | Available for new positions / adds; this is the BINDING POOL for all watchlist/sizing decisions |
+
+**Sizing-decision rule (added 2026-06-22 PM):** every new-position or add recommendation MUST be sized against ~€30k deployable pool, NOT against total €69k Degiro cash. A 1.5-2.5% Degiro RESERVE for a single watchlist name = €2,650-€4,400 = **9-15% of deployable pool** — material allocation that competes with all other future opportunities (held-position adds on dips; other watchlist entries; post-print dip-buys).
+
+**Why this matters:** prior sizing analyses (PM-IBIDEN-BEAT-PROB bimodal framework; PM-ROTATION-EMPIRICAL joint-state) treated total Degiro cash as deployable. With €30k binding, the rotation-vs-fund-from-cash arithmetic shifts: TRIMMING bifurcation-loser names (e.g., NOW per PM-ROTATION-EMPIRICAL Q1-print bifurcation finding) becomes MORE attractive because it frees capital without consuming runway-reserved cash.
+
+**Cascade implication for active sizing recommendations:**
+- IBIDEN STARTER 0.5% (~€880) + RESERVE 1.5-2.5% (~€2,650-€4,400) = 12-18% of deployable pool from cash-only path
+- Combined alternative: TRIM NOW 50% (~€2,320 freed) + smaller cash draw (~€1,180-€2,980) = MORE CASH-PRESERVING joint outcome
+- Modal H2 from PM-ROTATION-EMPIRICAL (TRIM NOW + HOLD DDOG + IBIDEN STARTER decoupled) GAINS P-WEIGHT under this constraint (was P~40% in 7-day-old €69k framing; now P~40-45% under €30k constraint as cash-preservation argument strengthens)
+
+**Re-eval trigger:** when user updates `portfolio/holdings.md` via new screenshot, re-check whether deployable-cash pool has changed (runway-reserved bucket may shift with monthly burn realization or income events).
+
+**Decision-discipline propagation:** future SessionStart briefings should surface deployable-cash pool prominently; recommendation: extend `~/.claude/session-start-hook.py` to surface this when watchlist/sizing decisions are imminent (DEFERRED to next session-start-hook enhancement).
+
+---
+
+## User profile (disclosed 2026-06-04 PM; current as of 2026-06-22)
 
 | Constraint | Value | Implication |
 |---|---|---|
