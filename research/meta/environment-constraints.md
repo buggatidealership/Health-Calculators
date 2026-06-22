@@ -9,19 +9,20 @@
 
 **Finding:** WebFetch returns HTTP 403 Forbidden on every external content site tested in this remote-execution environment.
 
-**Test record (2026-06-20):**
+**Test record (2026-06-20, extended 2026-06-22):**
 
-| Domain | Result |
-|---|---|
-| x.com | 403 |
-| benzinga.com | 403 |
-| finance.yahoo.com | 403 |
-| tomshardware.com | 403 |
-| heygotrade.com | 403 |
-| hashrateindex.com | 403 |
-| am.jpmorgan.com (JPM's OWN domain) | 403 |
+| Domain | Result | Test date |
+|---|---|---|
+| x.com | 403 | 2026-06-20 |
+| benzinga.com | 403 | 2026-06-20 |
+| finance.yahoo.com | 403 | 2026-06-20 |
+| tomshardware.com | 403 | 2026-06-20 |
+| heygotrade.com | 403 | 2026-06-20 |
+| hashrateindex.com | 403 | 2026-06-20 |
+| am.jpmorgan.com (JPM's OWN domain) | 403 | 2026-06-20 |
+| **zdnet.co.kr (Korean primary tech press)** | **403** | **2026-06-22** |
 
-**Pattern:** 7 of 7 fetches blocked across financial press, FinTwit, and the publisher's own domain. The block is not a paywall/auth issue (JPM AM is publicly accessible); it's an environment-wide outbound-request filter affecting WebFetch user-agent or network policy.
+**Pattern:** 8 of 8 fetches blocked across financial press, FinTwit, publisher's own domain, AND Korean primary tech press. The block is not a paywall/auth issue (JPM AM is publicly accessible; ZDNet Korea is publicly accessible); it's an environment-wide outbound-request filter affecting WebFetch user-agent or network policy. The 2026-06-22 zdnet.co.kr addition extends the documented coverage to Korean primary press (previously assumed possibly-accessible given non-Western press is sometimes less aggressively bot-filtered).
 
 **Implication for tool selection:**
 
