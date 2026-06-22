@@ -1,5 +1,23 @@
 # Datadog (DDOG) — Thesis
 
+**🟢 2026-06-22 PM-COHORT-PATTERN-C cross-ref — WEAK incumbent-investing-in-successor-architecture pattern CONSISTENT with bifurcation-WINNER frame (confident defenders extend platform; do not bet against themselves via external CVC); DASH 2026 Bits AI agentic platform validates internal R&D direction:** Per `signals/cross-source-log/2026-06-22-pm-subagent-c-incumbent-successor-arch-pattern-ddog-now.md` (1 Opus 4.8 subagent 105.5k subagent_tokens).
+
+**DDOG pattern evidence:**
+- **M&A 3 acquisitions 2025 (T1):** Quickwit Jan 2025 (open-source log search defense vs OSS bypass); Metaplane Apr 2025 ($22.2M raised prior; AI data quality/lineage extension per [Datadog IR T1](https://investors.datadoghq.com/news-releases/news-release-details/datadog-brings-observability-data-teams-acquiring-metaplane/)); Eppo May 2025 (~$220M per [Statsig T2](https://www.statsig.com/blog/datadog-acquires-eppo); feature-flagging + LLM experimentation = highest successor-arch relevance — experimentation platform native to AI model development pipelines)
+- **NO external CVC** — "Datadog Ventures" does NOT exist publicly; DDOG invests via direct acquisitions only
+- **Open-source defense:** vector.dev (acquired 2021); OpenTelemetry founding contributor since CNCF 2019 — moat-defense posture
+- **DASH 2026 (June 9 2026) — internal R&D agentic pivot (T1):** 100+ capabilities; Bits AI "truly autonomous operations" (autonomous detect/investigate/remediate with guardrails); Bits Agent Builder for custom AI agents; Agent Console (monitors Claude Code/Cursor/GitHub Copilot); AI Guard (blocks prompt injection + agent poisoning) per [GlobeNewswire T1](https://www.globenewswire.com/news-release/2026/06/09/3309012/0/en/Datadog-Launches-100-Capabilities-to-Help-Customers-Drive-Autonomy-and-Manage-Growing-AI-and-Security-Complexity.html). CEO Pomel: "The companies that win on AI won't just build better models, they'll build operational control around them."
+
+**Critical gap surfaced:** Langfuse (ClickHouse-owned Jan 2026) + Arize Phoenix + Helicone + Braintrust — the companies most likely to disrupt DDOG's LLM Observability module — were NOT acquired. DDOG didn't buy its potential disruptors.
+
+**Pattern verdict:** WEAK. General AI investment + meaningful agentic pivot (DASH 2026 Bits AI) present BUT no external CVC betting against self; M&A is additive/defensive not cannibalizing.
+
+**Counter-intuitive read:** WEAK pattern is CONSISTENT with bifurcation-WINNER framing. A company aggressively acquiring its own disruptors signals existential risk; DDOG's pattern (defend OSS flank + extend surface + add agentic layer) signals confidence in platform durability. This is NOT a thesis-weakening finding.
+
+**Position implication:** 🟢 HOLD 26sh @ $203.37 BEP — **no size change** — pattern verification consistent with bifurcation-WINNER framing established in PM-ROTATION-EMPIRICAL earlier today; Aug 6 2026 next print remains thesis-evidence catalyst.
+
+---
+
 **🟢 2026-06-22 PM-ROTATION-EMPIRICAL cross-ref — Q1 2026 print CONFIRMED BIFURCATION-WINNER status within software cohort; LLM Observability "contributing meaningfully" for first time = TC-9 candidate cluster validated; user's rotation premise NOT VALID for DDOG (winning the AI-software bifurcation; do not sell):** Per `signals/cross-source-log/2026-06-22-pm-subagent-software-rotation-empirical-premises.md` (1 Opus 4.8 subagent 91.1k subagent_tokens; 3-premise verification: agents-vs-humans code-commits + Fable 5 rollback + NOW/DDOG most recent print). User proposed NOW+DDOG→IBIDEN rotation premised on "software supervising-layer too early."
 
 **Verified findings (T1):**

@@ -1,5 +1,27 @@
 # Sumco Corporation (3436.T) — Thesis
 
+**🟡 2026-06-22 PM-COHORT-PATTERN-A cross-ref — WEAK incumbent-investing-in-successor-architecture pattern (closer to SNDK ABSENT than HYNIX/KIOXIA/MURATA STRONG); NEW Shin-Etsu GaN QST competitive gap monitoring flag:** Per `signals/cross-source-log/2026-06-22-pm-subagent-a-incumbent-successor-arch-pattern-murata-sumco.md` (1 Opus 4.8 subagent 97.5k subagent_tokens; multilingual Japanese primary verified). Cross-cohort pattern scan triggered by user-extended HYNIX framing earlier today.
+
+**SUMCO evidence WEAK pattern:**
+- SiC/GaN "基礎的な研究・評価" (basic research and evaluation) ONLY in 2024 有価証券報告書 per [EDINET T1](https://disclosure2dl.edinet-fsa.go.jp/searchdocument/pdf/S100VFYA.pdf); R&D ¥8.5B total FY2024 (>2% of sales)
+- SOI wafer in product lineup is incumbent product extension, not hedge
+- SUMCO delays two fabs April 2026 per [TrendForce T2](https://www.trendforce.com/news/2026/04/06/news-sumco-delays-construction-of-two-silicon-wafer-fabs-amid-market-shift/) + Miyazaki 200mm exit end 2026 = concentrating on 300mm incumbent core, NOT hedging via successor-format investment
+- **NO CVC, NO startup investment, NO JV on alternative substrates** (confirmed absence across multiple search passes)
+
+**NEW competitive gap surfaced (Shin-Etsu vs SUMCO on GaN-substrate hedge):**
+- Shin-Etsu unveiled 12-inch QST GaN substrate September 2024 per [Digitimes T2](https://www.digitimes.com/news/a20240910PR200/gan-shin-etsu-substrate-12-inch-development.html)
+- imec co-validation >800V GaN breakdown on 300mm QST November 2025 per [Semiconductor Today T3](https://www.semiconductor-today.com/news_items/2025/nov/imeq-shinetsuchemical-171125.shtml)
+- Explicit AI data center power supply targeting; licensed Qromis GaN technology
+- **SUMCO BEHIND Shin-Etsu on this hedge dimension** — competitive gap not previously in harness
+
+**Pattern verdict:** WEAK. Disclosure-level basic research only. Closer to SNDK (PATTERN ABSENT) than to MURATA/HYNIX/KIOXIA (STRONG). SiC/GaN entry in securities filing is minimum-viable acknowledgment of successor risk, not capital commitment.
+
+**Thesis impact:** Does NOT invalidate SUMCO investment case (anchored on 300mm Si wafer demand for AI-logic + HBM — architecture-agnostic). SiC threat primarily targets silicon power wafer market, smaller portion of SUMCO revenue than 300mm AI-server/HBM segment.
+
+**Position implication:** 🟡 HOLD 626sh — **no size change** — pattern-weakness does NOT alter 6-24mo investment case anchored on 3-continent sovereign-AI 300mm wafer demand; **monitoring flag added: track Shin-Etsu QST GaN 300mm mass production timeline** — if Shin-Etsu achieves commercial 300mm GaN-on-QST for AI DC power supply before SUMCO has named program, that is a competitive gap deserving explicit modeling.
+
+---
+
 **🔴 2026-06-18 PM33 — POSITION INCREASED 415sh → 626sh (+211 shares ~€4,663 deployment) per user 4-screenshot disclosure** — not explicitly mentioned in user verbal (verbal focused on MURATA) but confirmed by Degiro screenshot. Same narrative-driven philosophy applied across 3 same-day transactions (MURATA tranche-2 + NBIS NEW + SUMCO add). User verbatim rationale (cross-portfolio): *"in a market that is a bit more exuberant and is more narrative driven. If the narrative gets reinforced, it's probably better to buy than to wait as pullbacks are quite scarce when it comes to the, uh, semi stocks."* BEP weighted from €21.69 (PM29) → €22.310191 (PM33). SUMCO position value €14,814.29 / +€848.11 unrealized (+6.07%) / +€172.33 total P/L. **Thesis status UNCHANGED** — AM7 multi-archetype wafer demand + AM8 SUMCO franchise SAFE (SandboxAQ scope clarification per fab-process-chemistry-not-silicon-alternatives) all intact. **Cluster impact:** Memory cluster: ~58% → ~51% of invested (proportional dilution from NBIS NEW cluster + MURATA add). **Position implication: 🟡 HOLD 626sh — no further size change today; thesis intact; PC-14 N=3+ sovereign-AI wafer demand pull-through across 3 continents remains primary forward driver.**
 
 ---

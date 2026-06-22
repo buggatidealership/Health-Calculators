@@ -1,5 +1,36 @@
 # ServiceNow (NOW) — Thesis
 
+**🟢 2026-06-22 PM-COHORT-PATTERN-C cross-ref — STRONG incumbent-investing-in-successor-architecture pattern across THREE INDEPENDENT DIMENSIONS — most comprehensive successor-architecture restructuring in ENTIRE held cohort; SOFTENS EXIT conviction but does NOT change TRIM-25% modal recommendation per timing-horizon-mismatch:** Per `signals/cross-source-log/2026-06-22-pm-subagent-c-incumbent-successor-arch-pattern-ddog-now.md` (1 Opus 4.8 subagent 105.5k subagent_tokens).
+
+**NOW pattern evidence — 3-vector confirmation:**
+
+**Vector 1 — M&A targeting successor-arch companies (T1):**
+- Moveworks Dec 15 2025 (undisclosed; AI-native conversational front-end could displace form-based ITSM ticket submission) per [NOW Newsroom T1](https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-launches-Autonomous-Workforce-that-thinks-and-acts-adds-Moveworks-to-the-ServiceNow-AI-Platform/default.aspx)
+- Veza Mar 2 2026 (non-human identity management for AI agents — native agentic-architecture primitive) per [NOW 8-K T1](https://www.sec.gov/Archives/edgar/data/0001373715/000137371526000054/erq1fy26.htm)
+- **Traceloop Mar 3 2026 ~$60-80M per [Calcalist T2](https://www.calcalistech.com/ctechnews/article/sjghwiqf11e):** OpenLLMetry open-source LLM observability via OpenTelemetry — NOW acquired company whose core product enables agentic-AI runtime that could displace NOW's form-based workflows. Origin: "conversations with ServiceNow started around OpenLLMetry, and they saw what the open-source community had built"
+- Armis Apr 20 2026 ($7.75B) — security/asset discovery completes AI Control Tower stack
+
+**Vector 2 — ServiceNow Ventures $1B committed by 2026 with successor-architecture portfolio:**
+Per [ServiceNow Newsroom T1](https://www.servicenow.com/company/media/press-room/one-billion-ventures-investment.html); 83 total investments. Successor-architecture-relevant portfolio companies:
+- Deepgram (voice AI — natural-language interface that could replace form-based workflow submission)
+- Hyro (conversational AI automation — same pattern)
+- Plutus (agentic AI for insurance sector — Sept 2025; agentic workflow in NOW's core enterprise vertical)
+- Island (enterprise browser); Snyk (~$7.4B); Harness (~$3.5B)
+
+**Vector 3 — Internal platform reconstruction explicitly for agentic architecture (T1):**
+- **RaptorDB Pro** (Knowledge 2026 May 2026): per [ServiceNow Newsroom T1](https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-launches-the-real-time-data-foundation-that-puts-autonomous-AI-to-work-across-the-enterprise/default.aspx) — ground-up database rebuild for agentic-AI architecture; "Live Perform, Live Connect, Live Archive"; explicitly motivated by "agents operating on stale data make bad decisions" — database rebuilt for agent-first data access, not iteration of human-workflow-first
+- **AI Agent Studio** (Knowledge 2025-2026): visual builder for enterprise AI agents inside NOW; agent missions + tools + hard limits framing
+- **Action Fabric + MCP Server** (May 2026): per [ServiceNow Newsroom T1](https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-opens-its-full-system-of-action-to-every-AI-Agent-in-the-enterprise/default.aspx) — NOW opens full system of action to ANY AI agent headlessly via MCP; "every enterprise agent should run through NOW to execute governed work"
+- Diginomica framing: "ServiceNow is laying out a platform redesign built around how AI agents work rather than how human users work. Rather than layering AI on top as a billable extra, ServiceNow is baking it into the base."
+
+**Pattern verdict:** STRONG. NOW is running $15.7B+/yr subscription run-rate on legacy form-based workflows while simultaneously funding, acquiring, AND rebuilding the successor architecture (agent-headless, voice, MCP-accessible) that would make those workflows obsolete. **Most complete expression of incumbent-investing-in-successor-architecture pattern in entire held cohort.**
+
+**Critical timing-mismatch nuance:** Successor-architecture bets = 12-24mo payoff horizon. PM-ROTATION-EMPIRICAL TRIM rationale = 6-18mo cohort-relative lag horizon. Market is pricing organic growth trajectory, NOT 5-10yr disruption-hedge quality. STRONG pattern makes FULL EXIT less defensible (NOW is structurally hedging long-run survival) but does NOT change TRIM-25% modal.
+
+**Position implication:** 🟡 **TRIM-CANDIDATE 25% (UNCHANGED from PM-ROTATION-EMPIRICAL) — STRONG successor-architecture restructuring REDUCES EXIT conviction; does NOT change TRIM-25% modal** — timing-horizon mismatch between hedge-payoff (12-24mo) and cohort-relative-lag (6-18mo); 54sh @ $94.30 BEP / +1.7% lifetime / 2.3% Degiro; if trimming, do so for cohort-relative-lag reasons NOT for thesis-falsification reasons; next formal milestone July 29 Q2 print.
+
+---
+
 **🟡 2026-06-22 PM-ROTATION-EMPIRICAL cross-ref — Q1 FY26 print confirmed BIFURCATION-LOSER within software cohort; user-proposed rotation premise PARTIALLY VALID for NOW but inverted on Fable 5 leg:** Per `signals/cross-source-log/2026-06-22-pm-subagent-software-rotation-empirical-premises.md` (1 Opus 4.8 subagent 91.1k subagent_tokens; 3-premise verification: agents-vs-humans code-commits + Fable 5 rollback + NOW/DDOG most recent print). User proposed NOW+DDOG→IBIDEN rotation premised on "software supervising-layer too early."
 
 **Verified findings (T1):**
