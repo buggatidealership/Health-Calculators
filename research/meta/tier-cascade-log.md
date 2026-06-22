@@ -35,6 +35,49 @@
 
 ## Entries (most recent first)
 
+### [2026-06-22 PM-IMEC-FEFET + PM-INFEREX-U8 PARALLEL BATCH] 🟡 + 🟡 Two user-shared snippets fired in parallel per Principle #36 + new B59 v2 protocol (verification BEFORE TL;DR); IMEC FeFET = long-horizon successor architecture data point + HYNIX FMC option-hedge byproduct surfaced; SemiAnalysis InferenceX 2.5×/2-month = U8 N=7→8 + MRVL connectivity-additive mechanism + NBIS Eigen AI strategic-rationale validated; ALL HELD-COHORT POSITIONS UNCHANGED
+
+**Trigger source:** Two parallel user-shared Citrini-style image-briefs 2026-06-22 PM — (1) IMEC ferroelectric memory VLSI Symposium 2026 + Vik/Austin commentary; (2) SemiAnalysis InferenceX GB200 NVL72 Token Throughput chart with 2.5×/2-month annotation. FIRST APPLICATION of B59 v2 protocol (verification subagents fired IMMEDIATELY in parallel before any TL;DR; user reaction informed by research-verified data not pre-training recall).
+
+**Intake tier:** 🟡 DIRECTIONAL — both signals have memory-cohort implications but neither activates any falsifier; positive byproduct insights surfaced for HYNIX (FMC option-hedge) and NBIS (Eigen AI strategic validation)
+**Source:** Two subagent fires both T1/T2-anchored:
+- `signals/cross-source-log/2026-06-22-pm-subagent-imec-fefet-vlsi-symposium-memory-disruption-verification.md` (106.7k subagent_tokens; 4-premise + multilingual Korean+Japanese)
+- `signals/cross-source-log/2026-06-22-pm-subagent-semianalysis-gb200-2x5-throughput-improvement-inference-cost-elasticity.md` (123.4k subagent_tokens; 5-premise + cohort-wide N-th order; subagent self-cascaded commit 37d8a4ab)
+
+**Tier moves (scoped — only files actually touched):**
+
+PM-IMEC-FEFET cascade (this commit):
+- `companies/HYNIX/thesis.md` top-of-file — new PM-IMEC-FEFET cross-ref; FMC option-hedge anti-fragile byproduct surfaced; 🟢 HARD HOLD 10.13% Core no change
+- `companies/KIOXIA/thesis.md` top-of-file — new PM-IMEC-FEFET cross-ref; KIOXIA own FeFET R&D program (Frontier Tech R&D Institute Channel-All-Around TiO₂ FeFET) = long-run option-value insight; 🟡 HOLD-until-falsifier ~€10K N26 (per holdings.md PM33) no change
+- `companies/SNDK/thesis.md` top-of-file — new PM-IMEC-FEFET cross-ref; HBF unaffected (different timescale); 3D FeFET as 3D NAND successor = 10-15yr monitoring only; 🟢 HOLD 6sh no change
+- `meta/subagent-cost-yield-ledger.md` — new entries (51st + 50th fires; audit summary recount)
+
+PM-INFEREX-U8 cascade (already committed in 37d8a4ab via subagent self-cascade):
+- `companies/HYNIX/thesis.md` — PM-INFEREX-U8 cross-ref (already in file pre-this-commit)
+- `companies/MRVL/thesis.md` — PM-INFEREX-U8 cross-ref (already in file pre-this-commit)
+- `companies/NBIS/thesis.md` — PM-INFEREX-U8 cross-ref (already in file pre-this-commit)
+
+**Files NOT touched (no claim intersection):**
+- `companies/{MURATA,SUMCO,IBIDEN,DDOG,NOW}/thesis.md` — no direct intersection with FeFET (memory-tier-architecture) or inference-software-efficiency (HBM-specific U8); prior cross-refs current
+- `companies/{SNDK,KIOXIA}/thesis.md` — PM-INFEREX-U8 not applicable (inference-software-efficiency is HBM-specific not NAND); only PM-IMEC-FEFET cascaded
+- `sector/where-we-are.md` — both signals are data-point-additive not synthesis-shifting; DEFERRED per scoped-cascade rule (Fable 5 export-control sector-cascade item from earlier still flagged as deferred)
+- `signals/triangulation.md` — U8 N=8 update belongs in cross-source-log (cross-segment cluster per Critical Rule #6); does NOT promote to triangulation
+
+**Stale flags fired:** None new. (Sector-level Fable 5 export-control follow-up from PM-ROTATION-EMPIRICAL earlier today STILL flagged as deferred-cascade item.)
+
+**B59 v2 protocol — FIRST APPLICATION:**
+- Step 2 fired IMMEDIATELY in parallel (both subagents) per Principle #36
+- Step 3 TL;DR delivery comes AFTER subagent return (research-verified not pre-training recall)
+- Step 4 user reaction window after TL;DR
+- Step 5 cascade parallel to discussion (this entry IS the cascade artifact)
+- Protocol working as designed; PM-IMEC-FEFET delivered TL;DR ahead of PM-INFEREX-U8 return (segmented delivery acceptable when subagents return at different times)
+
+**Lag-1 SHA fill:** PM-CITADEL-TRAINIUM-FOLLOWUP commit was 636f39c0; B58+B59 commits were 623ccfc5 + fd7432f1; SemiAnalysis subagent self-commit was 37d8a4ab.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-22 PM-CITADEL-TRAINIUM-FOLLOWUP] 🟢 User-shared Citrini Trainium brief triggered scoped verification — 2 brief-framing errors caught (Citadel 30%/4x is narrow-workload not generalizable; Austin XPU-neocloud-rack is speculative not data-grounded); NBIS thesis STRUCTURALLY REINFORCED via all-neoclouds-Nvidia-locked industry data; same B40 cluster as AM-TRAINIUM
 
 **Trigger source:** User-shared Citrini-style image-brief 2026-06-22 PM headlined "Amazon to sell Trainium chips externally"; same news-cluster as AM-TRAINIUM cascade earlier today (B40 freshness check confirmed: EE Times Jun 17 → TC Jun 18 → WSJ Jun 20). Critical Rule #16 fire on thesis-implication brief share.

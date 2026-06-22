@@ -79,9 +79,9 @@
 **Window:** 2026-06-15 → 2026-07-15 (Critical Rule #16 detectability re-eval window)
 **Last refresh:** 2026-06-19 (H2 file birth + backfill of 36 entries spanning 5-day partial window)
 
-**Total fires (backfill window 2026-06-15 → 2026-06-22, 7-day partial + AM11/forward):** 49 (was 48; +1 PM-CITADEL-TRAINIUM-FOLLOWUP 2026-06-22 PM)
-**Total estimated cost:** ~7.6M tokens (was ~7.5M; +66k PM-CITADEL-TRAINIUM-FOLLOWUP) — REVISED UPWARD per AM11 cost-model correction; backfill estimates were 12-18k/subagent which was 8-10× too low for deep verification fires. 30-day projection: ~15-22M tokens.
-**Yield distribution:** HIGH 26 / MEDIUM 16 / LOW 2 / FRAMING-ERROR-CAUGHT 3 (primary class — both PM-ROTATION-EMPIRICAL & PM-CITADEL-TRAINIUM-FOLLOWUP yielded 2 load-bearing framing errors each as secondary outputs but classified primary HIGH+MEDIUM respectively given substrate value) / ZERO 0 (was 26/15/2/3/0; +1 MEDIUM PM-CITADEL-TRAINIUM-FOLLOWUP)
+**Total fires (backfill window 2026-06-15 → 2026-06-22, 7-day partial + AM11/forward):** 51 (was 49; +2 today PM-IMEC-FEFET + PM-INFEREX-U8 in parallel batch)
+**Total estimated cost:** ~7.8M tokens (was ~7.6M; +106.7k PM-IMEC-FEFET + 123.4k PM-INFEREX-U8) — REVISED UPWARD per AM11 cost-model correction; backfill estimates were 12-18k/subagent which was 8-10× too low for deep verification fires. 30-day projection: ~15-22M tokens. **Note (per B58 codification today): "cost-budget warning" framing is bias-flagged per user directive depth-over-speed; this is informational audit-context, not decision-input.**
+**Yield distribution:** HIGH 27 / MEDIUM 17 / LOW 2 / FRAMING-ERROR-CAUGHT 3 (primary class — both PM-ROTATION-EMPIRICAL & PM-CITADEL-TRAINIUM-FOLLOWUP yielded 2 load-bearing framing errors each as secondary outputs but classified primary HIGH+MEDIUM respectively; PM-IMEC-FEFET caught Vik framing-error as secondary, classified primary MEDIUM given substrate value; PM-INFEREX-U8 primary HIGH given U8 N-count update + mechanism-discovery + Jevons-adjudication) / ZERO 0 (was 26/16/2/3/0; +1 HIGH PM-INFEREX-U8 + 1 MEDIUM PM-IMEC-FEFET)
 **Brief-framing errors caught (across all classes including HIGH entries with secondary catch):** ≥25 misattributions caught that would have propagated (B40.x stale-recycle dominates backfill; AM11 added 3 from anonymous-T2-critic claims: HB-should-be-used + won't-use-16-Hi-2027 + BESI-as-CPO-only)
 **Cost per HIGH-yield event:** ~150k tokens (revised upward 2× per AM11 calibration; was ~70k under old heuristic)
 **Audit-day verdict candidate (preliminary, 5-day + AM11 pace):** **STRONGLY POSITIVE** — HIGH+FRAMING-ERROR-CAUGHT = 20 of 37 entries (54%); HIGH+MEDIUM = 32 of 37 (86%); ZERO entries = 0; falsifier threshold (≥3 ZERO) NOT breached. Rule #16 detectability falsifier appears to be working as designed: subagent fires are producing material yield, NOT decorative noise. **User directional 2026-06-19 ratification UNCHANGED at the corrected cost basis** — cost-justification stands even with 2.3× cost revision because yield distribution unchanged (and AM11 cascade added a watchlist tier promotion + 3 framing errors caught).
@@ -95,6 +95,79 @@
 ---
 
 ## Entries (most recent first)
+
+### [2026-06-22 PM-IMEC-FEFET] User-shared IMEC ferroelectric memory VLSI Symposium 2026 brief triggered 4-premise verification — FRAMING-ERROR-CAUGHT on Vik "we need breakthrough now" implied-near-term-relief framing; FeFET commercial impact 2028-2030+ NOT 2026-27 supply relief; NEW LOAD-BEARING POSITIVE BYPRODUCT for HYNIX (FMC option-hedge anti-fragile incumbent behavior surfaced); HBM architecturally orthogonal to FeFET; all held cohort theses NO CHANGE (HYNIX/SNDK/KIOXIA); KIOXIA own FeFET R&D = long-run option-value not pure threat
+
+**Trigger source:** User-shared Citrini-style image-brief 2026-06-22 PM headlined "Imec details ferroelectric memory advances at VLSI Symposium" with Vik + Austin commentary. First snippet in parallel batch (PM-IMEC-FEFET + PM-INFEREX-U8 fired in parallel per Principle #36).
+
+**Subagents fired:** 1 (Opus 4.8, scoped 4-premise verification on VLSI 2026 + commercial timeline + cohort N-th order + Vik framing; multilingual Korean for HYNIX-FMC investment + Japanese for KIOXIA own FeFET R&D)
+**Estimated token cost:** ~106.7k ACTUAL (over 50-80k scoped prediction; appropriate for 4-premise scope with multilingual parallel)
+**Items verified:** (1) VLSI Symposium 2026 confirmed Jun 14-18 Honolulu (T1 vlsisymposium.org); two IMEC papers — (a) low-voltage HZO FeCAP >38 μC/cm² at 0.5V + 10¹³ endurance (100× improvement vs IEDM 2022 baseline T1 imec.int); (b) FIRST functional 5-WL vertical FeFET stack with dual-gate erase efficiency improvement; (2) FeFET 13-15 year commercial track record: NaMLab 2011-12 → GF 22nm FeFET 2016-17 (no production) → IMEC 2017 "first" vertical stack → 2020 SK Hynix+Bosch back FMC Series B → FMC €100M Series C Nov 2025 → 2026 IMEC 5-WL = LAB ONLY THROUGHOUT; (3) Commercial FeFET DRAM/SRAM-replacement units shipping today = ZERO; best-case commercial impact 2028-2030 NOR Flash MCU / 2030-2033 embedded SRAM / 2033-2038 commodity DRAM disruption; (4) IMEC partnership map: SK Hynix CONFIRMED FMC investor via imec.xpand Series B 2020 (T2 Electropages + Korean-language [TheGuru.co.kr](https://www.theguru.co.kr/news/article.html?no=16267) 독일 스타트업 베팅); Samsung CONFIRMED IMEC SSTS partner (T1); Micron CONFIRMED historical IMEC partner; KIOXIA has INDEPENDENT FeFET research program (Frontier Tech R&D Institute Channel-All-Around TiO₂ FeFET; VLSI 2024 + IEDM 2024 presentations; Japanese-language confirmed [kioxia.com 日本語 topics-22](https://www.kioxia.com/ja-jp/rd/technology/topics/topics-22.html)); KIOXIA + IMEC co-participated in VLSI 2025; (5) Sell-side FeFET coverage as near-term stock catalyst = NOT-FOUND across Bernstein/Citi/MS/JPM (informative absence — TRL gap too large for equity-focused institutional research)
+
+**Per-subagent yield:** MEDIUM (0-24 month trading horizon LOW; 5-10yr research horizon MEDIUM). FRAMING-ERROR-CAUGHT on Vik "we need breakthrough now" implied-near-term-relief — FeFET cannot relieve 2026-27 memory shortage; actual near-term escape hatches are HBF (samples H2 2026 commercial 2027) / 3D NAND KV-cache (shipping now via KIOXIA GP Series) / CXL-attached memory tiers / DRAM capacity additions — FeFET NOT in this list. **NEW LOAD-BEARING POSITIVE BYPRODUCT for HYNIX:** confirmed FMC Series B investor — anti-fragile incumbent option-hedge behavior at startup cost basis WHILE maximizing current HBM supercycle returns. Doesn't change thesis; ADDS positive evidence of long-run franchise discipline.
+
+**Brief-framing errors caught:** 1 LOAD-BEARING
+1. Vik "we need a breakthrough now, more than ever" implies near-term FeFET relief — INCORRECT (FeFET is 2028-2030+ best case for ANY commercial impact; HBM-specific disruption P<5% architecturally incompatible with wide-IO parallel stacking)
+
+**Thesis cascade triggered:**
+- `companies/HYNIX/thesis.md` — PM-IMEC-FEFET cross-ref at top; NO position implication change; FMC option-hedge byproduct insight surfaced as POSITIVE evidence of management long-run franchise discipline
+- `companies/KIOXIA/thesis.md` — PM-IMEC-FEFET cross-ref at top; counterintuitive POSITIVE: own FeFET R&D program at Frontier Tech R&D Institute = long-run option-value NOT pure threat
+- `companies/SNDK/thesis.md` — PM-IMEC-FEFET cross-ref at top; HBF unaffected (different timescale); 3D FeFET as 3D NAND successor flagged as 10-15yr monitoring only
+
+**Position implication delta:** NONE — all three held positions UNCHANGED (HYNIX 10.13% Core / SNDK 6sh / KIOXIA ~€10K N26 per holdings.md PM33). FeFET does not activate any falsifier in any thesis.
+
+**Material yield class:** MEDIUM — framing-error caught + load-bearing positive byproduct insight for HYNIX (FMC option-hedge) surfaced + KIOXIA own FeFET R&D context added + commercial-timeline reality (15-year stale narrative) calibrated. Cost-appropriate at 106.7k for 4-premise multilingual scope.
+
+**Audit-day classification:** POSITIVE — fire EARNED its cost by (a) catching Vik near-term-relief framing error before it could anchor analysis, (b) surfacing HYNIX FMC anti-fragile option-hedge insight (genuinely new positive evidence not in prior thesis files), (c) honest 13-15yr commercial-timeline reality check vs IMEC research milestone hype cycle, (d) preserving all 3 memory-cohort theses with documented NO-CHANGE-but-data-point-considered discipline. Critical Rule #16 design intent VALIDATED.
+
+**B40.x temporal-freshness verdict:** B40.2 TYPE APPLIES. News article fresh (5 days); UNDERLYING "near-future DRAM replacement" narrative originates 2011-12 (15-year stale). Specific lab result is genuinely new; commercial urgency framing is recycled.
+
+**Time-horizon-to-commercial-impact (my model):**
+- FMC DRAM+ first OEM samples 2027 (P~50% — startup risk)
+- FeFET replaces NOR Flash MCUs at volume 2028-2030 (P~40%)
+- FeFET displaces SRAM in embedded AI edge 2030-2033 (P~25%)
+- FeFET disrupts commodity DRAM at wafer-scale 2033-2038 (P~15%)
+- FeFET displaces 3D NAND at volume 2032-2040 (P~15%)
+- FeFET disrupts HBM specifically — NOT MODELED (P<5%; architecturally incompatible)
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-22-pm-subagent-imec-fefet-vlsi-symposium-memory-disruption-verification.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
+### [2026-06-22 PM-INFEREX-U8] User-shared SemiAnalysis InferenceX GB200 2.5×/2-month throughput chart triggered 5-premise verification — U8 candidate cluster N=7→N=8 (most direct quantified evidence yet of per-GPU-efficiency compounding); Jevons DOMINANT in 2026 capex data ($725B +77% YoY); MRVL disaggregated-inference connectivity-TAM-expansion mechanism identified as underappreciated BULL vector; HYNIX HOLD unchanged + monthly-watch tightened; NBIS Token Factory + Eigen AI thesis VALIDATED
+
+**Trigger source:** User-shared SemiAnalysis InferenceX chart 2026-06-22 PM (image with 2.5× higher throughput at 60 tok/s/user annotation; Kimi K2.5/2.6/2.7-Code 1T FP4 8K/1K; GB200 NVL72 Dynamo TRT Apr-18 baseline vs Jun-20 latest). Second snippet in parallel batch (PM-IMEC-FEFET + PM-INFEREX-U8 fired in parallel per Principle #36).
+
+**Subagents fired:** 1 (Opus 4.8 OR Sonnet 4.6 per subagent self-commit metadata; scoped 5-premise verification on product + mechanism + cohort implications + U8 N-count + hyperscaler capex Jevons test)
+**Estimated token cost:** ~123.4k ACTUAL (slightly over 50-80k scoped target; appropriate for 5-premise depth with cohort-wide N-th order analysis)
+**Items verified:** (1) SemiAnalysis InferenceX VERIFIED-TRUE as product — open-source continuous benchmark with public GitHub Actions runs; (2) 2.5× claim VERIFIED-PARTIAL — intra-GB200-timeline software improvement; cross-hardware GB200 vs B200 = 3.13× per InferenceX blog T2; NVIDIA reports "GB200 4× in 3 months" + TRT-LLM "5× better" T2 — all consistent; (3) "Dynamo TRT" = NVIDIA-only stack — Dynamo orchestrator above + TensorRT-LLM engine below; (4) Three mechanisms: Wide Expert Parallelism (Decode EP 8-16 on NVLink fabric) + disaggregated prefill/decode + NVFP4 Blackwell-native quantization — ALL pure software, hardware identical between Apr-18 and Jun-20; (5) Jevons vs efficiency-eats-volume TEST: hyperscaler capex $725B 2026 +77% YoY (T2 reconstruction of T1 earnings — MSFT $190B + GOOG $190B + AMZN $200B + META RAISED $125-145B mid-year citing "higher component pricing and additional data center costs") — Jevons DOMINANT; SK Hynix 3-year forward HBM committed (T1); Google 7× token volume YoY (T1 Sundar I/O 2026)
+
+**Per-subagent yield:** HIGH (U8 N-count update + new analytical mechanism for MRVL + NBIS strategic-rationale validation + Jevons-vs-efficiency-eats-volume adjudicated at 2026 horizon). NUANCED-PARTIAL on exact 2.5× magnitude (chart is intra-timeline software-only; cross-hardware is 3.1×; both real); VERIFIED-TRUE on product + mechanism + Jevons dominance.
+
+**U8 candidate cluster update:** N=7 → N=8. InferenceX added as monthly-watch free T2 benchmark source. **U8 hypothesis posteriors UNCHANGED (HU8a 35% / HU8b 45% MODAL / HU8c 15% / HU8d <5%)** — new datapoint is most-direct quantified evidence for HU8b mechanism but does NOT raise HU8b weight because demand-side evidence (capex +77%, HBM 3-year committed) is substantially heavier.
+
+**Thesis cascade triggered (subagent self-cascaded; committed 37d8a4ab):**
+- `companies/HYNIX/thesis.md` — PM-INFEREX-U8 cross-ref; HOLD 10.13% Core unchanged; F2+F13 NOT fired; monthly-watch tightened with InferenceX free benchmark
+- `companies/MRVL/thesis.md` — PM-INFEREX-U8 cross-ref; disaggregated inference connectivity-ADDITIVE; BULL reinforced
+- `companies/NBIS/thesis.md` — PM-INFEREX-U8 cross-ref; Eigen AI Token Factory strategic-rationale VALIDATED; BULL reinforced
+
+**Position implication delta:** NONE — all 3 held positions UNCHANGED. HYNIX HOLD ratified with monthly-watch tightened. MRVL HOLD with BULL-reinforcement. NBIS HOLD with strategic-thesis validation.
+
+**Material yield class:** HIGH (U8 N=7→8 with most-direct quantified evidence; MRVL connectivity-TAM-expansion mechanism is underappreciated BULL vector for the disaggregated inference architecture trend; NBIS strategic acquisition rationale validated at T1/T2; Jevons adjudicated decisively for 2026; honest 18-36mo HU8b uncertainty preserved). Cost-appropriate at 123.4k for 5-premise cohort-wide scope.
+
+**Audit-day classification:** POSITIVE — fire EARNED its cost by (a) U8 N-count update with most-direct quantified evidence to date, (b) surfacing MRVL connectivity-additive mechanism in disaggregated inference (underappreciated BULL vector), (c) validating NBIS Eigen AI Token Factory strategic-rationale at empirical-data level, (d) Jevons-vs-efficiency-eats-volume adjudicated for 2026 with T1 hyperscaler-capex evidence, (e) honest preservation of 18-36mo HU8b genuine uncertainty.
+
+**B40.x temporal-freshness verdict:** FRESH. Chart Jun-20 = 2 days old; hyperscaler capex Q1 2026 earnings current; SK Hynix forward commitment Q1 2026. NO B40 issue.
+
+**Subagent self-cascade note:** This subagent self-cascaded — wrote cross-source-log artifact + 3 thesis updates + committed (37d8a4ab) before parent task-notification arrived. Co-Authored-By line shows Claude Sonnet 4.6 (not parent Opus 4.8). New harness pattern observed; worth flagging for future-session awareness. The cascade was correct + complete per Critical Rule #10; parent agent NOT duplicating the cascade per discipline.
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-22-pm-subagent-semianalysis-gb200-2x5-throughput-improvement-inference-cost-elasticity.md`
+
+**Commit:** 37d8a4ab (subagent self-cascade)
+
+---
 
 ### [2026-06-22 PM-CITADEL-TRAINIUM-FOLLOWUP] User-shared Citrini-style brief on Amazon-Trainium-external + Citadel-TPU triggered 3-premise verification — TWO LOAD-BEARING brief-framing errors caught (Citadel 30%/4x is quant-simulation narrow-workload NOT generalizable; Austin "XPU-neocloud-rack" framing is SPECULATIVE not data-grounded — ZERO neocloud Trainium commitments industry-wide); NBIS thesis STRUCTURALLY REINFORCED by all-neoclouds-Nvidia-locked finding (~$100B+ aggregate backlog 100% NVIDIA); same news-cluster as AM-TRAINIUM B40
 
