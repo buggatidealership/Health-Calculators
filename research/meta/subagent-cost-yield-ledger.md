@@ -79,9 +79,9 @@
 **Window:** 2026-06-15 → 2026-07-15 (Critical Rule #16 detectability re-eval window)
 **Last refresh:** 2026-06-19 (H2 file birth + backfill of 36 entries spanning 5-day partial window)
 
-**Total fires (backfill window 2026-06-15 → 2026-06-22, 7-day partial + AM11/forward):** 47 (was 46; +1 PM-IBIDEN-BEAT-PROB 2026-06-22 PM)
-**Total estimated cost:** ~7.4M tokens (was ~7.3M; +73k PM-IBIDEN-BEAT-PROB) — REVISED UPWARD per AM11 cost-model correction; backfill estimates were 12-18k/subagent which was 8-10× too low for deep verification fires; AM11 actual = 309k for 2-subagent deep fire. 30-day projection: ~15-22M tokens (vs prior 4.7-6.6M).
-**Yield distribution:** HIGH 25 / MEDIUM 15 / LOW 2 / FRAMING-ERROR-CAUGHT 3 (primary class) / ZERO 0 (was 24/15/2/3/0; +1 HIGH PM-IBIDEN-BEAT-PROB)
+**Total fires (backfill window 2026-06-15 → 2026-06-22, 7-day partial + AM11/forward):** 48 (was 47; +1 PM-ROTATION-EMPIRICAL 2026-06-22 PM)
+**Total estimated cost:** ~7.5M tokens (was ~7.4M; +91k PM-ROTATION-EMPIRICAL) — REVISED UPWARD per AM11 cost-model correction; backfill estimates were 12-18k/subagent which was 8-10× too low for deep verification fires. 30-day projection: ~15-22M tokens.
+**Yield distribution:** HIGH 26 / MEDIUM 15 / LOW 2 / FRAMING-ERROR-CAUGHT 3 (primary class — note PM-ROTATION-EMPIRICAL yielded 2 load-bearing framing errors caught as secondary outputs but classified primary HIGH given Q1 substrate value) / ZERO 0 (was 25/15/2/3/0; +1 HIGH PM-ROTATION-EMPIRICAL)
 **Brief-framing errors caught (across all classes including HIGH entries with secondary catch):** ≥25 misattributions caught that would have propagated (B40.x stale-recycle dominates backfill; AM11 added 3 from anonymous-T2-critic claims: HB-should-be-used + won't-use-16-Hi-2027 + BESI-as-CPO-only)
 **Cost per HIGH-yield event:** ~150k tokens (revised upward 2× per AM11 calibration; was ~70k under old heuristic)
 **Audit-day verdict candidate (preliminary, 5-day + AM11 pace):** **STRONGLY POSITIVE** — HIGH+FRAMING-ERROR-CAUGHT = 20 of 37 entries (54%); HIGH+MEDIUM = 32 of 37 (86%); ZERO entries = 0; falsifier threshold (≥3 ZERO) NOT breached. Rule #16 detectability falsifier appears to be working as designed: subagent fires are producing material yield, NOT decorative noise. **User directional 2026-06-19 ratification UNCHANGED at the corrected cost basis** — cost-justification stands even with 2.3× cost revision because yield distribution unchanged (and AM11 cascade added a watchlist tier promotion + 3 framing errors caught).
@@ -95,6 +95,39 @@
 ---
 
 ## Entries (most recent first)
+
+### [2026-06-22 PM-ROTATION-EMPIRICAL] User-proposed NOW+DDOG→IBIDEN rotation triggered 3-premise verification — MATERIAL FRAMING-ERROR-CAUGHT on Fable 5 leg (capability-arrived not capability-not-there); NUANCED-PARTIAL on agents-vs-humans (direction right magnitude overstated 8×); software cohort BIFURCATION confirmed at Q1 prints (DDOG +31% bifurcation-winner / NOW -14-17% bifurcation-loser); my modal rec H2 (P~40%) = TRIM NOW only, HOLD DDOG, enter IBIDEN from cash decoupled
+
+**Trigger source:** User brain dump 2026-06-22 PM proposing rotation NOW + DDOG (held positions per portfolio/holdings.md) → IBIDEN (watchlist), premised on three load-bearing empirical claims: (1) agents > humans on code commits surpassed crossover this/last month; (2) Anthropic "rolled back" Fable 5 showing supervising-layer too early; (3) NOW + DDOG underperforming AI-infra cohort. User explicitly asked for my opinion + verification.
+
+**Subagents fired:** 1 (Opus 4.8, scoped 3-premise verification, ~50-80k target)
+**Estimated token cost:** ~91.1k ACTUAL (slightly over 80k upper bound; appropriate given 3 distinct premises requiring different web-search subdomains)
+**Items verified:** (1) GitHub Octoverse / Anthropic Economic Index / Jensen Huang GTC Taipei June 1 2026 on code-commit AI attribution — 41-46% AI-assisted LINES vs 4-5% autonomous-agent-pushed COMMITS (8× gap); 25× growth Sep 2025 → Mar 2026 in agentic PRs (4M → 17M); (2) Fable 5 suspension June 12 2026 by Commerce Sec Lutnick under Export Controls Reform Act — first time export controls applied to commercially-deployed AI model; Amazon "fix this code" + CVE-laden prompt was trigger; Anthropic disagreed; Fable 5 capability NOT in question (SWE-bench Pro 80.3% #1); (3) NOW Q1 FY26 Apr 22 — clean BEAT but stock -14-17% on Q2 cRPO guide step-down + organic guide flat + AI inflection NOT in organic guide; YTD ~-33-38%; Now Assist AI ACV $1.5B 2026 target; (4) DDOG Q1 2026 May 7 — first $1B quarter +32% YoY BEAT; +17.6% EPS BEAT; LLM Observability "contributing meaningfully for first time"; stock +31% earnings day; YTD +74-80% (~-20% off June 1 ATH on CEO insider sale); (5) software cohort bifurcation — CNBC "AI winners emerge in software" framing explicit (DDOG winner / NOW loser)
+
+**Per-subagent yield:** HIGH — Two MATERIAL framing corrections to user's argument structure + complete sizing-decision data substrate. **Critical insight: Fable 5 reframe INVERTS the signal direction** from user's "supervising-too-early" interpretation to "capability-arrived + regulatory-overhang" — strengthens AI-supercycle thesis (B45 reinforced) and strengthens DDOG LLM Observability mandate (TC-9 candidate ratified by trigger event being exactly DDOG use-case) while ENRICHING NOW sovereign-AI watch condition (US export controls = additional vector risk for US-domiciled SaaS in foreign gov accounts).
+
+**Brief-framing errors caught:** 2 LOAD-BEARING + 1 secondary
+1. **LOAD-BEARING INVERSION: Fable 5 "rollback" framing** — user's mental model treats this as Anthropic capability failure showing agents not yet supervisable; reality is US-government export control + Amazon agentic-coding capability concern = capability-ARRIVED with regulatory-overhang. Signal direction REVERSED.
+2. **LOAD-BEARING SCALE OVERSTATEMENT: agents > humans on code commits** — autonomous-agent commits are ~4-5% of total volume (NOT majority); 41-46% is the AI-ASSISTED lines-of-code metric (different metric); user appears to have metric-swapped (B40.3 pattern: misreading 41% AI-assisted lines → "AI commits surpassed humans"). Magnitude is 8× off the user's framing.
+3. Secondary: user's "rotation funds IBIDEN" framing — €69k Degiro cash already covers IBIDEN bimodal framework; rotation is arithmetically unnecessary for IBIDEN entry purposes; decoupling NOW/DDOG decision from IBIDEN decision surfaces independent thesis judgments per name
+
+**Thesis cascade triggered:**
+- `companies/NOW/thesis.md` — PM-ROTATION-EMPIRICAL cross-ref at top; Q1 print confirms bifurcation-loser data point (falsifier-PRECURSOR not formal falsifier); Fable 5 reframe ENRICHES existing AM6b/AM7 sovereign-AI watch; Position implication: 🟡 TRIM-CANDIDATE 25-50% user-discretion (decoupled from IBIDEN)
+- `companies/DDOG/thesis.md` — PM-ROTATION-EMPIRICAL cross-ref at top; Q1 print confirms bifurcation-winner status; LLM Observability "contributing meaningfully" = TC-9 candidate cluster ratified; Fable 5 reframe STRENGTHENS DDOG thesis (trigger event = DDOG LLM Obs use-case); Position implication: 🟢 HOLD — no size change — selling would exit AI-software-winner
+
+**Position implication delta:** NOW = TRIM-CANDIDATE 25-50% user-discretion (was HOLD with elevated EU+Asia sovereign-AI watch; bifurcation-loser at Q1 print adds falsifier-precursor). DDOG = HOLD UNCHANGED (was HOLD; Q1 print ratified). Net cohort delta: 0 forced moves; clear recommendation hierarchy if user chooses to act.
+
+**Material yield class:** HIGH (2 load-bearing framing-error corrections on user's argument + complete Q1 print substrate for both held names + bifurcation thesis confirmed at T1 + TC-9 candidate ratified + new regulatory-overhang sector-level signal surfaced via Fable 5 export-control event; cost 91k for 3-premise scope)
+
+**Audit-day classification:** POSITIVE — fire EARNED its cost by (a) catching 2 load-bearing framing errors that would have produced wrong rotation recommendation, (b) verifying Q1 prints for both held names empirically vs my pre-training recall, (c) surfacing new sector-level signal (US export controls on frontier AI model) with implications for sovereign-AI watch condition. Critical Rule #16 design intent VALIDATED at full conviction.
+
+**New sector-level signal surfaced (worth follow-up cascade):** Fable 5 June 12 2026 export-control suspension = first time US government applied Export Controls Reform Act to commercially-deployed AI model. Regulatory overhang specifically on frontier-model providers (Anthropic, OpenAI = private; but US semiconductor/AI infrastructure cohort affected if export controls broaden). Worth `sector/where-we-are.md` update on next sector-level synthesis turn — flagging as STALE-IF-NOT-CASCADED for tier-cascade-log discipline. (Note: this commit cascades only the per-name implications; sector-level cascade deferred per scoped-cascade rule given the export-control event was June 12 = 10 days old not new today.)
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-22-pm-subagent-software-rotation-empirical-premises.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
 
 ### [2026-06-22 PM-IBIDEN-BEAT-PROB] IBIDEN earnings beat-probability data pack for 2026-08-05 Q1 FY27 print — native-LLM synthesis surfaces BIMODAL setup: P(operational beat) ~57% but P(positive stock reaction) ~40% — decoupled per "予想据え置き" precedent; P(post-print dip ≥3%) ~60% even on operational beat; PM23 framework refined to STARTER + RESERVE-FOR-DIP
 

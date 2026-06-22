@@ -35,6 +35,33 @@
 
 ## Entries (most recent first)
 
+### [2026-06-22 PM-ROTATION-EMPIRICAL] 🟡 User-proposed NOW+DDOG→IBIDEN rotation triggered 3-premise verification — MATERIAL FRAMING-ERROR-CAUGHT on Fable 5 leg (inverted signal direction); software cohort BIFURCATION confirmed at Q1 prints (DDOG winner / NOW loser); cascaded to both held names
+
+**Trigger source:** User brain dump 2026-06-22 PM proposing rotation NOW + DDOG → IBIDEN under standing autonomous-fire-for-numerical-verification authority; Critical Rule #16 fired on user-shared thesis-implication brief.
+
+**Intake tier:** 🟡 DIRECTIONAL (Q1 print data is T1; bifurcation classification is T2 sentiment-driven; Fable 5 reframe is T1 multi-source)
+**Source:** Subagent fire `signals/cross-source-log/2026-06-22-pm-subagent-software-rotation-empirical-premises.md` (91.1k subagent_tokens; ~50-80k scope target slightly exceeded for 3-premise verification appropriate); sources include Anthropic/National Law Review/Time/Al Jazeera/Fortune (Fable 5 T1) + arXiv 2601.17581 (code-commit T1) + ServiceNow IR + Datadog SEC 8-K (Q1 prints T1).
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/NOW/thesis.md` top-of-file — new PM-ROTATION-EMPIRICAL cross-ref with Q1 print bifurcation-loser data point + Fable 5 sovereign-AI watch enrichment; 🟡 DIRECTIONAL on Position implication (TRIM-CANDIDATE 25-50% user-discretion; falsifier-PRECURSOR added but pre-committed AM6b/AM7 falsifiers NOT formally fired)
+- `companies/DDOG/thesis.md` top-of-file — new PM-ROTATION-EMPIRICAL cross-ref with Q1 print bifurcation-winner data point + Fable 5 LLM-Obs-thesis-strengthening; 🟢 HARD on Position implication (HOLD unchanged; selling would exit AI-software-winner)
+- `meta/subagent-cost-yield-ledger.md` — new entry at top (48th fire, 91.1k tokens, HIGH yield class, 2 load-bearing framing-errors caught); audit summary recount
+
+**Files NOT touched (no claim intersection):**
+- `companies/IBIDEN/thesis.md` — IBIDEN entry decision is DECOUPLED from rotation (€69k cash covers framework); PM-IBIDEN-BEAT-PROB synthesis from earlier today remains current
+- `companies/{HYNIX,MRVL,SNDK,KIOXIA,MURATA,NBIS,SUMCO}/thesis.md` — no rotation implications for these; cohort-relative comp used as context only
+- `sector/where-we-are.md` — Fable 5 export-control event = sector-level regulatory-overhang signal worth surfacing but DEFERRED per scoped-cascade rule (event was June 12 = 10 days old; no fresh inflection today; surface on next sector synthesis turn); flagged in ledger entry for follow-up
+- `sector/scenarios.md` — no scenario reweight (S5 Regulatory shock weight unchanged absent new evidence of broader export-control expansion)
+- `watchlist/candidates.md` — IBIDEN entry already current from PM-IBIDEN-BEAT-PROB
+
+**Stale flags fired:** None new. (Sector-level Fable 5 follow-up flagged as deferred-cascade item in ledger; tier-cascade-log records the deferral so audit can track.)
+
+**Lag-1 SHA fill:** PM-IBIDEN-BEAT-PROB commit was 689ca4c0.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-22 PM-IBIDEN-BEAT-PROB] 🟡 IBIDEN 2026-08-05 Q1 FY27 earnings beat-probability data pack — BIMODAL print setup synthesized via native-LLM reasoning over 6-axis verified substrate; PM23 framework REFINED to STARTER + RESERVE-FOR-DIP
 
 **Trigger source:** User explicit directive 2026-06-22 PM under standing autonomous-fire-for-numerical-verification authority; 6-axis scope (historical peak margins / last earnings / next earnings / news flow / analyst consensus / sentiment-positioning) requiring substrate verification BEFORE native-LLM beat-probability synthesis. Subagent provides data; parent (me) owns reasoning synthesis applying B45+B54+B57+N-th order frameworks.

@@ -1,5 +1,23 @@
 # Datadog (DDOG) — Thesis
 
+**🟢 2026-06-22 PM-ROTATION-EMPIRICAL cross-ref — Q1 2026 print CONFIRMED BIFURCATION-WINNER status within software cohort; LLM Observability "contributing meaningfully" for first time = TC-9 candidate cluster validated; user's rotation premise NOT VALID for DDOG (winning the AI-software bifurcation; do not sell):** Per `signals/cross-source-log/2026-06-22-pm-subagent-software-rotation-empirical-premises.md` (1 Opus 4.8 subagent 91.1k subagent_tokens; 3-premise verification: agents-vs-humans code-commits + Fable 5 rollback + NOW/DDOG most recent print). User proposed NOW+DDOG→IBIDEN rotation premised on "software supervising-layer too early."
+
+**Verified findings (T1):**
+- **DDOG Q1 2026 print (May 7 2026):** Revenue $1.006B +32% YoY = **first $1B quarter**; BEAT $959.9M consensus by +4.8%; non-GAAP EPS $0.60 vs $0.51 BEAT by +17.6%; customers ≥$100K ARR ~4,550 +21% YoY; new logo bookings ALL-TIME RECORD, "more than doubled YoY." **LLM Observability "contributing meaningfully to billings for first time in Q1 2026"** (T1 SEC 8-K) — NO specific ARR figure disclosed (deliberate non-disclosure).
+- **Stock reaction:** **+31% on earnings day** (T2 CNBC "AI winners emerge in software").
+- **Multiples:** EV/NTM Revenue ~10.1× (Apr 2026); TTM ~20.9× (Jun 8 2026). Stock YTD 2026 **+74-80%**; ATH $277.49 June 1 2026; current ~$219-224 (pulled back ~-20% from ATH, partly CEO insider selling).
+- **Full-year 2026 guide:** $4.30-4.34B revenue. Next earnings August 6 2026.
+- **Cohort comp:** DDOG +31% on Q1 vs NOW -14-17% on COMPARABLE BEAT — market explicitly bifurcated. DDOG = "AI winner" frame; NOW = SaaSpocalypse frame.
+
+**Fable 5 reframe (LOAD-BEARING for TC-9 thesis):**
+User cited "Anthropic rolled back Fable 5" as supervising-layer-not-there evidence. Verification: **Fable 5 was SUSPENDED by US Commerce Secretary Howard Lutnick June 12 2026 under Export Controls Reform Act** — NOT a quality/capability rollback. Trigger was Amazon researchers' "fix this code" prompt with CVE-laden code producing alarming agentic-coding output. Signal direction OPPOSITE to user's intended logic: agentic coding capability-arrived + regulatory-overhang. **For DDOG specifically:** this STRENGTHENS the LLM Observability mandate thesis — the trigger event (agentic code with security vulnerabilities) is exactly the use-case DDOG LLM Observability + Security Monitoring addresses. TC-9 (agentic-observability mandate) candidate cluster ratified by yet another vector.
+
+**Thesis status:** DDOG is winning the AI-software bifurcation — Q1 print is the data point. Current ~20% pullback from June 1 ATH is healthy reset on CEO insider sale + valuation breather, NOT thesis break. Aug 6 2026 next earnings is the next material test.
+
+**Position implication:** 🟢 HARD — **HOLD — no size change** — DDOG is the bifurcation-WINNER vs NOW within the software cohort; Q1 +31% earnings reaction empirically validates LLM Observability tailwind; current ~20% pullback from ATH is post-ATH reset not thesis break; user-proposed rotation premise (sell DDOG to fund IBIDEN) NOT VALID for DDOG specifically — selling would exit an AI-software-winner that just had its strongest empirical validation. User holds 26sh @ $203.37 BEP / +10.07% lifetime / 2.6% Degiro. Aug 6 2026 next print is the next thesis-evidence catalyst. **Decoupled from any IBIDEN entry decision** (€69k cash covers IBIDEN bimodal framework w/o rotation). If user wants to crystallize one position, NOW is the cleaner trim candidate per its own bifurcation-loser thesis — not DDOG.
+
+---
+
 **2026-06-17 AM7 cross-ref — 🟢 STRONG POSITIVE — EU AI Act observability mandate is direct commercial opportunity:** Per `signals/cross-source-log/2026-06-17-am7-nbis-uk-deal-deep-verification-sovereign-ai-stack-9layer-5archetype-pc14-n3-asia-promotion.md`. PC-14 N=3+ promotion (US + EU + Asia 4-country) makes Layer 7 (Governance/Observability) a multi-billion-jurisdiction structural mandate. EU AI Act phasing into enforcement 2026 requires audit trail + kill-switch + red-team eval for high-risk AI systems — directly addressable by DDOG LLM Observability + AI eval suite. DDOG EU presence (local EU DCs) well-positioned. Asia confirmation (Korea AI Basic Act Jan 2026 binding + Japan 2026 AI Basic Plan + Taiwan AI Basic Act Dec 2025) = additional sovereign observability TAM. **Position implication: 🟢 HOLD — STRONG POSITIVE; EU AI Act enforcement cadence is catalyst watch; DDOG's TC-9 candidate cluster (agentic-observability mandate) ratifies via 3-continent sovereign convergence.**
 
 ---
