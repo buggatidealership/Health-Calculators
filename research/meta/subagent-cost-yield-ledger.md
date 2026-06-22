@@ -96,6 +96,35 @@
 
 ## Entries (most recent first)
 
+### [2026-06-22 PM-IBIDEN-VERIFY] IBIDEN margin/AI-mix/glass-core verification — LOAD-BEARING REFRAME: glass-core CoPoS = thesis-CONFIRMER not thesis-killer; my prior 3rd-order analysis (P~40% disruption) INVERTED to P~70% confirmer; STARTER-MAX-NOW defensible per PM23 framework; B57 candidate flagged
+
+**Trigger source:** User-codified standing directive 2026-06-22 PM: "Whenever it is... if... whenever you ask about [verifying] to ensure you have accurate hard numerical data, never ask. Just fire." Numerical-verification = autonomous-fire-by-default discipline established.
+**Subagents fired:** 1 (Opus 4.8, scoped speed-over-depth on 5 specific IBIDEN datapoints)
+**Estimated token cost:** ~41.2k ACTUAL (UNDER 50-80k scoped-fire prediction; very efficient)
+**Items verified:** IBIDEN current operating margin Q1/Q2/Q3 FY26 actuals + FY27 guide; AI mix % of revenue + per-segment margin; premium-tier FC BGA market-share trajectory (IBIDEN vs Unimicron/ASE/SEMCO/Shinko); **glass-core (TSMC PLP/CoPoS) displacement timing PRIMARY watch per N-th order**; ¥500B FY26-28 capex execution pace
+
+**Per-subagent yield:** HIGH (action-shifting) — MATERIAL REFRAME of my prior glass-core analysis from earlier today. Subagent surfaced TSMC formally announced June 2026 IBIDEN + Innolux (3481.TW) as glass-core CoPoS co-development partners; 3-layer ABF/glass/ABF architecture means IBIDEN supplies the ABF layers in glass-core stack. Displacement risk INVERTED to co-monetization. Glass-core PM23 watch flag goes from PRIMARY thesis-killer (P~40%) to PRIMARY thesis-CONFIRMER (P~70%). FY26 margin 14.5% (below historical 15-25%); recovering Q3 15.2% / FY27 guide 18% blended / 22.7% Electronics. AI mix 85% of Electronics revenue. Capex on-pace AND accelerating (Phoenix fab broke ground Jan 2026 = beyond original ¥500B plan; mid-term raised to ¥150B FY28). Remaining bear-case: valuation 70x PER + hyperscaler pricing discipline yellow flag + FY26 margin recovery execution.
+
+**Brief-framing errors caught:** 1 LOAD-BEARING + 1 secondary
+1. **LOAD-BEARING: my own 3rd-order N-th order analysis was wrong on glass-core direction** — I treated as thesis-killer; verification shows thesis-confirmer (IBIDEN inside glass-core architecture as TSMC CoPoS co-development partner, not displaced by it)
+2. Pre-training-era reasoning anchored on "substrate-tech generations replace each other" pattern; reality is "substrate-tech generations co-exist in hybrid architectures with incumbents as co-development partners"
+
+**Thesis cascade triggered:** `watchlist/candidates.md` IBIDEN entry — REFRAMED from WAIT-FOR-PULLBACK lean to STARTER-MAX-NOW defensible; full-size conditional triggers (pullback OR FY27 Q1 print confirmation) still binding
+
+**Position implication delta:** NONE direct (no held position; watchlist candidate framing updated) — but PM23 framework reframe means 0.5% STARTER MAX bridge position now MORE DEFENSIBLE than 48 hours ago for any user who acts on the watchlist
+
+**Material yield class:** HIGH (action-shifting reframe of primary N-th order thesis-falsifier + numerical anchors verified + 2 adjacent beneficiaries surfaced [Innolux 3481.TW + Ajinomoto 2802.T] + B57 candidate flagged + cost-efficient under 50k tokens)
+
+**Audit-day classification:** POSITIVE — fire EARNED its cost by correcting a load-bearing analytical error in my own prior framework (B54 T1-as-rulebook moment: actual TSMC announcement T1 overturned analyst-narrative T2/T3 anchoring). Critical Rule #16 design intent VALIDATED.
+
+**New B57 candidate flagged:** "thesis-killer-vs-thesis-confirmer inversion" — when assumed-disruptive technology becomes co-monetization for incumbent. Glass-core for IBIDEN is the canonical example today. Worth codifying because pre-training-era "killer technology" framing is common pattern that misses hybrid-coexistence-with-incumbent reality. Joins B40.4/B40.5/B47-B56 for June 24 monthly audit codification.
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-22-pm-subagent-ibiden-margin-ai-mix-glass-core-verification.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-22 AM-TRAINIUM] Amazon Trainium external sales (Jassy $50B) MRVL implications — fire EARNED cost by surfacing LOAD-BEARING prior-assumption FALSIFICATION (MRVL T3 ASIC = Alchip won, not MRVL); CLASS B framing correction not Class A size change
 
 **Trigger source:** 2026-06-22 morning brief Item 10 — TechCrunch "Amazon in talks to sell Trainium externally; Jassy $50B opportunity." Direct MRVL sizing-touching item per AM-BRIEF-TRIAGE same morning.
