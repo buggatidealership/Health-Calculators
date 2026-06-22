@@ -96,6 +96,35 @@
 
 ## Entries (most recent first)
 
+### [2026-06-22 AM-TRAINIUM] Amazon Trainium external sales (Jassy $50B) MRVL implications — fire EARNED cost by surfacing LOAD-BEARING prior-assumption FALSIFICATION (MRVL T3 ASIC = Alchip won, not MRVL); CLASS B framing correction not Class A size change
+
+**Trigger source:** 2026-06-22 morning brief Item 10 — TechCrunch "Amazon in talks to sell Trainium externally; Jassy $50B opportunity." Direct MRVL sizing-touching item per AM-BRIEF-TRIAGE same morning.
+**Subagents fired:** 1 (Opus 4.8, scoped speed-over-depth on single-item verification)
+**Estimated token cost:** ~56.4k ACTUAL (UNDER 50-80k scoped-fire prediction; efficient)
+**Items verified:** Jassy $50B quote source + scope + horizon (April 9 2026 shareholder letter = ENTIRE portfolio merchant-equivalent annual run rate, NOT external-Trainium-specific); external sales timeline (Peter DeSantis "few years"; zero confirmed customers); MRVL Trainium 3 ASIC design lead (Alchip won per SemiAnalysis Dec 2025; MRVL "ends up big loser"); MRVL Trainium 4 ASIC design lead (MRVL regained; sample Q4 2026); 5-year MRVL-AWS Dec 2 2024 agreement; MRVL +7.27% June 18 to $310.58; KeyBanc PT $260→$385; JPM PT $130; $255 dispersion = 2.0× spread
+
+**Per-subagent yield:** HIGH — Two material corrections. (1) Morning brief $50B framing-error caught (portfolio-total NOT external-Trainium-specific). (2) **LOAD-BEARING prior-thesis-assumption FALSIFIED** — PM-3MODEL Subagent C reconstruction carried "MRVL Trainium 3 ASIC firm POs FY27"; actual SemiAnalysis Dec 2025 T1 source says Alchip won T3, MRVL "ends up big loser." JPM "firm POs" line was MRVL connectivity-layer content (Ara DSP + SerDes + retimer), NOT ASIC-lead revenue. Critical Rule #15 + B45 regime-check FIRES on prior over-stated MRVL-T3 ASIC exposure assumption.
+
+**Brief-framing errors caught:** 2 (Jassy $50B portfolio-vs-Trainium-external; MRVL T3 ASIC lead vs connectivity-layer)
+
+**Thesis cascade triggered:** `companies/MRVL/thesis.md` — AM-TRAINIUM cross-ref replaces AM-BRIEF-TRIAGE-pending entry with full framing-correction + Alchip-T3 + MRVL-T4 + connectivity-layer-thesis-reinforced + B46 valuation-tension widened + B45 regime-check + B56 candidate flagged
+
+**Position implication delta:** NONE — 0 size moves; HOLD 5.9% Active CONFIRMED; thesis FRAMING corrected; conclusion intact; Q2 FY27 print Aug-26 remains formal trigger gate; B46 valuation discipline applies (don't chase price)
+
+**Material yield class:** CLASS B / MEDIUM (thesis-framing correction not size-changing). Fire EARNED cost by catching framing error + surfacing prior-assumption falsification BEFORE any size move triggered. Critical Rule #16 design intent VALIDATED.
+
+**Audit-day classification:** POSITIVE
+
+**Convex hull (subagent P-weights, my model):** W1 P=15% / **W2 MODAL P=55%** / W3 P=20% / W4 P=10%. Modal=W2; morning-brief implicitly anchored on W1 = framing error.
+
+**B56 candidate flagged:** "T2-reconstruction-as-T1-equivalent confusion" — PM-3MODEL Subagent C reconstruction carried "MRVL T3 ASIC lead" assumption from JPM-reconstructed-via-WebSearch source; got treated as durable thesis-anchor when actually recall-stitched interpretation; should have been flagged RECONSTRUCTED-NOT-VERIFIED. Joins B40.4/B40.5/B47-B55 for June 24 monthly audit codification.
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-22-am-subagent-amazon-trainium-external-sales-mrvl-implications.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-22 AM-VERIFICATION] Anthropic $47B ARR + Zhipu/MiniMax revenue-mix verification — user enterprise-premium thesis CONFIRMED + REINFORCED; recommendation REVERSED to Zhipu > MiniMax post-data; my training-data Anthropic ARR was wrong by 2× at end-2025
 
 **Trigger source:** User granted autonomous-fire authority for verification questions surfaced during reasoning; three datapoints flagged in prior turn (1. Anthropic ARR Subagent B $47B vs my training-recall $4-5B / 2. Zhipu 2025 revenue mix / 3. MiniMax 2025 revenue mix); user's enterprise-premium pushback needed empirical test before sizing-imminent decision
