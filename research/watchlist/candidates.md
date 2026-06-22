@@ -1201,6 +1201,22 @@ Per `signals/cross-source-log/2026-06-18-am8-evening-brief-2subagent-anthropic-s
 
 ### WATCH — L27-TIMING-DEFERRED (NEW sub-class 2026-06-21; investability + listed-status PASS, entry-timing FAIL)
 
+- **🟡 MiniMax (HKEX: 00100) — WATCH-TIMING-DEFERRED 2026-06-22 AM** (per `signals/cross-source-log/2026-06-22-am-subagent-minimax-vs-zhipu-peer-comparison.md`, 1 Opus 4.8 subagent 81.2k subagent_tokens)
+  - **Identity:** Chinese foundation-model company; listed HKEX 00100 on 2026-01-09 (1 day after Zhipu 2513.HK); peer-listed name in Chinese-LLM space; both potential Hang Seng Index inclusion candidates
+  - **Source signal:** PM-STATEHOW 2026-06-21 surfaced MiniMax as peer (Chinese press references >HK$300B); user 2026-06-22 AM requested peer comparison subagent fire vs Zhipu for sizing-decision diligence
+  - **Why directionally interesting (vs Zhipu):** (a) 62% off ATH vs Zhipu at-ATH = better relative entry today; (b) 73% international revenue vs Zhipu mostly-China = geographic diversification; (c) NOT on BIS Entity List today (Zhipu mainland OpCo listed 2025-01-15) = cleaner near-term profile; (d) 3-4× cheaper API pricing ($0.30/$1.20 per Mtok vs Zhipu $1.00/$3.20-$4.40); (e) clean B2C alt-data revenue forecasting input: 27.6M MAU + 1.77M paid users + >70min daily engagement; (f) 2025 revenue $79M +158.9% YoY (faster growth than Zhipu +131.9%)
+  - **L27-DIMENSION VERDICTS:**
+    - ✅ **Broker access PASS** — Degiro confirms HKEX access (T1 [DEGIRO HKEX blog](https://www.degiro.com/uk/knowledge/blog/hkex-hongkong-stock-exchange))
+    - ✅ **Listed-status PASS** — HKEX 00100 confirmed live (T1 HKEX)
+    - ❌ **Entry timing FAIL** (less binding than Zhipu) — Today's intraday +12.33% to HK$497.60; market cap HK$156-321B; 62% off ATH; per [Yahoo Finance 0100.HK T1](https://finance.yahoo.com/quote/0100.HK/)
+    - ⚠️ **Geopolitical MIXED but cleaner than Zhipu** — NOT on BIS Entity List today; explicit policy-pressure to add per [Law Reform Institute T2 distillation paper](https://lawreforminstitute.org/distillation031326.pdf); Affiliates Rule 50%-rollup still SUSPENDED until 2026-11-10 binary catalyst (shared with Zhipu)
+  - **Capability gap vs Zhipu (anti-leading honest):** MiniMax-M2 AA Intelligence Index 28 vs GLM-5.2 51 — MATERIALLY less capable on benchmark composite. MoE 230B/10B-active. Differentiation = multimodal (Hailuo Video) + consumer (Talkie 11M US MAU) + cheaper API + open-weights with commercial gating
+  - **User open-source-monetization-hypothesis verification:** PARTIALLY FALSIFIED — MiniMax-M2 is ALSO open-weights (with commercial gating, not closed-source); license is NOT the monetization explainer between these two names. Real differentiator = B2C-consumer (MiniMax) vs B2B-sovereign (Zhipu) + geographic mix + pricing strategy
+  - **CRITICAL CORRELATION FINDING vs Zhipu:** Both names SHARE the dominant 2026-11-10 Affiliates Rule binary catalyst + HKEX cyclicality + broad China-AI sentiment. **Split-bet across both does NOT diversify risk** — pure stacking of correlated exposure. User's "geopolitical diversification" framing for split-bet rejected per this finding.
+  - **Conditional entry triggers (parallel to Zhipu):** >25% pullback / 2026-11-10 Affiliates Rule clarity / HSI inclusion absorption / GLM-6 + MiniMax-M3 launch exhaustion
+  - **Status: WATCH-TIMING-DEFERRED (same L27 sub-class as Zhipu).** If user must act today, MiniMax > Zhipu on relative entry + geopolitical + B2C alt-data; but WAIT BOTH is preferred discipline per correlation finding.
+  - **Cohort impact:** Same as Zhipu — NEUTRAL across held positions; PC-14 N+1 increment as second canonical China-AI foreign-investor-accessible direct play
+
 - **🟡 Knowledge Atlas Technology JSC Ltd / 北京智譜華章科技股份有限公司 (HKEX: 2513) — WATCH-TIMING-DEFERRED 2026-06-21 PM** (per `signals/cross-source-log/2026-06-21-pm-subagent-statehow-knowledge-atlas-glm52-verification.md`, 1 Opus 4.8 subagent 98.4k subagent_tokens)
   - **Identity:** This IS Zhipu AI's listed parent vehicle. User's "Statehow Knowledge Atlas" name = voice-to-text phonetic-stab of "Zhipu" (智譜) + English company name "Knowledge Atlas" concatenated by speech engine. Per Subagent A 2026-06-21 PM GLM-5.2 deep dive (`signals/cross-source-log/2026-06-21-pm-subagent-a-glm52-zhipu-deep-dive-multilingual.md`).
   - **Source signal:** User-shared name verification request 2026-06-21 PM + subagent T1 verification via HKEX news prospectus + CNBC/Bloomberg 2513-HK quote + Federal Register Entity List 2025-01-16 + Sina Finance/Eastmoney Chinese-name disclosure

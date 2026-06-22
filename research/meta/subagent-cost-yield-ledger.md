@@ -96,6 +96,40 @@
 
 ## Entries (most recent first)
 
+### [2026-06-22 AM-MINIMAX] MiniMax (00100.HK) vs Zhipu (2513.HK) peer comparison for sizing-imminent decision; user open-source-monetization-hypothesis PARTIALLY FALSIFIED; correlation finding REJECTS split-bet thesis; WAIT BOTH preferred
+
+**Trigger source:** User asked for MiniMax peer comparison vs Zhipu post-PM-STATEHOW + this morning's Zhipu deep-dive synthesis context; sizing-imminent (~30 min HKEX close window); user-specific ask on USER-GROWTH metrics as alt-data revenue input + open-source-monetization-struggle hypothesis verification
+**Subagents fired:** 1 (Opus 4.8, speed-over-depth instruction, scoped peer comparison)
+**Estimated token cost:** ~81.2k ACTUAL (under 100-150k scoped-fire prediction; efficient execution per time-pressure instruction; cost model holding)
+**Items verified:** MiniMax HKEX 00100 listing + Degiro investability (L27 broker access PASS) / today's intraday price action / market cap / MiniMax-M2 architecture + AA Index + pricing / 2025 revenue + growth metrics / consumer-product MAU + paid users / international revenue mix / BIS Entity List status / Affiliates Rule applicability / capability comparison vs Zhipu
+
+**Per-subagent yield:** HIGH — Multiple material findings overturned my prior split-entry recommendation:
+1. MiniMax IS investable on Degiro (L27 PASSES broker access; same timing-fail as Zhipu but 62% off ATH vs Zhipu at-ATH)
+2. User open-source-monetization-struggle hypothesis PARTIALLY FALSIFIED — MiniMax-M2 is ALSO open-weights with commercial gating; license is NOT the explainer; real differentiator = B2C vs B2B + geographic mix + pricing strategy
+3. **CRITICAL CORRELATION FINDING:** the two names SHARE dominant 2026-11-10 Affiliates Rule binary + HKEX cyclicality + broad China-AI sentiment; split-bet does NOT diversify, just stacks correlated exposure
+4. MiniMax cleaner alt-data revenue forecasting input than Zhipu (27.6M MAU + 1.77M paid + 73% international vs Zhipu HF downloads B2B-proxy only)
+
+**Brief-framing errors caught:** 3
+1. "MiniMax closed-source" framing → actually open-weights with commercial gating
+2. "Split-bet diversifies" thesis → REJECTED via correlation finding (same binary catalyst stack)
+3. User-growth alt-data path is materially STRONGER for MiniMax (clean MAU/paid/engagement disclosure) than Zhipu (HF download proxy only)
+
+**Thesis cascade triggered:** `watchlist/candidates.md` (MiniMax 00100.HK new WATCH-TIMING-DEFERRED entry in L27-TIMING-DEFERRED section; positioned ABOVE Zhipu 2513.HK in priority order per relative-entry analysis + cleaner geopolitical profile). NO held-cohort thesis updates (Critical Rule #8 binding).
+
+**Position implication delta:** NONE — 0 size moves; 1 new watchlist candidate (MiniMax); updated recommendation framework (WAIT BOTH preferred; if must act today, MiniMax > Zhipu).
+
+**Material yield class:** HIGH (substantive recommendation shift + user hypothesis test + correlation finding + new investable name surfaced + cost-efficient under 100k tokens)
+
+**Audit-day classification:** POSITIVE (Critical Rule #16 fire EARNED its cost by overturning prior split-entry recommendation before sizing-imminent decision; preserved capital from correlated-risk-stacking mistake)
+
+**New finding for codification candidate:** "correlated-peer-as-diversification-illusion" — when two candidates share dominant binary catalyst + market structure + sentiment driver, split-bet is RISK STACKING not diversification. Splits across uncorrelated factors (geography / sector / regime) diversify; splits across correlated peers don't. Candidate for B50 codification at June 24 monthly audit (with B47/B48/B49/B40.4/B40.5).
+
+**Cross-source-log:** `signals/cross-source-log/2026-06-22-am-subagent-minimax-vs-zhipu-peer-comparison.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-21 PM-IRAN-SHOCK] Iran-US shock Monday-open cohort stress-test — material H1-H4 weight recalibration; H4 stalled-but-not-broken P=45% modal; bear-case P=40% down from P=80%; NBIS pre-registered falsifier $223 zone surfaced; per Critical Rule #8 no falsifier fires from macro
 
 **Trigger source:** User flag 2026-06-21 evening "Iran-US talks are quite bad right now" + explicit "go ahead, dont ask. do it" directive for fuller subagent stress-test

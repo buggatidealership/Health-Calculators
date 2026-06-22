@@ -35,6 +35,45 @@
 
 ## Entries (most recent first)
 
+### [2026-06-22 AM-MINIMAX] 🟢 MiniMax (00100.HK) vs Zhipu (2513.HK) peer comparison — sizing-decision diligence; user open-source-monetization-hypothesis PARTIALLY FALSIFIED; correlation finding REJECTS split-bet thesis; WAIT BOTH preferred but if must act today MiniMax > Zhipu; new B50 candidate "correlated-peer-as-diversification-illusion"
+
+**Trigger source:** User 2026-06-22 AM follow-up to PM-STATEHOW Zhipu deep-dive synthesis: "run Minimax compared to [Zhipu]... check the growth in terms of users of the model as well. Right? Because, ultimately, the growth of the users is an alternative data point that you can use to model out potential revenue increase. But then open source models will always probably struggle a bit more." User sizing-imminent (HKEX ~25-30 min to close).
+
+**Intake tier:** 🟢 HARD — multi-source T1/T2 verification (English + Chinese press); subagent cost 81.2k under 100-150k prediction; substantive recommendation shift documented; user hypothesis tested.
+
+**Source:** This entry + subagent cross-source-log artifact + watchlist MiniMax new entry + ledger AM-MINIMAX entry.
+
+**Tier moves (Principle #37 scoped-cascade):**
+- `signals/cross-source-log/2026-06-22-am-subagent-minimax-vs-zhipu-peer-comparison.md` NEW — joint-state comparison + user-growth metrics + hypothesis verification + correlation finding + recommendation
+- `watchlist/candidates.md` — MiniMax 00100.HK NEW WATCH-TIMING-DEFERRED entry in L27-TIMING-DEFERRED section (positioned ABOVE Zhipu 2513.HK per relative-entry + cleaner geopolitical profile)
+- `meta/subagent-cost-yield-ledger.md` — AM-MINIMAX entry HIGH yield class; 81.2k actual cost
+- `meta/tier-cascade-log.md` — this entry + lag-1 SHA fill on PM-IRAN-SHOCK (1bc5b395)
+
+**Files NOT touched:**
+- All held cohort thesis files (NEUTRAL impact across cohort; Critical Rule #8 binding)
+- Zhipu 2513.HK watchlist entry — keeps existing PM-STATEHOW framing; MiniMax added as peer
+- `meta/biases-watchlist.md` B50 candidate codification deferred to June 24 monthly audit (with B47/B48/B49/B40.4/B40.5)
+- `signals/triangulation.md` PC-14 N+1 increment via second canonical China-AI listed direct play surfaced — deferred to June 24 audit
+- `CLAUDE.md` — findings don't rise to Critical Rule level
+
+**Yield class:** HIGH. Substantive recommendation shift PRE-sizing-decision + user hypothesis test (PARTIALLY FALSIFIED) + correlation finding (rejects split-bet thesis cleanly) + new investable name surfaced (MiniMax) with cleaner L27 profile than Zhipu + new B50 candidate flagged.
+
+**Critical Rule #16 status:** Fired (1 Opus 4.8 scoped + speed-over-depth). Ledger entry appended in same commit per H2 discipline.
+
+**Critical Rule #15 binding application (user hypothesis test):** User stated hypothesis ("open source models will always probably struggle a bit more" on monetization) was directionally-appealing but wrong as the explainer for these two specific names. Both names are open-weights with commercial gating; differentiator is B2C vs B2B + geographic mix + pricing. Surfaced the partial-falsification honestly rather than confirming user's framing. Discipline working as designed.
+
+**B50 candidate (correlated-peer-as-diversification-illusion):** When two candidates share dominant binary catalyst (here: 2026-11-10 Affiliates Rule) + market structure (HKEX) + sentiment driver (China-AI), split-bet across them = correlated-risk-stacking, NOT diversification. True diversification requires uncorrelated factor exposure (geography / regime / sector). Pattern worth codifying for future "split this position across two peer-names" thinking. Joins B40.4 + B40.5 + B47 + B48 + B49 for June 24 monthly audit.
+
+**Cohort impact:** NEUTRAL across all held positions (Critical Rule #8 binding). No size moves. New watchlist candidate added with explicit positioning vs Zhipu.
+
+**Loop-validation note:** User explicitly requested a calibration-discipline application (compare named peers + verify their own stated hypothesis). Subagent fan-out delivered an honest reframe that overturned my prior split-entry recommendation pre-sizing-imminent. Critical Rule #16 + Critical Rule #15 + Critical Rule #8 working in tandem prevented likely correlated-risk-stacking mistake. This is the discipline working at execution time, not just audit time.
+
+**Cascade-fatigue check:** 24 cascades this session window (...+PM-3MODEL+PM-STATEHOW+PM-IRAN-SHOCK+AM-MINIMAX); within Principle #37 discipline.
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-21 PM-IRAN-SHOCK] 🔴 Iran-US shock Monday-open cohort stress-test — user flag "talks quiet bad" + "do it" directive → 1 Opus 4.8 subagent 102.2k tokens → material H1-H4 weight recalibration (H4 stalled-but-not-broken P=45% MODAL; bear-case P=40% down from P=80%); NBIS pre-registered falsifier $223 zone surfaced; Critical Rule #8 binding (no falsifier fires from macro alone); 5 critical Monday-morning watch levels documented; 0 size moves; 0 held-cohort thesis-rating changes beyond NBIS Iran-shock cross-ref
 
 **Trigger source:** User flag 2026-06-21 evening "Iran-US talks are quite bad right now. markets might not be driven by fundamentals tomorrow"; user explicit directive "go ahead, dont ask. do it" for fuller subagent stress-test after my main-loop WebSearch + initial H1-H4 framework.
@@ -68,7 +107,7 @@
 
 **Loop-validation note:** This cascade demonstrates Critical Rule #16 + Critical Rule #8 working as designed in tandem. My evening WebSearch produced a directionally-correct-but-too-bearish read (P=80% bear-case). User flag + "do it" directive → subagent fan-out → data-grounded recalibration to P=40% bear-case → Critical Rule #8 prevented ad-hoc macro reaction → pre-registered falsifier ($223 NBIS) remains the binding gate. The harness produced honest direction-finding without over-reaction. This is the discipline working at scale.
 
-**Commit:** {to-be-filled-in-next-cascade}
+**Commit:** 1bc5b395
 
 ---
 
