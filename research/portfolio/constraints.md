@@ -1,6 +1,38 @@
 # Portfolio Constraints — Load-Bearing Framing
 
-**Last updated:** 2026-06-22 PM (user explicit clarification: 3-year runway binding; ~€30k of €69k Degiro cash deployable; ~€39k runway-reserved)
+**Last updated:** 2026-06-22 PM (user explicit clarification UPDATE 2: total cash target €260k; burn revised to €70k/year; family support factor added; counterintuitive-acknowledged 2027-2028 cycle-peak window)
+
+## 🔴 2026-06-22 PM UPDATE 2 — TOTAL CASH FRAMEWORK + BURN REVISION + FAMILY FACTOR
+
+**User verbatim 2026-06-22 PM (second clarification, ~30 min after first €30k-deployable clarification):** *"I wanna have two hundred and sixty k in cash, and all the rest essentially deployed. The reason why is because, well, I need some money on this side to be able to bridge a potential complete crash... I do know that a three year runway is quite long, especially if the cycle extends into twenty twenty seven and might peak around the end of twenty twenty seven or a twenty twenty eight. it is counterintuitive to keep the amount of cash. Um, but I wanna have sort of two hundred and sixty k in cash to be able to bridge any type of issues that's literally worst case scenario. The portfolio goes to zero, which, again, is a very unlikely scenario. But, again, you never know. I wanna have cash on this side to be able to fund my living expenses, which I'm roughly taking seventy k a year for. And then I wanna have some extra money to be able to sustain My mom, for example. like, help, uh, with paying her taxes."*
+
+| Updated framework | Value | Notes |
+|---|---|---|
+| **Total cash target (across all accounts)** | **€260k** | UNTOUCHABLE for equity deployment; bridge for worst-case "portfolio goes to zero" tail scenario |
+| **Annual burn (REVISED)** | **€70k/year** | UP from €60k June 4 disclosure (+17%); incorporates family support component |
+| **Implied runway at zero portfolio income (my model)** | **~3.7 years** | €260k / €70k = 3.71 years |
+| **Family support factor (NEW qualitative)** | mom's tax support (per user) | Additional uses beyond personal burn explain buffer above pure 3-yr-runway math |
+| **Deployable cash (from prior PM update)** | ~€30k | Subset of €69k Degiro cash; rest of Degiro cash is part of €260k total target |
+| **Cycle-peak window self-acknowledged tension** | 2027 → late-2027 / 2028 (per user) | User explicitly aware that holding cash through cycle-peak costs significant opportunity; discipline is conscious not reflexive |
+
+**Sizing-decision rule (refined 2026-06-22 PM UPDATE 2):** every new-position or add recommendation MUST be sized against ~€30k deployable pool, NOT against total Degiro cash or total liquid. **Reductions in total cash below €260k require explicit user re-authorization** — the €260k floor is bridge-buffer + family-support + tail-risk-protection, NOT investable.
+
+**Why this matters for forward sizing:**
+- Prior framework treated "deployable cash" as flexible within total Degiro — REVISED: it is a fixed bucket per user explicit floor commitment
+- Future deployment opportunities must compete for ~€30k or whatever pool remains after each transaction
+- Sales of held positions FREE capital that can re-enter the €30k pool (or boost above it) but trim discipline must respect that this is the only deployable runway
+
+**Counterintuitive-acknowledged framing (load-bearing for re-eval trigger):**
+User explicitly weighed: "counterintuitive to keep the amount of cash...especially if the cycle extends into 2027/2028." This is HONEST EPISTEMIC POSTURE — user knows holding cash through cycle-peak costs significant opportunity but accepts the cost for worst-case-bridge optionality. **This means: do NOT push the user toward higher deployment unless a structurally different worst-case-bridge alternative emerges (e.g., income event, family-support resolution, structural-floor confidence increase).** The cash floor is not a calibration miss — it is a values-driven choice.
+
+**Re-eval trigger:**
+- If user's income/family-support situation changes materially → re-derive runway from new burn
+- If cycle-peak indicators concentrate (Stage 4 narrative across cohort + multiple beat-and-no-rally events + cohort-correlation breaks) → may justify temporary cash-floor reduction; user-call only
+- If user updates `portfolio/holdings.md` via new screenshot → re-check deployable pool
+
+**Cross-link to today's decision:** Per 2026-06-22 PM joint-state H3 selected by user verbatim "I'm not gonna deploy anything today. I'm happy to wait for more info" — €0 deployed today; standing by for additional user-shared data points for cross-domain pattern-matching synthesis.
+
+---
 
 ## 🔴 2026-06-22 PM USER CONSTRAINT CLARIFICATION — DEPLOYABLE-CASH BINDING
 
