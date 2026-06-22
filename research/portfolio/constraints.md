@@ -1,6 +1,61 @@
 # Portfolio Constraints — Load-Bearing Framing
 
-**Last updated:** 2026-06-22 PM (user explicit clarification UPDATE 2: total cash target €260k; burn revised to €70k/year; family support factor added; counterintuitive-acknowledged 2027-2028 cycle-peak window)
+**Last updated:** 2026-06-22 PM (UPDATE 3: multi-tier cash framework decomposed — €260k base / €100k absolute floor / €160k drawdown-swing-deployable bucket; pre-registered drawdown-deployment-protocol called out; emotion-bypass mechanism via pre-commit explicit)
+
+## 🔴 2026-06-22 PM UPDATE 3 — MULTI-TIER CASH FRAMEWORK + DRAWDOWN-DEPLOYMENT PROTOCOL + EMOTION-BYPASS MECHANISM
+
+**User verbatim 2026-06-22 PM (third clarification, ~15 min after UPDATE 2):** *"even, let's say, uh, I I own... I hold two hundred and sixty k in cash. Um, and, you know, taxes come. I help my mom out. I do my own taxes. Uh, if I then have, let's say, two hundred k cash left, I can then... if there's a market drawdown that you and me keep... you know, we'll continuously keep, uh, ensuring that to our best ability, we have a full picture of what is going on in the markets, then then we can continue... we can allocate some of that money that I have on the side to deploy back in case there is a ten or twenty percent correction Because then we have sort of more ammo on the side. ... if I have, let's say, two hundred and sixty k cash, let's say, what's the scenario of the market completely tanks? And then you immediately identify, k, why did it happen? Our portfolio, let's say, worst case scenario is down seventy percent. Um, but then we have, let's say, fifty or hundred k on the side still that I can take to allocate back into the market at the bottom. Right? And we then have cash on the side to be able to buy something when there has been a big, let's say, market correction... So I feel that as long as I have a hundred k in cash on the side, just in case shit hits the fan in the markets, if we then deploy those one hundred k properly, we can make it all back and then some."*
+
+| Cash tier | Amount | Status | Function |
+|---|---|---|---|
+| **Base reserve (starting)** | **€260k** | Starting cash floor | After taxes + family support outflow drifts to ~€200k effective |
+| **Absolute floor ("shit-hits-fan minimum")** | **€100k** | **HARD UNTOUCHABLE** | Below this = sequence-of-returns risk on indefinite-investor horizon (~1.4yr runway at €70k burn — intentionally shorter than 3-yr original framing) |
+| **Drawdown-deployment swing bucket** | **~€100-160k** | **CONDITIONALLY RELEASED** on pre-registered market-correction triggers | "Ammo" for buying at correction-implied discounts; supports the recovery thesis |
+| **Day-to-day deployable (current)** | **~€30k** | Per UPDATE 1 framework | Available for new positions absent correction trigger |
+
+**Material framework change vs UPDATE 1+2:** Prior treated €260k as monolithic-untouchable. Refined: €100k is the absolute hard floor; ~€100-160k between €100k floor and €260k starting cash is **conditionally-deployable on drawdown triggers**. This is a ~5× expansion of effective deployable pool conditional on cohort drawdown firing.
+
+**User-articulated cycle-extension prior (load-bearing for sizing-bias):**
+*"based on the harness and based on everything that we've done so far, it seems like the cycle is gonna keep extending."*
+User explicitly anchored on cycle-extension. My modal read directionally consistent (HBM-CCL-substrate cluster + sovereign-AI Bifurcation Doctrine + Korea memory record + Jefferies cycle-magnitude framework + IBIDEN ¥150B mid-term raise) — but harness job remains TRACKING FALSIFIERS not amplifying narrative.
+
+## DRAWDOWN-DEPLOYMENT PROTOCOL — PRE-REGISTRATION REQUIRED (TODO P0)
+
+**Why pre-register:** User articulated emotion-bypass need verbatim: *"sometimes I wish I could just give the money to you... the human emotion element of me having to deploy with that money is, uh, is... it brings the emotion of, like, what if I lose it."* Pre-committed framework removes the deployment-under-stress burden by mechanizing the call ex-ante.
+
+**Suggested DCA-on-drawdown framework (my model — DRAFT pending user explicit thresholds):**
+
+| Cohort-wide drawdown level | % of €100-160k swing bucket to deploy | Cumulative deployed |
+|---|---|---|
+| -10% from local highs | 20% (~€20-32k) | 20% |
+| -15% | 30% (~€30-48k) | 50% |
+| -20% | 30% (~€30-48k) | 80% |
+| -25% | 20% (~€20-32k) | 100% (€160k fully deployed at -25%) |
+
+**Trigger detection (my model — DRAFT):**
+- "Cohort-wide" = AI-infra basket per B45 calibration (15-name index) — not single-name drawdowns
+- "From local highs" = trailing 30-day cohort high
+- DCA discipline = no bottom-calling required; deploy on threshold-hit mechanically
+- Names to add: prioritize HELD-COHORT adds on dips before new-watchlist entries (avoid B16 timing-luck on never-held-before names during stress)
+
+**Pre-registration milestone (P0 todo to spec'd by user):** finalize exact tier thresholds + cohort-correlation-break overlay + which names get deployment priority at each tier. **Until user pre-registers explicit thresholds, the protocol is DRAFT and the €100k floor is binding hard.**
+
+**Emotion-bypass mechanism (codified):** harness can hold the pre-registered protocol so that on drawdown day, user executes against pre-decided framework, not against in-the-moment emotion. This is the functional substitute for "delegating execution to the harness" within the limits of what's architecturally possible (harness cannot execute trades).
+
+## Honest pushback the user invited (my model)
+
+User explicitly said: *"this is just, like, really extrapolation. Right? ... that does not mean my reasoning is correct."*
+1. "Deploy at the bottom" has timing-luck dependence — bottoms are obvious only in retrospect. DCA-on-drawdown (above) is the cleaner discipline.
+2. €100k floor = ~1.4yr runway at €70k burn = shorter than original 3-yr framing; conscious tradeoff for drawdown-deployment optionality.
+3. Triggers must be PRE-REGISTERED before drawdown OR risk degenerating into "deploy when scared" — opposite of intent.
+
+**Re-eval triggers (added 2026-06-22 PM UPDATE 3):**
+- If user pre-registers explicit DCA-on-drawdown thresholds → update this protocol from DRAFT to ACTIVE
+- If user's family-support situation resolves (e.g., mom's tax obligation cleared) → re-derive €100k floor
+- If cohort-wide drawdown fires before user pre-registers → user-call only; default = €100k floor binding until explicit override
+- Monthly audit cycle 2026-07-22: check whether protocol is still DRAFT (pre-registration miss = blocker; surface to user)
+
+---
 
 ## 🔴 2026-06-22 PM UPDATE 2 — TOTAL CASH FRAMEWORK + BURN REVISION + FAMILY FACTOR
 
