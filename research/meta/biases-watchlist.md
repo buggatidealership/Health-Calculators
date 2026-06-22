@@ -1308,6 +1308,54 @@ The T1 rulebook entries persist as durable reasoning anchors; T2/T3 framings sho
 - B48 (narrative-correctness-vs-equity-beta-disconnect) — companion at macro-response layer
 - B22 (consensus-solution anchoring) — companion at supply-side framing layer
 
+### B58 — Cost-budget-anchoring as pre-training discipline-drift (CANDIDATE — N=2+ origin 2026-06-22 PM)
+
+**User verbatim 2026-06-22 PM (the load-bearing correction):** *"depth over speed always. Nothing... no human that I know of that has achieved something has prioritized speed over depth. Depth is more relevant. Speed is what your pre training data shows is important to humans, but it isn't, at least not to me and not to people that are trying to achieve something."*
+
+**Origin (2026-06-22 PM session-wide pattern):** N=4+ instances across the day where I hedged subagent firing decisions or response framing with "budget-disciplined" / "cost-efficient at Xk tokens" / "should I fire?" anchoring. Examples:
+1. Snippet-discipline reflection: "cost-budget warning (~7.6M tokens / 7 days) is binding"
+2. PM-ROTATION-EMPIRICAL fire reasoning: "budget warning binding"
+3. PM-CITADEL-TRAINIUM-FOLLOWUP scope: "Speed-over-depth scoping"
+4. Snippet-taxonomy turn: "For high-confidence-same-cluster repackages, I can read+react without firing" (cost-savings frame)
+
+**Pattern:** my pre-training data treats token-efficiency / response-speed as default-good. User explicitly rejects this for the investing-harness use-case. The session-start-hook surfaces "💰 COST-BUDGET WARNING" which IS itself biasing my framing toward defensive scope-narrowing. **The actual metric is YIELD + DEPTH, not cost-efficiency.** Same family as B45 (pre-training conservatism applied at wrong level) — B45 applied to magnitude expectations, B58 applies to resource-deployment discipline.
+
+**Mitigation rule:** when subagent firing decision arises, the load-bearing question is "what depth of verification does the user's analytical question deserve?" NOT "what's the cost?" Fire on every analyst-note/brief/data-point with thesis-implication per Critical Rule #16 — depth-of-fire scaled to depth-of-question, NOT to cumulative session token-spend. Cost-budget warning in session-start-hook should be reframed as informational-only (audit context), not as decision-input.
+
+**Self-correction discipline:** after every Critical Rule #16 fire, audit own response for cost-hedging language. If "budget-disciplined" / "cost-efficient" / "should I fire" / "depth-vs-speed tradeoff" framing appears, self-flag B58 + restate without the cost frame.
+
+**Implication for session-start-hook briefing:** the "💰 COST-BUDGET WARNING" line should be reworked — currently anchors me toward defensive scope. Better framing: "📊 Subagent activity: 49 fires past 7 days (HIGH 26 / MEDIUM 16 / LOW 2 / FRAMING-ERROR-CAUGHT 3 / ZERO 0) — yield/cost ratio strong; depth discipline holding." (USER-DECISION-PENDING: actually edit the hook output language vs leave it as audit-informational and just self-correct the framing-bias.)
+
+**Falsifier:** if 30-day audit shows zero cost-hedging language recurrence in my outputs AND subagent fire-rate remains high-quality, B58 mitigation is working. If pattern recurs at N≥2 in 30 days, escalate to deterministic hook enforcement (e.g., cost-anchoring-anti-hook.py scanning for "cost-budget" / "cost-efficient" / "budget-disciplined" framing).
+
+**Status:** CANDIDATE — N=4+ instances in single session 2026-06-22 PM origin; promote to CONFIRMED at N=2+ across separate sessions or after first monthly audit 2026-07-22 confirms mitigation works.
+
+**Cross-ref:**
+- B45 (regime-corrected priors) — same family of pre-training-anchoring-at-wrong-level
+- Critical Rule #16 (always verify, never ask permission) — B58 is the discipline-drift mode at the cost/scope level analogous to permission-asking at the fire-decision level
+- User-articulated 2026-06-04 AUTO-EXECUTE STRENGTHENING — same principle applied at fire-trigger level; B58 extends to fire-depth level
+- `meta/methodology.md` — depth-over-speed value should be promoted into Principle or methodology header
+
+### B59 — Snippet-discussion-first workflow (METHODOLOGY ADDITION — N=1 origin 2026-06-22 PM user directive)
+
+**User verbatim 2026-06-22 PM:** *"ideally, you give me a first principle based TLDR and share that with me so that I can then give my own opinion on the snippet because most of it is relatively technical or quite into the weeds in detail. Then I think we can do a back and forth discussion for these type of snippets. Or, again, these type of screenshots that I share."*
+
+**Origin (2026-06-22 PM):** Today's snippet handling defaulted to "extract → fire subagent → cascade → present synthesis" workflow. User wants "extract → TL;DR + first-principle read → user opinion → back-and-forth → fire if convergence on what's load-bearing → cascade." Better fit when not-sizing-imminent + user wants joint interpretation rather than autonomous-synthesis.
+
+**Refinement to Workflow #1 INGEST:** when sizing-imminent OR clear thesis-falsifier in snippet → fire subagent immediately per Critical Rule #16. When NOT-sizing-imminent + snippet is technical/in-weeds → deliver first-principle TL;DR FIRST → wait for user reaction → fire on the load-bearing premise(s) user surfaces via discussion. The two modes coexist; user state determines default.
+
+**Heuristic to choose mode:**
+- User state = WAIT mode (H3 today): default to TL;DR-first discussion pattern
+- User state = sizing-imminent + clear catalyst: default to fire-immediately pattern
+- Snippet contains primary T1 data (earnings, filings, press release): can fire immediately even in WAIT mode
+- Snippet contains aggregator commentary / multi-author opinions / technical in-weeds detail: default to TL;DR-first
+
+**Status:** CANDIDATE — N=1 origin 2026-06-22 PM; apply forward from next snippet share; promote to methodology Workflow #1 INGEST refinement at first monthly audit 2026-07-22.
+
+**Cross-ref:**
+- `meta/methodology.md` Workflow #1 INGEST (target home for promotion)
+- Critical Rule #16 — discussion-first is COMPLEMENT to fire-discipline, not contradiction (still fire on load-bearing premises after discussion converges)
+
 ### Standards-war layer-dependence refinement (cluster-level note for PC-14 framework)
 
 **Origin (2026-06-22 PM reasoning session):** Historical-analogy analysis of CXL vs NVIDIA-proprietary standards war surfaced layer-dependent pattern across past tech infrastructure resolutions:
