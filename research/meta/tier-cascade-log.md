@@ -35,6 +35,31 @@
 
 ## Entries (most recent first)
 
+### [2026-06-23 PM-CXMT-SEMIANALYSIS] 🟢 User-shared SemiAnalysis paid Substack newsletter on CXMT STAR Market IPO + competitive trajectory triggered B59 v2 verification — HIGH yield via FRAMING-ERROR CAUGHT on Qimonda IP chain (Inotera/Powerchip vs Polaris/WiLAN) + commodity-DRAM-pivot CROSS-CONFIRMED at most-direct peer (70% OPM 100% commodity DRAM Q1 2026 at CXMT validates HYNIX morning HBM4-throttle scenario) + cycle-extension prior REINFORCED + new MONITOR-ONLY watchlist surface flagged with binding investability barrier (STAR Market direct-INACCESSIBLE for Euro retail); HYNIX 10.13% Core REINFORCED HOLD; all 5 held cohort positions UNCHANGED
+
+**Trigger source:** User-shared after first-principles technical Q&A on AI accelerator vs memory architecture; B59 v2 protocol applied (verification BEFORE TL;DR).
+
+**Intake tier:** 🟢 HARD — multi-source verification primary Chinese (≥5) + secondary English (TrendForce, WCCFTech, Digitimes, KraneShares, ChinaBizInsider); all 13 load-bearing claims classified at HIGH/MEDIUM/LOW with primary-source attribution.
+
+**Source:** `signals/cross-source-log/2026-06-23-pm-subagent-cxmt-semianalysis-newsletter-verification.md` (55.9k subagent_tokens; 50 tool uses; multilingual Chinese primary)
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/HYNIX/thesis.md` top-of-file — new PM-CXMT cross-ref; cycle-extension prior REINFORCED via verified CXMT capacity adds insufficient to break supply constraint; commodity-DRAM-pivot CROSS-CONFIRMED at peer; 🟢 HARD HOLD 10.13% Core unchanged
+- `companies/KIOXIA/thesis.md` top-of-file — new PM-CXMT cross-ref; orthogonal-to-NAND-franchise read; long-term 2028+ China-memory-ecosystem watch flag added (parallels Jefferies "China NAND tech could catch up by 2028" from PM-CITRINI-JEFFERIES); 🟡 HOLD-until-falsifier ~€10K N26 unchanged
+- `companies/SNDK/thesis.md` top-of-file — new PM-CXMT cross-ref; orthogonal-to-NAND-franchise read; long-term 2028+ watch flag added; 🟢 HOLD 6sh unchanged
+- `companies/MURATA/thesis.md` top-of-file — new PM-CXMT cross-ref; small 2nd-order MLCC demand benefit; 🟢 HOLD 336sh unchanged
+- `companies/SUMCO/thesis.md` top-of-file — new PM-CXMT cross-ref; CXMT is silicon wafer BUYER not competitor; capacity expansion 265k → 500k wspm = incremental wafer demand; 🟡 HOLD 626sh unchanged
+- `watchlist/candidates.md` — CXMT new entry 🔴 SPECULATIVE / MONITOR-ONLY with binding investability barrier (STAR Market A-share INACCESSIBLE for Euro retail; access via China A-share ETF only; BIS Entity List flag); re-eval trigger HK secondary listing announcement OR China A-share ETF passive-flow CXMT weight inclusion
+- `meta/subagent-cost-yield-ledger.md` — new entry (52nd fire; audit summary recount HIGH 28 / MEDIUM 17 / LOW 2 / FRAMING-ERROR-CAUGHT 3 / ZERO 0)
+
+**Files NOT touched (no claim intersection):** all other companies/ folders (MRVL / NBIS / NVDA / AVGO / ANET / IBIDEN / DDOG-WATCHLIST / NOW-WATCHLIST etc.); sector/ files; meta/biases-watchlist.md (Inotera/Powerchip pattern is N=1 catch — would need N=2+ for B-X promotion per Principle #32 premortem)
+
+**Stale flags fired:** none — all tier markers refreshed by this cascade
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-22 PM-IMEC-FEFET + PM-INFEREX-U8 PARALLEL BATCH] 🟡 + 🟡 Two user-shared snippets fired in parallel per Principle #36 + new B59 v2 protocol (verification BEFORE TL;DR); IMEC FeFET = long-horizon successor architecture data point + HYNIX FMC option-hedge byproduct surfaced; SemiAnalysis InferenceX 2.5×/2-month = U8 N=7→8 + MRVL connectivity-additive mechanism + NBIS Eigen AI strategic-rationale validated; ALL HELD-COHORT POSITIONS UNCHANGED
 
 **Trigger source:** Two parallel user-shared Citrini-style image-briefs 2026-06-22 PM — (1) IMEC ferroelectric memory VLSI Symposium 2026 + Vik/Austin commentary; (2) SemiAnalysis InferenceX GB200 NVL72 Token Throughput chart with 2.5×/2-month annotation. FIRST APPLICATION of B59 v2 protocol (verification subagents fired IMMEDIATELY in parallel before any TL;DR; user reaction informed by research-verified data not pre-training recall).

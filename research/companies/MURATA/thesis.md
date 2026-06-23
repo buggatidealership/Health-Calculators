@@ -1,5 +1,9 @@
 # Murata Manufacturing — Thesis
 
+**🟢 2026-06-23 PM-CXMT-SEMIANALYSIS cross-ref — CXMT capacity expansion = incremental MLCC/passives demand from new Chinese DRAM fabs; small but positive 2nd-order beneficiary; HOLD 336sh preserved:** Per `signals/cross-source-log/2026-06-23-pm-subagent-cxmt-semianalysis-newsletter-verification.md` (55.9k subagent_tokens; multilingual Chinese primary). User-shared SemiAnalysis CXMT newsletter verification. **CXMT capacity ~265k wspm end-2025 → ~350k end-2026 → ~500k by 2028** = incremental fab buildout requiring MLCC/passive components for fab infrastructure + downstream module assembly. 2nd-order beneficiary; small magnitude vs MURATA's AI-server MLCC core franchise but directionally positive. NOT a thesis-additive insight at current sizing. **Position implication: 🟢 HOLD 336sh post-tranche-2 — no size change — CXMT capacity expansion = incremental 2nd-order MLCC demand vector but small magnitude; add-gate remains FY27 Q1 print late July / early August 2026 per L21 regime modifier.**
+
+---
+
 **🟢 2026-06-22 PM-COHORT-PATTERN-A cross-ref — STRONG incumbent-investing-in-successor-architecture pattern previously UNMODELED in MURATA thesis; dual-track anti-fragility surfaced:** Per `signals/cross-source-log/2026-06-22-pm-subagent-a-incumbent-successor-arch-pattern-murata-sumco.md` (1 Opus 4.8 subagent 97.5k subagent_tokens; multilingual Japanese primary verified). Cross-cohort pattern scan triggered by user-extended HYNIX framing earlier today (active-collaboration optionality vs passive option-hedge).
 
 **MURATA evidence STRONG pattern (T1 across multiple vectors):**

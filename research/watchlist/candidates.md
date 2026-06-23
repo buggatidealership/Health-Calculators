@@ -1,6 +1,56 @@
 # Watchlist Candidates
 
-**Last updated:** 2026-06-22 PM-MRVL-VS-ALAB (ALAB P2 watchlist entry FULL-FORMALIZED with DO-NOT-ENTER conditional triggers; user "smaller cap = more upside" hypothesis PARTIALLY VERIFIED + 2 framing-error catches: ALAB not "relatively small" anymore at ~$72-75B post-96%-monthly-rally / ALAB 2.2× MORE EXPENSIVE than MRVL on NTM Revenue not cheaper)
+**Last updated:** 2026-06-23 PM-CXMT-SEMIANALYSIS (CXMT entry added as MONITOR-ONLY with binding investability barrier — STAR Market A-share listing direct-INACCESSIBLE for Euro retail; access via China A-share ETF only; flag BIS Entity List status; 1 SemiAnalysis framing-error caught on Qimonda IP chain "Inotera/Powerchip" claim contradicted by primary sources documenting Polaris Innovations/WiLAN chain)
+
+---
+
+### 🔴 CXMT (Changxin Memory Technologies / 长鑫存储) — **WATCHLIST MONITOR-ONLY — STAR MARKET LISTING DIRECT-INACCESSIBLE FOR EURO RETAIL** (post-2026-06-23 PM-CXMT-SEMIANALYSIS verification)
+
+Per `signals/cross-source-log/2026-06-23-pm-subagent-cxmt-semianalysis-newsletter-verification.md` (1 Opus 4.8 subagent 55.9k subagent_tokens; multilingual Chinese primary verified across ≥5 Chinese sources; 13 load-bearing claims).
+
+**Identity + current state (research-verified):**
+- Founded 2016 Hefei; CEO Zhu Yiming (also GigaDevice founder); state-VC structure (Qinghui Jidian 21.67%, Changxin IC 11.71%, Big Fund Phase II 8.73%, Hefei Jixin 8.37%, Anhui Province 7.91%)
+- IP chain: Qimonda → Infineon → Polaris Innovations (WiLAN/Quarterhill sub; €30M for ~7,000 patents June 2015) → CXMT (December 2019). **Note: SemiAnalysis newsletter framing of "Inotera/Powerchip channel" CONTRADICTED by primary sources (CXMT + WiLAN press releases + SEC filing); cascade-prevention flag.**
+- STAR Market (科创板 Shanghai) IPO approved May 27 2026; offering raise $4.3-4.4B; offering floor cap $27B; post-listing market cap consensus RMB 1T-3T ($140-415B)
+- BIS Entity List (constrains US tech/equipment access)
+
+**Financial trajectory (HIGH confidence — primary STAR Market prospectus):**
+- FY2024 revenue ~$3.4B
+- FY2025 revenue $8.6B (+156% YoY); first profitable year ~$260M net
+- Q1 2026 revenue ~$7.1-7.4B (+719% YoY)
+- H1 2026 guidance: RMB 110-120B (~$15-17B); net profit RMB 50-57B
+- FY2026 SemiAnalysis-only forecast >$50B = [SEMIANALYSIS-EXTRAPOLATION-UNVERIFIED] tag — company H1 guidance implies $30-35B trajectory at sequential extrapolation
+
+**Capacity trajectory (MEDIUM confidence — directionally corroborated):**
+- End-2025: ~265k wspm installed (~240-265k range per TrendForce)
+- End-2026: ~350k wspm target (contested by export-control concerns)
+- 2028: ~500k wspm (~17% global DRAM wafer-start share)
+- HBM allocation MINIMAL: ~5 kwspm 2025 (R&D phase); HBM3 8-Hi mass production unlikely 2026 per Digitimes; yields <50%
+
+**Competitive positioning:**
+- 4th-largest DRAM maker by capacity 2025; rising to 3rd by 2028
+- ASP only 5-10% below leaders (Computex 2026 channel checks: DDR5 "almost on par") — NOT a price disruptor
+- Operating margin Q1 2026 ~70% from 100% commodity DRAM (prospectus-derivable) — leader-tier margins on commodity-only product mix
+- Bit-share trajectory: 9% → 12% by 2027
+
+**Memory cycle implications (verified — feeds HYNIX/KIOXIA/SNDK/MURATA/SUMCO cascade):**
+- CXMT 2026-2027 capacity adds INSUFFICIENT to break supply +16% vs demand +20-30% gap → cycle-extension prior REINFORCED
+- 70% OPM on commodity DRAM cross-confirms HYNIX HBM4-throttle-commodity-pivot strategic logic
+- 2028+ China-DRAM-ecosystem threat = long-term watch item, NOT 2026-2027 falsifier
+
+**Investability barrier (BINDING for Euro retail investor):**
+1. **STAR Market A-share listing only**: 科创板 Shanghai. Non-Chinese retail investors cannot directly buy STAR Market stocks without qualified investor status in China
+2. **No ADR/GDR planned**: no parallel HK/US listing announced
+3. **Access vehicles**: only via China A-share ETFs (KraneShares KSTR, iShares MSCI China SEMI component) if CXMT included post-listing
+4. **BIS Entity List overhang**: constrains technology advancement; does NOT prevent listing or operation
+5. **Geopolitical tail risk**: Euro-based investor holding Chinese STAR Market semi = capital controls + FX friction + secondary sanctions risk in escalation scenarios
+
+**Monitoring value (kept on watchlist despite no-direct-invest):**
+- COMPETITIVE INTELLIGENCE for held memory cohort (HYNIX 10.13% Core most affected)
+- China memory-ecosystem trajectory bellwether
+- 2028+ cycle-trough year double-headwind risk indicator (cycle-trough + China-DRAM/NAND tech catch-up per Jefferies framework)
+
+**Position implication: 🔴 SPECULATIVE — MONITOR ONLY — DO NOT ATTEMPT TO ENTER** (direct-invest INACCESSIBLE for Euro retail via N26/Degiro; A-share ETF exposure is the only vehicle and dilutes signal); tracking for competitive-intelligence on memory cohort. Re-eval trigger: HK secondary listing announcement (would unlock direct-invest path) OR China A-share ETF passive-flow data confirming material CXMT weight inclusion post-listing.
 
 ---
 

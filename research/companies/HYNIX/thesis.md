@@ -1,5 +1,36 @@
 # SK Hynix — Thesis
 
+**🟢 2026-06-23 PM-CXMT-SEMIANALYSIS cross-ref — CXMT competitive-threat verification = CYCLE-EXTENSION PRIOR REINFORCED + COMMODITY-DRAM-PIVOT CROSS-CONFIRMED at most-direct peer; 1 FRAMING-ERROR CAUGHT on Qimonda IP chain; HOLD 10.13% Core preserved:** Per `signals/cross-source-log/2026-06-23-pm-subagent-cxmt-semianalysis-newsletter-verification.md` (1 Opus 4.8 subagent 55.9k subagent_tokens; multilingual Chinese primary verified across ≥5 Chinese sources; 13 load-bearing claims spanning financials/IPO/capacity/HBM/ASP/supply-constraint). User-shared SemiAnalysis paid Substack newsletter on CXMT's STAR Market IPO + competitive trajectory.
+
+**Verified competitive-threat parameters (HIGH confidence):**
+- CXMT FY2025 revenue $8.6B (+156% YoY); Q1 2026 $7.3B (+719% YoY) — primary STAR Market prospectus + ≥5 Chinese sources
+- CXMT ASP only 5-10% below leaders Q1 2026 — Computex 2026 channel checks confirm DDR5 "almost on par" (NOT a price disruptor)
+- CXMT capacity trajectory: ~265k wspm end-2025 → ~350k end-2026 → ~500k by 2028 (~17% global wafer-start share)
+- CXMT HBM allocation MINIMAL (~5 kwspm of 265k 2025; HBM3 8-Hi mass production unlikely 2026 per Digitimes T2; yields <50%)
+- CXMT bit-share trajectory: 9% → 12% by 2027 (meaningful but slow-moving)
+
+**Cycle-extension prior REINFORCED:** CXMT adding 85k wspm 2026 + 70k wspm 2027 is INSUFFICIENT to break the supply +16% vs demand +20-30% gap. Jefferies 2027 H2 modal cycle-peak holds. Multi-firm consensus (Gartner "memflation" / TrendForce / IDC / Counterpoint AM cascade) all corroborate supply constraint through 2028 even with CXMT adds. LTAs at 3-5yr durations from Samsung + Hynix (TrendForce April 2026) lock up supply well beyond 2027.
+
+**Commodity-DRAM-pivot CROSS-CONFIRMED at most-direct peer:** CXMT achieves **~70% operating margin Q1 2026 from 100% commodity DRAM** (prospectus-derivable). This validates the morning's HYNIX HBM4-throttle-commodity-pivot scenario (per `AM-HYNIX-THROTTLE-ARTICLE` cascade commit bf5c599d) as economically rational — the most direct competitor is achieving leader-tier margins on the same product pivot. The 90% theoretical OPM "Daishin Securities" claim from the morning article remained un-corroborable, but CXMT's 70% actual = directional confirmation.
+
+**1 FRAMING-ERROR CAUGHT (cascade-prevention):** SemiAnalysis attributes Qimonda IP chain to "Inotera/Powerchip" channel. PRIMARY SOURCES DOCUMENT: Qimonda → Infineon → Polaris Innovations (WiLAN/Quarterhill subsidiary; €30M for ~7,000 patents June 2015) → CXMT (December 2019). No Inotera or Powerchip role in documented chain. Likely SemiAnalysis confusion with Taiwan DRAM ecosystem (Powerchip/Rexchip were Elpida partners). Action: do NOT use "Inotera/Powerchip" framing in cascade.
+
+**1 valuation framing risk surfaced:** SemiAnalysis "$27B IPO valuation" = offering-price floor cap only. Post-listing consensus = RMB 1T-3T ($140-415B). Material if anyone builds CXMT position-sizing math on $27B as operative market cap (would be 5-15× under).
+
+**N-th order cohort cascade per CXMT verification:**
+- 1st order (P>80%): CXMT capacity adds insufficient to break DRAM constraint through 2028 → HYNIX HBM + commodity DRAM both remain supply-tight
+- 2nd order (P~60%): CXMT achieving 70% OPM at commodity DRAM = market-validation of HYNIX's HBM4-throttle-commodity-pivot strategic logic; reduces narrative risk of "pivot is desperation move"
+- 3rd order (P~40%): Government push for CXMT HBM allocation = long-term 2028+ watch item but not 2026-2027 concern
+- 4th order (P~20%): if CXMT secures 14nm/12nm DRAM equipment via re-export channels at scale, 2028+ cost-curve threat materializes faster — binary tail
+
+**F1-F13 falsifiers status:** NONE FIRE. CXMT is NOT a 2026-2027 falsifier. Pre-committed trim sequence on F2 (ASP rollover) UNCHANGED.
+
+**Anti-fragility check post-CXMT verification:** HYNIX wins in 3 of 4 cycle scenarios remains valid. CXMT competitive pressure does not change scenario weights at 12-24 month horizon; long-term 2028+ China-DRAM concern parallel to Jefferies 2028 cycle-trough timing.
+
+**Position implication: 🟢 HARD — HOLD 10.13% Core — no size change — CXMT verification REINFORCES cycle-extension prior (capacity adds cannot break supply constraint through 2028); commodity-DRAM-pivot strategic logic CROSS-CONFIRMED at most-direct peer (70% OPM); 1 framing-error caught on IP-chain attribution; F1-F13 falsifiers status quo; MU print TONIGHT after close remains next binding catalyst per L27 framework.**
+
+---
+
 **🟢 2026-06-23 AM-BRIEF-HARDWARE cross-ref — MAJOR FRAMING-ERROR CAUGHT: Rubin CPX was CANCELLED at GTC 2026 (March 2026) — HBM bypass risk REMOVED; STRONGLY POSITIVE for HBM thesis; SpaceX-Reflection AI $6.3B compute deal at Colossus 2 GB300 = HBM3E demand locked through 2029:** Per `signals/cross-source-log/2026-06-23-am-subagent-brief-hardware-infra-items-verification.md` (1 Opus 4.8 subagent 90.1k subagent_tokens). User-shared 2026-06-23 AI Intelligence Brief Morning Edition contained Rubin CPX framing as "Nvidia unveiled" with SemiAnalysis source — verification surfaced B40.1 stale-recycle (SemiAnalysis article was Sep 14 2025 describing CPX at-unveiling; **CPX CANCELLED 6 months later at GTC 2026 March 2026** per [Tom's Hardware T1/T2](https://www.tomshardware.com/pc-components/gpus/nvidia-removes-rubin-cpx-accelerators-from-its-roadmap-groq-3-lpus-take-center-stage-as-cpx-is-removed) + [WCCFTech](https://wccftech.com/nvidia-rubin-cpx-is-off-the-roadmap-but-may-return-with-feynman-in-2028/) + Ian Buck NVIDIA VP press Q&A confirmation; **replaced by Groq 3 LPX (SRAM-based, NO HBM, NO GDDR7)** via $20B NVIDIA-Groq licensing deal). **Inference architecture post-GTC 2026:** NVIDIA Dynamo orchestrates prefill → Rubin GPUs (HBM4) / decode → Groq 3 LPX (SRAM). **HBM stays in NVIDIA's ecosystem for prefill across all Rubin generations.** CPX would have been the only credible HBM bypass in NVIDIA's inference roadmap — its cancellation removes that risk. **HBM4 demand reinforced + bypass route via CPX removed = HBM thesis MATERIALLY STRENGTHENED.**
 
 **SpaceX-Reflection AI compute deal verified at higher scale than brief stated:** $150M/mo × ~42 months = **$6.3B max** (not $5.4B as brief implied) per [TechCrunch](https://techcrunch.com/2026/06/22/spacex-inks-compute-deal-with-reflection-ai-an-open-source-ai-lab/) + [CNBC](https://www.cnbc.com/2026/06/22/spacex-ai-colossus-data-center-reflection.html) + [Data Center Dynamics](https://www.datacenterdynamics.com/en/news/spacex-secures-63bn-compute-capacity-deal-from-ai-startup-reflection/). **GB300 chip = HBM3E (NOT HBM4)** — 288 GB per chip via eight 12-Hi HBM3E stacks ~8 TB/s bandwidth per [NVIDIA T1 Blackwell Ultra technical blog](https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era/). $6.3B contract = HBM3E demand locked through 2029 at Colossus 2 scale — direct HYNIX beneficiary.
