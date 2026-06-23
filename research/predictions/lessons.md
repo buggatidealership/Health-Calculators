@@ -707,3 +707,48 @@ The cycle-peak signature THIS cycle will fire across ALL THREE layers; the opera
 Evans (Benedict, T1) verbatim 2026-05-24: *"The Jevons Paradox is really applied price elasticity: if you make it cheaper to do something, do you do the same for less money (or resources, or employees), or more for the same money, or does a new ROI mean you do more for more money?"* — Evans explicitly refuses to predict the regime without seeing the elasticity ratio. The "it depends" is the load-bearing word; matches the L26 framework that the universals tell us cycle-peak signals fire in form but elasticity-ratio determines regime outcome.
 
 **Status:** CANDIDATE positive lesson UPDATED with U8 demand-side universal. Promotion criteria unchanged (N=2+ across MLCC/NAND/CoWoS); additionally watching DDR5-vs-HBM profitability ratio (FIRING Q1 2026 — first U8-adjacent empirical signal) + HBM revenue per AI query proxy.
+
+## L27 (NEW positive lesson CANDIDATE — origin 2026-06-23 user-articulated regime-test framework + MU 2026-06-24 first empirical resolution event)
+
+**User verbatim 2026-06-23 AM (the framework articulation):** *"I think it's an earnings driven market. So one of the most important things is that earnings of the companies... or, really, all the large ones, but obviously, mainly the ones that we hold. We need the [EPS] above consensus because if it's in line with consensus, then they would sell off... if [MU] won't beat the expectation on Wednesday after the close, then the rally starts again. Right? Or, essentially, you'll see a very strong bounce across the semi stocks. Not to say the hyperscalers because they're the ones spending the money. But, again, as long as the earnings for the semis keep surprising to the upside, I think that is one of the most determining directional calls off the market. So if we can in[fer] that... [using] hard data, so numerical data and hard truth, no human based opinions, and using LLM native reasoning. Does that still indicate earnings growth and beating consensus? Then I think we're still in the green."*
+
+**Pattern statement — "Beat-Consensus-As-Regime-Test":**
+
+In the current AI-supercycle regime (B45 codified 2026-06-12), the per-quarter beat-or-miss across the held semi cohort = the PRIMARY forward-looking regime-validation/falsification mechanism. Beat-consensus is the LOAD-BEARING signal — not just earnings growth in absolute terms. In-line prints in this regime carry sell-off risk per the bimodal-print framework (P-positive-reaction asymmetric to consensus-cushion; precedent: IBIDEN PM-IBIDEN-BEAT-PROB 2026-06-22 commit 689ca4c0). If cohort-wide beat-pattern stops, regime is shifting; until then, cycle-extension prior remains binding.
+
+**Sub-distinction — semis vs hyperscalers:** Per user, semis are the leveraged-to-spend layer; hyperscalers ARE the spend. Different earnings dynamics: semis show demand-pull beat-pattern; hyperscalers show capex-commitment-pattern. Cohort exposure should remain semi-heavy NOT hyperscaler-heavy in this regime read.
+
+**Operating mechanism (5 layers):**
+1. **Hard data only:** beat-probability derived from numerical inputs (T1 management guides + T2 consensus + historical beat-rate + LTA coverage + customer-naming disclosures + capacity-utilization). NO human-opinion / sentiment / "feel" inputs.
+2. **LLM-native synthesis:** 5-hypothesis joint distribution across H1 (BEAT + guide raise) / H2 (BEAT + tepid guide) / H3 (IN-LINE) / H4 (MISS) / H5 (BEAT + structural disclosure) with P-weights and reaction-direction estimates.
+3. **Joint-distribution checks:** P(operational beat) + P(positive stock reaction) + P(post-print dip ≥3%). Note P(operational beat) and P(positive reaction) are DECOUPLED in current regime per bimodal-print framework.
+4. **Cross-cohort read-through:** any single name's print updates priors for peer names (e.g., MU print updates HYNIX 10.13% Core prior).
+5. **Regime test:** beat-pattern continuation = "we're still in the green"; beat-pattern break = regime-shift watch fires.
+
+**Cross-references to existing harness frameworks:**
+- B45 regime-corrected priors — L27 is the FORWARD-LOOKING regime-test; B45 is the REAR-VIEW regime-calibration
+- IBIDEN PM-IBIDEN-BEAT-PROB precedent (commit 689ca4c0) — first application of the bimodal-print framework that L27 generalizes
+- MU AM-MU-BEAT-PROB (commit 69ccff3f) — second application; FIRST empirical resolution event for L27
+- Critical Rule #8 — earnings-print outcome falsifying a thesis IS a valid falsifier (distinct from macro-headwind which is not)
+
+**First empirical resolution event:** **MU Q3 FY26 print Wed 2026-06-24 after close** (TOMORROW from L27 codification date). Per AM-MU-BEAT-PROB cascade: P(operational beat) ~85% (my model); P(Q4 guide ≥$38B) ~50-55% (my model — the TRUE binary). If MU beats + cohort rallies (H1+H5 ~60% joint P) → L27 framework CONFIRMED first instance. If MU beats but cohort fades on tepid Q4 guide (H2 ~25%) → L27 framework REFINES toward "Q4-guide-vs-analyst-bar is the real binary" rather than just beat-vs-miss. Either outcome generates a load-bearing data point for promotion criteria.
+
+**Base-rate probabilities (my model — preliminary, awaits MU outcome):**
+- H1 (P=55%, my model) Beat-pattern continues across cohort through FY26-FY27 → cycle-extension prior binding → HOLD discipline empirically validated
+- H2 (P=25%, my model) Beat-pattern saturation — after 4+ consecutive beats, consensus catches up; harder to surprise positively; bar rises asymmetrically; bimodal-print risk increases
+- H3 (P=20%, my model) Regime is broader than earnings (Fed/macro dominates) — earnings still beat but stocks fall on Fed hawkish-tilt + Iran-vol etc.
+
+**Promotion criteria:** CONFIRMED at N=2+ across distinct held-cohort quarterly prints with framework-consistent reaction-direction (within the bimodal-print prediction band). First empirical resolution = MU 2026-06-24 after close. Second resolution = HYNIX Q2 2026 (late July). Third = MURATA Q1 FY27 (late July / early August). Fourth = IBIDEN Q1 FY27 (2026-08-05) per existing pre-registered framework.
+
+**Falsifier:** If 2 of next 4 cohort earnings prints have operational beats BUT cohort response is NEGATIVE (H2 + H3 fire jointly), then either (a) the regime has shifted to "fundamentals diverge from price" mode (requires harness reframe), OR (b) bimodal-print framework needs widening (Q4-guide-bar dominates more than current model weights). Either resolution = framework refinement event.
+
+**User explicit sign-off:** *"yes pls codify and we resolve it past Micron earnings."* (2026-06-23 AM, post-image-share)
+
+**Status:** CANDIDATE — N=1 origin 2026-06-23 user articulation; first empirical resolution 2026-06-24 MU after-close print. Cycle-peak detection adjacency: L27 is the FORWARD-LOOKING regime-test complement to user-articulated cycle-peak triggers (cohort-correlation breaks + beat-and-no-rally clustering + dispersion widening per `portfolio/constraints.md` UPDATE 2 2026-06-22 PM).
+
+**Cross-ref:**
+- B45 regime-corrected priors (binding)
+- Critical Rule #8 (sell only on thesis falsifier; earnings-print outcome IS valid falsifier)
+- IBIDEN PM-IBIDEN-BEAT-PROB bimodal-print framework (precedent, commit 689ca4c0)
+- MU AM-MU-BEAT-PROB (first empirical test, commit 69ccff3f)
+- `portfolio/constraints.md` UPDATE 2 cycle-peak detection triggers (downstream sizing-decision linkage)
