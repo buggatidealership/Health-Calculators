@@ -1,5 +1,32 @@
 # Sumco Corporation (3436.T) — Thesis
 
+**🟡 2026-06-23 AM-JPY-COHORT-DROP-VERIFICATION cross-ref — SUMCO -12.84% TODAY identified via subagent verification of user voice-garbled "the cost is down 8%" claim + JPY-peg recall-correction; multi-factor compound (post-+44%-rally profit-taking + Q1 earnings miss + MS Underweight downgrade + KOSPI circuit-breaker sympathy); NO falsifier fires per Critical Rule #8:** Per `signals/cross-source-log/2026-06-23-am-subagent-jpy-usd-move-japanese-cohort-8pct-drop-verification.md` (1 Opus 4.8 subagent 72.5k subagent_tokens; multilingual Japanese primary verified). User claim "the cost is down 8% today + Japanese yen peg problem" → B53 voice-garble resolved to SUMCO; magnitude UNDERSTATED (-12.84% actual); JPY framing RECALL-CORRECTED (JPY weak at 161.5 = 40-yr lows BULLISH for SUMCO export translation, not bearish; no JPY-USD peg exists — free-float since 1973).
+
+**4-factor compound cause (multi-source T1/T2 verified):**
+1. **DOMINANT — Post-rally profit-taking:** SUMCO ran +44% prior month on AI silicon wafer demand narrative; RSI overheating + domestic broker valuation caution; -12.84% mean-reversion is WITHIN B45 regime base rate (do NOT flag as extreme; cohort historical -10 to -15% single-session reversals on post-+40% names are routine per regime calibration)
+2. **SIGNIFICANT — Q1 FY2026 earnings MISS:** EPS -24.22 JPY vs forecast -14.73 JPY; operating loss ¥5.2B; H1 2026 guidance revised to operating loss ¥7.7B + net loss ¥15.4B; management framing: silicon wafer prices "gradually increase" but most 300mm business under LTAs → near-term price hikes limited per [Investing.com Q1 2026 earnings call transcript T2](https://www.investing.com/news/transcripts/earnings-call-transcript-sumco-misses-q1-2026-expectations-stock-dips-93CH-4698631)
+3. **AMPLIFIER — Morgan Stanley DOWNGRADE to Underweight from Equalweight:** MS cited valuation (raised profit estimates BUT questioned how much recovery already priced in after +44% rally) per [Simply Wall St T3](https://simplywall.st/stocks/jp/semiconductors/tse-3436/sumco-shares/news/does-morgan-stanleys-valuation-downgrade-recast-sumco-tse343). **B28 binding:** analyst-PT framing is a VALUATION call NOT a structural thesis read; do NOT cascade as falsifier
+4. **REGIONAL AMPLIFIER — KOSPI circuit-breaker event:** KOSPI -8.11% to 8,375.31 (circuit breaker triggered 2:33pm KST 20-min halt per [Investing.com T2](https://www.investing.com/news/stock-market-news/skoreas-kospi-plummets-circuit-breaker-triggered-as-chip-selloff-deepens-4729730)); SK Hynix KRX -11.55% intraday (briefly touched 3,002,000 KRW first ever crossing 3M won then crashed per [Asia Business Daily T2](https://www.asiae.co.kr/en/article/2026062310192498132)); causes: AI/semi rally profit-taking after record highs + leveraged-financial-products tied to semi stocks triggered margin-call cascades + MSCI DM-upgrade-Korea-excluded (removed foreign inflow catalyst) + US tech weakness overnight; Asia chip sympathy selling cascaded into Japan: SoftBank -5.8%, JX Advanced Metals -3.1%, Furukawa Electric -4.6%, Taiyo Yuden -1.7%, MURATA -3.9% per [Nikkei Asia T2](https://asia.nikkei.com/business/markets/japan-chip-stocks-slump-amid-signs-of-overheating). Nikkei 225 overall only -0.96% (sector-specific not broad risk-off).
+
+**B45 regime-check binding on -12.84% magnitude:** WITHIN regime base rate for AI-cohort post-rally mean-reversion. Do NOT flag as extreme. Empirical 15-name AI-infrastructure basket Jan 2025 → Jun 2026 (per `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md`): single-day moves of +5-12% routine; single-day -10 to -15% reversals after +40%+ rallies are within distribution.
+
+**JPY-USD currency verification (RECALL-CORRECTED):**
+- USDJPY June 23 2026 = ~**161.54** essentially flat vs prior session (-0.02%) per [Trading Economics T2](https://tradingeconomics.com/japan/currency)
+- JPY direction = WEAK (40-year lows since 1986)
+- BoJ June 16 2026 raised rate +25bp to 1.00% — highest since Sep 1995 (7-1 vote) per [BoJ T1](https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/k260616a.pdf)
+- MoF deployed ¥11.7T (~$72.8B) intervention Apr-May 2026 — FAILED to stop yen slide per [CNBC T2](https://www.cnbc.com/2026/06/19/japan-yen-intervention-boj-rate-hike.html)
+- **JPY weakness is BULLISH for SUMCO** (USD-revenue translates to MORE yen); currency is BACKWARD as explanation for today's drop
+- **NO JPY-USD peg exists** — free-float since 1973; user "peg" framing recall-corrected; what user may be recalling = MoF intervention zone ¥155-161 (asymmetric jawboning, not peg; demonstrably failed at 161)
+
+**Thesis-status check (F1-F5 falsifiers):** NONE FIRE.
+- F1-F5 require structural-demand falsification (300mm AI-server/HBM demand collapse) — NOT triggered by valuation downgrade + Q1 earnings volatility + KOSPI sympathy
+- Q1 earnings miss is on existing cyclical-pricing dynamics already in thesis (300mm under LTAs = pricing-lag on the upcycle)
+- AM7 multi-archetype wafer demand + AM8 SUMCO franchise SAFE all intact
+
+**Position implication:** 🟢 HARD — **HOLD 626sh — no size change** — per Critical Rule #8 (NEVER SELL ON MACRO HEADWIND WITHOUT THESIS FALSIFICATION) binding: profit-taking + KOSPI sympathy + B28 valuation downgrade are NOT thesis falsifiers; B45 regime-priors say -12.84% on +44%-prior-month name is WITHIN distribution. EUR equivalent SUMCO ~€19.35 (BELOW user BEP €22.31 = ~-13% unrealized swing today vs prior); position now ~flat-to-slightly-negative lifetime per `portfolio/holdings.md` PM33 canonical. PC-14 N=3+ sovereign-AI 300mm wafer demand pull-through across 3 continents remains primary forward driver; Q3 FY2026 print + Shin-Etsu QST GaN competitive-gap monitoring (per 2026-06-22 PM-COHORT-PATTERN-A cross-ref) continue as forward watch.
+
+---
+
 **🟡 2026-06-22 PM-COHORT-PATTERN-A cross-ref — WEAK incumbent-investing-in-successor-architecture pattern (closer to SNDK ABSENT than HYNIX/KIOXIA/MURATA STRONG); NEW Shin-Etsu GaN QST competitive gap monitoring flag:** Per `signals/cross-source-log/2026-06-22-pm-subagent-a-incumbent-successor-arch-pattern-murata-sumco.md` (1 Opus 4.8 subagent 97.5k subagent_tokens; multilingual Japanese primary verified). Cross-cohort pattern scan triggered by user-extended HYNIX framing earlier today.
 
 **SUMCO evidence WEAK pattern:**
