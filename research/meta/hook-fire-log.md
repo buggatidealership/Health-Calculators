@@ -21,3 +21,5 @@ Baseline before instrumentation (from transcript archaeology, deduped — see `r
 - 2026-06-21 22:45:44Z structural-output-hook FIRE (structural-markers-missing)
 - 2026-06-21 22:57:55Z structural-output-hook FIRE (structural-markers-missing)
 - 2026-06-22 19:18:30Z structural-output-hook FIRE (structural-markers-missing)
+- 2026-06-23 11:37:54Z structural-output-hook FIRE (position-implication-tier-missing)
+- 2026-06-23 14:56:20Z structural-output-hook FIRE (structural-markers-missing)
