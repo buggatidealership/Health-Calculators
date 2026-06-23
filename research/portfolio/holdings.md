@@ -1,6 +1,8 @@
 # Current Holdings — CANONICAL PORTFOLIO REFERENCE
 
-**Last updated:** 2026-06-18 PM33 (user-shared 4 Degiro screenshots; supersedes 2026-06-17 PM29 canonical)
+**🔴 2026-06-23 AM USER DISCLOSURE — DDOG + NOW SOLD 2026-06-22 (timestamp inferred from user "yesterday"):** User verbatim 2026-06-23 AM: *"I did sell Datadog and [ServiceNow/'Anal' voice-garble] yesterday because there was a narrative shift again back to selling software, and I know it was an emotional sell. But looking back at it now, it is actually... it was actually a good decision because all these stocks yesterday were down more. What Datadog and ServiceNow were down, they're down even more today."* User self-flagged Critical Rule #8 violation (sold on macro-narrative shift without thesis-falsifier firing). Per-name thesis files updated with EXIT cross-ref + 3-layer GRADE structure. Position-change details logged in `portfolio/changes.md` 2026-06-23 entry. **Holdings.md table below is STALE on DDOG + NOW lines as of 2026-06-18 PM33 canonical** until user provides next screenshot. Per user canonical-reference rule: *"Only gets changed when I send a new screenshot."* AWAITING USER NEXT SCREENSHOT for canonical-state refresh.
+
+**Last updated:** 2026-06-18 PM33 (user-shared 4 Degiro screenshots; supersedes 2026-06-17 PM29 canonical) — **STALE on DDOG + NOW per 2026-06-23 AM disclosure above**
 **Source:** 4 user-shared Degiro mobile screenshots 2026-06-18 PM
 **Total Degiro balance:** €176,853.52 (Day P/L +€4,671.58 / +2.56%)
 **Total Degiro P/L lifetime:** confirmed via multi-screenshot integration (see below)

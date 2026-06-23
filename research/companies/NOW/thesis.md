@@ -1,5 +1,24 @@
 # ServiceNow (NOW) — Thesis
 
+**🔴 2026-06-23 AM USER EXIT DISCLOSURE — POSITION SOLD 2026-06-22 (FULL EXIT — exceeds PM-ROTATION-EMPIRICAL TRIM-25% modal):** User verbatim 2026-06-23 AM: *"I did sell Datadog and [ServiceNow / 'Anal' voice-garble] yesterday because there was a narrative shift again back to selling software, and I know it was an emotional sell."* PM-ROTATION-EMPIRICAL 2026-06-22 (commit 4c049f48) recommendation was TRIM-CANDIDATE 25-50% user-discretion — user executed 100% sell which EXCEEDS framework but was within the user-discretion band. PM-COHORT-PATTERN-C 2026-06-22 (commit 61ffffea) found STRONG 3-vector successor-architecture pattern (Moveworks + Traceloop + Veza + $1B Ventures + RaptorDB + Action Fabric/MCP) that SOFTENED EXIT conviction but TRIM-25% remained modal due to timing-horizon-mismatch (hedge-payoff 12-24mo vs cohort-relative-lag 6-18mo).
+
+**3-layer GRADE structure (per Critical Rule #5 GRADE workflow):**
+- **INPUT layer (CORRECT):** Bifurcation-LOSER read on NOW was structurally verified (Q1 -14-17% reaction worst-single-day-in-company-history; -33-38% YTD; AI inflection NOT in organic guide; MS Equal Weight stale). NO new INPUT data emerged between PM-COHORT-PATTERN-C (2026-06-22) and user sell (2026-06-22 later same day).
+- **COMPUTATION layer (PARTIAL ALIGN):** TRIM-CANDIDATE 25-50% framework existed; user executed 100% which is 2-4× the modal but within framework outer-bound; price-action validation (further weakness today) is empirically correct.
+- **REASONING layer (CRITICAL RULE #8 GRAY ZONE):** User-self-flagged emotional sell on "narrative shift" — Rule #8 still applies (no NOW falsifier formally fired) BUT the AM6b/AM7 sovereign-AI watch condition + Q1-bifurcation-loser falsifier-PRECURSOR + STRONG successor-arch pattern timing-mismatch all created legitimate sell-side case at user discretion. Less clear-cut than DDOG case.
+
+**Pattern this fits:** "PARTIALLY VINDICATED EXIT" — outcome favorable + framework partially supported. Less of a "right for wrong reason" pattern than DDOG; more of a "user-execution-exceeded-recommended-magnitude but within defensible discretion band." User self-awareness on emotional component preserved.
+
+**Codification trigger fired (per Critical Rule #13):**
+- §2 position-relevant variable changed (NOW position to ZERO)
+- §4 user-corrected-reasoning generalizes to lesson — added to `predictions/lessons.md` queue + B60 candidate flagged
+
+**Thesis status (post-exit):** Thesis content REMAINS VALID at structural level — NOW is still bifurcation-LOSER short-term + STRONG successor-arch-restructuring long-term. The dual-time-horizon framework persists; if user re-evaluates NOW post-July 29 Q2 print (next milestone), the same thesis applies. STRONG successor-arch pattern means 12-24mo hedge-payoff IS embedded — re-entry candidacy preserved if Q2 print shifts organic-guide language.
+
+**Position implication:** 🔴 SOLD 54sh @ user-discretion-price 2026-06-22 — full exit; capital freed (~$5,120 USD = ~€4,650 EUR per holdings.md PM33 canonical pre-sale value) — re-entry candidacy preserved at thesis level; July 29 2026 Q2 print remains thesis-evidence catalyst. **Re-classified as 🔴 WATCHLIST-REFERENCE (no longer held; thesis preserved for re-evaluation; STRONG successor-arch pattern means watch for re-entry post-Q2-print if AI-organic-guide language shifts).**
+
+---
+
 **🟢 2026-06-22 PM-COHORT-PATTERN-C cross-ref — STRONG incumbent-investing-in-successor-architecture pattern across THREE INDEPENDENT DIMENSIONS — most comprehensive successor-architecture restructuring in ENTIRE held cohort; SOFTENS EXIT conviction but does NOT change TRIM-25% modal recommendation per timing-horizon-mismatch:** Per `signals/cross-source-log/2026-06-22-pm-subagent-c-incumbent-successor-arch-pattern-ddog-now.md` (1 Opus 4.8 subagent 105.5k subagent_tokens).
 
 **NOW pattern evidence — 3-vector confirmation:**

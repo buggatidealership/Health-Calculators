@@ -1,5 +1,24 @@
 # Datadog (DDOG) — Thesis
 
+**🔴 2026-06-23 AM USER EXIT DISCLOSURE — POSITION SOLD 2026-06-22 (FULL EXIT not partial trim):** User verbatim 2026-06-23 AM: *"I did sell Datadog and [ServiceNow] yesterday because there was a narrative shift again back to selling software, and I know it was an emotional sell."* **CRITICAL CONTRADICTION TO MY PRIOR ANALYSIS:** PM-ROTATION-EMPIRICAL 2026-06-22 (commit 4c049f48) explicitly recommended 🟢 HOLD DDOG no change — DDOG was confirmed bifurcation-WINNER (+31% Q1 earnings reaction; +74-80% YTD; LLM Observability "contributing meaningfully for first time"); PM-COHORT-PATTERN-C 2026-06-22 (commit 61ffffea) confirmed WEAK pattern CONSISTENT with bifurcation-WINNER framing. User sold anyway.
+
+**3-layer GRADE structure (per Critical Rule #5 GRADE workflow):**
+- **INPUT layer (CORRECT):** Bifurcation-WINNER read on DDOG was structurally verified (Q1 +31% earnings reaction; LLM Obs "contributing meaningfully"; DASH 2026 100+ capabilities + Bits AI agentic platform; ~$1B Q1 revenue +32% YoY). NO new INPUT data emerged between PM-ROTATION-EMPIRICAL (2026-06-22) and user sell (2026-06-22 later same day).
+- **COMPUTATION layer (NEUTRAL):** Stock price action across software cohort was directionally weaker yesterday + further weaker today — user's price-action observation is empirically correct.
+- **REASONING layer (CRITICAL RULE #8 VIOLATION):** User-self-flagged emotional sell on "narrative shift again back to selling software" — macro-narrative-shift is EXACTLY the kind of macro-headwind Critical Rule #8 was codified to prevent acting on. **No falsifier in DDOG F-conditions fired.** No bifurcation-WINNER thesis evidence shifted.
+
+**Pattern this fits:** "RIGHT FOR THE WRONG REASON" — outcome favorable (stocks down further today), process broken (Rule #8 violation on a name explicitly recommended HOLD as bifurcation-WINNER). Classic failure mode where lucky outcomes validate broken processes. The NEXT instance of "narrative shift" panic-sell may not luck-out.
+
+**Codification trigger fired (per Critical Rule #13):**
+- §2 position-relevant variable changed (DDOG position to ZERO)
+- §4 user-corrected-reasoning generalizes to lesson — added to `predictions/lessons.md` queue + flagged for B60 candidate (OUTCOME-VALIDATES-PROCESS-BIAS) in `meta/biases-watchlist.md`
+
+**Thesis status (post-exit):** Thesis content REMAINS VALID at structural level — DDOG is still bifurcation-WINNER per all verified Q1 + DASH 2026 + pattern-WEAK-consistent-with-confidence read. The sell was POSITION decision NOT thesis-falsification. If user wants to re-enter DDOG, the same bull thesis applies; if user wants to keep capital out, the bifurcation-WINNER thesis is preserved as REFERENCE artifact for future re-evaluation.
+
+**Position implication:** 🔴 SOLD 26sh @ user-discretion-price 2026-06-22 — full exit; capital freed (~$5,200 USD = ~€4,700 EUR per holdings.md PM33 canonical pre-sale value) — re-entry candidacy preserved at thesis level; if user re-considers, Aug 6 2026 Q2 print remains thesis-evidence catalyst. **Re-classified as 🔴 WATCHLIST-REFERENCE (no longer held; thesis preserved for re-evaluation).**
+
+---
+
 **🟢 2026-06-22 PM-COHORT-PATTERN-C cross-ref — WEAK incumbent-investing-in-successor-architecture pattern CONSISTENT with bifurcation-WINNER frame (confident defenders extend platform; do not bet against themselves via external CVC); DASH 2026 Bits AI agentic platform validates internal R&D direction:** Per `signals/cross-source-log/2026-06-22-pm-subagent-c-incumbent-successor-arch-pattern-ddog-now.md` (1 Opus 4.8 subagent 105.5k subagent_tokens).
 
 **DDOG pattern evidence:**
