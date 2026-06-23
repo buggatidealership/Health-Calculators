@@ -52,6 +52,36 @@ Per `signals/cross-source-log/2026-06-23-pm-subagent-cxmt-semianalysis-newslette
 
 **Position implication: 🔴 SPECULATIVE — MONITOR ONLY — DO NOT ATTEMPT TO ENTER** (direct-invest INACCESSIBLE for Euro retail via N26/Degiro; A-share ETF exposure is the only vehicle and dilutes signal); tracking for competitive-intelligence on memory cohort. Re-eval trigger: HK secondary listing announcement (would unlock direct-invest path) OR China A-share ETF passive-flow data confirming material CXMT weight inclusion post-listing.
 
+### 2026-06-23 PM-JUKAN-CXMT update — strategic-interpretation layer + YMTC empirical precedent
+
+Per `signals/cross-source-log/2026-06-23-pm-subagent-jukan-cxmt-china-pricing-discipline-strategic-interpretation.md` (1 Opus 4.8 subagent 58.1k subagent_tokens).
+
+**Strategic-interpretation P-weights (my model, post-verification):**
+
+| Hypothesis | P (2026) | P (2027 downcycle) | Mechanism |
+|---|---|---|---|
+| **H1: CXMT profit-first by strategic choice** | 0.65 | 0.40-0.50 | 70% OPM, Computex channel checks, YMTC precedent, IPO accountability |
+| **H2: CXMT profit-effect via supply-constraint** (effect identical, motivation different) | 0.25 | 0.20-0.25 | BIS export controls cap capacity; 95.7% utilization; market-clearing not strategic |
+| **H3: CXMT staging pre-IPO; pivots post-IPO** | 0.10 | 0.30-0.40 | State equity + DDR4 precedent + 12% share target; CONTRADICTED by IPO accountability |
+
+**H1+H2 = 90% support cycle-extension thesis for 2026; only H3 is bear case, weight rises specifically in 2027 downcycle scenario.**
+
+**YMTC NAND empirical precedent (most-directly-comparable Chinese-memory entry):** RAISED NAND prices ~5% July 2023 downcycle; Entity List Dec 2022 → Samsung raised NAND ~10%. Behavior NOT consistent with persistent dumper. Refutes consensus China-DRAM-flood bear case via direct historical-playbook analog.
+
+**DDR4 counterpoint correctly framed:** CXMT DID dump DDR4 ECC at $138 vs $300-400 (50-60% discount) — but legacy product clearing-inventory NOT DDR5 strategic positioning.
+
+**Capacity-constraint reframe (H2 mechanism):** BIS export controls cap CXMT capacity → market-clearing pricing regardless of strategic intent; effect = discipline, motivation = different. BIS sanctions trajectory (tightening per current US policy) extends constraint through 2027+ regardless of CXMT strategy.
+
+**2027 falsification triggers codified:**
+1. CXMT DDR5 consumer pricing falls >20% below Samsung/Hynix in cycle softening
+2. CXMT explicitly targets >15% global DRAM share via below-cost volume push
+3. Chinese government explicitly provides export DRAM pricing subsidies
+- NONE present Q1-Q2 2026 → these become active monitoring items entering 2027
+
+**Cross-cohort cascade triggered:** HYNIX (REINFORCED HOLD; positioned as MAXIMUM beneficiary of server+HBM mix-shift mechanic per SemiAnalysis model), KIOXIA + SNDK (YMTC precedent directly refutes China-NAND-flood bear case for NAND franchise; 2028+ tech-parity ≠ ASP-collapse mechanically). Cohort-wide net: cycle-extension prior REINFORCED at structural level (not just decorative agreement).
+
+**Watchlist tier UNCHANGED: 🔴 SPECULATIVE — MONITOR ONLY** — investability barrier binding; tracking value = competitive intelligence + 2028+ tech-parity trajectory monitoring.
+
 ---
 
 ### 🔴 ALAB (Astera Labs, NASDAQ) — **WATCHLIST P2 — DO NOT ENTER AT CURRENT PRICE** (post-2026-06-22 PM-MRVL-VS-ALAB head-to-head verification)

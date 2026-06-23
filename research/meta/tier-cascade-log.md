@@ -35,6 +35,29 @@
 
 ## Entries (most recent first)
 
+### [2026-06-23 PM-JUKAN-CXMT] 🟢 User-shared Jukan @jukan05 tweet image quoting SemiAnalysis CXMT newsletter ASP-section paragraph triggered B59 v2 scoped follow-on verification — HIGH yield via YMTC NAND historical-playbook empirical refutation of consensus China-DRAM-flood bear case + N=4 source triangulation MET on "China not dumping 2026" + HYNIX positioned as MAXIMUM beneficiary of server+HBM mix-shift mechanic; thesis-additive insight beyond morning PM-CXMT-SEMIANALYSIS; 2027 falsification triggers codified as monitoring overlay; all held cohort positions UNCHANGED
+
+**Trigger source:** User-shared image (Jukan @jukan05 tweet); follow-on to PM-CXMT-SEMIANALYSIS commit 34f4d26d. NEW verification layer = strategic interpretation ("China currently has no interest in dumping memory") on top of already-verified underlying 5-10% ASP gap data point.
+
+**Intake tier:** 🟢 HARD — N=4 same-segment same-direction triangulation on "China not dumping 2026" frame MET (WCCFTech Computex + SemiAnalysis + TrendForce mix-shift + Digitimes IPO-cycle-support); YMTC NAND historical-playbook empirical precedent (HIGH confidence; T2 Digitimes primary citation); multilingual Chinese native sources zero counter-evidence.
+
+**Source:** `signals/cross-source-log/2026-06-23-pm-subagent-jukan-cxmt-china-pricing-discipline-strategic-interpretation.md` (58.1k subagent_tokens; 53 tool uses; multilingual Chinese primary)
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/HYNIX/thesis.md` top-of-file — new PM-JUKAN-CXMT cross-ref; cycle-extension prior REINFORCED at structural level via YMTC empirical-precedent refutation; HYNIX positioned as MAXIMUM beneficiary of server+HBM mix-shift mechanic per SemiAnalysis model; 2027 falsification triggers codified as monitoring overlay; 🟢 HARD HOLD 10.13% Core unchanged
+- `companies/KIOXIA/thesis.md` top-of-file — new PM-JUKAN-CXMT cross-ref; YMTC NAND empirical precedent (raised prices 2023 downcycle = opposite of dump) directly refutes China-NAND-flood bear case for KIOXIA franchise via same-ecosystem analog; 2028+ tech-parity ≠ ASP-collapse mechanically; 🟡 HOLD-until-falsifier ~€10K unchanged
+- `companies/SNDK/thesis.md` top-of-file — new PM-JUKAN-CXMT cross-ref; same YMTC-precedent logic applied to SNDK Yokkaichi-JV NAND franchise; 🟢 HOLD 6sh unchanged
+- `watchlist/candidates.md` CXMT entry — appended H1/H2/H3 P-weights + YMTC empirical precedent + capacity-constraint reframe + 2027 falsification triggers; 🔴 MONITOR-ONLY tier unchanged
+- `meta/subagent-cost-yield-ledger.md` — new entry (53rd fire; audit summary recount HIGH 29 / MEDIUM 17 / LOW 2 / FRAMING-ERROR-CAUGHT 3 / ZERO 0)
+
+**Files NOT touched (no claim intersection):** MURATA + SUMCO (no NAND/DRAM-dump-thesis intersection); MRVL / NBIS / NVDA / AVGO / ANET / IBIDEN / DDOG-WATCHLIST / NOW-WATCHLIST etc.; sector/ files; meta/biases-watchlist.md (B22 anti-anchoring already codified — PM-JUKAN-CXMT provides reinforcement evidence not new bias)
+
+**Stale flags fired:** none — all tier markers refreshed by this cascade
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-23 PM-CXMT-SEMIANALYSIS] 🟢 User-shared SemiAnalysis paid Substack newsletter on CXMT STAR Market IPO + competitive trajectory triggered B59 v2 verification — HIGH yield via FRAMING-ERROR CAUGHT on Qimonda IP chain (Inotera/Powerchip vs Polaris/WiLAN) + commodity-DRAM-pivot CROSS-CONFIRMED at most-direct peer (70% OPM 100% commodity DRAM Q1 2026 at CXMT validates HYNIX morning HBM4-throttle scenario) + cycle-extension prior REINFORCED + new MONITOR-ONLY watchlist surface flagged with binding investability barrier (STAR Market direct-INACCESSIBLE for Euro retail); HYNIX 10.13% Core REINFORCED HOLD; all 5 held cohort positions UNCHANGED
 
 **Trigger source:** User-shared after first-principles technical Q&A on AI accelerator vs memory architecture; B59 v2 protocol applied (verification BEFORE TL;DR).

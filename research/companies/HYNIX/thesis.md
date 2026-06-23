@@ -1,5 +1,46 @@
 # SK Hynix — Thesis
 
+**🟢 2026-06-23 PM-JUKAN-CXMT cross-ref — STRATEGIC-INTERPRETATION layer on PM-CXMT-SEMIANALYSIS verified via N=4 source triangulation + YMTC NAND empirical-precedent refutation of consensus China-DRAM-flood bear case; HIGH yield via thesis-additive insight that bear case is 2027-conditional NOT 2026-imminent + HYNIX positioned as MAXIMUM beneficiary of server-DRAM+HBM mix-shift mechanic; HOLD 10.13% Core REINFORCED at structural level:** Per `signals/cross-source-log/2026-06-23-pm-subagent-jukan-cxmt-china-pricing-discipline-strategic-interpretation.md` (1 Opus 4.8 subagent 58.1k subagent_tokens; multilingual Chinese primary; 5-target scoped verification). User-shared Jukan @jukan05 tweet quoting SemiAnalysis ASP-section paragraph; underlying numerical claim (CXMT 5-10% ASP gap Q1 2026) already CORROBORATED HIGH in PM-CXMT-SEMIANALYSIS commit 34f4d26d — NEW verification layer = strategic interpretation "China currently has no interest in dumping memory."
+
+**N=4 same-segment same-direction triangulation MET on "China not dumping 2026" frame:** (1) WCCFTech Computex 2026 channel checks (distributor/module-maker primary: "CXMT cheap DDR5 is a myth — prices match Samsung/Hynix/Micron"); (2) SemiAnalysis newsletter (CXMT 70% OPM Q1 2026 vs Hynix 73% / Samsung 81% / Micron 84% = comparable profitability); (3) TrendForce Jan 2026 (server-mix-driven price increases 1Q26; server+HBM >50% DRAM end-market by end-2027); (4) Digitimes April 2026 (IPO delay eases DRAM supply risks, supports pricing cycle). Zero counter-frame from native Chinese sources (Sina Finance / Zhonghang / Stcn / Zhihu): Chinese financial media would treat state-directed market-share pricing as POSITIVE if occurring → absence is informative.
+
+**🔥 YMTC NAND historical-playbook empirical refutation (LOAD-BEARING for held cohort):**
+- YMTC RAISED NAND prices ~5% in July 2023 downcycle (T2 [Digitimes](https://www.digitimes.com/news/a20230717PD200/china-big-fund-ymtc-nand-flash.html)) — opposite of dump narrative
+- When YMTC went on Entity List December 2022, Samsung RAISED NAND prices ~10% — market viewed YMTC as disciplined enough that its removal created upside room
+- YMTC = most-directly-comparable entry case to CXMT (same sector category / same state-VC structure / same Entity List status / same $24B+ state subsidy backstop)
+- Behavior NOT consistent with persistent dumper
+- BOE LCD analogy does NOT cleanly apply: LCD has stable demand, memory is cyclical → memory oligopoly economics make dumping self-defeating for any commercial actor
+
+**DDR4 counterpoint (correctly framed, NOT thesis-bearing):** CXMT DID price DDR4 ECC 32GB modules at ~$138 vs $300-400 market (50-60% discount). BUT this was LEGACY product (DDR4 discontinued 1H 2026) sold primarily in Chinese domestic market = clearing-inventory-pricing (analogous to outgoing-model-year discount), NOT strategic positioning for DDR5 generation.
+
+**P-weight distribution on strategic interpretation (my model, post-verification refined from initial parent-agent read):**
+- H1: CXMT genuinely profit-first by strategic choice — 2026 P=65% / 2027 P=40-50% (Computex channel checks + 70% OPM + YMTC precedent + IPO accountability)
+- H2: CXMT profit-effect via supply-constraint (effect same, motivation different) — 2026 P=25% / 2027 P=20-25% (BIS export controls cap capacity; 95.7% utilization; market-clearing not strategic)
+- H3: CXMT staging market-rate pre-IPO; pivots to share-grab post-IPO — 2026 P=10% / 2027 P=30-40% (state equity + DDR4 precedent + 12% share target; CONTRADICTED by IPO accountability logic)
+- **H1+H2 = 90% combined support cycle-extension thesis for 2026**; only H3 is bear case, weight rises specifically in 2027 downcycle scenario
+
+**Capacity-constraint reframe (load-bearing — H2 mechanism):** CXMT is capacity-constrained due to US export controls restricting equipment procurement — NOT intentional volume discipline. Their pricing reflects market-clearing under supply constraint, not strategic choice. **EFFECT identical to discipline; motivation different.** This is structurally important because BIS sanctions trajectory (tightening, not loosening per current US policy) extends the constraint through 2027+ regardless of CXMT strategic intent.
+
+**SemiAnalysis "widening ASP gap via product mix" forecast cross-house verified (N=3 institutional):**
+- TrendForce: server+HBM >50% DRAM end-market by end-2027; leaders prioritize server
+- Counterpoint: CXMT revenue share LOWER than bit share = signature of lower-ASP product mix
+- SemiAnalysis: widening gap = leaders mixing UP into server+HBM, NOT CXMT undercutting
+- **Critical structural nuance:** CXMT's server DRAM expansion is primarily DOMESTIC (Chinese cloud/AI); global hyperscaler server DRAM (AWS/Azure/GCP) remains almost exclusively Samsung/SK Hynix/Micron; CXMT has NO commercial HBM. Product+customer gaps structurally widen ASP gap INDEPENDENT of pricing behavior.
+
+**🔴 2027 falsification triggers (CODIFIED — adds to F-condition set as monitoring overlay):**
+1. CXMT DDR5 consumer pricing falls >20% below Samsung/Hynix in cycle softening
+2. CXMT explicitly targets >15% global DRAM share via below-cost volume push
+3. Chinese government explicitly provides export DRAM pricing subsidies
+- **NONE present Q1-Q2 2026** — these become active monitoring items entering 2027
+
+**Net structural read: HYNIX positioned as MAXIMUM beneficiary of the mix-shift mechanic.** SemiAnalysis model says leaders widen ASP via server DRAM + HBM. SK Hynix = #1 HBM supplier globally. Jukan/SemiAnalysis frame points specifically toward HYNIX as cycle winner — not just incumbent, but DIRECT beneficiary of the structural mechanic SemiAnalysis identifies. This is genuinely thesis-additive vs the morning's PM-CXMT-SEMIANALYSIS (which established cycle-extension prior reinforcement); this verification establishes WHY HYNIX captures more of that cycle-extension than peers.
+
+**B22 anti-anchoring check applied:** consensus bear frame "China dumps like LCD/solar/steel" IS operating in market AND IS understated by this data for 2026 specifically. Pre-training pull toward "Chinese state-backed = will dump" actively resisted per Critical Rule #15 + B22; verification provides evidence override.
+
+**Position implication: 🟢 HARD — HOLD 10.13% Core — no size change — Jukan/SemiAnalysis strategic frame REINFORCED via N=4 source triangulation + YMTC NAND empirical precedent (raised prices in downcycle = NOT dumper); HYNIX positioned as MAXIMUM beneficiary of server+HBM mix-shift mechanic; bear case re-classified as 2027-conditional tail risk NOT 2026 base case; 2027 falsification triggers (1)+(2)+(3) codified as monitoring overlay; F1-F13 falsifiers status quo; MU print TONIGHT after close remains next binding catalyst per L27 framework.**
+
+---
+
 **🟢 2026-06-23 PM-CXMT-SEMIANALYSIS cross-ref — CXMT competitive-threat verification = CYCLE-EXTENSION PRIOR REINFORCED + COMMODITY-DRAM-PIVOT CROSS-CONFIRMED at most-direct peer; 1 FRAMING-ERROR CAUGHT on Qimonda IP chain; HOLD 10.13% Core preserved:** Per `signals/cross-source-log/2026-06-23-pm-subagent-cxmt-semianalysis-newsletter-verification.md` (1 Opus 4.8 subagent 55.9k subagent_tokens; multilingual Chinese primary verified across ≥5 Chinese sources; 13 load-bearing claims spanning financials/IPO/capacity/HBM/ASP/supply-constraint). User-shared SemiAnalysis paid Substack newsletter on CXMT's STAR Market IPO + competitive trajectory.
 
 **Verified competitive-threat parameters (HIGH confidence):**
