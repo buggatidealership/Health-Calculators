@@ -1,5 +1,22 @@
 # SK Hynix — Thesis
 
+**🟢 2026-06-23 AM-MU-BEAT-PROB cross-ref — MU Q3 FY26 print TOMORROW Wed 2026-06-24 after close = HYNIX cross-implication MODAL DOUBLY-BULLISH:** Per `signals/cross-source-log/2026-06-23-am-subagent-mu-beat-probability-data-pack-tomorrow-print.md` (1 Opus 4.8 subagent 101.0k subagent_tokens; IBIDEN-precedent 6-axis framework applied to MU with user-spec hard-data-only discipline). **HARD-DATA-ANSWER per user verbatim methodology directive:** every numerical input says MU beats; P(operational beat) = 85% (my model from 4/4 prior beats + 21.7% avg surprise + consensus revising UP +3.1% in 30d / +68.1% in 90d + HBM-sold-out via LTAs + Anthropic multi-year LTA disclosed yesterday 2026-06-22 + Jensen certified all 3 HBM vendors including MU on June 5). MU Q3 FY26 guide $33.5B revenue + $19.15 EPS + ~81% GM (47-yr record if delivered); consensus $34.38-34.52B revenue + $19.72 EPS.
+
+**Cross-implication for HYNIX 10.13% Core (joint-state per scenario):**
+- **H1 (50%, MODAL) MU beats + Q4 guide raise ≥$38B → HYNIX thesis DOUBLY CONFIRMED:** DRAM supercycle peer-corroborated at T1; commodity-DRAM-margin-pivot thesis from this morning's HYNIX-throttle-article verification (commit bf5c599d) STRENGTHENED. 🟢 HOLD
+- **H5 (10%) MU beats + structural disclosure (customer naming / FY27 floor) → HYNIX RE-RATED:** strongest possible confirmation. 🟢 HOLD / potential add
+- H2 (25%) MU beats + tepid Q4 guide ($35-38B) → HYNIX neutral — MU-specific management conservatism issue NOT demand. 🟢 HOLD
+- H3 (12%) MU in-line → HYNIX mild caution — KRX sympathy possible; fundamentals intact. 🟢 HOLD; monitor
+- H4 (3%) MU misses vs guide → HYNIX FALSIFIER WATCH — activate F-condition pre-trim alert. Elevate
+
+**Asymmetry binding:** P(positive HYNIX read from MU = H1+H5) = **60%** vs P(H4 falsifier-watch) = **3%**. The 20:1 positive-vs-negative asymmetry makes HOLD discipline through tomorrow's MU print empirically correct.
+
+**True binary per subagent analysis (not the headline EPS):** Q4 FY26 guide ≥$38B satisfies analyst implicit expectation = H1+H5 fires; tepid Q4 guide $35-38B = H2 profit-taking despite operational beat. P(Q4 guide ≥$38B) = ~50-55% (my model — management's pattern of large guide-steps + HBM-sold-out structural confidence). This is the bimodal-print pattern (per IBIDEN PM-IBIDEN-BEAT-PROB precedent commit 689ca4c0) applying to MU as well.
+
+**Position implication: 🟢 HOLD 10.13% Core — no size change — MU tomorrow has 60% probability of DOUBLY-CONFIRMING HYNIX thesis vs 3% falsifier-watch probability; HOLD discipline through binary catalyst is empirically asymmetric-correct. F1-F13 status quo. Watch tomorrow's MU after-close print + read-through to HYNIX KRX Thursday open for cohort confirmation.**
+
+---
+
 **🟢 2026-06-23 AM-FULL-COHORT-PRICE-MACRO cross-ref — KOSPI RECORD HIGH +0.69% to 9,115 with HYNIX KRX +5.57% TODAY; GDR HY9H Frankfurt ~€1,700 estimated (+31.4% vs €1,294 BEP); broader AI-infra cohort at record highs (Nikkei +1.55% record; MRVL +8.23%); Iran de-escalating (oil falling to $73.67); morning HYNIX-throttle article verification combined with today's record-high price action = NET DOUBLY-BULLISH structural day:** Per `signals/cross-source-log/2026-06-23-am-subagent-full-cohort-price-action-global-macro.md` (115.4k subagent_tokens). **B40 Critical Rule #12 SELF-CORRECTION on prior cascade:** AM-JPY-COHORT-DROP-VERIFICATION (commit ffeb5fd1) mis-attributed KOSPI circuit-breaker to "today June 23" but actually occurred **June 8 2026** (AVGO earnings miss → $1.3T chip-sector wipe June 5-8). The wipe HAS BEEN FULLY RECOVERED with KOSPI + Nikkei now at record highs. SK Hynix briefly hit historic 3M won first ever during the recovery cycle. F-5 falsifier (XPU diversification at competing neoclouds) NOT triggered. F1-F13 status quo. **Position implication: 🟢 HOLD 10.13% Core — no size change — today's record-high context strengthens cycle-extension prior even further; combined with morning's HYNIX-throttle-article NET BULLISH verification, this is a doubly-bullish structural day.**
 
 ---
