@@ -1,5 +1,41 @@
 # SK Hynix — Thesis
 
+**🟢 2026-06-23 AM-COUNTERPOINT-MEMORY-TRACKER cross-ref — N=5 institutional cross-corroboration of memory supercycle through 2027 quantified at $975B (2026) / $1.37T (2027); DOUBLY REINFORCES HYNIX HOLD discipline; H2 2027 supply-arrival risk REAL but cushioned by LTA floor + HBM mix per existing harness framework:** Per `signals/cross-source-log/2026-06-23-am-subagent-counterpoint-memory-tracker-korean-verification.md` (1 Opus 4.8 subagent ~97.9k subagent_tokens; multilingual Korean primary verified across 8 outlets). User-shared Counterpoint Memory Tracker (Korean institutional T2) projects global memory market 360 조원 (2025) → 1,500 조원 (2026E) → 2,100 조원 (2027E) = ~$234B → $975B → $1,366B USD at ~1,538 KRW/USD; server share 37% → 56% → 57%.
+
+**Numerical sanity verification (B45 binding):** Parent agent pre-verification flagged "+316% YoY = impossibility" anchored on stale 2024 baseline ($120-130B) — **self-corrected as B45 pre-training-conservatism failure mode caught**. Korea Customs TRASS T1 data already showed +576% YoY DRAM prices per `companies/HYNIX/thesis.md` AM-KOREA-CUSTOMS cross-ref earlier. Counterpoint at HIGH end of N=5 institutional range; ALL 5 institutions agree on DIRECTION:
+
+| Year | Counterpoint | TrendForce (May rev) | IDC | WSTS |
+|---|---|---|---|---|
+| 2025 | ~$234B | ~$226B | $226B | ~$225-250B |
+| 2026 (E) | **~$975B** | ~$889B | $595B | >$800B |
+| 2027 (E) | **~$1,366B** | $1.28T | $790B | (>$1.5T total semi) |
+
+Counterpoint $1.37T 2027 is only 7% above TrendForce May-2026 revision = TRIANGULATED forecast convergence.
+
+**Server share expansion 37% → 56% → 57% = triangulated signal (N=3 same-segment):** Counterpoint + TrendForce (T2 May 2026: "AI memory demand seen exceeding 50% of total market") + Micron mgmt T1 per TrendForce aggregation. Mechanism mechanically explained: HBM 2-3× ASP per bit + server DRAM volume + server NAND for AI model storage + PC -5% YoY 2026 + smartphone declining (per Counterpoint). HYNIX disclosed T1: HBM generates 54% of operating profit from 14% of shipment volume — the margin arithmetic BEHIND server-share shift is visible in actual disclosed financials.
+
+**H2 2027 bear-case caveat — VERIFIED REAL but cushioned:**
+- Samsung P5 Pyeongtaek operational ~2028 (T2 DCD)
+- SK Hynix M15X mid-2027 utilization (T2 DCD)
+- Micron Idaho not meaningful before H2 2027 (T2 Counterpoint via WCCFtech)
+- Samsung memory chief Kim Jaejune T1 April 2026: "significant shortages expected to continue through at least 2027"
+- LTA cushion ~50% capacity (could go to 70%) per Jefferies framework already in AM-KOREA-CITRINI cross-ref
+- This is the FIRST date-anchored cycle-peak window per institutional consensus = aligns with cycle-peak detection triggers codified in `portfolio/constraints.md` UPDATE 2
+
+**N-th order bear cascade (P-weighted, my model):**
+- 1st order (P>80%): supply arrives H2 2027 → spot DRAM/NAND prices compress
+- 2nd order (P~60%): non-LTA CE/mobile OEMs get price relief; server buyers face no immediate relief on contracted volumes; HYNIX shields ~50% via LTAs
+- 3rd order (P~40%): KIOXIA/SNDK NAND spot more exposed than HYNIX HBM; MURATA/SUMCO feel softer new-order pace
+- 4th order (P~20%): if AI capex simultaneously decelerates in macro recession, LTA floors get contested — binary tail scenario
+
+**L27 cross-reference (codified earlier today):** This Counterpoint forecast is a load-bearing data point for L27 "Beat-Consensus-As-Regime-Test" — quantifies cycle-extension prior through end-2027 via N=5 institutional convergence. MU print TOMORROW Wed 2026-06-24 + HYNIX Q2 late July + cohort earnings through Aug = discrete validation events. H2 2027 = institutional-consensus cycle-peak window.
+
+**Anti-fragility check post-Counterpoint:** HYNIX wins in 3 of 4 scenarios (Bull: LTA + HBM full ramp; Base: commodity DRAM + LTA; Partial-Bear: LTA floors protect). H2-2027 bear is the 1/4 scenario where supply arrives + LTA floors get contested simultaneously. HOLD discipline empirically correct per AF framework + Critical Rule #8 (no falsifier fires).
+
+**Position implication:** 🟢 HARD — **HOLD 10.13% Core — no size change** — Counterpoint Memory Tracker N=5 institutional convergence STRONGLY REINFORCES the cycle-extension prior through end-2027; server share expansion 37→56→57% is triangulated signal; H2 2027 supply-arrival risk is real but cushioned by LTA floor + HBM mix + Samsung CFO T1 confirmation of shortages through at least 2027; F1-F13 falsifiers status quo; next binding catalyst MU print TOMORROW after close (cross-confirmation per AM-MU-BEAT-PROB cascade commit 69ccff3f).
+
+---
+
 **🟢 2026-06-23 AM-MU-BEAT-PROB cross-ref — MU Q3 FY26 print TOMORROW Wed 2026-06-24 after close = HYNIX cross-implication MODAL DOUBLY-BULLISH:** Per `signals/cross-source-log/2026-06-23-am-subagent-mu-beat-probability-data-pack-tomorrow-print.md` (1 Opus 4.8 subagent 101.0k subagent_tokens; IBIDEN-precedent 6-axis framework applied to MU with user-spec hard-data-only discipline). **HARD-DATA-ANSWER per user verbatim methodology directive:** every numerical input says MU beats; P(operational beat) = 85% (my model from 4/4 prior beats + 21.7% avg surprise + consensus revising UP +3.1% in 30d / +68.1% in 90d + HBM-sold-out via LTAs + Anthropic multi-year LTA disclosed yesterday 2026-06-22 + Jensen certified all 3 HBM vendors including MU on June 5). MU Q3 FY26 guide $33.5B revenue + $19.15 EPS + ~81% GM (47-yr record if delivered); consensus $34.38-34.52B revenue + $19.72 EPS.
 
 **Cross-implication for HYNIX 10.13% Core (joint-state per scenario):**
