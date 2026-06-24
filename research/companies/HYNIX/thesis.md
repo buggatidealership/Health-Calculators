@@ -1,5 +1,42 @@
 # SK Hynix — Thesis
 
+**🚨 2026-06-24 PM-CEREBRAS-BUILDINGS cross-ref + MU TIMING SELF-CORRECTION — buildings-bottleneck industry-wide verified (Sightline Climate 30-50% of 2026 US data center pipeline at risk); NEUTRAL-TO-POSITIVE for HYNIX HBM cycle-extension (H1 P=0.55: buildings transient; HBM cycle extends 2028-2029); MU PRINTS TODAY June 24 4:30 PM EDT not tomorrow (B40.3 cohort-wide self-correction):** Per `signals/cross-source-log/2026-06-24-pm-subagent-cerebras-earnings-buildings-bottleneck-verification.md` (1 Opus 4.8 subagent 78.7k tokens). User-shared Citrini image: Cerebras Q1 2026 earnings + Andrew Feldman "buildings are the limiting factor" + Vikram Sekar 88GB SRAM/rack architectural critique.
+
+**🚨 CRITICAL MU TIMING SELF-CORRECTION:** Per T1 GlobeNewswire official Micron IR announcement May 27 2026, MU Q3 FY2026 reports **TODAY June 24 at 4:30 PM EDT (22:30 CET), NOT tomorrow.** All prior session framing of "MU print TOMORROW 2026-06-25" was wrong by 24h. B40.3 cohort-wide self-correction.
+
+**LAYER #1: Cerebras Q1 2026 financials VERIFIED HIGH** (T0 SEC 8-K): $193.4M Q1 (+94% YoY); $14M loss; FY2026 guide $855-865M (+3.7-4.9% above $824.8M consensus). Shares -10% AH → -11-14% extended. **Stock drop driver = MARGIN MISS NOT REVENUE** — Q2 GM guide 36-38% vs Q1 actual 46.5% = G42 leaseback drag (Cerebras renting back HW it previously sold to G42 to serve $20B/750MW OpenAI obligation while own data centers under construction). Cerebras uses ZERO HBM (SRAM-only architecture) — orthogonal to HYNIX direct supply.
+
+**LAYER #2: "Buildings are the limiting factor" VERIFIED industry-wide (N=4+ T1 sources):** Feldman pre-results Bloomberg interview June 23 quote verbatim. Sightline Climate 2026 Outlook: 16GW planned US data center capacity; only ~5GW under construction; **30-50% of 2026 pipeline expected delayed/cancelled** (root: power grid lead times + transformer/switchgear shortages + community opposition). META capex language confirms "additional data center costs" in raised $125-145B FY2026 guidance.
+
+**LAYER #3: Critical Rule #9 bypass-route analysis (when buildings ARE binding):**
+- Power-density-per-rack upgrade (liquid cooling 35kW → 100-130kW) = MORE HBM per chip within constrained footprint = HBM TAM EXPANDS = **POSITIVE for HYNIX**
+- Co-location / in-region sovereign capacity = NBIS direct beneficiary (separate thesis)
+- HBM ORDERED ahead of GPU DEPLOYMENT = order-vs-deployment distinction is key for MU read TONIGHT
+
+**N-th order cascade (per Subagent):**
+- 1st order (P~60%): Buildings constrain near-term GPU DEPLOYMENT pace; chip ORDERS may slow modestly if hyperscalers see deployment air-pocket
+- 2nd order (P>80%): Supply-constrained-DEMAND narrative (not demand destruction) = HBM pricing stays tight through 2027; HYNIX 60-70% NVDA Vera Rubin allocation unaffected
+- 3rd order (P~55%): If buildings fill in 2027-2028, SECOND WAVE of GPU/HBM demand follows = cycle extends 2028-2029 = thesis-additive
+- 4th order (P~20%): If GPU inventory accumulates without deployment for >2 quarters, capex restraint risk for 2027 = potential air-pocket scenario
+
+**H1/H2/H3 on Buildings + HYNIX HBM Cycle-Extension (per Subagent my model):**
+
+| Scenario | P-weight | Logic |
+|---|---|---|
+| H1: Buildings transient; HBM cycle extends 2028-2029 | 0.55 | Hyperscalers ordering chips regardless of deployment timing; buildings fill 2027-2028 triggers second wave |
+| H2: Buildings slow near-term HBM PACE (not level) | 0.30 | Hyperscalers may slow near-term chip ORDERS while long-term commitment intact; H1 2027 HBM air-pocket risk |
+| H3: Buildings trigger capex rethink; HBM revises down | 0.15 | Structural mismatch GPU-inventory-vs-deployment; no current management language supports |
+
+**🚨 MU print TONIGHT June 24 4:30 PM EDT = TRUE binding catalyst per L27 framework:** Cerebras L27 pattern = HYBRID (beat revenue +4%, shares -10-14% on MARGIN MISS not revenue magnitude). For MU: Q4 FY26 guide ≥$38B = TRUE binary per yesterday's AM-MU-BEAT-PROB cascade. If MU confirms HBM fully ordered through 2026 with no push-outs, H2 drops 0.30 → 0.20 = HYNIX HOLD discipline FURTHER REINFORCED.
+
+**Cycle-extension prior verdict:** REINFORCED — buildings-as-bottleneck is DEMAND-NOT-DESTROYED supply-constrained-on-real-estate; the bottleneck shifted from chips (2024-2025) to data centers (2026) → chip demand remains strong; HBM TAM extends.
+
+**F1-F13 falsifier status:** NONE FIRE. Cerebras-specific G42 leaseback issue does NOT cascade to HYNIX (Cerebras has zero HBM exposure). Industry-wide buildings constraint = positive 2nd-order for HBM cycle-extension prior.
+
+**Position implication: 🟢 HARD — HOLD 18 GDR HY9H (20.6% Core EXCEPTION per PM-DECISION-LOCK) — no size change — buildings-bottleneck verified industry-wide (Sightline 30-50% pipeline delay) = NEUTRAL-TO-POSITIVE for HYNIX (supply-constrained-demand cycle-extension confirmation; bypass-route via HBM-density-per-rack); 🚨 MU prints TONIGHT June 24 4:30 PM EDT NOT tomorrow (T1 GlobeNewswire verified); F1-F13 falsifiers status quo; MU Q4 FY26 guide ≥$38B = TRUE binary per L27.**
+
+---
+
 **🟡 2026-06-24 PM-OPENAI-BROADCOM-JALAPEÑO cross-ref — NEUTRAL-WATCH; Samsung WINS gen-1 HBM4 EXCLUSIVE at OpenAI Jalapeño chip; HYNIX gets ZERO OpenAI 2026 HBM allocation; thesis INTACT (NOT a falsifier — OpenAI was incremental TAM not anchor customer; HYNIX retains 60-70% NVDA Vera Rubin); medium-term POSITIVE on total HBM4 TAM expansion + gen-2 qualification opportunity 2027-2028 (ADS-funded capacity positions for that wave):** Per `signals/cross-source-log/2026-06-24-pm-subagent-openai-broadcom-custom-ai-chip-verification.md` (1 Opus 4.8 subagent 41.4k tokens; B40.x PASS — genuinely fresh productization event today). User-shared news: "OpenAI unveiled its first custom AI chip developed in partnership with Broadcom."
 
 **Load-bearing verified facts:**
