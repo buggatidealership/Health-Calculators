@@ -1,5 +1,9 @@
 # Sumco Corporation (3436.T) — Thesis
 
+**🟢 2026-06-24 PM-OPENAI-BROADCOM-JALAPEÑO cross-ref — MODERATE POSITIVE; OpenAI Jalapeño on TSMC N3 + 1.3GW+ 2027 deployment + 10GW through 2029 = INCREMENTAL N3 silicon wafer demand vector beyond NVDA Rubin; HOLD 626sh preserved:** Per `signals/cross-source-log/2026-06-24-pm-subagent-openai-broadcom-custom-ai-chip-verification.md` (1 Opus 4.8 subagent 41.4k tokens). **SUMCO direct beneficiary** of TSMC N3 capacity ramp via OpenAI Jalapeño chip deployment — adds concrete non-NVDA demand vector for SUMCO at N3 node. PC-14 cross-link: OpenAI+AVGO+TSMC+Samsung all ally-bloc stack = SUMCO Japan-wafer-bloc TAM reinforced. **Position implication: 🟡 HOLD 626sh — no size change — incremental TSMC N3 wafer demand from Jalapeño 1.3GW+ 2027 deployment = MODERATE POSITIVE; F1-F5 falsifiers status quo.**
+
+---
+
 **🟢 2026-06-24 PM-COMBINED cross-ref — PC-14 N=8+ → N=9+ enforcement-active bilateral reinforces Japan-founding-member wafer bloc; HYNIX ADS proceeds include ASML EUV scanner orders ($7.9B = largest single ASML order ever) = INDIRECT wafer-demand-supportive 2nd-order; HOLD 626sh preserved:** Per `signals/cross-source-log/2026-06-24-pm-subagent-ft-h200-china-import-restrictions-pc14-bidirectional-verification.md` + Subagent A ADS use-of-proceeds (Yongin Y1 + Cheongju P&T7 + EUV). **SUMCO implications:** PC-14 enforcement-active phase = Japanese wafer franchise inside Pax Silica ally bloc structurally reinforced; HYNIX ADS pre-funding ₩31T Yongin Y1 fab (HBM4 + advanced DRAM capacity ops early 2027) = incremental 300mm wafer demand for SUMCO; EUV scanner orders ramp = process-node-progress maintained = SUMCO 300mm SoI+regular wafer demand reinforced. **Position implication: 🟡 HOLD 626sh — no size change — PC-14 N=9+ enforcement reinforces Japan-wafer-bloc positioning; HYNIX ADS-funded Yongin Y1 fab = INCREMENTAL wafer demand customer; F1-F5 falsifiers status quo.**
 
 ---

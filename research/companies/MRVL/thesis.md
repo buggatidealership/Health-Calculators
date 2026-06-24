@@ -1,5 +1,36 @@
 # Marvell Technology (MRVL) — Thesis
 
+**🟢 2026-06-24 PM-OPENAI-BROADCOM-JALAPEÑO cross-ref — THESIS INTACT; OpenAI was NEVER in MRVL pipeline (orthogonal customer segmentation per Subagent verified HIGH); market mispricing risk surfaces potential ADD opportunity if MRVL trades down on AVGO-win-as-MRVL-loss misframe:** Per `signals/cross-source-log/2026-06-24-pm-subagent-openai-broadcom-custom-ai-chip-verification.md` (1 Opus 4.8 subagent 41.4k tokens). User-shared news: "OpenAI unveiled its first custom AI chip developed in partnership with Broadcom."
+
+**🔥 CRITICAL FINDING: OpenAI was NEVER in MRVL's customer pipeline. This is NOT a competitive loss for MRVL.**
+
+Customer segmentation is structurally clean (HIGH confidence per Subagent absence-of-evidence across 6+ searches):
+- **AVGO anchor customers**: Google (TPU v7 Ironwood + v8) + Meta (MTIA) + Anthropic (1GW 2026 → 3GW+ 2027) + OpenAI (1.3GW+ 2027) + 2 unnamed
+- **MRVL anchor customers**: Amazon (Trainium) + Microsoft (Maia) + Google (inference adjacency, talks stage per The Information April 2026)
+
+**H1/H2/H3 P-weights (my model, per Subagent):**
+- H1 (0.85): MRVL custom-ASIC thesis intact — Amazon/MSFT/Google pipeline unaffected by OpenAI-AVGO deal
+- H2 (0.35): Google-MRVL inference chip talks (April 2026 The Information) sign into contract by end-2026 = large hyperscaler inference customer for MRVL
+- H3 (0.80): OpenAI-AVGO deal validates >$100B custom-ASIC TAM = MRVL's $11B 2026 AI revenue estimate defensible/conservative
+
+**June 9 MRVL -10% (ByteDance ASIC → Qualcomm) was market overreaction** — ByteDance is China-domiciled + PC-14 restricted = MRVL could never have won under export controls. Recovered post S&P 500 inclusion June 22.
+
+**Today's risk + opportunity:** Market may frame AVGO win as MRVL loss in coverage. **This is categorically wrong per customer segmentation.** Monitor for near-term sentiment mispricing that creates ADD opportunity at BEP $286.26 context. Per Critical Rule #8 (no macro-sell-without-falsifier), if MRVL trades down on AVGO-win-as-MRVL-loss narrative without F1-F7 firing, that's noise + potential add-window.
+
+**Invalidation conditions (would trigger thesis re-eval):**
+- Amazon cancels or significantly reduces Trainium roadmap (no evidence)
+- Microsoft abandons Maia program (no evidence)
+- Google-MRVL talks fail AND Google consolidates to Broadcom-only (possible but not current trajectory)
+
+**N-th order cascade (per Subagent):**
+- 1st order (P>80%): NEUTRAL — no deal lost
+- 2nd order (P~60%): MILD POSITIVE — AVGO win validates custom-ASIC TAM expansion; positive for MRVL TAM-share
+- 3rd order (P~40%): If Google-MRVL inference talks (April 2026) sign by year-end, MRVL adds large hyperscaler-tier inference customer = thesis-additive
+
+**Position implication: 🟢 HARD — HOLD 5.9% Active 44sh @ BEP $286.26 — no size change — OpenAI-Broadcom Jalapeño = NEUTRAL for MRVL (NOT a competitive loss; orthogonal customer segmentation); AVGO win validates custom-ASIC TAM = MILD POSITIVE; monitor for sentiment-mispricing add-opportunity if market misframes as MRVL loss; F1-F7 status quo; MU print TOMORROW remains binding catalyst.**
+
+---
+
 **🟢 2026-06-24 PM-COMBINED cross-ref — PC-14 N=8+ → N=9+ via China-side bidirectional enforcement (FT H200 China customs restrictions per Subagent C); HOLD 5.9% Active preserved:** Per `signals/cross-source-log/2026-06-24-pm-subagent-ft-h200-china-import-restrictions-pc14-bidirectional-verification.md` + joint context from Subagents A (HYNIX ADS) + B (Samsung 50% HBM4). **MRVL implications:** Chinese H200 customs block = Chinese domestic ASIC demand redirected to Huawei Ascend / Cambricon / Biren (NOT to MRVL since MRVL serves US-hyperscaler custom-ASIC pipeline); PC-14 bifurcation institutionalization SEPARATES China-ASIC from US-ASIC markets permanently = thesis clarification (not new risk) — MRVL US-hyperscaler ASIC pipeline (Google Maia + Amazon Trainium + MSFT) unaffected. SK Hynix Nasdaq ADS news is HYNIX-specific (no MRVL impact). Samsung 50% HBM4 allocation is HBM-supplier internal (no MRVL exposure). **Position implication: 🟢 HOLD 5.9% Active (44sh, BEP $286.26, currently ~-2.5% vs BEP post-self-correction yesterday) — no size change — PC-14 N=9+ enforcement-active phase reinforces US-hyperscaler ASIC franchise structural moat; FALSIFIER WATCH on MU print TOMORROW 2026-06-25 (sympathy risk on AI-infra cohort); F1-F7 status quo.**
 
 ---

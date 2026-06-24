@@ -1,5 +1,36 @@
 # SK Hynix — Thesis
 
+**🟡 2026-06-24 PM-OPENAI-BROADCOM-JALAPEÑO cross-ref — NEUTRAL-WATCH; Samsung WINS gen-1 HBM4 EXCLUSIVE at OpenAI Jalapeño chip; HYNIX gets ZERO OpenAI 2026 HBM allocation; thesis INTACT (NOT a falsifier — OpenAI was incremental TAM not anchor customer; HYNIX retains 60-70% NVDA Vera Rubin); medium-term POSITIVE on total HBM4 TAM expansion + gen-2 qualification opportunity 2027-2028 (ADS-funded capacity positions for that wave):** Per `signals/cross-source-log/2026-06-24-pm-subagent-openai-broadcom-custom-ai-chip-verification.md` (1 Opus 4.8 subagent 41.4k tokens; B40.x PASS — genuinely fresh productization event today). User-shared news: "OpenAI unveiled its first custom AI chip developed in partnership with Broadcom."
+
+**Load-bearing verified facts:**
+- Chip name "Jalapeño" (internal codename "Titan"); TSMC N3; INFERENCE-only gen-1; ~50% cost vs GPU per Hock Tan CEO
+- HBM4 12-Hi; **Samsung HBM4 EXCLUSIVE gen-1 supply** (HIGH confidence via Digitimes March 2026 + 3+ Korean outlets); 800M Gb committed for H2 2026
+- 1.3GW+ deployment 2027; full 10GW through 2029; gen-2 2028 on TSMC A16 with annual cadence thereafter
+- B46 design-origin caught: OpenAI-DESIGNED / Broadcom-implemented (Meta MTIA precedent NOT Google TPU)
+- First external partner: Microsoft data centers
+
+**Why HYNIX HOLD discipline preserved (NOT a falsifier):**
+- F1-F13 NONE FIRE — HYNIX 60-70% NVDA Vera Rubin allocation (T1 verified June 7 multi-year deal) UNCHANGED
+- OpenAI was NEW marginal HBM customer not assumed-HYNIX anchor
+- HBM4 attach-rate math: ~413M GB additional 2027 HBM4 demand from Jalapeño alone = INCREMENTAL to NVDA B200/Vera Rubin = TOTAL TAM EXPANDS even though HYNIX doesn't capture gen-1 allocation
+- Cross-link to Subagent B (Samsung 50% HBM4 verification today): Samsung winning OpenAI gen-1 = consistent with H1 UBS parity scenario (P=40%); does NOT change convex hull 2027 HBM share outcome materially
+- HYNIX $29.4B ADS raise today specifically funds Yongin Y1 + Cheongju P&T7 + EUV scanners = capacity for HBM4/HBM4E/HBM5 = positions for gen-2 qualification opportunity 2027-2028
+- Memory-structural-moats user-reaffirmed conviction (PM-DECISION-LOCK above) unchanged — Samsung winning ONE customer doesn't invalidate structural-moat thesis
+
+**N-th order cascade (per Subagent):**
+- 1st order (P>80%): Samsung captures gen-1 OpenAI HBM4 allocation = HYNIX no OpenAI 2026 revenue
+- 2nd order (P~60%): Total HBM4 demand expands ~413M GB 2027 from Jalapeño alone = TAM growth benefits all 3 suppliers; HYNIX absolute HBM revenue still grows per B45 binding
+- 3rd order (P~40%): Gen-2 2028 qualification opportunity opens; HYNIX HBM4E samples June 2026 timing matches Samsung = competitive on gen-2; ADS-funded capacity positions for that wave
+- 4th order (P~20%): If Samsung quality issues persist into 2027, OpenAI could split gen-1 allocation to second-source (HYNIX or Micron); low probability per Samsung "sold out 2026" guidance
+
+**Cycle-extension prior REINFORCED** — Jalapeño = Jevons-confirmation (50% cost reduction → more tokens consumed → more compute demand); 10GW = hyperscaler-tier capex commitment confirmation supporting L27 framework; PC-14 N=9+ ally-bloc compute-stack reinforced (OpenAI+AVGO+TSMC+Samsung all ally-bloc).
+
+**Compound-misread caught (joint with AM-BRIEF + PM-COMBINED):** Market may interpret "Samsung wins OpenAI" as "HYNIX loses HBM leadership" — same compound misread pattern as HBM4-throttle (AM) + Samsung-50%-allocation (PM-COMBINED). All three reads coexist as Samsung-share-gains-on-NEW-MARGINAL-customers WITHOUT HYNIX-anchor-customer-loss. Asymmetric-info opportunity remains.
+
+**Position implication: 🟡 DIRECTIONAL — HOLD 18 GDR HY9H (20.6% Core EXCEPTION per PM-DECISION-LOCK above) — no size change — Samsung wins OpenAI Jalapeño gen-1 HBM4 = NEUTRAL-WATCH for HYNIX (NOT a falsifier; thesis intact); 2027 total HBM4 TAM expanded by ~413M GB incremental from Jalapeño alone; gen-2 2028 qualification opportunity remains; ADS-funded capacity positions for that wave; F1-F13 falsifiers status quo; MU print TOMORROW 2026-06-25 after close = TRUE regime-test per L27.**
+
+---
+
 **🟢 2026-06-24 PM-DECISION-LOCK — USER RESOLVED L3 concentration: REAFFIRM 20%+ CORE EXCEPTION per structural-moat conviction.** User verbal 2026-06-24 PM (post-PM-COMBINED cascade review): *"I would say keep one now... memory have such a big place to play in the AI build out, and I truly don't believe there's a lot of different assets that have that type of structural moats to some extent."* **DECISION LOCKED:** HYNIX retained at 18 GDR HY9H (20.6% of €131,518 portfolio); 20%+ concentration accepted as exception to 8-15% Core band given structural-moat conviction + today's PM-COMBINED 3-subagent bullish cascade. Critical Rule #11 AUTO-EXECUTE STRENGTHENING discipline satisfied (weighing > asking; conviction-led concentration). **Position implication: 🟢 HARD — HOLD 18 GDR HY9H (20.6% Core EXCEPTION) — no size change — user explicit reaffirmation; F1-F13 falsifiers status quo; MU print TOMORROW 2026-06-25 after close = TRUE regime-test per L27.**
 
 ---
