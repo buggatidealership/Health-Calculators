@@ -1,5 +1,23 @@
 # Murata Manufacturing — Thesis
 
+**🟢 2026-06-24 AM-BRIEF-COMBINED cross-ref — Pax Silica EU+Germany+NL+GR JOIN = Japanese passives inside ally bloc structural bullish; HOLD 336sh preserved:** Per `signals/cross-source-log/2026-06-24-am-brief-integrated-synthesis.md` (2 parallel Opus 4.8 subagents A+B; 116.4k combined). User-shared AI Brief June 24; HOLD discipline preserved per user direction.
+
+**LAYER #1: Pax Silica EU+Germany+NL+GR JOIN — Japan founding member → MURATA passives franchise inside ally bloc by design.** Trump State Dept Dec-2025 pact verified N=10+ (FT + Seoul Economic Daily + Agence Europe + Euronews + MLex). Scope: chips/EDA/equipment/minerals/logistics/data-infra/energy/export-control alignment. **Passives supply-chain reorientation toward non-Chinese suppliers structurally benefits MURATA** as Japanese passives leader. Pax Silica EU $40B chip-purchase commitment to allied-bloc — passives go with chips at every layer of the stack. Cross-pact synergy with PM-COHORT-PATTERN-A (silicon caps + XBAR + Wonderstone CVC anti-fragility): MURATA dual-track positioning captures BOTH incumbent MLCC franchise AND successor-architecture optionality within the same allied bloc.
+
+**LAYER #2 (peripheral): AI Stock Selloff Tue Jun 24 Asia session.** MURATA TSE 6981 was caught in Asia chip-sympathy selling per Subagent A's Tue Jun 24 timeline (similar magnitude to broader Japanese semi-cohort -3 to -6% intraday; specific MURATA close not specified by Subagent A — likely within regime base rate). B45 regime-check binding.
+
+**LAYER #3 (peripheral): LineShine + DeepSWE + Qwen-AgentWorld — NEUTRAL for MURATA passives franchise.** No direct material implications.
+
+**N-th order cascade:**
+- 1st order (P>80%): Allied-bloc hyperscaler passives procurement structurally favors MURATA + TDK + Taiyo Yuden Japanese cluster over Chinese alternatives (Sunlord / Yageo's Chinese ops)
+- 2nd order (P~60%): MURATA's silicon-cap line + XBAR 6G filter + Wonderstone CVC successor-architecture anti-fragility (PM-COHORT-PATTERN-A) operates inside ally bloc with no Chinese geopolitical risk to its successor-tech roadmap
+- 3rd order (P~40%): Pax Silica $40B EU commitment to allied-bloc chip purchasing flows downstream to passive component demand; MURATA share-of-AI-server passives wallet structurally expands
+- 4th order (P~20%): If China retaliates with rare-earth + Ga/Ge restrictions, MURATA passives could face supply-side cost pressure on certain inputs (PC-12 substrate-tightening pattern); historically manageable
+
+**Position implication: 🟢 HOLD 336sh post-tranche-2 — no size change — Pax Silica = Japanese-founding-member bloc-inclusion structural bullish for MURATA passives franchise; PM-COHORT-PATTERN-A dual-track anti-fragility operates inside ally bloc; AI selloff peripheral via Asia-chip-sympathy; add-gate remains FY27 Q1 print late July / early August 2026 per L21 regime modifier.**
+
+---
+
 **🟢 2026-06-23 PM-CXMT-SEMIANALYSIS cross-ref — CXMT capacity expansion = incremental MLCC/passives demand from new Chinese DRAM fabs; small but positive 2nd-order beneficiary; HOLD 336sh preserved:** Per `signals/cross-source-log/2026-06-23-pm-subagent-cxmt-semianalysis-newsletter-verification.md` (55.9k subagent_tokens; multilingual Chinese primary). User-shared SemiAnalysis CXMT newsletter verification. **CXMT capacity ~265k wspm end-2025 → ~350k end-2026 → ~500k by 2028** = incremental fab buildout requiring MLCC/passive components for fab infrastructure + downstream module assembly. 2nd-order beneficiary; small magnitude vs MURATA's AI-server MLCC core franchise but directionally positive. NOT a thesis-additive insight at current sizing. **Position implication: 🟢 HOLD 336sh post-tranche-2 — no size change — CXMT capacity expansion = incremental 2nd-order MLCC demand vector but small magnitude; add-gate remains FY27 Q1 print late July / early August 2026 per L21 regime modifier.**
 
 ---

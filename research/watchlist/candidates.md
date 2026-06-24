@@ -82,6 +82,38 @@ Per `signals/cross-source-log/2026-06-23-pm-subagent-jukan-cxmt-china-pricing-di
 
 **Watchlist tier UNCHANGED: 🔴 SPECULATIVE — MONITOR ONLY** — investability barrier binding; tracking value = competitive intelligence + 2028+ tech-parity trajectory monitoring.
 
+### 2026-06-24 AM-BRIEF-COMBINED update — LineShine HBM supplier attribution + Pax Silica China-bloc isolation
+
+Per `signals/cross-source-log/2026-06-24-am-brief-integrated-synthesis.md` (2 parallel Opus 4.8 subagents A+B; 116.4k combined).
+
+**LineShine Chinese supercomputer #1 LINPACK (2.198 EFLOPS) — "China's first domestic HBM" attribution likely CXMT (MEDIUM confidence):**
+- Multi-source verified system identity: LineShine / 灵晟; NSCC-Shenzhen; June 2026 TOP500 ISC 2026 Hamburg
+- 8 HBM stacks per LX2 = 32 GB + 4 TB/s — described as "China's first domestic HBM" per N=10+ sources
+- CXMT is the only known Chinese entity with HBM development capability per prior PM-CXMT-SEMIANALYSIS verification
+- **MEDIUM confidence attribution — not yet officially confirmed in CXMT public disclosures**
+- If confirmed in Chinese-language primary filings = upgrade to "closed-loop Chinese sovereign stack" → CXMT HBM commercial-viability thesis validated (separate from HYNIX TAM impact)
+- Falsifier watch: track Chinese-language primary disclosure of LineShine HBM supplier identity
+
+**CRITICAL CAVEAT (LOAD-BEARING for correct framing):** LineShine ranks **#4 on HPL-MxP (AI-workload benchmark), NOT #1.** LINPACK supremacy via brute-force horizontal CPU scaling at 42 MW. For actual AI inference/training, US GPU-cluster lead (NVIDIA H100/B200/GB200) NOT eliminated. This is HPC milestone NOT AI-compute milestone. **CXMT HBM-via-LineShine attribution does NOT change competitive positioning vs commercial HBM market (HYNIX/Samsung/Micron).**
+
+**Pax Silica EU+Germany+NL+GR JOIN (Trump State Dept Dec-2025 pact verified N=10+) — CHINA EXPLICITLY OUTSIDE BLOC:**
+- Pact scope: chips/EDA/equipment/minerals/logistics/data-infra/energy/export-control alignment
+- HBM explicitly cited as "today's tightest bottleneck" in initiative documents
+- **CXMT is OUTSIDE allied-bloc TAM by design** — bloc structurally excludes Chinese memory from hyperscaler procurement within US+JP+KR+UK+AU+SG+IL+UAE+TW(informal) + EU(bloc) + DE + NL + GR
+- China's response (Global Times T2-3): characterizes Pax Silica as protectionist; calls for accelerated domestic substitution
+- For CXMT specifically: confirms 2027+ politically-bounded TAM at Chinese-domestic-only ceiling for foreseeable horizon
+- China-bloc isolation REINFORCES CXMT investability-barrier framing for Euro retail (Western-aligned investors structurally cannot access; A-share ETF exposure further marginalized by Pax Silica retaliatory China-fund-flow restrictions over time)
+
+**Net read on CXMT positioning post-AM-BRIEF June 24:**
+- Cycle-extension prior unaffected (CXMT capacity expansion still insufficient to break supply constraint per PM-CXMT-SEMIANALYSIS verification)
+- China-NAND-flood bear case still refuted via YMTC precedent (PM-JUKAN-CXMT verification holds)
+- NEW LAYER: CXMT politically capped at Chinese-domestic + emerging-markets / China-aligned-bloc TAM going forward — adds structural ceiling on Western-market disruption risk
+- LineShine HBM supplier MEDIUM-confidence attribution: validates CXMT HBM commercial viability for Chinese sovereign-HPC use case (small TAM segment); does NOT validate CXMT HBM for commercial hyperscaler use (allied-bloc structurally blocks)
+
+**Investability barrier UNCHANGED: STAR Market direct-INACCESSIBLE for Euro retail; China A-share ETF exposure marginal + now further marginalized by Pax Silica China-flow restrictions.**
+
+**Position implication: 🔴 SPECULATIVE — MONITOR ONLY (unchanged)** — Pax Silica structural China-bloc isolation further reinforces investability-barrier framing; LineShine HBM MEDIUM-confidence attribution noted for monitoring but does not change competitive positioning vs commercial HBM market; re-eval trigger UNCHANGED (HK secondary listing announcement OR China A-share ETF passive-flow CXMT weight inclusion post-listing).
+
 ---
 
 ### 🔴 ALAB (Astera Labs, NASDAQ) — **WATCHLIST P2 — DO NOT ENTER AT CURRENT PRICE** (post-2026-06-22 PM-MRVL-VS-ALAB head-to-head verification)

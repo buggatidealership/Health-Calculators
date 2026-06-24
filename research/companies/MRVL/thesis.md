@@ -1,5 +1,30 @@
 # Marvell Technology (MRVL) — Thesis
 
+**🟢 2026-06-24 AM-BRIEF-COMBINED cross-ref — B40.3 SELF-CORRECTION on prior MRVL price + Pax Silica STRUCTURAL BULLISH (US ASIC inside ally bloc); HOLD 5.9% Active maintained:** Per `signals/cross-source-log/2026-06-24-am-brief-integrated-synthesis.md` (2 parallel Opus 4.8 subagents A+B; 116.4k combined subagent_tokens). User-shared AI Brief June 24 Morning Edition; "Haven't made any changes to my positions" = HOLD discipline preserved.
+
+**🚨 B40.3 SELF-CORRECTION on prior MRVL price framing (Critical Rule #11 self-correction discipline):** Yesterday's 2026-06-23 AM-FULL-COHORT-PRICE-MACRO cross-ref stated "MRVL +8.23% TODAY to $313.55." **Per Subagent A T2-verified Mon Jun 23 US close = $279.04 (-8.82% from $307.86 prior close)**. The +8.23% was likely the PRIOR session (Friday Jun 20) gain that yesterday's subagent attributed to "today" via timing garble. Actual sequence: Friday Jun 20 → $307.86 (+8.23%-ish on prior); Mon Jun 23 → $279.04 (-8.82%). **B40.3 self-attribution timing garble; corrected here per AUTO-EXECUTE STRENGTHENING + self-correction-visibility discipline.** MRVL position 44sh × $279.04 = current value ~$12,278; BEP $286.26 → currently **-2.5% vs BEP** (NOT +9.5% as yesterday framed). Material change to position framing but NO change to thesis or sizing discipline.
+
+**LOAD-BEARING LAYER #1: Pax Silica EU+Germany+NL+GR JOIN — STRUCTURAL BULLISH for US-based custom-ASIC franchise.** Trump State Dept Dec-2025 pact verified N=10+. Scope explicitly includes chips/EDA/equipment/data-infra/export-control alignment. **MRVL = US-domiciled custom-ASIC designer (Trainium 4 + Maia 200 + TPU contributions) entirely within allied bloc TAM.** China-decoupling pressure increases addressable market for non-Chinese custom-silicon designers. PC-14 N=8+ institutionalization reinforces MRVL's structural positioning vs Chinese alternatives (Alibaba T-Head / Huawei Ascend) which are now politically blocked from allied-bloc hyperscaler procurement.
+
+**LAYER #2: AI Stock Selloff context — MRVL -8.82% Mon Jun 23 close $279.04.** B45 regime-check binding: single-day -8.82% on YTD-leadership name is WITHIN regime base rate (per `signals/cross-source-log/2026-06-12-pre-training-magnitude-conservatism-calibration.md` — empirical 15-name basket showing -10 to -15% single-session reversals after +40%+ rallies are routine). **MU print TOMORROW Wed 2026-06-25 after close = next binding catalyst.** If MU disappoints, MRVL second-leg risk REAL (FALSIFIER WATCH activated per Subagent A flag). If MU confirms cycle-extension prior, MRVL recovery probable.
+
+**LAYER #3 (peripheral): LineShine Chinese supercomputer + DeepSWE benchmark + Qwen-AgentWorld.** All NEUTRAL for MRVL custom-ASIC thesis (no MRVL competitor in LineShine; DeepSWE confirms frontier-capability-extension supporting compute-demand stickiness; Qwen-AgentWorld validates PC-14 China-bifurcation but doesn't affect MRVL allied-bloc TAM).
+
+**Joint-state vs current position math (post-self-correction):**
+
+| Metric | Yesterday's framing | Corrected (per Subagent A) |
+|---|---|---|
+| Current price | $313.55 | $279.04 |
+| vs BEP $286.26 | +9.5% | -2.5% |
+| Recent move | +8.23% (today) | -8.82% (Mon Jun 23) |
+| Position value (44sh) | ~$13,796 | ~$12,278 |
+
+**F1-F7 falsifier status:** NONE FIRE. F1 (XPU substitution) NOT triggered. F4 (NVDA in-house pivot) NOT triggered. The -8.82% drop is regime-consistent volatility, not falsifier-firing. MU print result = next data point on cycle-thesis durability.
+
+**Position implication: 🟢 HARD — HOLD 5.9% Active (44sh, BEP $286.26, now ~-2.5% vs BEP post-self-correction) — no size change — B40.3 self-correction on yesterday's wrong price framing visibly applied; Pax Silica = STRUCTURAL BULLISH for US-domiciled custom-ASIC inside allied bloc; selloff Mon Jun 23 was within B45 regime base rate; MU print TOMORROW 2026-06-25 = next binding catalyst (cycle-extension test); FALSIFIER WATCH activated on MU disappointment scenario; F1-F7 falsifiers status quo; Aug 26 Q2 FY27 print remains formal add-trigger gate.**
+
+---
+
 **🟢 2026-06-23 AM-FULL-COHORT-PRICE-MACRO cross-ref — MRVL +8.23% TODAY to $313.55 (T2 Yahoo Finance verified) = AI-infra RECOVERY DAY at record-high zone for cohort; vs $286.26 BEP = +9.5% gain; user "smaller-cap-more-upside" hypothesis from PM-MRVL-VS-ALAB further undermined as MRVL outperforms across the recovery:** Per `signals/cross-source-log/2026-06-23-am-subagent-full-cohort-price-action-global-macro.md` (115.4k subagent_tokens). Today's broader context: KOSPI +0.69% RECORD HIGH (SK Hynix KRX +5.57%); Nikkei +1.55% RECORD HIGH; Iran de-escalating (oil falling to $73.67); VIX 16.78 not elevated; Fed hawkish-tilt slow-burn structural NOT acute. ALAB head-to-head verification yesterday still binding; MRVL HOLD discipline reinforced by today's outperformance + structural-thesis intact. F1-F7 falsifiers status quo; Aug 26 Q2 FY27 print remains formal add-trigger gate. **Position implication: 🟢 HOLD 5.9% Active (44sh, BEP $286.26) — no change — recovery-day outperformance + Iran de-escalation tailwind + AI-infra at record highs validate HOLD discipline; B45 regime-priors: +8.23% single-day on +237% YTD name is regime-consistent in AI supercycle (do NOT flag as extreme).**
 
 ---

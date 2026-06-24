@@ -1,5 +1,25 @@
 # Sandisk (SNDK) — Thesis
 
+**🟢 2026-06-24 AM-BRIEF-COMBINED cross-ref — TRIPLE-BULLISH stack (Pax Silica + Legacy storage NVMe upgrade cycle + Jun 23 -13.7% selloff WITHIN regime base rate); HOLD 6sh preserved:** Per `signals/cross-source-log/2026-06-24-am-brief-integrated-synthesis.md` (2 parallel Opus 4.8 subagents A+B; 116.4k combined). User-shared AI Brief June 24; HOLD discipline preserved per user direction.
+
+**LAYER #1: Pax Silica EU+Germany+NL+GR JOIN — Western NAND franchise inside ally bloc.** Trump State Dept Dec-2025 pact verified N=10+. Western NAND (SNDK) benefits structurally from Pax Silica diversification mandates blocking Chinese NAND alternatives from allied-bloc hyperscaler procurement. Cross-pact synergy with morning's PM-JUKAN-CXMT cascade: YMTC NAND 2023-downcycle pricing discipline + Pax Silica China-blocked = double-protection on Western NAND pricing power within allied bloc through 2027-2028.
+
+**LAYER #2: Legacy storage bottlenecking GPU infrastructure — DIRECT BENEFICIARY of enterprise NVMe upgrade cycle.** Subagent A CORROBORATED with hard data: avg GPU utilization 5% / 95% capacity IDLE / $401B addressable waste. Bottleneck = legacy SSD + HDD, NOT NVMe. Recommended upgrade = all-NVMe disaggregated + GPUDirect. **SNDK enterprise NVMe SSD franchise + HBF (with SK Hynix JV) = direct beneficiaries.** HBF samples H2 2026 commercial 2027 — perfect positioning for the enterprise-storage-upgrade-cycle reaching scale. U8 candidate cluster reinforcement: storage = NEXT phase of AI infra spend.
+
+**LAYER #3: AI Stock Selloff — SNDK -13.7% Mon Jun 23 close ~$1,962 from ATH $2,273.73 (Jun 22).** B45 regime-check binding: post-ATH -13.7% mean-reversion = WITHIN regime base rate (per calibration cross-source-log; routine single-session -10 to -15% reversals on names that just made ATH). NOT a falsifier trigger.
+
+**Cross-implication: Storage bottleneck data + Pax Silica + HBF roadmap = LOAD-BEARING for SNDK cycle-extension thesis.** Enterprise NVMe upgrade demand explicitly tied to GPU-utilization unlock; SNDK Western-NAND franchise inside ally bloc captures structural premium; HBF commercial 2027 catches the inflection.
+
+**N-th order cascade:**
+- 1st order (P>80%): Enterprise NVMe upgrade spend accelerates 2026-2027; SNDK + KIOXIA Yokkaichi-JV mirror benefit
+- 2nd order (P~60%): SNDK NAND/SSD pricing-power durability extends through end-2027 (LTA-floor + enterprise upgrade demand + Pax Silica China-blocked)
+- 3rd order (P~40%): HBF commercial 2027 catches enterprise-storage-upgrade-cycle inflection; HBF demand-unlock mechanism via storage-upgrade narrative
+- 4th order (P~20%): If enterprise NVMe upgrades delay, U8 thesis 12-24mo realization slows; H1 2026 NAND-cycle thesis unaffected
+
+**Position implication: 🟢 HOLD 6sh — no size change — Pax Silica = Western NAND inside ally bloc structural bullish; storage bottleneck NVMe upgrade-cycle = direct SNDK beneficiary + HBF roadmap-timing reinforcement; -13.7% Jun 23 selloff = post-ATH mean-reversion within B45 regime base rate; pre-committed trim sequence (SNDK trims AFTER HYNIX on F2 ASP rollover by 1-quarter lag) UNCHANGED; F-conditions status quo.**
+
+---
+
 **🟢 2026-06-23 PM-JUKAN-CXMT cross-ref — YMTC NAND historical-playbook DIRECTLY refutes consensus China-NAND-flood bear case for SNDK Yokkaichi-JV franchise; thesis-additive POSITIVE evidence:** Per `signals/cross-source-log/2026-06-23-pm-subagent-jukan-cxmt-china-pricing-discipline-strategic-interpretation.md` (1 Opus 4.8 subagent 58.1k subagent_tokens; multilingual Chinese primary). **KEY FINDING for SNDK:** YMTC NAND is the most-directly-comparable Chinese-memory-entry precedent. Empirical observation: **YMTC RAISED NAND prices ~5% in July 2023 downcycle** (T2 [Digitimes](https://www.digitimes.com/news/a20230717PD200/china-big-fund-ymtc-nand-flash.html)) — opposite of dump narrative; YMTC Entity List December 2022 → Samsung RAISED NAND prices ~10% (market viewed YMTC as disciplined competitor). Direct empirical refutation of China-NAND-flood bear case applied to SNDK via Yokkaichi-JV NAND franchise. PM-CITRINI-JEFFERIES "China NAND tech could catch up by 2028" long-term watch + this PM-JUKAN-CXMT layer = **even at 2028+ tech-parity, historical-playbook (YMTC) suggests disciplined-pricing NOT share-grab dumping.** Tech-parity ≠ ASP-collapse mechanically; bear-case requires SEPARATE evidence. **Position implication: 🟢 HOLD 6sh — no size change — YMTC empirical precedent provides positive thesis-additive read; 2028+ tech-parity watch preserved but ASP-collapse mechanism requires separate evidence beyond tech catch-up; pre-committed trim sequence (SNDK trims AFTER HYNIX on F2 ASP rollover by 1-quarter lag) UNCHANGED.**
 
 ---

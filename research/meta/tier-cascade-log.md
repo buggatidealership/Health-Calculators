@@ -35,6 +35,56 @@
 
 ## Entries (most recent first)
 
+### [2026-06-24 PM-FCF-COMPRESSION] 🟢 Subagent C parent-agent fan-out per Critical Rule #16 on AM Subagent A load-bearing flag — hyperscaler FCF compression (Alphabet -47% / Amazon -95%) verified at T0 primary sources with HIGH confidence; LATERAL FALSIFICATION CHECK = NOT-A-FALSIFIER for cycle-extension prior (cycle-confirmatory not cycle-ending); H1 (cycle intact) P=55% dominant; HOLD discipline REINFORCED across all 7 held cohort positions
+
+**Trigger source:** Subagent A AM-BRIEF surfaced FCF compression as "ACTUAL selloff catalyst" — parent agent fired Subagent C follow-on per Critical Rule #16 (load-bearing signal not in user-shared brief but with thesis/sizing implications)
+
+**Intake tier:** 🟢 HARD — both headline numbers VERIFIED to T0 primary sources (Alphabet 8-K + Amazon earnings release); sell-side capex-raise consensus N=4 (Goldman + Moody's + Morgan Stanley + RBC); hyperscaler management language T1 from earnings calls
+
+**Source:** `signals/cross-source-log/2026-06-24-pm-subagent-hyperscaler-fcf-compression-load-bearing-verification.md` (74.4k subagent_tokens; 60 tool uses; 613s duration)
+
+**Tier moves (scoped — only files actually touched, this verification BATCHED into AM-BRIEF-COMBINED single-commit per Critical Rule #10):**
+- `signals/cross-source-log/2026-06-24-am-brief-integrated-synthesis.md` — updated with Subagent C VERDICT inline; FCF section reframed "pending verification → potential falsifier" → "VERIFIED HIGH → NOT-A-FALSIFIER → cycle-confirmatory"
+- All 7 held cohort thesis files received AM-BRIEF-COMBINED cross-refs in same commit (HYNIX/MRVL/KIOXIA/SNDK/MURATA/SUMCO/NBIS); FCF compression "Subagent C in flight" framing already accommodates this verdict — no additional thesis-file edits needed (HOLD discipline REINFORCED not changed)
+- `meta/subagent-cost-yield-ledger.md` — new entry (56th fire; audit summary recount HIGH 32 / MEDIUM 17 / LOW 2 / FRAMING-ERROR-CAUGHT 3 / ZERO 0)
+
+**Files NOT touched (no claim intersection):** other companies/ folders; sector/ files; biases-watchlist (no new bias); methodology (no new principle)
+
+**Stale flags fired:** none — verification result REINFORCES existing tier markers (no downgrade required)
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
+### [2026-06-24 AM-BRIEF-COMBINED] 🟢 User-shared AI Intelligence Brief Morning Edition June 24 2026 verified via 2 parallel Opus 4.8 subagents (A hardware/infra/policy 70.9k + B software/model/talent 45.5k = 116.4k combined) per Critical Rule #16 + Principle #36; HIGH yield via Pax Silica PC-14 N=5→8+ institutionalization (most-bullish AI-policy datapoint of 2026 for held cohort) + LineShine LINPACK-#1-but-AI-benchmark-#4 caveat correctly framed + AI selloff B45-regime-confirmed-mechanical-vol + CRITICAL IRONY on HBM4-throttle market-misread = ENTRY OPPORTUNITY + storage NVMe upgrade cycle SNDK/KIOXIA bullish + DeepSWE capability-extension dominant + Qwen-AgentWorld PC-14 agent-layer + Jumper-Anthropic talent-drain; B40.3 SELF-CORRECTION on yesterday's MRVL price framing; separate FCF-compression load-bearing surfaced → Subagent C fired follow-on in flight; all 7 held cohort positions UNCHANGED per user explicit direction "Haven't made any changes to my positions"
+
+**Trigger source:** User-shared AI Intelligence Brief Morning Edition June 24 2026 (77 sources scanned); "verify as usual" + HOLD discipline preserved.
+
+**Intake tier:** 🟢 HARD — Pax Silica N=10+ source verification across English (FT + Seoul Economic Daily + Agence Europe T1 + Euronews T1 + MLex T1 + NTD + State Dept T1 + Global Times China-reaction) + LineShine N=10+ source verification (English + Chinese primary IT之家 + 凤凰网) + selloff timeline N=8+ (Bloomberg + KOSPI + TradingKey + Crypto Briefing + Seoul Economic + multiple T1/T2); B40.x temporal-freshness PASS-FRESH on most items + STALE 29-day flag on DeepSWE.
+
+**Source:** `signals/cross-source-log/2026-06-24-am-brief-integrated-synthesis.md` (FINAL synthesis); 2 parallel subagent verification artifacts.
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/HYNIX/thesis.md` top-of-file — new AM-BRIEF-COMBINED cross-ref; Pax Silica MOST-BULLISH AI-policy 2026 datapoint (Korean HBM in ally bloc; HBM cited as "tightest bottleneck"); LineShine HPC-not-AI caveat; CRITICAL IRONY on HBM4-throttle-market-misread = ENTRY OPPORTUNITY; 🟢 HARD HOLD 10.13% Core unchanged
+- `companies/MRVL/thesis.md` top-of-file — new AM-BRIEF cross-ref + 🚨 B40.3 SELF-CORRECTION on yesterday's MRVL price framing (Mon Jun 23 close $279.04 -8.82% NOT $313.55 +8.23%); Pax Silica US-ASIC inside ally bloc structural bullish; FALSIFIER WATCH activated on MU print disappointment scenario; 🟢 HOLD 5.9% Active unchanged
+- `companies/KIOXIA/thesis.md` top-of-file — new AM-BRIEF cross-ref; Pax Silica Japan-founding + storage NVMe upgrade cycle direct beneficiary; Jun 24 -15%+ regime-base-rate; 🟡 HOLD-until-falsifier ~€10K unchanged
+- `companies/SNDK/thesis.md` top-of-file — new AM-BRIEF cross-ref; Pax Silica Western-NAND-in-bloc + storage NVMe + HBF roadmap inflection-timing; Jun 23 -13.7% post-ATH mean-reversion regime-base-rate; 🟢 HOLD 6sh unchanged
+- `companies/MURATA/thesis.md` top-of-file — new AM-BRIEF cross-ref; Pax Silica Japan-founding passives bloc + PM-COHORT-PATTERN-A dual-track operating inside ally bloc; 🟢 HOLD 336sh unchanged
+- `companies/SUMCO/thesis.md` top-of-file — new AM-BRIEF cross-ref; Pax Silica Japan-founding wafer bloc + CXMT-as-buyer cross-bloc-friction watch; 🟡 HOLD 626sh unchanged
+- `companies/NBIS/thesis.md` top-of-file — new AM-BRIEF cross-ref; Pax Silica EU JOIN = EU sovereign-AI policy validation (NBIS = pure-play investable beneficiary); -6% Jun 23 within B45 base rate; NASDAQ-100 inclusion T+5 grade ~2026-06-27; 🟢 HOLD 58sh unchanged
+- `watchlist/candidates.md` CXMT entry — appended LineShine HBM supplier MEDIUM-confidence attribution + Pax Silica China-bloc-isolation structural reinforcement of investability-barrier; 🔴 SPECULATIVE / MONITOR-ONLY tier unchanged
+- `signals/cross-source-log/2026-06-24-am-brief-integrated-synthesis.md` — top-level synthesis updated PENDING-VERIFICATION → FINAL
+- `meta/subagent-cost-yield-ledger.md` — new entry (54th + 55th fires combined; audit summary recount HIGH 31 / MEDIUM 17 / LOW 2 / FRAMING-ERROR-CAUGHT 3 / ZERO 0)
+- (PC-14 cross-domain-pattern-register N counter for institutionalization-layer warrants update at next cycle review per audit cadence — flagged not auto-edited this commit to preserve audit-day visibility)
+
+**Files NOT touched (no claim intersection):** MRVL prior 2026-06-23 AM-FULL-COHORT entry preserved as historical record + new top-of-file cross-ref includes B40.3 self-correction note pointing to corrected reading (do not rewrite history per git discipline); other companies/ folders (NVDA / AVGO / ANET / IBIDEN / DDOG-WATCHLIST / NOW-WATCHLIST etc.); sector/ files; meta/biases-watchlist.md (B40.3 already codified; B40 verified-high-confidence — no new bias entry needed); cross-domain-pattern-register.md PC-14 N-counter (deferred to monthly audit edit cycle per cleanup-vs-audit-visibility principle)
+
+**Stale flags fired:** none — all tier markers refreshed by this cascade
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-23 PM-JUKAN-CXMT] 🟢 User-shared Jukan @jukan05 tweet image quoting SemiAnalysis CXMT newsletter ASP-section paragraph triggered B59 v2 scoped follow-on verification — HIGH yield via YMTC NAND historical-playbook empirical refutation of consensus China-DRAM-flood bear case + N=4 source triangulation MET on "China not dumping 2026" + HYNIX positioned as MAXIMUM beneficiary of server+HBM mix-shift mechanic; thesis-additive insight beyond morning PM-CXMT-SEMIANALYSIS; 2027 falsification triggers codified as monitoring overlay; all held cohort positions UNCHANGED
 
 **Trigger source:** User-shared image (Jukan @jukan05 tweet); follow-on to PM-CXMT-SEMIANALYSIS commit 34f4d26d. NEW verification layer = strategic interpretation ("China currently has no interest in dumping memory") on top of already-verified underlying 5-10% ASP gap data point.
