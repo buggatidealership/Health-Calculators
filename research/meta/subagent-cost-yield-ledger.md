@@ -79,9 +79,9 @@
 **Window:** 2026-06-15 → 2026-07-15 (Critical Rule #16 detectability re-eval window)
 **Last refresh:** 2026-06-19 (H2 file birth + backfill of 36 entries spanning 5-day partial window)
 
-**Total fires (backfill window 2026-06-15 → 2026-06-24, 9-day partial + AM11/forward):** 56 (was 53; +3 today AM-BRIEF-COMBINED batch [54+55 = subagent A + B] + PM-FCF-COMPRESSION load-bearing follow-on [56 = subagent C])
-**Total estimated cost:** ~8.11M tokens (was ~7.92M; +116.4k AM-BRIEF-COMBINED batch [A 70.9k + B 45.5k] + 74.4k PM-FCF-COMPRESSION [C]) — REVISED UPWARD per AM11 cost-model correction; backfill estimates were 12-18k/subagent which was 8-10× too low for deep verification fires. 30-day projection: ~15-22M tokens. **Note (per B58 codification today): "cost-budget warning" framing is bias-flagged per user directive depth-over-speed; this is informational audit-context, not decision-input.**
-**Yield distribution:** HIGH 32 / MEDIUM 17 / LOW 2 / FRAMING-ERROR-CAUGHT 3 (primary class — AM-BRIEF-COMBINED both A+B classified primary HIGH given Pax Silica PC-14 N=5→8+ institutionalization most-bullish AI-policy data point + CRITICAL IRONY on HBM4-throttle market-misread + capability-extension dominant + 4 framing-error catches secondary + B40.3 self-correction discipline visibly applied; PM-JUKAN-CXMT classified primary HIGH given YMTC NAND empirical-precedent refutation of consensus China-DRAM-flood bear case + N=4 triangulation MET + HYNIX maximum-beneficiary mechanism identified; PM-CXMT-SEMIANALYSIS classified primary HIGH given peer-tier commodity-DRAM-margin cross-confirmation + cycle-extension prior reinforcement + new watchlist surface flagged + IP-chain framing-error caught as secondary) / ZERO 0 (was 29/17/2/3/0; +3 HIGH today total = AM-BRIEF-COMBINED A + B + PM-FCF-COMPRESSION C)
+**Total fires (backfill window 2026-06-15 → 2026-06-24, 9-day partial + AM11/forward):** 59 (was 56; +3 today PM-COMBINED batch [57+58+59 = subagent A SK Hynix Nasdaq ADS + B Samsung 50% HBM4 + C FT H200 China]; total today = 6 fires)
+**Total estimated cost:** ~8.39M tokens (was ~8.11M; +274.8k PM-COMBINED batch [A 95.3k + B 73.3k + C 106.2k]) — REVISED UPWARD per AM11 cost-model correction; backfill estimates were 12-18k/subagent which was 8-10× too low for deep verification fires. 30-day projection: ~15-22M tokens. **Note (per B58 codification today): "cost-budget warning" framing is bias-flagged per user directive depth-over-speed; this is informational audit-context, not decision-input.**
+**Yield distribution:** HIGH 35 / MEDIUM 17 / LOW 2 / FRAMING-ERROR-CAUGHT 3 (primary class — AM-BRIEF-COMBINED both A+B classified primary HIGH given Pax Silica PC-14 N=5→8+ institutionalization most-bullish AI-policy data point + CRITICAL IRONY on HBM4-throttle market-misread + capability-extension dominant + 4 framing-error catches secondary + B40.3 self-correction discipline visibly applied; PM-JUKAN-CXMT classified primary HIGH given YMTC NAND empirical-precedent refutation of consensus China-DRAM-flood bear case + N=4 triangulation MET + HYNIX maximum-beneficiary mechanism identified; PM-CXMT-SEMIANALYSIS classified primary HIGH given peer-tier commodity-DRAM-margin cross-confirmation + cycle-extension prior reinforcement + new watchlist surface flagged + IP-chain framing-error caught as secondary) / ZERO 0 (was 29/17/2/3/0; +6 HIGH today total = AM-BRIEF-COMBINED A + B + PM-FCF-COMPRESSION C + PM-COMBINED A + B + C)
 **Brief-framing errors caught (across all classes including HIGH entries with secondary catch):** ≥25 misattributions caught that would have propagated (B40.x stale-recycle dominates backfill; AM11 added 3 from anonymous-T2-critic claims: HB-should-be-used + won't-use-16-Hi-2027 + BESI-as-CPO-only)
 **Cost per HIGH-yield event:** ~150k tokens (revised upward 2× per AM11 calibration; was ~70k under old heuristic)
 **Audit-day verdict candidate (preliminary, 5-day + AM11 pace):** **STRONGLY POSITIVE** — HIGH+FRAMING-ERROR-CAUGHT = 20 of 37 entries (54%); HIGH+MEDIUM = 32 of 37 (86%); ZERO entries = 0; falsifier threshold (≥3 ZERO) NOT breached. Rule #16 detectability falsifier appears to be working as designed: subagent fires are producing material yield, NOT decorative noise. **User directional 2026-06-19 ratification UNCHANGED at the corrected cost basis** — cost-justification stands even with 2.3× cost revision because yield distribution unchanged (and AM11 cascade added a watchlist tier promotion + 3 framing errors caught).
@@ -95,6 +95,101 @@
 ---
 
 ## Entries (most recent first)
+
+### [2026-06-24 PM-COMBINED — HYNIX-ADS + SAMSUNG-50%-HBM4 + FT-H200-CHINA] User-shared 3 distinct thesis-material inputs simultaneously (2 primary-source images + 1 Korean industry article + 1 Jukan FT-quoted tweet) → 3 parallel verification subagents fired per Critical Rule #16 + Principle #36; 274.8k combined subagent_tokens; HIGHEST-YIELD CASCADE on largest held position (HYNIX 10.13% Core); Frankfurt HY9H GDR UNAFFECTED resolves user position-action question; dilution 2.435% (~+32.6% above BEP after full haircut); Samsung 50% HBM4 + ADS RAISE = MUTUALLY REINFORCING strategic offense; PC-14 N=8+ → N=9+ via China-side bidirectional enforcement; ZERO falsifiers fire across F1-F13; all 7 held cohort positions UNCHANGED with HOLD discipline REINFORCED at structural level
+
+**Trigger source:** User-shared compound input 2026-06-24 PM — (1) SK Hynix Preliminary Prospectus cover image (Nasdaq ADS listing under "SKHY"); (2) DART filing 증권예탁증권(DR) 발행 결정 dated 2026-06-24 image (T0 Korean regulatory primary); (3) Jukan @jukan05 tweet image quoting "fresh" FT report on Chinese H200 customs restrictions; (4) Korean industry article verbatim text "Samsung Electronics Allocates Half of HBM Capacity to HBM4." User explicit framing: warned would be "multiple different topics across multiple different sections" + "verify as usual" + "Haven't made any changes to my positions as per your direction" (HOLD discipline preserved).
+
+**Subagents fired:** 3 in parallel (Opus 4.8 per Critical Rule #16 + Principle #36 single-message-multiple-Agent-calls):
+- Subagent A: SK Hynix Nasdaq ADS offering verification (MAXIMUM depth on largest held position; Frankfurt HY9H impact; dilution math; use of proceeds; Pax Silica capital integration assessment)
+- Subagent B: Samsung 50% HBM4 allocation + competitive threat verification (Korean primary multilingual; TrendForce + Bernstein cross-check; lateral falsification on "Samsung overtakes 2027")
+- Subagent C: FT H200 China import restrictions verification (multilingual Chinese parallel N=7+; PC-14 N=9+ update assessment; HBM attach-rate math; cohort cascade)
+
+**Estimated token cost:** ~274.8k combined ACTUAL subagent_tokens
+- Subagent A: 95.3k subagent_tokens / 82 tool uses / 813s duration
+- Subagent B: 73.3k subagent_tokens / 47 tool uses / 513s duration
+- Subagent C: 106.2k subagent_tokens / 75 tool uses / 731s duration
+
+**Items verified (10+ load-bearing claims total):**
+
+**Subagent A — SK Hynix Nasdaq ADS (HIGHEST yield):**
+- ₩45,453,450,000,000 = $29.40B USD at June 24 spot FX (1,546 KRW/USD) — VERIFIED T0 DART filing
+- LARGEST ADR DEAL IN HISTORY by ~35% over Alibaba 2014 ($21.8B) — VERIFIED Bloomberg + multiple T1
+- 17,790,000 new common shares → 177,900,000 ADSs (1:10 ratio) at ₩255,500/ADS = $165.27 — VERIFIED T0 DART + SEC F-1
+- Existing shares 712,702,365 → 730,492,365 post-offering = DILUTION 2.435% (VERIFIED arithmetic)
+- SK Square 20% regulatory floor constrains offering size (Korea Monopoly Regulation Fair Trade Act)
+- Use of proceeds 100% capex (시설자금): Yongin Y1 ₩31T + Cheongju P&T7 + EUV scanners ₩11.9T ($7.9B = largest single ASML order ever)
+- Frankfurt HY9H GDR program UNAFFECTED — parallel listing (Citibank N.A. depositary for BOTH); ratio 1:1 (vs 1:10 for SKHY); CUSIP 78392B107 retained; HIGH confidence on no forced conversion
+- User position math: 15 GDRs × €1,294 BEP = €19,410; current ~€1,785/GDR; +38% above BEP; net +32.6% after full dilution haircut
+- KRX June 24 reaction +2.94% (POSITIVE contrary to typical dilutive-offering discount)
+- Allspring institutional PM Gary Tan endorsement: "should not materially change our view" = triangulation
+
+**Subagent B — Samsung 50% HBM4 allocation:**
+- Samsung 50% HBM capacity to HBM4 directionally HIGH (Samsung Q1 2026 earnings call T0); 75K wafer specific MEDIUM (anonymous "semiconductor industry" attribution)
+- Samsung HBM4 $1B revenue in 130 days HIGH N=8+ Korean primary
+- Samsung HBM4 $10B FY2026 MEDIUM-HIGH (industry extrapolation from CFO "triples 2026" guidance)
+- 8-layer HBM3E halt = cycle-natural transition AND Samsung-specific competitive exit
+- "Samsung overtakes 2027" = Bernstein call + UBS softer parity NOT full sell-side consensus
+- 27/37/56/43 percentage table = Korean trade press synthesis across MIXED metrics (bit-share / revenue-share / wafer-share)
+- HYNIX 60-70% NVIDIA Vera Rubin allocation; Jensen Huang Korea visit June 5-8 multi-year partnership signed June 7
+- B45 regime-check binding: 13pp HYNIX share decline on TAM growing 2-4× ≠ revenue decline; HYNIX absolute HBM revenue GROWS 15-50% even in share-loss scenario
+
+**Subagent C — FT H200 China import restrictions:**
+- FT report substance HIGH confidence N=10+ (Reuters Jan 14 + Bloomberg + Tom's Hardware T1)
+- B40 temporal-freshness flag: substance is January 2026 event (market-absorbed); FT article date unverifiable (paywall)
+- Zero H200 delivered to China as of May 2026 (T1 Commerce Secretary Lutnick)
+- ~82K H200 readied Feb 2026 + ~1M+ Chinese orders in limbo
+- China customs enforcement "to support domestic champions" = Huawei Ascend 910B/910C (600K-1.6M units 2026 target) + Cambricon + Biren
+- MIIT Xinchuang procurement list: domestic in / NVDA + AMD out
+- HBM attach-rate math: 82K H200 × 8 HBM3E stacks = ~656K stacks blocked = NOISE relative to HYNIX ally-bloc HBM franchise (HYNIX 2025 HBM revenue est. $12B+)
+- PC-14 N=8+ → N=9+: doctrine enriched with China-side bidirectional enforcement; phase update policy-design → ENFORCEMENT-ACTIVE bilateral
+
+**Per-subagent yield:**
+- Subagent A: HIGH (LARGEST ADR DEAL IN HISTORY; Frankfurt GDR resolved; dilution math at HIGH confidence; use of proceeds T0; KRX +2.94% reaction; institutional Allspring endorsement)
+- Subagent B: HIGH (B45 regime-check binding refutes "Samsung overtakes" framing for revenue purposes; mutually reinforcing joint-state with ADS confirmed; 0 falsifiers fire; compound market misread caught)
+- Subagent C: HIGH (PC-14 N=9+ codification; B40 freshness flag prevented mis-cascade as "fresh signal"; HBM attach-rate math = NOISE for HYNIX; CXMT captive-demand reinforcement)
+
+**Brief-framing errors caught:** 4 LOAD-BEARING + 2 SECONDARY
+1. (A) "Massive secondary offering = bearish for existing holders" framing OVERSTATED — dilution only 2.435%; net +32.6% above BEP after full haircut
+2. (A) Frankfurt GDR holder fear of forced conversion OVERSTATED — parallel listing, no action required
+3. (B) "Samsung overtakes HYNIX 2027" = Bernstein call NOT full sell-side consensus (UBS softer parity version); B46 framing-error
+4. (B) "13pp HYNIX share decline = bearish for revenue" = regime-error (B45 binding; TAM growing 2-4× means absolute revenue still grows)
+5. (C) Jukan "fresh FT report" framing UNCERTAIN — substance is January 2026 event (B40 flag prevented mis-cascade)
+6. (C) "Chinese rules > US rules" framing population-specific (only for already-US-licensed buyers)
+
+**Thesis cascade triggered:**
+- `companies/HYNIX/thesis.md` MAJOR UPDATE — 3-layer Pax Silica + ADS + Samsung-50% + FT-H200 cross-ref; B45 regime-check + convex-hull-2027 + falsifier-watch matrix; 🟢 HOLD 10.13% Core unchanged
+- `companies/MRVL/thesis.md` — PC-14 N=9+ extension reinforces US-hyperscaler ASIC franchise structural moat; 🟢 HOLD 5.9% Active unchanged
+- `companies/KIOXIA/thesis.md` — PC-14 N=9+ extension reinforces Japan-founding-member NAND bloc positioning; 🟡 HOLD-until-falsifier ~€10K unchanged
+- `companies/SNDK/thesis.md` — PC-14 N=9+ extension reinforces Western-NAND-in-bloc positioning; 🟢 HOLD 6sh unchanged
+- `companies/MURATA/thesis.md` — PC-14 N=9+ extension reinforces Japan-passives-bloc positioning; 🟢 HOLD 336sh unchanged
+- `companies/SUMCO/thesis.md` — PC-14 N=9+ extension + HYNIX ADS-funded Yongin Y1 = incremental wafer demand customer; 🟡 HOLD 626sh unchanged
+- `companies/NBIS/thesis.md` — PC-14 N=9+ enforcement-active bilateral reinforces EU sovereign-AI thesis; 🟢 HOLD 58sh unchanged
+- `watchlist/candidates.md` CXMT entry — FT H200 China customs = captive HBM demand mandate for CXMT; LineShine cross-link reinforcement; 🔴 MONITOR-ONLY tier unchanged
+- `meta/cross-domain-pattern-register.md` — PC-14 N=9+ codification + phase update policy-design → ENFORCEMENT-ACTIVE bilateral (Subagent C auto-committed)
+- 3 new cross-source-log artifacts (one per subagent)
+- `meta/subagent-cost-yield-ledger.md` — this entry (3 fires combined = 57+58+59; audit summary recount)
+- `meta/tier-cascade-log.md` — PM-COMBINED entry
+
+**Position implication delta:** NONE — all 7 held cohort positions UNCHANGED per user explicit direction "Haven't made any changes to my positions." Net effect: HOLD discipline STRUCTURALLY REINFORCED at multiple levels — (1) HYNIX largest position receives 5-point HOLD rationale post-ADS (immateriality of 2.435% dilution vs +38% above BEP; HY9H unaffected; ADS = capex commitment signal not distress; Nasdaq listing net positive medium-term; governance concern not value destruction); (2) PC-14 N=9+ enforcement-active bilateral reinforces ALL 7 ally-bloc positions; (3) compound market misread on HBM4-throttle + Samsung-50% surfaced as asymmetric-info opportunity.
+
+**Material yield class:** HIGH — (a) major-catalyst-on-largest-position verification (largest ADR deal in history); (b) Frankfurt GDR position-action question resolved (no action required); (c) dilution math at HIGH confidence prevents emotional sell on macro-headwind narrative; (d) B45 regime-check refutes Bernstein "Samsung overtakes" as revenue-bearish framing; (e) PC-14 N=8+ → N=9+ doctrine promotion via bidirectional enforcement; (f) 4 LOAD-BEARING brief-framing errors caught; (g) compound market misread surfaced (HBM4-throttle + Samsung-50% as ENTRY OPPORTUNITY context); (h) MU print TOMORROW codified as binding watch.
+
+**Audit-day classification:** POSITIVE — fire EARNED cost across ALL 3 subagents by (a) resolving user's largest-position dilution + Frankfurt GDR continuation question at HIGH confidence (preventing any emotional rebalance decision based on incomplete information); (b) catching Bernstein-NOT-consensus framing-error before propagation; (c) catching compound market misread enabling asymmetric-info HOLD discipline; (d) PC-14 N=9+ doctrine promotion via independent China-side codification (institutional validation of bifurcation symmetry); (e) flagging MU TOMORROW as TRUE binding catalyst within 16-day offering window. Critical Rule #16 design intent MAXIMALLY VALIDATED on this fire.
+
+**B40.x temporal-freshness verdict:**
+- A: PASS-FRESH (DART filing TODAY 2026-06-24; SEC F-1 same-week)
+- B: PASS-FRESH (Samsung Q1 2026 earnings + Korean industry article TODAY)
+- C: MIXED — substance January 2026 (market-absorbed) + Jukan "fresh" framing UNCERTAIN; B40 flag prevented mis-cascade as fresh-signal
+
+**Cross-source-log artifacts:**
+- Subagent A: `signals/cross-source-log/2026-06-24-pm-subagent-hynix-nasdaq-ads-offering-verification.md`
+- Subagent B: `signals/cross-source-log/2026-06-24-pm-subagent-samsung-50pct-hbm4-allocation-competitive-threat-verification.md`
+- Subagent C: `signals/cross-source-log/2026-06-24-pm-subagent-ft-h200-china-import-restrictions-pc14-bidirectional-verification.md`
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
 
 ### [2026-06-24 PM-FCF-COMPRESSION-LOAD-BEARING] Parent-agent fan-out per Critical Rule #16 on Subagent A's load-bearing flag — hyperscaler FCF compression (Alphabet -47% / Amazon -95%) flagged as ACTUAL Jun 23 selloff catalyst (vs brief's Meta-reorg attribution); HIGH yield — BOTH headline FCF numbers VERIFIED HIGH at T0 primary sources + CRITICAL NUANCE caught (FCF data 55 days stale by Jun 23; talent exodus was proximate trigger; FCF was tinder/anchor not match) + LATERAL FALSIFICATION CHECK = NOT-A-FALSIFIER for cycle-extension prior + H1 (cycle intact) P=55% dominant + cycle-confirmatory thesis-positive reframe; all 7 held cohort positions UNCHANGED with REINFORCEMENT to HOLD discipline
 

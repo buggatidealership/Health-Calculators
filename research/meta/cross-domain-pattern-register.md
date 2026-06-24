@@ -205,7 +205,7 @@ Per `signals/cross-source-log/2026-06-17-am7-nbis-uk-deal-deep-verification-sove
 - (a) UK GCHQ/NCSC formal sovereign-AI procurement (DSIT AIRR tender outcome = binary event; H2 2026 expected) — NBIS WL-ADD P2 thesis hinges on this
 - (c) US civilian-agency extension beyond defense (OMB M-25-21 metrics; FY2027 budget items)
 - (d) EU AI Act first enforcement action targeting US-domiciled AI in critical infra (H1 2027 expected)
-- (e) China reverse pattern: emergency-order on Western-AI access (BRI open-weight export deliberate strategy confirmation)
+- (e) China reverse pattern: emergency-order on Western-AI access (BRI open-weight export deliberate strategy confirmation) — **PARTIALLY MET 2026-06-24 PM**: China customs systematic enforcement blocking NVDA H200 imports (despite US approval) to protect domestic champions (Huawei Ascend/Cambricon) = functional equivalent of emergency-order with same outcome. Not a single executive order (informal customs directive) but systematic enforcement with identical sovereign-bifurcation logic. See `signals/cross-source-log/2026-06-24-pm-subagent-ft-h200-china-import-restrictions-pc14-bidirectional-verification.md`.
 
 **Detectability / falsifier (re-eval 2026-09-17 with 90-day audit) — UPDATED post-Asia confirmation:**
 - POSITIVE: PC-14 promoted from N=2 to N=3+ on this AM7 cascade; load-bearing for ALL US-domiciled enterprise SaaS with EU/Asia government exposure
@@ -213,6 +213,26 @@ Per `signals/cross-source-log/2026-06-17-am7-nbis-uk-deal-deep-verification-sove
 - FALSIFIER: France/Germany/Korea REVERSE doctrine within 90 days (functionally impossible given EU AI Act + Korea AI Basic Act binding legislation + EUR 655M French sovereign budget commitment)
 
 **2026-06-24 AUDIT NOTE:** PC-14 remains maximally active. No evidence of doctrine reversal in any of the three confirmed sovereign actors (US/EU/Asia). NBIS thesis (`companies/NBIS/thesis.md`) and multiple cohort names continue to reference PC-14 as a load-bearing prior. Pattern is EARNING ITS KEEP — cited in at minimum 6 cross-source-log artifacts since codification. **VERDICT: KEEP VERIFIED. Next formal re-eval 2026-09-17 per pre-registered window.**
+
+**2026-06-24 PM ENRICHMENT — CHINA-SIDE BIDIRECTIONAL ENFORCEMENT CODIFICATION (per `signals/cross-source-log/2026-06-24-pm-subagent-ft-h200-china-import-restrictions-pc14-bidirectional-verification.md`):**
+
+PC-14 now explicitly includes the CHINA-SIDE instance of the doctrine, confirming BIDIRECTIONAL enforcement:
+
+**China-side instance (substance verified T1-T2, January 2026 onward, N=10+ cross-sources):**
+- **SHIELD side:** Government procurement list (Xinchuang MIIT) mandates Huawei Ascend + Cambricon as approved AI hardware suppliers for public sector; proportional domestic procurement ratio under consideration; CXMT HBM nominated as domestic supplier for Huawei Ascend
+- **SHUTDOWN-ELIGIBLE side:** Chinese customs instructed H200 "not permitted" hours after US BIS approved case-by-case export licenses (Jan 13-14 2026); Chinese officials called Alibaba/ByteDance/Tencent meetings; US Commerce Secretary confirmed zero H200 sold to China as of May 2026; NVIDIA halted H200 China production March 2026
+- **Sovereignty qualifier:** domestic-domicile (same qualifier as France/Germany; different from US defense-integration qualifier)
+- **Enforcement mechanism:** informal customs directive + corporate guidance (not public regulatory notice — consistent with MOFCOM informal guidance pattern); systematic in practice (zero deliveries confirmed)
+
+**Key convergence finding:** China independently arrived at the SAME doctrinal architecture as US/France/Germany — PROTECT domestic AI champions (Huawei/Cambricon), BLOCK foreign AI access to protect domestic build (H200 blocked despite US approval). This is independent convergence from BOTH sides of the geopolitical divide, which is the strongest possible validation that the doctrine "emerges from structural sovereign-AI strategic constraints, not from any specific political dynamics."
+
+**Doctrine phase update:**
+- Policy-design phase (2025 — H1 2026): sovereigns announcing, codifying, institutionalizing doctrine
+- **ENFORCEMENT-ACTIVE phase (2026-06-24 confirmed, bilateral):** customs directives, blocked shipments, active prosecution, supply-route interdiction — BOTH allied-bloc (Pax Silica) and China-bloc (customs enforcement) now actively enforcing, not just announcing
+
+**B40 note:** Jukan @jukan05 tweet (June 24 2026, 97.4K views) quoted FT report on this. FT article date unverifiable (paywalled); substance independently corroborated via 10+ T1-T2 sources independent of FT. China-side enrichment is codified on SUBSTANTIATED POLICY (Jan 2026 onward), not on tweet freshness claim.
+
+**Pre-registered watch trigger (e) status: PARTIALLY MET.** See update to trigger (e) above.
 
 ### Held cohort + watchlist N=3 enrichment cascade (per AM7 commit; see for per-name details)
 - **NBIS WL-ADD P2 PROMOTION** (was REFERENCE-WATCHLIST) — sovereign-AI canonical pure-play; PC-14 N=3 UK trigger = DSIT AIRR tender

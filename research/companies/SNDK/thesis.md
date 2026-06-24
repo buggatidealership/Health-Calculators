@@ -1,5 +1,9 @@
 # Sandisk (SNDK) — Thesis
 
+**🟢 2026-06-24 PM-COMBINED cross-ref — PC-14 N=8+ → N=9+ via China-side bidirectional enforcement reinforces Western NAND franchise inside ally bloc; HYNIX ADS + Samsung 50% HBM4 NEUTRAL for SNDK NAND franchise; HOLD 6sh preserved:** Per `signals/cross-source-log/2026-06-24-pm-subagent-ft-h200-china-import-restrictions-pc14-bidirectional-verification.md` + joint context from Subagents A+B. **SNDK implications:** PC-14 enforcement-active bilateral phase = Western NAND franchise structurally reinforced inside ally bloc (Yokkaichi-JV mirror to KIOXIA); HYNIX Nasdaq ADS HYNIX-specific orthogonal; Samsung 50% HBM4 HBM-internal orthogonal. **Position implication: 🟢 HOLD 6sh — no size change — PC-14 N=9+ enforcement reinforces Western-NAND-in-bloc positioning; pre-committed trim sequence (SNDK trims AFTER HYNIX on F2 ASP rollover by 1-quarter lag) UNCHANGED; F-conditions status quo; MU print TOMORROW = NAND-cycle regime-test.**
+
+---
+
 **🟢 2026-06-24 AM-BRIEF-COMBINED cross-ref — TRIPLE-BULLISH stack (Pax Silica + Legacy storage NVMe upgrade cycle + Jun 23 -13.7% selloff WITHIN regime base rate); HOLD 6sh preserved:** Per `signals/cross-source-log/2026-06-24-am-brief-integrated-synthesis.md` (2 parallel Opus 4.8 subagents A+B; 116.4k combined). User-shared AI Brief June 24; HOLD discipline preserved per user direction.
 
 **LAYER #1: Pax Silica EU+Germany+NL+GR JOIN — Western NAND franchise inside ally bloc.** Trump State Dept Dec-2025 pact verified N=10+. Western NAND (SNDK) benefits structurally from Pax Silica diversification mandates blocking Chinese NAND alternatives from allied-bloc hyperscaler procurement. Cross-pact synergy with morning's PM-JUKAN-CXMT cascade: YMTC NAND 2023-downcycle pricing discipline + Pax Silica China-blocked = double-protection on Western NAND pricing power within allied bloc through 2027-2028.

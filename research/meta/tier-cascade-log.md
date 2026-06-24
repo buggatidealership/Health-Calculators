@@ -35,6 +35,34 @@
 
 ## Entries (most recent first)
 
+### [2026-06-24 PM-COMBINED — HYNIX-ADS + SAMSUNG-50%-HBM4 + FT-H200-CHINA] 🟢 User-shared compound input (DART filing T0 + SEC F-1 + Korean industry article + Jukan FT-quoted tweet) → 3 parallel Opus 4.8 verification subagents per Critical Rule #16 + Principle #36 (274.8k combined); HIGHEST-YIELD CASCADE on largest held position (HYNIX 10.13% Core); Frankfurt HY9H GDR UNAFFECTED resolves user position-action question; dilution 2.435% (~+32.6% above BEP after full haircut); Samsung 50% HBM4 + ADS RAISE = MUTUALLY REINFORCING strategic offense; PC-14 N=8+ → N=9+ via China-side bidirectional enforcement; ZERO falsifiers fire; all 7 held cohort positions UNCHANGED with HOLD discipline REINFORCED at structural level
+
+**Trigger source:** User-shared compound input 2026-06-24 PM with explicit framing "verify as usual" + "Haven't made any changes to my positions"
+
+**Intake tier:** 🟢 HARD on Subagent A (DART T0 + SEC F-1 + N=10+ T1 corroboration); 🟢 HARD directional + 🟡 DIRECTIONAL on specific 75K wafer figure for Subagent B (anonymous industry source); 🟢 HARD substance + 🟡 DIRECTIONAL freshness for Subagent C (B40 flag — substance is January 2026 event)
+
+**Source:** 3 cross-source-log artifacts (one per subagent verification fire); FT H200 article paywall-verified via 10+ secondary; DART filing T0 user-shared image; SEC F-1 EDGAR 000119312526280172
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/HYNIX/thesis.md` top-of-file — MAJOR PM-COMBINED cross-ref; 3-layer Pax Silica + ADS + Samsung-50% + FT-H200 cross-ref; B45 regime-check binding + convex-hull-2027 + falsifier-watch matrix; 🟢 HARD HOLD 10.13% Core unchanged
+- `companies/MRVL/thesis.md` top-of-file — PM-COMBINED cross-ref; PC-14 N=9+ extension reinforces US-hyperscaler ASIC franchise; FALSIFIER WATCH on MU print; 🟢 HOLD 5.9% Active unchanged
+- `companies/KIOXIA/thesis.md` top-of-file — PM-COMBINED cross-ref; PC-14 N=9+ Japan-founding NAND bloc; 🟡 HOLD ~€10K unchanged
+- `companies/SNDK/thesis.md` top-of-file — PM-COMBINED cross-ref; PC-14 N=9+ Western-NAND-in-bloc; 🟢 HOLD 6sh unchanged
+- `companies/MURATA/thesis.md` top-of-file — PM-COMBINED cross-ref; PC-14 N=9+ Japan-passives-bloc; 🟢 HOLD 336sh unchanged
+- `companies/SUMCO/thesis.md` top-of-file — PM-COMBINED cross-ref; PC-14 N=9+ + HYNIX ADS-funded Yongin Y1 = incremental wafer demand customer; 🟡 HOLD 626sh unchanged
+- `companies/NBIS/thesis.md` top-of-file — PM-COMBINED cross-ref; PC-14 N=9+ EU sovereign-AI reinforcement; 🟢 HOLD 58sh unchanged
+- `watchlist/candidates.md` CXMT entry — appended FT H200 China customs = captive HBM demand mandate for CXMT; LineShine cross-link reinforcement; 🔴 MONITOR-ONLY tier unchanged
+- `meta/cross-domain-pattern-register.md` — PC-14 N=8+ → N=9+ codification + phase update policy-design → ENFORCEMENT-ACTIVE bilateral (Subagent C auto-committed in separate atomic commit)
+- `meta/subagent-cost-yield-ledger.md` — new combined entry (3 fires = 57+58+59; audit summary recount HIGH 35 / MEDIUM 17 / LOW 2 / FRAMING-ERROR-CAUGHT 3 / ZERO 0)
+
+**Files NOT touched (no claim intersection):** sector/ files; meta/biases-watchlist (B40.x + B45 + B46 all already codified; no new bias); methodology (no new principle); other companies/ folders (NVDA / AVGO / ANET / IBIDEN / DDOG-WATCHLIST / NOW-WATCHLIST etc.)
+
+**Stale flags fired:** none — verification result REINFORCES existing tier markers across cohort
+
+**Commit:** {to-be-filled-in-next-cascade}
+
+---
+
 ### [2026-06-24 PM-FCF-COMPRESSION] 🟢 Subagent C parent-agent fan-out per Critical Rule #16 on AM Subagent A load-bearing flag — hyperscaler FCF compression (Alphabet -47% / Amazon -95%) verified at T0 primary sources with HIGH confidence; LATERAL FALSIFICATION CHECK = NOT-A-FALSIFIER for cycle-extension prior (cycle-confirmatory not cycle-ending); H1 (cycle intact) P=55% dominant; HOLD discipline REINFORCED across all 7 held cohort positions
 
 **Trigger source:** Subagent A AM-BRIEF surfaced FCF compression as "ACTUAL selloff catalyst" — parent agent fired Subagent C follow-on per Critical Rule #16 (load-bearing signal not in user-shared brief but with thesis/sizing implications)

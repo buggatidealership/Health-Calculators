@@ -1,5 +1,9 @@
 # Nebius (NBIS) — Thesis
 
+**🟢 2026-06-24 PM-COMBINED cross-ref — PC-14 N=8+ → N=9+ enforcement-active bilateral REINFORCES EU sovereign-AI thesis; HYNIX ADS + Samsung 50% HBM4 ORTHOGONAL; HOLD 58sh preserved:** Per `signals/cross-source-log/2026-06-24-pm-subagent-ft-h200-china-import-restrictions-pc14-bidirectional-verification.md`. **NBIS implications:** PC-14 enforcement-active bilateral phase = EU sovereign-AI buildout demand compounds (12-24 month horizon per Subagent C) as bifurcation forces EU entities to choose explicitly between US/Chinese stacks → NBIS occupies EU-neutral slot in Pax Silica framework; DSIT AIRR + similar sovereign decisions accumulate. **Position implication: 🟢 HOLD 58sh Active — no size change — PC-14 N=9+ enforcement-active bilateral reinforces EU sovereign-AI thesis; NASDAQ-100 inclusion T+5 grade ~2026-06-27 per pre-registration; F1-F7 falsifiers status quo.**
+
+---
+
 **🟢 2026-06-24 AM-BRIEF-COMBINED cross-ref — Pax Silica EU JOIN = STRUCTURALLY BULLISH for EU sovereign-AI-infrastructure validation; HOLD 58sh preserved:** Per `signals/cross-source-log/2026-06-24-am-brief-integrated-synthesis.md` (2 parallel Opus 4.8 subagents A+B; 116.4k combined). User-shared AI Brief June 24; HOLD discipline preserved per user direction.
 
 **LAYER #1: Pax Silica EU+Germany+NL+GR JOIN — EU sovereign AI infrastructure validation at policy level.** Trump State Dept Dec-2025 pact verified N=10+ (FT + Seoul Economic Daily + Agence Europe + Euronews + MLex). EU joins as bloc representing 27 members; Germany, Netherlands, Greece separately. **NBIS = European neocloud (Amsterdam-listed; Netherlands explicit Pax Silica joiner).** Direct read: **EU Pax Silica membership institutionally validates EU sovereign AI infrastructure buildout** — NBIS is one of the few investable pure-play European AI-infrastructure names benefiting from this validation. PC-14 N=8+ institutionalization at policy level reinforces NBIS strategic positioning.

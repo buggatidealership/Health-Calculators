@@ -1,5 +1,109 @@
 # SK Hynix — Thesis
 
+**🟢 2026-06-24 PM-COMBINED cross-ref — 3 PARALLEL SUBAGENTS (A SK Hynix Nasdaq ADS offering 95.3k + B Samsung 50% HBM4 allocation 73.3k + C FT H200 China import restrictions 106.2k = 274.8k combined) — HIGHEST-YIELD CASCADE on largest held position; HY9H Frankfurt GDR UNAFFECTED (parallel listing, no forced conversion); dilution 2.435% (~€43/GDR ≈ ~+32.6% above BEP after full dilution haircut); Samsung 50% HBM4 + ADS RAISE = MUTUALLY REINFORCING; PC-14 N=8+ → N=9+ via China-side bidirectional enforcement; HOLD 10.13% Core REINFORCED:** Per `signals/cross-source-log/2026-06-24-pm-subagent-hynix-nasdaq-ads-offering-verification.md` + `signals/cross-source-log/2026-06-24-pm-subagent-samsung-50pct-hbm4-allocation-competitive-threat-verification.md` + `signals/cross-source-log/2026-06-24-pm-subagent-ft-h200-china-import-restrictions-pc14-bidirectional-verification.md`.
+
+**LAYER #1: SK Hynix Nasdaq ADS Offering announced TODAY 2026-06-24 (per DART T0 filing + SEC F-1 EDGAR 000119312526280172):**
+- Total raise: ₩45,453,450,000,000 = ~$29.40B USD at June 24 spot FX (1,546 KRW/USD)
+- **LARGEST ADR DEAL IN HISTORY** by ~35% over Alibaba 2014 ($21.8B); top-5 equity offerings of all time globally
+- 17,790,000 new common shares issued backing 177,900,000 ADSs (1 ADS = 1/10 common share; ratio 0.1 per DART)
+- Per-ADS reference price ₩255,500 = $165.27 (locked at June 23 post-selloff close = 13.3% below ATH)
+- Existing shares outstanding: 712,702,365 → 730,492,365 post-offering
+- **Dilution: 2.435%** (new/total post-offering)
+- Use of proceeds 100% capex ("시설자금" per DART): Yongin Y1 fab (₩31T multi-year; ops early 2027) + Cheongju P&T7 advanced packaging fab (HBM4 12-Hi stacking) + EUV scanners from ASML (₩11.9T = $7.9B = LARGEST SINGLE ASML ORDER EVER; ~30 units delivery by Dec 2027; enables 1c DRAM node)
+- Lead underwriters: BofA Securities + Citigroup Global Markets + Goldman Sachs (Asia) + JP Morgan Securities
+- Subscription/payment: 2026-07-14; Nasdaq listing 2026-07-10; new share listing 2026-07-29
+- ADR proceeds = 1.1× FY2026 capex (multi-year front-load); ₩100T total war chest disclosed (ADR = first public equity tranche)
+- Pre-emptive rights WAIVED (governance concern per Korea Corporate Governance Forum) but proceeds = value-creating capex not management enrichment
+
+**LAYER #2: Frankfurt HY9H GDR program impact (USER POSITION CRITICAL — 15 GDRs @ BEP €1,294):**
+- HY9H program **UNAFFECTED** — parallel listing, no forced conversion, no termination, no compulsory exchange (HIGH confidence)
+- Citibank N.A. depositary for BOTH programs (normal — manages hundreds concurrent DR programs)
+- HY9H ratio 1:1 (1 GDR = 1 common share) vs Nasdaq SKHY 1:10 (1 ADS = 1/10 common share)
+- HY9H CUSIP 78392B107 retained; Citibank May 29 2026 fee history confirms HY9H active
+- User position math: 15 GDRs × €1,294 BEP = €19,410 cost basis; current KRX ₩2,555,000/share ≈ ~€1,785/GDR at 1,430 KRW/EUR (1:1 GDR); position **~+38% above BEP**; dilution impact per GDR ~€43; **net of full dilution still ~+32.6% above BEP**
+- HY9H holders required action: NONE (no conversion / no exchange / no mandatory subscription)
+- Secondary overhang risk: 177.9M new ADSs entering market July 10 = potential 6-12 week supply pressure; cross-market arbitrage SKHY↔HY9H could compress Frankfurt GDR premium temporarily
+
+**LAYER #3: Samsung 50% HBM4 allocation (per Subagent B Korean primary verified):**
+- Samsung 50% capacity to HBM4: directionally HIGH confidence (Samsung Q1 2026 earnings call T0 "HBM4 to exceed 50% of HBM revenue from Q3 2026"); specific 75,000 wafer figure MEDIUM (anonymous "semiconductor industry" attribution per user-shared Korean industry article 2026-06-24)
+- Samsung HBM4 $1B revenue in 130 days (Feb 12 → June 24) — HIGH N=8+ Korean primary
+- Samsung HBM4 $10B FY2026 — MEDIUM-HIGH (industry extrapolation from Samsung CFO "HBM revenue triples 2026" guidance T0)
+- 8-layer HBM3E halt at Samsung = cycle-natural transition AND Samsung-specific competitive exit; NET POSITIVE for HYNIX
+- "Samsung overtakes HYNIX 2027" = **Bernstein call (UBS softer parity version) NOT full sell-side consensus**; specific 27/37/56/43 percentage table = Korean trade press synthesis across MIXED metrics (bit-share / revenue-share / wafer-share)
+- HYNIX HBM4 NVIDIA Vera Rubin allocation 60-70% per TrendForce + Wedbush + UBS T1; Jensen Huang Korea visit June 5-8 2026 + multi-year partnership signed June 7 (T1)
+
+**🔥 B45 REGIME-CHECK BINDING on share-shift framing:** Article projects 13pp HYNIX share decline (56% → 43%) — this is a PERCENTAGE metric on TAM growing 2-4× per Counterpoint Memory Tracker ($234B → $975B → $1.37T 2025/26/27E). **HYNIX absolute HBM revenue GROWS 15-50% even in share-loss scenario.** Pre-training "share = revenue" anchor fails here.
+
+**Convex hull of 2027 HBM share outcomes (per Subagent B my model):**
+
+| Scenario | Samsung | HYNIX | Micron | P-weight |
+|---|---|---|---|---|
+| H1: UBS parity case | 38-42% | 40-44% | 15-20% | 40% |
+| H2: Bernstein Samsung overtakes | 43-48% | 36-42% | 14-20% | 20% |
+| H3: HYNIX maintains lead | 28-33% | 48-54% | 14-19% | 40% |
+
+**Expected 2027 HYNIX HBM share ~43.6%.** H3 has EQUAL probability to H1 — article framing implies H2 more likely than actually is.
+
+**LAYER #4: FT H200 China import restrictions (per Subagent C verified):**
+- Substance HIGH confidence N=10+ corroboration (Reuters Jan 14 2026 + Bloomberg + Tom's Hardware + Taipei Times + Yahoo Finance + N=7 Chinese primary native-language)
+- B40 temporal-freshness flag: substance is January 2026 event (market-absorbed); FT article date unverifiable (paywall)
+- Zero H200 delivered to China as of May 2026 (T1 Commerce Secretary Lutnick confirmed)
+- ~82K H200 readied for shipment Feb 2026 (Tom's Hardware); ~1M+ Chinese orders in limbo
+- HYNIX HBM cross-implication: 82,000 H200 × 8 HBM3E stacks = ~656K stacks blocked = **NOISE relative to HYNIX ally-bloc hyperscaler HBM franchise** (HYNIX 2025 HBM revenue est. $12B+)
+- China customs enforcement "to support domestic champions" (Huawei Ascend 910B/910C 600K-1.6M units 2026 target + Cambricon + Biren) = institutional codification
+- **PC-14 N=8+ → N=9+: doctrine enriched with China-side bidirectional enforcement; phase update policy-design → ENFORCEMENT-ACTIVE bilateral**
+
+**JOINT-STATE CRITICAL INSIGHT — MUTUALLY REINFORCING (per Subagents A+B independent verification):**
+
+The three layers read together:
+1. SK Hynix Nasdaq ADS raise filed WEEKS BEFORE today's Samsung 50% HBM4 announcement
+2. Samsung 50% allocation CONFIRMS the competitive environment that justified the $29B raise
+3. ADS proceeds explicitly fund Yongin Y1 + Cheongju P&T7 + EUV = HBM4/HBM4E/HBM5 capacity defense
+4. **HYNIX has ALREADY pre-funded the response BEFORE Samsung's announcement** — strategic offense, not reactive defense
+5. PC-14 N=9+ China-side enforcement reinforces ally-bloc HBM franchise structural moat (Chinese CXMT HBM blocked from allied-bloc TAM)
+6. **Two-event narrative reading: Samsung signals serious HBM4 competition + HYNIX has already funded the response = BULLISH for HYNIX thesis, not bearish**
+
+**COMPOUND MARKET MISREAD CAUGHT (joint with AM-BRIEF-COMBINED HBM4-throttle irony from morning):**
+
+Today's market narrative: "HYNIX throttling HBM4 + Samsung allocating more HBM4 = HYNIX loses HBM4 leadership."
+
+Correct read:
+1. HYNIX throttling absolute HBM4 ramp = redirecting to high-margin commodity DRAM (VERIFIED NET BULLISH per AM cascade; CXMT 70% OPM peer-validation)
+2. Samsung allocating 50% of Samsung's HBM capacity to HBM4 = Samsung accelerating ITS OWN production; does NOT reduce HYNIX volume or NVIDIA allocation
+3. Two separate decisions by two different companies optimizing their own mix
+- **Market treating as single bearish signal = compound misread. Asymmetric-info opportunity for harness-disciplined holders.**
+
+**F1-F13 falsifier check post-3-subagent-verification:**
+
+| Falsifier | Status | Evidence |
+|---|---|---|
+| F1 ASP rollover | NOT FIRED | HBM4 ASPs $500-560/module, 80%+ GM (T1) |
+| F2 Demand destruction | NOT FIRED | Hyperscalers accelerating; supply-constrained through 2027 |
+| F3 Key customer loss (NVDA) | NOT FIRED | HYNIX 60-70% Vera Rubin; multi-year deal June 7 |
+| F4 Technology generation skip | NOT FIRED | HYNIX HBM4E samples June 2026 same as Samsung |
+| F5 China export control closing | NOT FIRED | Pax Silica protects HYNIX in ally bloc (per AM-BRIEF Subagent A) |
+
+**Post-verification scenario weights on offering completion (per Subagent A):**
+
+| Scenario | P-weight | Logic |
+|---|---|---|
+| **H1: Offering completes full size; capex locked; cycle-extension strengthened** | **0.65** (upgraded from 0.55 pre-verification) | DART T0 + F-1 filed + Allspring backing + named projects locked |
+| H2: Reduced size; partial capex disruption | 0.20 | Depends on MU print tomorrow + 16-day window risk |
+| H3: Offering fails / withdrawn | 0.15 | Low; would require major adverse event in 16 days |
+
+**🚨 CRITICAL WATCH NEXT 10 DAYS — MU Q3 FY26 print TOMORROW 2026-06-25 after close (L27 framework first regime-test event):**
+
+If Micron shows HBM demand weakness OR volume guidance cut OR ASP softness in HBM4 specifically → most proximate risk to SK Hynix offering proceeding at full ₩45.45T:
+- Pressure HYNIX KRX between June 25 → July 10 listing window
+- Trigger offering repricing below ₩255,500/ADS
+- Potentially downsize toward H2 scenario
+
+**Action if MU miss severe:** Reassess H2 probability (0.20 → 0.35-0.40); monitor HYNIX KRX June 26 → July 5 window before July 14 payment date.
+
+**Position implication: 🟢 HARD — HOLD 10.13% Core (15 HY9H Frankfurt GDR @ BEP €1,294, currently ~+38% above BEP) — no size change — NASDAQ ADS OFFERING = STRATEGIC CAPEX COMMITMENT SIGNAL (largest ADR deal in history at $29.40B; 100% facility capital per DART T0; Yongin + Cheongju + EUV pre-funded HBM4/HBM4E/HBM5 capacity defense); Frankfurt HY9H program UNAFFECTED + parallel listing + dilution only 2.435% (net +32.6% above BEP after full haircut); Samsung 50% HBM4 allocation = competitive environment that JUSTIFIES the $29B raise (mutually reinforcing not contradictory); B45-binding share-shift framing on TAM growing 2-4× = absolute HBM revenue grows 15-50% even in H1 parity scenario; PC-14 N=9+ China-side enforcement reinforces ally-bloc HBM franchise structural moat; ZERO falsifiers fire across F1-F13; compound market misread caught (HBM4-throttle + Samsung-50%-allocation = asymmetric-info opportunity not thesis break); MU print TOMORROW 2026-06-25 after close = TRUE binding catalyst per L27.**
+
+---
+
 **🟢 2026-06-24 AM-BRIEF-COMBINED cross-ref — 3 STRUCTURALLY-BULLISH layers + CRITICAL IRONY (market misread of HBM4-throttle as bearish creates entry-opportunity rather than thesis-break); HOLD 10.13% Core REINFORCED:** Per `signals/cross-source-log/2026-06-24-am-brief-integrated-synthesis.md` (2 parallel Opus 4.8 subagents A+B; 116.4k combined subagent_tokens; multilingual Chinese + Japanese primary). User-shared AI Brief June 24 Morning Edition; "verify as usual" directive; user explicit: "Haven't made any changes to my positions as per your direction" — HOLD discipline preserved.
 
 **LOAD-BEARING LAYER #1: Pax Silica EU+Germany+NL+GR JOIN → PC-14 N=8+ INSTITUTIONALIZED.** Trump State Dept Dec-2025 pact verified N=10+ (FT + Seoul Economic Daily T2 + Agence Europe T1 + Euronews T1 + MLex T1). Scope: chips/EDA/equipment/minerals/logistics/data-infra/energy/export-control alignment. **HBM explicitly cited as "today's tightest bottleneck"** in initiative documents. **Korea is FOUNDING MEMBER** → HYNIX HBM franchise inside the ally bloc by design; Chinese CXMT HBM explicitly OUTSIDE bloc TAM. France OPPOSED (substantive caveat — "colonisation" framing + $40B chip-purchase commitment creates US-dependency tension), but does not block the bloc-level cohesion at HYNIX-relevant level. **Structurally most-bullish AI-policy datapoint of 2026 for HYNIX.**

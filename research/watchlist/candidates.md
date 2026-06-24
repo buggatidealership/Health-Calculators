@@ -82,6 +82,27 @@ Per `signals/cross-source-log/2026-06-23-pm-subagent-jukan-cxmt-china-pricing-di
 
 **Watchlist tier UNCHANGED: 🔴 SPECULATIVE — MONITOR ONLY** — investability barrier binding; tracking value = competitive intelligence + 2028+ tech-parity trajectory monitoring.
 
+### 2026-06-24 PM-COMBINED update — FT H200 China customs enforcement confirms PC-14 N=9+ China-side bidirectional; CXMT positioned as HBM captive-demand beneficiary
+
+Per `signals/cross-source-log/2026-06-24-pm-subagent-ft-h200-china-import-restrictions-pc14-bidirectional-verification.md` (Subagent C 106.2k subagent_tokens; multilingual Chinese primary N=7+).
+
+**FT H200 China customs enforcement (substance HIGH confidence N=10+; B40 freshness flag — January 2026 event may be recirculated):**
+- Chinese customs blocking H200 imports despite Trump greenlight licences for ~10 Chinese companies (Reuters Jan 14 + Bloomberg + Tom's Hardware T1)
+- Zero H200 delivered to China as of May 2026 (Commerce Secretary Lutnick T1)
+- ~82K H200 readied for shipment Feb 2026 + ~1M+ Chinese orders in limbo
+- Policy intent: "support domestic champions" = Huawei Ascend 910B/910C (600K-1.6M units 2026 target; $12B revenue forecast) + Cambricon + Biren + Moore Threads
+- MIIT Xinchuang procurement list: Huawei + Cambricon IN, NVDA + AMD NOT listed
+
+**CXMT positioning implications (POSITIVE):**
+- China-side customs enforcement = captive demand mandate for domestic HBM supply (CXMT primary HBM-capable Chinese entity per prior PM-CXMT-SEMIANALYSIS)
+- CXMT cross-link to LineShine (per AM-BRIEF Subagent A): "China's first domestic HBM" likely CXMT-supplied (MEDIUM confidence)
+- Guaranteed Huawei Ascend customer relationship ahead of CXMT commercial HBM readiness
+- CXMT HBM 2027+ arrives into pre-validated captive demand context with ASP leverage potential
+
+**PC-14 N=8+ → N=9+ doctrine update:** China now codified as MIRROR ACTOR in bidirectional enforcement; phase update policy-design → ENFORCEMENT-ACTIVE bilateral; cross-domain-pattern-register.md enriched per Subagent C commit.
+
+**CXMT watchlist tier UNCHANGED: 🔴 SPECULATIVE — MONITOR ONLY** — investability barrier binding (STAR Market direct-INACCESSIBLE for Euro retail); China-bloc isolation reinforcement adds NEW structural positive (captive HBM demand from forced sovereign-AI procurement) but does NOT change Euro-retail investability barrier; re-eval trigger UNCHANGED.
+
 ### 2026-06-24 AM-BRIEF-COMBINED update — LineShine HBM supplier attribution + Pax Silica China-bloc isolation
 
 Per `signals/cross-source-log/2026-06-24-am-brief-integrated-synthesis.md` (2 parallel Opus 4.8 subagents A+B; 116.4k combined).
