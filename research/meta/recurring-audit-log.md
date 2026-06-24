@@ -87,6 +87,71 @@ User confirmed 2026-05-21 they primarily interact via Claude Code on phone (web/
 
 ---
 
+## RECURRING-AUDIT: 2026-06-24 — Session-prime curation rule integration into monthly audit (on-time)
+
+**Trigger:** scheduled — monthly consolidated audit (24th of each month); user-directed scope: curation-rule codification + section-by-section session-prime audit
+**Session attended:** user present
+**Effort:** ~20 min
+
+**Scope:** Harness-internal meta-work only. NOT a Critical Rule #16 external-claim verification. Four deliverables: (1) current-state assessment of session-prime.md, (2) curation rule proposal + codification, (3) apply rule / identify violations, (4) monthly audit integration.
+
+**Size at audit open:**
+- 13,858 chars / 30,000 cap = 46.2% of char cap
+- 150 lines / 500 hard cap = 30.0% of line cap
+- Status: well under both caps; no emergency demotion needed
+
+**Size at audit close (after changes):**
+- 18,598 chars / 30,000 cap = 62.0% of char cap
+- 201 lines / 500 hard cap = 40.2% of line cap
+- Delta: +4,740 chars / +51 lines (net increase due to §0 curation rule addition)
+
+**Section-by-section verdicts:**
+
+| Section | Verdict | Action taken |
+|---|---|---|
+| Header + cap rules | Load-bearing | Clarified char cap reference alongside line cap |
+| §1 Regime (B45) | Load-bearing, current | No change |
+| §2 Active biases | Partially mislabeled | Renamed heading; B40 corrected to CONFIRMED status; B47 added (was missing) |
+| §3 Recent lessons | Violated cap rule | L24 placeholder removed; rolling-5 now L21/L22/L23/L25; noted tail is L25, next = L26 |
+| §4 Critical Rules | Stale — missing CR#15 + CR#16 | Added both one-liners; both codified post-session-prime creation |
+| §5 TC clusters | Load-bearing | No change |
+| §6 Held cohort | Date stale by 18 days | Re-dated to 2026-06-24; holdings.md flagged as authoritative |
+| §7 Pending predictions | KIOXIA resolution window passed | Cleared; flagged for GRADE workflow |
+| §8 Recalibrations | Past items present | Removed 2026-06-19 and 2026-06-24; added week-3/4 checks + next monthly |
+| §9 Truth-tier + cascade | Load-bearing, in test window | No change |
+| §9b Principle #38 + B47 | B47 de-duped to §2 | Removed B47 full text from §9b; retained framework text |
+| §10 Architecture note | Load-bearing | Added curation rule location pointer |
+| §11 Falsifier | Load-bearing | Added extended falsifier for OS stagnation check |
+
+**Curation rule codified:** §0 added directly to session-prime.md. Three components: (1) inclusion criteria — recency + load-bearing + non-redundant; (2) eight specific demotion triggers; (3) 9-step monthly audit integration checklist. Rule embedded in session-prime.md rather than a separate file because the injection governance rules are themselves cold-session-load-bearing.
+
+**Violations found and resolved (8 total):**
+1. L24 placeholder — REMOVED
+2. B40 mislabeled as CANDIDATE — CORRECTED to CONFIRMED VERIFIED-HIGH-CONFIDENCE
+3. B47 missing from §2 — ADDED (codified 2026-06-15, never cascaded to session-prime)
+4. CR#15 missing from §4 — ADDED (macro-first discipline, codified 2026-06-12)
+5. CR#16 missing from §4 — ADDED (verification subagents, codified 2026-06-15)
+6. §6 cohort date stale — RE-DATED to 2026-06-24
+7. §7 expired KIOXIA prediction stub — CLEARED + flagged for GRADE
+8. §8 past-due audit dates — REMOVED (2026-06-19 complete, 2026-06-24 = this audit)
+
+**Key findings:**
+- File was 46.2% of cap at audit open — healthy; no cap pressure
+- Curation-rule gap was the primary structural issue; proto-rules in header described categories without lifecycle conditions; now codified in §0 with explicit demotion triggers
+- CR#15 and CR#16 were the most material omissions — both are active enforcement disciplines that a cold session needs to know
+- L24 placeholder was pure dead weight in a force-injected cold-start context
+- B40 mislabeling was cosmetic but created false impression that CONFIRMED biases belong in CANDIDATE section
+
+**Files changed:**
+- `research/meta/session-prime.md` (primary — all changes above)
+- `research/meta/recurring-audit-log.md` (this entry)
+
+**Next cycle due:** 2026-07-24 (monthly consolidated audit)
+
+**Commit:** {to-be-filled-at-next-recurring-audit per lag-1 convention}
+
+---
+
 ## RECURRING-AUDIT: 2026-06-19 — Two-bracket LLM-native experiment, week-2 check (on-time)
 
 **Trigger:** scheduled — SessionStart hook elevated ⏰ DUE TODAY
