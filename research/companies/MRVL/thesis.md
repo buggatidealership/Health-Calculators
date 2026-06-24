@@ -1,5 +1,9 @@
 # Marvell Technology (MRVL) — Thesis
 
+**🟢 2026-06-24 PM-DEEPLLM-26H1 cross-ref — Codex 5M WAU CONFIRMED HIGH (knowledge workers now 20% of users + growing 3× faster than developers) = inference demand broadening signal supports MRVL custom-ASIC inference-silicon TAM expansion thesis:** Per `signals/cross-source-log/2026-06-24-pm-subagent-deepllm-26h1-frontier-labs-compute-bottleneck-verification.md` (Subagent #1 36.8k tokens). Not a direct MRVL data point but demand-environment confirmation. Inference demand broadening beyond developer base = MRVL's Trainium/Maia/Google-inference-talks pipeline supported. OpenAI ARR $33B MEDIUM-confidence (no single primary print — analyst-grade estimate); do not size off this specific number. **Position implication: 🟢 HOLD 5.9% Active 44sh @ BEP $286.26 — no size change — Codex inference-demand-broadening = NEUTRAL-POSITIVE thesis confirmation; F1-F7 status quo; MU print TONIGHT 22:30 CET remains binding sympathy catalyst.**
+
+---
+
 **🟢 2026-06-24 PM-OPENAI-BROADCOM-JALAPEÑO cross-ref — THESIS INTACT; OpenAI was NEVER in MRVL pipeline (orthogonal customer segmentation per Subagent verified HIGH); market mispricing risk surfaces potential ADD opportunity if MRVL trades down on AVGO-win-as-MRVL-loss misframe:** Per `signals/cross-source-log/2026-06-24-pm-subagent-openai-broadcom-custom-ai-chip-verification.md` (1 Opus 4.8 subagent 41.4k tokens). User-shared news: "OpenAI unveiled its first custom AI chip developed in partnership with Broadcom."
 
 **🔥 CRITICAL FINDING: OpenAI was NEVER in MRVL's customer pipeline. This is NOT a competitive loss for MRVL.**

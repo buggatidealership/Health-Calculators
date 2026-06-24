@@ -1,5 +1,25 @@
 # SK Hynix — Thesis
 
+**🟢 2026-06-24 PM-DEEPLLM-26H1 cross-ref — MULTIPLE INDEPENDENT HBM-demand-stickiness signals pre-MU print: (a) H100 1-yr lease rates +40% Oct 2025 → March 2026 CONFIRMED HIGH via SemiAnalysis primary ($1.70 → $2.35/hr/GPU); (b) Anthropic SpaceX Colossus 1 220K+ GPUs + 300MW + $1.25B/month full-cluster commitment CONFIRMED HIGH (H100/H200/GB200 mix = HBM2e/HBM3/HBM3e structural attach); (c) Anthropic $47B ARR May 2026 + 1,000+ enterprise customers >$1M/yr CONFIRMED HIGH (Series H official):** Per `signals/cross-source-log/2026-06-24-pm-subagent-deepllm-26h1-frontier-labs-compute-bottleneck-verification.md` (Subagent #1 36.8k tokens) + `signals/cross-source-log/2026-06-24-pm-subagent-zephyr-anthropic-financials-deep-llm-26h1-verification.md` (Subagent #2 16.5k tokens).
+
+**SELF-CORRECTION on prior framing per Subagent #2 (B40.3):** Earlier pre-verification framing claimed "Anthropic +15-20% FCF margin / cash-flow positive entity" was FALSE/MISLEADING. Anthropic Q2 2026 ~5% operating margin only (first profitable quarter); FCF-positive milestone DELAYED per The Information; 15-20% is 2027-2028 target. **Anthropic compute commitments FUNDED BY VC ($95B raised in 3.5 months Series G+H) NOT by healthy FCF.** Still thesis-supportive for HBM demand but via REVENUE TRAJECTORY ($14B → $47B ARR in 3.5 months) + CUSTOMER PENETRATION (9 of Fortune 10) — NOT via FCF-health argument.
+
+**H100 lease +40% rebound is LOAD-BEARING LEADING INDICATOR for MU print TONIGHT 22:30 CET:** Contra-consensus signal (market expected Blackwell ramp to suppress Hopper prices; instead open-weight inference + agentic workloads absorbed capacity). NVIDIA CFO confirmed +20% YTD broader basket. **Customers unwilling to return on-demand instances = multi-month utilization commitments = supports MU HBM "sold out 2026" narrative.** If MU misses on this commentary tonight, would be falsifier for H100-lease leading-indicator thesis.
+
+**N-th order cohort cascade pre-MU (per Subagent #1):**
+- 1st order (P>80%): H100 lease tightness + Colossus 1 full-commit = HBM order book stays tight through 2026
+- 2nd order (P~60%): Anthropic VC-funded compute commitments sustained through fundraise cycle (Series H closed May; runway extends 12-18 months minimum)
+- 3rd order (P~40%): Chinese frontier compute buildout (GLM-5.2 + Seedance + DeepSeek) = parallel HBM demand vector; PC-14 N=9+ → N=10+ candidate (sub-9-month Chinese cluster)
+- 4th order (P~20%): If Anthropic fundraise cycle compresses (capital markets tighten) or Series I prices below Series H $965B, compute commitments could compress in 2027
+
+**F1-F13 falsifier status:** NONE FIRE. H100 lease +40% rebound + Anthropic Colossus 1 commitment + Anthropic $47B ARR + 1,000+ enterprise customers >$1M/yr = HBM demand structural at frontier-AI-lab tier.
+
+**Critical Rule #9 bypass-route check:** H100 lease tightness = no bypass on memory (HBM ordered ahead of GPU deployment per yesterday's PM-INFEREX-U8 + today's PM-CEREBRAS-BUILDINGS). HBM-density-per-rack upgrade via liquid cooling = same buildings, more HBM = HYNIX TAM EXPANSION not contraction.
+
+**Position implication: 🟢 HARD — HOLD 18 GDR HY9H (20.6% Core EXCEPTION per PM-DECISION-LOCK) — no size change — H100 lease +40% (SemiAnalysis primary) + Anthropic Colossus 1 220K+ GPUs + Anthropic 1,000+ $1M+ customers = MULTIPLE independent HBM-demand-stickiness signals supporting MU "sold out 2026" narrative TONIGHT; B40.3 self-correction on Anthropic FCF framing applied (compute commitments VC-funded not FCF-funded; thesis-supportive via revenue trajectory + customer penetration); F1-F13 falsifiers status quo; MU prints 22:30 CET T-50 min = TRUE binding catalyst per L27.**
+
+---
+
 **🚨 2026-06-24 PM-CEREBRAS-BUILDINGS cross-ref + MU TIMING SELF-CORRECTION — buildings-bottleneck industry-wide verified (Sightline Climate 30-50% of 2026 US data center pipeline at risk); NEUTRAL-TO-POSITIVE for HYNIX HBM cycle-extension (H1 P=0.55: buildings transient; HBM cycle extends 2028-2029); MU PRINTS TODAY June 24 4:30 PM EDT not tomorrow (B40.3 cohort-wide self-correction):** Per `signals/cross-source-log/2026-06-24-pm-subagent-cerebras-earnings-buildings-bottleneck-verification.md` (1 Opus 4.8 subagent 78.7k tokens). User-shared Citrini image: Cerebras Q1 2026 earnings + Andrew Feldman "buildings are the limiting factor" + Vikram Sekar 88GB SRAM/rack architectural critique.
 
 **🚨 CRITICAL MU TIMING SELF-CORRECTION:** Per T1 GlobeNewswire official Micron IR announcement May 27 2026, MU Q3 FY2026 reports **TODAY June 24 at 4:30 PM EDT (22:30 CET), NOT tomorrow.** All prior session framing of "MU print TOMORROW 2026-06-25" was wrong by 24h. B40.3 cohort-wide self-correction.
