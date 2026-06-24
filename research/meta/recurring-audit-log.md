@@ -85,6 +85,69 @@ User confirmed 2026-05-21 they primarily interact via Claude Code on phone (web/
 - Trade-off: more autonomous but more setup cost; only worth it if recurring audits happen often enough for the convenience to matter
 - Skip by default unless user asks
 
+
+## RECURRING-AUDIT: 2026-06-24 — INDEX.md + tags.md refresh + monthly audit consolidation (on-time)
+
+**Trigger:** scheduled — monthly consolidated audit (24th of each month); user-directed scope: INDEX.md + tags.md tail-count refresh + held cohort update + binary-catalyst calendar refresh
+**Session attended:** user present
+**Effort:** ~30 min (read 8 source files; computed deltas; 3 file edits: tags.md full rewrite + INDEX.md full rewrite + CLAUDE.md 4-line header update)
+
+**Scope:** Harness-internal meta-work only. NOT a Critical Rule #16 external-claim verification. Deliverables: (1) tail-count refresh table; (2) INDEX.md mechanical edits; (3) tags.md mechanical edits; (4) this audit log entry.
+
+**Source files read:** CLAUDE.md (full, 709 lines) / INDEX.md / tags.md / predictions/lessons.md (full, 755 lines) / meta/biases-watchlist.md (full, ~1396 lines) / signals/triangulation.md (Quick Index) / meta/cross-domain-pattern-register.md / portfolio/holdings.md
+
+**Tail-count deltas found and resolved:**
+
+| Tag system | Was documented | Actual found | Delta | Action |
+|---|---|---|---|---|
+| Lessons (L-X) | L1-L25 | L1-L27 | +2 (L26 + L27) | Updated tags.md + CLAUDE.md header |
+| Biases (B-X) | B1-B44 | B1-B59 (B54/B55/B58/B59 newest; B48-B53/B56-B57 ABSENT/SKIPPED) | +15 nominal tail | Updated tags.md + CLAUDE.md header; skipped range documented |
+| Principles | #1-#34 + candidates | #1-#38 (candidates #35-#38) | +4 | Updated CLAUDE.md header |
+| Critical Rules | #1-#13 CANDIDATE | #1-#16 | +3 (Rules #14-#16) | Added #14/#15/#16 to tags.md; updated CLAUDE.md header |
+| Triangulation | TC-1 to TC-8 | TC-1 to TC-11 (TC-10 ACTIVE N=9; TC-11 CANDIDATE N=1) | +3 | Updated tags.md + CLAUDE.md header; TC-9 note added (not a formal cluster) |
+| Patterns | P-1 to PC-14 | PC-13 N=1 CANDIDATE; PC-14 PROMOTED N=3+ | 0 net new but PC-14 status updated | tags.md PC-14 entry enriched with N=3+ promotion detail |
+| Themes | T1-T10 | T1-T10 | 0 | No change needed |
+
+**Held cohort changes applied to INDEX.md:**
+- DDOG + NOW: updated from "held" to "SOLD 2026-06-22" with Critical Rule #8 self-flag note
+- SUMCO: updated from 415sh to 626sh (tranche add 2026-06-18)
+- MURATA: updated to 336sh (tranche-2 add 2026-06-18 confirmed)
+- NBIS: added as held 58sh (NEW 2026-06-18, ACTIVE tier)
+- KIOXIA: added as held via N26 (~€10K)
+- CXMT: added as MONITOR-ONLY watchlist (not held; investable constraint noted)
+- Active-candidate: removed NBIS from candidate list (now held); DDOG/NOW removed from held
+
+**Binary-catalyst calendar refreshed:**
+- MU Q3 FY26 print: moved to TODAY (2026-06-24) with L27 first-empirical-resolution framing
+- NDX inclusion events (2026-06-19/22): moved to historical (completed)
+- Kioxia VLSI: moved to historical (completed + graded)
+- 2026-07-11 re-evals (codification-rule + signal-density): added
+- 2026-07-12 B46/macro-anchor audit: added
+- 2026-07-15 Critical Rule #16 30-day re-eval: added
+- 2026-07-24: set as next monthly audit
+- 2026-09-17 PC-14 first re-eval: added
+
+**New artifact entries added to INDEX.md:**
+-  (Critical Rule #16 instrumentation)
+- 
+- 
+- PC-14 retrieval rule added to retrieval section
+- CXMT status retrieval rule added
+- DDOG/NOW EXIT retrieval rule added
+- MU print result retrieval rule added
+
+**B46 action note:** N=2 PROMOTION THRESHOLD MET (MRVL Jensen-reframe N=1 2026-06-12 + GEV CEO TTQ N=2 2026-06-14); promoted to CONFIRMED status in tags.md; formal file update in meta/biases-watchlist.md deferred to next thesis-level session touching B46.
+
+**Files changed:**
+-  (full rewrite — held cohort + calendar + tag tails + new artifacts + retrieval rules)
+-  (full rewrite — all tail counts updated; L26/L27; B45-B59; Critical Rules #14-#16; TC-9/10/11; PC-14 enriched)
+-  (4 targeted line edits — loop header + file-layout comment tail counts updated)
+-  (this entry)
+
+**Next monthly audit due:** 2026-07-24
+
+**Commit:** {to-be-filled-at-next-commit per lag-1 convention}
+
 ---
 
 ## RECURRING-AUDIT: 2026-06-24 — Session-prime curation rule integration into monthly audit (on-time)

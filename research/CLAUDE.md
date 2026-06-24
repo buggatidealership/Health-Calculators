@@ -12,12 +12,12 @@ Build durable, asymmetric conviction in AI-sector positions BEFORE consensus cat
 
 ```
 Predict → Grade (3-layer: INPUT / COMPUTATION / REASONING)
-       → Lesson (predictions/lessons.md, currently L1-L25)
-       → Bias (meta/biases-watchlist.md, currently B1-B44 incl. B40 3-type garble taxonomy CONFIRMED + B44 candidate chat-summary-discipline-drift)
-       → Principle (meta/methodology.md, currently #1-#34 + candidate #35 codification trigger)
+       → Lesson (predictions/lessons.md, currently L1-L27)
+       → Bias (meta/biases-watchlist.md, currently B1-B59 incl. B40 3-type garble taxonomy CONFIRMED; B45 regime-corrected priors; B46 N=2 promotion MET; B54/B55/B58/B59 new 2026-06-22 PM)
+       → Principle (meta/methodology.md, currently #1-#38 candidates #35-#38)
        → Hook (deterministic Stop hook at ~/.claude/, currently 18 live)
        → Pattern (meta/cross-domain-pattern-register.md, currently P-1 to P-11 verified + PC-12/PC-13 candidates + PC-14 verified N=3+ Universal Sovereign-AI Bifurcation Doctrine)
-       → Triangulation (signals/triangulation.md, currently TC-1 to TC-8 ACTIVE)
+       → Triangulation (signals/triangulation.md, currently TC-1 to TC-11 (TC-10 ACTIVE N=9; TC-11 CANDIDATE N=1))
        → Monitor (meta/principle-applications-log.md, monthly audit cycle; codification rule + signal-density first re-eval 2026-07-11)
        → Retire OR refine OR codify-deeper based on real-catch vs false-positive metrics
 ```
@@ -128,7 +128,7 @@ research/
     ├── reasoning-templates.md         ← templates for N-order, anti-frag, cascade, triangulation
     ├── time-to-x-framework.md         ← bypass-route mapping for any binding constraint
     ├── private-tracker.md             ← OpenAI, Anthropic, xAI, etc. (no ticker)
-    ├── tags.md                        ← (added 2026-06-11) shorthand dictionary L1-L25 / B1-B44 / Principles 1-36 / Critical Rules 1-13 / Themes T1-T10 / Patterns P-1 to PC-14 / Triangulation TC-1 to TC-8
+    ├── tags.md                        ← (added 2026-06-11) shorthand dictionary L1-L27 / B1-B59 / Principles 1-38 / Critical Rules 1-16 / Themes T1-T10 / Patterns P-1 to PC-14 / Triangulation TC-1 to TC-11 (refreshed 2026-06-24 monthly audit #1)
     ├── codification-rule.md           ← (added 2026-06-11) what triggers chat-only → file codification (Principle #35 candidate / Critical Rule #13 candidate)
     ├── signal-density-detection.md    ← (added 2026-06-11) S0-raw → S4-theme-elevated promotion ladder; enforces signals/triangulation.md repair
     ├── cross-domain-pattern-register.md ← cross-domain mechanism index (P-1 to P-11 verified + PC-12/PC-13 candidates + PC-14 verified N=3+)
