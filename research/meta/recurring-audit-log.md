@@ -296,3 +296,62 @@ Week 1 (06-01→07): 8 fires. Week 2 partial (06-08→12): 0 fires. Session volu
 **Decision per pre-registered matrix:** KEEP both hooks; continue to week-2 check (2026-06-19) and week-3/4. If weeks 2-4 stay at/near zero on non-meta analytical sessions, promote H2 at the 30-day close (~07-01) and keep the architecture.
 
 **Infrastructure fix shipped same commit:** the hook had NO persistent fire log — measurement only worked because this container happened to retain transcripts. Added append-on-fire logging to `research/meta/hook-fire-log.md` in both `~/.claude/structural-output-hook.py` and the `research/meta/hooks/` mirror. Weeks 2-4 are now measurable by design (git-committed log), not by transcript luck. Self-detection: if week-2 check finds fires in transcripts but not in hook-fire-log.md, the logger is broken.
+
+---
+
+## RECURRING-AUDIT: 2026-06-24 — Cross-domain pattern register first monthly audit — COMPLETED
+
+**Trigger:** scheduled — first monthly cycle for cross-domain-pattern-register (2026-06-24 per operating rule §3); user-directed scope explicitly authorized as mechanical maintenance
+**Session attended:** user present
+**Effort:** ~25 min (read full register + 20+ cross-source-log files from 2026-05-25→2026-06-24; per-pattern analysis; 2 file edits)
+
+**Scope:** Harness-internal audit ONLY. NOT a Critical Rule #16 external-claim verification. Deliverables: (1) per-pattern audit table; (2) new pattern candidates; (3) edits to cross-domain-pattern-register.md; (4) this audit log entry.
+
+**Per-pattern audit table:**
+
+| Pattern ID | Current N | Status | New evidence past 30d | Verdict |
+|---|---|---|---|---|
+| P-1 | N=6+ | VERIFIED-HIGH-CONFIDENCE | CXMT DDR5 ASP 5-10% below leaders (N=4 triangulation); YMTC NAND raised prices 2023 = Chinese-memory-discipline precedent | KEEP |
+| P-2 | N=3 | VERIFIED | Cited as contrast prior in MURATA/MRVL dissections; no new instances | KEEP |
+| P-3 | N=7+ | VERIFIED-HIGH-CONFIDENCE | NOW Moveworks = platform absorbing AI-native front-end; MSFT Copilot Studio pattern continues | KEEP, N rises |
+| P-4 | N=8+ | VERIFIED-HIGH-CONFIDENCE | Jefferies LTA 50-70% capacity locked to CSPs; SK Hynix MSFT 3yr DDR5 deal | KEEP, N rises |
+| P-5 | N=6 | VERIFIED-HIGH-CONFIDENCE | NBIS used as positive contrast (distribution IS thesis); no new false-positive instances | KEEP |
+| P-6 | N=5+ | VERIFIED | HYNIX HBM4 throttle = H1 candidate instance; confirm at Q2 HYNIX print Aug 2026 | KEEP; H1 watch |
+| P-7 | N=6 | VERIFIED | Sakai Chemical due-diligence exit is NOT P-7; no new instances | KEEP |
+| P-8 | N=7+ | VERIFIED-HIGH-CONFIDENCE | France DGSI Palantir→ChapsVision = government-IT domain (NEW domain for P-8) | KEEP, N rises, new domain |
+| P-11 | N=2 | VERIFIED | No new instances (medtech not primary focus this cycle) | KEEP |
+| PC-9 | N=1 | CANDIDATE | DDOG EU AI Act observability mandate = strong N=2 candidate across software-observability domain | KEEP; flag for promotion eval |
+| PC-10 | N=1 | CANDIDATE | RETIRED — operational hygiene pattern, not investable cross-domain mechanism; already embedded in B40/codification-rule | RETIRE |
+| PC-12 | N=1 | CANDIDATE | No second instance in window; Ga/Ge regime still active | KEEP; watch through 2026-09-11 |
+| PC-13 | N=1 | CANDIDATE | 11 days elapsed since June 13; no second AI-model shutdown event; 81 days remain on clock | KEEP; 81d remain |
+| PC-14 | N=5+ | VERIFIED 3-continent | Maximally active; no falsifier signal | KEEP; re-eval 2026-09-17 |
+| PC-15 NEW | N=4+ (4 domains) | NEW CANDIDATE | Incumbent-investing-in-successor-architecture: MURATA / MRVL / HYNIX / NOW all exhibit pattern | NEW; promote at 2026-07-24 if no falsifier |
+
+**Key findings:**
+1. All 11 verified patterns (P-1 through P-8, P-11) KEEP. No verified-pattern retirements.
+2. PC-10 RETIRED from register — operational hygiene does not belong in the investable-mechanism register; fix already in B40 + codification-rule.
+3. PC-14 confirmed maximally active (N=5+, three continents); no falsifier signal; formal re-eval 2026-09-17.
+4. PC-13 N=1 CANDIDATE maintained; 81 days remain on promotion clock (through 2026-09-13).
+5. PC-15 NEW CANDIDATE added: "Incumbent-investing-in-successor-architecture," N=4+ across 4 product domains. Meets N=2+ formal promotion threshold; registered as candidate with one-month seasoning period; promote to P-15 at 2026-07-24 audit if no falsifier surfaces.
+6. Three verified patterns received N-count increases: P-3 (N=7+), P-4 (N=8+), P-8 (N=7+), each from new instances in different sub-domains.
+7. PC-9 flagged as strong promotion candidate for next session (DDOG EU AI Act mandate as N=2 instance in software-observability domain vs original health-workflow domain).
+
+**Pattern register health check (against operating rule §4 net-positive test):**
+- Patterns cited in dissections as priors this cycle: YES (PC-14 / P-1 / P-4 / P-5 / P-2 all explicitly cited in cross-source-log files)
+- Patterns updated from dissection outputs: YES (3 N-count rises; 1 retired; 1 new candidate)
+- 3-consecutive-dissection-miss falsifier: NOT triggered — register is load-bearing
+- Verdict: register EARNING ITS KEEP
+
+**Files changed:**
+- `/home/user/Health-Calculators/research/meta/cross-domain-pattern-register.md` (all 14 active patterns audited with per-pattern stamps; PC-10 retired; PC-15 new candidate entry added; header updated with first-audit completion date and next-audit date 2026-07-24)
+- `/home/user/Health-Calculators/research/meta/recurring-audit-log.md` (this entry)
+
+**Pending user review items:**
+1. PC-10 RETIREMENT: confirm operational-hygiene pattern removed from investment-mechanism register (no position impact; purely structural)
+2. PC-15 PROMOTION at 2026-07-24: review incumbent-investing-in-successor-architecture for P-15 promotion; no session-prime action needed until then
+3. PC-9 PROMOTION EVAL: DDOG EU AI Act observability mandate as N=2 instance; assess in next DDOG thesis session
+4. P-6 H1 CONFIRM: SK Hynix Q2 2026 earnings call (August 2026) will clarify whether HBM4 throttle was active strategic choice (H1) or passive NVIDIA-demand consequence (H2)
+
+**Next cycle due:** 2026-07-24 (monthly pattern register audit; same scope)
+
+**Commit:** {to-be-filled-at-commit per lag-1 convention}
