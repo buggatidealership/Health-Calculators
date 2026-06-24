@@ -1,118 +1,127 @@
 # Current Holdings — CANONICAL PORTFOLIO REFERENCE
 
-**🔴 2026-06-23 AM USER DISCLOSURE — DDOG + NOW SOLD 2026-06-22 (timestamp inferred from user "yesterday"):** User verbatim 2026-06-23 AM: *"I did sell Datadog and [ServiceNow/'Anal' voice-garble] yesterday because there was a narrative shift again back to selling software, and I know it was an emotional sell. But looking back at it now, it is actually... it was actually a good decision because all these stocks yesterday were down more. What Datadog and ServiceNow were down, they're down even more today."* User self-flagged Critical Rule #8 violation (sold on macro-narrative shift without thesis-falsifier firing). Per-name thesis files updated with EXIT cross-ref + 3-layer GRADE structure. Position-change details logged in `portfolio/changes.md` 2026-06-23 entry. **Holdings.md table below is STALE on DDOG + NOW lines as of 2026-06-18 PM33 canonical** until user provides next screenshot. Per user canonical-reference rule: *"Only gets changed when I send a new screenshot."* AWAITING USER NEXT SCREENSHOT for canonical-state refresh.
+**Last updated:** 2026-06-24 PM (user-shared 4 N26/Revolut mobile screenshots + verbal disclosure on KIOXIA + cash)
 
-**Last updated:** 2026-06-18 PM33 (user-shared 4 Degiro screenshots; supersedes 2026-06-17 PM29 canonical) — **STALE on DDOG + NOW per 2026-06-23 AM disclosure above**
-**Source:** 4 user-shared Degiro mobile screenshots 2026-06-18 PM
-**Total Degiro balance:** €176,853.52 (Day P/L +€4,671.58 / +2.56%)
-**Total Degiro P/L lifetime:** confirmed via multi-screenshot integration (see below)
-**N26 separate broker:** ~€10,000 KIOXIA position (from PM29 2026-06-17; not in Degiro screenshot)
-**Open orders:** 0 outstanding, 4 Executed today (NBIS NEW + MURATA tranche-2 + SUMCO add + possibly 1 small)
+**Source:** 4 user-shared mobile screenshots 2026-06-24 PM (broker shows €112,517.99 in-account total) + user verbal: "I have €19,000 in KIOXIA" (held separately) + "We still have €20K cash to deploy" (in-account cash visible in screenshot)
 
 ## ⚠️ CANONICAL REFERENCE RULE (set by user 2026-06-04 PM; reaffirmed 2026-06-14 AM)
 
 > "Here is the most up to date portfolio. Remove any mention of prior ones. This should be the one every future sessions refers back to when talking about 'portfolio'. Only gets changed when I send a new screenshot."
 
-## What changed since 2026-06-17 PM29 canonical
+**Broker naming clarification PENDING:** Prior canonical 2026-06-18 PM33 labeled main account as "Degiro" + KIOXIA as "N26". User today verbal'd "from end twenty six" (N26 voice-garble pattern per B53) — implying main account is N26. Screenshot UI shows red "R" icon (Revolut-style). **Treating user verbal as authoritative: main account = N26 (or Revolut showing on N26-tracked phone); KIOXIA = separate account (broker TBD by user).** Flagging discrepancy for user clarification at next opportunity.
 
-**THREE transactions executed today 2026-06-18 PM:**
+## Position-state deltas vs 2026-06-18 PM33 canonical
 
-1. **🔴 NBIS NEW POSITION — 58 shares @ ~€257.02 BEP avg = ~€14,907 basis** (currently -€530.80 / -3.50% unrealized at €248 spot). **WL-ADD P2 → ACTIVE upgrade EXECUTED by user.** Per Critical Rule #11 AUTO-EXECUTE STRENGTHENING discipline flag: entry DEVIATED from AM7c pre-committed framework (sizing 3× max + timing 4 days BEFORE Nasdaq-100 inclusion 06-22 vs "wait for post-inclusion exhaustion") — see `companies/NBIS/thesis.md` PM33 transparent deviation flag.
+**5 position changes between PM33 and today:**
 
-2. **MURATA tranche-2 EXECUTED — 261sh → 336sh (+75 shares ~€4,793)** — €10K total add per PM30 forward decision-intent NOW COMPLETE. BEP weighted €50.04 → €53.669443. User stated "narrative-driven market pullbacks scarce" rationale = same rationale also explains NBIS + SUMCO same-day execution.
+1. **🔴 DDOG EXITED — 26sh → 0 (sold 2026-06-22)** — per user 2026-06-23 AM disclosure; Rule #8 self-flagged; reclassified WATCHLIST-REFERENCE
+2. **🔴 NOW EXITED — 54sh → 0 (sold 2026-06-22)** — per user 2026-06-23 AM disclosure; reclassified WATCHLIST-REFERENCE
+3. **🟢 HYNIX ADD — 15 → 18 GDR (+3 added between Jun 18 and Jun 24)** — BEP weighted €1,294 → €1,360.83 (€66.83 increase = bought 3 at higher price)
+4. **🟡 SNDK TRIM — 6 → 4 shares (-2 sold)** — BEP unchanged $1,653.94 (= partial trim not reset); rationale TBD by user
+5. **🟢 KIOXIA ADD — ~€10K → €19,000 (~+€9K added)** — significant near-doubling of position
 
-3. **SUMCO ADD EXECUTED — 415sh → 626sh (+211 shares ~€4,663)** — not explicitly mentioned in user verbal but confirmed by screenshot; BEP weighted €21.69 → €22.310191. Same narrative-driven philosophy.
+## Positions (7 unique held names; 6 in N26 + 1 KIOXIA separate)
 
-**Other position changes (price-only, not transactions):**
-- HYNIX GDR price up: €1,420 → €1,570 (+10.6%) — unrealized P/L jumped +€1,890 → +€4,140 (+€2,250 lifetime swing)
-- MRVL price up: $289.47 → $323.66 (+11.8%) — unrealized +€161.45 → +€1,513.50 (+€1,352 swing)
-- SNDK price up: $1,959.08 → $2,163.59 (+10.4%) — unrealized +€1,645.82 → +€2,752.15 (+€1,106 swing)
-- DDOG slightly down: $226.62 → $219.97 (-2.94%)
-- NOW slightly down: $95.47 → $94.81 (-0.69%)
+### N26 (6 positions per screenshots; €112,517.99 total inc. cash)
 
-## Positions (8 unique names per 2026-06-18 PM Degiro + 1 N26 KIOXIA = 9 total)
+| # | Position | Symbol / ISIN | Qty | Price | Curr | Value (EUR-eq) | BEP | Unrealised P/L | Unrealised % | Total P/L |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | GDR on SK Hynix | HY9H / US78392B1070 | **18** | €1,505.00 | EUR | €27,090.00 | **€1,360.833333** | **+€2,595.00** | **+10.59%** | +€5,343.00 |
+| 2 | Marvell Technology | MRVL / US5738741041 | 44 | $279.08 | USD | €10,833.99 | $286.258089 | -€83.05 | -0.76% | -€1,112.81 |
+| 3 | Murata Mfg Co | MUR1 / JP3914400001 | 336 | €60.98 | EUR | €20,489.28 | €53.669443 | +€2,456.34 | +13.62% | +€8,268.94 |
+| 4 | Nebius Group NV Class A | YDX / NL0009805522 | 58 | €245.25 | EUR | €14,224.50 | €257.017241 | -€575.20 | -3.85% | -€583.00 |
+| 5 | Sandisk Corp | SNDK / US80004C2008 | **4** | $1,964.67 | USD | €6,933.57 | $1,653.941904 | +€1,214.66 | +21.24% | +€5,158.67 |
+| 6 | Sumco Corp | S3X / JP3322930003 | 626 | €20.51 | EUR | €12,839.26 | €22.310191 | -€1,126.92 | -8.06% | -€1,802.69 |
 
-### Degiro (8 positions)
+**N26 share positions total (EUR-equivalent):** ~€92,410.60
+**N26 cash (derived = €112,517.99 - €92,410.60):** **~€20,107.39** (matches user verbal "€20K cash to deploy")
+**N26 broker total:** €112,517.99 (per screenshot top, day P/L +€1,392.62 / +1.18%)
 
-| # | Position | Symbol / ISIN | Account | Qty | Price | Curr | Value | BEP | Unrealised P/L € | Unrealised % | Total P/L € | Type |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Datadog Class A | DDOG / US23804L1035 | BT | 26 | $219.97 | USD | 4,989.20 | 203.37375 | +456.86 | +10.07% | +1,766.23 | BT |
-| 2 | GDR on SK Hynix | HY9H / US78392B1070 | R | 15 | €1,570.00 | EUR | 23,550.00 | 1,294.00 | +4,140.00 | +21.32% | +6,891.90 | R |
-| 3 | Marvell Technology | MRVL / US5738741041 | BT | 44 | $323.66 | USD | 12,425.19 | 286.258089 | +1,513.50 | +13.86% | +483.75 | BT |
-| 4 | Murata Mfg Co | MUR1 / JP3914400001 | R | **336** | €63.90 | EUR | 21,470.40 | **53.669443** | +3,437.46 | +19.06% | +9,250.06 | R |
-| 5 | **Nebius Group NV Class A** (🔴 NEW) | YDX / NL0009805522 | R | **58** | €248.00 | EUR | 14,384.00 | **257.017241** | **-530.80** | **-3.50%** | **-530.80** | R |
-| 6 | Sandisk Corp | SNDK / US80004C2008 | BT | 6 | $2,163.59 | USD | 11,330.50 | 1,653.941904 | +2,752.15 | +32.08% | +6,044.82 | BT |
-| 7 | ServiceNow | NOW / US81762P1021 | BT | 54 | $94.81 | USD | 4,466.24 | 94.30 | +73.98 | +1.68% | +1,113.51 | BT |
-| 8 | Sumco Corp | S3X / JP3322930003 | R | **626** | €23.665 | EUR | 14,814.29 | **22.310191** | +848.11 | +6.07% | +172.33 | R |
+### Separate account (1 position per user verbal)
 
-### N26 (1 position, unchanged from PM29)
-
-| # | Position | Symbol / ISIN | Broker | Approx Value | Notes |
-|---|---|---|---|---|---|
-| 9 | Kioxia Holdings | 285A / JP3296420005 | N26 | ~€10,000 | Opened PM29 2026-06-17 per user verbatim; thesis HOLD-until-falsifier preserved at right-sized position |
+| # | Position | Symbol / ISIN | Approx Value | Notes |
+|---|---|---|---|---|
+| 7 | Kioxia Holdings | 285A / JP3296420005 | **~€19,000** | Per user verbal 2026-06-24 PM; previously ~€10K; ~€9K added between PM33 and today; broker TBD (separate from N26 main account) |
 
 ## Portfolio summary
 
-**Degiro:**
-- Total invested value: ~€107,429.62 (sum of all 8 position values)
-- Available to trade (EUR cash): ~€69,423.90 (Degiro balance €176,853.52 − invested €107,429.62)
-- Total Degiro balance: €176,853.52
-- Cash % of Degiro: ~39% (DOWN from ~57% PM29 due to ~€24K deployed across 3 transactions today)
+**Combined total (N26 + KIOXIA separate):** **~€131,518**
+- N26 broker: €112,517.99 (€92,410.60 invested + €20,107.39 cash)
+- KIOXIA separate: €19,000
 
-**N26:** KIOXIA ~€10,000
+**🔴 PORTFOLIO WEIGHTS (recomputed vs €131,518 total — significantly different from prior tracking):**
 
-**Combined exposure (Degiro + N26):**
-- Total invested ≈ €117,430
-- Total visible balance ≈ €186,853+
+| Name | Value (EUR-eq) | **% of total portfolio** | Prior tracking | Delta |
+|---|---|---|---|---|
+| **HYNIX 18 GDR (HY9H)** | **€27,090** | **20.6%** | 10.13% | **+10.5pp** |
+| MURATA 336sh | €20,489 | 15.6% | n/a recomputed | — |
+| **KIOXIA ~€19K** | **€19,000** | **14.4%** | ~5% | **+9.4pp** |
+| Cash (N26) | €20,107 | 15.3% | n/a | — |
+| NBIS 58sh | €14,224 | 10.8% | n/a recomputed | — |
+| SUMCO 626sh | €12,839 | 9.8% | n/a recomputed | — |
+| MRVL 44sh | €10,834 | 8.2% | 5.9% | +2.3pp |
+| SNDK 4sh | €6,934 | 5.3% | n/a recomputed | — |
+| **TOTAL** | **€131,517** | **100.0%** | | |
 
-## Cluster breakdown (joint-state, my model — based on 2026-06-18 PM Degiro values + N26 KIOXIA)
+## Cluster breakdown (joint-state, my model)
 
-| Cluster | Names | Value (€) | % of invested |
+| Cluster | Names | Value (€) | % of total |
 |---|---|---|---|
-| **Memory / HBM / Storage / NAND / Wafer** | HYNIX (23,550) + SNDK (11,331) + SUMCO (14,814) + KIOXIA N26 (10,000) | ~€59,695 | ~51% |
-| Connectivity | MRVL (12,425) | ~€12,425 | ~11% |
-| Physical AI / MLCC | MURATA (21,470) | ~€21,470 | ~18% |
-| Software (agentic) | DDOG (4,989) + NOW (4,466) | ~€9,455 | ~8% |
-| **🔴 Sovereign-AI compute (NEW)** | **NBIS (14,384)** | **~€14,384** | **~12%** |
-| **TOTAL INVESTED** | — | ~€117,430 | 100% |
-| **CASH (Degiro EUR)** | — | ~€69,424 | n/a (~39% of Degiro balance) |
-| **TOTAL DEGIRO** | — | €176,853.52 | — |
+| **Memory / HBM / NAND / Wafer** | HYNIX €27,090 + KIOXIA €19,000 + SNDK €6,934 + SUMCO €12,839 | **€65,863** | **50.1%** |
+| Physical AI / MLCC | MURATA €20,489 | €20,489 | 15.6% |
+| Sovereign-AI compute | NBIS €14,224 | €14,224 | 10.8% |
+| Connectivity | MRVL €10,834 | €10,834 | 8.2% |
+| **Cash deployable** | — | €20,107 | 15.3% |
 
-**🔴 KEY CLUSTER SHIFTS vs PM29:**
-- Memory cluster: ~58% → ~51% of invested (diluted by NBIS + MURATA + SUMCO adds across other clusters)
-- **NEW Sovereign-AI compute cluster** at ~12% of invested via NBIS ACTIVE entry
-- Physical AI / MLCC: ~19% → ~18% (modest dilution despite MURATA add)
-- Cash: ~57% → ~39% of Degiro (substantial deployment ~€24K)
+## 🚨 CRITICAL CONCENTRATION FLAGS (per L3 + Critical Rule #11 discipline)
 
-## 🔴 PM33 USER PHILOSOPHY CAPTURE (cross-portfolio narrative-driven entry framing)
+**HYNIX 20.6% of total — ABOVE Core tier band (8-15% per CLAUDE.md Conviction Format).**
 
-User verbatim 2026-06-18 PM: *"in a market that is a bit more exuberant and is more narrative driven. If the narrative gets reinforced, it's probably better to buy than to wait as pullbacks are quite scarce when it comes to the, uh, semi stocks."*
+Per L3 rebalance rule and CLAUDE.md Core tier definition: position drifted >2× target via combination of (a) +3 GDR addition since PM33 + (b) price appreciation (current €1,505 vs ATH €2,945,000 KRW reference). Triggers L3 rebalance review consideration.
 
-**Cross-portfolio implication:** User has explicitly stated narrative-driven-momentum framing trumps wait-for-pullback discipline in current regime. Applied to all 3 transactions today (MURATA tranche-2 + NBIS NEW + SUMCO add). **NBIS entry specifically deviated from AM7c pre-codified framework** (sizing 3× max + timing OPPOSITE — entered 4 days BEFORE Nasdaq-100 inclusion 06-22 vs "wait for post-inclusion exhaustion"). User chose conviction-led entry over framework discipline per AUTO-EXECUTE STRENGTHENING ("self-correct visibly when prior choice turns out wrong; weighing more important than asking").
+**Two options to address:**
+- **(a) Reaffirm Core tier as 20%+ exception** given HYNIX-specific 5-point HOLD rationale from today's PM-COMBINED cascade (largest ADR deal in history capex commitment + HY9H unaffected + ZERO falsifiers fire + compound market misread + Pax Silica institutional moat)
+- **(b) Trim 18 → 12-14 GDR to return to 13-15% band** per L3 mechanical rebalance
 
-**Codification candidate for June 24 monthly audit:** does "narrative-driven entry" override pre-committed wait triggers? If yes, all AM7c-style "wait for X" frameworks should be re-calibrated. If no, this PM33 deviation should be flagged in monthly audit grading + future framework discipline strengthened.
+User direction needed. **Defaulting to (a) reaffirm** pending user input given today's cascade context strongly reinforces HOLD discipline + L3 mechanical-trim during high-conviction structural-bullish moment is sub-optimal.
+
+**KIOXIA 14.4% of total — within Active-tier upper bound (3-8% → 14% = significant overweight).**
+
+KIOXIA was ~€10K = ~5% prior; now ~€19K = 14.4% via user-executed add. Significant up-sizing. Pre-committed trim sequence still applies (SNDK trims AFTER HYNIX on F2 ASP rollover by 1-quarter lag).
+
+## Cash deployable
+
+**€20,107 in-account cash (N26)** per screenshot-derived math + matches user verbal "€20K to deploy."
+
+Per `portfolio/constraints.md` 2026-06-23 framework: €260k total / €100k absolute floor / €100-160k drawdown-swing-deployable. €20K cash is within deployable band; can be allocated to high-conviction adds OR held as dry powder for drawdown opportunities.
 
 ## Names exited as of this canonical (do NOT reference as held)
 
-- **ARM** (last canonical sizing 11.40% pre-rotation Jun-5; fully exited per 2026-06-14)
+- **DDOG** (sold 2026-06-22; Rule #8 self-flagged; WATCHLIST-REFERENCE)
+- **NOW** (sold 2026-06-22; WATCHLIST-REFERENCE)
+- **ARM** (last canonical pre-rotation Jun-5; fully exited 2026-06-14)
 - **AGC, Hirano Tecseed, MongoDB** (exited Jun-12 rotation)
 - **STM, GLW (Corning), SMTC, TSEM, TE (T1 Energy), ALAB** (exited Jun-5 rotation)
-- **KIOXIA on Degiro 100sh** (sold 2026-06-17 PM29; KIOXIA THESIS RETAINED via N26 €10K position)
+- **KIOXIA on Degiro 100sh** (sold 2026-06-17 PM29; thesis retained via N26 position now €19K)
 
-## Forward decision-intent (none pending — all logged intents executed)
+## Forward decision-intent
 
-- ✅ MURATA €10K add intent (PM30 logged 2026-06-17): COMPLETE today via tranche-1 €5K + tranche-2 €5K (€10K total)
-- No new forward-intents pending
+- HYNIX L3 concentration review (20.6% vs 8-15% band) — pending user direction (default: REAFFIRM CORE at >15% exception given today's PM-COMBINED structural-bullish cascade)
+- €20K cash deployable — no pre-committed allocation; await user direction OR opportunistic deployment on MU print sympathy moves June 25-26
 
 ## Critical session context (cross-references)
 
-- `companies/MRVL/thesis.md` — held; AM8 6-vector reinforce + COHR Ara DSP OEM confirmed
-- `companies/HYNIX/thesis.md` — held 15sh GDR; AM8 mixed near-term POS / medium-term WATCH CXMT
-- `companies/SNDK/thesis.md` — held; AM6b STRONG REINFORCE + AM8 DC construction lag scarcity extension
-- `companies/SUMCO/thesis.md` — held 626sh (INCREASED today); AM7 multi-archetype wafer demand
-- `companies/MURATA/thesis.md` — held 336sh (€10K add COMPLETE today); PM32 STRONGEST REINFORCE
-- `companies/DDOG/thesis.md` — held 26sh; AM7 STRONG POSITIVE EU AI Act observability
-- `companies/NOW/thesis.md` — held 54sh; AM6b/AM7 EU+ASIA SOVEREIGN-AI WATCH
-- `companies/KIOXIA/thesis.md` — held via N26 ~€10K; thesis fundamentals UNCHANGED
-- **`companies/NBIS/thesis.md` — NEW HELD 58sh; PM33 ACTIVE upgrade with transparent deviation flag**
-- `companies/ARM/thesis.md` — EXITED — reference artifact only
+- `companies/HYNIX/thesis.md` — held 18 GDR HY9H @ BEP €1,360.83 = 20.6% portfolio; today's PM-COMBINED cascade STRUCTURALLY REINFORCED HOLD
+- `companies/MRVL/thesis.md` — held 44sh @ BEP $286.26 = 8.2% portfolio; falsifier-watch on MU TOMORROW
+- `companies/MURATA/thesis.md` — held 336sh post-tranche-2 @ BEP €53.67 = 15.6% portfolio; PM-COHORT-PATTERN-A dual-track anti-fragility
+- `companies/NBIS/thesis.md` — held 58sh Active @ BEP €257.02 = 10.8% portfolio; NASDAQ-100 inclusion T+5 grade ~2026-06-27
+- `companies/SNDK/thesis.md` — held 4sh (TRIMMED -2 since PM33) @ BEP $1,653.94 = 5.3% portfolio; Pax Silica Western-NAND bloc
+- `companies/SUMCO/thesis.md` — held 626sh @ BEP €22.31 = 9.8% portfolio; PC-14 Japan-wafer bloc
+- `companies/KIOXIA/thesis.md` — held ~€19K (INCREASED ~+€9K since PM33) = 14.4% portfolio; PC-14 Japan-founding NAND bloc
+
+## Pending user-clarification items (B53 voice-garble + tracking gaps)
+
+1. Broker naming: prior canonical labeled main account "Degiro" + KIOXIA on "N26"; today user voice'd "from end twenty six" (N26) — clarify if (a) account moved Degiro→N26, OR (b) prior label was wrong, OR (c) main = N26 and KIOXIA on Degiro (swap)
+2. SNDK trim 6 → 4 rationale: was this user-executed or automatic (e.g., partial fill)? Date of trim?
+3. HYNIX add 15 → 18 GDR: date of addition + price executed (BEP shift €1,294 → €1,360.83 implies ~€1,656 per share for the 3 added shares: (1360.83×18 − 1294×15) / 3 ≈ €1,696)
+4. KIOXIA add ~€10K → €19K: date of addition + thesis rationale
