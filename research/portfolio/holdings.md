@@ -73,21 +73,19 @@
 | Connectivity | MRVL €10,834 | €10,834 | 8.2% |
 | **Cash deployable** | — | €20,107 | 15.3% |
 
+## 🟢 RESOLVED USER DECISIONS 2026-06-24 PM (locked in this commit)
+
+**HYNIX concentration at 20.6%: 🟢 REAFFIRM CORE EXCEPTION** (option a). User verbal: "I would say keep one now... memory have such a big place to play in the AI build out, and I truly don't believe there's a lot of different assets that have that type of structural moats to some extent." Position retained at 18 GDR; 20.6% accepted as exception to 8-15% Core band given structural-moat conviction + today's PM-COMBINED bullish cascade.
+
+**KIOXIA tier reclassification: 🟢 CORE** (option b — 8-15% band fits 14.4% position). User-reaffirmed structural-moat conviction applies symmetrically to KIOXIA NAND franchise. Tier promoted from prior "HOLD-until-falsifier" Watchlist-sizing label.
+
+**Reasoning captured (codification candidate per Critical Rule #13):** User stance — memory cohort holds STRUCTURAL MOATS rare among AI-buildout assets. Justifies sustained >Core-band concentration in HYNIX (20.6%) + KIOXIA (14.4%) + combined memory-cluster overweight 50.1% of total portfolio. This is conviction-led concentration, NOT undisciplined position drift. Per Critical Rule #11 AUTO-EXECUTE STRENGTHENING discipline: weighing > asking; this is the right weighing call given the structural-moat thesis.
+
 ## 🚨 CRITICAL CONCENTRATION FLAGS (per L3 + Critical Rule #11 discipline)
 
-**HYNIX 20.6% of total — ABOVE Core tier band (8-15% per CLAUDE.md Conviction Format).**
+**HYNIX 20.6% of total — ABOVE Core tier band (8-15% per CLAUDE.md Conviction Format).** ✅ USER RESOLVED 2026-06-24 PM: REAFFIRM 20%+ CORE EXCEPTION per structural-moat conviction (see RESOLVED USER DECISIONS section above). Position retained at 18 GDR.
 
-Per L3 rebalance rule and CLAUDE.md Core tier definition: position drifted >2× target via combination of (a) +3 GDR addition since PM33 + (b) price appreciation (current €1,505 vs ATH €2,945,000 KRW reference). Triggers L3 rebalance review consideration.
-
-**Two options to address:**
-- **(a) Reaffirm Core tier as 20%+ exception** given HYNIX-specific 5-point HOLD rationale from today's PM-COMBINED cascade (largest ADR deal in history capex commitment + HY9H unaffected + ZERO falsifiers fire + compound market misread + Pax Silica institutional moat)
-- **(b) Trim 18 → 12-14 GDR to return to 13-15% band** per L3 mechanical rebalance
-
-User direction needed. **Defaulting to (a) reaffirm** pending user input given today's cascade context strongly reinforces HOLD discipline + L3 mechanical-trim during high-conviction structural-bullish moment is sub-optimal.
-
-**KIOXIA 14.4% of total — within Active-tier upper bound (3-8% → 14% = significant overweight).**
-
-KIOXIA was ~€10K = ~5% prior; now ~€19K = 14.4% via user-executed add. Significant up-sizing. Pre-committed trim sequence still applies (SNDK trims AFTER HYNIX on F2 ASP rollover by 1-quarter lag).
+**KIOXIA 14.4% of total — promoted to CORE tier (8-15% band fits)** ✅ USER RESOLVED 2026-06-24 PM per structural-moat conviction (see RESOLVED USER DECISIONS section above). Pre-committed trim sequence still applies (SNDK trims AFTER HYNIX on F2 ASP rollover by 1-quarter lag).
 
 ## Cash deployable
 
