@@ -165,3 +165,48 @@ Same-commit cascade:
 - [Passive Components Europe: MLCC price increase AI demand](https://passive-components.eu/mlcc-manufacturers-consider-price-increase-as-ai-demand-outpaces-supply/)
 - [BigGo Finance: High-end MLCC lead times 20 weeks](https://finance.biggo.com/news/db187122-6486-49f6-b2af-71422c2d04ae)
 - [Counterpoint via Semicone: SK Hynix 70% HBM4 pre-allocation](https://www.semicone.com/article-385.html)
+
+---
+
+## BYPASS-ROUTE ANALYSIS (Critical Rule #9 + Principle #9 + Time-to-X framework — added 2026-06-25 PM Round 6 self-correction per Stop hook catch)
+
+**Critical Rule #11 AUTO-EXECUTE STRENGTHENING — self-correction visible:** Original Round 6 cascade named TC-13 binding constraints (transformers + transmission + MLCC + switchgear + PMICs + cooling) and named CONSENSUS suppliers (GEV/ETN/VRT/CEG/VST/TLN) but did NOT explicitly map bypass routes per Critical Rule #9. Stop hook fired; correcting inline.
+
+**Per Workflow #9 BOTTLENECK-FORECAST + Time-to-X: for any binding constraint, ask "what do consumers do when the consensus solution fails their actual sensitivity?"**
+
+### Bypass-route map per H_bottleneck binding constraint
+
+| # | Constraint | Consensus suppliers | Bypass route 1 | Bypass route 2 | Non-consensus beneficiary names |
+|---|---|---|---|---|---|
+| 1 | HBM4/4e memory | HYNIX (70% NVDA pre-allocation) / Samsung / Micron | **HBC** (Qualcomm LPDDR-stacked HBM4-pin-compatible per Round 3) | **HBF** (SanDisk+SK Hynix Feb 2026 OCP NAND-in-HBM-slot per Round 4) | **SNDK (held) = HBF co-developer (Vector 4 optionality already in thesis)** + KIOXIA NAND substrate via CMX (held) |
+| 1b | HBM4/4e (continued) | (same) | **CMX KV cache offload to NVMe** (Vector 1 NAND substitution per Round 4) | **Hybrid SSM eliminates KV cache demand** (per Round 2 Subagent 6 — Jevons-bounded but architectural-substitution bypass) | KIOXIA + SNDK (held) NAND tiers; Mamba-3 / Nemotron-H / DeepSeek-V4 software path |
+| 2 | Power transformers (4-5y lead) | GEV + Hitachi Energy + ABB + Siemens Energy + HD Hyundai Electric | **Behind-the-meter generation skips grid-tied transformer altogether** | **DC microgrids + 800V HVDC reduce AC transformer count per server** (NVIDIA 800V architecture IS a transformer-bypass at the rack-stack layer) | **CEG/VST/TLN (P2 watchlist) bypass via BTM nuclear/gas PPA**; Powell Industries (reconditioned + modular skid transformers) |
+| 3 | Transmission/PJM (5+ year queues) | Grid expansion + PJM reform | **BTM generation** | **Geographic shift to grids with slack: Iowa/Wyoming/Texas/Mexico + NORDIC (Iceland/Finland/Norway)** | **NBIS (held 9.8%) = the BYPASS-ROUTE play** — Nordic geo + secured power + cool climate bypasses US-grid PJM bottleneck entirely; serves Western customers via low-latency fiber. Round 4 PC-14 + Round 6 power-constrained moat = NBIS is most under-appreciated bypass-route beneficiary in held cohort |
+| 4 | MLCC high-end (binding 2H26-27) | MURATA (held 15.7%) + Samsung Electro-Mechanics + Taiyo Yuden + Yageo (TW) | **Integrated voltage regulators reduce MLCC count per server** (Monolithic Power / Vicor) | **Polymer caps + film caps as partial substitution** (limited for high-voltage AI rails); **alternative MLCC suppliers TDK + Walsin Technology** | MPS (Monolithic Power Systems — NASDAQ) + Vicor (VICR — NASDAQ) for IVR substitution; less compelling than consensus MURATA already-held |
+| 5 | Switchgear (2026-27) | ETN (P1 watchlist) + Schneider Electric + Siemens + ABB | **800V HVDC DC switchgear redesign** (NVIDIA architecture IS a switchgear-bypass at rack layer; reduces AC switchgear count) | **Modular skid-mounted custom switchgear** (Powell Industries, Reed Switchgear) | Powell Industries (POWL — NYSE) — non-consensus smaller-cap bypass play vs ETN consensus |
+| 6 | PMICs (2026-28) | Texas Instruments + Analog Devices + Renesas + Infineon | **800V HVDC reduces PMIC count per server architecturally** (fewer voltage-conversion stages = NVIDIA architecture-level bypass) | **Integrated point-of-load regulators** (Monolithic Power, Vicor) replacing discrete PMIC stacks | MPS (held NONE; potential watchlist add); Vicor (VICR) |
+| 7 | CoWoS (advanced packaging) | TSMC (consensus chokepoint) | **Samsung Foundry advanced packaging** + **Intel Foveros** | **HBF organic substrate skips silicon interposer entirely** (per Round 4) | SNDK + SK Hynix HBF (held) bypasses CoWoS; Intel Foundry (not held) |
+| 8 | Liquid cooling (2027+) | Vertiv (P1 watchlist) + Asetek + CoolIT + Boyd Corp | **Immersion cooling (two-phase)** | **Geographic bypass via Nordic cold climate** | **NBIS (held) is geographic-bypass** beneficiary; Submer/GRC/Iceotope (private) for immersion |
+
+### Bypass-route candidates NOT in original Round 6 watchlist (surfaced by this analysis)
+
+- **POWL (Powell Industries) NYSE — POTENTIAL WATCHLIST P3 candidate** — non-consensus switchgear + modular transformer bypass play; smaller cap = more torque on AI data center build-out
+- **MPS (Monolithic Power Systems) NASDAQ — POTENTIAL WATCHLIST P3 candidate** — IVR (integrated voltage regulator) substitution for both MLCC and PMIC bottlenecks
+- **VICR (Vicor) NASDAQ — POTENTIAL WATCHLIST P3 candidate** — power module substitution for MLCC + PMIC + 800V HVDC architecture
+- **DEFER on these P3 candidates** — investability check + thesis-build required before watchlist promotion; flagged for next BOTTLENECK-FORECAST monthly cycle
+
+### Bypass-route framing UPGRADES for held positions
+
+- **NBIS 9.8% Active — UPGRADED bypass-route framing:** previously noted Nordic geo + secured power + cool climate as positive optionality. **Round 6 bypass-route analysis ELEVATES this from "positive option value" to STRUCTURAL BYPASS-ROUTE PLAY for TC-13 transmission/PJM bottleneck #3 (P=0.85) + cooling bottleneck #8 (P=0.55)** — NBIS is the single most-leveraged held name on power-constrained world thesis because it bypasses US-grid bottleneck entirely while serving Western customers. P~60% (2nd order my model) sovereign-AI customers explicitly seek non-US-grid alternative compute; NBIS captures this demand without competing for US grid capacity.
+
+- **SNDK 13.1% Core + KIOXIA 14.0% Core — REINFORCED bypass-route framing:** HBM bottleneck #1 has explicit NAND-tier bypass routes (HBF + CMX) where SNDK is co-developer + KIOXIA is substrate. Round 6 reinforces this framing: NAND positions are NOT just commodity-NAND plays but explicit BYPASS-ROUTE plays for HBM scarcity = structural hedging within memory cluster.
+
+- **MURATA 15.7% Core — CONSENSUS-INCUMBENT framing acknowledged:** MURATA is consensus MLCC supplier (not bypass). Bypass routes exist (IVR/polymer/alternative-supplier) but are MEDIUM-magnitude offset to MURATA pricing power. Sizing-review trigger flagged still holds; bypass-route awareness moderates upside expectation (IVR substitution caps MLCC TAM growth long-term ~2028+).
+
+### Net bypass-route portfolio assessment
+
+**Held cohort already captures THREE primary bypass routes (NBIS geographic + SNDK/KIOXIA NAND substrate via HBF/CMX) without explicit prior bypass-route framing.** Round 6 bypass-route analysis upgrades narrative framing for these names without requiring sizing changes. Power-grid cluster (TC-13 watchlist ETN/VRT/GEV/CEG/VST/TLN) is primarily CONSENSUS-incumbent exposure with bypass-route candidates (POWL/MPS/VICR) flagged for P3 follow-up.
+
+**The most under-appreciated insight:** NVIDIA's own 800V HVDC architecture IS a bypass route at the rack-stack layer — it reduces transformer/PMIC/switchgear count per server architecturally. So even hyperscalers staying within consensus grid path are running an internal bypass via NVIDIA's architectural choice. This makes NVDA itself the meta-bypass beneficiary, but NVDA not held by user. The HELD-COHORT bypass plays remain NBIS (geographic) + SNDK/KIOXIA (NAND substrate).
+
+**No tier or sizing changes warranted by bypass-route addendum — framing UPGRADE only.**
