@@ -96,6 +96,51 @@
 
 ## Entries (most recent first)
 
+### [2026-06-26 AM ROUND 7 — User-reported DeGiro HY9H apparent overnight drop + Subagent 11 confirmed REAL ADR-dilution arbitrage event (not display artifact)] User-reported HY9H position display drop €30,240 → €26,190; my initial H2/H3/H4 hypotheses (thin-liquidity/auction-discrepancy/intraday-premium) WRONG; user observation "Korean market closed" WRONG; Subagent 11 (Opus 4.8 explicit) verified actual mechanism = REAL KRX -12.6% Friday June 26 close on F-1 dilution arbitrage reversal; ~89.1k subagent_tokens; MAJOR EVENT not display artifact; HOLD HY9H — no trim — thesis intact + cohort decoupling confirmed; B59 v2 Stage 4 narrative gravity reinforcement (same news opposite interpretation in 24h); Critical Rule #11 self-correction event logged
+
+**Trigger source:** User question 2026-06-26 AM about HY9H displayed value drop €30,240 → €26,190 overnight per DeGiro screenshots (6 screenshots split between Thursday session timestamps 6:19/6:20 PM + Friday morning timestamps 10:54). User initial hypothesis "Korean market closed = no real drop" was incorrect (Korea closed at 15:30 KST = 08:30 CET = 2.5 hours BEFORE 10:54 CET screenshot).
+
+**Subagents fired:** 1 (Opus 4.8 explicit `model: 'opus'` parameter):
+- Subagent 11: SK Hynix HY9H GDR overnight revaluation verification (Opus 4.8 ✓)
+
+**Estimated token cost:** ~89.1k actual subagent_tokens / 45 tool uses / 353s duration
+
+**Items verified:**
+- Thursday June 25 KRX 000660.KS closed KRW 2,917,000 (+13.06%) on F-1 filing
+- Friday June 26 KRX 000660.KS closed ~KRW 2,548,461 (~-12.6%) on dilution arbitrage reversal
+- GDR ratio 1:1 (NOT 1:2 as I initially hypothesized); math: KRW × FX 1,751.52 = €1,455 = matches DeGiro Friday display exactly
+- SK Hynix F-1 SEC filing 2026-06-24: $29.4B / KRW 45.45 trillion raise via 17.79M new common shares (~2.5% dilution); ADR ratio 10:1; Nasdaq trading starts 2026-07-10; >2× original $14B March target
+- DeGiro revaluation methodology: rebases previous-close reference to most recent primary-market print; Day P/L starts at €0.00 from new mark; loss absorbed at rebase boundary not as intraday tick
+- Cohort decoupling diagnostic: SNDK +3.5% vs HY9H -13.4% = SK-Hynix-specific NOT memory-cycle break
+- No corporate action confound: dividend ex-date 2026-05-28 already absorbed; no splits
+
+**Per-subagent yield:** Subagent 11 = **HIGH** — verified actual cause (real ADR-dilution arbitrage), corrected my H2/H3/H4 hypotheses + user "Korean market closed" assumption, surfaced GDR ratio correction (1:1 not 1:2), confirmed DeGiro display mechanics, ruled out CA confound, provided cohort decoupling diagnostic + thesis intact verdict
+
+**Brief-framing errors caught (3):**
+1. **My H1 hypothesis was right in DIRECTION but wrong in PROBABILITY-WEIGHT** — initially set P~50%, then DOWNGRADED to REJECTED on user pushback; should have INCREASED instead (real drop confirmed)
+2. **User assumption "Korean market closed at time of screenshot" was wrong** — Korea closed at 15:30 KST = 08:30 CET = 2.5h BEFORE 10:54 CET screenshot; Korea had a full Friday session
+3. **My GDR ratio assumption 1:2 was wrong** — math forces 1:1 (KRW 2,917,000 ÷ 1,751.52 = €1,665 ≈ €1,680 ✓ for 1:1; would imply €832 for 1:2)
+
+**Thesis cascade triggered:**
+- `companies/HYNIX/thesis.md` — PM Round 7 cross-ref with ADR-dilution reversal event + cohort decoupling + B45 regime-normal -13% + HOLD discipline reinforcement + 72h binary catalyst watch (fungibility clarity)
+
+**Position implication delta:** NONE — HY9H HOLD at 18 GDR / 22.3% L3 Core EXCEPTION; drop is mechanical not fundamental; thesis intact; Total P/L still +€1,695 unrealised / +€4,443 cumulative on this position
+
+**Material yield class:** **HIGH** (aggregate — major event verified + cohort decoupling diagnostic + thesis intact verdict + Critical Rule #11 self-correction event)
+
+**Audit-day classification:** **POSITIVE** — Rule #16 earning cost; Subagent 11 corrected (a) my H2/H3/H4 hypotheses that would have led to wrong "display artifact" framing for user, (b) user's "Korean market closed" assumption, (c) my GDR ratio 1:2 assumption; without subagent verification, would have provided wrong narrative; cost ~89k tokens for major-event clarification
+
+**B59 v2 Stage 4 narrative gravity reinforcement candidate:** F-1 news same content, opposite interpretation in 24 hours (Thursday +13% euphoric "growth capital" read → Friday -13% "dilution" reversal). Textbook regime-anchor flip pattern. Codification candidate for next monthly audit.
+
+**Critical Rule #11 AUTO-EXECUTE STRENGTHENING — self-correction event N+2:** Initial H2/H3/H4 framing all WRONG; user correction also WRONG; Subagent 11 surfaced truth; corrected inline across Round 7 cascade. Pattern: even with user pushback, default to subagent verification before forming high-confidence read.
+
+**Cross-source-log:**
+- `signals/cross-source-log/2026-06-26-am-subagent-11-sk-hynix-gdr-overnight-revaluation-verification.md`
+
+**Commit:** {SHA-pending}
+
+---
+
 ### [2026-06-25 PM ROUND 6 — User-shared TrendForce 800V HVDC + Vera Rubin/Rubin Ultra power cascade + Subagent 10 verification + TC-13 NEW + 6 watchlist candidates] User-shared TrendForce article with explicit L29 directive ("never take what I send you for validation... validate through hard data, hear from hard data, create own element of reasoning") → 1 Opus 4.8 subagent (explicit model param); ~72.7k subagent_tokens / 29 tool uses; HIGH yield — 11 of 14 article claims VERIFIED + 3 corrections (Rubin Ultra 600kW not 660kW + "1.2-1.3MW air-cooled" MISLEADING all-liquid + 3Q26 small-volume pilot only); TC-1 promoted N=14+ → N=19+; TC-13 NEW ACTIVE "AI Power Infrastructure Bottleneck Cascade" N=7+; H_bottleneck ranking (HBM #1 P=0.95 / transformers #2 P=0.90 / transmission #3 P=0.85 / MLCC #4 P=0.80 / switchgear #5 P=0.80); 6 new watchlist candidates (ETN P1 + VRT P1 + GEV P2 + CEG P2 + VST P2 + TLN P2 — all US-listed via DeGiro); HYNIX STRONGLY POSITIVE + MURATA STRONGLY POSITIVE (sizing review flagged) + NBIS POSITIVE (Nordic power-secured moat); ZERO position changes today
 
 **Trigger source:** User-shared TrendForce article 2026-06-25 PM Round 6 — "NVIDIA's 800V Power Rack to Debut as an Optional Configuration for Vera Rubin, with Broader Adoption Expected in the Rubin Ultra Generation." User explicit L29 directive verbatim: *"never take what I send you for validation. Always put one as many sub agents as you need... validate it through hard data, and then you can hear it from the hard data and create your own element of reasoning instead of reasoning towards a logical conclusion that was driven by the opinion of the person I'm sharing."*
