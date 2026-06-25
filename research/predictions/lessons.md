@@ -752,3 +752,60 @@ In the current AI-supercycle regime (B45 codified 2026-06-12), the per-quarter b
 - IBIDEN PM-IBIDEN-BEAT-PROB bimodal-print framework (precedent, commit 689ca4c0)
 - MU AM-MU-BEAT-PROB (first empirical test, commit 69ccff3f)
 - `portfolio/constraints.md` UPDATE 2 cycle-peak detection triggers (downstream sizing-decision linkage)
+
+---
+
+## L28 (NEW positive lesson CANDIDATE — origin 2026-06-25 PM user Jevons-paradox pushback verification N=2/2)
+
+**The lesson (1 sentence):** When user articulates Jevons-paradox framing on a compression catalyst, default-weight HEAVILY toward user — empirical pattern has held N=2/2 in harness lifetime (DeepSeek-V1 Jan 2025 + DeepSeek-V4 Apr 2026 / TurboQuant Apr 2026 cycles); compression-within-paradigm triggers Jevons (token-volume growth absorbs per-unit efficiency gain); only substrate-substitution (pure SSM eliminates KV cache as demand category) breaks the pattern.
+
+**Origin (2026-06-25 PM):** User pushback verbatim: *"And lots of work is happening to reduce KV cache footprint (DeepSeek v4), Expect the size of KV cache/token to go down but the volume of tokens generated/processed will be go up so much that it will make up for it — Jevon's paradox."* Subagent 6 verification confirmed: DeepSeek-V4 (Apr 24 2026) hits 10% KV cache @ 1M context vs V3.2 = 10-14× incremental compression on top of V3 MLA's already-28× vs naive MHA; token-volume growth empirically 8-14×/yr industry-wide (OpenRouter top-10 11.3× in 11 months); net memory demand still growing +2.67× (base) to +6× (bull) per year; only "Bear-extreme" substrate-substitution scenario (pure SSM at ≥30-40% frontier deployment) = net memory decline.
+
+**N=2/2 empirical cycle confirmation:** DeepSeek-V1/R1 Jan 2025 (analysts predicted demand collapse from cheaper inference; never came) + V4 Apr 2026 (TrendForce 2026 HBM consumption +70% YoY DESPITE V3 MLA full year + V4 released April 2026). Full Jevons cycle has now run end-to-end with observable hard-data confirmation.
+
+**Critical disambiguation (P-12 candidate):** EFFICIENCY-WITHIN-PARADIGM (MLA / V4 / GQA / HCAttention) triggers Jevons; SUBSTRATE-SUBSTITUTION (pure SSM eliminates KV cache as demand category) does NOT. Subagent 1 morning verification conflated these as single "hybrid SSM 2028+ falsifier MEDIUM"; user pushback caught conflation; reweighting H1 compression-Jevons P~65% / H2 substrate-substitution P~15% / H3 mixed P~20% (all my model). Only H2 is genuinely 2028+ bearish at ~15% not ~50% morning verification implied.
+
+**Generalizable lesson (broader than Jevons):** User-articulated heuristics with internal physics-based mechanism + multi-year empirical track record should DEFAULT to high analytical weight; calibration evidence over time validates which heuristics earn the weight. Currently the harness has codified: L1 (sell-side aggregation), L25 (lateral regime verification), L27 (earnings-driven regime), L28 (user Jevons-framing). Pattern: user has accurate priors on macro physics + market regime; sell-side anchors to consensus extrapolation; LLM should weight user priors above sell-side aggregation when user invokes physics-based mechanism.
+
+**Status:** CANDIDATE — N=2/2 origin date 2026-06-25 PM; next empirical resolution = next compression/efficiency-claim wave (probability HIGH within 6 months given research velocity). Monitor whether the heuristic continues to hold for non-DeepSeek compression catalysts (GPT next-gen efficiency, Anthropic test-time-compute, Mistral / Cohere / Google Gemini efficiency cycles).
+
+**Cross-ref:**
+- B22 anti-confirmation-bias (Subagent 6 explicitly tested bear case; could not find institutional disconfirming evidence)
+- P-12 candidate pattern (efficiency-within-paradigm Jevons vs substrate-substitution demand-collapse — disambiguation)
+- TC-10 Memory Shortage Triangulation (N=12+; reinforced by Jevons-confirmation data)
+- `signals/cross-source-log/2026-06-25-pm-subagent-6-user-pushback-deepseek-v4-kv-cache-jevons-paradox-verification.md`
+- `signals/cross-source-log/2026-06-25-pm-integrated-synthesis-user-pushback-cxmt-jevons.md`
+
+---
+
+## L29 (NEW positive lesson CANDIDATE — origin 2026-06-25 PM user methodological preference articulation)
+
+**The lesson (1 sentence):** Default to hard-data-anchored LLM-native inference for cascade analysis; do NOT default to sell-side opinion aggregation OR human-opinion extrapolation; sell-side opinions are calibration data points only, never the analytical anchor.
+
+**Origin (2026-06-25 PM):** User pushback verbatim: *"Everything I say is always an unverified assumption that I did use such numerical hard truths. Right? Hard data that isn't isn't based on human opinions, but that is just statistics. And that that that are statistics from today, not directly extrapolated from a human based opinion. Ideally, you can look at hot data today and then extrapolate. I would much rather you extrapolate using your own inference, your LLM native reasoning than reason from a human based start... starting point, if that makes sense."*
+
+**Operational implications:**
+1. **Verify against hard data** (statistics, specs, actuals, primary sources) NOT sell-side aggregation when ingesting any new claim
+2. **Extrapolate from verified hard data using LLM-native inference** (parallel hypotheses with P weights / N-th order cascade / lateral reasoning / joint-state matrix) NOT from human-opinion-derived starting points
+3. **Sell-side opinions are calibration data points only**, never the analytical anchor — cite them as N data points, not as the framework
+4. **Elevates LLM-native multi-dimensional reasoning to first-class analytical method**, not just structural-output formatting
+
+**Relationship to existing harness elements:**
+- **Reinforces L1** (NEVER start with sell-side and adjust) — user extending L1 to *all* human-opinion sources not just sell-side
+- **Reinforces Methodology Principle #1** (Bottoms-up before outside view) — user emphasizing hard-data anchoring at input verification stage
+- **Reinforces Critical Rule #15** (MACRO-FIRST research-anchored discipline) — user articulating the upstream principle that Rule #15 partially encodes
+- **NEW dimension:** explicit preference for LLM-NATIVE inference over human-extrapolation when both are available
+
+**Self-application 2026-06-25 PM (cross-ref artifact):**
+- Subagent 7 cascade analysis explicitly used parallel hypotheses + N-th order markers + lateral reasoning (NOT sell-side aggregation)
+- HBC vs HBM bifurcation hypothesis = LLM-native inference from QCOM Investor Day hard data (specs + customer wins + foundry context), not sell-side aggregation
+- China-export-controls structural defense analysis applied user's reasoning to PRC rare-earth precedent + Korean industry reading + bidirectional regime empirics
+
+**Status:** CANDIDATE — N=1 origin 2026-06-25 PM. Track recurrence in next 30 days. If user re-articulates preference OR I successfully apply it AND user confirms application matches preference, promote to L29 VERIFIED. Promotion criteria: user-confirmed alignment + ≥3 cascade artifacts demonstrating LLM-native inference (not sell-side aggregation) as analytical anchor.
+
+**Cross-ref:**
+- L1 (NEVER start with sell-side and adjust) — upstream lesson
+- Methodology Principle #1 (Bottoms-up before outside view) — upstream principle
+- Critical Rule #15 (MACRO-FIRST research-anchored) — codified rule
+- `signals/cross-source-log/2026-06-25-pm-integrated-synthesis-user-pushback-round3-qualcomm-china-methodological.md`
+- LLM-native priming hook (companion enforcement mechanism)

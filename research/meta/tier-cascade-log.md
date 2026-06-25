@@ -35,6 +35,46 @@
 
 ## Entries (most recent first)
 
+### [2026-06-25 PM ROUND 3 — User pushback Subagent 7 Qualcomm HBC + China-export-controls + L29 methodological + unknown-unknown register] 🟡 User-shared news (Qualcomm) + 3 META-insights → 1 verification subagent (Opus 4.8 explicit) + 3 meta-codifications; ~66.5k subagent tokens; HIGH yield — Qualcomm announcement materially DIFFERENT from user's "1nm" recall (actual = HBC memory + Meta CPU + MSFT Azure + Humain Saudi + Modular $4B = NOT a foundry-node story); 2 NEW STRUCTURAL FALSIFIERS surfaced for HYNIX/MRVL; 2 NEW STRUCTURAL DEFENSES surfaced (China-export-controls + unknown-unknown register); 2 lesson codifications added (L28 + L29); ZERO position changes; 4 brief-framing errors caught this round bringing 7-day N count to 4 (Subagent 1 Samsung stale narrative + Subagent 5 ">500K WPM 2028" REFUTED + Subagent 6 compression-vs-substitution conflation + Subagent 7 "1nm" recall WRONG)
+
+**Trigger source:** User pushback round 3, 2026-06-25 PM (4-thread compound: methodological + China-export + unknown-unknown + Qualcomm news request)
+
+**Intake tier:** 🟢 HARD on Subagent 7 (Qualcomm Investor Day T1 multi-source: Bloomberg + CNBC + ServeTheHome + Tom's Hardware + DigiTimes + TheElec KR + TechNews TW + 163.com); 🟡 DIRECTIONAL on China-side export controls structural defense (extrapolation from PRC rare-earth precedent T1 + Korean industry reading T2 + bidirectional regime empirics T1); 🟡 DIRECTIONAL on unknown-unknown breakthrough register (pattern-recognition from N=4 breakthroughs surfaced in last 7 days)
+
+**Source:** 2 cross-source-log artifacts (Subagent 7 + integrated synthesis round 3); QCOM Investor Day 2026-06-23/24 official press; 15+ T1 sources cross-confirmed including Korean (TheElec) + Taiwanese (TechNews TW + DigiTimes) + Chinese (163.com) primary
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/HYNIX/thesis.md` tail — new PM Round 3 cross-ref: NEW HBM→HBC bifurcation 2028+ falsifier dimension (H1 P~45% / H2 P~30% / H3 P~25% my model); China-export-controls structural defense DOWNGRADES CXMT 2028 sensitivity LOW → VERY LOW; WATCH FLAG ADDED for HBC validation 2027 (lean-trim if HBC samples meet spec mid-2027 + hyperscaler #3 commits + HBM4E counter-evolution insufficient); 🟡 HOLD 20.6% L3 Core EXCEPTION unchanged
+- `companies/MRVL/thesis.md` tail — new PM Round 3 cross-ref: TWO STACKED THREATS surfaced (QCOM custom XPU/AI300 direct competitive overlap on hyperscaler co-design + Arm royalty stream compounding via QCOM Oryon at MRVL's expense); MILD TRIM CANDIDATE watch added; on top of existing bear case in motion (Trainium demotion + Google TPU to AVGO); 🟡 HOLD 5.9% Active unchanged
+- `companies/NBIS/thesis.md` tail — new PM Round 3 cross-ref: POSITIVE OPTION VALUE flag (could deploy QCOM Dragonfly + AI300 racks if HBC validates 2027-2028); ties to PC-14 Sovereign-AI Bifurcation Doctrine (N=9+); 🟢 HOLD unchanged
+- `predictions/lessons.md` append — L28 (Jevons paradox N=2/2 lesson) + L29 (user methodological preference — hard-data + LLM-native inference > sell-side / human-opinion extrapolation)
+
+**Files NOT touched (no claim intersection):** `companies/KIOXIA/thesis.md` (NAND orthogonal to HBC architecture); `companies/SNDK/thesis.md` (NAND orthogonal); `companies/MURATA/thesis.md` (wafer/passive demand unchanged); `companies/SUMCO/thesis.md` (wafer demand unchanged)
+
+**Stale flags fired:** None
+
+**Critical Rule #16 verification regime track record (7-day rolling):** N=4 brief-framing errors caught by verification subagents in last 7 days (Subagent 1 Samsung HBM3E narrative stale + Subagent 5 CXMT ">500K WPM 2028" REFUTED + Subagent 6 compression-vs-substitution conflation + Subagent 7 user "1nm" recall WRONG). Pattern: verification regime is working as designed. Critical Rule #16 cost-yield ledger continues to log POSITIVE classification.
+
+**Critical Rule #11 AUTO-EXECUTE STRENGTHENING — self-correction visible:** User's "1nm" recall was wrong; verification subagent corrected; corrected analysis cascaded; user-direct contradiction handled transparently per Rule #11 (rather than glossed). Pattern matches Rule #11 design — self-correct visibly when prior choice (including user-shared assumption) turns out wrong.
+
+**New monitor items registered:**
+1. **HYNIX HBC validation watch (NEW):** HBC samples mid-2027 + hyperscaler #3 commitment + HBM4E counter-evolution insufficiency = lean-trim trigger
+2. **MRVL stacked-threat watch (NEW):** Q3 FY27 custom-XPU pipeline disclosure + QCOM AI300 sampling spec H2 2027 + Modular MAX 2nd hyperscaler adoption within 12mo
+3. **NBIS QCOM-rack optionality watch (NEW):** NBIS Q3 FY26 disclosure mentioning QCOM evaluation OR sovereign customer requesting non-NVDA compute
+4. **Modular MAX anti-CUDA adoption watch (NEW):** track Modular MAX deployment across hyperscalers as CUDA-moat erosion leading indicator
+5. **Unknown-unknown breakthrough velocity register (NEW):** monitor breakthrough velocity quarterly; if >2× quarterly acceleration, escalate to thesis stress-test (pattern: 4 architectural breakthroughs in last 7 days — DeepSeek-V4 + HBC + 3D DRAM + Hybrid SSM Nemotron-3-Ultra; all WERE unknown 6-12 months ago)
+6. **China-side export-controls falsifier check (NEW):** grand-bargain trade deal P <5% (my model); Chinese hyperscalers under-absorbing CXMT capacity P 15-25% (my model); CXMT 3rd-country re-export bypassing P <5% (my model)
+
+**Codification candidates surfaced (for next monthly audit):**
+- L28 (NEW): User Jevons-paradox framing wins N=2/2 in harness lifetime
+- L29 (NEW): User methodological preference — hard-data + LLM-native inference > sell-side / human-opinion extrapolation
+- P-12 candidate (P-13 NEW): Architectural-substitution-as-meta-falsifier — unknown-unknown breakthrough velocity dashboard registers 2-4 breakthroughs per year reshape cascade; harness should monitor breakthrough velocity quarterly
+- B-candidate (NEW): China-side export controls = structural defense dimension for HYNIX/Samsung/Micron not modeled in morning verification; meta-pattern is "export controls are bidirectional and symmetric — model both directions"
+
+**Commit:** {SHA-pending}
+
+---
+
 ### [2026-06-25 PM — User pushback Subagents 5+6 CXMT 3D DRAM + DeepSeek-V4 Jevons] 🟢 User pushback verification → 2 parallel Opus 4.8 subagents (~125.4k combined) per Critical Rule #16 + Principle #36; HIGH yield — Jevons CONFIRMED HIGH (downgrades hybrid SSM 2028+ falsifier MEDIUM→LOW-MEDIUM); CXMT 3D DRAM CONFIRMED HIGH at IEDM 2025 BUT 2028 timeline = pilot not mass-prod + >500K WPM REFUTED at headline year; critical disambiguation surfaced (Subagent 1 morning conflated compression-within-paradigm vs architectural-substitution = self-correction); 3 codification candidates surfaced (L28 + P-12 + Stop-hook); cohort thesis REINFORCED; ZERO position changes; both subagents fired with explicit model:'opus' parameter fixing earlier Sonnet violation
 
 **Trigger source:** User pushback 2026-06-25 PM verbatim 2-clause pushback on morning 4-subagent verification

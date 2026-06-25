@@ -96,6 +96,62 @@
 
 ## Entries (most recent first)
 
+### [2026-06-25 PM ROUND 3 — User pushback Subagent 7 Qualcomm HBC cascade + China-export-controls geopolitical insight + methodological preference L29 + unknown-unknown breakthrough register] User pushback to morning verification → 1 verification subagent (Opus 4.8 explicit model param) on user-requested Qualcomm news + 3 META-insights cascaded; ~66.5k subagent_tokens; HIGH yield — Qualcomm announcement materially DIFFERENT from user's "1nm" recall (actual = HBC memory architecture + Meta CPU + MSFT Azure + Humain Saudi + Modular acquisition); 2 NEW STRUCTURAL FALSIFIERS surfaced (HBM→HBC bifurcation 2028+ + Modular MAX anti-CUDA); 2 NEW STRUCTURAL DEFENSES surfaced (China-export-controls reciprocal regime + Jevons-confirmation H1 dominance); 2 NEW WATCH FLAGS added (HYNIX HBC validation + MRVL stacked threats); 1 NEW POSITIVE OPTION VALUE flag (NBIS QCOM rack potential); 2 lesson codifications added (L28 Jevons + L29 methodological); ZERO position changes; user "1nm" recall WRONG = N=4 in last 7 days of verification-subagent catching user-shared assumption errors
+
+**Trigger source:** User pushback round 3, 2026-06-25 PM, comprising 4 distinct threads: (1) methodological preference verbatim *"I would much rather you extrapolate using your own inference, your LLM native reasoning than reason from a human based starting point"*; (2) China-side export controls insight verbatim *"why would China try to sell that cheaper memory or DRAM or HBM to the US?"*; (3) unknown-unknown breakthrough risk verbatim *"the biggest risk is the unknown unknown finders"*; (4) Qualcomm news cascade request verbatim *"there was another announcement today from Qualcomm... they are moving to, like, one nanometer chips... Run a research agent on the Qualcomm news"*
+
+**Subagents fired:** 1 (Opus 4.8 explicit `model: 'opus'` parameter per discipline correction from earlier cascade):
+- Subagent 7: Qualcomm 1nm announcement verification + full AI supply chain cascade (Opus 4.8 ✓)
+
+**Estimated token cost:** ~66.5k actual subagent_tokens / 29 tool uses / 338s duration
+
+**Items verified (15+ load-bearing claims total):**
+
+**Subagent 7 — Qualcomm cascade (HIGH yield):**
+- User "1nm chips" recall FALSE — no 1nm exists in any roadmap in 2026 (TSMC A10 = ~2030; Samsung SF1.4 = 2027-2028; Intel 14A in PDK access H2 2026)
+- ACTUAL announcement = Qualcomm Investor Day 2026-06-23/24: Dragonfly C1000 CPU (250+ Oryon cores, >5 GHz, chiplet, PCIe Gen 7, CXL, 2× perf/W; production H2 2028); AI300 accelerator (3rd-gen rack-scale inference; commercial sampling 2028); HBC (High-Bandwidth Compute) memory architecture (LPDDR DRAM dies 3D-stacked via TSV on accelerator die on 2D ORGANIC substrate NOT silicon interposer/CoWoS; 6× BW/W vs HBM; 200× cap/W vs SRAM; AI250 = 133 TB/s per card)
+- Meta multi-year multi-gen CPU supply deal H2 2028 (Zuckerberg-confirmed)
+- Microsoft Azure HBC deployment (Nadella-confirmed)
+- Humain Saudi 200 MW deployment (FY27 pulled-forward)
+- $4B Modular acquisition (Mojo language + MAX hardware-agnostic inference engine = direct anti-CUDA play)
+- QCOM stock -3.3% reg session, +13% AH to $222.97; FY29 non-handset target ~$15B
+- Foundry: NOT disclosed; T2 inference points to TSMC N2/N2P (QCOM exited Samsung 2nm April 2026 per TrendForce)
+- New HBM→HBC bifurcation 2028+ falsifier dimension H1 P~45% / H2 P~30% / H3 P~25% (all my model)
+- N-th order cascade complete with 1st-4th order markers
+- Convex hull of plausible 2028 NVDA inference share shifts {80-95%} → {60-80%}
+
+**Per-subagent yield:**
+- Subagent 7: **HIGH** — user "1nm" recall corrected; actual announcement materially MORE relevant to held cohort; 2 NEW STRUCTURAL FALSIFIERS surfaced (HBC bifurcation + Modular MAX); HYNIX + MRVL watch flags added; NBIS positive option value flagged; complete N-th order cascade per user methodological constraint (LLM-native inference NOT sell-side aggregation)
+
+**Brief-framing errors caught:** 4 (1 from Subagent 7 + 3 from user's own articulation set this round):
+1. **User's "1nm chips" recall FALSE** — actual announcement is HBC + Modular + Meta deal (not foundry-node story); Subagent 7 self-correction is N=4 in last 7 days of verification catching user-shared assumption errors (Pattern: Subagent 1 Samsung HBM3E narrative stale + Subagent 5 ">500K WPM 2028" REFUTED + Subagent 6 compression-vs-substitution conflation + Subagent 7 "1nm" recall WRONG)
+2. China-side export controls structural defense was NOT modeled in morning verification — user catch added significant CXMT-defense dimension
+3. Unknown-unknown breakthrough velocity (2-4 architectural breakthroughs per year reshape cascade) not previously registered as monitor dimension — now registered
+4. Subagent 1 morning verification "single largest omission" (hybrid SSM 2028+) actually disambiguates into TWO different risks via Subagent 6 — user catch from earlier round still propagating
+
+**Thesis cascade triggered:**
+- `companies/HYNIX/thesis.md` — PM Round 3 cross-ref with HBM→HBC bifurcation 2028+ structural falsifier + China-export-controls structural defense (downgrades CXMT 2028 sensitivity LOW → VERY LOW) + position WATCH FLAG added for HBC validation 2027
+- `companies/MRVL/thesis.md` — PM Round 3 cross-ref with TWO stacked threats (QCOM custom XPU + Arm royalty) on top of existing bear case in motion (Trainium demotion + Google TPU to AVGO); MILD TRIM CANDIDATE watch added
+- `companies/NBIS/thesis.md` — PM Round 3 cross-ref with POSITIVE OPTION VALUE flag (could deploy QCOM Dragonfly + AI300 racks if HBC validates 2027-2028)
+
+**Lesson codifications added to lessons.md:**
+- L28 (NEW CANDIDATE): User Jevons-paradox framing wins N=2/2; compression-within-paradigm Jevons vs substrate-substitution disambiguation
+- L29 (NEW CANDIDATE): User methodological preference — hard-data + LLM-native inference > sell-side / human-opinion extrapolation; sell-side opinions are calibration data only, never analytical anchor
+
+**Position implication delta:** NONE today — all positions HOLD; 2 NEW WATCH FLAGS added (HYNIX HBC validation 2027 + MRVL stacked threats); 1 NEW POSITIVE OPTION VALUE flag (NBIS); quarterly monitor cadence
+
+**Material yield class:** **HIGH** (aggregate — user "1nm" recall correction + 2 new structural falsifiers + 2 new structural defenses + 2 lesson codifications + 3 cohort cascades + 4 brief-framing errors caught)
+
+**Audit-day classification:** **POSITIVE** — Rule #16 earning cost; user pushback genuinely surfaced (a) wrong-recall correction that would have propagated as wrong cascade analysis, (b) NEW HBC bifurcation falsifier dimension morning verification missed, (c) China-export-controls structural defense dimension morning verification missed, (d) 2 lesson codifications for harness improvement; cost-per-correction ~16.6k tokens
+
+**Cross-source-log:**
+- `signals/cross-source-log/2026-06-25-pm-subagent-7-qualcomm-1nm-announcement-cascade-verification.md`
+- `signals/cross-source-log/2026-06-25-pm-integrated-synthesis-user-pushback-round3-qualcomm-china-methodological.md`
+
+**Commit:** {SHA-pending}
+
+---
+
 ### [2026-06-25 PM — User pushback verification Subagents 5+6 CXMT 3D DRAM + DeepSeek-V4 Jevons paradox] User pushback to morning 4-subagent verification → 2 parallel verification subagents per Critical Rule #16 + Principle #36; ~125.4k combined subagent_tokens; HIGH yield — Jevons paradox CONFIRMED HIGH (downgrades hybrid SSM 2028+ falsifier MEDIUM→LOW-MEDIUM, REINFORCES cohort); CXMT 3D DRAM activity CONFIRMED HIGH at IEDM 2025 BUT 2028 timeline NEEDS NUANCE (pilot not mass-prod) AND >500K WPM 2028 REFUTED at headline year; surfaces CRITICAL DISAMBIGUATION (compression-within-paradigm vs architectural-substitution) that Subagent 1 morning conflated; codification candidates L28 + P-12 + Stop-hook SSM-bear-disambiguation surfaced; ZERO position changes; BOTH subagents used explicit model:'opus' parameter fixing Subagent 3 Sonnet violation from earlier cascade
 
 **Trigger source:** User pushback 2026-06-25 PM to morning 4-subagent verification, verbatim two-clause pushback: *"I disagree on CXMT points (they are quite active in 3D DRAM, and we may see results in 2028, capacity will also be greater than 500k WPM). And lots of work is happening to reduce KV cache footprint (DeepSeek v4), Expect the size of KV cache/token to go down but the volume of tokens generated/processed will be go up so much that it will make up for it — Jevon's paradox."*
