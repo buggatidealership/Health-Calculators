@@ -540,3 +540,28 @@ User has explicitly stated narrative-driven-momentum framing trumps wait-for-pul
 - `companies/SUMCO/thesis.md` — position increase context (will append)
 - `watchlist/candidates.md` — NBIS WL-ADD P2 → MOVED TO ACTIVE per `companies/NBIS/thesis.md` (will update)
 - `meta/tier-cascade-log.md` — PM33 entry for 3-transaction portfolio cascade
+
+---
+
+## 2026-06-25 PM — SNDK ADD +5 shares (4 → 9; ~€10K cash deployed); tier promoted ACTIVE → CORE
+
+**Trade detected:** between prior canonical 2026-06-24 PM (SNDK 4sh @ BEP $1,653.94) and 2026-06-25 PM DeGiro screenshots (SNDK 9sh @ BEP $1,962.348068). New BEP math: (4 × $1,653.94 + 5 × X) / 9 = $1,962.348 → X = $2,209.07/share avg add price for the 5 added shares.
+
+**Total cash deployed:** ~$11,045 / ~€10,000 (depending on EUR/USD at execution).
+
+**DeGiro cash buffer:** €20,107 (prior) → ~€10,277 (current) = ~half of prior dry powder deployed.
+
+**Tier change:** SNDK ACTIVE 5.3% → **CORE 13.1%** (within 8-15% Core band). Per Rule #11 AUTO-EXECUTE STRENGTHENING discipline + user-articulated 2026-06-24 PM structural-moat-memory conviction: user-actioned trade IS the position-implication action; tier classification follows actual portfolio weight.
+
+**Context driving the ADD:**
+- MU Q3 FY26 BLOWOUT 2026-06-24 after-close (NAND segment DC SSD revenue >$5B "more than doubled sequentially"; Mehrotra: "NAND demand significantly in excess of supply for foreseeable future")
+- KIOXIA TSE 285A +10.1% Thursday June 25 above prediction range +3-7% (MU read-through cohort cascade)
+- 4-subagent verification of Chinese AI semi article today: NAND 4-vector REINFORCED HIGH (Subagent 4); SNDK HBF Vector 4 co-developer status CONFIRMED
+- Cohort-wide NAND positive sentiment from MU + KIOXIA earnings cascade
+
+**Memory cluster combined now 58.9% (was 50.1%)** — structural-conviction overweight via SNDK cash deployment.
+
+**Files updated same commit:**
+- `portfolio/holdings.md` — canonical FULL REFRESH with new DeGiro screenshot data + broker naming RESOLVED (DeGiro not N26)
+- `portfolio/changes.md` — this entry
+- `companies/SNDK/thesis.md` — tier promoted CORE 13.1%; user-action cross-ref
