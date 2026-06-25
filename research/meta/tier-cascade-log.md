@@ -35,6 +35,33 @@
 
 ## Entries (most recent first)
 
+### [2026-06-25 PM — Chinese-article AI半导体终局推演2026(II) 4-subagent verification] 🟢 User-shared Chinese-language analytical article with explicit anti-confirmation-bias directive → 4 parallel verification subagents per Critical Rule #16 + Principle #36 (~286k combined); HIGH yield (5 material corrections + 2 structural omissions + 1 alpha insight); KIOXIA Vector 1 REINFORCED; HYNIX HBM4 customization correction STRENGTHENS cycle-escape; CXMT falsifier sensitivity formally CONFIRMED LOW through 2028; 2028+ hybrid SSM falsifier watch added; ZERO position changes; **Subagent 3 Rule #16 violation flagged (Sonnet 4.6 not Opus 4.8)**
+
+**Trigger source:** User-shared Chinese-language article "AI半导体终局推演2026(II)" 2026-06-25 PM with 3 images + verbatim directive *"do not take it literally and validate your own facts and infer your own pov regarding the subject in question."*
+
+**Intake tier:** 🟢 HARD on Subagents 1, 2, 4 (Opus 4.8 + multi-source verification + structured anti-confirmation-bias); 🟡 DIRECTIONAL on Subagent 3 (Sonnet 4.6 model — Rule #16 violation; deliverable accepted but downgraded one tier; future discipline = explicit model:'opus' parameter)
+
+**Source:** 5 cross-source-log artifacts (4 per-subagent + 1 integrated synthesis); article author claim verification across English + Korean + Chinese + Japanese parallel sources per Principle #36
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/HYNIX/thesis.md` tail — new PM cross-ref: HBM4 customization 0.5→0.8 correction = STRENGTHENS cycle-escape; CXMT falsifier sensitivity CONFIRMED LOW through 2028 (Omdia ceiling + ~40% density gap + DDR6 speed restriction + MU SCA cycle protection); hybrid SSM 2028+ falsifier watch added; 🟢 HOLD 20.6% L3 Core EXCEPTION unchanged
+- `companies/KIOXIA/thesis.md` tail — new PM cross-ref: NAND 4-vector REINFORCED HIGH; FY2026 ¥2.337T +37% YoY record + BiCS10 332-layer 2026 + DC NAND CAGR 20-46% through 2028; TSE 285A +10.1% Thursday June 25 above MU read-through prediction range; TC-10 promotion N=9→N=12+; 🟢 HOLD Core 14.4% unchanged
+- `companies/SNDK/thesis.md` tail — new PM cross-ref: HBF co-developer Vector 4 optionality CONFIRMED (Feb 25 2026 OCP standardization Gen1 1.6 TB/s); CMX Vector 1 KV cache offloading reinforces enterprise NAND positioning; 🟢 HOLD 5.3% unchanged
+
+**Files NOT touched (no claim intersection):** `companies/MURATA/thesis.md` (article focused on memory not passives); `companies/SUMCO/thesis.md` (300mm wafer demand indirect reinforcement only via 御三家 capacity discipline — no new datapoint requiring cascade); `companies/MRVL/thesis.md` (article doesn't address custom XPU/optical interconnect layer); `companies/NBIS/thesis.md` (only tangential benefit via agentic CPU TAM — no cascade required)
+
+**Stale flags fired:** None — all cohort thesis files have fresh cross-refs as of this commit
+
+**New monitor items registered:**
+1. **Hybrid SSM 2028+ falsifier watch** — fraction of new frontier model launches using SSM layers (Nemotron-H / Jamba 2 / Mamba-3 / DeepSeek MLA). Threshold: if ≥30% of new frontier training runs by 2028-2029, HBM bit demand grows SLOWER than pure-transformer extrapolation.
+2. **CXMT Omdia ceiling vs internal target watch** — if Omdia 240K wspm ceiling holds through 2026, +1.5pp CAGR delta back-loaded to 2027-2028; if CXMT breaks ceiling via equipment localization, delta increases.
+3. **TC-12 CANDIDATE: Unified HBM/DRAM/NAND hierarchy as cross-substrate moat** (memory-and-storage segment) — N=3 (Micron 3:1 wafer conversion + CMX hierarchy + HBF substitution).
+4. **Subagent fan-out model-default discipline** — explicit model:'opus' parameter required on every Critical Rule #16 invocation; ledger demerit logged for Subagent 3 Sonnet-default.
+
+**Commit:** {SHA-pending}
+
+---
+
 ### [2026-06-24 PM-COMBINED — HYNIX-ADS + SAMSUNG-50%-HBM4 + FT-H200-CHINA] 🟢 User-shared compound input (DART filing T0 + SEC F-1 + Korean industry article + Jukan FT-quoted tweet) → 3 parallel Opus 4.8 verification subagents per Critical Rule #16 + Principle #36 (274.8k combined); HIGHEST-YIELD CASCADE on largest held position (HYNIX 10.13% Core); Frankfurt HY9H GDR UNAFFECTED resolves user position-action question; dilution 2.435% (~+32.6% above BEP after full haircut); Samsung 50% HBM4 + ADS RAISE = MUTUALLY REINFORCING strategic offense; PC-14 N=8+ → N=9+ via China-side bidirectional enforcement; ZERO falsifiers fire; all 7 held cohort positions UNCHANGED with HOLD discipline REINFORCED at structural level
 
 **Trigger source:** User-shared compound input 2026-06-24 PM with explicit framing "verify as usual" + "Haven't made any changes to my positions"

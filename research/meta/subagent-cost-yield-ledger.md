@@ -96,6 +96,100 @@
 
 ## Entries (most recent first)
 
+### [2026-06-25 PM — Chinese-article AI半导体终局推演2026(II) 4-subagent verification] User-shared Chinese-language analytical article 2026-06-25 PM with explicit anti-confirmation-bias directive "do not take it literally and validate your own facts and infer your own pov" → 4 parallel verification subagents per Critical Rule #16 + Principle #36; ~286k combined subagent_tokens; HIGH yield — 5 material corrections caught + 2 structural omissions surfaced + 1 genuine alpha insight confirmed (unified HBM/DRAM/NAND hierarchy); KIOXIA Vector 1 REINFORCED; HYNIX HBM4 customization correction STRENGTHENS cycle-escape case; CXMT falsifier sensitivity formally CONFIRMED LOW through 2028; 2028+ hybrid SSM falsifier watch added; ZERO position changes; Subagent 3 Critical Rule #16 violation flagged (model = Sonnet 4.6 not Opus 4.8)
+
+**Trigger source:** User-shared Chinese-language analytical article "AI半导体终局推演2026(II)" 2026-06-25 PM with 3 images (Image #1 bandwidth evolution / Image #2 DRAM demand 2024-2031 chart / Image #3 SNIA-StorageAI DC NAND Bit Demand). User explicit directive verbatim: *"do not take it literally and validate your own facts and infer your own pov regarding the subject in question."*
+
+**Subagents fired:** 4 in parallel (target Opus 4.8 per Critical Rule #16 + Principle #36 single-message-multiple-Agent-calls):
+- Subagent 1: HBM 3-condition cycle-escape framework + Image #1 bandwidth chart (Opus 4.8 ✓)
+- Subagent 2: Agentic CPU DRAM demand thesis — MOST MATERIAL claim (Opus 4.8 ✓)
+- Subagent 3: CXMT capacity + DDR6 speed-restricted thesis (**Sonnet 4.6 — Critical Rule #16 VIOLATION; ledger demerit; future discipline: explicit model:'opus' parameter on every subagent invocation**)
+- Subagent 4: NAND 4-vector structural growth + Image #3 chart (Opus 4.8 ✓)
+
+**Estimated token cost:** ~286k combined ACTUAL subagent_tokens
+- Subagent 1: ~52.6k subagent_tokens / 45 tool uses / 417s duration
+- Subagent 2: ~102.7k subagent_tokens / 52 tool uses / 656s duration
+- Subagent 3: ~46k subagent_tokens (Sonnet — should have been Opus)
+- Subagent 4: ~84.5k subagent_tokens / 62 tool uses / 686s duration
+
+**Items verified (20+ load-bearing claims total):**
+
+**Subagent 1 — HBM 3-condition cycle-escape (HIGH yield, 3 corrections caught):**
+- 3-condition framework: structurally sound, partly sell-side partly original synthesis
+- Samsung HBM3E failure narrative: PARTIALLY STALE (Samsung cleared NVIDIA 12-Hi qual Sept 2025; 30%+ HBM share 2026; 2026 supply SOLD OUT)
+- HBM4 customization score: article 0.5 UNDERSTATES — actual ~0.8 (TSMC 4nm logic base die customizable per client) = STRENGTHENS cycle-escape
+- HBM bit tax 3× current verified; 4× HBM4 directional
+- HBM iteration cadence 2-year verified (A100→H100→H200→B200→Vera Rubin chart all match)
+- Image #1: ALL 5 GPU bandwidth numbers verified (A100 2.039 / H100 3.35 / H200 4.8 / B200 8.0 / Vera Rubin 22 TB/s)
+- Hybrid SSM 2028+ risk: NEW OMISSION — NVIDIA Nemotron-H 3× throughput, Mamba-3 ICLR 2026 eliminates KV cache for SSM layers, DeepSeek MLA deployed; if hybrids reach ≥30% frontier training by 2028-2029, HBM bit demand grows SLOWER
+
+**Subagent 2 — Agentic CPU DRAM demand (HIGH yield, math errors caught):**
+- CPU TAM trajectory $60B→$120B→$200B→$223B all 4 institutional milestones VERIFIED (AMD Nov 2025 / Lisa Su Q1 2026 / NVDA Kress May 2026 / Bernstein David Dai June 17 2026)
+- Author $400B bull: UNVERIFIED extrapolation
+- DRAM per CPU core 4-8GB current verified; 16-32GB future = PROJECTION not cited deployed figure
+- Author $300B × $50/core × 16GB = 96 EB math: 3 unverified inputs + 1 category error (96 EB server-only vs 47 EB total all-segment supply)
+- Bit supply 24% top-of-range; actual wafer growth 6-8% per TrendForce (article overstates)
+- Image #2 source: NOT independently identified; CAGR claims directionally consistent
+- Apple 12GB Memory Reservoir floor: VERIFIED T1 WWDC 2026
+- Software bypass routes UNPRICED (Google TurboQuant 6× compression, NVIDIA ICMS, DeepSeek MLA, CXL pooling)
+
+**Subagent 3 — CXMT + DDR6 (MEDIUM-HIGH yield, 1 correction caught — Rule #16 violation: Sonnet not Opus):**
+- CXMT 2025 baseline 200K = Q1 start point, NOT year-end (actual late-2025 240-280K)
+- 2026 article 320-350K vs Omdia ceiling ~240K wspm Q4 2025 = OVERSTATES near-term
+- 2028 500K / 17% global share = consensus HIGH
+- Density gap precisely 40-42% (not "half"); 0.239 vs 0.40-0.45 Gb/mm²; bit share 5-6% vs wafer share 13-15%
+- DDR6 1c-node + EUV requirement CONFIRMED HIGH
+- CXMT EUV-blocked through ≥2029 (SMEE timeline) CONFIRMED HIGH
+- Industry +1.5pp CAGR delta math arithmetically robust to ±15% input row errors
+- China domestic captive localization vector NOT modeled in article (TAM-reduction not supply-disruption)
+- HYNIX 20.6% Core falsifier sensitivity: CONFIRMED LOW through 2028
+
+**Subagent 4 — NAND 4-vector + Image #3 (HIGH yield, 1 outright error caught):**
+- Image #3 CAGR math VERIFIED: Total 34.4% / Traditional 14.5% / AI Training 11.1% / AI Inference 56.2% all algebraically consistent
+- Vector 1 KV Cache Offloading: HIGH confidence SHIPPING NOW — NVIDIA CMX GA 2H 2026, 32 NVMe SSDs/2U, 8 PB max, 20× TTFT, Citi 1,152 TB SSD per Vera Rubin
+- Vector 2 AI Video: 10× floor verified (Volcano Engine MaaS RMB 1.5B→15B 2026); 40× upper unverified
+- Vector 3 Agentic Sandbox: TrendForce Q1 2026 enterprise SSD $18.46B +86.1% QoQ record DIRECTLY attributed to AI Agent services
+- Vector 4 HBF: standardization Feb 25 2026 SanDisk+SK Hynix OCP VERIFIED; **but article 48-96 TB/s bandwidth WRONG — Gen1 = 1.6 TB/s per stack (off ~30× at per-device level)**
+- KIOXIA FY2026 ¥2.337T +37% YoY record VERIFIED; Q1 14% share; BiCS10 332-layer 2026; DC NAND CAGR 20-46% through 2028
+- YMTC supply discipline: HIGH in upcycle (raised prices 5% in 2023 downcycle); supply-discipline risk = 2028-2029 not 2026-2027
+- Unified HBM/DRAM/NAND hierarchy = CROSS-SUBAGENT CONSENSUS as genuine alpha insight
+
+**Per-subagent yield:**
+- Subagent 1: **HIGH** — verified Image #1 + framework; caught 3 anti-confirmation-bias corrections; surfaced hybrid SSM 2028+ omission
+- Subagent 2: **HIGH** — verified 4 CPU TAM institutional revisions + Apple 12GB floor; caught 3 unverified math inputs + category error; surfaced 4 software-bypass routes article doesn't price
+- Subagent 3: **MEDIUM-HIGH** — verified DDR6 thesis HIGH + CAGR math arithmetic; caught Omdia ceiling correction; surfaced China captive omission; **Rule #16 ledger demerit for Sonnet model**
+- Subagent 4: **HIGH** — verified 4 vectors + Image #3 math; caught 1 outright factual error (HBF bandwidth off ~30×); KIOXIA cohort REINFORCED
+
+**Brief-framing errors caught:** 5 material
+1. Samsung "failure" narrative stale (now N=1 of 5)
+2. HBM4 customization score WEAK→STRONG inversion (Subagent 1)
+3. Author CPU TAM 96 EB math = category error (Subagent 2)
+4. CXMT 2026 capacity OVERSTATED (Omdia ceiling, Subagent 3)
+5. HBF bandwidth OFF ~30× at per-device level (Subagent 4)
+
+**Thesis cascade triggered:**
+- `companies/HYNIX/thesis.md` — PM cross-ref with HBM4 customization correction + CXMT falsifier sensitivity confirmation + hybrid SSM 2028+ watch addition
+- `companies/KIOXIA/thesis.md` — PM cross-ref with Vector 1 reinforcement + Image #3 verification + unified-hierarchy alpha
+- `companies/SNDK/thesis.md` — PM cross-ref with HBF co-developer Vector 4 optionality confirmation
+- (MURATA / SUMCO / MRVL / NBIS — no material implications; no thesis updates required)
+
+**Position implication delta:** NONE — all positions HOLD; tier or sizing not triggered; KIOXIA Core 14.4% and HYNIX Core EXCEPTION 20.6% both REINFORCED; SNDK HBF optionality confirmed
+
+**Material yield class:** **HIGH** (aggregate across 4 subagents — multiple corrections, structural reinforcements, new monitor item, alpha-insight cross-validated)
+
+**Audit-day classification:** **POSITIVE** — Rule #16 earning cost; user's anti-confirmation-bias directive demonstrably surfaced 5 corrections + 2 omissions that uncritical propagation would have missed; cost-per-correction ~57k tokens
+
+**Cross-source-log:**
+- `signals/cross-source-log/2026-06-25-pm-subagent-1-hbm-3-condition-cycle-escape-framework-verification.md`
+- `signals/cross-source-log/2026-06-25-pm-subagent-2-agentic-cpu-dram-demand-thesis-verification.md`
+- `signals/cross-source-log/2026-06-25-pm-subagent-3-cxmt-capacity-ddr6-speed-restricted-verification.md`
+- `signals/cross-source-log/2026-06-25-pm-subagent-4-nand-4-vector-structural-growth-verification.md`
+- `signals/cross-source-log/2026-06-25-pm-integrated-synthesis-chinese-ai-semi-article.md`
+
+**Commit:** {SHA-pending}
+
+---
+
 ### [2026-06-24 PM-COMBINED — HYNIX-ADS + SAMSUNG-50%-HBM4 + FT-H200-CHINA] User-shared 3 distinct thesis-material inputs simultaneously (2 primary-source images + 1 Korean industry article + 1 Jukan FT-quoted tweet) → 3 parallel verification subagents fired per Critical Rule #16 + Principle #36; 274.8k combined subagent_tokens; HIGHEST-YIELD CASCADE on largest held position (HYNIX 10.13% Core); Frankfurt HY9H GDR UNAFFECTED resolves user position-action question; dilution 2.435% (~+32.6% above BEP after full haircut); Samsung 50% HBM4 + ADS RAISE = MUTUALLY REINFORCING strategic offense; PC-14 N=8+ → N=9+ via China-side bidirectional enforcement; ZERO falsifiers fire across F1-F13; all 7 held cohort positions UNCHANGED with HOLD discipline REINFORCED at structural level
 
 **Trigger source:** User-shared compound input 2026-06-24 PM — (1) SK Hynix Preliminary Prospectus cover image (Nasdaq ADS listing under "SKHY"); (2) DART filing 증권예탁증권(DR) 발행 결정 dated 2026-06-24 image (T0 Korean regulatory primary); (3) Jukan @jukan05 tweet image quoting "fresh" FT report on Chinese H200 customs restrictions; (4) Korean industry article verbatim text "Samsung Electronics Allocates Half of HBM Capacity to HBM4." User explicit framing: warned would be "multiple different topics across multiple different sections" + "verify as usual" + "Haven't made any changes to my positions as per your direction" (HOLD discipline preserved).
