@@ -35,6 +35,44 @@
 
 ## Entries (most recent first)
 
+### [2026-06-25 PM — User pushback Subagents 5+6 CXMT 3D DRAM + DeepSeek-V4 Jevons] 🟢 User pushback verification → 2 parallel Opus 4.8 subagents (~125.4k combined) per Critical Rule #16 + Principle #36; HIGH yield — Jevons CONFIRMED HIGH (downgrades hybrid SSM 2028+ falsifier MEDIUM→LOW-MEDIUM); CXMT 3D DRAM CONFIRMED HIGH at IEDM 2025 BUT 2028 timeline = pilot not mass-prod + >500K WPM REFUTED at headline year; critical disambiguation surfaced (Subagent 1 morning conflated compression-within-paradigm vs architectural-substitution = self-correction); 3 codification candidates surfaced (L28 + P-12 + Stop-hook); cohort thesis REINFORCED; ZERO position changes; both subagents fired with explicit model:'opus' parameter fixing earlier Sonnet violation
+
+**Trigger source:** User pushback 2026-06-25 PM verbatim 2-clause pushback on morning 4-subagent verification
+
+**Intake tier:** 🟢 HARD on Subagent 5 (IEDM 2025 paper + multi-source T1 triangulation incl. SemiAnalysis + Tom's Hardware + Digitimes + Korean sources); 🟢 HARD on Subagent 6 (DeepSeek-V4 release T1 + OpenRouter empirical token-volume tracker T1 + N=2/2 Jevons-cycle empirical anchor in TrendForce 2026 HBM +70% YoY data)
+
+**Source:** 3 cross-source-log artifacts (2 per-subagent + 1 integrated synthesis); IEDM 2025 paper #29-3 confirmed via SemiAnalysis + Tom's Hardware + IT之家 + Beijing Daily; DeepSeek-V4 specs cross-confirmed via NVIDIA Developer Blog + Quantum Bit + Zhihu + Wccftech; token-volume rate cross-confirmed via OpenRouter rankings + JPMorgan China forecast + Sam Altman enterprise event
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/HYNIX/thesis.md` tail — new PM cross-ref: 2028+ falsifier risk RESET (CXMT 3D DRAM through-2028 LOW UNCHANGED — orthogonal to DDR6 speed-restriction moat; NEW MEDIUM 2029-2030 watch added; hybrid SSM 2028+ falsifier DOWNGRADED MEDIUM→LOW-MEDIUM via H1/H2/H3 reweighting with H1 compression-Jevons P~65% / H2 substrate-substitution P~15% / H3 mixed P~20%); 🟢 HOLD 20.6% L3 Core EXCEPTION unchanged
+- `companies/KIOXIA/thesis.md` tail — new PM cross-ref: Jevons confirms NAND substrate optionality (CMX spillover durable; agentic loops spill ephemeral state to NAND tiers and rate grows faster than per-token compression); 🟢 HOLD Core 14.4% unchanged
+- `companies/SNDK/thesis.md` tail — new PM cross-ref: Jevons confirms substrate-tier durability; smaller more-levered play benefits proportionally more from token-volume explosion than from HBM share gains specifically; 🟢 HOLD 5.3% unchanged
+
+**Files NOT touched (no claim intersection):** `companies/MURATA/thesis.md` (no memory-thesis exposure); `companies/SUMCO/thesis.md` (wafer-intensity indirect, no new datapoint); `companies/MRVL/thesis.md` (article topic doesn't address custom XPU); `companies/NBIS/thesis.md` (no agentic CPU specific new data)
+
+**Stale flags fired:** None
+
+**Critical Rule #11 AUTO-EXECUTE STRENGTHENING — self-correction visible:** Subagent 1 morning verification CONFLATED two qualitatively different risks (compression-within-paradigm absorbed by Jevons vs architectural-substitution that removes KV-cache demand category) as single "hybrid SSM 2028+ falsifier MEDIUM"; user pushback surfaced missing disambiguation; corrected risk weighting H1 P~65% / H2 P~15% / H3 P~20%; only H2 is genuinely 2028+ bearish at ~15% probability not ~50% morning verification implied
+
+**New monitor items registered (quarterly):**
+1. CXMT pilot 3D DRAM tape-out announcement (2027-H2 / 2028 trigger)
+2. CXMT 3D DRAM customer qualification with Tier-1 OEM (2028-2029 trigger)
+3. NAURA/AMEC/SMEE equipment localization sub-15nm (could break 500K WPM ceiling post-2028)
+4. CXMT HBM3E or HBM4 customer ship (would change entire HYNIX HBM thesis)
+5. Pure-SSM frontier model with GPT-5-class accuracy (substrate-substitution falsifier activation; 2027-2028)
+6. Pure-SSM frontier share crosses 10% then 30% (binding threshold)
+7. Nemotron 4 / Jamba 3 / Mamba-3 successor pure-SSM ratio disclosed (leading indicator 2026-2027)
+
+**Codification candidates surfaced (for next monthly audit):**
+- L28 (lesson): User Jevons-paradox framing wins N=2/2 in harness lifetime (DeepSeek-V1 Jan 2025 + DeepSeek-V4/TurboQuant Apr 2026) — default high-weight treatment for user-Jevons-framing inputs
+- P-12 (cross-domain pattern): Efficiency-within-paradigm Jevons vs substrate-substitution demand-collapse — disambiguate before flagging compression as bear catalyst — N=2 in memory domain
+- Stop-hook candidate: When "SSM/hybrid SSM/Mamba" appears as bear catalyst for memory thesis, require explicit "compression-vs-substitution" disambiguation in same message
+- B59 v2 verification status: User-pushback CORRECT N=2 user-Jevons-framing-wins; consider promoting to default high-weight treatment for user-Jevons-framing inputs
+
+**Commit:** {SHA-pending}
+
+---
+
 ### [2026-06-25 PM — Chinese-article AI半导体终局推演2026(II) 4-subagent verification] 🟢 User-shared Chinese-language analytical article with explicit anti-confirmation-bias directive → 4 parallel verification subagents per Critical Rule #16 + Principle #36 (~286k combined); HIGH yield (5 material corrections + 2 structural omissions + 1 alpha insight); KIOXIA Vector 1 REINFORCED; HYNIX HBM4 customization correction STRENGTHENS cycle-escape; CXMT falsifier sensitivity formally CONFIRMED LOW through 2028; 2028+ hybrid SSM falsifier watch added; ZERO position changes; **Subagent 3 Rule #16 violation flagged (Sonnet 4.6 not Opus 4.8)**
 
 **Trigger source:** User-shared Chinese-language article "AI半导体终局推演2026(II)" 2026-06-25 PM with 3 images + verbatim directive *"do not take it literally and validate your own facts and infer your own pov regarding the subject in question."*
