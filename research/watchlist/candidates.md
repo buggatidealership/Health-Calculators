@@ -1515,3 +1515,55 @@ Per `signals/cross-source-log/2026-06-18-am8-evening-brief-2subagent-anthropic-s
   - **Investability verdict:** SKIP — KOSDAQ small-cap access fails L27 broker-availability filter at watchlist-add granularity (N26 + Zero both confirmed no-access by user 2026-06-21). Discipline application: per L27 enrichment candidate (codification pending June 24 audit) extend verify-listed-status discipline from sizing-decision-time to watchlist-consideration-time — saves verification subagent fan-out cost on names that can't be acted on anyway
   - Demand-side read for held cohort (held names cover this exposure via prior PM25 + AM12 cascades): CMX architecture demand-side spillover REINFORCES NAND cycle thesis (KIOXIA + SNDK direct beneficiaries via Yokkaichi JV NAND supply) + REINFORCES HYNIX HBM scarcity thesis (KV cache spillover from HBM into NAND tier confirms HBM-as-floor pricing power). No new cascade needed — duplicative vs prior PM25 + AM12 reads.
   - **Falsifier for revisit:** if FADU dual-lists on a US ADR or LSE depository receipt accessible via N26/Zero, re-open watchlist consideration with full L26-L28 + Subagent verification fan-out
+
+---
+
+## 2026-06-25 PM Round 6 — TC-13 "AI Power Infrastructure Bottleneck Cascade" — 6 new watchlist candidates
+
+**Origin:** Subagent 10 verification of TrendForce 800V HVDC + Vera Rubin / Rubin Ultra power cascade article (per `signals/cross-source-log/2026-06-25-pm-integrated-synthesis-round6-trendforce-800v-hvdc-power-cascade.md`). TC-13 NEW ACTIVE N=7+ identifies compound binding-constraint scenario where transformer + transmission + switchgear + liquid cooling + MLCC + 800V HVDC all bind 2026-2028 window. Per Critical Rule #9 (bypass-route thinking) + Workflow #7 (BOTTLENECK-FORECAST), the most direct beneficiaries are power infrastructure suppliers — currently UNREPRESENTED in held cohort (zero power-grid exposure).
+
+**Investability filter (per CLAUDE.md):** all 6 candidates are US-listed (NYSE/NASDAQ) = accessible via user's DeGiro broker. No KRX investability constraint applies. L27 broker-availability filter PASSED.
+
+- **🟡 ETN (Eaton) NYSE — WATCHLIST-ADD P1 — 2026-06-25 PM Round 6**
+  - Theme: 800V HVDC reference architecture partner (with NVIDIA + Schneider Electric + ABB); switchgear bottleneck #5 P=0.80
+  - Source signal: TrendForce 2026-06-15 + DataCenter Frontier "Preparing for 800VDC Data Centers ABB Eaton support NVIDIA" T2 + Subagent 10 verification
+  - **Trigger criterion for entry:** 1H26 backlog book-to-bill >1.5× OR Vera Rubin 800V supply contract disclosure
+  - L29 LLM-native inference: ETN is most direct play on switchgear + 800V architecture; competitive moat = OEM-qualified 800V reference design partnership with NVIDIA
+  - **Investability verdict:** ACCESS CONFIRMED (NYSE via DeGiro)
+
+- **🟡 VRT (Vertiv) NYSE — WATCHLIST-ADD P1 — 2026-06-25 PM Round 6**
+  - Theme: Full 800V product line 2H26 (rectifiers + busway + rack DC-DC) + liquid cooling bottleneck #8 P=0.55
+  - Source signal: Vertiv FY2026 SEC 8-K T1 + Subagent 10 verification
+  - **Trigger criterion for entry:** Vera Rubin shipment win disclosure OR 1H26 organic order growth >40% YoY
+  - L29 LLM-native inference: VRT is dual-bottleneck play (800V power + liquid cooling); product line breadth = stickier OEM lock-in than single-product suppliers
+  - **Investability verdict:** ACCESS CONFIRMED (NYSE via DeGiro)
+
+- **🟡 GEV (GE Vernova) NYSE — WATCHLIST-ADD P2 — 2026-06-25 PM Round 6**
+  - Theme: Power transformers (bottleneck #2 P=0.90; 4-5y lead times for 345-765kV) + electrification + grid; $163B backlog; +29% YoY electrification orders Q1 2026
+  - Source signal: GE Vernova Q1 2026 SEC 8-K T1 + Wood Mackenzie 30% transformer deficit 2025 T1 + Subagent 10 verification
+  - **Trigger criterion for entry:** pullback >15% OR transformer lead-time deterioration signal (lead time crosses 3 years for standard MV transformers)
+  - L29 LLM-native inference: GEV is the most structural play on transformer bottleneck which has 4-5 year fix timeline (longest-binding constraint); $163B backlog = revenue visibility through 2028+
+  - **Investability verdict:** ACCESS CONFIRMED (NYSE via DeGiro)
+
+- **🟡 CEG (Constellation Energy) NASDAQ — WATCHLIST-ADD P2 — 2026-06-25 PM Round 6**
+  - Theme: Nuclear PPA / behind-the-meter generation bypass for AI data centers; bottleneck #3 transmission P=0.85 bypass route
+  - Source signal: BTM 2GW online scaling 10-15GW by 2028 per Cleanview + Latitude Media T2 + Subagent 10 verification
+  - **Trigger criterion for entry:** 1GW+ hyperscaler PPA signing OR SMR policy acceleration disclosure
+  - L29 LLM-native inference: CEG is largest US nuclear generator with proven hyperscaler PPA track record (Microsoft Three Mile Island restart); BTM nuclear PPA = most credible 5+ year grid-bypass route
+  - **Investability verdict:** ACCESS CONFIRMED (NASDAQ via DeGiro)
+
+- **🟡 VST (Vistra) NYSE — WATCHLIST-ADD P2 — 2026-06-25 PM Round 6**
+  - Theme: Independent power producer with nuclear + gas generation; BTM hyperscaler bypass partner
+  - Source signal: Subagent 10 verification (mentioned as nuclear/BTM bypass candidate)
+  - **Trigger criterion for entry:** Hyperscaler PPA disclosure OR Texas grid-tightness inflection
+  - L29 LLM-native inference: VST is the gas-heavier counterpart to CEG (CEG=nuclear pure-play, VST=gas+nuclear); gas-generation flexibility = faster-time-to-online vs nuclear PPA cycle
+  - **Investability verdict:** ACCESS CONFIRMED (NYSE via DeGiro)
+
+- **🟡 TLN (Talen Energy) NASDAQ — WATCHLIST-ADD P2 — 2026-06-25 PM Round 6**
+  - Theme: Nuclear PPA pure-play with AWS BTM precedent (Susquehanna nuclear PPA)
+  - Source signal: Subagent 10 verification (mentioned as nuclear/BTM bypass candidate)
+  - **Trigger criterion for entry:** Second-hyperscaler PPA signing OR PJM nuclear capacity tightening signal
+  - L29 LLM-native inference: TLN is the most-leveraged nuclear-PPA-pure-play; less diversified than CEG = higher beta to BTM nuclear thesis; smaller market cap = more torque on individual deal announcements
+  - **Investability verdict:** ACCESS CONFIRMED (NASDAQ via DeGiro)
+
+**Cluster sizing discipline:** if user enters TC-13 power cohort, target combined cluster sizing 5-10% of total portfolio per Conviction Format Active tier band; do NOT individually overweight any single name without independent thesis-build (per Workflow #4 PREDICT pre-action requirement). Memory cluster overweight 58.9% already at structural conviction tier; adding power cluster as Active 5-10% would complement memory thesis without over-concentrating any single layer. Cash buffer ~€10,277 currently = sufficient for ONE Active-tier entry (~€8-10K position); NOT sufficient for multi-name cluster initiation in same trading session.

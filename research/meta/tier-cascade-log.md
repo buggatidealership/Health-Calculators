@@ -35,6 +35,46 @@
 
 ## Entries (most recent first)
 
+### [2026-06-25 PM ROUND 6 — User-shared TrendForce 800V HVDC + Vera Rubin/Rubin Ultra power cascade + Subagent 10 verification + TC-13 NEW + 6 watchlist candidates] 🟢 User-shared TrendForce article with explicit L29 directive → 1 Opus 4.8 subagent (explicit model param); ~72.7k subagent_tokens; HIGH yield — 11 of 14 article claims VERIFIED + 3 framing corrections (Rubin Ultra 600kW + air-cooled MISLEADING + 3Q26 pilot only); TC-1 N=14+→N=19+ promotion; TC-13 NEW ACTIVE "AI Power Infrastructure Bottleneck Cascade" N=7+; H_bottleneck ranking surfaced (HBM #1 / transformers #2 / transmission #3 / MLCC #4 / switchgear #5); 6 new watchlist candidates (ETN/VRT/GEV/CEG/VST/TLN — all US-listed via DeGiro); HYNIX STRONGLY POSITIVE + MURATA STRONGLY POSITIVE (sizing review flagged) + NBIS POSITIVE (Nordic power-secured moat); ZERO position changes today
+
+**Trigger source:** User-shared TrendForce 2026-06-15 article on NVIDIA 800V HVDC + Vera Rubin / Rubin Ultra power architecture. User explicit L29 directive applied.
+
+**Intake tier:** 🟢 HARD on Subagent 10 (NVIDIA Dev Blog T1 + NVIDIA Vera Rubin NVL72 official T1 + PJM Inside Lines T1 + Wood Mac T1 + GE Vernova Q1 2026 SEC 8-K T1 + Vertiv FY2026 SEC 8-K T1 + multiple T2 cross-confirmation); 🟢 HARD on TC-1 N=19+ promotion (multi-source converging memory-tightness corroboration); 🟡 DIRECTIONAL on TC-13 NEW (7+ data points strong but new cluster; compound-binding-scenario probability my model = 0.75)
+
+**Source:** 2 cross-source-log artifacts (Subagent 10 + integrated synthesis Round 6); 30+ T1/T2 sources cross-confirmed
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/HYNIX/thesis.md` tail — new PM Round 6 cross-ref: TC-1 N=19+ promotion + TC-13 NEW + H_bottleneck #1 P=0.95 ranking + Rubin Ultra ~600kW corrected; 🟢 HOLD 22.3% L3 Core EXCEPTION unchanged
+- `companies/MURATA/thesis.md` tail — new PM Round 6 cross-ref: **MOST MATERIAL** — MLCC bottleneck #4 binding 2H26-27 + 20k-440k MLCCs per AI server + 90%+ utilization + +15-35% April hikes + Izumo gap till 2027; **SIZING REVIEW TRIGGER FLAGGED** for August 2026 earnings; 🟡 HOLD Core 15.7% unchanged (trigger flagged)
+- `companies/NBIS/thesis.md` tail — new PM Round 6 cross-ref: Nordic geo + secured power = STRUCTURAL MOAT in power-constrained world; 🟢 HOLD unchanged (conviction up modestly)
+- `companies/SUMCO/thesis.md` tail — new PM Round 6 cross-ref: PMIC silicon pull-through positive modest; 🟢 HOLD unchanged
+- `companies/KIOXIA/thesis.md` tail — new PM Round 6 cross-ref: neutral-positive indirect; 🟢 HOLD Core 14.0% unchanged
+- `companies/SNDK/thesis.md` tail — new PM Round 6 cross-ref: neutral-positive indirect + today's user-actioned ADD validated again; 🟢 HOLD CORE 13.1% unchanged
+- `signals/triangulation.md` — TC-13 NEW ACTIVE entry added; TC-1 N=19+ noted in Round 6 cross-ref
+- `watchlist/candidates.md` — 6 new TC-13 watchlist candidates added (ETN P1, VRT P1, GEV P2, CEG P2, VST P2, TLN P2 — all US-listed via DeGiro; L27 broker-availability filter PASSED)
+
+**Files NOT touched (no claim intersection):** `companies/MRVL/thesis.md` (custom XPU orthogonal to 800V power story per Subagent 10 explicit classification)
+
+**Stale flags fired:** None
+
+**Critical Rule #16 verification regime track record (7-day rolling):** N=9 brief-framing errors / corrections caught by verification subagents in last 7 days now (added Round 6 Subagent 10: 3 corrections — Rubin Ultra 600kW vs article's 660kW + 1.2-1.3MW air-cooled MISLEADING + 3Q26 small-volume pilot only). Verification regime continues working as designed.
+
+**New monitor items registered:**
+1. **TC-13 NEW falsifier-watch (quarterly):** if PJM interconnection reform delivers <2-year queues by Q4 2026 + transformer lead times shrink <1 year + BTM scales >20GW by 2028, TC-13 weakens
+2. **MURATA sizing review trigger (August 2026 earnings):** if Q2 2026 earnings disclose AI MLCC segment revenue contribution + capacity addition timeline + price-hike pass-through above expectations, justify size-up consideration toward upper Core band (15-18%)
+3. **ETN/VRT 800V Vera Rubin OEM-supply contract watch (1H26):** if Eaton or Vertiv discloses 800V supply contract win for Vera Rubin shipments, entry trigger fires
+4. **CEG/TLN hyperscaler PPA watch (quarterly):** if 1GW+ hyperscaler PPA signing OR SMR policy acceleration disclosure, entry trigger fires
+5. **GEV transformer lead-time deterioration watch (quarterly):** if standard MV transformer lead time crosses 3 years, indicates supply-side tightening = entry trigger fires (along with pullback >15% combined trigger)
+
+**Codification candidates surfaced (for next monthly audit):**
+- TC-13 NEW ACTIVE entry already added to triangulation.md this commit; first monthly audit 2026-07-25 (30 days)
+- H_bottleneck multi-constraint joint-state matrix framework (HBM/transformers/transmission/MLCC/switchgear/PMICs/CoWoS/cooling — P-weighted binding-order) is methodological pattern worth codifying as Workflow #7 BOTTLENECK-FORECAST template addition
+- L29 N=4 demonstration: user-shared sell-side article (TrendForce) → Subagent 10 verified per L29 directive → 3 corrections + 2 TC promotions + 6 watchlist candidates surfaced = framework works at scale
+
+**Commit:** {SHA-pending}
+
+---
+
 ### [2026-06-25 PM ROUND 5 — User-shared 2 screenshots + Subagent 9 SK Sec Korean note + Chinese article continuation + TC-12 NEW + PC-15 candidate] 🟢 User-shared 2 screenshots (Chinese article continuation + SK Sec Korean June 15 note) with explicit L29 directive → 1 Opus 4.8 subagent (explicit model param); ~95.6k tokens; HIGH yield — Mehrotra CEO T1 smoking-gun "non-HBM margins higher than HBM" (DDR5 ~90% OP vs HBM ~70%) upgrades Chinese article claim #3 to T1; HBM4 pricing math correction (4× cost vs 6-8× price); SK Sec verified N=5+ Korean media; TC-12 NEW ACTIVE N=4; PC-15 CANDIDATE N=1 WATCH; NEW CXMT HBM3 Tier-1 OEM qualification falsifier-watch; HYNIX 22.3% Core EX REINFORCED; ZERO position changes; SNDK CORE 13.1% (added today) STRUCTURALLY VALIDATED within hours
 
 **Trigger source:** User-shared 2 screenshots 2026-06-25 PM (after canonical portfolio update dcdd60a9): Chinese article continuation 6-claim DRAM-complex re-rate + SK증권 (SK Securities) 2026-06-15 research note Han Dong-hee + Park Jong-seon "반도체 부의 이동: 병목 생산의 가치". User explicit L29 directive applied throughout.

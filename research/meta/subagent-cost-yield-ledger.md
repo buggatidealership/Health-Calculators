@@ -96,6 +96,59 @@
 
 ## Entries (most recent first)
 
+### [2026-06-25 PM ROUND 6 — User-shared TrendForce 800V HVDC + Vera Rubin/Rubin Ultra power cascade + Subagent 10 verification + TC-13 NEW + 6 watchlist candidates] User-shared TrendForce article with explicit L29 directive ("never take what I send you for validation... validate through hard data, hear from hard data, create own element of reasoning") → 1 Opus 4.8 subagent (explicit model param); ~72.7k subagent_tokens / 29 tool uses; HIGH yield — 11 of 14 article claims VERIFIED + 3 corrections (Rubin Ultra 600kW not 660kW + "1.2-1.3MW air-cooled" MISLEADING all-liquid + 3Q26 small-volume pilot only); TC-1 promoted N=14+ → N=19+; TC-13 NEW ACTIVE "AI Power Infrastructure Bottleneck Cascade" N=7+; H_bottleneck ranking (HBM #1 P=0.95 / transformers #2 P=0.90 / transmission #3 P=0.85 / MLCC #4 P=0.80 / switchgear #5 P=0.80); 6 new watchlist candidates (ETN P1 + VRT P1 + GEV P2 + CEG P2 + VST P2 + TLN P2 — all US-listed via DeGiro); HYNIX STRONGLY POSITIVE + MURATA STRONGLY POSITIVE (sizing review flagged) + NBIS POSITIVE (Nordic power-secured moat); ZERO position changes today
+
+**Trigger source:** User-shared TrendForce article 2026-06-25 PM Round 6 — "NVIDIA's 800V Power Rack to Debut as an Optional Configuration for Vera Rubin, with Broader Adoption Expected in the Rubin Ultra Generation." User explicit L29 directive verbatim: *"never take what I send you for validation. Always put one as many sub agents as you need... validate it through hard data, and then you can hear it from the hard data and create your own element of reasoning instead of reasoning towards a logical conclusion that was driven by the opinion of the person I'm sharing."*
+
+**Subagents fired:** 1 (Opus 4.8 explicit `model: 'opus'` parameter):
+- Subagent 10: TrendForce 800V HVDC + Rubin Ultra power cascade verification (Opus 4.8 ✓)
+
+**Estimated token cost:** ~72.7k actual subagent_tokens / 29 tool uses / 401s duration
+
+**Items verified (14 numbered claims + cohort cascade):**
+
+**14 article claims verification:**
+- 11 of 14 FULLY VERIFIED (NVIDIA 800V HVDC dev blog T1; 3Q26 shipments with caveat; VR200 ~225kW; Rubin Ultra H2 2027; OCP Mt Diablo ±400V bipolar; PJM 5+yr queues; transformer 128wk / 4-5y lead times; Wood Mac 30% deficit; switchgear; memory + CPU shortages; etc.)
+- 2 PARTIAL (gigawatt-scale campuses end 2026 — only Abilene Stargate hits 1.2GW; widespread 2028 — only 45% operators plan DC by end-2028)
+- 1 MISLEADING (1.2-1.3MW "air-cooled" actually all-liquid-cooled Feynman class; air tops 20-30kW per rack)
+- 3 corrections: Rubin Ultra rack ~600kW not 660kW (TH+DCD+NVIDIA dev blog converge); 3Q26 small-volume pilot only (DigiTimes supplier skepticism); mass 800V is 2027+
+
+**Per-subagent yield:** Subagent 10 = **HIGH** — 11/14 verification + 3 framing corrections + TC-1 N=14→N=19+ promotion + TC-13 NEW ACTIVE N=7+ + 4-position H_bottleneck ranking + 6 watchlist candidates (ETN/VRT/GEV/CEG/VST/TLN) + cohort cascade analysis for held positions
+
+**Brief-framing errors caught (3):**
+1. **Rubin Ultra rack 600kW not 660kW** — Tom's Hardware + DCD + NVIDIA dev blog all converge on 600kW
+2. **"1.2-1.3MW air-cooled" MISLEADING** — actually all-liquid-cooled Feynman class; air physically limited to ~20-30kW per rack; article framing creates wrong mental model
+3. **3Q26 customer shipments = small-volume pilot only** — DigiTimes supplier skepticism shows mass 800V is 2027+; article framing implies broader adoption than supply-chain actually supports
+
+**Triangulation promotions:**
+- TC-1 Memory tightness multi-tier: N=14+ → **N=19+** (TrendForce N+1 + SK Hynix CEO + $8B ASML + NVDA 70% pre-allocation + Samsung HBM4E samples)
+- **TC-13 NEW ACTIVE "AI Power Infrastructure Bottleneck Cascade" N=7+** (PJM 5+yr queues + transformer 128wk / 345-765kV 4-5y + Wood Mac 30% deficit + switchgear + 50% US builds delayed + GEV $163B backlog +29% YoY + 1.2MW racks + BTM 2GW)
+- TC-12 (DRAM>HBM Margin Inversion): unchanged at N=4 (article addresses shortage not relative margins)
+
+**Thesis cascade triggered:**
+- `companies/HYNIX/thesis.md` — PM Round 6 cross-ref: TC-1 N=19+ + TC-13 NEW + H_bottleneck #1 P=0.95 = STRUCTURAL REINFORCEMENT; ~600kW Rubin Ultra confirmed (vs article's 660kW)
+- `companies/MURATA/thesis.md` — PM Round 6 cross-ref: **MOST MATERIAL** — MLCC bottleneck #4 binding 2H26-27 + AI servers 20k-440k MLCCs each + Murata 90%+ utilization + +15-35% April 2026 hikes + Izumo fab not full till 2027; **SIZING REVIEW TRIGGER FLAGGED** for August 2026 earnings disclosure
+- `companies/NBIS/thesis.md` — PM Round 6 cross-ref: Nordic geo + secured power + cool climate becomes STRUCTURAL MOAT in power-constrained world; conviction up modestly
+- `companies/SUMCO/thesis.md` — PM Round 6 cross-ref: PMIC silicon pull-through positive modest (bottleneck #6 P=0.65)
+- `companies/KIOXIA/thesis.md` — PM Round 6 cross-ref: neutral-positive indirect via DRAM crowd-out + TC-1 N=19+
+- `companies/SNDK/thesis.md` — PM Round 6 cross-ref: neutral-positive indirect; today's user-actioned ADD validated again via TC-1 N=19+
+- `signals/triangulation.md` — TC-13 NEW ACTIVE entry added
+- `watchlist/candidates.md` — 6 new TC-13 watchlist candidates added (ETN/VRT/GEV/CEG/VST/TLN with investability filter passed)
+
+**Position implication delta:** NONE today — all 7 held positions HOLD; MURATA sizing review TRIGGER flagged for August 2026 earnings (not actioned today); 6 new watchlist candidates added but NOT entered (cash buffer ~€10,277 = sufficient for ONE Active-tier entry, not multi-name cluster initiation)
+
+**Material yield class:** **HIGH** (aggregate — 14-claim verification + 3 corrections + 2 TC promotions + 6 watchlist candidates + cohort cascade analysis + H_bottleneck multi-constraint joint-state matrix all in one fan-out)
+
+**Audit-day classification:** **POSITIVE** — Rule #16 earning cost; Subagent 10 surfaced (a) 3 article framing corrections prevent uncritical propagation, (b) NEW TC-13 cluster promotion (compound-bottleneck multi-constraint scenario), (c) 6 actionable watchlist candidates for currently UNREPRESENTED power-infrastructure exposure, (d) MURATA sizing review trigger flagged for August 2026; cost-per-correction ~24k tokens
+
+**Cross-source-log:**
+- `signals/cross-source-log/2026-06-25-pm-subagent-10-trendforce-800v-hvdc-rubin-ultra-power-cascade-verification.md`
+- `signals/cross-source-log/2026-06-25-pm-integrated-synthesis-round6-trendforce-800v-hvdc-power-cascade.md`
+
+**Commit:** {SHA-pending}
+
+---
+
 ### [2026-06-25 PM ROUND 5 — User-shared 2 screenshots (Chinese article continuation + SK Securities Korean note) + Subagent 9 verification + TC-12 NEW + PC-15 candidate] User-shared 2 screenshots post-canonical-portfolio-update with explicit L29 directive ("look at the claim, look at our truth, do your own experiments") → 1 Opus 4.8 subagent (explicit model param); ~95.6k subagent_tokens / 26 tool uses; HIGH yield — Mehrotra CEO T1 smoking-gun "non-HBM margins higher than HBM" + SK Securities Korean note Han Dong-hee + Park Jong-seon EXISTS-VERIFIED via N=5+ Korean media triangulation + HBM4 pricing math correction (article 4× UNDERSTATES; reality is 6-8× market price) + NEW CXMT HBM3 Tier-1 OEM qualification falsifier-watch + TC-12 NEW "DRAM>HBM Margin Inversion in Upcycle" ACTIVE N=4 + PC-15 CANDIDATE "Bottleneck-Wealth-Migration as Re-rating Mechanism" N=1 WATCH; HYNIX 22.3% Core EX REINFORCED at structural level; ZERO position changes; SNDK CORE 13.1% (added earlier today) STRUCTURALLY VALIDATED within hours of user-actioned ADD
 
 **Trigger source:** User-shared 2 screenshots 2026-06-25 PM (after canonical portfolio update committed dcdd60a9): (1) Chinese article continuation 6-claim DRAM-complex re-rate framework; (2) SK Securities (SK증권) 2026-06-15 research note "반도체 부의 이동: 병목 생산의 가치" by Han Dong-hee + Park Jong-seon. User explicit L29 directive applied throughout.
