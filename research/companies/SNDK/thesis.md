@@ -1,5 +1,28 @@
 # Sandisk (SNDK) — Thesis
 
+**🚨 2026-06-25 AM-MU-POST-PRINT-FOLLOW-ON cross-ref — SNDK -1.59% pre-market MISS vs predicted +2-5% sympathy = B40-type framing-error caught post-hoc; MU 245TB 6600 ION QLC SSD shipping = DIRECT COMPETITIVE product to SNDK enterprise SSD franchise (NOT positive read-through); thesis CAVEAT but HOLD discipline preserved at 5.3%:** Per `signals/cross-source-log/2026-06-25-am-subagent-mu-q3-fy26-post-print-follow-on-16-ltas-cohort-actuals.md` (48.7k subagent_tokens).
+
+**Critical miss explanation (B40-type framing-error):**
+- Predicted: SNDK +2-5% sympathy on MU NAND-cycle peer beat
+- **Actual: -1.59% US pre-market** (MEDIUM confidence)
+- **Root cause:** MU 245TB 6600 ION QLC SSD shipping (verified by MU IR press release) = direct competitive product to SNDK's enterprise SSD portfolio; uses MU's own G9 QLC NAND
+- **Framing-error in prior cascade:** treated MU as pure NAND-cycle peer-beneficiary; missed MU-vs-SNDK competitive overlap at enterprise-SSD-product layer
+- **Calibration lesson (codification candidate per Critical Rule #13):** for any earnings cascade, check NEW PRODUCT ANNOUNCEMENTS for competitive overlap with held cohort before predicting positive-only sympathy
+
+**Joint cohort context (MU Q3 verified):**
+- MU 16 SCAs covering ~33% MU NAND volume through CY2026-2030 = MU NAND-tier LTA-floor mechanism mirrors SNDK exposure
+- MU NAND volume committed at floor-above-historical-cycle-GM = NAND-cycle bottom protected at MU specifically; not automatically SNDK by extension
+- SNDK Yokkaichi-JV mirror with KIOXIA still applies for NAND-cycle-pricing sympathy
+- MU 245TB QLC SSD competitive risk = enterprise SSD-tier specific; HBF (SK Hynix JV samples H2 2026 commercial 2027) franchise unaffected by MU competitive product
+
+**B45 regime-check:** -1.59% pre-market on SNDK is WITHIN regime base rate (single-day moves of -5 to +5% routine for AI-cohort names). Do NOT flag as extreme.
+
+**F1-F7 falsifier check:** NONE FIRE. F2 (ASP rollover) NOT triggered. Pre-committed trim sequence (SNDK trims AFTER HYNIX on F2 ASP rollover by 1-quarter lag) UNCHANGED.
+
+**Position implication: 🟢 HOLD 4sh SNDK (5.3% portfolio, BEP $1,653.94) — no size change — pre-market -1.59% explained by MU 245TB competitive product not thesis-falsifier; B40-type framing-error caught post-hoc + calibration lesson logged; pre-committed trim sequence UNCHANGED; HBF roadmap intact; F-conditions status quo.**
+
+---
+
 **🚨 2026-06-24 PM-POSITION-UPDATE — B40.3 SELF-CORRECTION on prior position size:** Per user-shared N26 screenshots 2026-06-24 PM + new canonical `portfolio/holdings.md`. **CORRECTED POSITION STATE (was tracking 6 shares; ACTUAL is 4 shares @ BEP $1,653.94 = 5.3% of €131,518 total portfolio).** Position trimmed -2sh between PM33 (2026-06-18) and today (2026-06-24); BEP unchanged $1,653.941904 = partial trim not reset; rationale TBD by user. Current $1,964.67 → unrealized +€1,214.66 (+21.24%) on 4 shares; total P/L lifetime +€5,158.67. Position-trim discipline within pre-committed framework (SNDK trims AFTER HYNIX on F2 ASP rollover by 1-quarter lag; this trim may be user-discretionary partial profit-take ahead of MU print catalyst risk). **Position implication: 🟢 HOLD 4 SNDK shares (@ BEP $1,653.94, currently +21.24% unrealized = €6,934 value, 5.3% of €131,518 total portfolio) — partial trim already executed -2sh between PM33 and today; pre-committed full trim sequence remains AFTER HYNIX F2 ASP rollover; F-conditions status quo; MU print TOMORROW = NAND-cycle regime-test.**
 
 ---
