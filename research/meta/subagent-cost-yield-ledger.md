@@ -96,6 +96,61 @@
 
 ## Entries (most recent first)
 
+### [2026-06-25 PM ROUND 4 — User self-correction "IBM not Qualcomm" + Subagent 8 IBM NanoStack 0.7nm cascade] User self-corrected wrong-ticker attribution → 1 fresh Opus 4.8 verification subagent (explicit model param); ~54.3k subagent_tokens / 20 tool uses; HIGH yield — IBM NanoStack 0.7nm (VLSI 2026 same venue as KIOXIA MSA-CBA) verified; foundry winner cascade favors Rapidus P~55% (my model) = KIOXIA STRONGEST cohort beneficiary as Rapidus JV original shareholder + Japan supply-chain proximity; HYNIX POS +1 long-tail (HBM demand from NanoStack-class density 2028-2031); NBIS POS +1 (PC-14 Sovereign-AI Bifurcation reinforced); MURATA + SUMCO POS +1 WATCH (Japan substrate/wafer demand from Rapidus pipeline); commercialization ~2031 = NOT near-term trade catalyst; ZERO position changes; user self-correction is N=5 in 7 days of verification regime catching attribution errors (Subagent 1 Samsung stale + Subagent 5 CXMT capacity REFUTED + Subagent 6 SSM conflation + Subagent 7 user "1nm Qualcomm" → user self-corrected → Subagent 8 IBM actual)
+
+**Trigger source:** User self-correction 2026-06-25 PM verbatim: *"I got it wrong. It was IBM, not Qualcomm"* — referring to earlier "1nm announcement" reference. Critical Rule #11 self-correction applied by user (symmetric demonstration).
+
+**Subagents fired:** 1 (Opus 4.8 explicit `model: 'opus'` parameter):
+- Subagent 8: IBM 1nm announcement verification + AI supply chain cascade (Opus 4.8 ✓)
+
+**Estimated token cost:** ~54.3k actual subagent_tokens / 20 tool uses / 316s duration
+
+**Items verified (10+ load-bearing claims):**
+- IBM "NanoStack" 3D sequential integration at 0.7nm/7-angstrom node VERIFIED T1 IBM Newsroom 2026-06-25
+- VLSI 2026 paper venue = Hawaii June 14-18 (SAME venue as KIOXIA's MSA-CBA joint paper — important convergence)
+- ~100B transistors on fingernail die (2× IBM 2021 2nm); +50% iso-power perf OR -70% iso-perf power vs IBM 2nm
+- **40% SRAM area scaling = biggest single-step gain in ~10 years if reproducible** (most under-discussed claim)
+- Physical: 5nm-thick nanosheets, 9nm gap, dual-channel engineering, ultra-thin dielectric bonding
+- Status: functional CMOS inverter ONLY demonstrated (NOT a chip, NOT a node yet)
+- Commercialization: ~5 years (~2031); NO production partner named today
+- Existing partnerships: Rapidus (2nm joint dev Dec 2022; 1.4nm expansion June 2024) + Lam Research (5-year sub-1nm collab March 2026) + Samsung Foundry (historical 2021 2nm but now developing competing 3D Stacked FET = won VLSI 2026 Best Paper independently)
+- Stock: IBM +4-5% pre-market to $273-279 (concurrent JPMorgan upgrade June 23 + Palo Alto deal driving most of move)
+- Foundry winner cascade (my model): Rapidus P~55% / Samsung Foundry P~20% / TSMC P~10% / Intel Foundry P~10% / other P~5%
+
+**Per-subagent yield:** Subagent 8 = **HIGH** — IBM NanoStack verified; foundry winner cascade complete; cohort cascade complete; VLSI 2026 convergence insight (3 architectural innovations same venue same week = denser-than-usual architectural-innovation surface; reinforces Round 3 unknown-unknown breakthrough register)
+
+**Brief-framing errors caught:** 2 this round (both attribution/wrong-recall corrections continuing 7-day pattern):
+1. **User self-correction "IBM not Qualcomm"** (user-side Critical Rule #11) — earlier Round 3 reference was "1nm Qualcomm" which was Qualcomm = HBC not 1nm; user re-corrected to "IBM NanoStack 0.7nm" which Subagent 8 verified
+2. Pre-training likely default would have been "IBM 1nm = production node" — Subagent 8 verified actually research-stage functional inverter only, ~2031 commercialization — correct hedge applied
+
+**Thesis cascade triggered:**
+- `companies/HYNIX/thesis.md` — PM Round 4 cross-ref with POS +1 long-tail (HBM demand from NanoStack-class density 2028-2031); commercialization ~2031 not near-term trade catalyst
+- `companies/KIOXIA/thesis.md` — PM Round 4 cross-ref with POS +2 STRONGEST cohort beneficiary (Rapidus JV original shareholder + Japan supply-chain proximity + VLSI 2026 same-week structural-innovation surface validates KIOXIA's MSA-CBA leadership)
+- `companies/NBIS/thesis.md` — PM Round 4 cross-ref with POS +1 (PC-14 Sovereign-AI Bifurcation N=9+ reinforced via US-Japan sub-1nm ecosystem)
+- `companies/MURATA/thesis.md` — PM Round 4 cross-ref with POS +1 WATCH (Japan substrate/passive demand from Rapidus pipeline)
+- `companies/SUMCO/thesis.md` — PM Round 4 cross-ref with POS +1 WATCH (300mm wafer demand from Rapidus pipeline)
+
+**Position implication delta:** NONE today — all positions HOLD; 3 NEW POS reinforcements (HYNIX +1 long-tail / KIOXIA +2 strongest / NBIS +1 PC-14) + 2 NEW WATCH FLAGS (MURATA + SUMCO Japan supply-chain ecosystem); commercialization ~2031 = quarterly monitor cadence
+
+**Material yield class:** **HIGH** (aggregate — IBM NanoStack verified + KIOXIA strongest cohort beneficiary identified via Rapidus JV linkage + VLSI 2026 convergence insight + 2 Japan supply-chain WATCH flags + L29 N=3 demonstration of methodological preference)
+
+**Audit-day classification:** **POSITIVE** — Rule #16 earning cost; verification subagent verified actual IBM substance (not user's wrong-attribution Qualcomm path); KIOXIA dual-beneficiary insight (Rapidus JV + Japan supply-chain) would NOT have been caught without verification; cost-per-correction ~27k tokens
+
+**L29 methodological preference N=3 demonstration:**
+- User shared assumption (Qualcomm 1nm — wrong)
+- Subagent 7 verified actual Qualcomm substance (HBC not 1nm — Round 3 cascade)
+- User self-corrected attribution (IBM not Qualcomm)
+- Subagent 8 verified actual IBM substance (NanoStack research-stage not production node — Round 4 cascade)
+- **Pattern: verification regime is SYMMETRIC (works for me + works for user); discipline = trust nobody including yourself; verify hard data first**
+
+**Cross-source-log:**
+- `signals/cross-source-log/2026-06-25-pm-subagent-8-ibm-1nm-announcement-cascade-verification.md`
+- `signals/cross-source-log/2026-06-25-pm-integrated-synthesis-round4-ibm-nanostack-cascade.md`
+
+**Commit:** {SHA-pending}
+
+---
+
 ### [2026-06-25 PM ROUND 3 — User pushback Subagent 7 Qualcomm HBC cascade + China-export-controls geopolitical insight + methodological preference L29 + unknown-unknown breakthrough register] User pushback to morning verification → 1 verification subagent (Opus 4.8 explicit model param) on user-requested Qualcomm news + 3 META-insights cascaded; ~66.5k subagent_tokens; HIGH yield — Qualcomm announcement materially DIFFERENT from user's "1nm" recall (actual = HBC memory architecture + Meta CPU + MSFT Azure + Humain Saudi + Modular acquisition); 2 NEW STRUCTURAL FALSIFIERS surfaced (HBM→HBC bifurcation 2028+ + Modular MAX anti-CUDA); 2 NEW STRUCTURAL DEFENSES surfaced (China-export-controls reciprocal regime + Jevons-confirmation H1 dominance); 2 NEW WATCH FLAGS added (HYNIX HBC validation + MRVL stacked threats); 1 NEW POSITIVE OPTION VALUE flag (NBIS QCOM rack potential); 2 lesson codifications added (L28 Jevons + L29 methodological); ZERO position changes; user "1nm" recall WRONG = N=4 in last 7 days of verification-subagent catching user-shared assumption errors
 
 **Trigger source:** User pushback round 3, 2026-06-25 PM, comprising 4 distinct threads: (1) methodological preference verbatim *"I would much rather you extrapolate using your own inference, your LLM native reasoning than reason from a human based starting point"*; (2) China-side export controls insight verbatim *"why would China try to sell that cheaper memory or DRAM or HBM to the US?"*; (3) unknown-unknown breakthrough risk verbatim *"the biggest risk is the unknown unknown finders"*; (4) Qualcomm news cascade request verbatim *"there was another announcement today from Qualcomm... they are moving to, like, one nanometer chips... Run a research agent on the Qualcomm news"*
