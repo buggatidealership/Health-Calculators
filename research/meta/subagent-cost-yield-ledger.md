@@ -96,6 +96,60 @@
 
 ## Entries (most recent first)
 
+### [2026-06-25 PM ROUND 5 — User-shared 2 screenshots (Chinese article continuation + SK Securities Korean note) + Subagent 9 verification + TC-12 NEW + PC-15 candidate] User-shared 2 screenshots post-canonical-portfolio-update with explicit L29 directive ("look at the claim, look at our truth, do your own experiments") → 1 Opus 4.8 subagent (explicit model param); ~95.6k subagent_tokens / 26 tool uses; HIGH yield — Mehrotra CEO T1 smoking-gun "non-HBM margins higher than HBM" + SK Securities Korean note Han Dong-hee + Park Jong-seon EXISTS-VERIFIED via N=5+ Korean media triangulation + HBM4 pricing math correction (article 4× UNDERSTATES; reality is 6-8× market price) + NEW CXMT HBM3 Tier-1 OEM qualification falsifier-watch + TC-12 NEW "DRAM>HBM Margin Inversion in Upcycle" ACTIVE N=4 + PC-15 CANDIDATE "Bottleneck-Wealth-Migration as Re-rating Mechanism" N=1 WATCH; HYNIX 22.3% Core EX REINFORCED at structural level; ZERO position changes; SNDK CORE 13.1% (added earlier today) STRUCTURALLY VALIDATED within hours of user-actioned ADD
+
+**Trigger source:** User-shared 2 screenshots 2026-06-25 PM (after canonical portfolio update committed dcdd60a9): (1) Chinese article continuation 6-claim DRAM-complex re-rate framework; (2) SK Securities (SK증권) 2026-06-15 research note "반도체 부의 이동: 병목 생산의 가치" by Han Dong-hee + Park Jong-seon. User explicit L29 directive applied throughout.
+
+**Subagents fired:** 1 (Opus 4.8 explicit `model: 'opus'` parameter):
+- Subagent 9: SK Securities Korean note + Chinese article DRAM-complex claims verification (Opus 4.8 ✓)
+
+**Estimated token cost:** ~95.6k actual subagent_tokens / 26 tool uses / 435s duration
+
+**Items verified (15+ load-bearing claims):**
+
+**Screenshot 1 — Chinese article continuation 6 claims:**
+- Claim 1 (HBM4 = DRAM × 4): **FIND DIFFERENCE** — 4× is wafer-intensity + cost multiplier; market price multiplier is **6-8×** per Silicon Analysts + SemiAnalysis; article UNDERSTATES the actual premium
+- Claim 2 (HBM/DRAM fungibility unified re-rate): AGREE-HIGH (Micron 3:1 wafer ratio + SK Hynix HBM3E→DDR5 conversion)
+- Claim 3 (DRAM margin >> HBM margin in upcycle): **AGREE-HIGH at CEO-T1 level** — **Mehrotra Q1/Q2 FY26 transcripts verbatim "non-HBM margins higher than HBM"; DDR5 ~90% OP margin vs HBM ~70%** (SMOKING-GUN T1 CEO verification of the most counter-intuitive claim in the article)
+- Claim 4 (HBM LTA margin guarantee): AGREE-HIGH (2026 + next 3 years sold out per SK Hynix Q4'25 call)
+- Claim 5 (HBM price drop → GPU OEMs upgrade size → DRAM floor): AGREE-MEDIUM (Jevons mechanism L28; HBM4 currently rising not dropping = trigger not fired)
+- Claim 6 (≥5-year DRAM cycle-trough resistance, 4 sub-reasons): AGREE-HIGH (3 of 4); 6d PARTIAL — **NEW BEAR VECTOR: CXMT HBM3 ramp 5→55kwspm 2026-27 + Tier-2 OEM exploration (HP/Dell/Acer/Asus)** = MEDIUM bear vector NOT captured in morning verification or Round 3
+
+**Screenshot 2 — SK Securities Korean note:**
+- Source EXISTS-VERIFIED N=5+ Korean media triangulation; sks.co.kr direct PDF 403'd
+- Authors Han Dong-hee + Park Jong-seon (Jemin Park) VERIFIED via @DrNHJ Twitter T2 attribution
+- Bias: SK Group affiliate (chaebol conflict with SK Hynix) — T2-with-conflict, weight 0.7×
+- Cross-name endorsements (Samsung KRW 610k + SK Hynix KRW 4M PTs) demonstrate framework calibration
+- Han Dong-hee track record: ahead of consensus on structural re-rating since 2024
+- Thesis (synthesized from May 7 / May 28 / June 8 / June 15 cluster): (1) AI as terminal innovation → wealth migration to bottleneck producers structural; (2) PBR→PER methodology switch (removing cyclical-discount = structural re-rate); (3) memory as scarcity-rent asset (TSMC/ASML-style); (4) AI Hierarchy redefinition required
+- SK Hynix PT KRW 4M (~10× upside vs current ~KRW 369K) = base-rate-consistent per B45 regime priors not "stretched"
+
+**Per-subagent yield:** Subagent 9 = **HIGH** — Mehrotra T1 CEO smoking-gun upgrades Chinese article claim #3 from MEDIUM-DIRECTIONAL to HIGH-T1-VERIFIED; HBM4 pricing math correction (4× cost vs 6-8× price); SK Securities thesis aligned with PC-14 + TC-1 frameworks; new CXMT HBM3 Tier-1 OEM qualification falsifier-watch; TC-12 NEW promotion N=4 ACTIVE; PC-15 CANDIDATE N=1 WATCH
+
+**Brief-framing errors caught:** 1 article math correction + 1 new bear vector surfaced:
+1. **HBM4 "4×" multiplier UNDERSTATES** — article confuses cost-multiplier (4×) with price-multiplier (6-8×); reality is MORE bullish than article framing
+2. **CXMT HBM3 Tier-2 OEM exploration** (HP/Dell/Acer/Asus) NOT captured in morning verification or Round 3 — Subagent 9 surfaced this as MEDIUM bear vector requiring active quarterly monitoring
+
+**Thesis cascade triggered:**
+- `companies/HYNIX/thesis.md` — PM Round 5 cross-ref: Mehrotra T1 smoking-gun + HBM4 pricing correction + SK Sec corroboration + TC-12 NEW + PC-15 CANDIDATE + NEW CXMT HBM3 Tier-1 OEM qualification falsifier-watch
+- `companies/KIOXIA/thesis.md` — PM Round 5 cross-ref: TC-12 NAND analog + Mehrotra NAND-demand T1 + SK Sec PBR→PER framework applies symmetrically
+- `companies/SNDK/thesis.md` — PM Round 5 cross-ref: today's user-actioned ADD STRUCTURALLY VALIDATED within hours via Mehrotra T1 + TC-1 N=14+ + TC-12 NEW
+- `signals/triangulation.md` — TC-12 NEW ACTIVE entry added
+
+**Position implication delta:** NONE today — all positions HOLD; SNDK CORE 13.1% (added earlier today) now structurally VALIDATED at T1 CEO level within hours of execution = high-quality decision; NEW CXMT HBM3 Tier-1 OEM qualification falsifier-watch added quarterly for HYNIX
+
+**Material yield class:** **HIGH** (aggregate — Mehrotra T1 CEO smoking-gun + HBM4 pricing correction + SK Sec verification + 2 new TC/PC promotions + NEW falsifier-watch + 3 cohort thesis cascades all in one subagent fan-out)
+
+**Audit-day classification:** **POSITIVE** — Rule #16 earning cost; Subagent 9 surfaced (a) Mehrotra CEO T1 smoking-gun would not have been found via solo analysis, (b) HBM4 pricing math correction prevents article-claim propagation as MORE-bullish than reality framing, (c) NEW CXMT HBM3 Tier-1 OEM qualification falsifier-watch genuinely new bear vector, (d) SK Sec Korean source verification including bias disclosure; cost-per-correction ~24k tokens
+
+**Cross-source-log:**
+- `signals/cross-source-log/2026-06-25-pm-subagent-9-sk-securities-korean-note-chinese-article-continuation-verification.md`
+- `signals/cross-source-log/2026-06-25-pm-integrated-synthesis-round5-sk-securities-chinese-continuation.md`
+
+**Commit:** {SHA-pending}
+
+---
+
 ### [2026-06-25 PM ROUND 4 — User self-correction "IBM not Qualcomm" + Subagent 8 IBM NanoStack 0.7nm cascade] User self-corrected wrong-ticker attribution → 1 fresh Opus 4.8 verification subagent (explicit model param); ~54.3k subagent_tokens / 20 tool uses; HIGH yield — IBM NanoStack 0.7nm (VLSI 2026 same venue as KIOXIA MSA-CBA) verified; foundry winner cascade favors Rapidus P~55% (my model) = KIOXIA STRONGEST cohort beneficiary as Rapidus JV original shareholder + Japan supply-chain proximity; HYNIX POS +1 long-tail (HBM demand from NanoStack-class density 2028-2031); NBIS POS +1 (PC-14 Sovereign-AI Bifurcation reinforced); MURATA + SUMCO POS +1 WATCH (Japan substrate/wafer demand from Rapidus pipeline); commercialization ~2031 = NOT near-term trade catalyst; ZERO position changes; user self-correction is N=5 in 7 days of verification regime catching attribution errors (Subagent 1 Samsung stale + Subagent 5 CXMT capacity REFUTED + Subagent 6 SSM conflation + Subagent 7 user "1nm Qualcomm" → user self-corrected → Subagent 8 IBM actual)
 
 **Trigger source:** User self-correction 2026-06-25 PM verbatim: *"I got it wrong. It was IBM, not Qualcomm"* — referring to earlier "1nm announcement" reference. Critical Rule #11 self-correction applied by user (symmetric demonstration).

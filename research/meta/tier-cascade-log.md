@@ -35,6 +35,43 @@
 
 ## Entries (most recent first)
 
+### [2026-06-25 PM ROUND 5 — User-shared 2 screenshots + Subagent 9 SK Sec Korean note + Chinese article continuation + TC-12 NEW + PC-15 candidate] 🟢 User-shared 2 screenshots (Chinese article continuation + SK Sec Korean June 15 note) with explicit L29 directive → 1 Opus 4.8 subagent (explicit model param); ~95.6k tokens; HIGH yield — Mehrotra CEO T1 smoking-gun "non-HBM margins higher than HBM" (DDR5 ~90% OP vs HBM ~70%) upgrades Chinese article claim #3 to T1; HBM4 pricing math correction (4× cost vs 6-8× price); SK Sec verified N=5+ Korean media; TC-12 NEW ACTIVE N=4; PC-15 CANDIDATE N=1 WATCH; NEW CXMT HBM3 Tier-1 OEM qualification falsifier-watch; HYNIX 22.3% Core EX REINFORCED; ZERO position changes; SNDK CORE 13.1% (added today) STRUCTURALLY VALIDATED within hours
+
+**Trigger source:** User-shared 2 screenshots 2026-06-25 PM (after canonical portfolio update dcdd60a9): Chinese article continuation 6-claim DRAM-complex re-rate + SK증권 (SK Securities) 2026-06-15 research note Han Dong-hee + Park Jong-seon "반도체 부의 이동: 병목 생산의 가치". User explicit L29 directive applied throughout.
+
+**Intake tier:** 🟢 HARD on Subagent 9 (Mehrotra T1 CEO transcripts + SK Hynix Q1 2026 IR + Silicon Analysts + SemiAnalysis + TrendForce + N=5+ Korean media triangulation); 🟡 DIRECTIONAL on TC-12 NEW (4 same-segment data points but new cluster requires more time to validate falsifier mechanism); 🟡 DIRECTIONAL on PC-15 (N=1 WATCH; needs N=2 promotion criterion)
+
+**Source:** 2 cross-source-log artifacts (Subagent 9 + integrated synthesis Round 5); IBM Newsroom Mehrotra Q1/Q2 FY26 transcripts T1 + SK Hynix Q1 2026 IR T1 + 15+ T1/T2 sources cross-confirmed
+
+**Tier moves (scoped — only files actually touched):**
+- `companies/HYNIX/thesis.md` tail — new PM Round 5 cross-ref: Mehrotra T1 smoking-gun (DRAM>HBM margin in upcycle CONFIRMED CEO-T1); HBM4 pricing math correction (6-8× price vs 4× cost — article UNDERSTATES); SK Sec PBR→PER methodology switch corroboration; TC-12 NEW ACTIVE; PC-15 CANDIDATE; **NEW CXMT HBM3 Tier-1 OEM qualification falsifier-watch added quarterly** (HP/Dell/Acer/Asus exploration + 5→55kwspm ramp 2026-27); 🟢 HOLD 22.3% L3 Core EXCEPTION unchanged
+- `companies/KIOXIA/thesis.md` tail — new PM Round 5 cross-ref: TC-12 NAND analog + Mehrotra NAND-demand T1 + SK Sec PBR→PER framework symmetric to KIOXIA; 🟢 HOLD Core 14.0% unchanged
+- `companies/SNDK/thesis.md` tail — new PM Round 5 cross-ref: today's user-actioned ADD (4→9 sh) STRUCTURALLY VALIDATED within hours via Mehrotra T1 + TC-1 + TC-12 NEW; 🟢 HOLD CORE 13.1% unchanged
+- `signals/triangulation.md` — TC-12 NEW ACTIVE entry added (DRAM>HBM Margin Inversion in Upcycle, N=4, memory-and-storage segment)
+
+**Files NOT touched (no claim intersection):** `companies/MURATA/thesis.md`, `companies/SUMCO/thesis.md`, `companies/MRVL/thesis.md`, `companies/NBIS/thesis.md` (Round 5 finding is memory-margin-specific; orthogonal to passives / wafer / custom XPU / compute aggregator)
+
+**Stale flags fired:** None
+
+**Critical Rule #16 verification regime track record (7-day rolling):** N=6 brief-framing errors / corrections caught by verification subagents in last 7 days now (added Round 5 Subagent 9: HBM4 pricing math correction 4× cost vs 6-8× price + NEW CXMT HBM3 Tier-1 OEM falsifier-watch). Verification regime continues working as designed; Subagent 9 cost-per-correction ~24k tokens.
+
+**Critical Rule #11 AUTO-EXECUTE STRENGTHENING — same-day-validation visible:** User executed SNDK ADD 4→9 shares earlier today (per dcdd60a9 commit); within hours, Subagent 9 returns Mehrotra T1 CEO smoking-gun + TC-12 NEW that STRUCTURALLY VALIDATES the trade decision at T1 level. Pattern: user-action discipline + harness verification regime convergence within same trading day = high-quality decision compound.
+
+**New monitor items registered:**
+1. **CXMT HBM3 Tier-1 OEM qualification by Q4 2026 (NEW falsifier-watch)** — 5→55kwspm ramp + Tier-2 exploration (HP/Dell/Acer/Asus); if any Tier-1 (NVDA / AMD / GOOGL TPU) qualifies CXMT HBM3, HYNIX moat breach
+2. **SK Hynix HBM4 ramp slowdown for DDR5 profits watch** — TrendForce 2026-06-23 + CryptoBriefing + OC3D triangulation; if SK Hynix REVERSES the slowdown signal, TC-12 weakens
+3. **Han Dong-hee bull bias as peak-cycle indicator** — Korean sell-side analyst exuberance preceding peak documented pattern; if SK Sec PT raises continue accelerating, peak-cycle signal candidate
+4. **PC-15 Bottleneck-Wealth-Migration as Re-rating Mechanism** — N=1 WATCH; needs N=2 parallel to ASML/TSMC scarcity-rent re-rate cycles for codification
+
+**Codification candidates surfaced (for next monthly audit):**
+- TC-12 NEW ACTIVE: "DRAM>HBM Margin Inversion in Upcycle" N=4 — already added to triangulation.md this commit; first monthly audit due 2026-07-25 (30 days)
+- PC-15 CANDIDATE: "Bottleneck-Wealth-Migration as Re-rating Mechanism" N=1 WATCH — to be added to cross-domain-pattern-register on N=2 promotion
+- L30 candidate: User explicit directive 2026-06-25 "look at the claim, look at our truth, do your own experiments, agree / disagree / find differences" = methodological framework for verification subagent prompt engineering (extends L29 with explicit comparative-analysis output structure)
+
+**Commit:** {SHA-pending}
+
+---
+
 ### [2026-06-25 PM ROUND 4 — User self-correction "IBM not Qualcomm" + Subagent 8 IBM NanoStack 0.7nm cascade] 🟢 User self-correction (Critical Rule #11 user-side) → 1 fresh Opus 4.8 subagent (explicit model param); ~54.3k tokens; HIGH yield — IBM NanoStack 0.7nm at VLSI 2026 Hawaii (SAME venue as KIOXIA MSA-CBA) verified; foundry winner cascade Rapidus P~55% = KIOXIA STRONGEST cohort beneficiary (Rapidus JV original shareholder + Japan supply-chain proximity); HYNIX POS +1 long-tail; NBIS POS +1 PC-14 reinforced; MURATA + SUMCO POS +1 WATCH; commercialization ~2031 = NOT near-term trade catalyst; ZERO position changes; user self-correction is N=5 in 7 days of verification regime catching attribution/substance errors
 
 **Trigger source:** User self-correction 2026-06-25 PM verbatim: *"I got it wrong. It was IBM, not Qualcomm"* — referring to earlier "1nm announcement" reference. Symmetric Critical Rule #11 application (user side this time).
