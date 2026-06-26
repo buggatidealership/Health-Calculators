@@ -809,3 +809,30 @@ In the current AI-supercycle regime (B45 codified 2026-06-12), the per-quarter b
 - Critical Rule #15 (MACRO-FIRST research-anchored) — codified rule
 - `signals/cross-source-log/2026-06-25-pm-integrated-synthesis-user-pushback-round3-qualcomm-china-methodological.md`
 - LLM-native priming hook (companion enforcement mechanism)
+
+---
+
+## L30 (NEW positive lesson CANDIDATE — origin 2026-06-26 KIOXIA VLSI Symposium prediction grade)
+
+**The lesson (1 sentence):** In B45-confirmed supercycle regime, when L26 trend-break + B45 supercycle base rates + L14 CATEGORY-EVENT framework all apply simultaneously to a Stage 3-4 name, the H1 magnitude band MUST be FLOORED by the L26+B45 supercycle distribution (+25-50% T+72h) NOT the pre-supercycle L14 codified band (+12-22%), because cohort-wide supercycle base rates DOMINATE pre-training band priors even after PM-2 reweight reads them right directionally.
+
+**Origin (2026-06-26):** KIOXIA VLSI 2026 prediction graded H1 FIRED at +38.8% T+72h (¥81,200 → ¥112,700 ATH June 22) — direction CORRECT but magnitude UNDER-CALLED by 14-26pp vs pre-registered H1 extension band of +25-35%. 3-layer GRADE: INPUT layer NO failure; COMPUTATION + REASONING joint MILD failure = framework-composition gap (each lesson L14 + L26 + B45 existed individually; none compounded into band calibration).
+
+**Co-occurring cohort signal:** 4-name memory cohort same-day ATH June 22 (KIOXIA ¥112,700 + SNDK $2,273.73 + MU $1,211.38 + SK Hynix ₩2,945,000) = TC-1 Memory Tightness cluster-state event N=13+ promotion. Magnitude reinforced by cohort beta.
+
+**Generalizable rule:** When predicting magnitude in supercycle regime, FLOOR the H1 extension band at B45 cohort base rate (6/15 names >+200% Jan 2025-Jun 2026 = ~+50% per 12mo ≈ ~+25-50% on 5-10 trading day catalyst windows for Stage 3-4 names) — do NOT anchor on pre-supercycle L14 codified bands (+12-22%) which capture pre-AI-supercycle-regime distributional priors.
+
+**Promotion criteria (N=2+):**
+- Next 2 Stage 3-4 supercycle BEAT+CATEGORY tests: MU Q3 FY26 (already printed; was +14% AH cohort move — partially confirms); HYNIX Q2 (next); MURATA Q1 FY27 print late July
+- If magnitude lands in +25-50% range → L30 promotes to CODIFIED
+- If magnitude lands <+15% on 2 consecutive tests → L30 OVER-FIT to Kioxia; retire
+
+**Cross-ref:**
+- L14 ORIGINAL CONFIRMED at N=3 (NVDA + HPE + Kioxia); L14-v2 candidate REFUTED at N=1 by Kioxia (likely regime-dependent — fails in 2026 supercycle)
+- B45 (regime-corrected priors) EMPIRICALLY VALIDATED at N=1 (PM-2 reweight was direction-correct)
+- L26 (trend-break framework) — co-applicable; needs explicit fusion with L14 magnitude bands
+- TC-1 Memory Shortage Triangulation N=13+ post-cohort-ATH-cluster-event
+- `signals/cross-source-log/2026-06-26-am-subagent-12-kioxia-vlsi-symposium-prediction-grade.md`
+- `predictions/2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md`
+
+**Status:** CANDIDATE N=1 origin 2026-06-26; next empirical resolution = next Stage 3-4 supercycle CATEGORY-EVENT prediction.

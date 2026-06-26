@@ -72,3 +72,52 @@ When a resolution date hits:
 4. Append lesson to `lessons.md` if a generalizable insight emerged
 5. Update bias entries in `biases-watchlist.md` if a new pattern was revealed
 6. Move row from Pending to Graded with link to grading doc
+
+---
+
+## [2026-06-26 GRADED] KIOXIA-VLSI-symposium-pre-registration (2026-06-12)
+
+**Status:** GRADED (4-7 days late vs T+24h/T+72h windows)
+**Pre-registration:** `predictions/2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md`
+**Grade artifact:** `signals/cross-source-log/2026-06-26-am-subagent-12-kioxia-vlsi-symposium-prediction-grade.md`
+
+**Predicted (4 hypotheses):**
+- H1 (P~45% post-PM2 reweight): Material validation + +12-22% T+24h / extension +25-35% T+72h
+- H2 (P~25%): Partial validation + flat-to-+8%
+- H3 (P~20%): Catalyst surprise / HBF disclosure
+- H4 (P~10%): Yield/warpage disappointment
+
+**Actual outcome:**
+- T+0 (June 16 Mon VLSI Day 3 close): ¥94,720 (+16.6% vs ¥81,200 anchor)
+- T+24h (June 19 Thu close): >¥100,000 (+23.2%) — within H1 band
+- **T+72h (June 22 Mon close): ¥112,700 ALL-TIME HIGH = +38.8%** — exceeded H1 extension band by 14-26pp
+
+**Fundamental gates (2.5/4 met = materially validates):**
+- (a) BiCS10 332-layer specs: YES (T1 — +59% density / Toggle DDR 6.0 4.8 Gbps)
+- (b) 1,000-layer roadmap firm date: PARTIAL (milestone toward >1,000 via MSA-CBA QLC; 2031 reiterated not accelerated)
+- (c) Hyperscaler customer named: NO (clear no-fire)
+- (d) QLC operation at stack-bonded layer count: YES (T1 — world-first QLC on MSA-CBA via Cu wafer-to-wafer direct bonding)
+
+**Cohort same-day ATH (June 22, critical finding):**
+- KIOXIA 285A.T ¥112,700 + SNDK $2,273.73 + MU $1,211.38 + SK Hynix ₩2,945,000 — ALL FOUR memory names ATH same day = TC-1 cluster-state event (N=13+)
+
+**Verdict: H1 FIRED — direction RIGHT + magnitude UNDER-CALLED.**
+
+**3-layer GRADE diagnostic:**
+- INPUT: NO failure (inputs current/complete/well-tagged; 12-day anchor verified; cohort beta noted; PM-2 correction applied)
+- COMPUTATION: MILD failure (under-modeled right tail; H1 extension band +25-35%; actual +38.8% breached by 3-14pp; L26 trend-break + B45 supercycle base rates NOT explicitly fused into magnitude floor)
+- REASONING: MILD failure (framework-composition gap — each lesson L14 + L26 + B45 existed individually; none compounded into band calibration)
+
+**Diagnostic test result:** Directionally RIGHT (H1 fired); magnitude UNDER-called by 14-26pp on T+72h; gap explained by COMPUTATION + REASONING jointly (band-compression because L26+B45 not fused into floor).
+
+**L17 candidate test N=1 resolution:**
+- L14 ORIGINAL CONFIRMED at N=1 forward (Kioxia is the case); L14 now N=3 codified (NVDA + HPE + Kioxia)
+- L14-v2 candidate REFUTED at N=1 (12% pre-event rally did NOT offset BEAT+CATEGORY signal); L14-v2 likely REGIME-DEPENDENT (held in pre-supercycle; fails in 2026 supercycle)
+- B45 PM-2 reweight back to H1-modal EMPIRICALLY VALIDATED
+
+**L30 candidate codified** (see lessons.md): in B45-confirmed supercycle regime + L26 trend-break + L14 CATEGORY-EVENT framework simultaneously applying to Stage 3-4 name, H1 magnitude band MUST be FLOORED by L26+B45 supercycle distribution (+25-50% T+72h) NOT pre-supercycle L14 codified band (+12-22%).
+
+**Position implication: HOLD all current positions; NO retroactive cascade to KIOXIA/SNDK thesis tier; document under-call as REASONING-layer calibration data point.** Pre-reg Option B (reactive post-T+24h entry) was directionally correct but cost ~36pp upside vs Option A; epistemically defensible 9 days post-AVGO-L14-falsification. Lesson is forward-looking — L30 means future predictions get +25-50% magnitude floor, NOT regret-driven retroactive tier change.
+
+**Status: ✅ GRADED (T+0 fundamental + T+24h + T+72h stock-reaction)**
+
