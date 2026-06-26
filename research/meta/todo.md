@@ -50,7 +50,7 @@
   - Linked: `meta/structural-winners-cohort.md` (THE list); `signals/cross-source-log/2026-06-08-*` (all today's cascades supporting the synthesis)
   - Detectability: dissection produces (a) investability confirmation per name, (b) updated tier ranking if new data emerges, (c) 1-2 thesis-promotion candidates ready for deep-dive
 
-- [ ] **P1 / research / 2026-06-25** [INDP, AF, POS, BOT] — Monthly recurring: Supply chain graph reconstruction (H1 capability application)
+- [x] **P1 / research / 2026-06-25** [INDP, AF, POS, BOT] — Monthly recurring: Supply chain graph reconstruction (H1 capability application)
   - Origin: 2026-06-06 PM user conversation re: Opus 4.8 capability mapping to investing (analog: Hornby+Claude Zcash audit). H1 of 5 candidate applications scored highest leverage. Codifies as monthly subagent-driven workflow.
   - Scope: subagent fans out across the AI hardware capex chain (compute → memory → substrate → CCL → power → cooling → optics → consumer-AI add-on). Reads 10-K/6-K/earnings transcripts + Japanese/Korean/Chinese trade press in parallel per Critical Rule #6 + Principle #36. Reconstructs Tier-3/Tier-4 supplier graph with revenue concentration + named customers. Surfaces 5-10 non-consensus names per cycle that meet (a) investability filter (no KRX-only, no Taiwan-only without ADR), (b) revenue concentration to AI cohort >25%, (c) market cap <$50B (under-followed).
   - Output: cross-source-log artifact + candidates added to watchlist + flag for next deep-dig queue.
@@ -58,7 +58,7 @@
   - Detectability: POSITIVE = each cycle surfaces ≥3 names not already in watchlist; NEGATIVE = 2 consecutive cycles produce only known names → retire or refine.
   - Recurring cadence: monthly. Next cycle: 2026-07-25.
 
-- [ ] **P1 / research / 2026-06-27** [INDP, AF, POS, CAL] — Monthly recurring: Adversarial bear-case stress-test on held cohort (H2 capability application)
+- [x] **P1 / research / 2026-06-27** [INDP, AF, POS, CAL] — Monthly recurring: Adversarial bear-case stress-test on held cohort (H2 capability application)
   - Origin: 2026-06-06 PM user conversation re: Opus 4.8 capability mapping. H2 of 5 candidate applications — analog to Hornby's exploit construction VERIFYING the Zcash flaw. Per-held-name "kill the thesis" exercise.
   - Scope: for each of 10 held positions (per `portfolio/holdings.md`), subagent constructs the STRONGEST possible bear thesis — looks for the constraint-system flaw in current bull thesis. Stress-tests against: (a) named falsifier conditions (do any currently apply?), (b) hidden assumptions in segment-trajectory model, (c) competitive displacement risk overlooked, (d) macro regime modifier compounding, (e) valuation expansion vs fundamentals gap. Output: per-name bear-case stress-test note appended to `companies/{TICKER}/thesis.md` with explicit "what specifically would need to happen to invalidate" — different from existing Falsifiers section because it's adversarial-construction not threshold-listing.
   - Output: per-held-name bear-case section added; if bear case scores ≥6/10 strength, flag for SCENARIO-UPDATE or sizing reconsideration with explicit Position implication (Critical Rule #11).

@@ -469,3 +469,79 @@ Grep "self-correction" / "self-correct" across `companies/*/thesis.md` + `meta/t
 
 **Commit:** {SHA-pending}
 
+
+---
+
+### 5. Monthly Supply Chain Graph Reconstruction H1 (P1 OVERDUE 1d) — FIRST CYCLE
+
+**Subagent H1** (Opus 4.8 explicit, ~171.9k tokens / 44 tool uses / 454s duration). Full deliverable: `signals/cross-source-log/2026-06-26-am-subagent-h1-monthly-supply-chain-graph-reconstruction-first-cycle.md`.
+
+**Detectability verdict: POSITIVE** — ≥3 new names threshold MET (5 qualifying candidates surfaced). Workflow earns its keep on first cycle.
+
+**5 NEW qualifying candidates (all US-listed via DeGiro or Japan TSE accessible):**
+- P1: MITSUI KINZOKU (5706.T, ~$11.5B) — ultra-thin Cu foil 98% global; HVLP2+ AI server CCL; FY26 NP +56%; PT raise ¥19K→¥34.5K
+- P1: CAMTEK (CAMT, $6-7B) — HBM inspection >40% share; $105M AI orders Jun 2026
+- P1: MODINE (MOD, $14.92B) — DC sales +158% YoY; $4B 3yr hyperscaler chiller; TC-13 N counter increment candidate
+- P2: FORMFACTOR (FORM, $11.06B) — probe cards; SK Hynix 29.5% revenue concentration
+- P2: POWELL INDUSTRIES (POWL, ~$10B) — TC-13 N counter increment candidate (was P3 yesterday); $400M+ largest DC order; bypass-route fit
+
+**Eliminated via investability filter:** Doosan/Hyosung/HD Hyundai/LS Electric (KRX-only); TUC/EMC/Elite Material (TWSE-only); Accelsius/ZutaCore/Hailo/SiMa.ai (private); Astera Labs ($68B over cap + previously held); Credo ($50.16B at threshold edge).
+
+**Workflow refinement for next cycle (2026-07-26):** JP/EN search weight 60/30; KR/ZH 10 combined; investability pre-filter earlier to avoid wasted verification cost on KRX/TWSE-only names.
+
+**TC cluster fits:**
+- TC-13 N=7+ POTENTIAL increment: POWL + MOD = N=9 candidates (pending user confirmation before promotion)
+- TC-1 N=19+ ADJACENT (substrate/test side): MITSUI KINZOKU + CAMTEK + FORMFACTOR
+
+**Position implication: NO ACTION today** — pure watchlist additions per workflow design.
+
+**Next cycle:** 2026-07-26 (monthly).
+
+---
+
+### 6. Adversarial Bear-Case Stress-Test H2 (P1 DUE 1d) — FIRST CYCLE
+
+**Subagent H2** (Opus 4.8 explicit, ~280.1k tokens / 26 tool uses / 484s duration). Full deliverable: `signals/cross-source-log/2026-06-26-am-subagent-h2-monthly-adversarial-bear-case-stress-test-first-cycle.md`.
+
+**Detectability verdict: POSITIVE** — bear scores span 4.0 points (2.5-6.5 range), varied outcomes (5× HOLD + 1× HOLD-elevated + 1× TRIM-WATCH + 1× SCENARIO-UPDATE flag); NOT decorative boilerplate.
+
+**Per-name bear scores + verdicts:**
+
+| Rank | Name | Bear /10 | Verdict | Tightened-gate |
+|---|---|---|---|---|
+| 1 | **MRVL** | **6.5** | **🔴 TRIM-WATCH FLAG FIRED** | Q2 FY27 print Aug-26: no new XPU socket = trim 44→22-28sh |
+| 2 | NBIS | 5.5 | 🟡 HOLD (binary) | T+5 grade TOMORROW; -15% from $275.50 by T+30 = trim |
+| 3 | SNDK | 4.5 | 🟡 HOLD (elevated) | -10%/30d w/o cohort drawdown = evaluate trim 9→4-6sh |
+| 4 | SUMCO | 4.0 | 🟢 HOLD | F1 supplier-discipline-break = primary trim trigger |
+| 5 | HYNIX | 3.5 | 🟢 HOLD Core EX | Samsung HBM share >40% by Q4 2026 = NEW falsifier |
+| 6 | KIOXIA | 3.0 | 🟢 HOLD | YMTC external Western hyperscaler eSSD win = falsifier elevation |
+| 7 | MURATA | 2.5 | 🟢 HOLD | Q1 FY27 late July blended ASP -1% = H1 price-story compresses |
+
+**Most material finding: MRVL 6.5/10 SCENARIO-UPDATE flag.** AWS Trainium 3 socket LOST to Alchip (verified T2 SemiAnalysis); root cause documented "poor execution on Trainium 2 + RDL interposer design problems"; Benchmark Cody Acree downgraded MRVL Buy→Hold on this loss. AWS T3 = 2.5M units. AVGO consolidating: Google (TPU v7+v8) + Meta (MTIA) + Anthropic (1GW→3GW+) + OpenAI Jalapeño (1.3GW→10GW). MRVL anchors: Amazon (T3 LOST) + MSFT Maia (execution-risk) + Google "inference talks early-stage." F-5 falsifier PARTIALLY FIRED. JPM PT $130 vs KeyBanc PT $385 = 2.0× B46 valuation-tension extreme.
+
+**Compound bear scenarios:**
+1. Memory Cohort Joint Falsifier — STATUS: NOT FIRING (different vectors; P all-three-simultaneously <10%)
+2. **MRVL + NBIS Compute-Tier #2 Consolidation** — POTENTIAL P~25-30% over Q3-Q4 2026 (combined 17.8% portfolio exposure to AVGO custom-ASIC consolidation + CoreWeave neocloud scale theme). **Action: register as quarterly review item.**
+3. Capex Deceleration 2027 Macro Tail — NOT a 2026 H2 bear; 2027-2028 horizon stress
+
+**Watch items added (per name):** 7 sets of pre-committed trim triggers + falsifier elevation events; full list in artifact + per-thesis cross-refs this commit.
+
+**Position implication summary:** 5 HOLD / 1 HOLD-elevated (NBIS) / **1 TRIM-WATCH (MRVL)**. SNDK CORE 13.1% (added yesterday) bear-elevated but within design (HBF + KIOXIA JV defenses intact).
+
+**Next cycle:** 2026-07-26 (monthly).
+
+---
+
+## Net consolidated audit batch verdict (final)
+
+7 of 7 overdue items completed. Most material outcomes:
+1. **MRVL TRIM-WATCH FLAG installed** (bear 6.5/10; Q2 FY27 Aug-26 = decision gate)
+2. 5 new watchlist candidates surfaced (MITSUI KINZOKU + CAMTEK + MODINE + FORMFACTOR + POWELL); 2 are TC-13 N+1 candidates (POWL + MOD pending user confirmation)
+3. Memory cluster joint-falsifier NOT firing despite individual elevated bears (SNDK 4.5 + HYNIX 3.5 + KIOXIA 3.0) — different vectors not converging
+4. Two-bracket WEEK-3 plateau confirms hooks NOT priming-effective; 30-day close 2026-07-01 retire decision
+5. Rule #11 detectability POSITIVE-LITE; AUTO-EXECUTE STRENGTHENING STRONGLY POSITIVE; session-prime + cross-domain-pattern-register both PASS
+
+H1 + H2 + light audits combined token cost: ~452k subagent tokens + inline analysis. Critical Rule #16 cost-yield POSITIVE across both heavy subagents.
+
+**Commit:** {SHA-pending}
+

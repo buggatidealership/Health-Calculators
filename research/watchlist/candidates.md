@@ -1567,3 +1567,64 @@ Per `signals/cross-source-log/2026-06-18-am8-evening-brief-2subagent-anthropic-s
   - **Investability verdict:** ACCESS CONFIRMED (NASDAQ via DeGiro)
 
 **Cluster sizing discipline:** if user enters TC-13 power cohort, target combined cluster sizing 5-10% of total portfolio per Conviction Format Active tier band; do NOT individually overweight any single name without independent thesis-build (per Workflow #4 PREDICT pre-action requirement). Memory cluster overweight 58.9% already at structural conviction tier; adding power cluster as Active 5-10% would complement memory thesis without over-concentrating any single layer. Cash buffer ~€10,277 currently = sufficient for ONE Active-tier entry (~€8-10K position); NOT sufficient for multi-name cluster initiation in same trading session.
+
+---
+
+## 2026-06-26 AM H1 Monthly Supply Chain Graph Reconstruction (FIRST CYCLE) — 5 new candidates
+
+**Origin:** Subagent H1 (Opus 4.8 explicit, ~171.9k tokens / 44 tool uses) fanned out across 8 AI value-chain layers per Workflow #7 BOTTLENECK-FORECAST. **Detectability verdict: POSITIVE** — ≥3 new names surfaced (5 qualifying) on first cycle = workflow earning its keep. Full deliverable: `signals/cross-source-log/2026-06-26-am-subagent-h1-monthly-supply-chain-graph-reconstruction-first-cycle.md`.
+
+**Workflow refinement noted:** Native-JP search produced 2 of 5 strongest leads → Principle #36 multilingual mandatory validated. KR/ZH searches hit investability walls — next cycle (2026-07-26) weight JP/EN 60/30; KR/ZH 10 combined.
+
+### P1 (top priority)
+
+- **🟡 MITSUI KINZOKU (5706.T, Japan TSE, ~$11.5B mkt cap) — WATCHLIST-ADD P1 — 2026-06-26 AM H1**
+  - Theme: 98% global ultra-thin copper foil share; 60% HVLP2+ for AI server CCL; substrate-side TC-1 adjacent
+  - Source signal: FY26 net profit revised +56%; US broker PT raised ¥19,000 → ¥34,500 April 2026 = Stage 1-2 rerating early
+  - Trigger criterion for entry: Q1 FY27 print HVLP4 ramp confirmation OR pullback >15%
+  - L29 LLM-native inference: critical chokepoint at copper foil — HVLP2/3/4 grade needed for HBM4 high-frequency signal integrity; 98% global share = monopoly pricing power that gets repriced as AI CCL displaces commodity CCL
+  - Investability: ACCESS CONFIRMED (Japan TSE 5706 via DeGiro — analogous to MURATA + SUMCO precedent)
+
+- **🟡 CAMTEK (CAMT, NASDAQ, ~$6-7B mkt cap) — WATCHLIST-ADD P1 — 2026-06-26 AM H1**
+  - Theme: >40% HBM inspection share; all 3 HBM makers (HYNIX + Samsung + Micron) as customers; test-side TC-1 adjacent
+  - Source signal: $105M AI orders June 2026 extending backlog into 2027
+  - Trigger criterion: Q2 CY26 print backlog extension OR new HBM customer disclosure
+  - L29 LLM-native inference: HBM4 stack-height + pin-count complexity makes inspection step rate-limiting; CAMTEK 40% share is structural moat
+  - Investability: ACCESS CONFIRMED (NASDAQ via DeGiro)
+
+- **🟡 MODINE (MOD, NYSE, $14.92B mkt cap) — WATCHLIST-ADD P1 — 2026-06-26 AM H1**
+  - Theme: Data center thermal management; DC sales +158% YoY Q4 FY26; $4B 3-year hyperscaler chiller deal (2027-29)
+  - Source signal: Legacy-auto label still discounts the AI-DC pivot
+  - Trigger criterion: FY27 Q1 print DC margin profile confirmation OR pullback >15%
+  - L29 LLM-native inference: AI DC cooling demand explosion + Modine's legacy thermal-mgmt expertise re-routed to DC = TC-13 cooling bottleneck #8 P=0.55 direct play; mis-categorized as "auto thermal" by screens
+  - Investability: ACCESS CONFIRMED (NYSE via DeGiro)
+  - **TC-13 N counter increment candidate** (currently N=7+; if MOD added = N=8 + POWL increment = N=9; pending user confirmation before promotion)
+
+### P2
+
+- **🟡 FORMFACTOR (FORM, NASDAQ, $11.06B mkt cap) — WATCHLIST-ADD P2 — 2026-06-26 AM H1**
+  - Theme: Probe cards; top-3 customers = 39.7% revenue (SK Hynix 29.5% + NVDA + Intel)
+  - Source signal: HBM4 pin count doubling = faster probe card replacement cycle
+  - Trigger criterion: Q2 CY26 HBM4 probe card revenue mix disclosure
+  - Investability: ACCESS CONFIRMED (NASDAQ via DeGiro)
+
+- **🟡 POWELL INDUSTRIES (POWL, NASDAQ, ~$10B mkt cap) — WATCHLIST-ADD P2 — 2026-06-26 AM H1 (PROMOTED from P3 yesterday)**
+  - Theme: Switchgear + modular substations; $400M+ largest-ever single DC order; $1.8B backlog +33% YoY
+  - Source signal: Behind-the-meter bypass-route fit per Critical Rule #9 (yesterday Round 6 bypass-route addendum)
+  - Trigger criterion: Q3 CY26 backlog acceleration OR second mega-DC order disclosure
+  - L29 LLM-native inference: NON-CONSENSUS switchgear + transformer modular substitute vs incumbents ETN/GEV; smaller cap = more torque
+  - Investability: ACCESS CONFIRMED (NASDAQ via DeGiro)
+  - **TC-13 N counter increment candidate** (POWL already P3-flagged yesterday; promotes to direct N+1 instance)
+
+### Investability-eliminated candidates (per L27 broker-availability filter)
+
+- **🔴 SKIP-INVESTABILITY:** Doosan Robotics / Hyosung / HD Hyundai / LS Electric (KRX-only)
+- **🔴 SKIP-INVESTABILITY:** TUC / EMC / Elite Material (TWSE-only without ADR)
+- **🔴 SKIP-PRIVATE:** Accelsius / ZutaCore / Hailo / SiMa.ai (private)
+- **🔴 SKIP-SIZE:** Astera Labs (ALAB, $68B mkt cap > $50B cap + previously held); Credo (CRDO, $50.16B at threshold edge)
+
+### Cluster sizing discipline note
+
+If user enters any of the 5 P1/P2 candidates, target combined TC-13 power-cluster + TC-1 memory-adjacent additions at 5-10% Active tier band. Cash buffer ~€10,277 (per holdings.md 2026-06-25 canonical) = sufficient for ONE Active-tier entry (~€8-10K); NOT sufficient for multi-name initiation in same trading session.
+
+**Next H1 cycle:** 2026-07-26 (monthly). Workflow refinement: JP/EN search weight 60/30; KR/ZH 10 combined; investability pre-filter applied earlier in workflow to avoid wasted verification cost on KRX/TWSE-only names.
