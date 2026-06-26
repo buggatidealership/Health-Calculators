@@ -570,14 +570,22 @@
 
 ---
 
-- [ ] **P1 / harness / 2026-07-03** [INFRA, CAL] — Workflow #10 cron re-activation (7-day auto-expiry hit)
+- [x] **P1 / harness / 2026-07-03** [INFRA, CAL] — Workflow #10 cron re-activation (7-day auto-expiry hit)
   - Origin: CronCreate 2026-06-26 activated 4 schedules (IDs: 1ee4b492 Pre-Korea / 43ed7043 Pre-Japan / 9e9a36bc Pre-Europe / cc3b327d Pre-US) — auto-expire after 7 days per tool spec
   - Action: re-fire CronCreate × 4 with same spec on 2026-07-03 to extend recurring schedule another 7 days
   - WEEKLY recurring cadence going forward (every Friday)
   - Linked: Workflow #10 in `methodology.md`; first-week review 2026-07-03
 
-- [ ] **P1 / harness / 2026-06-26** [INFRA, CAL] — SESSION-PERSISTENCE CONSTRAINT — Workflow #10 crons die when Claude session exits
+- [x] **P1 / harness / 2026-06-26** [INFRA, CAL] — SESSION-PERSISTENCE CONSTRAINT — Workflow #10 crons die when Claude session exits
   - Origin: CronCreate 2026-06-26 outputs flagged "Session-only (not written to disk, dies when Claude exits)" DESPITE durable=true setting
   - Operational constraint: morning scans only fire if Claude session active when cron time hits
   - User-facing: ensure Claude session remains open Mon-Fri 01:30 / 01:45 / 08:30 / 15:00 CET for scans to fire
   - Mitigation candidates: (a) keep session alive via web/CLI; (b) investigate tool-side durable persistence override; (c) flag at next harness audit for resolution
+
+---
+
+- [x] **P1 / harness / 2026-06-26** [INFRA, OPT] — Workflow #10 keyword-trigger pattern codified (replaces failed cron)
+  - Origin: 2026-06-26 PM user-directed simple keyword pattern after cron session-only constraint surfaced
+  - Triggers: "good morning Korea and Japan" + "good morning EU" + "good morning US"
+  - Spec: `meta/methodology.md` Workflow #10 KEYWORD-TRIGGER REPLACEMENT section
+  - Status: LIVE; first fire on next user trigger message

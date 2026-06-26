@@ -1727,3 +1727,43 @@ for same signal.
 **Cron activation:** REQUIRES USER EXPLICIT GREENLIGHT (autonomous fire = real cost commitment); 
 flagged at Workflow #10 codification 2026-06-26 PM but NOT activated. Activation = 
 `CronCreate` tool fires 4 schedules + first manual fire on Monday 2026-06-30 for validation.
+
+---
+
+## Workflow #10 KEYWORD-TRIGGER REPLACEMENT (codified 2026-06-26 PM per user directive)
+
+**Origin failure:** Cron activation 2026-06-26 PM failed operationally — Claude Code Web environment overrides `durable=true` flag and crons die when session exits. 4 crons (1ee4b492 / 43ed7043 / 9e9a36bc / cc3b327d) confirmed deleted/expired by session-end before first weekday fire.
+
+**Replacement: user-keyword trigger pattern** (user 2026-06-26 PM verbatim): *"lets keep the keyword pattern simple. lets make the keyword pattern 'good morning Korea and Japan' to trigger your search in those 2 markets. 'good morning EU' and 'good morning US' to trigger the other two regions"*
+
+### Keyword → scan mapping
+
+| User keyword | Triggered scans | Parallel fire pattern |
+|---|---|---|
+| **"good morning Korea and Japan"** | Pre-Korea (Scan 1) + Pre-Japan (Scan 2) | Two Opus 4.8 subagents in single message (Principle #36) |
+| **"good morning EU"** | Pre-Europe (Scan 3) | Single Opus 4.8 subagent |
+| **"good morning US"** | Pre-US (Scan 4) | Single Opus 4.8 subagent |
+
+### Keyword detection rules
+
+1. **Case-insensitive partial match** — "good morning korea and japan" / "Good Morning Korea + Japan" / "morning korea japan" all valid; explicit ordering not required
+2. **Token budget per trigger:**
+   - Korea+Japan combined: ~160-240k tokens (two parallel scans)
+   - EU: ~80-120k tokens
+   - US: ~80-120k tokens
+   - All three triggers in one day: ~320-480k tokens (matches original cron budget)
+3. **No autonomous deep-verification** during initial phase — Tier 2 trigger items flagged for user review, NOT auto-fired
+4. **Same-day de-duplication** — if user shares item via Twitter that morning-scan already surfaced same day, do NOT re-verify; reference existing artifact
+
+### Operational benefits over cron
+
+- **Reliable** — fires whenever user logs in, no session-persistence dependency
+- **Aligned to user availability** — scans run when user is online to immediately review
+- **Cost-flexible** — user can skip a morning if not interested (no auto-spend)
+- **Single-source convergence intact** — parallel-track design with user's Twitter unchanged
+
+### Backwards-compatibility for first-week review
+
+Workflow #10 first-week review 2026-07-03 still applies — same metrics (sources signal/noise + prompts effective + convergence rate + cost/benefit + Tier 2 trigger calibration) but evaluated against keyword-triggered fires not cron-fired.
+
+**Status:** LIVE as of 2026-06-26 PM. First fire = next user "good morning Korea and Japan" / "good morning EU" / "good morning US" message.
