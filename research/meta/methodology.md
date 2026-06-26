@@ -1767,3 +1767,57 @@ flagged at Workflow #10 codification 2026-06-26 PM but NOT activated. Activation
 Workflow #10 first-week review 2026-07-03 still applies — same metrics (sources signal/noise + prompts effective + convergence rate + cost/benefit + Tier 2 trigger calibration) but evaluated against keyword-triggered fires not cron-fired.
 
 **Status:** LIVE as of 2026-06-26 PM. First fire = next user "good morning Korea and Japan" / "good morning EU" / "good morning US" message.
+
+---
+
+## Workflow #10 POST-CLOSE SCHEDULE + 24H WINDOW UPDATE (codified 2026-06-26 PM)
+
+**User directive verbatim (2026-06-26 PM):** *"the best time to fire them is post market close. So I will fire them for Japan and Korea at nine AM Berlin time... I will fire the ones for Europe at European market close, which is, I think, six PM. And then I will fire another one at US market close just at ten PM Berlin time. That way, we can always fire them post-close instead of pre-open. And then we also always focus on the last twenty four hours."*
+
+### Revised firing schedule (POST-CLOSE all 3 windows)
+
+| Scan | Time CET | Closes captured | What's in window |
+|---|---|---|---|
+| **Korea + Japan** | **09:00 CET** | KRX + TSE closed 08:30 CET (30 min prior) | Full Asia session today + overnight US after-hours yesterday |
+| **EU** | **18:00 CET** | Frankfurt closed 17:30 CET (30 min prior) | Europe day session today + Asia EOD captured ~9h earlier + overnight US |
+| **US** | **22:00 CET** | NYSE closes 22:00 CET (live close) | US day session today + Europe close ~4h earlier + Asia EOD captured ~13h earlier |
+
+**Rationale (per user):** Post-close ensures **completed session data** captured (not pre-open speculation). All scans focus on **past 24 hours** to ensure most recent signal density.
+
+### TIME WINDOW DISCIPLINE — explicit 24h cap (Principle #42 candidate codified 2026-06-26 PM)
+
+**Add to every Workflow #10 scan prompt:**
+
+> **TIME WINDOW: STRICTLY PAST 24 HOURS** from current trigger time.
+> - Cite publication date for every item
+> - Items older than 24h = REJECT unless explicitly flagged as "historical context for current-window event"
+> - Forward-catalyst calendar may reference next 24-72h (forward-looking is exempt from past-24h scope)
+> - Multi-day pattern emergence = defer to weekly synthesis (Workflow #10-W, Saturday morning)
+
+**Status:** CANDIDATE Principle #42 N=1 origin 2026-06-26 PM (Workflow #10 first-fire gap caught — implicit time window not specified). Promotion at N=2+ when applied to next scan iteration successfully.
+
+### What's tractable in 24h scan window (per L29 hard-data discipline)
+
+**Tractable:**
+- Direct held-cohort price action vs peer cohort (Principle #41 cohort-decoupling)
+- Single-event triggers (earnings prints, F-1/8-K filings, T1 CEO/CFO quotes)
+- TC N+1 candidate flags (single-window signal-count delta)
+- L30 supercycle floor checks on event-day moves
+- Forward-catalyst calendar (next 24-72h)
+- FX overlay + macro index move
+- Cohort SYSTEMIC vs IDIOSYNCRATIC verdict
+
+**NOT tractable (defer to weekly synthesis / monthly audit):**
+- TC N=2+ promotion (multi-window signal-count)
+- Multi-day pattern emergence
+- Workflow #9 first-principles regime re-articulation
+- LTA-renewal-cycle dynamics
+- B45 base-rate recalibration (quarterly)
+- Cross-quarter accounting trends
+- Macro regime change
+
+### Weekly synthesis (codification candidate — Workflow #10-W Saturday 09:00 CET)
+
+**Scope:** pattern-match across 5 days × 3 scan-windows = 15 scan artifacts; identify multi-day TC promotion candidates; calibrate L/B/PC promotion gates; signal/noise weekly metrics.
+
+**Status:** PENDING codification — flagged for 2026-07-03 first-week review (will be Saturday).

@@ -242,3 +242,51 @@ After 5 trading days (Mon 2026-06-30 → Fri 2026-07-04), audit:
 6. **Source-list curation:** add/remove sources per actual signal quality
 7. **Tier 2 trigger calibration:** adjust 5% threshold + held-cohort criteria per
    observed false-positive/negative rates
+
+---
+
+## REVISION 2026-06-26 PM — POST-CLOSE TIMING + EXPLICIT 24H WINDOW
+
+**User directive 2026-06-26 PM:** post-close firing for all 3 scans + strict past-24h window.
+
+### Revised firing times
+
+| Scan | Old time | **NEW time** | Rationale |
+|---|---|---|---|
+| Korea + Japan | 01:30/01:45 CET (pre-open) | **09:00 CET** (post-close) | KRX+TSE closed 08:30 CET; full session captured |
+| EU | 08:30 CET (pre-open) | **18:00 CET** (post-close) | Frankfurt closed 17:30 CET; full session captured |
+| US | 15:00 CET (pre-open) | **22:00 CET** (live close) | NYSE closes 22:00 CET; full session captured |
+
+### MANDATORY addition to every Workflow #10 scan prompt
+
+```
+TIME WINDOW (per Principle #42 candidate codified 2026-06-26 PM):
+- STRICTLY PAST 24 HOURS from current trigger time
+- Cite publication date for every item (must fall within 24h window)
+- Items older than 24h = REJECT unless explicitly flagged as "historical context for
+  current-window event"
+- Forward-catalyst calendar may reference next 24-72h (forward-looking exempt)
+- Multi-day pattern emergence = defer to weekly synthesis (Workflow #10-W Saturday)
+```
+
+### MANDATORY addition to source-list per scan
+
+```
+DIRECT PRIMARY-FILING FETCH (per first-week-review gap caught 2026-06-26):
+- Pre-Korea: WebFetch dart.fss.or.kr for SK Hynix / Samsung Electronics 24h filings
+- Pre-Japan: WebFetch tdnet-search.appspot.com for MURATA / KIOXIA / SUMCO / Shin-Etsu /
+  Advantest 24h disclosures
+- Pre-EU: SEC EDGAR overnight + DART overnight + TDnet overnight
+- Pre-US: SEC EDGAR US intraday + cohort 8-K filings
+```
+
+### MANDATORY trigger-date vs system-date reconciliation
+
+```
+TRIGGER-DATE vs SYSTEM-DATE RECONCILIATION (per Principle #40 codified 2026-06-26):
+- If trigger prompt references YYYY-MM-DD differently from system date, ACKNOWLEDGE
+  discrepancy + USE SYSTEM DATE as authoritative
+- Confirm in output: "Trigger label said [X]; system date is [Y]; treating as [Y]."
+```
+
+**These three additions** (time window + direct primary fetch + date reconciliation) **should be applied at next scan iteration** — fix the 3 prompt-optimization gaps caught in today's first fire.
