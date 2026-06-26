@@ -529,3 +529,25 @@
     - **Layer-3 power-bypass (Time-to-Power):** Bloom Energy (BE) as ONLY empirical near-zero-TTQ name (55-day Oracle deployment); Vertiv (VRT) for density-bypass
   - Scope IF user gives go: build full thesis files for top 2 (likely BE + one EU sovereign-AI name) with Bull/Bear/Base + falsifiers; verify current pricing T2 pre-sizing; size at 2-3% Active-band each on entry; integrate with existing held cohort joint state
   - Falsifier of going forward: user prefers to wait for monthly audit 2026-06-24 cycle to fold into supply-chain reconstruction first
+
+---
+
+- [ ] **P1 / harness / 2026-07-01** [INFRA, CAL, OPT] — Two-bracket hook retirement decision (30-day close)
+  - Origin: WEEK-3 audit 2026-06-26 confirms 8→6→7 fire pattern = PLATEAU; H1 plateau P~55% / H2 priming-effective P~10% (my model)
+  - Scope: per pre-authorized retirement framework, decide RETIRE both hooks (llm-native-priming + structural-output) OR override + extend experiment based on qualitative review
+  - Cost impact: priming-hook injects ~10-15k tokens per UserPromptSubmit = significant aggregate cost saving on retire
+  - User-authorization required to `rm ~/.claude/llm-native-priming-hook.py` + `rm ~/.claude/structural-output-hook.py`
+  - Linked: `meta/harness-optimization-audit-2026-06-26.md` TIER 2 item A
+
+- [ ] **P1 / harness / 2026-07-15** [INFRA, OPT] — Build temporal-attribution-hook + input-data-tier-hook + cohort-decoupling-hook (3 new Stop hooks)
+  - Origin: harness-optimization audit 2026-06-26 TIER 2 item B; failure modes H2 + H1 + H3 surfaced as N=2+ pattern in 7 days
+  - Scope: build 3 deterministic enforcement hooks per Principles #39 / #40 / #41 candidates (added today to methodology.md)
+  - Cost: ~30min build each; minimal runtime; requires user `cp` to `~/.claude/` for activation
+  - Linked: `meta/harness-optimization-audit-2026-06-26.md` TIER 2 item B
+
+- [ ] **P2 / process / 2026-07-15** [INFRA, OPT] — Weekly competitive-product surveillance subagent (add to recurring schedule)
+  - Origin: harness-optimization audit 2026-06-26 TIER 3; MRVL Trainium 3 loss + SNDK MU 245TB ION both surfaced POST-HOC via monthly H2 bear-case workflow (should surface earlier)
+  - Scope: per held name, scan competitor-product announcements weekly (1-2 hops to direct substitutes); output per-name competitive displacement risk Δ vs prior week
+  - Cost: ~50-80k tokens/week for 7-name cohort = ~200-320k/month vs current monthly H2 bear-case (~280k); 4× cost vs monthly catches displacement 3-4 weeks earlier
+  - User-decision required: add weekly cadence OR keep monthly H2-only
+  - Linked: `meta/harness-optimization-audit-2026-06-26.md` TIER 3

@@ -1584,3 +1584,77 @@ For every promotion gate / falsifier / monitoring variable in a thesis or cluste
 **Promotion to Critical Rule #17:** pending N=2+ application + at least one B47 catch (lead-time estimate corrected via historical case calibration that materially changed thesis gate timing).
 
 **First re-eval:** 2026-07-15 (monthly codification audit cycle, same date as Principle #37 re-eval).
+
+---
+
+## Principle #39 candidate (added 2026-06-26 per harness-optimization audit) — Input-Data-Tier Classification Gate
+
+**Origin:** Subagent 11 fabricated "Friday KRX -12.6%" narrative by back-solving from user's morning DeGiro €1,455 mark which was a T3-TRANSIENT illiquid panic-print, NOT a fair Korean close. Subagent 13 reframed next day. Full audit: `meta/harness-optimization-audit-2026-06-26.md`.
+
+**The rule:** Every verification subagent prompt MUST include input-data-tier classification BEFORE narrative construction:
+- **T0-MARK** = official exchange closing price / auction settle
+- **T1-TRADE** = primary-listing intraday last trade
+- **T2-DERIVED** = cross-listing × FX × ratio derived value (use ONLY when primary T0/T1 unavailable; tag as derived)
+- **T3-TRANSIENT** = thin-liquidity quote / single-print / illiquid spread / broker-display intermediate — **DO NOT back-solve narratives from T3 marks alone; flag uncertainty + require T0/T1 confirmation**
+
+**Status:** CANDIDATE N=1 origin 2026-06-26 (Subagent 11 → 13 self-correction sequence). Promotion at N=2+ application without recurrence.
+
+---
+
+## Principle #40 candidate (added 2026-06-26) — Subagent Prompt Date-Context Anchoring
+
+**Origin:** Subagent 11 assumed user 10:54 timestamp = Friday morning when actually Thursday late evening (user clarified next turn). All downstream Round 7 narrative contaminated.
+
+**The rule:** Every verification subagent prompt MUST include explicit date-context header:
+- Today: YYYY-MM-DD (day-of-week)
+- Relevant prior dates: [list]
+- Subagent must confirm date acknowledgment in output: "Today date acknowledged: YYYY-MM-DD (day). Relevant timestamps interpreted as: [interpretation]."
+
+**Status:** CANDIDATE N=2 origin 2026-06-26 (Subagent 11 temporal-error + my own Round 7 carry-over). Already at N=2 → eligible for codification at next monthly audit 2026-07-24.
+
+---
+
+## Principle #41 candidate (added 2026-06-26) — Cohort-Decoupling Diagnostic in Default Verification Template
+
+**Origin:** Subagent 13 used cohort-decoupling diagnostic (SNDK +3.5% vs HY9H -13.4% = idiosyncratic SK-Hynix event) post-hoc to disambiguate cohort-wide vs name-specific event. Subagent H2 bear-case used same diagnostic for SNDK MU 245TB competitive-product event. Both surfaced AFTER primary verification missed the diagnostic.
+
+**The rule:** For any held-position event, verification subagent default output MUST include cohort-decoupling diagnostic:
+- Compare event-day move vs ≥2 cohort peers in same segment
+- If event-name moves opposite-direction to ≥1 peer → IDIOSYNCRATIC signal (name-specific)
+- If event-name moves same-direction as cohort → SYSTEMIC signal (sector/macro)
+- Surface diagnostic VERBATIM in TL;DR
+
+**Status:** CANDIDATE N=2 origin 2026-06-26.
+
+---
+
+## GDR/ADR Cross-Listing Mechanics (added 2026-06-26 as methodology section)
+
+When ANY held position is a GDR / ADR / depository receipt (HY9H, etc.):
+
+1. **Verify ratio at thesis-build:** 1:1 / 1:2 / 1:10 / etc. — CITE SOURCE. Default to "verify before sizing math" — do NOT assume.
+2. **EUR price = (Primary KRW/JPY/etc. close × ratio) ÷ FX rate** — math sanity check required when display value seems anomalous.
+3. **Cross-listing intraday premium is a real phenomenon:** Frankfurt/OTC trades during European/US hours when primary (KRX/TSE) is closed; can drift to premium/discount; broker EOD revaluation reverts to primary close × FX = REMOVES the intraday premium.
+4. **Display-vs-economic-value distinction:** intraday broker display ≠ liquid sell price; primary-listing close × FX = closer to fair economic value.
+5. **Never back-solve primary-listing price from cross-listing intraday display** without ratio + FX verification — see Principle #39 input-data-tier classification gate.
+
+**Origin failures (N=3+ week 2026-06-19 → 06-26):**
+- HY9H GDR ratio assumed 1:2 → actual 1:1 (Subagent 11 verified)
+- HY9H €1,680 intraday Frankfurt vs €1,455 EOD = cross-listing premium dynamics
+- "Friday KRX -12.6%" narrative back-solved from transient mark
+
+**Cross-ref:** Critical Rule #11 (AUTO-EXECUTE STRENGTHENING) self-correction events N+3 + N+4 both originated in GDR/ADR mechanics misunderstanding.
+
+---
+
+## Critical Rule #16 Cost-Aware Subagent Triage (added 2026-06-26 per cost-budget warning)
+
+Per Critical Rule #16 enforcement: 30-day estimated cost ~3.9M tokens; falsifier threshold ≥3 ZERO entries not yet breached but cost-per-correction creeping. Triage discipline prevents drift:
+
+**Subagent fire cost-tier triage:**
+- **TIER A (ALWAYS fire Opus 4.8):** user-shared analyst note / news item / sell-side report / primary filing with thesis implications — PRIORITY; Rule #16 mandate
+- **TIER B (fire IF T0-attestation lacking):** numerical claim verification when source-tier T0-MARK or T1-TRADE not already cited in harness file
+- **TIER C (defer or batch):** restatement verification of harness-already-verified claims; routine cross-source-log entry; low-novelty signal
+- **TIER D (SKIP — already exempted):** Q&A / format adjustment / typo correction / harness-meta
+
+**Co-located with cost-yield ledger at `meta/subagent-cost-yield-ledger.md`:** every fire logs tier alongside yield class.
