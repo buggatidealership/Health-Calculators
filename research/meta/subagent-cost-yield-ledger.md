@@ -1955,3 +1955,24 @@
 **Audit-day classification:** POSITIVE — earned cost; caught a framing inversion + a material new risk + prevented a false cascade
 **Cross-source-log:** `signals/cross-source-log/2026-06-26-pm-pax-silica-match-act-4subagent-verification.md`
 **Commit:** (this commit)
+
+---
+
+### [2026-06-26 EU-close] Workflow #10 morning-feed EU scan — Friday systemic risk-off
+
+**Trigger source:** Workflow #10 keyword "good morning Europe" → EU-close autonomous morning scan (NOT user-shared external data; scheduled-scan fire)
+**Subagents fired:** 2 (Opus 4.8) — EU-close cohort/European-press + Asia-EOD/overnight-primaries
+**Estimated token cost:** ~70k actual (subagent_tokens: 29,665 + 39,980)
+**Items verified:** Frankfurt cohort EU-close; SK Hynix ADR fungibility status; Pax Silica/MATCH Act EU follow-through; KRX/TSE Friday cohort closes; KOSPI/Nikkei macro; DART/TDnet overnight primaries; Korean+Japanese trade press 24h
+
+**Per-subagent yield:**
+- Subagent A (EU-close): MEDIUM — surfaced NEW SK Telecom 6-K (SKHNPS $483M, in-window T1) + MRVL −6% CFO Form 144 + ADR-fungibility-still-open; flagged MUR1 EUR/TSE data conflict
+- Subagent B (Asia-EOD): HIGH — resolved the SK Hynix ADR-arbitrage watch by identifying the REAL driver (SYSTEMIC OpenAI-IPO-delay risk-off, not idiosyncratic ADR); full cohort Friday closes; KOSPI 2nd circuit breaker; SUMCO possible decouple-up (anti-fragility N=2); ADR fungibility cap-limit mechanism (17.79M ceiling → sustained-premium possibility)
+
+**Brief-framing errors caught:** prevented mis-reading SK Hynix −8.36% as idiosyncratic ADR-dilution continuation — Asia-EOD subagent established it was cohort-wide SYSTEMIC (Principle #41) on the OpenAI-IPO-delay trigger
+**Thesis cascade triggered:** HYNIX, KIOXIA, MURATA, SUMCO, MRVL (all HOLD; SYSTEMIC-risk-off back-refs + genuine new signals)
+**Position implication delta:** NONE (all HOLD per Critical Rule #8) — ADR fungibility cap partially defuses HYNIX dilution-arb bear; SUMCO decouple-up = anti-fragility N=2 watch
+**Material yield class:** HIGH (aggregate) — correct SYSTEMIC-vs-idiosyncratic diagnosis prevented a false panic-read on a −8 to −11% cohort day; surfaced 1 new positive filing (SKHNPS) + 1 bear-defusing mechanism (ADR cap)
+**Audit-day classification:** POSITIVE — morning-scan caught the macro trigger + correctly classified it as non-falsifier, exactly the Workflow #10 design intent
+**Cross-source-log:** `signals/cross-source-log/2026-06-26-eu-close-scan-systemic-riskoff-openai-ipo-delay.md`
+**Commit:** (this commit)
