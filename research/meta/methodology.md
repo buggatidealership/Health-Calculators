@@ -1658,3 +1658,72 @@ Per Critical Rule #16 enforcement: 30-day estimated cost ~3.9M tokens; falsifier
 - **TIER D (SKIP — already exempted):** Q&A / format adjustment / typo correction / harness-meta
 
 **Co-located with cost-yield ledger at `meta/subagent-cost-yield-ledger.md`:** every fire logs tier alongside yield class.
+
+---
+
+## Workflow #10 MORNING-FEED-SCAN (codified 2026-06-26 per user directive)
+
+**Origin:** User 2026-06-26 verbatim *"we do one before the Korean open of the market. We do another one that fires at... before the European markets. One before the Japanese markets, and one before the US markets. And in the initial phases, you... we need to review what you looked at, what you searched for, what prompt you used for your Opus 4.8 agents. Do not use any agent that is below Opus 4.8. I only use the highest level agents because pieces and investments will depend on the searches as well. So we cannot, let's say, save costs. We shouldn't save costs where it's not detrimental to not save a month."*
+
+**Design rationale:** Replicate user's manual Twitter-research flow at LLM-native scale; PARALLEL TRACK not REPLACEMENT (user 2026-06-26: *"I will keep doing my own research as in on Twitter... It is best for you to also do an additional search. It's always better to have multiple different sources of multiple different sources of data come in"*). Independent dual-source convergence = faster N=2+ triangulation per Critical Rule #14 + reduces single-source bias B23.
+
+**4-daily-scan schedule (CET, summer-time):**
+
+| # | Scan | Time CET | Target open | Focus |
+|---|---|---|---|---|
+| 1 | Pre-Korea | 01:30 | KRX 02:00 (09:00 KST) | HYNIX cohort + Samsung + SK Group |
+| 2 | Pre-Japan | 01:45 | TSE 02:00 (09:00 JST) | MURATA + KIOXIA + SUMCO + Japan semi |
+| 3 | Pre-Europe | 08:30 | Frankfurt 09:00 | HY9H/MUR1/S3X Frankfurt + Asia EOD synthesis |
+| 4 | Pre-US | 15:00 | NYSE 15:30 | SNDK + NBIS + MRVL + US pre-market |
+
+**Model mandate:** **Opus 4.8 ONLY** on all 4 scans (user explicit: no Sonnet/Haiku downgrade; investments depend on search quality).
+
+**Token budget:** ~4 × 80-120k = ~320-480k/day × 5 weekdays = ~1.6-2.4M/week additive to current ~3.9M/30d baseline.
+
+**Specifications:** full prompt templates + per-market source priority lists at:
+- `meta/morning-feed-sources.md` — curated source priority per market
+- `meta/morning-feed-prompts.md` — per-scan prompt templates + output format + Tier 2 trigger logic
+
+**Two-tier architecture:**
+
+**Tier 1 — daily light scan (per 4 windows above):**
+- L29 hard-data filter: extract numerical facts + factual statements ONLY (no opinion aggregation)
+- Multilingual-native priority per Principle #36 (Korean/Japanese/Traditional Chinese/English per market)
+- T0/T1/T2/T3 source-tier tagging per item per Principle #39
+- Date-context anchoring per Principle #40
+- Cohort-decoupling diagnostic per Principle #41 (idiosyncratic vs systemic)
+- Output structured artifact per `meta/morning-feed-prompts.md` template
+
+**Tier 2 — triggered deep verification (fires only when criteria met):**
+- Direct-named held-cohort event
+- >5% overnight move on held position or peer (B45-regime-adjusted threshold)
+- TC cluster N+1 candidate (would promote TC-1/TC-12/TC-13/PC-14)
+- Cohort-decoupling diagnostic trigger (peer ±5% vs held = idiosyncratic candidate)
+- Forward-catalyst pre-registration event firing
+- T1 CEO/CFO quote OR SEC F-1/8-K/10-Q filing from held name
+→ Fires standard Workflow #1 INGEST + cascade per Critical Rule #10 + Critical Rule #16
+
+**Critical Rule #16 TIER A enforcement applies:** every Tier 1 + Tier 2 fire = TIER A
+(user-shared/scan-surfaced with held-cohort thesis implications).
+
+**De-duplication mechanism:** before firing Tier 2 deep-verification, cross-check against
+same-day user-shared items + same-day other-scan items to avoid paying ~100k tokens twice
+for same signal.
+
+**First-week review (todo item 2026-07-03):**
+1. Sources: which surfaced highest signal/noise; which noise-dominated
+2. Prompts: which caught patterns user's Twitter missed; which false-positive Tier 2 triggers
+3. Convergence rate: % scan items also surfaced by user same-day (independent-verification ratio)
+4. Cost vs benefit: actual weekly token cost vs material cascade events caught
+5. Source-list curation + Tier 2 trigger calibration refinements
+6. Prompt-template optimization per signal/noise observed
+
+**Detectability/falsifier (per Critical Rule #11 framework):**
+- POSITIVE: ≥1 Tier 2 deep-fire per week catching cohort-material event before user-shared OR not on user's Twitter feed
+- NEGATIVE: 5+ consecutive scans produce ZERO Tier 2 triggers; signal-density at scan layer materially lower than user's track
+- FALSIFIER: first-week review 2026-07-03 shows <30% convergence with user-shared items (autonomous track NOT covering shared signal space) OR cost >2.5M/week (>budget bloat trigger)
+- RE-EVAL TRIGGER: first-week review 2026-07-03 + monthly thereafter via meta/recurring-audit-log.md
+
+**Cron activation:** REQUIRES USER EXPLICIT GREENLIGHT (autonomous fire = real cost commitment); 
+flagged at Workflow #10 codification 2026-06-26 PM but NOT activated. Activation = 
+`CronCreate` tool fires 4 schedules + first manual fire on Monday 2026-06-30 for validation.

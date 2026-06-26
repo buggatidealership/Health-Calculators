@@ -551,3 +551,19 @@
   - Cost: ~50-80k tokens/week for 7-name cohort = ~200-320k/month vs current monthly H2 bear-case (~280k); 4× cost vs monthly catches displacement 3-4 weeks earlier
   - User-decision required: add weekly cadence OR keep monthly H2-only
   - Linked: `meta/harness-optimization-audit-2026-06-26.md` TIER 3
+
+---
+
+- [ ] **P1 / harness / 2026-06-26** [INFRA, OPT] — Workflow #10 MORNING-FEED-SCAN cron activation (USER GREENLIGHT REQUIRED)
+  - Origin: user-articulated 2026-06-26 morning autonomous newsfeed design + design-lock confirmation
+  - Scope: schedule 4 daily Opus 4.8 subagent fires via CronCreate tool — pre-Korea 01:30 CET / pre-Japan 01:45 CET / pre-Europe 08:30 CET / pre-US 15:00 CET
+  - Pre-requisites: full spec codified in `meta/methodology.md` Workflow #10 + `meta/morning-feed-sources.md` + `meta/morning-feed-prompts.md`
+  - Token budget: ~1.6-2.4M/week additive
+  - User action: GREENLIGHT activation OR adjust spec first
+
+- [ ] **P1 / process / 2026-07-03** [INFRA, OPT, CAL] — Workflow #10 first-week review + prompt optimization
+  - Origin: Workflow #10 codified 2026-06-26 with explicit first-week review window
+  - Scope: 5 trading days Mon 2026-06-30 → Fri 2026-07-04; audit (a) sources signal/noise; (b) prompts effective vs false-positive; (c) convergence rate vs user Twitter shares; (d) cost vs benefit; (e) prompt-template optimization; (f) source-list curation; (g) Tier 2 trigger calibration
+  - Output: append to `meta/recurring-audit-log.md` + update `meta/morning-feed-sources.md` + `meta/morning-feed-prompts.md` per learnings
+  - Detectability falsifier: <30% convergence with user shares OR cost >2.5M/week = retire/refine
+  - Linked: `meta/methodology.md` Workflow #10 + `meta/harness-optimization-audit-2026-06-26.md`
