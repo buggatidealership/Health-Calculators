@@ -432,12 +432,7 @@
   - Falsifier: 2026-07-19 30-day audit checks `hook-fire-log.md` for daily fires; if no fires logged after configuring setup script, durability didn't take and per-session manual `bash install.sh` falls back as workaround
   - Linked: `meta/hooks/DURABLE-ACTIVATION.md` (full instructions + verification protocol + fallback), `meta/hooks/install.sh`, `meta/hooks/README.md` Activation section, commit `ce008ea6`
 
-- [ ] **P0 / harness / 2026-06-12** [INFRA] — Activate session-prime-hook in ~/.claude/settings.json (USER AUTHORIZATION REQUIRED)
-  - Origin: 2026-06-12 user-proposed reference-system architecture to force every fresh session to load load-bearing ledger items. File + hook + docs built and smoke-tested; auto-mode classifier blocked settings.json edit (correctly — wiring auto-executing startup hook requires explicit authorization).
-  - Action: add a second hook entry to the SessionStart hooks array in ~/.claude/settings.json: `{"type":"command","command":"~/.claude/session-prime-hook.py"}` after the existing session-start-hook.py entry. NOTE: after H1-CONTAINER-EPHEMERALITY-FIX `ce008ea6`, this edit also needs to be made in the MIRROR at `research/meta/hooks/settings.json` so install.sh-driven activation picks it up — otherwise the edit reverts at next container restart.
-  - Trade-off: ~10K extra tokens per cold session start (NOT on resume) in exchange for higher baseline calibration from first turn
-  - Falsifier already in place: 2026-07-12 30-day audit checks for measurable reduction in bias-recurrence rate; retire both file + hook if no measurable benefit
-  - Linked: `meta/session-prime.md`, `meta/hooks/session-prime-hook.py`, `meta/hook-fire-log.md` (logs each fire)
+- [x] **DONE 2026-06-26** — Activate session-prime-hook + macro-anchor-hook in mirror `research/meta/hooks/settings.json` (USER AUTHORIZED 2026-06-26 via "yes try it and test it"). Both hooks now wired in mirror + installed to `~/.claude/settings.json` via `install.sh`. Smoke-tested: session-prime-hook returns full `session-prime.md` as `additionalContext` on SessionStart events (exit 0); macro-anchor-hook fail-open on empty input (exit 0). DURABILITY caveat: persistence across container restarts still depends on P0 item directly above (install.sh as Web UI env setup script) — laptop required for that piece. Until then, run `bash research/meta/hooks/install.sh` at start of every fresh cloud container (or trigger via keyword pattern TBD). 2026-07-12 effectiveness audit unchanged.
 
 - [ ] **P1 / harness / 2026-07-12** [INFRA, CAL] — Session-prime + B45 priming effectiveness joint audit (30-day check)
   - Origin: 2026-06-12 cross-session-anchoring defense stack (CLAUDE.md banner + priming hook item 8 + session-prime force-load)
