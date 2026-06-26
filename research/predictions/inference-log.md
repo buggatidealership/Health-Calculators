@@ -318,3 +318,21 @@ When I write any directional "reinforces X" claim that isn't grounded in (a) inl
 - `wiki/agentic-ai-enterprise.md` Agent Stickiness Asymmetry section
 - `predictions/inference-log.md` Entry #4 (related framework — software resilience)
 - `companies/DDOG/thesis.md`, `companies/NOW/thesis.md`, `companies/MDB/thesis.md`
+
+---
+
+## Entry — 2026-06-26 PM — MATCH Act → CXMT/YMTC capacity-denial → memory-cohort moat-defense
+
+**Claim:** P~55% (my model) that MATCH Act (H.R.8170) passage materially constrains CXMT (DRAM) and YMTC (NAND) capacity ramp via DUV-litho + servicing denial, functioning as competitive moat-defense for the held Korea/Japan memory cohort (HYNIX/KIOXIA/SNDK).
+
+**Derivation (Bayesian, my model):** P(MATCH Act passes in materially-intact form) × P(tool-denial effectively slows CXMT/YMTC ramp | passes). Bill advanced through House Foreign Affairs Committee Apr 2026 (real legislative momentum, T1 congress.gov) but not yet law; allied-alignment 150-day mechanism + Dutch resistance inject passage/dilution uncertainty. Tool-denial effectiveness is high IF passed (DUV + servicing ban is the binding input for sub-advanced-node Chinese memory). Net ~0.55.
+
+**Counterweight (same estimate-family):** the SAME regime puts SK Hynix Wuxi (~40% DRAM output) on annual US license — so for HYNIX specifically the net is MIXED, not the clean-positive the moat-defense read implies in isolation.
+
+**Resolution / grading triggers:**
+- MATCH Act floor vote / enactment status (binary) — monitor through 2026 H2
+- CXMT HBM3/DRAM ramp trajectory (Round-5 CXMT-Tier-1-qualification watch is the bear-side tracker)
+- SK Hynix Wuxi 2027 license renewal terms (the counterweight tracker)
+
+**Source tier:** legislative facts T1 (congress.gov H.R.8170); ramp/share inputs T2; the P~55% itself is (my model) synthesis, NOT sourced.
+**Cross-references:** `signals/cross-source-log/2026-06-26-pm-pax-silica-match-act-4subagent-verification.md`; `companies/HYNIX/thesis.md` Round 9; `companies/KIOXIA/thesis.md` + `companies/SNDK/thesis.md` 2026-06-26 PM cross-refs.

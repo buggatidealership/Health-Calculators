@@ -1932,3 +1932,26 @@
 **Audit-day classification:** POSITIVE-LITE
 **Cross-source-log:** `signals/cross-source-log/2026-06-15-pm20b-sk-hynix-adr-mid-july-verification-partially-verified-hold-gdr-core.md`
 **Commit:** (PM20b cascade)
+
+---
+
+### [2026-06-26 PM] Pax Silica chip alliance + MATCH Act + SambaNova $10B (Semi Doped newsletter)
+
+**Trigger source:** user-shared image — "Semi Doped" newsletter (T3 aggregator): "EU Joins Pax Silica, Now 24 Nations" + @UnderSecE tweet + Reuters Dutch-minister quote + "SambaNova raising at $10B"
+**Subagents fired:** 4 (Opus 4.8 per Critical Rule #16)
+**Estimated token cost:** ~116k actual (subagent_tokens: 21,996 + 35,106 + 39,272 + 19,923)
+**Items verified:** Pax Silica existence/scope/membership; Jacob Helberg attribution; ASML/Dutch-sovereignty + MATCH Act; Korea/Japan cohort membership status (native-language); SambaNova raise + competitive read
+
+**Per-subagent yield:**
+- Subagent 1 (Pax Silica core): MEDIUM — confirmed REAL (T1 state.gov); surfaced "innovation sovereignty" framing (PC-14 feed) + 16-vs-24 timeline-collapse garble; founding-7 list including Korea/Japan
+- Subagent 2 (ASML/MATCH Act): HIGH — REFRAMED the entire signal: MATCH Act (H.R.8170, names CXMT/YMTC) is the load-bearing instrument, not Pax Silica; ASML AMBIGUOUS ~10% EPS downside; verified Sjoerdsma quote + identified "that Act"
+- Subagent 3 (Korea/Japan native-lang): HIGH + FRAMING-ERROR-CAUGHT — confirmed founding membership (H-A falsified); surfaced NEW SK Hynix Wuxi ~40%-output annual-license risk that I had under-weighted → forced HYNIX self-correction from clean-bullish to MIXED
+- Subagent 4 (SambaNova): MEDIUM — REAL ($10B, Intel-backed); bounded competitive read correctly isolated to NVDA-inference, NOT MRVL/AVGO → prevented a false held-name cascade
+
+**Brief-framing errors caught:** (1) newsletter buried the lede — Pax Silica (diplomacy) vs MATCH Act (the actual weapon); (2) my own prior-turn too-clean "MATCH Act = cohort POSITIVE" read corrected to MIXED via Wuxi counterweight (Subagent 3); (3) SambaNova mis-routable to MRVL/AVGO — correctly isolated to NVDA inference
+**Thesis cascade triggered:** HYNIX (Round 9, MIXED + NEW Wuxi falsifier-watch), KIOXIA, SNDK, SUMCO, MURATA (cohort back-refs); PC-14 register enrichment
+**Position implication delta:** NONE (all HOLD) — but NEW Wuxi-annual-license falsifier-watch added to HYNIX
+**Material yield class:** HIGH (aggregate) — 1 signal-reframe (MATCH Act) + 1 self-correction-forcing new risk (Wuxi) + 1 false-cascade-prevented (SambaNova→MRVL)
+**Audit-day classification:** POSITIVE — earned cost; caught a framing inversion + a material new risk + prevented a false cascade
+**Cross-source-log:** `signals/cross-source-log/2026-06-26-pm-pax-silica-match-act-4subagent-verification.md`
+**Commit:** (this commit)
