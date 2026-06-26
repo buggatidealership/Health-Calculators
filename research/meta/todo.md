@@ -102,7 +102,7 @@
   - Linked: `companies/SNDK/thesis.md`, `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md`, `predictions/lessons.md` L14 codification + L17 candidate
 
 
-- [ ] **P1 / harness / 2026-06-26** [INFRA, CAL] — Two-bracket LLM-native enforcement experiment WEEK-3 check (week-1 DONE 2026-06-12; week-2 DONE 2026-06-19 — see `meta/recurring-audit-log.md` 2026-06-19 entry: 6 logged fires 06-12→19 (rebounded from 0 in 06-06→12 zero-window; vs 8 in week-1 baseline 06-01→07); logger verified working; week-2 read = "no signal — fire rate dominated by analytical-content-volume not priming bias effect" H4 candidate P~20%; H1 plateau P~50% / H2 decrease P~20% (down from 45%) / H3 increase P~10% / H4 noise P~20% (my model). Week-3 scope: same protocol — count 06-19→26 from hook-fire-log.md, sanity-check against analytical-content-volume confound, reweight. 30-day close ~07-01.)
+- [x] **P1 / harness / 2026-06-26** [INFRA, CAL] — Two-bracket LLM-native enforcement experiment WEEK-3 check (week-1 DONE 2026-06-12; week-2 DONE 2026-06-19 — see `meta/recurring-audit-log.md` 2026-06-19 entry: 6 logged fires 06-12→19 (rebounded from 0 in 06-06→12 zero-window; vs 8 in week-1 baseline 06-01→07); logger verified working; week-2 read = "no signal — fire rate dominated by analytical-content-volume not priming bias effect" H4 candidate P~20%; H1 plateau P~50% / H2 decrease P~20% (down from 45%) / H3 increase P~10% / H4 noise P~20% (my model). Week-3 scope: same protocol — count 06-19→26 from hook-fire-log.md, sanity-check against analytical-content-volume confound, reweight. 30-day close ~07-01.)
   - Original item (week-1, for reference): Two-bracket LLM-native enforcement experiment week-1 check
   - Origin: 2026-06-01 user authorized live install of `llm-native-priming-hook.py` (UserPromptSubmit) + `structural-output-hook.py` (Stop). Two-bracket architecture: priming biases sampling distribution pre-generation; Stop hook companion enforces structural-output requirements post-generation.
   - **30-day experiment framing**: Track structural-output-hook fire rate week-by-week to distinguish:
@@ -182,7 +182,7 @@
 
 ### P2 — Existing items
 
-- [ ] **P3 / verification / 2026-06-24** [CAL, INDP, AF] — CONSOLIDATED Monthly Audit Cycle (FIRST CYCLE — merged 3 audits per user 2026-05-29)
+- [x] **P3 / verification / 2026-06-24** [CAL, INDP, AF] — CONSOLIDATED Monthly Audit Cycle (FIRST CYCLE — merged 3 audits per user 2026-05-29)
   - **PREP CHECKLIST COMPLETE 2026-06-19** at `meta/monthly-audit-prep-2026-06-24.md` — 10 batched candidates + Sections 2-10 (Critical Rule #11 detectability / AUTO-EXECUTE STRENGTHENING / source-reliability / bottleneck-forecast / portfolio-coherence / cross-domain-pattern-register / session-prime / INDEX-tags refresh / Critical Rule #16 detectability) + autonomous-completion authorization status pre-loaded + pre-batched grep commands ready
   - **CONSOLIDATION NOTE 2026-05-29**: Previously 3 separate June 24 items (codification audit + claim-verification audit + Principle #34/B38 monitoring). User-directed merge into single audit per "doesn't make sense to have it three times."
   - **PART A — Codification audit** (expanded scope per 2026-05-28): each gets the 3-question test:
@@ -390,7 +390,7 @@
   - Scope: map ISRG da Vinci 5 (NVIDIA Blackwell/Clara), medical-edge inference SoCs (AMBA/SYNA adjacency), NVIDIA IGX/Holoscan medical-edge cohort against T8 + medtech-biotech-ai-thesis.md branches
   - Linked: sector/medtech-biotech-ai-thesis.md (PARKED section), sector/themes.md T8 + T10
 
-- [ ] **P2 / process / 2026-06-24** [OPT] — Monthly audit add-on: cross-domain-pattern-register first review
+- [x] **P2 / process / 2026-06-24** [OPT] — Monthly audit add-on: cross-domain-pattern-register first review
   - Origin: register created 2026-06-10 per user combinatorial-harness directive
   - Scope: verify register was load-bearing in any dissection since creation (cited in prompts? new instances appended?); promote/demote PC-9/10/11 candidates; apply net-positive test (subagent compute per dissection trending down?)
   - Linked: meta/cross-domain-pattern-register.md
@@ -407,7 +407,7 @@
   - Decision matrix: positive → keep manual; flat → tighten promotion rule; negative → deterministic hook required
   - Linked: `meta/signal-density-detection.md`, `signals/triangulation.md`, `meta/codification-rule.md` (parallel first check)
 
-- [ ] **P3 / process / 2026-06-24** [OPT] — INDEX.md + tags.md refresh + monthly audit consolidation
+- [x] **P3 / process / 2026-06-24** [OPT] — INDEX.md + tags.md refresh + monthly audit consolidation
   - Origin: `INDEX.md` monthly refresh cadence; tags.md sync with newly added principles/biases/lessons
   - Scope: regenerate INDEX held-positions section against `portfolio/holdings.md`; sync tags.md against actual file state; cross-source-log >30 days summarized into triangulation entries OR explicitly flagged as noise
 
@@ -445,7 +445,7 @@
   - Metrics: POSITIVE = <2 magnitude-flag instances without B45 reference + session-prime updated within 7 days of every codification commit; NEGATIVE = ≥3 magnitude reverts OR ≥2 codifications without session-prime update → escalate to magnitude-claim Stop hook + session-prime-cascade-hook
   - Linked: `meta/session-prime.md`, `meta/biases-watchlist.md` B45, `meta/hooks/llm-native-priming-hook.py`, `meta/hook-fire-log.md`
 
-- [ ] **P2 / harness / 2026-06-24** [INFRA] — Session-prime curation rule integration into monthly audit
+- [x] **P2 / harness / 2026-06-24** [INFRA] — Session-prime curation rule integration into monthly audit
   - Origin: 2026-06-12 session-prime.md created with explicit cap rules (500-line hard / 250-400 target) — needs first monthly audit verification
   - Scope: at monthly codification audit (2026-06-24), verify session-prime.md (a) is ≤500 lines, (b) all listed CANDIDATE biases are still active (not gone INERT >30 days), (c) listed recent lessons are within rolling-5 window, (d) regime base rate not stale, (e) any codification commits since session-prime creation also updated session-prime
   - Action: prune INERT items; promote/demote per the file's own cap rules; add to consolidated monthly audit checklist

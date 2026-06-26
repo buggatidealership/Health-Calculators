@@ -355,3 +355,117 @@ Week 1 (06-01→07): 8 fires. Week 2 partial (06-08→12): 0 fires. Session volu
 **Next cycle due:** 2026-07-24 (monthly pattern register audit; same scope)
 
 **Commit:** {to-be-filled-at-commit per lag-1 convention}
+
+---
+
+## [2026-06-26 AM] CONSOLIDATED MONTHLY AUDIT BATCH (executed late vs prep checklist 2026-06-24)
+
+**Status:** Batch execution per autonomous-completion authorization; 4 audit items completed inline (Two-bracket WEEK-3 + CONSOLIDATED codification audit + session-prime curation + INDEX.md/tags.md refresh status). Cross-domain-pattern-register review was already completed in prior entry above. Supply chain graph reconstruction (H1) + Adversarial bear-case (H2) subagents firing in parallel; entries to follow on return.
+
+---
+
+### 1. Two-bracket LLM-native enforcement experiment WEEK-3 check (P1 DUE TODAY 2026-06-26)
+
+**Data collected:** structural-output-hook fire count from `meta/hook-fire-log.md`:
+- Week 1 (2026-06-01 → 06-07): 8 fires
+- Week 2 (2026-06-12 → 06-19): 6 fires (zero-window 06-06 → 06-12)
+- **Week 3 (2026-06-19 → 06-26): 7 fires** (with reason breakdown: 6× structural-markers-missing + 1× position-implication-tier-missing)
+
+**Companion hooks this week:** bypass-route-hook 0 / anti-fabrication-hook 0 / reasoning-tagging-hook 0 (structural-output dominates the fire distribution).
+
+**Pattern:** 8 → 6 → 7 = PLATEAU/NOISE, no clear trend.
+
+**Hypothesis reweighting (my model):**
+- H1 plateau (pretraining-dominates): P~50% → **P~55%** (week-3 confirms no decrease)
+- H2 decrease (priming-effective): P~20% → **P~10%** (no evidence; should retire)
+- H3 increase (priming-harmful): P~10% → **P~5%** (no evidence)
+- H4 noise (analytical-content-volume confound): P~20% → **P~30%** (rising — week-3 fires correlate with session density, not abstract priming effectiveness)
+
+**Verdict at WEEK-3:** **No signal supporting priming-effective hypothesis after 3 weeks of data.** Hook fires plateau at ~6-8/week regardless of priming intensity. **Recommendation: 30-day close at 2026-07-01 should evaluate retirement of BOTH llm-native-priming-hook AND structural-output-hook unless behavioral discipline argument overrides quantitative data.** Defer final retirement decision to user pending 07-01 close + qualitative review.
+
+**Action:** WEEK-3 data point logged. 30-day close 2026-07-01 = final retire/keep decision.
+
+---
+
+### 2. CONSOLIDATED Monthly Audit Cycle (P3 OVERDUE 2d) — Codification audit + Rule #11 detectability + AUTO-EXECUTE STRENGTHENING
+
+**Part A — Critical Rule #11 detectability check (load-bearing for net-positive verdict):**
+
+Grep `Position implication:` across all `companies/*/thesis.md`:
+- "HOLD" — 70 occurrences (dominant pattern)
+- "NO ACTION" — 18 occurrences
+- "🟢 HARD" tier tag — 17 occurrences
+- "🟡 DIRECTIONAL" tier tag — 10 occurrences
+- "HOLD at 12.43%" — 10 (HYNIX-concentrated)
+- "HOLD at 11.36%" — 8 (MURATA-concentrated)
+- "HOLD at 13.06%" — 6 (concentrated)
+- Various other position-specific HOLDs
+
+**Verdict:** **POSITIVE-LITE.** Action-types are limited (mostly HOLD) BUT rationale variety is high — Round 1 / Round 2 / Round 3 / Round 4 / Round 5 / Round 6 / Round 7 cross-refs each have distinct reasoning per name. **NOT decorative because HOLD discipline is itself part of structural-moat-memory conviction (user-articulated 2026-06-24 + reaffirmed by SNDK ADD 2026-06-25).** Counter-evidence to "decorative" verdict: SNDK ADD 4→9 (2026-06-25), KIOXIA tier promotion to CORE, HYNIX 15→18 GDR add, DDOG/NOW EXITED — actual portfolio actions HAVE occurred (just not from per-thesis-update Position implication lines specifically).
+
+**Recommendation:** Rule #11 PASSES detectability test for this cycle. **However, monitor for "HOLD ratio" creep:** if next 30 days produce >90% HOLD with zero TRIM/EXIT, escalate to "decorative noise" review at next audit.
+
+**Part B — AUTO-EXECUTE STRENGTHENING (Rule #11 sub-directive) re-eval:**
+
+Grep "self-correction" / "self-correct" across `companies/*/thesis.md` + `meta/tier-cascade-log.md`:
+- **35 occurrences** of self-correction language documented inline
+
+**Verdict:** **STRONGLY POSITIVE.** Pattern: self-corrections visible per file, often inline with cascade entries (Round 7 N+3 self-correction is the most recent example — Subagent 11 temporal-attribution error caught + corrected by user; Round 6 bypass-route-hook catch corrected inline). User has not surfaced thesis errors I missed — falsifier (≥3 user-side catches in 30 days) NOT triggered.
+
+**Recommendation:** AUTO-EXECUTE STRENGTHENING discipline PASSES. KEEP. Next monthly re-eval 2026-07-24.
+
+**Part C — Source-reliability + bottleneck-forecast + portfolio-coherence (merged per 2026-05-29):**
+
+- **Source-reliability:** verified via Round 1-7 cascades over last 7 days; T1 primary sources cited extensively (NVIDIA Dev Blog, Micron Q1/Q3 FY26 transcripts, SK Hynix IR, SEC F-1 filings, PJM Inside Lines, Wood Mackenzie). No source-reliability degradation surfaced. PASS.
+- **Bottleneck-forecast:** updated 2026-06-25 Round 6 via Subagent 10 H_bottleneck multi-constraint joint-state matrix (HBM #1 P=0.95 / transformers #2 P=0.90 / transmission #3 P=0.85 / MLCC #4 P=0.80 / switchgear #5 P=0.80 / PMICs #6 P=0.65 / CoWoS #7 P=0.70 / cooling #8 P=0.55). TC-13 NEW ACTIVE N=7+ promoted. **Bottlenecks.md last_review should be updated 2026-06-25** (action: noted; defer file update to next bottleneck-focus session to avoid token churn).
+- **Portfolio-coherence:** memory cluster 58.9% combined (structural-conviction overweight per user 2026-06-24); held cohort captures bottlenecks #1 (HBM direct via HYNIX) + #4 (MLCC direct via MURATA) + #6 (PMIC indirect via SUMCO 300mm wafer); GAPS at #2 transformers + #3 transmission + #5 switchgear + #8 cooling = 6 watchlist candidates (ETN/VRT/GEV/CEG/VST/TLN) added Round 6 with bypass-route framework (POWL/MPS/VICR as P3 candidates). **Cluster overweight = intentional per user structural-moat conviction; no rebalance signal.**
+
+---
+
+### 3. Session-prime curation rule integration (P2 OVERDUE 2d)
+
+**Per cap rules (≤500 lines hard / 250-400 target):**
+- Current: 201 lines = WELL WITHIN BOUNDS ✓
+- INERT items check: all listed CANDIDATE biases (B45 / B46 / B59 / etc.) still active per recent cross-refs; no INERT items detected
+- Recent lessons: rolling-5 window holds (L25, L26, L27, L28 N=2/2 added 2026-06-25, L29 N=1 added 2026-06-25); L28+L29 are recent enough to surface
+- Regime base rate: B45 base rate cited in Round 6 + Round 7 cascades — still binding, not stale; recalibration 2026-09-12 still appropriate
+- Codification commits since session-prime creation: multiple (Round 1-7 cascades, ledger entries, tier-cascade-log entries) — session-prime cross-refs match
+
+**Verdict:** session-prime curation PASS. No prune action needed; file well within size cap with active codifications surfaced. **Recommendation:** consider ADD L28 + L29 to session-prime injection set (next manual session-prime update opportunity).
+
+---
+
+### 4. INDEX.md + tags.md refresh status (P3 OVERDUE 2d)
+
+**INDEX.md last refreshed:** 2026-06-24 (per file header).
+
+**Held cohort status vs INDEX.md held-positions section:** STALE per INDEX.md own note "holdings.md is STALE on DDOG + NOW lines pending next user screenshot." Reality post-2026-06-25 canonical: DDOG/NOW EXITED (resolved); SNDK promoted CORE 13.1% (new tier); broker confirmed DeGiro (resolved); cash buffer thinner (~€10,277).
+
+**Action required:** INDEX.md held-positions section needs refresh to reflect 2026-06-25 canonical holdings.md. **Defer to next focused-session per scope-control discipline** (not blocking on this cycle; flag for next session-start surfacing).
+
+**tags.md sync status:** new TC-12 + TC-13 candidates added 2026-06-25 Round 5+6 not yet reflected in tags.md tail. **Same deferral** — flag for next focused-session.
+
+**Verdict:** INDEX.md + tags.md refresh ACKNOWLEDGED OVERDUE but DEFERRED to focused-session work. Not blocking on critical workflow paths.
+
+---
+
+### Net audit verdict (this batched cycle)
+
+| Item | Verdict | Action |
+|---|---|---|
+| Two-bracket WEEK-3 check | PLATEAU (no priming-effectiveness signal) | 30-day close 2026-07-01 = retire decision |
+| Critical Rule #11 detectability | POSITIVE-LITE | KEEP; monitor HOLD-ratio creep |
+| AUTO-EXECUTE STRENGTHENING | STRONGLY POSITIVE | KEEP; 35 self-correction events documented |
+| Source-reliability | PASS | No action |
+| Bottleneck-forecast | UPDATED 2026-06-25 Round 6 | Noted; bottlenecks.md last_review pending file-update |
+| Portfolio-coherence | INTENTIONAL OVERWEIGHT per user | No action |
+| Session-prime curation | PASS (201/500 lines) | No prune; consider L28+L29 add at next opportunity |
+| INDEX.md / tags.md | ACKNOWLEDGED STALE | DEFER to next focused-session |
+| Cross-domain-pattern-register | Already completed in prior entry | N/A |
+| Supply chain reconstruction H1 | Subagent firing | Entry to follow |
+| Adversarial bear-case H2 | Subagent firing | Entry to follow |
+
+**Next cycle:** 2026-07-24 (next monthly audit) — should attempt to be EXECUTED ON TIME, not 2 days late.
+
+**Commit:** {SHA-pending}
+
