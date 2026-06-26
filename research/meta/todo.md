@@ -554,7 +554,7 @@
 
 ---
 
-- [ ] **P1 / harness / 2026-06-26** [INFRA, OPT] — Workflow #10 MORNING-FEED-SCAN cron activation (USER GREENLIGHT REQUIRED)
+- [x] **P1 / harness / 2026-06-26** [INFRA, OPT] — Workflow #10 MORNING-FEED-SCAN cron activation (USER GREENLIGHT REQUIRED)
   - Origin: user-articulated 2026-06-26 morning autonomous newsfeed design + design-lock confirmation
   - Scope: schedule 4 daily Opus 4.8 subagent fires via CronCreate tool — pre-Korea 01:30 CET / pre-Japan 01:45 CET / pre-Europe 08:30 CET / pre-US 15:00 CET
   - Pre-requisites: full spec codified in `meta/methodology.md` Workflow #10 + `meta/morning-feed-sources.md` + `meta/morning-feed-prompts.md`
@@ -567,3 +567,17 @@
   - Output: append to `meta/recurring-audit-log.md` + update `meta/morning-feed-sources.md` + `meta/morning-feed-prompts.md` per learnings
   - Detectability falsifier: <30% convergence with user shares OR cost >2.5M/week = retire/refine
   - Linked: `meta/methodology.md` Workflow #10 + `meta/harness-optimization-audit-2026-06-26.md`
+
+---
+
+- [ ] **P1 / harness / 2026-07-03** [INFRA, CAL] — Workflow #10 cron re-activation (7-day auto-expiry hit)
+  - Origin: CronCreate 2026-06-26 activated 4 schedules (IDs: 1ee4b492 Pre-Korea / 43ed7043 Pre-Japan / 9e9a36bc Pre-Europe / cc3b327d Pre-US) — auto-expire after 7 days per tool spec
+  - Action: re-fire CronCreate × 4 with same spec on 2026-07-03 to extend recurring schedule another 7 days
+  - WEEKLY recurring cadence going forward (every Friday)
+  - Linked: Workflow #10 in `methodology.md`; first-week review 2026-07-03
+
+- [ ] **P1 / harness / 2026-06-26** [INFRA, CAL] — SESSION-PERSISTENCE CONSTRAINT — Workflow #10 crons die when Claude session exits
+  - Origin: CronCreate 2026-06-26 outputs flagged "Session-only (not written to disk, dies when Claude exits)" DESPITE durable=true setting
+  - Operational constraint: morning scans only fire if Claude session active when cron time hits
+  - User-facing: ensure Claude session remains open Mon-Fri 01:30 / 01:45 / 08:30 / 15:00 CET for scans to fire
+  - Mitigation candidates: (a) keep session alive via web/CLI; (b) investigate tool-side durable persistence override; (c) flag at next harness audit for resolution
