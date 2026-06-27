@@ -1393,3 +1393,6 @@ The T1 rulebook entries persist as durable reasoning anchors; T2/T3 framings sho
 - `signals/cross-source-log/2026-06-22-am-subagent-minimax-vs-zhipu-peer-comparison.md` — model-layer bifurcation evidence
 - `signals/cross-source-log/2026-06-21-pm-subagent-statehow-knowledge-atlas-glm52-verification.md` — sovereign-stack evidence
 - `watchlist/candidates.md` PENG entry — CXL vs NVIDIA CMX application
+
+
+**B40.2 magnitude-inflation instance (2026-06-27):** Social-media human-opinion claim "CXMT will generate over $130B gross profit in next 18 months" = ~7× inflation as USD (would require $317B revenue = 3× entire global DRAM market). Grounded figure: ~¥100B/yr net (~$14B), charitable read of the claim = ¥130B CNY (~$18B) ≈ run-rate. Per `signals/cross-source-log/2026-06-27-cxmt-capex-flywheel-tools-bind-not-capital.md`. Reinforces L29 (hard-data + LLM-native inference > human-opinion extrapolation) + Critical Rule #16 verify-don't-anchor. Pattern: round-number USD figures in social posts on Chinese-company financials carry CNY/USD confusion risk — always reconcile against filings.
