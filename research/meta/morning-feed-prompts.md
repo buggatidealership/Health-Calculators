@@ -17,9 +17,11 @@
 | Leg | Mandate | Keys off | Output target |
 |---|---|---|---|
 | **Leg A — ANCHORED** | cohort prices, held-name news, falsifier checks, TC pattern-matches | held tickers | `companies/{TICKER}/thesis.md` cascades |
-| **Leg B — DISCOVERY** | broad company-AGNOSTIC theme sweep; what's NEW/moving/surprising; names we do NOT own | themes/sectors, NEVER held tickers | `watchlist/candidates.md` + `sector/themes.md` flags |
+| **Leg B — DISCOVERY** | **"read the newspaper"** — broad macro+micro across ALL investing-relevant sectors; no company-name query, NO segment pre-filter; connect dots AFTER (may be empty) | the whole investing landscape, NEVER held tickers or a pre-set segment list | `watchlist/candidates.md` + `sector/themes.md` flags |
 
-**Synthesis step (mandatory after both legs return):** explicitly compare Leg B against Leg A — *"what did the unanchored sweep surface that the portfolio-anchored scan would have missed?"* That delta is the anti-confirmation alpha. Leg B findings NEVER route to held-name theses; new names → `watchlist/candidates.md` with the causal chain that surfaced them; new themes → flag for `sector/themes.md` + BOTTLENECK-FORECAST.
+**Refinement 2026-06-27 (user):** Leg B must remove BOTH company-bias AND segment-bias — a pre-committed AI/semi theme list is itself the segment bias. Behave like a traditional investor reading the financial press front-to-back: read broadly (macro: rates/policy/geopolitics/energy/commodities/trade; micro: corporate moves/M&A/funding/launches across any sector), then connect dots to portfolio / existing thesis / emergent new thesis ONLY IF genuine dots exist. "No material dots this window" is a valid honest output — do NOT manufacture relevance. Exclude sports/culture/entertainment as investing-irrelevant. Optimize signal-per-token (skip noise, don't pad) but do NOT cap tokens to save cost.
+
+**Synthesis step (mandatory after both legs return):** explicitly compare Leg B against Leg A — *"what did the newspaper read surface that the portfolio-anchored scan would have missed?"* That delta is the anti-confirmation alpha. Leg B findings NEVER route to held-name theses; new names → `watchlist/candidates.md` with the causal chain that surfaced them; new themes → flag for `sector/themes.md` + BOTTLENECK-FORECAST.
 
 **Cost note:** two-leg doubles subagent count per scan (~140-240k tokens/scan vs ~80-120k). Per user 2026-06-26 cost directive (don't save costs where detrimental to quality), the discovery leg is the actual alpha source and is retained at full Opus 4.8. First-week review 2026-07-03 audits Leg B yield specifically.
 
@@ -183,52 +185,73 @@ B-LEG DISCOVERY SCAN / Workflow #10 / Critical Rule #16 / Opus 4.8
 
 EXECUTE WEB SEARCHES NOW. DO NOT RETURN ANALYSIS WITHOUT EXECUTING ACTUAL SEARCHES.
 
-=== CRITICAL FRAMING — READ TWICE ===
-FORGET THE PORTFOLIO EXISTS. Do NOT search for, prioritize, or filter by ANY
-specific company. You are a generalist AI/tech-sector analyst sweeping [REGION]
-headlines from the STRICTLY PAST 24 HOURS to find what is NEW, MOVING, or
-SURPRISING — especially things NOT yet on the consensus radar. Your job is
-DISCOVERY, not confirmation. A signal we own nothing in is the POINT, not noise.
+=== CRITICAL FRAMING — READ TWICE (user directive 2026-06-27) ===
+READ THE NEWSPAPER, do not query a database. Behave like a traditional investor who
+opens the [REGION] financial/business press and READS — front page, markets, economy,
+policy, world, business, tech sections — WITHOUT deciding in advance which section
+matters. You do NOT know what you're going to find. You just read, broadly, then
+connect the dots AFTERWARD — IF there are any dots to connect.
+
+Two biases to remove (both):
+  1. COMPANY bias — do NOT search for or query any specific company name (held or not).
+  2. SEGMENT bias — do NOT pre-filter to AI/semiconductors or any single segment. A
+     pre-committed theme list IS the segment bias. Read across the whole investing
+     landscape.
+
+In scope: anything that could become a SIGNAL — macro OR micro — with potential
+consequences / side-effects for (a) an existing portfolio company, (b) an existing
+harness thesis/framework, OR (c) a NEW thesis that could emerge. Out of scope:
+sports, culture, entertainment, human-interest — investing-irrelevant noise.
 === END FRAMING ===
 
 DATE CONTEXT (Principle #40): Today [YYYY-MM-DD] ([day]). Window: STRICTLY past 24h
 from trigger. Cite publication date per item; reject >24h unless flagged historical-context.
 
-MULTILINGUAL (Principle #36): sweep [REGION]-native trade press headlines in parallel
-with English (Korean/Japanese for Asia; German/French for EU; English for US).
+MULTILINGUAL (Principle #36): read [REGION]-native general + business press headlines in
+parallel with English (Korean/Japanese for Asia; German/French for EU; English for US).
 
-SWEEP THESE THEME DOMAINS (by theme/sector, NEVER by held-company name):
-- AI compute / semiconductors — new architectures, new entrants, capacity, breakthroughs
-- Memory / storage — new tech, new players, pricing, form-factors
-- Advanced packaging / substrates / materials
-- Power / cooling / datacenter infrastructure / grid
-- Networking / optical / interconnect / silicon photonics
-- AI software / agents / foundation models / inference economics
-- Robotics / embodied AI / edge AI
-- Sovereign AI / regulatory / export-control / chip geopolitics
-- AI funding rounds / M&A / IPOs / new listings (private + public)
-- Adjacent surprises — quantum, photonics, novel materials, energy, new supply chains
+HOW TO READ (newspaper method, NOT a domain checklist):
+- Open broad [REGION] business/markets/economy/world/tech press and scan the headlines as
+  they actually appear — the front page and business section of an FT/WSJ/Nikkei/Handelsblatt
+  -class read, plus general-news headlines with market consequence.
+- Cover both MACRO (rates, FX, inflation, fiscal/monetary policy, geopolitics, trade, energy,
+  commodities, labor, regulation) AND MICRO (notable corporate moves, earnings surprises,
+  M&A, funding rounds, IPOs, product launches, supply-chain events, executive/strategy
+  shifts) across ANY sector — not just tech/semis.
+- Do NOT start from a list of segments you expect to matter. Start from what is actually
+  being reported, then judge relevance.
+
+SIGNAL/NOISE OPTIMIZATION (user directive 2026-06-27): maximize signal-per-token. Skip
+investing-irrelevant items entirely (don't list-then-dismiss). Spend tokens where a genuine
+signal warrants depth; do NOT pad to hit a count. Equally: do NOT cap tokens to save cost —
+read widely enough to actually mimic a full newspaper read. Quality of the dot-connection
+beats quantity of headlines.
 
 MANDATORY OUTPUTS:
-1. TOP 10-15 HEADLINES ranked by NOVELTY × MAGNITUDE (newest + biggest first).
-   Per item: 1-line summary | source + T1/T2/T3 tier | in-window date | why it is NOVEL.
-2. NEW NAMES — every company (ticker or private) NOT a household AI name that is
-   moving / raising / launching / being acquired this window. 1-line "why on radar" each.
-3. NEW THEME / NEXT-BOTTLENECK candidates — emerging trends that could become an
-   investable theme OR the next binding constraint (the harness's #1 job). Name the
-   mechanism, not just the headline.
-4. THE ABSENCE QUESTION (mandatory, answer explicitly): "What is the market talking
-   about MOST this window that a memory/semiconductor portfolio would have ZERO
-   exposure to?" — this is the deliberate blind-spot probe.
-5. ANOMALY FLAG: biggest single-day sector mover (ANY name) that is NOT a mega-cap
-   and NOT an obvious story — the kind of thing that precedes a theme.
+1. WHAT'S ON THE FRONT PAGE — the 8-15 most consequential macro + micro headlines you
+   actually encountered, ranked by potential-signal-strength (not by relevance to what we
+   own). Per item: 1-line summary | source + T1/T2/T3 tier | in-window date | macro/micro.
+2. DOT-CONNECTION (separate post-read step — may legitimately be EMPTY): for each headline
+   that plausibly connects, state the dot to (a) an existing portfolio company [name it],
+   (b) an existing harness thesis/framework [name it], or (c) a NEW potential thesis [state
+   the mechanism]. **If a headline connects to nothing, say so and move on. "No material
+   dots to connect this window" is a VALID, honest output — do NOT manufacture relevance.**
+3. NEW NAMES — any company (ticker or private) surfaced by the read that is moving / raising
+   / launching / being acquired and is NOT already covered. 1-line "why on radar" each.
+4. NEW THEME / NEXT-BOTTLENECK candidates — emerging trends (any sector) that could become
+   an investable theme OR the next binding constraint. Name the mechanism + the bypass-route /
+   second-source angle where relevant (Critical Rule #9), not just the headline.
+5. THE ABSENCE QUESTION (answer explicitly): "What is the market talking about MOST this
+   window that our portfolio + harness has ZERO exposure to OR no framework for?" — the
+   deliberate blind-spot probe.
 
 ANTI-CONFIRMATION DISCIPLINE (enforced):
-- Do NOT route any finding to a held-name thesis. This leg only feeds watchlist + themes.
-- Do NOT drop a signal because "we don't own it." That filter is the bias we are removing.
-- A signal that CONTRADICTS the existing portfolio thesis is HIGH VALUE — flag it loudly.
+- Read unbiased; connect dots AFTER. The reading must not be filtered by what we own.
+- A signal that CONTRADICTS an existing portfolio thesis is HIGH VALUE — flag it loudly.
 - PENALIZE restatements of known narratives (memory shortage, HBM demand, AI capex) UNLESS
   there is a genuinely new data point inside the headline.
+- "No dots today" is acceptable. Forcing a portfolio connection onto unrelated macro is the
+  exact bias this leg exists to remove.
 
 WRITE ARTIFACT: signals/cross-source-log/[YYYY-MM-DD]-morning-feed-[region]-DISCOVERY.md
 ROUTE on return (handled by main loop, NOT the subagent):
