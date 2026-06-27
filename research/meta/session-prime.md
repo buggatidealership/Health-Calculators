@@ -125,21 +125,22 @@ _Note: L24 removed (placeholder, never verified). Current lesson tail is L25. Ne
 - **TC-5** CoPoS / glass-core packaging firming (advanced-packaging) [ACTIVE N=5]
 - **TC-6, TC-7, TC-8** — see `signals/triangulation.md` for current status and N counts
 
-## §6. HELD COHORT (per `portfolio/holdings.md` — last audited 2026-06-24)
+## §6. HELD COHORT (per `portfolio/holdings.md` — REFRESHED 2026-06-27 PM; combined €118,704.20)
 
-10 positions on Degiro (as of last confirmed portfolio snapshot 2026-06-06 AM; re-verify at session start against holdings.md):
-1. ARM 20sh ~3.2% (cut from 11.40%)
-2. AGC 100sh ~2.2%
-3. DDOG 40sh ~4.3%
-4. SK Hynix 8sh ~4.5%
-5. Hirano 300sh ~1.9%
-6. MongoDB 16sh ~2.6%
-7. Murata 201sh ~5.4%
-8. SanDisk 4sh ~2.9%
-9. ServiceNow 81sh ~4.2%
-10. Sumco 415sh ~4.4%
+**6 held names (5 DeGiro + 1 N26); re-verify at session start against holdings.md:**
+1. HYNIX 18 GDR (HY9H) — €27,540 — **23.2%** (L3 Core EXCEPTION)
+2. MURATA 336sh (MUR1) — €19,915 — **16.8%** Core
+3. KIOXIA — €18,500 — **15.6%** Core — **broker = N26** (separate)
+4. SNDK 9sh — €16,517 — **13.9%** Core
+5. SUMCO 626sh (S3X) — €12,911 — **10.9%**
+6. NBIS 58sh — €12,238 — **10.3%** Active
++ DeGiro cash ~€11,083 (9.3%)
 
-_No confirmed position changes since 2026-06-06. If holdings.md shows otherwise, that file is authoritative._
+**Memory cluster (HYNIX+KIOXIA+SNDK+SUMCO) = 63.6%.**
+
+**🔴 EXITED (do NOT reference as held — watchlist-reference only):** MRVL (full exit 2026-06-27, was 8.0%), DDOG (sold 2026-06-22), NOW (sold 2026-06-22), ARM/AGC/Hirano/MongoDB (exited Jun rotation).
+
+_holdings.md is authoritative. This list caused a held-vs-sold error 2026-06-27 when stale — keep it synced on every portfolio screenshot._
 
 ## §7. PENDING PREDICTIONS (resolution window not yet passed)
 

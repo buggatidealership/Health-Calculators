@@ -581,3 +581,15 @@ User has explicitly stated narrative-driven-momentum framing trumps wait-for-pul
 **Re-add trigger:** MRVL discloses die-design is a MINORITY of custom-silicon revenue OR a Trainium-4 socket win. **Stop:** FY2028 guide cut >15% on custom-silicon miss. **Key disclosure window:** Aug-26 Q2 FY27 print.
 
 **STATUS: DECISION RECORDED — pending actual DeGiro execution.** holdings.md weights finalize when user confirms fill (shares sold + price + date).
+
+---
+
+## 2026-06-27 — MRVL FULL EXIT (user-executed; exceeds recommended trim)
+
+**Action:** SOLD MRVL in full (was 44sh / 8.0% / €10,827 → €0). User-executed 2026-06-27.
+**Vs recommendation:** the 2026-06-27 Rule #17 ensemble was 3/3 TRIM 8%→5% (not full exit); user went to ZERO at discretion. Within user-discretion band (analogous to the DDOG/NOW full exits exceeding trim-recommendations 2026-06-22), but more thesis-grounded — the verified Trainium-3/4 die-design-loss bear (75% conf) supports the direction.
+**Rationale:** verified die-design socket loss to Alchip; undisclosed swing variable (die-design % of custom-silicon rev) = the uncertainty that didn't support 8% sizing.
+**Re-entry trigger:** MRVL discloses die-design is MINORITY of custom-silicon rev OR Trainium-4 socket win. Aug-26 Q2 FY27 print = key disclosure window.
+**Portfolio effect:** DeGiro cash +~€4K → ~€11,083; memory cluster concentration rose 58.9%→63.6% (MRVL was the lone non-memory/non-supply name).
+**Also confirmed this session:** KIOXIA broker = N26 (€18,500); the long-standing "separate broker TBD" resolved.
+**Canonical:** holdings.md fully refreshed 2026-06-27 PM (combined total €118,704.20).
