@@ -34,11 +34,15 @@ Six themes currently active. Each maps to specific names and a specific catalyst
 **Names:** AVGO, MRVL, GOOG (TPU), AMZN (Trainium), META (MTIA)
 **Catalyst:** Custom-silicon revenue line-items growing >50% YoY at hyperscalers; AVGO custom Si revenue
 
-### T5 — Inference observability + safety becomes core spend
-**Status:** Early
-**Thesis:** As agents scale, eval / observability / security become non-discretionary
-**Names:** DDOG, CRWD, possibly PLTR (gov-side)
-**Catalyst:** enterprise reporting agent-related incidents → spend shifts to observability; explicit AI line-item in earnings
+### T5 — AGENT OVERSIGHT LAYER (consolidated 2026-06-27; was "Inference observability + safety becomes core spend")
+**Status:** Early-but-firming (two-axis consolidation 2026-06-27 per user framing)
+**Thesis (unified two-axis frame):** as agents proliferate, enterprises must OBSERVE + GOVERN them on TWO orthogonal axes — both non-discretionary. Same telemetry/data-plane feeds both → favors observability+workflow incumbents over point solutions.
+- **AXIS A — CORRECTNESS / SECURITY ("does the agent do the RIGHT thing?")** [the original T5]: guardrails, prompt-injection defense, non-human identity, audit, "doesn't go rogue." Evidence: DDOG **AI Guard** (blocks prompt-injection + agent poisoning); NOW **Veza** (non-human identity for agents) + **Armis**. **DEFENSIBLE axis — DDOG observability moat + NOW workflow control plane.**
+- **AXIS B — EFFICIENCY / COST ("does it do it EFFICIENTLY?")** [NEW sub-thesis 2026-06-27, folded from the standalone AI-FinOps theme per user consolidation]: token-governance, FinOps-for-AI, cost-observability. Evidence: enterprise rate-limiting (Uber $1,500/mo cap; Meta/MSFT/Amazon); FinOps-X AI-cost-mgmt 63%→98% of mandates; **Tokenomics Foundation** (NOW = founding member); DDOG = AI-spend observability. **CAVEAT (Rule #18): CONTESTED axis — hyperscalers/model-providers want it native (MSFT embeds in M365 Admin Center + is ALSO a Tokenomics Foundation member; OpenAI/Anthropic can ship native dashboards). Axis B strengthens the TAM/narrative more than the moat.**
+**2nd-order (P~55%, my model):** a platform observing BOTH correctness AND cost has a data moat point-solutions can't match → consolidation accrues to incumbents with the execution-telemetry (DDOG) + control plane (NOW).
+**Names:** DDOG (🔴 watchlist-reference — SOLD 2026-06-22, re-entry candidacy), NOW (🔴 watchlist-reference — SOLD 2026-06-22, re-entry candidacy), CRWD, possibly PLTR (gov-side), MSFT (axis-B native incumbent, tracked).
+**Catalyst:** enterprise agent-incident reports → axis-A spend; AI-cost-discipline announcements → axis-B spend; explicit AI line-item in earnings; DDOG Q2 (Aug 6) / NOW Q2 (Jul 29) = re-entry-evidence catalysts.
+**L28-Jevons framing:** axis B is NOT bearish for compute/memory (rate-limiting culls waste not aggregate volume, Jevons N=3); BULLISH for the oversight-software layer.
 
 ### T8 — Edge Hardware AI (PROMOTED 2026-06-03 from CANDIDATE → VERIFIED-HIGH-CONFIDENCE on N=2+ Microsoft full edge stack within 24 hours of Build 2026)
 **Status:** Verified-high-confidence (N=2+ confirmed within 24h of codification)
@@ -245,18 +249,18 @@ Korea single-stock leveraged ETFs (launched May 27 2026) grew to $9B by June 23 
 
 ---
 
-## CANDIDATE theme (2026-06-27) — AI FinOps / Token-Cost-Governance
+## AI FinOps / Token-Cost-Governance → FOLDED INTO T5 AXIS B (consolidated 2026-06-27 per user framing)
 
-Per `signals/cross-source-log/2026-06-27-ai-cost-governance-jevons-N3-ddog-now-rate-limiting.md`. Surfaced by user brain-dump + 2-subagent verification. Enterprise AI spend is exploding (token usage +1,001% Jan'25→Apr'26) but 95% of gen-AI pilots show no measurable ROI + AI-agent cost sometimes > the labor it replaces (NVDA exec, Fortune Apr'26) → enterprises MUST instrument/govern AI cost.
+**CONSOLIDATION NOTE (2026-06-27):** this was briefly a standalone candidate theme; per user framing it is NOT a separate theme — it is **Axis B (efficiency/cost) of the unified T5 Agent Oversight Layer.** See T5 above. Two axes of one meta-thesis: Axis A = correctness/security ("agent doesn't go rogue"); Axis B = efficiency/cost ("agent does it efficiently"). Same telemetry, same buyer, same agent-proliferation driver.
 
-**Institutionalization (T1/T2):** FinOps X 2026 — AI cost mgmt jumped 63%→98% of FinOps-team mandates in 2yr; **Tokenomics Foundation** launched (founding members: Oracle/Google/Microsoft/Accenture/IBM/JPMorgan/KPMG/SAP/ServiceNow/Salesforce); enterprise rate-limiting at Uber ($1,500/mo cap)/Meta/Amazon/Walmart/AT&T.
+**Underlying data (retained, T1/T2):** Per `signals/cross-source-log/2026-06-27-ai-cost-governance-jevons-N3-ddog-now-rate-limiting.md`. Enterprise AI spend exploding (token usage +1,001% Jan'25→Apr'26) but 95% of gen-AI pilots no measurable ROI + AI-agent cost sometimes > the labor it replaces (NVDA exec, Fortune Apr'26). FinOps-X AI-cost-mgmt 63%→98% of mandates; **Tokenomics Foundation** (Oracle/Google/Microsoft/Accenture/IBM/JPMorgan/KPMG/SAP/**ServiceNow**/Salesforce); rate-limiting at Uber ($1,500/mo cap)/Meta/Amazon/Walmart/AT&T.
 
-**Investable expressions (held in bold):**
-- **DDOG (held ~4.3%)** — AI-spend OBSERVABILITY ("show me my AI cost"); analyst re-rate as "new AI infrastructure layer" 2026-06-27.
-- **NOW (held ~4.2%)** — workflow GOVERNANCE; Tokenomics Foundation FOUNDING MEMBER.
-- MSFT (tracked) — embeds cost governance in M365 Admin Center (Copilot metered).
+**Expressions (CORRECTED — NOT held; both SOLD 2026-06-22, re-entry candidacy):**
+- **DDOG** (🔴 watchlist-reference, sold 2026-06-22) — AI-spend observability; analyst re-rate "new AI infra layer" 2026-06-27. Axis-B exposure.
+- **NOW** (🔴 watchlist-reference, sold 2026-06-22) — workflow governance; Tokenomics Foundation founding member. Axis-B exposure.
+- MSFT (tracked) — embeds cost governance natively (M365 Admin Center, Copilot metered) = the CONTESTING incumbent on axis B.
 - Private governance-tooling (Portal26/Elvex/Odin/nOps) = NOT investable.
 
-**Critical framing (L28 Jevons):** this theme is NOT bearish for compute/memory demand. Rate-limiting culls waste, not aggregate volume (Jevons N=3). The theme is BULLISH for the governance-software layer AND neutral-to-mildly-bullish for infra (governance → sustainable scaling). The bear is narrow: margin compression at Anthropic/OpenAI developer-tools revenue (the directly-rate-limited category).
+**Critical framing (L28 Jevons N=3):** Axis B is NOT bearish for compute/memory (rate-limiting culls waste not aggregate volume). BULLISH for the oversight-software layer; bear is narrow (Anthropic/OpenAI dev-tools-revenue margin). **Defensibility caveat (Rule #18): axis B is the LESS-defensible half for DDOG/NOW — contested by hyperscalers/model-providers natively. Axis A (security/correctness) is their actual moat.**
 
-**Status: CANDIDATE.** Connects `wiki/token-consumption.md` (inference cost paradox) + `wiki/agentic-ai-enterprise.md` (pilot-failure). Watch: does AI-cost-discipline become the dominant H2'26 sentiment narrative (semi-SENTIMENT headwind distinct from thesis risk)?
+**Watch:** does AI-cost-discipline become the dominant H2'26 SENTIMENT narrative (semi-SENTIMENT headwind distinct from thesis risk)?
