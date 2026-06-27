@@ -57,7 +57,7 @@
 | **SNDK 9sh** | **€17,828** | **13.1%** | 5.3% | **+7.8pp (cash → shares add)** |
 | NBIS 58sh | €13,328 | 9.8% | 10.8% | -1.0pp (price drop + denominator) |
 | SUMCO 626sh | €12,833 | 9.5% | 9.8% | -0.3pp |
-| MRVL 44sh | €10,827 | 8.0% | 8.2% | -0.2pp |
+| MRVL 44sh | €10,827 | 8.0% ⚠️TRIM-PENDING→5.0% | 8.2% | -0.2pp |
 | Cash (DeGiro) | €10,277 | 7.6% | 15.3% | **-7.7pp (cash deployed into SNDK)** |
 | **TOTAL** | **€135,672** | **100.0%** | | |
 

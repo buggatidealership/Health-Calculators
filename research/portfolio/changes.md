@@ -565,3 +565,19 @@ User has explicitly stated narrative-driven-momentum framing trumps wait-for-pul
 - `portfolio/holdings.md` — canonical FULL REFRESH with new DeGiro screenshot data + broker naming RESOLVED (DeGiro not N26)
 - `portfolio/changes.md` — this entry
 - `companies/SNDK/thesis.md` — tier promoted CORE 13.1%; user-action cross-ref
+
+---
+
+## 2026-06-27 — MRVL TRIM DECISION 8.0% → 5.0% (user-confirmed)
+
+**Decision:** TRIM Marvell (MRVL) from 8.0% → 5.0% of portfolio. User-confirmed 2026-06-27 ("a bull needs 4 signals and a bear only needs 1, that says enough").
+
+**Rationale (verified):** Marvell lost Trainium 3 AND 4 silicon DIE-DESIGN socket to Alchip (75% confidence — Benchmark Dec-2025 downgrade + SemiAnalysis + TrendForce; root cause = Trainium-2 RDL-interposer execution failure). Per `signals/cross-source-log/2026-06-27-ai-brief-3subagent-verification-MRVL-trim-ensemble.md`. The H2 TRIM-WATCH (previously unverified) cleared verification. **Critical Rule #17 ensemble: 3/3 independent Opus 4.8 judges → TRIM 8%→5%, all MEDIUM confidence.** Decisive frame (user-endorsed): the bull case requires 4 things to all hold (custom-silicon line is mostly interconnect/photonics NOT die-design; 5-yr AWS deal delivers full scope; Celestial AI integrates clean; FY28 guide not front-loaded on displaced Trainium-2 content) while the bear needs only 1 (die-design was the revenue-dense core) → asymmetric downside doesn't support 8% sizing.
+
+**Framing (Rule #8/#18):** RIGHT-SIZING to medium-conviction, NOT thesis-falsification panic-exit. Die-design loss is NOT a written falsifier; 5% remains a meaningful overweight retaining AWS-relationship ballast + photonics/Celestial AI + B45 supercycle tailwind.
+
+**Mechanics (my calc from holdings €135,672 total, MRVL €246/share):** sell ~16 of 44 shares → keep ~28 → ~5.1%. Execute on STRENGTH (not market-down panic).
+
+**Re-add trigger:** MRVL discloses die-design is a MINORITY of custom-silicon revenue OR a Trainium-4 socket win. **Stop:** FY2028 guide cut >15% on custom-silicon miss. **Key disclosure window:** Aug-26 Q2 FY27 print.
+
+**STATUS: DECISION RECORDED — pending actual DeGiro execution.** holdings.md weights finalize when user confirms fill (shares sold + price + date).
