@@ -2042,3 +2042,24 @@
 **Audit-day classification:** POSITIVE — textbook anti-confirmation verification: a viral-sounding stacking narrative that *felt* thesis-relevant was decomposed; the real signal (NVIDIA base-die 2028+) is narrower and later than the poster implied
 **Cross-source-log:** `signals/cross-source-log/2026-06-27-memory-on-logic-3D-stacking-2subagent-QCOM-HBC.md`
 **Commit:** (this commit)
+
+---
+
+### [2026-06-27] Apple-CXMT lobbying (FT) — 2-subagent verification, net BULL, falsifier NOT fired
+
+**Trigger source:** user-shared FT screenshot (Apple lobbying Trump admin to buy memory from blacklisted CXMT) → Critical Rule #16, 2 Opus 4.8 subagents (FT/approval + cohort/falsifier), Rule #18 dissent each
+**Subagents fired:** 2 (Opus 4.8)
+**Estimated token cost:** ~75k actual (25,544 + 49,069)
+**Items verified:** FT story reality/freshness; CXMT product tier Apple seeks; CXMT legal status (1260H vs Entity List); MATCH Act contradiction; approval likelihood; cohort bull/bear + falsifier adjudication
+
+**Per-subagent yield:**
+- Subagent 1 (FT/approval): HIGH — confirmed product = LPDDR5X mobile DRAM NOT HBM (the load-bearing bounding); CXMT not legally barred (1260H bars DoD only); MATCH-Act policy contradiction; Apple not first Tier-1 (HP/Dell/Lenovo/Qualcomm already)
+- Subagent 2 (cohort/falsifier): HIGH — precise tier-map; pre-registered CXMT-HBM3-Tier-1 falsifier NOT FIRED (commodity event); net BULL adjudication; 3rd-order ban-acceleration tail (Apple's public ask may strengthen oligopoly)
+
+**Brief-framing errors caught:** prevented a false-alarm falsifier-fire — the headline ("Apple buying from CXMT") reads as a cohort bear, but verification established it is commodity mobile DRAM (NOT HBM), so the pre-registered HBM falsifier does NOT fire; net signal is BULL (peak shortage confirmation)
+**Thesis cascade triggered:** HYNIX (net BULL, HBM3-Tier-1 falsifier NOT fired, new bounded commodity-DRAM soft-watch), SNDK (Apple-YMTC NAND parallel); triangulation TC-1 N=22+
+**Position implication delta:** NONE (HYNIX HOLD, bull-reinforcing) — pre-registered HBM falsifier explicitly cleared; new commodity-DRAM-OEM soft-watch added (bounded)
+**Material yield class:** HIGH — correctly adjudicated a pre-registered falsifier (NOT fired) on a headline that superficially looked like the bear case firing; tier-bounding + net-BULL read protected the thesis from a spurious trim
+**Audit-day classification:** POSITIVE — textbook falsifier-discipline: the watch-item we pre-registered got tested by real news and correctly did NOT fire (right product tier matters); shortage-confirmation BULL surfaced
+**Cross-source-log:** `signals/cross-source-log/2026-06-27-apple-cxmt-lobbying-2subagent-net-bull-falsifier-not-fired.md`
+**Commit:** (this commit)
