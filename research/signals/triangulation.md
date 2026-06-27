@@ -36,7 +36,7 @@ Signals confirmed by ≥3 independent same-segment same-direction sources within
 - 🟡 DIRECTIONAL: Yole HBM deficit 5%→6%→9% 2025-27 (T2 forecast); TrendForce Rubin trim 29%→22% then "all qualified" reframe (T2); Bayesian H1 structural posterior 65%→75% (my model per L25 cascade); 3-supplier-share reframe Hynix ~55% / Samsung ~25% / Micron ~20% (my model, subagent-verified)
 - 🔴 SPECULATIVE: CXMT premium-tier qualification at NVDA (falsifier candidate, pending verification); HBF AI-training qualification (Kioxia VLSI H3 ~20% pre-registered); 3D DRAM 2027-28 timeline pull-in (rumor)
 
-**Instances (N=7+):**
+**Instances (N=21+):**
 1. Supplier earnings (T1 SK Hynix / Micron / Samsung 2026-Q1)
 2. Consumer ASP rise — Lexar guide forward (T2)
 3. Industry triangulation — multi-source DRAMeXchange / TrendForce (T2)
@@ -47,6 +47,8 @@ Signals confirmed by ≥3 independent same-segment same-direction sources within
 + Demand-side reinforcement: iPhone 18 12GB-all-models rumor (T3→T2, 2026-06-10); DeepSeek FlashMemory KV-tiering = additive not subtractive (2026-06-11)
 8. **SK Group Chairman Chey Nikkei interview T1 (2026-06-11)** — 3x wafer capacity by 2034 = 13-14% CAGR (my bottoms-up math), framed as demand-following with shortage-through-2030 language; HBM bit-multiplier means bit-supply CAGR even lower vs implied AI bit-demand >25%. Supplier-side discipline confirmed at the chairman level. Per `signals/cross-source-log/2026-06-11-hynix-chey-3x-2034-japan-reopen-t7-neutral-reinforcing.md`
 9. **Hynix-vs-Micron 3-subagent deep verification (2026-06-11 PM)** — share-split corrected (NVDA Rubin: Hynix ~55% / Samsung ~25% / Micron ~20%); HYNIX Falsifier #1 FIRED at qualification + borderline material share; Samsung 4nm yield overcame (40%→>90%); Rubin production trim 2M→1.5M April (T2 KeyBank, TrendForce 29%→22%) partially resolved by Huang June 5 "all qualified"; volume restoration unconfirmed. **Three-supplier reframe of the cluster:** Hynix + Samsung + Micron now all in production; HBM4E TSMC-rail (Hynix + Micron) vs Samsung internal SF4 splits the next-gen architecture. Per `signals/cross-source-log/2026-06-11-pm-hynix-mu-deep-verification-3subagent.md`
+10. **Huawei Ascend HBM-gated confirmation (2026-06-27, N=20+→N=21+)** — even fully fab-sovereign Chinese compute (SMIC die capacity >1M chips/yr) is bound by HBM supply, NOT fab (CXMT ~2M stacks 2026 → only 250-300K Ascend-equivalents; Samsung-stockpile phase 1; CXMT HBM3 + Huawei HiBL phase 2). T1 SemiAnalysis + TechPowerUp + ChinaTalk. = strongest possible structural confirmation that HBM is the universal binding constraint across ALL architectures, western and sanctioned-Chinese alike. Per `signals/cross-source-log/2026-06-27-ai-brief-3subagent-verification-MRVL-trim-ensemble.md`
+**NEW 2028 falsifier-watch (logged, deferred):** disaggregated-inference HBM-substitution — Rubin CPX (prefill→GDDR7, zero HBM; REMOVED from 2026 roadmap → Feynman ~2028) + Groq LPU (decode→SRAM) = path where both inference phases migrate off HBM, leaving training as the HBM anchor. NOT near-term (R200 HBM4-heavy dominates 2026-27); monitor disaggregation adoption + Feynman.
 **Convergent read:** premium DRAM + HBM remain capacity-binding through 2027; commodity tier separately tightening via reallocation spillover (per TC-6)
 **Names affected:** HYNIX (held), SNDK (held), SUMCO (held), MURATA (held — via TC-6)
 **Falsifier:** any T1 Hynix/Samsung capacity-expansion announcement above demand-following pace (would invert principle #27 thesis); CXMT premium-tier qualification at NVDA

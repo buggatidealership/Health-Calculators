@@ -1997,3 +1997,27 @@
 **Audit-day classification:** POSITIVE — validates the two-leg redesign; Leg B is non-decorative on its first run
 **Cross-source-log:** `signals/cross-source-log/2026-06-27-korea-japan-two-leg-scan-FIRST-DISCOVERY-RUN.md`
 **Commit:** (this commit)
+
+---
+
+### [2026-06-27] AI Intelligence Brief (June 26 Evening) — 3 verify + 3 ensemble (Rule #17 first live test)
+
+**Trigger source:** user-shared "AI Intelligence Brief June 26 Evening, 81 sources" → Critical Rule #16 triage + 3 verification subagents (TIER A clusters) + Critical Rule #17 ensemble (3 judges on MRVL sizing)
+**Subagents fired:** 6 (Opus 4.8) — 3 verification + 3 ensemble
+**Estimated token cost:** ~132k actual (verify: 41,061 + 32,149 + 29,447 = 102,657; ensemble: 9,961 + 9,616 + 9,875 = 29,452)
+**Items verified:** Jalapeño/Broadcom + HBM supplier; MRVL Trainium socket; HBM-demand cluster (Rubin CPX / Huawei Ascend / Colossus 2); + MRVL TRIM/HOLD ensemble
+
+**Per-subagent yield:**
+- Verify-1 (Jalapeño): HIGH — confirmed Samsung HBM4-exclusive gen-1 (held-name variable) + B45-bounded the bear (share-vs-$); AVGO $73B backlog confirmed
+- Verify-2 (MRVL Trainium): HIGH + FRAMING-ERROR-CAUGHT — B40.1 staleness catch (April deal recycled) + verified die-design socket loss (75%) = the H2 TRIM-WATCH now cleared verification
+- Verify-3 (HBM cluster): HIGH + FRAMING-ERROR-CAUGHT — 2 staleness catches (Rubin CPX Sep-2025 + roadmap-REMOVED; Colossus 2 gigawatt disputed) + surfaced the NEW Rubin-CPX-GDDR7 disaggregation 2028 bear vector the brief buried; Huawei HBM-gated → TC-1 N=21+
+- Ensemble 1/2/3 (MRVL TRIM/HOLD): each MEDIUM — 3/3 converged TRIM 8%→5%, medium confidence; first live Rule #17 test
+
+**Brief-framing errors caught:** (1) MRVL Trainium "breaking" = April recycle; (2) Rubin CPX "game changer" framing omitted the March-2026 roadmap cancellation; (3) Colossus 2 "first gigawatt" disputed (350MW); (4) the brief presented Rubin CPX as HBM-bullish while it is actually a (deferred) HBM-substitution bear
+**Thesis cascade triggered:** MRVL (TRIM RECOMMENDED 8%→5%, ensemble 3/3), HYNIX (Jalapeño bounded + Rubin-CPX 2028 falsifier-watch + Huawei TC-1); triangulation TC-1 N=21+ + TC-13 +1
+**Position implication delta:** **MRVL TRIM RECOMMENDED 8.0%→5.0% (first sizing-action recommendation in weeks)** — actual trade gated to user per Rule #11; HYNIX HOLD
+**Material yield class:** HIGH — first verified TRIM signal (vs prior unverified H2 flag) + 4 framing-error catches + first Rule #17 ensemble producing a calibrated 3/3-medium sizing call
+**Audit-day classification:** POSITIVE — highest-stakes fire of the cycle (drove an actual sizing recommendation); Rule #17 earned its first test (3/3 medium = robust-but-uncertain, exactly the calibration signal intended)
+**Rule #17 instrumentation note (for 2026-07-27 re-eval):** MRVL ensemble = 3/3 agreement at MEDIUM confidence. Consensus high, confidence band medium (encodes undisclosed-variable uncertainty). First data point: ensemble converged rather than split — watch whether future ensembles ever split 3/2 (which would prove the spread carries information).
+**Cross-source-log:** `signals/cross-source-log/2026-06-27-ai-brief-3subagent-verification-MRVL-trim-ensemble.md`
+**Commit:** (this commit)
