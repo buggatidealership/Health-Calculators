@@ -113,6 +113,8 @@ _Note: L24 removed (placeholder, never verified). Current lesson tail is L25. Ne
 14. Signal density detection — every cross-source-log file MUST run same-segment same-direction lookup; promote to triangulation at N≥3
 15. Macro-first, research-anchored discipline — before position-relevant output: articulate layer first-principles with date anchor; tag claims research-verified vs recall-based; tie micro details to macro thesis; surface macro-vs-micro contradictions before concluding (B46 origin 2026-06-12)
 16. Always run verification subagents immediately on any external data with thesis/sizing implications — model = Opus 4.8, parallel firing, N=2-4, never ask permission; log to `meta/subagent-cost-yield-ledger.md` (instrumentation added 2026-06-19)
+17. Ensemble high-stakes calls — for any binary/numeric decision with sizing consequence (prediction GRADEs, binary-catalyst outcomes, TRIM/EXIT/ENTER on a Core position, tier-gating P-weights), run N=3-5 independent Opus 4.8 samples and report MODE + SPREAD; spread is the signal (5/5 = high-conviction; 3/5 = state uncertainty, don't collapse to false-confident point). Scope: sizing-consequential only, NOT routine. (added 2026-06-27)
+18. Standing dissent mandate — on any thesis conclusion, sizing decision, or user framing, generate the strongest FALSIFYING case BEFORE concluding; if none exists, say so explicitly. Non-optional; suppresses confirmation-of-harness-state + sycophancy. Per-conclusion obligation (distinct from Rule #8 periodic + Leg B search-layer). (added 2026-06-27)
 
 ## §5. ACTIVE TRIANGULATION CLUSTERS (one-line each; PARKED clusters excluded)
 

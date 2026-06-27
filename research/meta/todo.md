@@ -231,6 +231,18 @@
 - [ ] **P3 / wiki / 2026-05-21** [INFRA] — Geopolitical AI primer
   - Scope: US-China tech war, export controls, allowed/restricted lists, Taiwan dependence. **BOM-depth requirement:** wafer-volume by node × geography; specific HSCD-controlled items; substitution paths.
 
+- [ ] **P2 / harness / 2026-07-24** [INFRA, recurring] — PRUNING DISCIPLINE monthly pass (LLM-native context-hygiene, codified 2026-06-27 audit item #3)
+  - Origin: 2026-06-27 LLM-native audit — harness is engineered to ACCRETE (every cascade appends) but my attention budget per context degrades with length ("lost in the middle"); a bloated harness dilutes retrieval MORE for an LLM than it slows a human. There is an accrete cadence but no matching PRUNE cadence.
+  - Scope (monthly, 24th, alongside consolidated audit): identify what can be archived/compressed without losing load-bearing state — oversized thesis files (rounds 1-N → compress resolved rounds to a 1-line ledger + link), tier-cascade-log + subagent-cost-yield-ledger rotation (archive >30-day entries to a dated archive file, keep audit-summary head), stale cross-source-log consolidation, session-prime cap enforcement (≤500 lines). Treat pruning with the SAME seriousness as the audits — bloat is a silent cognition tax.
+  - Metric: total harness char-count growth rate; per-file size flags (thesis.md >X KB → compress-resolved-rounds candidate); was anything load-bearing lost? (must be NO)
+  - Linked: `meta/methodology.md`, `meta/session-prime.md` cap rules, `companies/*/thesis.md`, `meta/tier-cascade-log.md`, `meta/subagent-cost-yield-ledger.md`
+
+- [ ] **P1 / harness / 2026-07-27** [INFRA, CAL] — Critical Rules #17 (ensembling) + #18 (dissent mandate) 30-day detectability re-eval
+  - Origin: 2026-06-27 LLM-native audit codification (CLAUDE.md Rules #17/#18)
+  - Scope #17: grep for ensembled high-stakes calls; did spread vary meaningfully (some 5/5, some 3/5)? did 3/5-flagged calls correlate with later-graded misses? POSITIVE = spread predicted uncertainty; NEGATIVE = always 5/5 (decorative) OR spread never correlates → retire
+  - Scope #18: did thesis/sizing outputs reliably contain a falsifying-case section AND did it occasionally flip/temper a conclusion? POSITIVE = load-bearing; NEGATIVE = rote "bear case dismissed" boilerplate never changing a conclusion → refine or build falsifier-section Stop hook
+  - Linked: `CLAUDE.md` Critical Rules #17/#18; `predictions/inference-log.md`; `meta/subagent-cost-yield-ledger.md`
+
 ---
 
 ## Archive (completed process items without permanent artifact)
