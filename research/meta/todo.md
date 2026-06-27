@@ -13,6 +13,27 @@
 
 ---
 
+- [ ] **P1 / USER-ACTION / 2026-06-27** [POS] — DeGiro/M26 availability check on REIA-surfaced investable names (do tonight when time allows)
+  - Origin: 2026-06-27 REIA Batch #2-4 (power / CPU-server / CXMT) per `signals/cross-source-log/2026-06-27-REIA-batch-power-cpuserver-cxmt-investable-list.md`. All are watchlist-level / PRE-THESIS — availability check gates whether they're worth a Workflow #9 thesis build.
+  - ⭐ PRIORITY (EU-accessible + fills Layer-3 power + EU-sovereign-AI gaps) — check these first:
+    - [ ] Siemens Energy — ENR (Xetra/Frankfurt)
+    - [ ] Schneider Electric — SU (Euronext Paris)
+    - [ ] ABB — ABBN (SIX Swiss)
+    - [ ] Prysmian — PRY (Borsa Italiana / Milan)
+    - [ ] Nexans — NEX (Euronext Paris)
+    - [ ] Legrand — LR (Euronext Paris)
+    - [ ] Infineon — IFX (Xetra)
+    - [ ] ASML — ASML (Euronext Amsterdam) [likely already accessible]
+  - Secondary (check access — may be restricted):
+    - [ ] Lenovo — 0992 (HKEX)
+    - [ ] Wiwynn — 6669 (TWSE) / Tokyo Electron — 8035 (TSE)
+  - US (likely accessible, lower priority to verify): GEV / ETN / VRT / CEG / VST / TLN / BE / CLF / AMD / ARM / ALAB / MU / LRCX / AMAT / KLAC / ACMR
+  - NOT accessible (don't bother): CXMT (Shanghai STAR), Naura/AMEC/Piotech (China A/STAR), SK Hynix/Samsung direct KRX (Nasdaq ADR ~July 10 = workaround)
+  - NEXT STEP after check: tell Claude which are available → rank accessible subset by conviction + sizing fit → Workflow #9 thesis build on the ones to pursue.
+  - Linked: `signals/cross-source-log/2026-06-27-REIA-batch-power-cpuserver-cxmt-investable-list.md`, `watchlist/candidates.md`
+
+---
+
 ## Open
 
 ### P2 — High priority new (added 2026-06-04 PM — bypass-route + architecture-of-tomorrow research)
