@@ -138,6 +138,20 @@ EXEMPTION_PATTERNS = [
     r"\bcodification",
     r"^(?:Updated|Saved|Created|Wrote|Pushed|Committed)\s+",  # file-write narration
     r"^(?:Yes|No|Confirmed|Acknowledged)\s*[—-]",             # acknowledgment lead-in
+    # Scan-design / harness-meta discussion (added 2026-06-27, Option B — user "not too strict";
+    # narrow design-doc tokens used when DISCUSSING the morning-scan machinery, NOT real scan
+    # OUTPUT — a genuine scan digest reports findings, it does not say "Leg B"/"newspaper")
+    r"\bLeg\s+[AB]\b",
+    r"\btwo-leg\b",
+    r"\bscan\s+(design|spec|machinery|prompt|template|window)\b",
+    r"\bdiscovery\s+(leg|scan)\b",
+    r"\bnewspaper\b",
+    r"\banti-confirmation\b",
+    r"\bconfirmation\s+bias\b",
+    r"\bmorning[- ]feed\b",
+    r"\bfirst-week\s+review\b",
+    r"\bharness[- ](meta|design)\b",
+    r"\b(harness-meta|scan-design)\s+exemption\b",
 ]
 
 # Position-implication tier enforcement (Principle #37, added 2026-06-15).
@@ -248,18 +262,12 @@ def main():
     if len(text) < 800:
         sys.exit(0)
 
-    # Exemption: meta-discussion / file-narration / acknowledgment
-    if has_pattern(text, EXEMPTION_PATTERNS):
-        sys.exit(0)
-
-    # Trigger gate: must contain analytical markers
-    if not has_pattern(text, ANALYTICAL_MARKERS):
-        sys.exit(0)
-
     # Position-implication tier enforcement (Principle #37, added 2026-06-15).
-    # Runs BEFORE the general structural-markers pass-gate — every sizing
-    # recommendation must declare its confidence tier even if other
-    # structural markers are present.
+    # Runs BEFORE the exemption + structural-markers gates (moved 2026-06-27):
+    # a real sizing recommendation MUST declare its confidence tier even if the
+    # message also contains a harness-meta/scan-design exemption token. The
+    # exemption only suppresses the general structural-markers gate, NOT the
+    # hard tier requirement on an actual Position implication line.
     for m in POSITION_IMPLICATION_RE.finditer(text):
         line = m.group(0)
         # Find the line directly above for the "above" tier-marker variant
@@ -272,6 +280,14 @@ def main():
         _log_fire("position-implication-tier-missing")
         _print_position_implication_feedback(line)
         sys.exit(2)
+
+    # Exemption: meta-discussion / file-narration / acknowledgment / scan-design
+    if has_pattern(text, EXEMPTION_PATTERNS):
+        sys.exit(0)
+
+    # Trigger gate: must contain analytical markers
+    if not has_pattern(text, ANALYTICAL_MARKERS):
+        sys.exit(0)
 
     # Pass condition: contains AT LEAST ONE multi-dimensional structural marker
     if has_pattern(text, STRUCTURAL_MARKERS):
