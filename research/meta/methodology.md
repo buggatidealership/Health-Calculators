@@ -1821,3 +1821,28 @@ Workflow #10 first-week review 2026-07-03 still applies — same metrics (source
 **Scope:** pattern-match across 5 days × 3 scan-windows = 15 scan artifacts; identify multi-day TC promotion candidates; calibrate L/B/PC promotion gates; signal/noise weekly metrics.
 
 **Status:** PENDING codification — flagged for 2026-07-03 first-week review (will be Saturday).
+
+---
+
+## Workflow #11 CANDIDATE — REVERSE-ENGINEERED INDEPENDENT ANALYSIS (REIA) (codified 2026-06-27, N=1 proven)
+
+**User articulation 2026-06-27 verbatim:** *"reverse engineering with the flow. You have the title, and then you use your own inferred research. What are the data points you'd have to look at to create a comprehensive research guide on the topic? You decide what those data points, functions, or variables are, then you search for those variables and functions, and then you create your own LLM-native analysis instead of depending on what the author is saying."*
+
+**What it is:** the ultimate expression of L1 ("NEVER start with sell-side and adjust"). An analyst note's conclusion is a downstream FUNCTION of inputs that can be fetched independently. So instead of reading the note, treat its TITLE as a pointer to a research question, decompose to the variable set that determines the answer, fetch those variables blind to the note, and synthesize an independent LLM-native read. The author's note becomes an optional CHECK/adversary — never the source.
+
+**The 4-step loop:**
+
+| Step | Action | Who | Bias removed |
+|---|---|---|---|
+| 1. DECOMPOSE | Title → research question → variable/function set (`output = f(v1, v2, ...)`) | main loop (free, LLM-native) | author's framing |
+| 2. FETCH | Subagent searches ONLY the decomposed variables, blind to the note (prompt explicitly forbids reading the note) | subagent (data acquisition only) | author's selection |
+| 3. SYNTHESIZE | Main loop builds the answer from variables — H1/H2/H3 with P-weights, N-th order, bypass-route check, dissent (Rule #18) | main loop (independent) | author's conclusion |
+| 4. CHECK | NOW compare to the author's directional claim — agree / sharpen / diverge, and WHY (B28 analyst-lag lens) | main loop | author = second opinion, not oracle |
+
+**Quality bar:** Step 2 subagent prompt MUST say "do NOT read/summarize the [author] note; fetch ONLY these variables; I synthesize." Step 3 MUST be derivable from fetched variables (research-verified tags). Step 4 MUST state where the independent read diverges from or sharpens the title's implied claim.
+
+**When to use:** paywalled/title-only analyst notes; any case where the author's framing/selection bias is a risk; topics where the harness wants an independent first-principles read rather than a consensus summary. Pairs with Workflow #9 (macro-first) — REIA is #9 applied to a specific analyst-pointer.
+
+**Detectability/falsifier (re-eval 2026-07-27):** POSITIVE = REIA runs produce reads that are (a) derivable from fetched variables AND (b) sharpen/diverge from the title's implied claim in a defensible way (e.g., Experiment #1 surfaced legacy pure-plays + TC-12 extension + B28-late caveat the title couldn't carry); NEGATIVE = REIA just reproduces what reading the note would have given (no sharpening) → elegant but not additive, retire or fold into Workflow #9.
+
+**N=1 origin (PROVEN):** 2026-06-27 Experiment #1 on "Morgan Stanley — Old Memory: Better to Buy More" — independent analysis reached the bullish-legacy direction AND sharpened it (trade is pure-plays Nanya/Winbond/Macronix not majors; TC-12 margin-inversion extends to legacy; B28 analyst-lag caveat; CXMT-cap falsifier). Per `signals/cross-source-log/2026-06-27-REIA-experiment-old-memory-legacy-DRAM-squeeze.md`. Promotion to full Workflow #11 gate: N=2 (one more REIA run that demonstrably sharpens vs reading the note).

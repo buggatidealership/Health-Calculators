@@ -2063,3 +2063,23 @@
 **Audit-day classification:** POSITIVE — textbook falsifier-discipline: the watch-item we pre-registered got tested by real news and correctly did NOT fire (right product tier matters); shortage-confirmation BULL surfaced
 **Cross-source-log:** `signals/cross-source-log/2026-06-27-apple-cxmt-lobbying-2subagent-net-bull-falsifier-not-fired.md`
 **Commit:** (this commit)
+
+---
+
+### [2026-06-27] REIA Experiment #1 — "Old Memory" legacy DRAM squeeze (variable-acquisition fire)
+
+**Trigger source:** user-proposed REIA method (reverse-engineer analyst note from title → decompose variables → fetch blind → independent synthesis). Title: "Morgan Stanley — Old Memory: Better to Buy More" (note NEVER read)
+**Subagents fired:** 1 (Opus 4.8, variable-acquisition only — synthesis by main loop)
+**Estimated token cost:** ~35k actual (34,946)
+**Items verified:** 6 decomposed variables (legacy DRAM price; supply-exit rate; residual-demand inelasticity; supply-demand gap; ASP-kicker beneficiaries + CXMT-cap; legacy-NAND parallel)
+
+**Per-subagent yield:**
+- Variable-fetch subagent: HIGH — clean data-acquisition on all 6 variables (DDR4 +2,200%/capacity 20-25% of 2024/Nanya +583% GM 67.9%/MLC -42%/CXMT partial-cap); enabled independent synthesis WITHOUT the author's framing
+
+**Brief-framing errors caught:** N/A (author note deliberately not read — that IS the method). The independent synthesis SHARPENED the title's implied claim: trade is pure-plays not majors; TC-12 extends to legacy; B28-late caveat
+**Thesis cascade triggered:** HYNIX (legacy DDR4 kicker + TC-12 extension), triangulation TC-12 N=5 (extends to legacy) + TC-1 DDR2/DDR3 cascade, watchlist (Nanya/Winbond/Macronix, investability-flagged)
+**Position implication delta:** NONE (HYNIX HOLD) — pure-play beneficiaries surfaced to watchlist (Taiwan TWSE, investability-check-required)
+**Material yield class:** HIGH — first REIA run; proved the method (independent analysis reached + sharpened the conclusion); surfaced a genuinely new sub-thesis (legacy-pure-play squeeze + TC-12 extension) the harness had not covered
+**Audit-day classification:** POSITIVE — REIA N=1 proven; codified as Workflow #11 candidate; demonstrates L1 (never-start-with-sell-side) taken to its endpoint
+**Cross-source-log:** `signals/cross-source-log/2026-06-27-REIA-experiment-old-memory-legacy-DRAM-squeeze.md`
+**Commit:** (this commit)

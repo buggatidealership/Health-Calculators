@@ -1646,3 +1646,17 @@ Per `signals/cross-source-log/2026-06-27-korea-japan-two-leg-scan-FIRST-DISCOVER
 - Korea defense ETFs (KDEF) — postwar-rebuild rotation; non-AI.
 
 **Discipline:** out-of-mandate names are NOT pursued per CLAUDE.md AI-sector scope; logged so the signal exists if user chooses to widen mandate. Leg B read them because the design is deliberately unbiased — connecting the dot to "outside our board" is the honest output.
+
+---
+
+## Legacy-memory pure-plays (2026-06-27 REIA experiment #1) — INVESTABILITY-CHECK-REQUIRED
+
+Per `signals/cross-source-log/2026-06-27-REIA-experiment-old-memory-legacy-DRAM-squeeze.md`. Surfaced by independent reverse-engineered analysis of the legacy DRAM/NAND supply-exit squeeze. These are the CLEANEST expression of the "old memory" trade (the exiting majors capture spike-on-declining-volume; the pure-plays that stayed capture the rent).
+
+- **Nanya Technology (2408.TW)** — ~90% DDR4/LPDDR4 pure-play; Q1'26 rev +582.9% YoY, ASP +70% QoQ / +200% YoY, GM 67.9%, net 53.1% (TechPowerUp/Nanya IR T1). **CAVEAT: already +583% — B28 analyst-lag, move largely in-price; chasing risk.**
+- **Winbond (2344.TW)** — specialty DDR4/DDR3, sold out through 2027; new 16nm 8Gb DDR4 MP 2026.
+- **Macronix (3254.TW)** — legacy NAND (MLC/NOR/SLC); +382% YoY rev on Samsung MLC exit; monthly pricing.
+- **PSMC** — exiting legacy DRAM foundry (sold P5 fab to Micron) — NOT a beneficiary, a supply-exit data point.
+
+**INVESTABILITY: all Taiwan TWSE-listed — likely OUTSIDE Degiro access per the KRX-style filter (CLAUDE.md investability filter: KRX no access; Japan TSE accessible; Taiwan TWSE UNVERIFIED). Verify Degiro Taiwan access before any P1/P2 promotion. If inaccessible = reference artifacts only (like KRX names).**
+**Falsifier on the legacy trade:** CXMT/restart backfill (Winbond 16nm, Macronix capex, Nanya NT$52B fab) refills the gap within 12-18mo → mean-reversion. CXMT cap is partial (mobile LPDDR4X yes; DDR4 server/industrial less so).
