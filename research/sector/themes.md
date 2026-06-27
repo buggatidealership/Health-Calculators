@@ -242,3 +242,21 @@ Per `signals/cross-source-log/2026-06-27-korea-japan-two-leg-scan-FIRST-DISCOVER
 ## CANDIDATE theme (2026-06-27, Leg B) — Korea Leveraged-ETF Structural Volatility Overhang
 
 Korea single-stock leveraged ETFs (launched May 27 2026) grew to $9B by June 23 = 31-38% of Samsung/SK Hynix daily volume, 92% retail, ~200% turnover (Seoul Economic Daily / Bloomberg T2). Reflexive amplifier: rally→inflows→rally→larger rebalancing dumps on declines. Explains part of Friday's −8/−11% cohort move as forced leverage-unwind, NOT fundamental. **Status: market-structure RISK FLAG for all Korea-listed cohort names** (HYNIX). FSS weighing curbs; any tightening would REMOVE the amplifier (stabilizing). Monitor FSS action.
+
+---
+
+## CANDIDATE theme (2026-06-27) — AI FinOps / Token-Cost-Governance
+
+Per `signals/cross-source-log/2026-06-27-ai-cost-governance-jevons-N3-ddog-now-rate-limiting.md`. Surfaced by user brain-dump + 2-subagent verification. Enterprise AI spend is exploding (token usage +1,001% Jan'25→Apr'26) but 95% of gen-AI pilots show no measurable ROI + AI-agent cost sometimes > the labor it replaces (NVDA exec, Fortune Apr'26) → enterprises MUST instrument/govern AI cost.
+
+**Institutionalization (T1/T2):** FinOps X 2026 — AI cost mgmt jumped 63%→98% of FinOps-team mandates in 2yr; **Tokenomics Foundation** launched (founding members: Oracle/Google/Microsoft/Accenture/IBM/JPMorgan/KPMG/SAP/ServiceNow/Salesforce); enterprise rate-limiting at Uber ($1,500/mo cap)/Meta/Amazon/Walmart/AT&T.
+
+**Investable expressions (held in bold):**
+- **DDOG (held ~4.3%)** — AI-spend OBSERVABILITY ("show me my AI cost"); analyst re-rate as "new AI infrastructure layer" 2026-06-27.
+- **NOW (held ~4.2%)** — workflow GOVERNANCE; Tokenomics Foundation FOUNDING MEMBER.
+- MSFT (tracked) — embeds cost governance in M365 Admin Center (Copilot metered).
+- Private governance-tooling (Portal26/Elvex/Odin/nOps) = NOT investable.
+
+**Critical framing (L28 Jevons):** this theme is NOT bearish for compute/memory demand. Rate-limiting culls waste, not aggregate volume (Jevons N=3). The theme is BULLISH for the governance-software layer AND neutral-to-mildly-bullish for infra (governance → sustainable scaling). The bear is narrow: margin compression at Anthropic/OpenAI developer-tools revenue (the directly-rate-limited category).
+
+**Status: CANDIDATE.** Connects `wiki/token-consumption.md` (inference cost paradox) + `wiki/agentic-ai-enterprise.md` (pilot-failure). Watch: does AI-cost-discipline become the dominant H2'26 sentiment narrative (semi-SENTIMENT headwind distinct from thesis risk)?

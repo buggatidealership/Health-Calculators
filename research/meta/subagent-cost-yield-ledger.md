@@ -2083,3 +2083,24 @@
 **Audit-day classification:** POSITIVE — REIA N=1 proven; codified as Workflow #11 candidate; demonstrates L1 (never-start-with-sell-side) taken to its endpoint
 **Cross-source-log:** `signals/cross-source-log/2026-06-27-REIA-experiment-old-memory-legacy-DRAM-squeeze.md`
 **Commit:** (this commit)
+
+---
+
+### [2026-06-27] AI-cost-governance / rate-limiting (user brain-dump) — Jevons L28 N=3 + DDOG/NOW
+
+**Trigger source:** user brain-dump (enterprise AI rate-limiting → bearish semis hypothesis + DDOG/NOW-up observation) → Critical Rule #16, 2 Opus 4.8 subagents (Friday price action + rate-limiting trend/Jevons), Rule #18 dissent
+**Subagents fired:** 2 (Opus 4.8)
+**Estimated token cost:** ~44k actual (22,828 + 21,568)
+**Items verified:** Friday DDOG/NOW vs semis price action + Apple-news framing; Uber/MSFT/peer rate-limiting reality; aggregate token-demand trend; Jevons bear-vs-bull adjudication
+
+**Per-subagent yield:**
+- Friday-price-action: HIGH — confirmed DDOG +8.52%/NOW +8.06% vs semis −2/−6%; B46 nuance (analyst-upgrade-driven NOT rotation); Apple-news bearish framing confirmed
+- Rate-limiting/Jevons: HIGH — confirmed Uber/MSFT/Meta caps + FinOps-X/Tokenomics-Foundation institutionalization; REFUTED user's bearish-semi chain via aggregate data (token +1,001% YoY); L28 Jevons N=3
+
+**Brief-framing errors caught:** user's bearish-semi chain (rate-limiting → bearish semis) REFUTED at aggregate (Jevons); separated the user's brain-dump into refuted-sub-claim (bearish semis) + confirmed-sub-claim (DDOG/NOW governance tailwind) + new theme
+**Thesis cascade triggered:** DDOG + NOW (AI-cost-governance tailwind, HOLD reinforced); lessons.md L28 Jevons N=3; sector/themes.md NEW candidate "AI FinOps / Token-Cost-Governance"
+**Position implication delta:** NONE (DDOG/NOW HOLD reinforced, no chase on +8% pop; memory cohort HOLD — Friday sentiment not falsifier)
+**Material yield class:** HIGH — converted a user brain-dump into a clean signal/noise separation; reinforced 2 held software positions; L28 N=3; surfaced a genuine new theme; protected memory cohort from a plausible-but-wrong bearish read
+**Audit-day classification:** POSITIVE — textbook collaborative-loop + Jevons-prior application; the harness corrected the USER's bearish chain (L28 as codified prior, not just user-heuristic)
+**Cross-source-log:** `signals/cross-source-log/2026-06-27-ai-cost-governance-jevons-N3-ddog-now-rate-limiting.md`
+**Commit:** (this commit)
