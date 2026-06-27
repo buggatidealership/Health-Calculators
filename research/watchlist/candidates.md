@@ -1660,3 +1660,35 @@ Per `signals/cross-source-log/2026-06-27-REIA-experiment-old-memory-legacy-DRAM-
 
 **INVESTABILITY: all Taiwan TWSE-listed — likely OUTSIDE Degiro access per the KRX-style filter (CLAUDE.md investability filter: KRX no access; Japan TSE accessible; Taiwan TWSE UNVERIFIED). Verify Degiro Taiwan access before any P1/P2 promotion. If inaccessible = reference artifacts only (like KRX names).**
 **Falsifier on the legacy trade:** CXMT/restart backfill (Winbond 16nm, Macronix capex, Nanya NT$52B fab) refills the gap within 12-18mo → mean-reversion. CXMT cap is partial (mobile LPDDR4X yes; DDR4 server/industrial less so).
+
+---
+
+## REIA Batch (Experiments #2-4) investable surface — 2026-06-27 — POWER / CPU-SERVER / CXMT
+
+Per `signals/cross-source-log/2026-06-27-REIA-batch-power-cpuserver-cxmt-investable-list.md`. Reverse-engineered independent analysis of 3 analyst-note titles (JPM power / Goldman CPU-server / SemiAnalysis CXMT). ⭐ = EU-accessible + fills an open harness gap. USER to verify DeGiro/M26 availability.
+
+### PRIORITY 1 — POWER INFRA (NEW gap-fill surface: Layer-3 power + EU-sovereign-AI)
+- ⭐ Siemens Energy (ENR, Xetra) — gas turbine+grid+transformer, €136B backlog — HIGH
+- ⭐ Schneider Electric (SU, Euronext Paris) — DC switchgear/UPS — HIGH
+- ⭐ ABB (ABBN, SIX Swiss) — switchgear/grid — MED-HIGH
+- ⭐ Prysmian (PRY, Milan) / ⭐ Nexans (NEX, Paris) — cables — MED
+- ⭐ Legrand (LR, Paris) — electrical distribution — MED
+- ⭐ Infineon (IFX, Xetra) — power semis — MED-HIGH
+- GE Vernova (GEV, NYSE) HIGH / Eaton (ETN, NYSE) HIGH / Vertiv (VRT, NYSE) MED-HIGH — [already TC-13 watchlist]
+- Constellation (CEG) / Vistra (VST) / Talen (TLN) — nuclear-PPA IPP — MED [already TC-13]
+- Bloom Energy (BE, NYSE) — fuel-cell BTM — MED/volatile; Cleveland-Cliffs (CLF, NYSE) — GOES choke — MED/niche
+
+### PRIORITY 2 — CPU SERVER + AGENTIC (reinforces held memory cohort)
+- AMD (AMD, Nasdaq) MED-HIGH / ARM (ARM, Nasdaq) MED / Astera Labs (ALAB, Nasdaq) MED
+- ⭐ Lenovo (0992, HKEX) — AI-server ODM — MED; Wiwynn (6669, TWSE-check) — MED
+- Micron (MU, Nasdaq) — server-DRAM US cohort proxy vs KRX SK Hynix — MED-HIGH
+
+### PRIORITY 3 — CXMT picks-and-shovels (confirms held HYNIX-insulated thesis)
+- ⭐ ASML (ASML, Euronext Amsterdam) — cleanest EU name, double-edged (HBM-capex vs MATCH DUV-ban) — HIGH/caveat
+- Lam (LRCX) / AMAT / KLA (KLAC) — DRAM equipment, MATCH risk — MED
+- Tokyo Electron (8035, TSE-check) — MED; ACM Research (ACMR, Nasdaq) — only accessible CXMT-equip beneficiary, entity-list risk — LOW-MED
+
+### NOT ACCESSIBLE
+CXMT (Shanghai STAR ~H2'26 IPO, no ADR); Naura/AMEC/Piotech (China A/STAR); SK Hynix/Samsung direct KRX (SK Hynix Nasdaq ADR ~July 10 = workaround).
+
+**HARNESS-GAP NOTE:** Priority-1 power names PARTIALLY ANSWER the open EU-sovereign-AI investable-expression research gap (todo P1 2026-06-25) + the standing Layer-3 power gap (no power name held). If user confirms DeGiro access to the ⭐ EU names, these are P2-candidate promotions for the AI-power-infrastructure theme (TC-13 investable expression).
