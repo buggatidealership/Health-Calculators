@@ -1692,3 +1692,16 @@ Per `signals/cross-source-log/2026-06-27-REIA-batch-power-cpuserver-cxmt-investa
 CXMT (Shanghai STAR ~H2'26 IPO, no ADR); Naura/AMEC/Piotech (China A/STAR); SK Hynix/Samsung direct KRX (SK Hynix Nasdaq ADR ~July 10 = workaround).
 
 **HARNESS-GAP NOTE:** Priority-1 power names PARTIALLY ANSWER the open EU-sovereign-AI investable-expression research gap (todo P1 2026-06-25) + the standing Layer-3 power gap (no power name held). If user confirms DeGiro access to the ⭐ EU names, these are P2-candidate promotions for the AI-power-infrastructure theme (TC-13 investable expression).
+
+---
+
+## AI-cost-governance / LLM-gateway layer (2026-06-27 DEEP-DIG) — competitive surface + investable
+
+Per `signals/cross-source-log/2026-06-27-DEEP-DIG-agentic-enterprise-cost-governance-axisB-defensibility.md`. The cross-vendor ENFORCEMENT/ROUTING layer (L3 — route-to-cheapest + semantic caching, 50-80% savings) is where the cost-optimization rent sits — and it is CONSOLIDATING INTO SECURITY platforms. Relevant both as a competitive THREAT to DDOG/NOW Axis B and as an investable surface.
+
+- **Palo Alto Networks (PANW, Nasdaq)** — acquired **Portkey** (AI gateway) Apr-30 2026 → Prisma AIRS. The AI-cost-governance-via-SECURITY consolidator. If AI-security + AI-cost-governance merge (the evidence suggests they are), PANW is positioned to capture the converged TAM that DDOG/NOW's two-axis thesis assumed. NEW competitive watch + potential investable.
+- **Cloudflare (NET, NYSE)** — Cloudflare AI Gateway (edge proxy, multi-provider, caching). Public, US-listed.
+- **CrowdStrike (CRWD, Nasdaq)** — AI-security incumbent; watch for AI-gateway/cost-governance positioning (consolidation candidate).
+- Gateways mostly PRIVATE: LiteLLM (OSS), Portkey (now PANW), Kong, TrueFoundry. Not directly investable.
+
+**Implication:** the richest part of T5 Axis B (L3 enforcement) is NOT a DDOG/NOW opportunity — it accrues to gateways + security platforms. PANW/NET/CRWD are the investable expressions of the L3 enforcement rent + the competitive vector against the DDOG/NOW Axis-B re-entry. Investability: all US-listed (Nasdaq/NYSE) = DeGiro-accessible.
