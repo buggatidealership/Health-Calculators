@@ -2021,3 +2021,24 @@
 **Rule #17 instrumentation note (for 2026-07-27 re-eval):** MRVL ensemble = 3/3 agreement at MEDIUM confidence. Consensus high, confidence band medium (encodes undisclosed-variable uncertainty). First data point: ensemble converged rather than split — watch whether future ensembles ever split 3/2 (which would prove the spread carries information).
 **Cross-source-log:** `signals/cross-source-log/2026-06-27-ai-brief-3subagent-verification-MRVL-trim-ensemble.md`
 **Commit:** (this commit)
+
+---
+
+### [2026-06-27] Memory-on-logic 3D stacking + Qualcomm HBC (Zephyr T3 tweet / Semafor)
+
+**Trigger source:** user-shared Zephyr (T3 social) tweet over Semafor/Wall St Engine QCOM article → Critical Rule #16, 2 Opus 4.8 subagents (QCOM-specific + MoL-trend/HYNIX-read), Rule #18 dissent each
+**Subagents fired:** 2 (Opus 4.8)
+**Estimated token cost:** ~59k actual (21,203 + 38,028)
+**Items verified:** Qualcomm HBC architecture + memory type; memory-on-logic trend reality + adoption-timeline claims; HYNIX disintermediation bull/bear + value-accrual
+
+**Per-subagent yield:**
+- Subagent 1 (QCOM HBC): HIGH + FRAMING-ERROR-CAUGHT — verified HBC = stacked LPDDR (NOT HBM), explicit HBM alternative; Meta+MSFT customers; corrected poster's inverted HBM-tailwind framing
+- Subagent 2 (MoL trend + HYNIX): HIGH + FRAMING-ERROR-CAUGHT — separated 4 conflated tracks; phone claims overstated; THE reframe (HBM4 already IS memory-on-logic, SK Hynix leads); surfaced the genuine NEW risk (NVIDIA self-design base die 2028+) both via independent path
+
+**Brief-framing errors caught:** (1) poster inverted HBM read-through (HBC displaces HBM, not drives it); (2) poster conflated 4 distinct stacking tracks as one "wave"; (3) poster phone-adoption timeline (Samsung/Apple 2027-28) substantially overstated/unsubstantiated
+**Thesis cascade triggered:** HYNIX (HBM4=Track-B-leads + HBC-bounded-inference + NEW NVIDIA-base-die 2028+ watch), SUMCO (mild positive); KIOXIA/SNDK orthogonal (no update)
+**Position implication delta:** NONE (HYNIX HOLD) — NEW 2028+ NVIDIA-base-die margin falsifier-watch added (not near-term, not TAM)
+**Material yield class:** HIGH — separated a confident-but-wrong T3 social claim into verified-trend / overstated-timeline / inverted-read; protected HYNIX thesis from a spurious bear AND surfaced the one real (narrow, dated) risk
+**Audit-day classification:** POSITIVE — textbook anti-confirmation verification: a viral-sounding stacking narrative that *felt* thesis-relevant was decomposed; the real signal (NVIDIA base-die 2028+) is narrower and later than the poster implied
+**Cross-source-log:** `signals/cross-source-log/2026-06-27-memory-on-logic-3D-stacking-2subagent-QCOM-HBC.md`
+**Commit:** (this commit)
