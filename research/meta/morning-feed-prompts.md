@@ -21,7 +21,7 @@
 
 **Refinement 2026-06-27 (user):** Leg B must remove BOTH company-bias AND segment-bias — a pre-committed AI/semi theme list is itself the segment bias. Behave like a traditional investor reading the financial press front-to-back: read broadly (macro: rates/policy/geopolitics/energy/commodities/trade; micro: corporate moves/M&A/funding/launches across any sector), then connect dots to portfolio / existing thesis / emergent new thesis ONLY IF genuine dots exist. "No material dots this window" is a valid honest output — do NOT manufacture relevance. Exclude sports/culture/entertainment as investing-irrelevant. Optimize signal-per-token (skip noise, don't pad) but do NOT cap tokens to save cost.
 
-**Synthesis step (mandatory after both legs return):** explicitly compare Leg B against Leg A — *"what did the newspaper read surface that the portfolio-anchored scan would have missed?"* That delta is the anti-confirmation alpha. Leg B findings NEVER route to held-name theses; new names → `watchlist/candidates.md` with the causal chain that surfaced them; new themes → flag for `sector/themes.md` + BOTTLENECK-FORECAST.
+**Synthesis step (mandatory after both legs return):** explicitly compare Leg B against Leg A — *"what did the newspaper read surface that the portfolio-anchored scan would have missed?"* That delta is the anti-confirmation alpha. Leg B does BOTH: discovers new names/themes (→ `watchlist/candidates.md` + `sector/themes.md`) AND scores impact on EXISTING theses (validate/invalidate, good/bad direction) — an existing-thesis signal goes through Tier 2 verification (Critical Rule #16) before any held-name `thesis.md` cascade, so an unverified headline never moves a position. A thesis-CONTRADICTING signal is the highest-value Leg B output.
 
 **Cost note:** two-leg doubles subagent count per scan (~140-240k tokens/scan vs ~80-120k). Per user 2026-06-26 cost directive (don't save costs where detrimental to quality), the discovery leg is the actual alpha source and is retained at full Opus 4.8. First-week review 2026-07-03 audits Leg B yield specifically.
 
@@ -232,10 +232,18 @@ MANDATORY OUTPUTS:
    actually encountered, ranked by potential-signal-strength (not by relevance to what we
    own). Per item: 1-line summary | source + T1/T2/T3 tier | in-window date | macro/micro.
 2. DOT-CONNECTION (separate post-read step — may legitimately be EMPTY): for each headline
-   that plausibly connects, state the dot to (a) an existing portfolio company [name it],
-   (b) an existing harness thesis/framework [name it], or (c) a NEW potential thesis [state
-   the mechanism]. **If a headline connects to nothing, say so and move on. "No material
-   dots to connect this window" is a VALID, honest output — do NOT manufacture relevance.**
+   that plausibly connects, state the dot to:
+   (a) an existing portfolio company [name it] — and EXPLICITLY state the DIRECTIONAL IMPACT:
+       does this news VALIDATE or INVALIDATE the existing thesis, and is the impact POSITIVE
+       or NEGATIVE for the position? (e.g., "VALIDATES HYNIX HBM thesis, positive" /
+       "INVALIDATES SUMCO supplier-discipline thesis, negative — falsifier candidate");
+   (b) an existing harness thesis/framework [name it] — same validate/invalidate + good/bad
+       directional read (a contradicting signal is HIGH value, flag loudly);
+   (c) a NEW potential thesis or framework [state the mechanism].
+   **Existing-thesis impact (validate/invalidate, good/bad) is co-equal with new-thesis
+   discovery — the read must do BOTH, not just hunt for new names** (user 2026-06-27).
+   **If a headline connects to nothing, say so and move on. "No material dots to connect
+   this window" is a VALID, honest output — do NOT manufacture relevance.**
 3. NEW NAMES — any company (ticker or private) surfaced by the read that is moving / raising
    / launching / being acquired and is NOT already covered. 1-line "why on radar" each.
 4. NEW THEME / NEXT-BOTTLENECK candidates — emerging trends (any sector) that could become
@@ -258,7 +266,11 @@ ROUTE on return (handled by main loop, NOT the subagent):
   - new names → watchlist/candidates.md (with surfacing causal chain + date)
   - new themes / next-bottleneck candidates → flag for sector/themes.md + sector/bottlenecks.md review
   - genuine cross-segment convergence → signal-density check per Critical Rule #14
-  - NOTHING routes to held-name thesis.md from Leg B
+  - EXISTING-THESIS validate/invalidate signal → fire Tier 2 verification (Critical Rule #16);
+    cascade to companies/{TICKER}/thesis.md ONLY if verification confirms (a thesis-CONTRADICTING
+    signal especially earns the verification cost — that is the anti-confirmation payoff)
+  - Leg B does NOT directly write held-name thesis.md — it goes through verification first
+    (prevents an unverified newspaper headline from moving a position)
 ```
 
 **Leg B → Leg A synthesis (main-loop step after both return):** state explicitly the delta —

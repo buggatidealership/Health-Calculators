@@ -168,6 +168,20 @@ EXEMPTION_PATTERNS = [
     r"\bmethodology\b",
     # Restating existing file content
     r"\brestating from\b",
+    # Scan-design / harness-meta discussion (added 2026-06-27, Option B — user "not too strict";
+    # narrow design-doc tokens used when DISCUSSING the morning-scan machinery, NOT real scan
+    # OUTPUT — a genuine scan digest reports findings, it does not say "Leg B"/"newspaper")
+    r"\bLeg\s+[AB]\b",
+    r"\btwo-leg\b",
+    r"\bscan\s+(design|spec|machinery|prompt|template|window)\b",
+    r"\bdiscovery\s+(leg|scan)\b",
+    r"\bnewspaper\b",
+    r"\banti-confirmation\b",
+    r"\bconfirmation\s+bias\b",
+    r"\bmorning[- ]feed\b",
+    r"\bfirst-week\s+review\b",
+    r"\bharness[- ](meta|design)\b",
+    r"\b(harness-meta|scan-design)\s+exemption\b",
 ]
 
 
