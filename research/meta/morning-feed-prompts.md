@@ -6,6 +6,25 @@
 
 ---
 
+## ⚠️ TWO-LEG ARCHITECTURE (added 2026-06-27 — user anti-confirmation-bias directive)
+
+**User directive 2026-06-27 verbatim:** *"it feels like you only do searches based on the existing portfolio companies… I would suggest that we do a more broader sweep of news articles, as in headlines, to identify potential new trends that do not root yourself in the bias of existing companies."*
+
+**The flaw caught:** the original Workflow #10 scans (now "Leg A") are 100% portfolio-anchored — every task keys off a held name. That makes the scan structurally capable only of CONFIRMING/UPDATING existing theses, never DISCOVERING. This is Failure Mode #5 (confirmation bias) baked into the scan design, and it directly contradicts the harness's #1 job (*"forecast the NEXT bottleneck before consensus; find positions ahead of consensus"*).
+
+**The fix:** every `good morning [region]` trigger now fires TWO subagents IN PARALLEL (both Opus 4.8):
+
+| Leg | Mandate | Keys off | Output target |
+|---|---|---|---|
+| **Leg A — ANCHORED** | cohort prices, held-name news, falsifier checks, TC pattern-matches | held tickers | `companies/{TICKER}/thesis.md` cascades |
+| **Leg B — DISCOVERY** | broad company-AGNOSTIC theme sweep; what's NEW/moving/surprising; names we do NOT own | themes/sectors, NEVER held tickers | `watchlist/candidates.md` + `sector/themes.md` flags |
+
+**Synthesis step (mandatory after both legs return):** explicitly compare Leg B against Leg A — *"what did the unanchored sweep surface that the portfolio-anchored scan would have missed?"* That delta is the anti-confirmation alpha. Leg B findings NEVER route to held-name theses; new names → `watchlist/candidates.md` with the causal chain that surfaced them; new themes → flag for `sector/themes.md` + BOTTLENECK-FORECAST.
+
+**Cost note:** two-leg doubles subagent count per scan (~140-240k tokens/scan vs ~80-120k). Per user 2026-06-26 cost directive (don't save costs where detrimental to quality), the discovery leg is the actual alpha source and is retained at full Opus 4.8. First-week review 2026-07-03 audits Leg B yield specifically.
+
+---
+
 ## Common header (used in all 4 scans)
 
 ```
@@ -152,6 +171,84 @@ OUTPUT STRUCTURE: same as prior scans + Europe day session in-progress wrap
 
 WRITE ARTIFACT: `signals/cross-source-log/[YYYY-MM-DD]-morning-feed-pre-us-scan.md`
 ```
+
+---
+
+## LEG B — DISCOVERY scan (UNANCHORED, company-agnostic) — added 2026-06-27
+
+**Fires in PARALLEL with the matching Leg A scan on every `good morning [region]` trigger.** One Leg B subagent per region (Korea+Japan / EU / US).
+
+```
+B-LEG DISCOVERY SCAN / Workflow #10 / Critical Rule #16 / Opus 4.8
+
+EXECUTE WEB SEARCHES NOW. DO NOT RETURN ANALYSIS WITHOUT EXECUTING ACTUAL SEARCHES.
+
+=== CRITICAL FRAMING — READ TWICE ===
+FORGET THE PORTFOLIO EXISTS. Do NOT search for, prioritize, or filter by ANY
+specific company. You are a generalist AI/tech-sector analyst sweeping [REGION]
+headlines from the STRICTLY PAST 24 HOURS to find what is NEW, MOVING, or
+SURPRISING — especially things NOT yet on the consensus radar. Your job is
+DISCOVERY, not confirmation. A signal we own nothing in is the POINT, not noise.
+=== END FRAMING ===
+
+DATE CONTEXT (Principle #40): Today [YYYY-MM-DD] ([day]). Window: STRICTLY past 24h
+from trigger. Cite publication date per item; reject >24h unless flagged historical-context.
+
+MULTILINGUAL (Principle #36): sweep [REGION]-native trade press headlines in parallel
+with English (Korean/Japanese for Asia; German/French for EU; English for US).
+
+SWEEP THESE THEME DOMAINS (by theme/sector, NEVER by held-company name):
+- AI compute / semiconductors — new architectures, new entrants, capacity, breakthroughs
+- Memory / storage — new tech, new players, pricing, form-factors
+- Advanced packaging / substrates / materials
+- Power / cooling / datacenter infrastructure / grid
+- Networking / optical / interconnect / silicon photonics
+- AI software / agents / foundation models / inference economics
+- Robotics / embodied AI / edge AI
+- Sovereign AI / regulatory / export-control / chip geopolitics
+- AI funding rounds / M&A / IPOs / new listings (private + public)
+- Adjacent surprises — quantum, photonics, novel materials, energy, new supply chains
+
+MANDATORY OUTPUTS:
+1. TOP 10-15 HEADLINES ranked by NOVELTY × MAGNITUDE (newest + biggest first).
+   Per item: 1-line summary | source + T1/T2/T3 tier | in-window date | why it is NOVEL.
+2. NEW NAMES — every company (ticker or private) NOT a household AI name that is
+   moving / raising / launching / being acquired this window. 1-line "why on radar" each.
+3. NEW THEME / NEXT-BOTTLENECK candidates — emerging trends that could become an
+   investable theme OR the next binding constraint (the harness's #1 job). Name the
+   mechanism, not just the headline.
+4. THE ABSENCE QUESTION (mandatory, answer explicitly): "What is the market talking
+   about MOST this window that a memory/semiconductor portfolio would have ZERO
+   exposure to?" — this is the deliberate blind-spot probe.
+5. ANOMALY FLAG: biggest single-day sector mover (ANY name) that is NOT a mega-cap
+   and NOT an obvious story — the kind of thing that precedes a theme.
+
+ANTI-CONFIRMATION DISCIPLINE (enforced):
+- Do NOT route any finding to a held-name thesis. This leg only feeds watchlist + themes.
+- Do NOT drop a signal because "we don't own it." That filter is the bias we are removing.
+- A signal that CONTRADICTS the existing portfolio thesis is HIGH VALUE — flag it loudly.
+- PENALIZE restatements of known narratives (memory shortage, HBM demand, AI capex) UNLESS
+  there is a genuinely new data point inside the headline.
+
+WRITE ARTIFACT: signals/cross-source-log/[YYYY-MM-DD]-morning-feed-[region]-DISCOVERY.md
+ROUTE on return (handled by main loop, NOT the subagent):
+  - new names → watchlist/candidates.md (with surfacing causal chain + date)
+  - new themes / next-bottleneck candidates → flag for sector/themes.md + sector/bottlenecks.md review
+  - genuine cross-segment convergence → signal-density check per Critical Rule #14
+  - NOTHING routes to held-name thesis.md from Leg B
+```
+
+**Leg B → Leg A synthesis (main-loop step after both return):** state explicitly the delta —
+*"Leg B surfaced [X] that Leg A (portfolio-anchored) structurally could not have."* If Leg B
+surfaces a name/theme that threatens a held thesis, that is a CONTRADICTION signal → fire a
+Tier 2 verification subagent on it (it earns the cost more than a confirmation would).
+
+**Leg B anti-decorative falsifier (first-week review 2026-07-03):** if 5 consecutive Leg B
+scans surface ZERO new names AND ZERO new themes (only restatements of held-cohort
+narratives), then either (a) the theme-sweep prompt is too narrow, or (b) the region genuinely
+has low novel-signal density that window → tighten or merge. If Leg B routinely surfaces
+candidates that later promote to theses or watchlist P1-P2, it is earning its cost — keep at
+full Opus 4.8.
 
 ---
 
