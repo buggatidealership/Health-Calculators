@@ -107,7 +107,13 @@ STRUCTURAL_MARKERS = [
     r"\bcross-?evaluat",
     r"\bmulti-?criteria",
     # Markdown table headers strongly suggest joint comparison
-    r"\|\s*[A-Z][\w\s]+\s*\|\s*[A-Z][\w\s]+\s*\|\s*[A-Z][\w\s]+\s*\|",  # 3+ column table header
+    # (char class includes -/&.()%: so HYPHENATED headers like "Held-name effect" /
+    #  "Brain-dump component" / "AI-flation" are credited — fixed 2026-06-27 after
+    #  repeated false-positives on legitimate 3+ col tables with hyphenated headers)
+    r"\|\s*[A-Za-z][\w\s\-/&.()%:]+\|\s*[A-Za-z][\w\s\-/&.()%:]+\|\s*[A-Za-z][\w\s\-/&.()%:]+\|",
+    # Markdown SEPARATOR ROW = definitive markdown-table marker (|---|---|---|),
+    # immune to header wording; 2+ columns. Most robust table detector (added 2026-06-27).
+    r"\|\s*:?-{2,}:?\s*\|\s*:?-{2,}:?\s*\|",
     # Bayesian / probability-update language
     r"\bBayesian\s+update",
     r"\bbase\s+rate\b.*\bsignal\s+adjustment",
