@@ -1976,3 +1976,24 @@
 **Audit-day classification:** POSITIVE — morning-scan caught the macro trigger + correctly classified it as non-falsifier, exactly the Workflow #10 design intent
 **Cross-source-log:** `signals/cross-source-log/2026-06-26-eu-close-scan-systemic-riskoff-openai-ipo-delay.md`
 **Commit:** (this commit)
+
+---
+
+### [2026-06-27 Korea+Japan] Workflow #10 TWO-LEG scan — FIRST Leg B (discovery) run
+
+**Trigger source:** Workflow #10 keyword "good morning Korea and Japan" → two-leg autonomous scan (Leg A anchored + Leg B newspaper-read discovery), first live run of the 2026-06-27 two-leg design. Saturday (markets closed).
+**Subagents fired:** 2 (Opus 4.8) — Leg A anchored + Leg B discovery
+**Estimated token cost:** ~79k actual (subagent_tokens: 33,138 + 45,796)
+**Items verified:** Leg A — ADR fungibility, Samsung 1,000T unveil, SUMCO decouple, YMTC, DART/TDnet, OpenAI/SoftBank weekend. Leg B — unbiased Korea/Japan+global newspaper read (macro+micro, all sectors).
+
+**Per-subagent yield:**
+- Leg A (anchored): MEDIUM — CONFIRMED SUMCO decouple-up (resolved yesterday's LOW-conf flag); Samsung 1,000T Monday catalyst confirmed; YMTC NAND-13% bear vector surfaced; ADR fungibility carry-forward
+- Leg B (discovery): HIGH — surfaced the window's most consequential item (Apple/Micron consumer memory crisis = supply-crunch-not-demand-crack reframe, invisible to anchored search) + leveraged-ETF mechanic explaining Friday's cohort crash + 5 themes + 6 new names entirely outside portfolio field of view; answered the absence question (Iran EPC / Japan shipbuilding rotation)
+
+**Brief-framing errors caught:** Leg B reframed the AI selloff as DOWNSTREAM of a supply crunch (Apple/Micron), not a demand crack — a load-bearing distinction the anchored scan structurally could not surface; leveraged-ETF mechanic reframed Friday's −8/−11% as partly forced-unwind (reinforces SYSTEMIC-not-falsifier)
+**Thesis cascade triggered:** HYNIX (consumer-crisis VALIDATE + HBM-DDR5 divergence watch + leveraged-ETF reframe), SNDK + KIOXIA (YMTC headwind + Kioxia ADR), SUMCO (decouple confirmed); watchlist (Roze + SoftBank-Arm); themes (HBM-DDR5 divergence + leveraged-ETF overhang)
+**Position implication delta:** NONE (all HOLD; Saturday + per design Leg B routes through Tier 2 before any position move)
+**Material yield class:** HIGH (aggregate) — FIRST proof the two-leg design earns its cost: Leg B delivered the anti-confirmation alpha (a window-dominant signal + a Friday-crash mechanic + new themes/names) the anchored leg was structurally blind to
+**Audit-day classification:** POSITIVE — validates the two-leg redesign; Leg B is non-decorative on its first run
+**Cross-source-log:** `signals/cross-source-log/2026-06-27-korea-japan-two-leg-scan-FIRST-DISCOVERY-RUN.md`
+**Commit:** (this commit)

@@ -1628,3 +1628,21 @@ Per `signals/cross-source-log/2026-06-18-am8-evening-brief-2subagent-anthropic-s
 If user enters any of the 5 P1/P2 candidates, target combined TC-13 power-cluster + TC-1 memory-adjacent additions at 5-10% Active tier band. Cash buffer ~€10,277 (per holdings.md 2026-06-25 canonical) = sufficient for ONE Active-tier entry (~€8-10K); NOT sufficient for multi-name initiation in same trading session.
 
 **Next H1 cycle:** 2026-07-26 (monthly). Workflow refinement: JP/EN search weight 60/30; KR/ZH 10 combined; investability pre-filter applied earlier in workflow to avoid wasted verification cost on KRX/TWSE-only names.
+
+---
+
+## Leg B discovery surface — 2026-06-27 Korea+Japan newspaper scan (FIRST discovery run)
+
+Per `signals/cross-source-log/2026-06-27-korea-japan-two-leg-scan-FIRST-DISCOVERY-RUN.md`. First unbiased newspaper-read; investability filter applied (AI-sector mandate per CLAUDE.md).
+
+### IN-MANDATE candidates (AI-sector)
+- **Roze** (private; SoftBank AI-robotics spinout — "robots build data centers") — $100B IPO target 2027; Son's post-OpenAI-IPO-delay hedge; July analyst day in Texas = first public unveiling. **Why on radar:** novel AI-infra angle (embodied-AI × datacenter construction); watch July analyst day. Causal chain: OpenAI IPO delay → SoftBank monetization pressure → Roze surfaced as next Japan-listed AI-infra name.
+- **SoftBank Arm-stake forced-sale WATCH** (ARM in universe) — SoftBank leverage "at limit"; $40B bridge due Mar 2027; OpenAI IPO→2027. If OpenAI marks down OR Roze IPO pulled, SoftBank may be forced to monetize Arm stake = SUPPLY EVENT in ARM. Not a buy candidate — a supply-overhang risk flag for any future ARM position.
+- **Kioxia US ADR Spring 2027** (held 285A) — logged in KIOXIA thesis; capital-access positive.
+
+### OUT-OF-MANDATE (logged, NOT pursued — captured IF mandate expands)
+- Iran $300B reconstruction → Korea EPC: Samsung E&A (028050), Hyundai E&C (000720), DL E&C (375500) — non-AI sector; dominant Korean-press rotation narrative but outside AI-sector mandate.
+- Japan shipbuilding/LNG supercycle: Imabari (post-JMU merger, world #4) — Hormuz-driven energy-diversification capex; non-AI.
+- Korea defense ETFs (KDEF) — postwar-rebuild rotation; non-AI.
+
+**Discipline:** out-of-mandate names are NOT pursued per CLAUDE.md AI-sector scope; logged so the signal exists if user chooses to widen mandate. Leg B read them because the design is deliberately unbiased — connecting the dot to "outside our board" is the honest output.

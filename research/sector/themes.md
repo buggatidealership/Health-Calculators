@@ -230,3 +230,15 @@ Anti-fragile themes (win in ≥3 scenarios): T1, T5, T6.
 - `watchlist/candidates.md` — Medical AI Execution Pocket section
 
 **Status: CANDIDATE.** Pocket exists but thin. Track via watchlist; don't size without Phase 4 work.
+
+---
+
+## CANDIDATE theme (2026-06-27, Leg B discovery) — Memory Crisis Goes Consumer / HBM-DDR5 Divergence
+
+Per `signals/cross-source-log/2026-06-27-korea-japan-two-leg-scan-FIRST-DISCOVERY-RUN.md`. Apple/Microsoft +15-20% consumer hardware price hikes citing memory shortage; Micron publicly blames Apple (Bloomberg T1, 2026-06-25/26). First time this cycle memory scarcity is CONSUMER-VISIBLE (70% high-end DRAM → AI datacenters).
+
+**Mechanism:** AI-DC DRAM demand → OEM inventory cost spike → consumer +15-20% ASP → demand-elasticity response → DDR5 may loosen while HBM stays tight → **intra-cohort pricing divergence** (high-HBM-mix HYNIX/MU benefit; commodity-DRAM exposure weakens). Refines TC-12 (DRAM>HBM margin inversion). **Status: CANDIDATE** — route through Tier 2 verification before any sizing; watch DDR5 vs HBM contract-price spread for confirmation/refutation.
+
+## CANDIDATE theme (2026-06-27, Leg B) — Korea Leveraged-ETF Structural Volatility Overhang
+
+Korea single-stock leveraged ETFs (launched May 27 2026) grew to $9B by June 23 = 31-38% of Samsung/SK Hynix daily volume, 92% retail, ~200% turnover (Seoul Economic Daily / Bloomberg T2). Reflexive amplifier: rally→inflows→rally→larger rebalancing dumps on declines. Explains part of Friday's −8/−11% cohort move as forced leverage-unwind, NOT fundamental. **Status: market-structure RISK FLAG for all Korea-listed cohort names** (HYNIX). FSS weighing curbs; any tightening would REMOVE the amplifier (stabilizing). Monitor FSS action.
