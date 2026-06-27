@@ -21,6 +21,12 @@
 
 **Refinement 2026-06-27 (user):** Leg B must remove BOTH company-bias AND segment-bias — a pre-committed AI/semi theme list is itself the segment bias. Behave like a traditional investor reading the financial press front-to-back: read broadly (macro: rates/policy/geopolitics/energy/commodities/trade; micro: corporate moves/M&A/funding/launches across any sector), then connect dots to portfolio / existing thesis / emergent new thesis ONLY IF genuine dots exist. "No material dots this window" is a valid honest output — do NOT manufacture relevance. Exclude sports/culture/entertainment as investing-irrelevant. Optimize signal-per-token (skip noise, don't pad) but do NOT cap tokens to save cost.
 
+**Refinement 2026-06-27 #2 — BREADTH-AT-SEARCH / FILTER-AT-DIGEST (user, load-bearing principle):** *"if you think you know what you're searching for, you're probably limiting yourself to engram bias. Too narrow is not good. Better to be too broad, then disregard what's not needed than the opposite. Over time we fine-tune what's relevant."*
+- **Breadth lives at the SEARCH layer; filtering lives at the DIGEST layer — NEVER the reverse.** Pre-narrowing the search to "what I expect is relevant" can only return what I already expected (engram/confirmation bias). The relevant item is often the one you didn't know to look for.
+- **The asymmetry is the whole argument:** cost of MISSING a relevant item (false negative) >> cost of ingesting noise then discarding it (false positive). The model's digestion capacity makes broad-ingest cheap — so over-read, then filter noise→signal at digestion.
+- **The relevance filter is LEARNED, not pre-set.** It is fine-tuned over runs as accumulated data reveals which news TYPES actually connect to theses (a feedback loop, like the rest of the harness). First-week review 2026-07-03 LEARNS the filter from observed signal-hits — it does NOT impose a narrowing.
+- **EXPLICITLY REJECTED:** any "AI-sector relevance gate at the search/dot-connection step" (an idea floated 2026-06-27 and retracted by user same day) — that would re-import the segment bias just removed. Any gate, if it ever exists, is a LEARNED post-hoc digest filter, never a pre-search narrowing.
+
 **Synthesis step (mandatory after both legs return):** explicitly compare Leg B against Leg A — *"what did the newspaper read surface that the portfolio-anchored scan would have missed?"* That delta is the anti-confirmation alpha. Leg B does BOTH: discovers new names/themes (→ `watchlist/candidates.md` + `sector/themes.md`) AND scores impact on EXISTING theses (validate/invalidate, good/bad direction) — an existing-thesis signal goes through Tier 2 verification (Critical Rule #16) before any held-name `thesis.md` cascade, so an unverified headline never moves a position. A thesis-CONTRADICTING signal is the highest-value Leg B output.
 
 **Cost note:** two-leg doubles subagent count per scan (~140-240k tokens/scan vs ~80-120k). Per user 2026-06-26 cost directive (don't save costs where detrimental to quality), the discovery leg is the actual alpha source and is retained at full Opus 4.8. First-week review 2026-07-03 audits Leg B yield specifically.
@@ -220,6 +226,10 @@ HOW TO READ (newspaper method, NOT a domain checklist):
   shifts) across ANY sector — not just tech/semis.
 - Do NOT start from a list of segments you expect to matter. Start from what is actually
   being reported, then judge relevance.
+- BREADTH-AT-SEARCH / FILTER-AT-DIGEST: read TOO BROAD on purpose; the relevant item is
+  often the one you didn't know to search for. Filter noise→signal AFTER reading, at
+  digestion — never pre-narrow the read. Missing a relevant item costs far more than
+  reading noise you then discard.
 
 SIGNAL/NOISE OPTIMIZATION (user directive 2026-06-27): maximize signal-per-token. Skip
 investing-irrelevant items entirely (don't list-then-dismiss). Spend tokens where a genuine
