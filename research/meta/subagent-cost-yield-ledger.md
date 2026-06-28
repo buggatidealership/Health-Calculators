@@ -96,6 +96,25 @@
 
 ## Entries (most recent first)
 
+### [2026-06-28 PM — High-purity CO2 semiconductor-cleaning shortage (Korean-press)] 2 Opus 4.8 subagents; FRAMING-ERROR-CAUGHT — recycled-template + 0/4 base rate → NO ACTION; surfaced Hormuz-materials recurring pattern + helium-is-the-real-tail reframe
+
+**Trigger source:** User-shared Korean-press report (~2026-06-26) on high-purity CO2 shortage hitting Samsung/SK Hynix supercritical wafer-cleaning.
+**Subagents fired:** 2 (Opus 4.8, parallel, Korean-native + EN) — A: freshness/source/magnitude + historical base rate; B: bypass-route + held-name exposure + lateral twist + investability.
+**Estimated token cost:** ~56.9k actual (28.9k + 28.0k subagent_tokens).
+**Items verified:** report freshness/source; consumption tonnages + "<1 month inventory" + "+20% YTD" magnitude; production-impact evidence; historical base rate (HF-2019/neon-2022/CO2-2020/CO2-2022); bypass-route substitutability; held-name exposure ranking; gas-supplier investability.
+
+**Per-subagent yield:**
+- Subagent A: FRAMING-ERROR-CAUGHT + HIGH — report is a recycled 2020/2022 template with a fresh Hormuz wrapper; single-source magnitude; ZERO production impact; base rate 0/4 → ~0% scare-to-output-loss conversion.
+- Subagent B: HIGH — scCO2 is SOFT-BIND (closed-loop recycled, mitigable in weeks); exposure ranking (NAND > DRAM > wafer > MLCC); lateral price-twist real-but-tail-only; pure-plays KRX-locked, majors diluted; reframed the real tail as helium/WF6 not CO2.
+
+**Brief-framing errors caught:** (1) "fresh CO2 crisis" framing → actually recycled 2020/2022 template; (2) "production threat to SK Hynix" → 0/4 historical base rate + closed-loop recycling = cost-not-output; (3) molecule-confusion — the genuinely-binding 2026 Hormuz materials are helium/WF6/PGMEA, NOT CO2 (the most mitigable member).
+**Thesis cascade triggered:** HYNIX, KIOXIA, SNDK, SUMCO, MURATA theses (all NO ACTION back-refs) + new cross-source-log artifact.
+**Position implication delta:** NONE — NO ACTION across all 5 held names; not a falsifier (Critical Rule #8 validated). Helium logged as watch-item (not action).
+**Material yield class:** FRAMING-ERROR-CAUGHT (primary) — prevented an alarmist macro-headwind from being mistaken for a held-name (#1 position) production risk; surfaced a candidate recurring pattern (Hormuz-crude → semi-materials byproduct scare).
+**Audit-day classification:** POSITIVE — high-value catch (a contradicting/de-risking signal on the #1 holding) at moderate cost; exactly the Rule #8 + Leg-B failure mode the harness exists to resist.
+**Cross-source-log:** `signals/cross-source-log/2026-06-28-high-purity-co2-semiconductor-shortage-recycled-template-hormuz-materials-pattern.md`
+**Commit:** [lag-1 — fill next entry]
+
 ### [2026-06-28 PM — Kioxia + SanDisk financial anchor to primary filings (N=2 with user's parallel agent)] 1 Opus 4.8 subagent; FRAMING-ERROR-CAUGHT — self-corrected Kioxia debt ~3× understatement (¥400B→~¥1.25T gross / ~¥782B net) + UPGRADED both SNDK low-confidence claims to CONFIRMED-in-10-Q
 
 **Trigger source:** User request to anchor Kioxia financials ("the 10-Q") with an additional Opus 4.8 agent, user running a parallel agent for N=2 cross-check.

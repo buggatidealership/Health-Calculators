@@ -1,5 +1,7 @@
 # Sumco Corporation (3436.T) — Thesis
 
+**🟢 2026-06-28 CO2-shortage verification — NO ACTION (negligible exposure):** Per `signals/cross-source-log/2026-06-28-high-purity-co2-semiconductor-shortage-recycled-template-hormuz-materials-pattern.md`. Supercritical-CO2 cleaning is the high-aspect-ratio wafer-fab drying step, NOT bare-wafer cleaning → Sumco exposure negligible. Recycled-template report, no production impact. **Position implication: 🟢 HOLD — no size change — negligible/zero exposure to the CO2 step.**
+
 **🟢 2026-06-24 PM-OPENAI-BROADCOM-JALAPEÑO cross-ref — MODERATE POSITIVE; OpenAI Jalapeño on TSMC N3 + 1.3GW+ 2027 deployment + 10GW through 2029 = INCREMENTAL N3 silicon wafer demand vector beyond NVDA Rubin; HOLD 626sh preserved:** Per `signals/cross-source-log/2026-06-24-pm-subagent-openai-broadcom-custom-ai-chip-verification.md` (1 Opus 4.8 subagent 41.4k tokens). **SUMCO direct beneficiary** of TSMC N3 capacity ramp via OpenAI Jalapeño chip deployment — adds concrete non-NVDA demand vector for SUMCO at N3 node. PC-14 cross-link: OpenAI+AVGO+TSMC+Samsung all ally-bloc stack = SUMCO Japan-wafer-bloc TAM reinforced. **Position implication: 🟡 HOLD 626sh — no size change — incremental TSMC N3 wafer demand from Jalapeño 1.3GW+ 2027 deployment = MODERATE POSITIVE; F1-F5 falsifiers status quo.**
 
 ---

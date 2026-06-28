@@ -1,5 +1,7 @@
 # Murata Manufacturing — Thesis
 
+**🟢 2026-06-28 CO2-shortage verification — NO ACTION (zero exposure):** Per `signals/cross-source-log/2026-06-28-high-purity-co2-semiconductor-shortage-recycled-template-hormuz-materials-pattern.md`. Supercritical-CO2 wafer-cleaning is a semiconductor-fab process; MLCC (ceramic capacitor) manufacturing does not use it → zero exposure. **Position implication: 🟢 HOLD — no size change — not exposed to the CO2 step.**
+
 **🟢🚀 2026-06-25 AM-MU-POST-PRINT-FOLLOW-ON cross-ref — MURATA TSE Thursday +6.7% ABOVE predicted +2-5% range; MU 16 SCAs + $100B RPO + cycle-extension to 2030 = passive-component-demand multi-year structural anchor; HOLD 336sh Core preserved:** Per `signals/cross-source-log/2026-06-25-am-subagent-mu-q3-fy26-post-print-follow-on-16-ltas-cohort-actuals.md`. MURATA TSE 6981: ₩11,750 → ₩12,535 intraday = +6.7% sympathy ABOVE upper bound. Driver: MU 16 SCAs at $100B RPO through 2030 = data-center buildout demand multi-year anchored = passives BoM demand multi-year structural. Cross-link to AMAT-MU joint dev at EPIC Center ($5B largest-ever US semi-equip R&D facility) = power-density solution for AI workloads = MORE MLCC per server rack. **Position implication: 🟢 HOLD 336sh post-tranche-2 (15.6% Core) — no size change — TSE +6.7% Thursday sympathy validates passive-component-demand cycle-extension peer-validation; add-gate remains FY27 Q1 print late July / early August 2026 per L21 regime modifier.**
 
 ---
