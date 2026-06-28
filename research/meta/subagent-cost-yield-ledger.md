@@ -96,6 +96,24 @@
 
 ## Entries (most recent first)
 
+### [2026-06-28 PM — Kioxia + SanDisk financial anchor to primary filings (N=2 with user's parallel agent)] 1 Opus 4.8 subagent; FRAMING-ERROR-CAUGHT — self-corrected Kioxia debt ~3× understatement (¥400B→~¥1.25T gross / ~¥782B net) + UPGRADED both SNDK low-confidence claims to CONFIRMED-in-10-Q
+
+**Trigger source:** User request to anchor Kioxia financials ("the 10-Q") with an additional Opus 4.8 agent, user running a parallel agent for N=2 cross-check.
+**Subagents fired:** 1 (Opus 4.8 per Critical Rule #16 + standing Opus-only mandate — compliant this time).
+**Estimated token cost:** ~25.7k (actual subagent_tokens).
+**Items verified:** Kioxia FY2026 決算短信 (debt, cash, net-debt, equity ratio, FCF, revenue, net income, valuation, Nikkei 225); SanDisk Q3 FY26 10-Q ($42B RPO + $11B guarantees; net cash / zero debt).
+
+**Per-subagent yield:**
+- Subagent (Opus): FRAMING-ERROR-CAUGHT + HIGH — refuted the ¥400B Kioxia debt figure (audited gross ~¥1.05-1.25T, net ~¥782B still net-debt) AND elevated both SanDisk claims from secondary-only to CONFIRMED-in-primary-10-Q.
+
+**Brief-framing errors caught:** (1) Kioxia debt ~3× understated in the prior (Sonnet) data-gather — corrected from ¥400B to ~¥1.25T gross / ~¥782B net via T1 決算短信; (2) "Kioxia net-cash" implication refuted — still net-debt at FY-end (net-cash is a forward mgmt target).
+**Thesis cascade triggered:** `companies/KIOXIA/thesis.md` (debt self-correction), `companies/SNDK/thesis.md` ($42B + debt-free upgraded to CONFIRMED), cross-source-log financial-anchor correction block.
+**Position implication delta:** NONE to direction (verdict REINFORCED — wider balance-sheet gap favoring keep-SNDK); ~71% trim-KIOXIA conviction unchanged (moat axis = HBF, not balance sheet). Trade still user-gated, NOT executed.
+**Material yield class:** FRAMING-ERROR-CAUGHT (primary) — corrected a 3× error already cascaded into 2 theses + removed the main keep-SNDK caveat.
+**Audit-day classification:** POSITIVE — primary-filing anchor corrected a propagated error + confirmed load-bearing decision inputs.
+**Cross-source-log:** `signals/cross-source-log/2026-06-28-sndk-vs-kioxia-structural-moat-headtohead-trim-decision-ensemble.md` (PM correction block)
+**Commit:** [lag-1 — fill next entry]
+
 ### [2026-06-28 AM — SNDK-vs-KIOXIA structural-moat head-to-head + N=3 Opus 4.8 trim-decision ensemble] User trim-decision question on ~29.5% redundant NAND pair; 1 Sonnet data-gather (rule-violation, flagged) + 3 Opus 4.8 verdict ensemble = 3/3 TRIM KIOXIA @ ~71%; KIOXIA TRIM-CANDIDATE (user-gated) + SNDK KEEP-PREFERRED cascaded
 
 **Trigger source:** User question 2026-06-28 — which of SNDK (13.9%) / KIOXIA (15.6%) to trim on the criterion "most structural moat for how the AI sector evolves." Sizing-consequential → Critical Rule #16 (data) + #17 (ensemble) + #18 (dissent).

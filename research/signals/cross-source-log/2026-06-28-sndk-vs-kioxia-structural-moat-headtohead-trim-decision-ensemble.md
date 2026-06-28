@@ -8,6 +8,17 @@
 
 ---
 
+## 🔧 2026-06-28 PM — FINANCIAL-ANCHOR CORRECTION (N=2: my Opus 4.8 subagent + user's parallel agent)
+
+User requested a primary-filing anchor on the financials (Critical Rule #11 self-correction + #7 no-fabricated-numbers). 1 Opus 4.8 subagent → audited filings. **Two corrections to the data below:**
+
+1. **🔴 SELF-CORRECTION — Kioxia debt was UNDERSTATED ~3×.** The Sonnet data-gather said "¥400.4B borrowings." The audited **FY2026 決算短信 (filed 2026-05-15, FY ended 2026-03-31, T1)** shows gross interest-bearing debt **~¥1.05–1.25T** (short-term ¥175.45B + long-term ¥872.12B; ~¥1.25T incl. leases) and cash ¥470.7B → **net debt ≈ ¥782B (still NET-DEBT, not net-cash).** [決算短信](https://www.nikkei.com/nkd/disclosure/tdnr/20260515537803/). Equity ratio 37.9% (CONFIRMED, +12.6pt YoY from 25.3%). FY revenue ¥2,337.6B (+37%); net income ¥554.5B (+103.6%); record FCF ¥395B; 8 consecutive positive-FCF quarters CONFIRMED. → Debt is serviceable at peak (gross/FCF ~3×, net/FCF ~2×) but levers into a downcycle.
+2. **🟢 SanDisk both low-confidence claims now CONFIRMED in PRIMARY filing.** Q3 FY2026 10-Q (period ended 2026-04-03, filed 2026-05-01): **$41.6B remaining performance obligations** (~$42B min. contractual revenue) + **>$11B financial guarantees** across 5 multiyear agreements ([SEC 10-Q](https://www.sec.gov/Archives/edgar/data/0002023554/000162828026029401/sndk-20260403.htm), corroborated [TrendForce 2026-05-05](https://www.trendforce.com/news/2026/05/05/news-sandisk-long-term-deals-gain-scale-over-one-third-of-fy27-bits-reportedly-locked-50-in-sight-hbf-advances/)); **cash $3.735B, long-term debt $0** after settling the Term Loan in full 2026-03-04 ($46M extinguishment loss). Net cash ≈ $3.7B, debt-free.
+
+**Effect on verdict: REINFORCED, not changed.** Balance-sheet resilience gap is WIDER than originally stated (SNDK debt-free + $42B locked revenue vs KIOXIA ~¥782B net-debt). The moat verdict rested on HBF standard-setting, so ~71% trim-KIOXIA conviction is unaffected; the balance-sheet supporting leg strengthens keep-SNDK. **Least-confident (not nailed to a filing):** Kioxia market cap (¥26.5T→¥30T+ aggregator spread) + forward P/E (~8.6–10x, directionally confirms ~10-11x, T3) + P/B/EV-EBITDA (aggregators internally contradictory, NOT-FOUND). SanDisk 10-Q figures confirmed via SEC search-index + StockTitan (proxy blocked direct sec.gov fetch); treat as T1-equivalent.
+
+---
+
 ## VERDICT: 🟡 TRIM KIOXIA / KEEP SNDK — on the moat-for-where-AI-heads axis
 
 **Ensemble (N=3 Opus 4.8, identical neutral prompts): 3/3 TRIM KIOXIA. Confidence 72% / 70% / 72% (modal ~71%).** Unanimous direction, moderate conviction, and all three independently flagged the *identical* single falsifier (HBF-roadmap slippage). Not a 5/5 blowout — genuine ~71% call, stated as such per Rule #17 (spread is the signal).
