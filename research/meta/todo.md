@@ -36,6 +36,25 @@
 
 ## Open
 
+### HBF trajectory monitor — catalyst checkpoints (added 2026-06-28; the open hinge in the SNDK-keep / KIOXIA-trim verdict)
+
+- [ ] **P1 / research / 2026-08-10** [CAL, BOT, POS, AF] — HBF Gate-2 read #1: FMS + Hot Chips (~Aug 2026) silicon/sample signal + SanDisk Q4 FY26 call + SK Hynix Q2-26 call — confirm HBF samples ship ON SCHEDULE (H2-2026)
+  - Origin: `watchlist/HBF-trajectory-monitor.md` — sample-on-schedule is the explicit reversal trigger for the trim-KIOXIA verdict (3/3 ensemble ~71%). Slip past H2-2026 → reconsider.
+  - Scope: read FMS/Hot Chips HBF demos + SanDisk/SK Hynix call transcripts; update H1/H2/H3 weights in the monitor; cascade to SNDK + KIOXIA theses if material.
+  - Linked: `watchlist/HBF-trajectory-monitor.md`, `companies/SNDK/thesis.md`, `companies/KIOXIA/thesis.md`
+- [ ] **P1 / research / 2026-10-15** [CAL, BOT, POS] — HBF Gate-1 read: OCP Global Summit (~Oct 2026) — spec ratification status + new signatories; WATCH for Samsung-own-HBF fork (biggest fragmentation signal) + SanDisk Q1 FY27 / SK Hynix Q3-26 calls
+  - Origin: `watchlist/HBF-trajectory-monitor.md` Gate 1 — single-standard-wins + SanDisk-inside-it is load-bearing for the moat. Fork → H2 (revert to valuation → KIOXIA).
+  - Scope: read OCP proceedings + JEDEC + Samsung/Kioxia IR (JP/KO native parallel); update monitor weights; cascade if material.
+  - Linked: `watchlist/HBF-trajectory-monitor.md`
+- [ ] **P2 / research / 2027-02-15** [CAL, BOT, POS] — HBF Gate-2 durability read: ISSCC 2027 (Feb) — write-endurance / latency / thermal-in-HBM-form-factor papers
+  - Origin: `watchlist/HBF-trajectory-monitor.md` Gate 2 — technical-durability is the silent failure mode for NAND in a memory role.
+  - Linked: `watchlist/HBF-trajectory-monitor.md`
+- [ ] **P1 / research / 2027-03-15** [CAL, BOT, POS, AF] — HBF Gate-3 demand read: NVIDIA GTC 2027 (~Mar) — does NVIDIA name HBF (not just NVMe SSD) as a memory tier in the Rubin-successor reference architecture? (highest-information single event — would move H1 ~45%→~70%)
+  - Origin: `watchlist/HBF-trajectory-monitor.md` Gate 3 — NVIDIA reference-arch inclusion forces the standardization + hyperscaler gates to follow.
+  - Linked: `watchlist/HBF-trajectory-monitor.md`
+
+---
+
 ### P2 — High priority new (added 2026-06-04 PM — bypass-route + architecture-of-tomorrow research)
 
 - [ ] **P2 / research / 2026-06-05** [INDP, AF, POS, BOT] — Deep dive: BE Semiconductor Industries (BESI) — hybrid bonding equipment for 3D-stacked DRAM bypass route
