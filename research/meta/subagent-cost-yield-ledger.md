@@ -96,6 +96,25 @@
 
 ## Entries (most recent first)
 
+### [2026-06-28 PM — SEMCO ~₩500B AI-server MLCC deal + SEMCO×Sumitomo glass-substrate JV] 2 Opus 4.8 subagents; HIGH — REINFORCE held Murata (category-validation not share-loss) + confirmed glass-substrate orthogonal to Sumco (+ caught SUMCO≠Sumitomo name-collision + ₩1.5T conflation)
+
+**Trigger source:** User-shared Korea Economic Daily (한국경제, 2026-06-28) — SEMCO AI-server MLCC deal + SEMCO×Sumitomo glass-substrate JV. SEMCO = Murata's direct MLCC competitor (Murata held 16.8%).
+**Subagents fired:** 2 (Opus 4.8, KO+JP+EN native) — A: MLCC deal vs Murata; B: glass-substrate JV + held-name boundary.
+**Estimated token cost:** ~51.7k actual (23.3k + 28.4k subagent_tokens).
+**Items verified:** MLCC deal freshness/firmness + Murata vs SEMCO AI-server MLCC share + TAM mechanics; glass-substrate JV firmness (MOU 2025-11 anchor) + competitive landscape + Sumco boundary + accessible surfaces.
+
+**Per-subagent yield:**
+- A: HIGH — deal is aspirational-not-signed; Murata REINFORCE (duopoly ~45/40, TAM-expansion mechanics); invalidation trigger defined; caught ₩1.5T-as-op-profit conflation.
+- B: HIGH — JV firm anchor = MOU 2025-11 (today's ₩500B figures single-source); glass packaging substrate ORTHOGONAL to Sumco; caught SUMCO≠Sumitomo name-collision; no clean accessible pure-play.
+
+**Brief-framing errors caught:** (1) "₩500B deal signed" → actually aspirational/under-negotiation; (2) "₩1.5T" conflation (= SEMCO op-profit projection, not order); (3) potential SUMCO≠Sumitomo Chemical name-collision pre-empted; (4) "signs this week"/₩500B JV figures flagged single-source vs the corroborated 2025-11 MOU.
+**Thesis cascade triggered:** MURATA (REINFORCE + invalidation trigger), SUMCO (orthogonality + name-collision flag); watchlist glass-substrate theme note (in artifact).
+**Position implication delta:** NONE — MURATA HOLD (reinforced), SUMCO HOLD (orthogonal). No new position (no accessible glass pure-play; SEMCO KRX-locked).
+**Material yield class:** HIGH — protected the #2 held position from a mis-read (competitor-deal looked threatening, verified as demand-validation) + clean held-name boundary on a name-collision trap.
+**Audit-day classification:** POSITIVE — held-name competitive verification with decisive REINFORCE + orthogonality confirmation.
+**Cross-source-log:** `signals/cross-source-log/2026-06-28-semco-ai-mlcc-deal-plus-sumitomo-glass-substrate-jv-2subagent.md`
+**Commit:** [lag-1 — fill next entry]
+
 ### [2026-06-28 PM — GigaDevice (3986.HK) identity + CXMT placement + position read] 1 Opus 4.8 subagent; HIGH — disambiguated voice-garble to GigaDevice H-share, identified it as the most-direct DeGiro-accessible CXMT proxy (US$825M 2026 DRAM buy), ruled it OUT as orthogonal diversification
 
 **Trigger source:** User question — DeGiro access to "GigaDevice class H"; how does it fit the CXMT/Chinese-memory narrative? (user confirmed identity mid-task)
