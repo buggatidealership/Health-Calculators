@@ -96,6 +96,24 @@
 
 ## Entries (most recent first)
 
+### [2026-06-28 PM — GigaDevice (3986.HK) identity + CXMT placement + position read] 1 Opus 4.8 subagent; HIGH — disambiguated voice-garble to GigaDevice H-share, identified it as the most-direct DeGiro-accessible CXMT proxy (US$825M 2026 DRAM buy), ruled it OUT as orthogonal diversification
+
+**Trigger source:** User question — DeGiro access to "GigaDevice class H"; how does it fit the CXMT/Chinese-memory narrative? (user confirmed identity mid-task)
+**Subagents fired:** 1 (Opus 4.8, Chinese-native + EN).
+**Estimated token cost:** ~27.3k actual subagent_tokens.
+**Items verified:** GigaDevice H-share 3986.HK listing (2026-01-13) + DeGiro accessibility; product mix (NOR/MCU/DRAM); the CXMT relationship (fabless, Zhu Yiming founder link, US$825M 2026 DRAM purchase ~6× 2025); tool-ceiling placement; valuation (~560 P/E, ~6.7× since IPO); Entity-List status.
+
+**Per-subagent yield:**
+- Subagent (Opus): HIGH — confirmed identity ~90% pre-user-confirmation; surfaced the load-bearing US$825M-CXMT-DRAM-purchase fact that makes GigaDevice the most-direct accessible CXMT proxy; ruled it correlated-not-orthogonal with a strong Rule #18 bear case.
+
+**Brief-framing errors caught:** pre-empted the implicit "accessible China name = good diversification" framing — GigaDevice is the opposite of orthogonal (concentrated China-legacy-memory beta).
+**Thesis cascade triggered:** watchlist GigaDevice entry; HYNIX value-chain-complementarity note (reinforces exit-for-HBM).
+**Position implication delta:** NONE held; NO new position (GigaDevice ruled out as diversification, documented as the accessible-CXMT-proxy option if ever wanted).
+**Material yield class:** HIGH — answered a live DeGiro-actionable position question with a decisive evidenced NO + correctly placed the name in the value chain (legacy tier Hynix vacates).
+**Audit-day classification:** POSITIVE — actionable-name disambiguation + position ruling + held-thesis reinforcement.
+**Cross-source-log:** `signals/cross-source-log/2026-06-28-gigadevice-3986hk-cxmt-proxy-degiro-accessible-position-read.md`
+**Commit:** [lag-1 — fill next entry]
+
 ### [2026-06-28 PM — Citrini CXMT-IPO / China-localization (ACMR, NAURA) 2H26 pitch] 3 Opus 4.8 subagents; HIGH — verified CXMT IPO real (RMB5T inflated-not-fabricated), reframed as ORTHOGONAL to held book + reinforced SK Hynix thesis, ACMR rejected as diversification (Entity-List + correlation)
 
 **Trigger source:** User-shared Citrini analyst note pitching Chinese semi-localization (CXMT IPO "RMB 5T", ACMR/NAURA) as the 2H26 trade; explicit user directive depth-over-speed, Opus 4.8 only.
