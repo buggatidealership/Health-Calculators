@@ -8,11 +8,11 @@
 
 Per `signals/cross-source-log/2026-06-28-gigadevice-3986hk-cxmt-proxy-degiro-accessible-position-read.md` (1 Opus 4.8 subagent). User has DeGiro access via the H-share.
 
-- **Identity/access:** GigaDevice H-share **3986.HK** (listed 2026-01-13), DeGiro-accessible (HKEX). A-share 603986.SH retail-inaccessible. Founder Zhu Yiming also founded CXMT.
+- **Identity/access:** GigaDevice H-share **3986.HK** (listed 2026-01-13). **✅ CONFIRMED tradable on the user's DeGiro 2026-06-28** (user order-screen screenshot: HKS / ticker 3986 / **ISIN CNE100007DJ5** / HKD / buy-sell live). ⚠️ operational caveat: **"No realtime data available for this exchange; orders sent to exchange directly"** — user trades without a live quote feed → use LIMIT orders + check HK close externally. A-share 603986.SH retail-inaccessible. Founder Zhu Yiming also founded CXMT.
 - **What it is:** fabless designer — FY25 rev RMB 9.20bn (+25%), net RMB 1.65bn (+49%); #2 global/#1 China NOR flash; #1 domestic 32-bit MCU; growing niche DRAM.
 - **CXMT fit (THE point):** GigaDevice designs DRAM, **CXMT fabs it**; set to buy **US$825M DRAM from CXMT in 2026 (~6× the ~$173M in 2025)**, playing the LPDDR4/DDR4 legacy gap Samsung/SK Hynix vacate → effectively CXMT's legacy-DRAM **commercialization vehicle**, and the most-direct listed/accessible CXMT proxy (more direct than ACMR). Upside bounded to LEGACY memory by CXMT's tool ceiling.
 - **Why NOT a fit:** user wants ORTHOGONAL diversification; this is **correlated China-memory beta** (DRAM cycle + China policy), same factor as ACMR. Valuation extreme: ~HK$1,083, mkt cap ~HK$629bn, **P/E ~560** (directional), ~6.7× since Jan-2026 IPO. Entity-List: GigaDevice not confirmed listed, but CXMT supplier IS (Dec 2024) → contagion risk.
-- **Status:** documented; NO position. It's the cleanest *accessible* way to express the CXMT bull IF one wanted it — but it's a concentrated double-down on China-legacy-memory, the opposite of the orthogonality goal. Verify 3986.HK ISIN tradable in DeGiro + BIS CSL before any action.
+- **Status:** documented; NO position recommended. Tradability now confirmed (above), so the decision is purely thesis: it's the cleanest *accessible* way to express the CXMT bull IF that's the goal — but it's a concentrated double-down on China-legacy-memory, the **opposite of the orthogonality goal** (do NOT fund it with Asian-memory trims = that double-downs the factor). If ever bought: high-risk SATELLITE sizing only, fresh capital, limit orders, check BIS CSL first. Decision fork — goal=diversify → NO; goal=own-CXMT-bull → this is the instrument, satellite-size.
 
 ### 🟡 ACMR (ACM Research, Nasdaq) — **ACCESSIBLE but NOT RECOMMENDED as diversification** (added 2026-06-28 Citrini CXMT verification)
 
