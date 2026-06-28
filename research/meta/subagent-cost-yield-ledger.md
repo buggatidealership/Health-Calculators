@@ -96,6 +96,28 @@
 
 ## Entries (most recent first)
 
+### [2026-06-28 AM — SNDK-vs-KIOXIA structural-moat head-to-head + N=3 Opus 4.8 trim-decision ensemble] User trim-decision question on ~29.5% redundant NAND pair; 1 Sonnet data-gather (rule-violation, flagged) + 3 Opus 4.8 verdict ensemble = 3/3 TRIM KIOXIA @ ~71%; KIOXIA TRIM-CANDIDATE (user-gated) + SNDK KEEP-PREFERRED cascaded
+
+**Trigger source:** User question 2026-06-28 — which of SNDK (13.9%) / KIOXIA (15.6%) to trim on the criterion "most structural moat for how the AI sector evolves." Sizing-consequential → Critical Rule #16 (data) + #17 (ensemble) + #18 (dissent).
+**Subagents fired:** 4 total — 1 data-gather (⚠️ ran on Sonnet 4.6, VIOLATING Opus-only standing rule; data well-sourced T1/T2 so used; flagged in artifact) + 3 Opus 4.8 verdict ensemble (Critical Rule #17 self-consistency).
+**Estimated token cost:** ~58.8k actual (data-gather 30.8k subagent_tokens + ensemble 9.1k+9.1k+9.1k = 27.3k).
+**Items verified:** (1) Yokkaichi+Kitakami JV intact/extended to 2034, 50/50 own, 60/40 cap, SanDisk pays $1.165B; (2) HBF standard-setting — SanDisk+SK Hynix OCP alliance vs Kioxia proprietary track; (3) AI-storage traction (SNDK DC rev $1.46B/qtr +645% YoY vs Kioxia LC9/CM9); (4) balance sheets (SNDK net cash vs Kioxia ¥400B+ LBO debt); (5) valuation (SNDK ~32x vs Kioxia ~10-11x); SK Hynix ~21% stake in Kioxia.
+
+**Per-subagent yield:**
+- Data-gather (Sonnet): HIGH — surfaced the load-bearing JV-intact-through-2034 fact (collapses decision to ecosystem/IP) + flagged $42B/zero-debt as low-confidence-not-in-10-Q. Rule-violation noted.
+- Ensemble A (Opus): MEDIUM — TRIM KIOXIA 72%; HBF-standard-seat = the moat.
+- Ensemble B (Opus): MEDIUM — TRIM KIOXIA 70%; same load-bearing reason, independent.
+- Ensemble C (Opus): MEDIUM — TRIM KIOXIA 72%; explicitly resisted SNDK momentum-narrative bait.
+
+**Brief-framing errors caught:** the consensus "SanDisk spinout = independent fabs" prior is WRONG (JV extended to 2034 — they share fabs); also pre-empted anchoring on the unverified $42B/zero-debt figures.
+**Thesis cascade triggered:** `companies/KIOXIA/thesis.md` (TRIM-CANDIDATE entry + HBF-slippage reversal trigger), `companies/SNDK/thesis.md` (KEEP-PREFERRED entry).
+**Position implication delta:** KIOXIA → TRIM-CANDIDATE (user-gated, NOT executed); SNDK → KEEP-PREFERRED. No trade executed.
+**Material yield class:** HIGH (resolves a sizing-consequential held-pair decision + 3/3 ensemble convergence + identifies the single reversal trigger).
+**Audit-day classification:** POSITIVE — sizing-decision input with measured spread (Rule #17 first real application; modal ~71% not false-confident).
+**Cross-source-log:** `signals/cross-source-log/2026-06-28-sndk-vs-kioxia-structural-moat-headtohead-trim-decision-ensemble.md`
+**Commit:** [lag-1 — fill next entry]
+**⚠️ Rule-compliance note:** data-gather subagent on Sonnet violated the standing Opus-only mandate; flagged for the 2026-07-15 audit. Verdict ensemble correctly on Opus 4.8.
+
 ### [2026-06-26 AM ROUND 7 — User-reported DeGiro HY9H apparent overnight drop + Subagent 11 confirmed REAL ADR-dilution arbitrage event (not display artifact)] User-reported HY9H position display drop €30,240 → €26,190; my initial H2/H3/H4 hypotheses (thin-liquidity/auction-discrepancy/intraday-premium) WRONG; user observation "Korean market closed" WRONG; Subagent 11 (Opus 4.8 explicit) verified actual mechanism = REAL KRX -12.6% Friday June 26 close on F-1 dilution arbitrage reversal; ~89.1k subagent_tokens; MAJOR EVENT not display artifact; HOLD HY9H — no trim — thesis intact + cohort decoupling confirmed; B59 v2 Stage 4 narrative gravity reinforcement (same news opposite interpretation in 24h); Critical Rule #11 self-correction event logged
 
 **Trigger source:** User question 2026-06-26 AM about HY9H displayed value drop €30,240 → €26,190 overnight per DeGiro screenshots (6 screenshots split between Thursday session timestamps 6:19/6:20 PM + Friday morning timestamps 10:54). User initial hypothesis "Korean market closed = no real drop" was incorrect (Korea closed at 15:30 KST = 08:30 CET = 2.5 hours BEFORE 10:54 CET screenshot).
