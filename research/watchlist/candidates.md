@@ -4,6 +4,16 @@
 
 ---
 
+### 🟡 ACMR (ACM Research, Nasdaq) — **ACCESSIBLE but NOT RECOMMENDED as diversification** (added 2026-06-28 Citrini CXMT verification)
+
+Per `signals/cross-source-log/2026-06-28-citrini-cxmt-ipo-china-localization-acmr-naura-verification.md` (3 Opus 4.8 subagents). Surfaced by Citrini's CXMT/China-localization 2H26 pitch (ACMR + NAURA).
+
+- **Access:** ACMR (Nasdaq) = the ONLY accessible expression of the China-semi-equipment localization theme (NAURA 002371 Shenzhen ChiNext + ACM Shanghai 688082 STAR both retail-locked; ACM Shanghai HK secondary listing proposed 2026-05-26, not live).
+- **What it is:** wet-clean / ECP / furnace tools; **~99.6% of FY25 revenue from mainland China** (~$898M of $901.3M); supplies CXMT + YMTC; >25% China wafer-clean share. ~$103/sh, ~$7.2B cap (sources conflict; verify), ~79x P/E, **+135% YTD / +318% trailing-yr**. FY26 guide $1.08-1.175B (+20-30%).
+- **Why NOT a fit for this book:** user wants ORTHOGONAL diversification while trimming Asian memory. ACMR is levered to Chinese memory capex → **same memory super-cycle in a riskier wrapper, not orthogonal.** Plus: **Entity-List tail already partially materialized** (BIS added ACM Shanghai + ACM Korea subs 2024-12-02; parent not yet) + post-rally valuation + China-policy beta. "US wrapper around an asset Washington has flagged."
+- **Mechanism note:** durable driver = CXMT/domestic capex → equipment ORDERS (to 2027); IPO "halo" is momentum (proceeds go to CXMT, not ACMR). Tool-ceiling caps the bull at MATURE nodes (litho wall: SMEE ~90nm, no EUV).
+- **Status:** documented; NO position. Re-look ONLY if (a) user explicitly wants the China-localization theme despite correlation, OR (b) a large pullback resets the +135%-YTD valuation AND Entity-List risk clarifies. NAURA = purer fundamental but inaccessible.
+
 ### 🔴 CXMT (Changxin Memory Technologies / 长鑫存储) — **WATCHLIST MONITOR-ONLY — STAR MARKET LISTING DIRECT-INACCESSIBLE FOR EURO RETAIL** (post-2026-06-23 PM-CXMT-SEMIANALYSIS verification)
 
 Per `signals/cross-source-log/2026-06-23-pm-subagent-cxmt-semianalysis-newsletter-verification.md` (1 Opus 4.8 subagent 55.9k subagent_tokens; multilingual Chinese primary verified across ≥5 Chinese sources; 13 load-bearing claims).

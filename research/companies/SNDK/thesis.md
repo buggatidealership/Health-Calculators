@@ -1,5 +1,7 @@
 # Sandisk (SNDK) — Thesis
 
+**🟢 2026-06-28 Citrini CXMT-IPO verification — UNTOUCHED, mild NAND-positive:** Per `signals/cross-source-log/2026-06-28-citrini-cxmt-ipo-china-localization-acmr-naura-verification.md` (3 Opus 4.8 subagents). CXMT is DRAM-only → NAND franchise untouched; the Chinese NAND name is YMTC, reportedly shifting ~50% Phase-3 to DRAM (single-source) = mild near-term NAND-supply positive. **Position implication: 🟢 HOLD — no size change — CXMT bull NAND-orthogonal; YMTC-to-DRAM pivot marginally NAND-positive if confirmed.**
+
 **🟢 2026-06-28 CO2-shortage verification — NO ACTION (highest exposure but no impact):** Per `signals/cross-source-log/2026-06-28-high-purity-co2-semiconductor-shortage-recycled-template-hormuz-materials-pattern.md`. 3D NAND = highest aspect ratios → SNDK/KIOXIA most scCO2-cleaning-dependent, BUT recycled-template report, single-source magnitude, ZERO production-impact evidence, base rate 0/4, CO2 closed-loop-recycled + self-correcting (mitigable in weeks). NOT a falsifier. **Position implication: 🟢 HOLD — no size change — highest cohort exposure to the CO2 step but no disruption today; helium (not CO2) is the genuine materials-family tail.**
 
 **📡 STANDING MONITOR (2026-06-28): `watchlist/HBF-trajectory-monitor.md`** — HBF is the single open hinge in the KEEP-SNDK verdict; tracks 3 gates (standard / silicon / demand) + catalyst calendar (FMS Aug-26 → OCP Oct-26 → ISSCC Feb-27 → GTC Mar-27). Reversal trigger: HBF samples slip past H2-2026 OR standard fragments.

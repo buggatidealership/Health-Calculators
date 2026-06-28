@@ -96,6 +96,26 @@
 
 ## Entries (most recent first)
 
+### [2026-06-28 PM — Citrini CXMT-IPO / China-localization (ACMR, NAURA) 2H26 pitch] 3 Opus 4.8 subagents; HIGH — verified CXMT IPO real (RMB5T inflated-not-fabricated), reframed as ORTHOGONAL to held book + reinforced SK Hynix thesis, ACMR rejected as diversification (Entity-List + correlation)
+
+**Trigger source:** User-shared Citrini analyst note pitching Chinese semi-localization (CXMT IPO "RMB 5T", ACMR/NAURA) as the 2H26 trade; explicit user directive depth-over-speed, Opus 4.8 only.
+**Subagents fired:** 3 (Opus 4.8, parallel, Chinese-native + KO/EN) — A: CXMT IPO facts + RMB-5T magnitude; B: ACMR/NAURA beneficiary + investability + tool-ceiling; C: held-name impact + Rule #18 dissent bear case.
+**Estimated token cost:** ~68.6k actual (20.7k + 24.1k + 23.8k subagent_tokens).
+**Items verified:** CXMT STAR IPO status (listing-committee 2026-05-27, CSRC ~2026-06-12, ¥29.5B raise, ~40% state-owned); RMB-5T valuation (consensus ¥2-3T; B45 supercycle comp); beneficiary mechanism (order-flow vs halo); ACMR/NAURA/ACM-Shanghai investability + valuations; ACMR Entity-List status; tool-ceiling (litho wall); held-name impact (5 names); basket YTD performance.
+
+**Per-subagent yield:**
+- A: HIGH — CXMT IPO confirmed REAL/filed; RMB-5T rated inflated-not-fabricated with benchmark math (B45 regime caveat applied — Micron/Hynix $1T+ comps).
+- B: HIGH — only ACMR accessible; mechanism disentangled (order-flow durable, halo momentum); tool-ceiling = mature-node cap; ACMR Entity-List already partially materialized (subs listed 2024-12-02).
+- C: HIGH — held book ORTHOGONAL across; SK Hynix exit-commodity-for-HBM thesis intact + reinforced; "Western underestimation" FALSE at equity level (basket already ripped); ACMR fails diversification test.
+
+**Brief-framing errors caught:** (1) "IPO capital flows into localization stocks" — mechanically confused (proceeds go to CXMT, not ACMR/NAURA); (2) "RMB 5T immediately" — top-of-range froth, not consensus (¥2-3T); (3) "Western investors underestimate the frenzy" — false at equity level (NAURA +18×/7yr, ACMR +135% YTD); (4) implicit "China-localization = held-name threat" — actually orthogonal/reinforcing.
+**Thesis cascade triggered:** HYNIX (reinforced), KIOXIA + SNDK (untouched, mild NAND-positive), SUMCO (complementary), MURATA (orthogonal); watchlist ACMR entry (accessible-not-recommended).
+**Position implication delta:** NONE on held names (all HOLD/reinforced); NO new position (ACMR rejected as diversification). Trade-relevant for the user's open diversification question = answered NO.
+**Material yield class:** HIGH — answered a live user thesis/position question (is China-localization a diversification leg?) with a clear evidenced NO, reinforced the #1 holding's thesis, and reinforced the capital-abundant/tools-bind recurring pattern (N+1).
+**Audit-day classification:** POSITIVE — high-stakes thesis-relevant verification with decisive directional output + dissent.
+**Cross-source-log:** `signals/cross-source-log/2026-06-28-citrini-cxmt-ipo-china-localization-acmr-naura-verification.md`
+**Commit:** [lag-1 — fill next entry]
+
 ### [2026-06-28 PM — High-purity CO2 semiconductor-cleaning shortage (Korean-press)] 2 Opus 4.8 subagents; FRAMING-ERROR-CAUGHT — recycled-template + 0/4 base rate → NO ACTION; surfaced Hormuz-materials recurring pattern + helium-is-the-real-tail reframe
 
 **Trigger source:** User-shared Korean-press report (~2026-06-26) on high-purity CO2 shortage hitting Samsung/SK Hynix supercritical wafer-cleaning.
