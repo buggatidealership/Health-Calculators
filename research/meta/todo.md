@@ -41,6 +41,13 @@
   - Scope: add an "AI-funding-shock" scenario to `sector/scenarios.md` (capex freezes via credit event → memory demand falls even with pristine memory balance sheets); recompute held-name anti-fragility under it (NBIS = HIGH exposure / leveraged buildout; memory names = self-funding-insulated but demand-exposed); install the **5-signal monitored set** as a standing watch: (1) neocloud HY spreads / GPU-backed-debt ratings + NBIS converts vs par; (2) neocloud raises failing/downsizing; (3) hyperscaler capex GUIDE cuts; (4) private-credit redemption/markdown; (5) GPU rental <~$1.50/hr.
   - Linked: `sector/scenarios.md`, `companies/NBIS/thesis.md`, `companies/HYNIX/thesis.md`, `sector/themes.md`
 
+- [ ] **P2 / research / 2026-06-29** [INDP, POS, BOT] — Add 2 MACRO TRIPWIRES the harness has no framework for (KJ Leg B absence-question): (a) **Japan fiscal/rates** (JGB 10Y→3%, Takaichi ¥370tn) → yen-reversal risk that flips the JPY-translation tailwind for Murata/Kioxia/Sumco; (b) **naphtha/energy-security** (Hormuz; ~70% JP naphtha ME-sourced, spot ~doubled) → non-AI bottleneck hitting ~30% of JP mfg. Both can move the JP/KR book regardless of the memory cycle.
+  - Origin: `signals/cross-source-log/2026-06-29-morning-feed-korea-japan-2leg-proper.md` §absence-question.
+  - Scope: add a JGB-yield/yen tripwire + a naphtha/Brent tripwire to a macro-watch note; flag if either crosses a level that would re-rate the JP exporters.
+  - Linked: `sector/where-we-are.md`, `companies/MURATA|KIOXIA|SUMCO/thesis.md`
+- [ ] **P1 / verification / 2026-06-29** [INDP, AF, POS] — TOP Tier-2 candidate: verify whether US chip-tariff design INCLUDES memory/DRAM/NAND (currently unconfirmed; Korea in scope) — direct potential negative to HYNIX/KIOXIA/SNDK (~57% of book). Fire on user go-ahead OR when policy firms.
+  - Origin: KJ Leg B 2026-06-29; `signals/cross-source-log/2026-06-29-morning-feed-korea-japan-2leg-proper.md`.
+
 ### HBF trajectory monitor — catalyst checkpoints (added 2026-06-28; the open hinge in the SNDK-keep / KIOXIA-trim verdict)
 
 - [ ] **P1 / research / 2026-08-10** [CAL, BOT, POS, AF] — HBF Gate-2 read #1: FMS + Hot Chips (~Aug 2026) silicon/sample signal + SanDisk Q4 FY26 call + SK Hynix Q2-26 call — confirm HBF samples ship ON SCHEDULE (H2-2026)

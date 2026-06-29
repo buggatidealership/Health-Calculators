@@ -96,6 +96,25 @@
 
 ## Entries (most recent first)
 
+### [2026-06-29 PM — Korea+Japan 2-leg morning-feed (Workflow #10, proper template re-run)] 2 Opus 4.8 subagents; MEDIUM-HIGH — Leg A no-falsifier (idiosyncratic dip), Leg B surfaced 2 NEW bit-demand falsifier-precursors + 2 macro blind-spots + reinforced the NBIS trim
+
+**Trigger source:** User-requested proper `good morning Korea and Japan` (earlier run skipped codified header/discipline).
+**Subagents fired:** 2 (Opus 4.8, KO+JP native) — Leg A anchored (full common header), Leg B discovery.
+**Estimated token cost:** ~51.4k actual (23.3k + 28.1k).
+**Items verified:** held-cohort EOD + cohort-decoupling; July catalyst stack; KR/JP front-page (OpenAI IPO+$21.3B loss, JGB→3%/Takaichi ¥370tn, KRW 1554/₩66tn outflow, naphtha shock, US chip tariffs, Korea chip exports +4.6%).
+
+**Per-subagent yield:**
+- Leg A: MEDIUM — SK Hynix dip IDIOSYNCRATIC (Principle #41), Kioxia SYSTEMIC; no T1 filings; the one Tier-2 trigger self-reconciled; no falsifier.
+- Leg B: HIGH — surfaced (1) AI-credit BRAKE (OpenAI $21.3B loss) reinforcing today's AI-funding-shock + NBIS trim, (2) TWO new bit-demand falsifier-PRECURSORS (Korea chip-export +4.6% deceleration; US memory-tariff inclusion unconfirmed), (3) two orthogonal macro blind-spots (Japan fiscal/JGB; naphtha) + SoftBank as AI-funding sentiment barometer.
+
+**Brief-framing errors caught:** Leg B claimed the harness frames AI-credit as a "tailwind" — corrected: we built the AI-funding-shock RISK node + NBIS trim TODAY, so the OpenAI signal is CONFIRMING, not a new contradiction. B45 applied to the −2.8% dip (not extreme).
+**Thesis cascade triggered:** HYNIX (idiosyncratic dip + 2 new falsifier-precursors + ADR-Jul-10 + HBM4-margin narrative + FX-flow). NBIS: no new line (Rule #11 anti-rote; OpenAI datum confirms already-decided trim).
+**Position implication delta:** NONE — HOLD all, no falsifier fired. 2 falsifier-precursors + 2 macro tripwires logged to watch/todo.
+**Material yield class:** MEDIUM-HIGH — no trade, but 2 genuine new early-warning precursors on the memory core + 2 framework-gap tripwires + a proper-template scan (process-correctness was the ask).
+**Audit-day classification:** POSITIVE-LITE — anti-confirmation discovery + falsifier-precursor instrumentation.
+**Cross-source-log:** `signals/cross-source-log/2026-06-29-morning-feed-korea-japan-2leg-proper.md`
+**Commit:** [lag-1 — fill next entry]
+
 ### [2026-06-29 PM — NBIS full deep-dive (5-thread fan-out) + N=3 position ensemble] 8 Opus 4.8 subagents; HIGH — exhaustive deep dive surfaced material new risk (optical cash, FY25 fixed-asset material weakness, demonstrated credit-contagion, dual-class) → 3/3 ensemble TRIM ~10%→~5%
 
 **Trigger source:** User "run a deep dive into NBIS, no stone unturned" (held ~10%, largest non-memory name).
