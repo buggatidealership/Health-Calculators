@@ -96,6 +96,22 @@
 
 ## Entries (most recent first)
 
+### [2026-06-29 PM — CXMT–Tencent $3B server-DRAM LTA] 1 Opus 4.8 (中文+EN); MEDIUM-HIGH — verified DOMESTIC-ABSORPTION (not global dump) → REINFORCE SK Hynix (bounds China-flood bear), tools-bind ceiling reconfirmed
+
+**Trigger source:** User-shared Reuters exclusive (CXMT $3B Tencent server-DRAM LTA).
+**Subagents fired:** 1 (Opus 4.8, Chinese-native + EN per Rule #16).
+**Estimated token cost:** ~21.9k actual.
+**Items verified:** $3B/multi-year/server-DRAM/Tencent + Alibaba/ByteDance/Xiaomi talks; domestic-absorption-vs-global-dump; import-substitution magnitude; DDR5 yield-lag/tools-bind ceiling; held-name read.
+
+**Per-subagent yield:** MEDIUM-HIGH — domestic-absorption verdict (demand-pull in ~12% deficit; export Entity-List-capped; all-domestic roster) bounds the China-flood bear → SK Hynix NEUTRAL→mild-POSITIVE; displaced volume = low-margin China-domestic DDR5 not HBM/AI tier; tools-bind ceiling (~3 process-yr behind, HBM-excluded) reconfirmed.
+**Brief-framing errors caught:** pre-empted the naive "CXMT wins big deal = China-floods-DRAM bear" read — it's domestic absorption in a deficit, mild-POSITIVE; B45 applied ($3B not "extreme").
+**Thesis cascade triggered:** HYNIX (REINFORCE). KIOXIA/SNDK orthogonal (CXMT DRAM-only) — no edit.
+**Position implication delta:** NONE — HOLD; reinforces existing HBM-moat structure.
+**Material yield class:** MEDIUM-HIGH — confirmed a thesis-relevant signal as mild-positive + reconfirmed the capital-abundant/tools-bind pattern (N+1).
+**Audit-day classification:** POSITIVE-LITE.
+**Cross-source-log:** `signals/cross-source-log/2026-06-29-cxmt-tencent-3b-dram-lta-domestic-absorption.md`
+**Commit:** [lag-1]
+
 ### [2026-06-29 PM — Kioxia full-exit + €3.5k SanDisk-add proposal] N=3 Opus ensemble (reasoning-only); MEDIUM — 3/3 EXIT Kioxia (~66%) + 3/3 SKIP the SanDisk add (~73%); caught the two-legs-pull-opposite-ways contradiction
 
 **Trigger source:** User proposal (full Kioxia exit + €3.5k SNDK add + €7k dry powder); sizing-consequential → Rule #17.
