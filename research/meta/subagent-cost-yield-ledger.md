@@ -96,6 +96,25 @@
 
 ## Entries (most recent first)
 
+### [2026-06-29 AM — 2-leg morning scan (Workflow #10): Leg A portfolio + Leg B newspaper read] 2 Opus 4.8 subagents; MEDIUM-HIGH — no falsifiers (cohort drawdown = sentiment, not demand crack); surfaced the usage-vs-value bifurcation as dominant 2H-2026 macro theme + logged the memory-bit-demand falsifier-watch
+
+**Trigger source:** User-requested 2-leg morning scan (one portfolio-anchored, one overall markets/AI news).
+**Subagents fired:** 2 (Opus 4.8, parallel, KO+JP+EN) — Leg A held-cohort overnight read; Leg B unbiased market/AI newspaper read.
+**Estimated token cost:** ~51.0k actual (25.1k + 25.9k subagent_tokens).
+**Items verified:** held-name overnight moves + news (6 names); macro tape (mid-week rout, Mon relief bid, rates); top AI stories (OpenAI IPO delay, tokenmaxxing, Amazon ASIC, NVIDIA Vera, memory sold-out); contract pricing.
+
+**Per-subagent yield:**
+- Leg A: MEDIUM-HIGH — confirmed cohort drawdown is macro de-risk not name-specific; zero falsifiers; HBF/contract-pricing confirming; flagged SK Hynix Nasdaq-~July-10 + HBM4→3Q26 tilt.
+- Leg B: HIGH — framed the usage-vs-value bifurcation as the dominant macro driver; tied the bear leg to L28 Jevons; surfaced ASIC-encroachment (reinforces MRVL-exit) as a watch; honest "no dots" on MLCC/sovereign-AI.
+
+**Brief-framing errors caught:** pre-empted reading the cohort drawdown as a thesis crack (it's sentiment/multiple-compression vs intact sold-out fundamentals); B45 applied to Kioxia −8% (regime-typical, not exhaustion).
+**Thesis cascade triggered:** HYNIX (standing macro falsifier-watch: tokenmaxxing→HBM-bit-demand, tied to L28 Jevons). Other held names: no thesis change (Rule #11 rote-HOLD cascade intentionally skipped).
+**Position implication delta:** NONE — HOLD all; no falsifiers.
+**Material yield class:** MEDIUM-HIGH — no trade, but established the dominant macro theme + a concrete, monitorable falsifier-watch for the memory-long book (decision-useful even at zero action).
+**Audit-day classification:** POSITIVE-LITE — scan with no action but durable theme-framing + falsifier instrumentation.
+**Cross-source-log:** `signals/cross-source-log/2026-06-29-morning-scan-2leg-bifurcation-usage-vs-value.md`
+**Commit:** [lag-1 — fill next entry]
+
 ### [2026-06-28 PM — SEMCO ~₩500B AI-server MLCC deal + SEMCO×Sumitomo glass-substrate JV] 2 Opus 4.8 subagents; HIGH — REINFORCE held Murata (category-validation not share-loss) + confirmed glass-substrate orthogonal to Sumco (+ caught SUMCO≠Sumitomo name-collision + ₩1.5T conflation)
 
 **Trigger source:** User-shared Korea Economic Daily (한국경제, 2026-06-28) — SEMCO AI-server MLCC deal + SEMCO×Sumitomo glass-substrate JV. SEMCO = Murata's direct MLCC competitor (Murata held 16.8%).
