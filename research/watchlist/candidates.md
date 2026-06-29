@@ -4,6 +4,13 @@
 
 ---
 
+### 🟢 Siemens Energy (ENR.DE) + ⚪ Infineon (IFX) + ⚪ SoftBank (9984) — surfaced by EU Leg B unbiased discovery (added 2026-06-29)
+
+Per `signals/cross-source-log/2026-06-29-morning-feed-eu-2leg-bis-ai-credit-channel.md`. Surfaced ORGANICALLY by the unbiased EU newspaper read (NOT pre-seeded — validates Leg B design).
+- **Siemens Energy (ENR.DE)** — ⭐ EU-accessible (Xetra), pure **AI-power-buildout** play; −5.6% on 2026-06-29 AI-bubble-fear tape. This is the organic re-surfacing of the parked **power-infra diversification** candidate set (with SU.PA/PRY.MI/ABBN.SW etc., per 2026-06-27 REIA list). Strongest fit for the orthogonal-diversification goal. NEXT: when user greenlights, run Workflow #9 macro-first on the EU power-infra cohort (the diversification leg).
+- **Infineon (IFX, Xetra)** — −4.3% on AI-bubble fear despite low AI exposure → possible auto/industrial-semi dislocation; watch-only.
+- **SoftBank (9984)** — −13% on OpenAI IPO delay; cleanest listed OpenAI-valuation / AI-sentiment-beta proxy; reference-only (KRX... no — TSE; accessibility TBD), not a fit.
+
 ### 🟡 GigaDevice (兆易创新, 3986.HK H-share) — **DeGiro-ACCESSIBLE + MOST-DIRECT CXMT proxy, but NOT a diversifier** (added 2026-06-28, user-raised)
 
 Per `signals/cross-source-log/2026-06-28-gigadevice-3986hk-cxmt-proxy-degiro-accessible-position-read.md` (1 Opus 4.8 subagent). User has DeGiro access via the H-share.
