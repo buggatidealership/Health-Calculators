@@ -96,6 +96,29 @@
 
 ## Entries (most recent first)
 
+### [2026-06-29 PM — NBIS full deep-dive (5-thread fan-out) + N=3 position ensemble] 8 Opus 4.8 subagents; HIGH — exhaustive deep dive surfaced material new risk (optical cash, FY25 fixed-asset material weakness, demonstrated credit-contagion, dual-class) → 3/3 ensemble TRIM ~10%→~5%
+
+**Trigger source:** User "run a deep dive into NBIS, no stone unturned" (held ~10%, largest non-memory name).
+**Subagents fired:** 8 (Opus 4.8) — 5 deep-dive threads (business / financials / competitive / bear-redteam / bull-valuation) + 3 position-ensemble (Rule #17).
+**Estimated token cost:** ~157.8k actual (deep dive 23.6k+28.2k+22.7k+29.7k+21.4k = 125.6k; ensemble 8.1k×3 = 24.2k; + earlier BIS context).
+**Items verified:** corporate structure/segments/customers/footprint; full balance sheet + funding gap + unit economics + runway; competitive landscape + moat; full bear case (7 vectors); bottoms-up valuation (bull/base/bear) + SOTP; then 3× independent HOLD/TRIM/EXIT judgment.
+
+**Per-subagent yield:**
+- Business: HIGH — ARR $1.92B/+674%, $7-9B guide, $22-46B backlog, NVIDIA $2B, SOTP ~$5B.
+- Financials: HIGH (load-bearing) — net-cash OPTICAL (prepayment-inflated; organic FCF ≈ −$3.4B/qtr); ~$8-13B 2026 raise; ~2-3qtr runway.
+- Competitive: HIGH — #2 scale/#1 balance-sheet pure-play; moat real-but-temporary; sovereign-AI narrative>substance.
+- Bear red-team: HIGH — MODERATE-to-STRONG exit case; FY25 fixed-asset MATERIAL WEAKNESS + dual-class + Feb-2026 credit-contagion-already-hit; >40% drawdown path = neocloud credit event.
+- Bull/valuation: HIGH — base +14% / bull +96% / bear −39%; EV/exit-ARR 7.5× > CRWV 4.7× (priced-for-perfection).
+- Ensemble ×3: 3/3 TRIM to ~5%, conf 70/68/70 (modal ~69%); identical shared steelman (2027 delivery → cut-the-flower risk).
+
+**Brief-framing errors caught:** the prior thesis carried NBIS as a clean HOLD; deep dive corrected — optical cash (vs headline $621M "profit" / $9.3B cash), fixed-asset material weakness exactly where the GPU-depreciation bull-crux lives, demonstrated (not hypothetical) credit-contagion.
+**Thesis cascade triggered:** NBIS (full rebuild + TRIM ~10%→~5% recommendation + re-add trigger). dossier artifact.
+**Position implication delta:** TRIM ~10%→~5% RECOMMENDED (user-gated, Rule #11) — risk-budget/diversification trim, no falsifier fired. First held-name SIZING-change recommendation in weeks (Rule #11 detectability = varied, not rote).
+**Material yield class:** HIGH — exhaustive deep dive on a 10% position that materially changed the position recommendation + measured the call's conviction (3/3, ~69%).
+**Audit-day classification:** POSITIVE — highest-stakes decision-relevant work of the cycle.
+**Cross-source-log:** `signals/cross-source-log/2026-06-29-NBIS-deep-dive-5-thread-dossier.md`
+**Commit:** [lag-1 — fill next entry]
+
 ### [2026-06-29 PM — EU 2-leg morning-feed (Workflow #10) + BIS×NBIS Tier-2 verification] 3 Opus 4.8 subagents; HIGH — Leg B surfaced a thesis-CONTRADICTING signal (BIS AI-credit-channel) → verification confirmed NBIS HIGH credit-exposure + memory-names self-funding-insulated + a harness framework gap
 
 **Trigger source:** `good morning EU` → Workflow #10 two-leg scan; Leg B contradicting signal auto-routed to Tier-2 verification per morning-feed-prompts routing.
