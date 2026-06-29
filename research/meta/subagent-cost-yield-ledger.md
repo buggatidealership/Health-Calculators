@@ -96,6 +96,20 @@
 
 ## Entries (most recent first)
 
+### [2026-06-29 PM — Kioxia full-exit + €3.5k SanDisk-add proposal] N=3 Opus ensemble (reasoning-only); MEDIUM — 3/3 EXIT Kioxia (~66%) + 3/3 SKIP the SanDisk add (~73%); caught the two-legs-pull-opposite-ways contradiction
+
+**Trigger source:** User proposal (full Kioxia exit + €3.5k SNDK add + €7k dry powder); sizing-consequential → Rule #17.
+**Subagents fired:** 3 (Opus 4.8, reasoning-only, no web search).
+**Estimated token cost:** ~22.7k actual (7.55k ×3).
+**Per-subagent yield:** all 3 — Leg 1 EXIT (68/62/68); Leg 2 SKIP/SMALLER (74/70/74); identical shared insight = rotating Kioxia→SanDisk is "same wafers, different wrapper" (zero fab diversification) and the add reverses the owner's de-concentration goal + breaches the Core band.
+**Brief-framing errors caught:** the proposal's two legs contradict each other on the stated goal (exit de-concentrates; add re-concentrates into the same factor).
+**Thesis cascade triggered:** none yet (user-gated, not executed).
+**Position implication delta:** RECOMMEND exit Kioxia + SKIP add (route to dry powder); pending user fill.
+**Material yield class:** MEDIUM — resolved a sizing-decision with a clear modal verdict + surfaced the goal-contradiction; cheap (reasoning-only).
+**Audit-day classification:** POSITIVE-LITE — Rule #17 self-consistency on a held-name exit decision.
+**Cross-source-log:** `signals/cross-source-log/2026-06-29-kioxia-full-exit-sndk-add-ensemble.md`
+**Commit:** [lag-1]
+
 ### [2026-06-29 PM — US memory-tariff Tier-2 verification (Section 232)] 2 Opus 4.8 subagents; FRAMING-ERROR-CAUGHT + HIGH — resolved the KJ Leg B precursor → NEUTRAL/NON-EVENT; caught the DRAM-bandwidth-criterion misread; protected ~57% of book from a mis-priced fear
 
 **Trigger source:** User "yes run the verification, always Opus 4.8" on the KJ Leg B US-memory-tariff falsifier-precursor.
