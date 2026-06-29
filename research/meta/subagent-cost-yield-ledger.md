@@ -96,6 +96,26 @@
 
 ## Entries (most recent first)
 
+### [2026-06-29 PM — EU 2-leg morning-feed (Workflow #10) + BIS×NBIS Tier-2 verification] 3 Opus 4.8 subagents; HIGH — Leg B surfaced a thesis-CONTRADICTING signal (BIS AI-credit-channel) → verification confirmed NBIS HIGH credit-exposure + memory-names self-funding-insulated + a harness framework gap
+
+**Trigger source:** `good morning EU` → Workflow #10 two-leg scan; Leg B contradicting signal auto-routed to Tier-2 verification per morning-feed-prompts routing.
+**Subagents fired:** 3 (Opus 4.8) — Leg A anchored (DE+繁中+EN), Leg B discovery (DE+FR+EN), BIS×NBIS Tier-2 verification (EN).
+**Estimated token cost:** ~70.1k actual (22.6k + 23.9k + 23.5k subagent_tokens).
+**Items verified:** EU cohort EOD + adjacents; EU newspaper front-page (BIS, OpenAI-IPO-delay, Apple price-hikes, VW, ECB, Micron); NBIS funding structure (debt/converts/capex/prepayments); memory-name balance sheets; credit-transmission mechanism + early-warning signals.
+
+**Per-subagent yield:**
+- Leg A: MEDIUM — cohort stabilizing, SK Hynix decoupled UP; corroborated AM scan, no new cascade.
+- Leg B: HIGH — surfaced the BIS AI-credit-channel (thesis-CONTRADICTING, the highest-value Leg B output) + power-infra (ENR) organically + 2 framework-gap blind-spots. THE anti-confirmation payoff.
+- BIS verification: HIGH — NBIS exposure HIGH (textbook leveraged neocloud; ~$10-15B 2026 funding gap); memory names self-funding-insulated (SK Hynix net cash ₩35T, SanDisk zero-debt); demand-side credit-transmission bear + 5 early-warning signals; named the missing capital-markets node.
+
+**Brief-framing errors caught:** pre-empted treating BIS as macro-noise (it's a named, falsifiable transmission channel) AND pre-empted over-reacting (memory names are the self-funding "right side"; NBIS is the real exposure). Distinguished idiosyncratic (NBIS) from systemic.
+**Thesis cascade triggered:** NBIS (credit-channel HIGH-exposure bear vector + 5 trim-triggers, HOLD-with-watch/user-gated de-risk option), HYNIX (credit-channel mechanism + self-funding-insulated + 5-signal watch). Memory cohort: HYNIX carries the canonical cohort watch (no rote spam).
+**Position implication delta:** NONE executed (HOLD all, no falsifier fired); NBIS flagged as the proactive de-risk candidate (user-gated). New monitored 5-signal set installed; framework-gap todo opened.
+**Material yield class:** HIGH — Leg B did its designed job (found the contradicting signal Leg A couldn't), verification converted a vague "AI bubble" headline into a concrete idiosyncratic risk on the most-exposed held name + a durable early-warning system + a real framework-gap fix.
+**Audit-day classification:** POSITIVE — anti-confirmation alpha + thesis-risk instrumentation + framework expansion.
+**Cross-source-log:** `signals/cross-source-log/2026-06-29-morning-feed-eu-2leg-bis-ai-credit-channel.md`
+**Commit:** [lag-1 — fill next entry]
+
 ### [2026-06-29 AM — 2-leg morning scan (Workflow #10): Leg A portfolio + Leg B newspaper read] 2 Opus 4.8 subagents; MEDIUM-HIGH — no falsifiers (cohort drawdown = sentiment, not demand crack); surfaced the usage-vs-value bifurcation as dominant 2H-2026 macro theme + logged the memory-bit-demand falsifier-watch
 
 **Trigger source:** User-requested 2-leg morning scan (one portfolio-anchored, one overall markets/AI news).

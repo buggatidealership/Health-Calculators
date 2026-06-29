@@ -58,3 +58,30 @@ Leg A (portfolio-anchored) would have reported "cohort stabilizing, memory thesi
 1. Monday intraday EU/Asia levels early/single-feed (estimate).
 2. SK Hynix HBM4-deferral specifics T2/T3 (directional read TrendForce-anchored).
 3. BIS-channel applicability to NBIS = the open question the Tier-2 verification resolves.
+
+---
+
+## ✅ BIS×NBIS TIER-2 VERIFICATION RESULT (Opus 4.8, 2026-06-29) — NBIS exposure HIGH; memory names insulated-on-own-books but demand-exposed
+
+**NBIS funding structure (T1/T2 filings):** Q1 2026 cash $9.3B (incl ~$2.3B customer prepayments); raised **$4.34B convertibles Mar 2026** (1.25% '31 / 2.625% '33) + $2.0B Nvidia prefunded-warrant equity; non-current debt $8.43B, total liabilities $15.06B; **2026 capex guide raised to $20–25B** (Q1 capex $2.47B); **implied remaining 2026 funding need ~$10–15B** (T3 est); funding mix ~60% customer prepayments (MSFT/Meta) / 40% debt+equity. Q1 operating CF +$2.3B is **prepayment-inflated, not organic FCF** — structurally cash-burning, reliant on external capital + prepayments.
+
+**Verdict — NBIS BIS-exposure = 🔴 HIGH.** Textbook neocloud the BIS flags: $27B Meta deal "structured to enable favorable asset-backed financing" (GPU-collateralized SPV, peer CoreWeave $18.8B GPU-backed debt); $10–15B still to raise 2026 / multi-year $34.5B gap on $54.5B capex 2026–28 = forward reliance on open capital markets = the fragility. GPU-collateral depreciation risk (H100 rental −50–70%; NBIS depreciates GPUs 4yr). **Steelman mitigant:** the ~60% customer-prepayment leg (Meta/MSFT take-or-pay) is genuinely different from speculative leverage — but is itself a credit exposure to Meta's continued willingness to fund.
+
+**Memory names = 🟢 "right side" of BIS (CONFIRMED self-funding):** SK Hynix **net cash ₩35T** (cash ₩54.3T, debt cut to ₩19.3T, Q1 2026); Kioxia net-cash target / ~60% equity ratio; SanDisk **zero-debt** + buyback; Sumco NOT CONFIRMED. Insulated on their OWN balance sheets — but NOT immune via demand (below).
+
+**Strongest credit-transmission bear (Rule #18 steelman):** the transmission isn't the memory makers' balance sheets — it's their **DEMAND**. ~$1T+ hyperscaler/neocloud capex increasingly debt/private-credit-funded → a credit event (spreads gap, a neocloud SPV can't refinance GPU-backed debt, private-credit forced de-lever / fire-sale) **freezes new orders** → HBM/eSSD bookings fall even with pristine memory balance sheets; **NBIS hit twice** (own funding squeeze + customer pullback). Speed: fast (credit reprices in weeks; memory cancellations 1–2 quarters). Likelihood ~15–25% / 18mo (subagent est, LOW confidence — couldn't read lessons.md; prepayment/take-or-pay backstop + hyperscaler cash make a *full* freeze less likely than the BIS tail implies).
+
+**5 EARLY-WARNING SIGNALS (the new monitored set — the framework-gap fix):**
+1. Neocloud HY credit spreads / GPU-backed-debt ratings (CoreWeave DDTL; **NBIS converts trading below par**).
+2. Neocloud debt-issuance pace stalling (failed / downsized-down raises = the canary).
+3. **Hyperscaler capex GUIDE cuts** (Meta/MSFT/Amazon) — the demand-side trigger.
+4. Private-credit fund redemption / markdown headlines (the BIS NBFI channel).
+5. GPU rental rates breaking below ~$1.50/hr (collateral impairment).
+
+**HARNESS ACTION:** add a "capital-markets / credit-channel" node to the supply-side model — the physical-only framing (HBM/NAND/wafers/MLCC/power) genuinely misses this transmission path. → todo: codify "AI-funding-shock" scenario + the 5-signal monitored set.
+
+## CASCADE (executed)
+- **NBIS:** credit-channel HIGH-exposure bear vector added to thesis + 5 early-warning trim-triggers; **HOLD-with-tight-watch** (Rule #8: no falsifier fired; but NBIS is now the held name most exposed to the dominant macro theme → the logical proactive de-risk candidate IF user wants to act ahead of a trigger).
+- **HYNIX (bellwether):** this-morning's bit-demand falsifier-watch refined with the SPECIFIC credit-channel mechanism + 5 signals + memory-self-funding-insulated (net cash ₩35T) note.
+- todo: AI-funding-shock scenario + credit-node codification.
+- ledger: EU 3-fire batch (Leg A + Leg B + BIS verification).
