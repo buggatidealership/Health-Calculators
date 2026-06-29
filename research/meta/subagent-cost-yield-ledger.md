@@ -96,6 +96,25 @@
 
 ## Entries (most recent first)
 
+### [2026-06-29 PM — US memory-tariff Tier-2 verification (Section 232)] 2 Opus 4.8 subagents; FRAMING-ERROR-CAUGHT + HIGH — resolved the KJ Leg B precursor → NEUTRAL/NON-EVENT; caught the DRAM-bandwidth-criterion misread; protected ~57% of book from a mis-priced fear
+
+**Trigger source:** User "yes run the verification, always Opus 4.8" on the KJ Leg B US-memory-tariff falsifier-precursor.
+**Subagents fired:** 2 (Opus 4.8) — A: US-policy scope/exemptions (EN); B: KR/JP read-through + pass-through economics (KO/JP native).
+**Estimated token cost:** ~56.0k actual (24.7k + 31.3k).
+**Items verified:** Section 232 status/scope/rate; memory inclusion (Phase-1 vs Phase-2 threat); data-center exemption; build-in-US + Korea/Japan parity carve-outs; who-bears-the-cost (pass-through vs margin); per-held-name exposure.
+
+**Per-subagent yield:**
+- A: HIGH + FRAMING-ERROR-CAUGHT — Phase-1 25% is LOGIC-only; the "DRAM-bandwidth" criterion defines covered *logic* chips, NOT a memory tariff (the precursor's misread); memory = Phase-2 threat only; build-in-US exemptions shield SK Hynix/Samsung/Micron; outcome split 60/25/15.
+- B: HIGH — data-center end-use EXEMPT (most Korean HBM→US data centers); pass-through-to-buyer in sold-out/inelastic market ("hitting memory = the US loses"); Japan MFN parity protects Kioxia/SanDisk; per-name exposure Sumco<Murata<Kioxia/SanDisk<SK Hynix(tail); strongest bear = HBM second-wave demand-destruction (~15%).
+
+**Brief-framing errors caught:** (1) the KJ Leg B "memory in tariff scope" precursor = misread of the DRAM-bandwidth logic-chip criterion; (2) "tariff = maker margin hit" reframed to "pass-through US-buyer tax" given sold-out/inelastic demand.
+**Thesis cascade triggered:** HYNIX (precursor RESOLVED neutral; carries the cohort second-wave tail + Jul-1 watch), KIOXIA + SNDK (NON-EVENT; Japan MFN parity). SUMCO/MURATA out-of-scope (noted, no edit).
+**Position implication delta:** NONE — HOLD all; precursor downgraded watch→low-prob tail. Converted a scary headline into a non-event + a single dated watch catalyst (Jul-1 Commerce report).
+**Material yield class:** HIGH — protected ~57% of the book from acting on a mis-priced fear + caught a framing error + set a precise re-rate gate.
+**Audit-day classification:** POSITIVE — exactly the anti-confirmation/verification payoff Critical Rule #16 exists for.
+**Cross-source-log:** `signals/cross-source-log/2026-06-29-us-memory-tariff-verification-NEUTRAL-nonevent.md`
+**Commit:** [lag-1 — fill next entry]
+
 ### [2026-06-29 PM — Korea+Japan 2-leg morning-feed (Workflow #10, proper template re-run)] 2 Opus 4.8 subagents; MEDIUM-HIGH — Leg A no-falsifier (idiosyncratic dip), Leg B surfaced 2 NEW bit-demand falsifier-precursors + 2 macro blind-spots + reinforced the NBIS trim
 
 **Trigger source:** User-requested proper `good morning Korea and Japan` (earlier run skipped codified header/discipline).

@@ -45,8 +45,9 @@
   - Origin: `signals/cross-source-log/2026-06-29-morning-feed-korea-japan-2leg-proper.md` §absence-question.
   - Scope: add a JGB-yield/yen tripwire + a naphtha/Brent tripwire to a macro-watch note; flag if either crosses a level that would re-rate the JP exporters.
   - Linked: `sector/where-we-are.md`, `companies/MURATA|KIOXIA|SUMCO/thesis.md`
-- [ ] **P1 / verification / 2026-06-29** [INDP, AF, POS] — TOP Tier-2 candidate: verify whether US chip-tariff design INCLUDES memory/DRAM/NAND (currently unconfirmed; Korea in scope) — direct potential negative to HYNIX/KIOXIA/SNDK (~57% of book). Fire on user go-ahead OR when policy firms.
-  - Origin: KJ Leg B 2026-06-29; `signals/cross-source-log/2026-06-29-morning-feed-korea-japan-2leg-proper.md`.
+- [ ] **P2 / research / 2026-07-01** [INDP, AF, POS, CAL] — US memory-tariff WATCH: read the **2026-07-01 Commerce data-center semiconductor market report** — the Phase-2 gate. (Memory-tariff verification 2026-06-29 RESOLVED the precursor → NEUTRAL/NON-EVENT: memory NOT in Phase-1, data-center exempt, pass-through-to-buyer; residual = ~15% HBM "second-wave" tail. Re-rate ONLY if Phase-2 closes the data-center exemption or a Korea-punitive tier emerges.)
+  - Origin: `signals/cross-source-log/2026-06-29-us-memory-tariff-verification-NEUTRAL-nonevent.md`.
+  - Linked: `companies/HYNIX/thesis.md` (carries the cohort tail-risk).
 
 ### HBF trajectory monitor — catalyst checkpoints (added 2026-06-28; the open hinge in the SNDK-keep / KIOXIA-trim verdict)
 
