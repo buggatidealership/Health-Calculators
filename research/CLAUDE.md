@@ -719,4 +719,5 @@ Reverse-index from sector files to this company:
 | "I bought/sold X" | update `portfolio/changes.md` and `holdings.md` |
 | "What's the next bottleneck?" | BOTTLENECK-FORECAST |
 | "deep dig" / "deep dig: X" | DEEP-DIG (workflow 8 — BOM-level component thesis with cross-stack cascade) |
+| **"good morning [region]"** (Korea/Japan / EU / US) | **MORNING-FEED-SCAN (Workflow #10) — fire TWO Opus 4.8 subagents IN PARALLEL: Leg A (portfolio-anchored, region cohort + adjacents) + Leg B (unbiased newspaper-read discovery, company- AND segment-agnostic, breadth-at-search/filter-at-digest). Full spec + per-region prompts in `meta/morning-feed-prompts.md`. Just run it — do NOT offer options or pre-seed a theme (pre-seeding is the segment bias Leg B exists to remove).** |
 | "What should I do?" | (read holdings.md + theses + scenarios, then recommend) |
