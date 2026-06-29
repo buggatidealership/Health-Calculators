@@ -10,6 +10,10 @@ Append-only log of buys, sells, sizing changes. Format:
 
 ## Log
 
+[2026-06-29 EXECUTED] TRIM KIOXIA (285A / N26) — **−€8,000** (€18,500 → ~€10,500; 15.6% → ~8.8%). Reasoning: 2026-06-28 SNDK-vs-KIOXIA 3/3 Opus ensemble TRIM verdict (~71%) — keep SanDisk, trim Kioxia from the redundant ~29.5% NAND pair; geographic de-concentration. NAND pair now ~22.7%; memory cluster 63.6% → ~56.7%. Proceeds = dry powder (reallocation ON HOLD). Linked: `signals/cross-source-log/2026-06-28-sndk-vs-kioxia-structural-moat-headtohead-trim-decision-ensemble.md`.
+
+[2026-06-29 PENDING] TRIM NBIS — **−€6,000 intended** ("could trim when US markets open"; NOT yet executed). NBIS ~€12,600 → ~€6,600 (~10.6% → ~5.5%). Reasoning: 2026-06-29 5-thread deep-dive + 3/3 ensemble TRIM ~10%→~5% (~69%) — risk-budget/diversification trim; NOT a thesis break (Rule #8: no falsifier fired). RE-ADD TRIGGER set. Linked: `signals/cross-source-log/2026-06-29-NBIS-deep-dive-5-thread-dossier.md`.
+
 [2026-06-02 PLANNED] SELL T1 ENERGY (TE) — user decision post Computex 2026 Day 1 wide-research synthesis. Free-up rationale (T1 Energy is weakest AI-adjacent position per repeated review):
 - 5 parallel Computex subagents found NO hyperscaler direct PPA for T1 Energy at Day 1 or in adjacent supply-chain announcements
 - AI exposure = "Supply Chain Inheritance only" per `companies/TE/thesis.md` (T7 theme); weakest tier of AI adjacency in portfolio per user articulation 2026-06-01

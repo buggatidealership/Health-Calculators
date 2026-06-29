@@ -1,6 +1,11 @@
 # Current Holdings — CANONICAL PORTFOLIO REFERENCE
 
-**Last updated:** 2026-06-27 PM (user-shared DeGiro mobile screenshot + verbal N26/Kioxia €18.5K)
+**Last updated:** 2026-06-29 (verbal trade update — see below; positions approximate pending next screenshot true-up). Prior canonical: 2026-06-27 PM (DeGiro screenshot + verbal N26/Kioxia €18.5K)
+
+## ⚙️ 2026-06-29 VERBAL TRADE UPDATE (approximate; awaiting screenshot true-up)
+- **🔴 KIOXIA TRIMMED −€8,000** (user verbal 2026-06-29, EXECUTED) — per the 2026-06-28 SNDK-vs-KIOXIA 3/3 ensemble TRIM verdict. KIOXIA €18,500 → **~€10,500** (15.6% → ~8.8%). Proceeds = freed cash/dry powder (reallocation budget, decision PENDING per user).
+- **🟡 NBIS TRIM −€6,000 PENDING** (user "could trim 6k when US markets open" — NOT yet executed) — per the 2026-06-29 deep-dive 3/3 ensemble TRIM ~10%→~5%. NBIS currently **~€12,600** (slight appreciation from €12,238); a €6k trim would take it to ~€6,600 (~5.5%). Hold for user execution confirmation.
+- **Reallocation: ON HOLD** per user — capital parked as cash until destination decided (power-infra vs DDOG re-entry split).
 
 **Source:** user-shared DeGiro mobile screenshot 2026-06-27 PM (broker total €100,204.20) + user verbal "N26 holds €18.5K of Kioxia" + "I exited Marvell fully."
 
@@ -40,36 +45,35 @@
 
 ## Portfolio summary
 
-**Combined total (DeGiro + N26 Kioxia):** **€118,704.20**
-- DeGiro: €100,204.20 (€89,121.21 invested + ~€11,083 cash)
-- N26 Kioxia: €18,500
+**Combined total (DeGiro + N26):** **~€119,066** (my calc, approximate post-Kioxia-trim + NBIS appreciation; pending screenshot true-up)
+- DeGiro: ~€100,566 (positions + ~€11,083 cash)
+- N26: ~€10,500 KIOXIA + ~€8,000 freed cash (Kioxia trim proceeds)
 
-**🔴 PORTFOLIO WEIGHTS (recomputed vs €118,704.20 total, my calc):**
+**🔴 PORTFOLIO WEIGHTS (recomputed vs ~€119,066 total post-2026-06-29-Kioxia-trim, my calc):**
 
-| Name | Value (EUR-eq) | **% of total** | Prior canonical 2026-06-25 | Delta |
+| Name | Value (EUR-eq) | **% of total** | Prior canonical 2026-06-27 | Delta |
 |---|---|---|---|---|
-| **HYNIX 18 GDR (HY9H)** | **€27,540** | **23.2%** | 22.3% | +0.9pp |
-| MURATA 336sh | €19,914.72 | 16.8% | 15.7% | +1.1pp |
-| **KIOXIA (N26)** | **€18,500** | **15.6%** | 14.0% | +1.6pp |
-| SNDK 9sh | €16,517.24 | 13.9% | 13.1% | +0.8pp |
-| SUMCO 626sh | €12,911.25 | 10.9% | 9.5% | +1.4pp |
-| NBIS 58sh | €12,238 | 10.3% | 9.8% | +0.5pp |
-| Cash (DeGiro) | ~€11,083 | 9.3% | 7.6% | +1.7pp (MRVL exit freed ~€4K) |
-| **~~MRVL~~ EXITED** | **€0** | **0%** | 8.0% | **−8.0pp (full exit)** |
-| **TOTAL** | **€118,704.20** | **100.0%** | | |
+| **HYNIX 18 GDR (HY9H)** | **€27,540** | **23.1%** | 23.2% | −0.1pp |
+| MURATA 336sh | €19,914.72 | 16.7% | 16.8% | −0.1pp |
+| SNDK 9sh | €16,517.24 | 13.9% | 13.9% | flat |
+| SUMCO 626sh | €12,911.25 | 10.8% | 10.9% | −0.1pp |
+| NBIS 58sh | ~€12,600 | 10.6% | 10.3% | +0.3pp (appreciation; −€6k trim PENDING → ~5.5%) |
+| **KIOXIA (N26)** | **~€10,500** | **~8.8%** | 15.6% | **−6.8pp (−€8k trim EXECUTED)** |
+| **Cash / dry powder** | **~€19,083** | **~16.0%** | 9.3% | **+6.7pp (Kioxia trim proceeds)** |
+| **TOTAL** | **~€119,066** | **100.0%** | | |
 
-_Note: non-MRVL weight increases are mostly denominator effect (total shrank from €135.7K → €118.7K via MRVL exit + Friday markdowns), not adds._
+_Note: Kioxia trim moved ~€8k position → cash (reallocation budget, on hold). If the pending NBIS −€6k trim executes: NBIS → ~€6,600 (~5.5%), cash/dry-powder → ~€25,083 (~21.1%)._
 
 ## Cluster breakdown (joint-state, my model)
 
-| Cluster | Names | Value (€) | % of total | Prior |
+| Cluster | Names | Value (€) | % of total | Prior 2026-06-27 |
 |---|---|---|---|---|
-| **Memory / HBM / NAND / Wafer** | HYNIX €27,540 + KIOXIA €18,500 + SNDK €16,517 + SUMCO €12,911 | **€75,468** | **63.6%** | 58.9% |
-| Physical AI / MLCC | MURATA €19,915 | €19,915 | 16.8% | 15.7% |
-| Sovereign-AI compute | NBIS €12,238 | €12,238 | 10.3% | 9.8% |
-| **Cash deployable** | — | ~€11,083 | 9.3% | 7.6% |
+| **Memory / HBM / NAND / Wafer** | HYNIX €27,540 + KIOXIA ~€10,500 + SNDK €16,517 + SUMCO €12,911 | **~€67,468** | **~56.7%** | 63.6% |
+| Physical AI / MLCC | MURATA €19,915 | €19,915 | 16.7% | 16.8% |
+| Sovereign-AI compute | NBIS ~€12,600 | ~€12,600 | 10.6% | 10.3% |
+| **Cash / dry powder (reallocation budget)** | — | ~€19,083 | ~16.0% | 9.3% |
 
-**Memory cluster now 63.6% (was 58.9%)** = structural-moat conviction; MRVL exit (the lone non-memory/non-supply name) concentrated the book further into memory + memory-supply. Consistent with user verbal "memory have such a big place to play in the AI build out... structural moats." Note: MRVL was "Connectivity" cluster — now €0, cluster removed.
+**🟢 DE-CONCENTRATION UNDERWAY: Memory cluster 63.6% → ~56.7%** via the €8k Kioxia trim. **NAND pair (KIOXIA ~€10,500 + SNDK €16,517) = ~€27,017 = ~22.7%** (was ~29.5%) — the redundant-pair overweight materially reduced. If the pending NBIS −€6k trim executes, dry powder → ~€21% and the book holds ~€25k for the orthogonal-diversification leg (power-infra + DDOG re-entry, decision ON HOLD per user 2026-06-29).
 
 ## 🟢 RESOLVED USER DECISIONS (locked from 2026-06-24 PM; reaffirmed by SNDK add 2026-06-25)
 
