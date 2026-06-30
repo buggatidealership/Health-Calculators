@@ -96,6 +96,22 @@
 
 ## Entries (most recent first)
 
+### [2026-06-30 PM — TrendForce up-revision + Armstrong inference-deflation (2 Twitter items)] 2 Opus 4.8; HIGH/FRAMING-ERROR-CAUGHT×2 — caught a TrendForce-figure misattribution (B40) AND debunked an unsourced "Goldman pause-capex" kicker; adjudicated Jevons-dominant + the routing-HEDGES-SK-Hynix reframe
+
+**Trigger source:** User-shared 2 Twitter items (TrendForce 3Q26 contract revision; Goldman/Armstrong inference-deflation).
+**Subagents fired:** 2 (Opus 4.8) — A: TrendForce verify (KO+EN); B: Jevons-vs-pause-capex adjudication.
+**Estimated token cost:** ~121.9k actual (28.3k + 93.6k).
+**Per-subagent yield:**
+- A: FRAMING-ERROR-CAUGHT — direction up CONFIRMED (falsifier further from firing) but the "+15-20% 3Q26" figure = likely 2Q26-vintage misattribution (B40); don't anchor.
+- B: HIGH/FRAMING-ERROR-CAUGHT — Armstrong claim REAL but Coinbase-specific FinOps (B40.1 repackaging); the "Goldman pause-capex" kicker UNSOURCED + contradicts Goldman's published view; Jevons dominates ~60% (AI spend doubled despite −90% token prices); routing-to-commodity HEDGES SK Hynix (full-stack) + positively exposes SNDK/Sumco; F13 ticks toward N=3 but no trim-trigger.
+**Brief-framing errors caught:** (1) TrendForce figure vintage misattribution; (2) Coinbase-FinOps-as-industry-demand-signal; (3) unsourced bearish Goldman kicker that contradicts Goldman's actual stance.
+**Thesis cascade triggered:** HYNIX (REINFORCE-on-net, routing-hedge, Broadcom-vs-Ericsson framing, F13 monitor), SUMCO (positive commodity-ward exposure). (SNDK positively exposed — noted in artifact.)
+**Position implication delta:** NONE — HOLD all; no falsifier. The strongest version of the efficiency-bear is hedged by the full-stack memory position.
+**Material yield class:** HIGH — caught 2 framing errors that would have propagated (a misattributed price + a fabricated bear kicker), and reframed the routing-bear as a HEDGE for the full-stack cohort.
+**Audit-day classification:** POSITIVE — textbook anti-confirmation/B40 payoff.
+**Cross-source-log:** `signals/cross-source-log/2026-06-30-trendforce-uprevision-plus-armstrong-inference-deflation-jevons.md`
+**Commit:** [lag-1]
+
 ### [2026-06-30 AM — Rubin CPX HBM-demand verification (AI brief)] 1 Opus 4.8; HIGH/FRAMING-ERROR-CAUGHT — caught the brief's ~3mo STALENESS (CPX removed GTC March-2026) + isolated the durable signal (prefill-off-HBM architecture survives via Groq SRAM = 12-24mo 2nd-derivative HBM-growth-rate watch)
 
 **Trigger source:** AI brief 2026-06-30 "NVIDIA unveils Rubin CPX" (the one genuinely-new technical item triaged from an 81-source brief; rest = no spend). First 2 attempts hit transient server rate-limit; 3rd succeeded.
