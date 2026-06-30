@@ -1,5 +1,8 @@
 # Powell Industries (POWL) — Thesis (Compact)
 
+**🟢 2026-06-30 time-to-power reframe — cleanest switchgear PURE-PLAY (the named binding gear):** Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md` (1 Opus 4.8). Switchgear is named explicitly as the binding electrical gear (the SECOND time-to-power constraint; >50% of 2026 US DC builds delayed for transformers + switchgear). POWL = cleanest switchgear pure-play. **Position implication: 🟡 WATCHLIST — no change — purest switchgear resilience expression confirmed; reallocation on hold.**
+
+
 **Last updated:** 2026-05-21
 **Tier:** Active candidate (small-cap switchgear; highest-asymmetry power name)
 **Position target:** 2–3% if entered (user holds 0%)

@@ -1,5 +1,8 @@
 # Astera Labs (ALAB) — Thesis (Compact)
 
+**🟡 2026-06-30 ALAB-vs-MRVL connectivity-innovation verification — PUREST connectivity-innovation boundary-pusher (~80%):** Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md` (1 Opus 4.8). ALAB is the cleaner BOUNDARY-PUSHER vs MRVL — **Scorpio 320-lane is a genuinely NEW merchant category** (AI scale-up switch that didn't exist as a buyable part = defining a surface, not serving a spec) + **protocol-agnostic** (wins under NVLink Fusion, UALink, AND PCIe = scenario-robust). Owns the short-reach/in-rack electrical scale-up rent (bottleneck-of-today, ~70%); MRVL favored only in long-reach optical (2027-28, ~55%). Threats: ~70% single-customer (AWS) concentration; NVIDIA in-sourcing; AVGO entering PCIe retimers. ~$77B cap, rev +93% YoY. **Position implication: 🟡 WATCHLIST — no entry — purest scenario-robust connectivity-innovation expression confirmed; >$50B-cap + AWS-concentration keep it SKIP-SIZE for now; the cleanest connectivity-theme bet IF reallocation reopens (reallocation on hold pending Kioxia-fork + NBIS-trim).**
+
+
 **Last updated:** 2026-06-12 (full connectivity-layer re-evaluation post-exit; 2-subagent deep-dig per `signals/cross-source-log/2026-06-12-connectivity-layer-alab-reevaluation-2subagent.md`)
 
 ## 2026-06-12 PM cross-ref — MRVL deep-dive built (rivalry joint-state)

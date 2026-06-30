@@ -1,5 +1,8 @@
 # Bloom Energy (BE) — Thesis
 
+**🟢 2026-06-30 time-to-power reframe — purest QUEUE-SKIP bypass name:** Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md` (1 Opus 4.8). User reframe: power's binding variable = TIME-TO-POWER not quantity (grid ~7-8yr PJM, turbines sold out 2029-31). BE = purest behind-the-meter QUEUE-SKIP (SOFC deploys in weeks, fully bypasses interconnection; Oracle 2.8GW + $20B backlog + $5B Brookfield, T2). Bear = gas-supply/pipeline access (the "full bypass" is slightly optimistic) + margins. **Position implication: 🟡 WATCHLIST — no entry — confirmed as a top-tier time-to-power bypass name; power = the underweight gap leg; reallocation on hold (Kioxia-fork + NBIS-trim pending).**
+
+
 **Last updated:** 2026-05-21
 **Tier:** Active-Core candidate (re-entry recommended; user sold too early per L3)
 **Position target:** 4–6% if re-entered (user holds 0%; sold at ~+30% earlier per L3 lesson)

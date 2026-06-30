@@ -1,5 +1,8 @@
 # Vertiv (VRT) — Thesis (Compact)
 
+**🟢 2026-06-30 time-to-power reframe — cleanest DC-pure RESILIENCE name:** Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md` (1 Opus 4.8). The reframe surfaced a SECOND binding constraint = electrical gear (transformers/switchgear 3-5yr; >50% of 2026 US DC builds delayed for lack of it). VRT = cleanest DC-pure resilience (UPS + switchgear + cooling integrated, $15B+ backlog, T2). **Position implication: 🟡 WATCHLIST — no change — resilience/gear leg confirmed as binding as generation; VRT the cleanest integrated expression; reallocation on hold.**
+
+
 **Last updated:** 2026-05-21
 **Tier:** Active candidate (pure-play datacenter power + cooling)
 **Position target:** 2–4% if entered (user holds 0%)

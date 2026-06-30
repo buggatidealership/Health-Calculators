@@ -1,5 +1,8 @@
 # Constellation Energy (CEG) — Thesis (Compact)
 
+**🟡 2026-06-30 time-to-power reframe — RECLASSIFIED as "firm-but-compress-nothing" (same as VST):** Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md` (1 Opus 4.8). CEG sells EXISTING nuclear/PPA power — firm + fast for the *existing* fleet but compresses no energization latency for *new* DC load. Not a time-to-power bypass name (that's SEI/BE/GEV). **Position implication: 🟡 WATCHLIST — no change — reclassified as firm-baseload existing-power monetization, NOT time-to-power bypass; reallocation on hold.**
+
+
 **Last updated:** 2026-05-21
 **Tier:** Active candidate (largest nuclear pure-play; Microsoft anchor)
 **Position target:** 3–5% if entered (user holds 0%)

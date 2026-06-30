@@ -1,5 +1,8 @@
 # Eaton (ETN) — Thesis (Compact)
 
+**🟢 2026-06-30 time-to-power reframe — broad electrical RESILIENCE, conglomerate-diluted:** Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md` (1 Opus 4.8). ETN = broadest electrical/switchgear/UPS resilience exposure ($19.6B backlog, DC orders +200% YoY, T2) but conglomerate-diluted vs the VRT/POWL pure-plays. **Position implication: 🟡 WATCHLIST — no change — resilience leg confirmed binding; ETN the diluted broad expression (VRT/POWL purer); reallocation on hold.**
+
+
 **Last updated:** 2026-05-21
 **Tier:** Active candidate (large-cap electrical infrastructure; "grid-to-chip" power)
 **Position target:** 2–4% if entered (user holds 0%)

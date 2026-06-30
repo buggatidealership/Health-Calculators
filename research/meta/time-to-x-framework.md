@@ -128,6 +128,15 @@ Each of these is a 1-day work-unit. Building them adds named investable opportun
 - TRUE sensitivity: **time-to-power** from contract to operational MW
 - Bypass routes: Bloom Energy (fuel cells, weeks not years), Solaris Energy Infrastructure (mobile power generation), behind-the-meter co-located generation, modular nuclear (SMRs, longer-term but emerging)
 
+**🟢 2026-06-30 RESEARCH-VERIFIED UPDATE (per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md`, 1 Opus 4.8):** User re-affirmed the reframe — "the framework for power is NOT how much power, it is TIME-TO-POWER." Verified, and the constraint is WORSE + DOUBLE:
+- **Lead-times (T1/T2):** grid interconnection ~7-8yr in PJM (~3yr ISA + ~4yr energize; national median 4.5yr per LBNL *Queued Up 2025*; ERCOT <2yr = why DC load flees to Texas); gas turbines sold out **through 2029, orders into 2031** (GE Vernova, pricing +300%/3yr) — "no new slots until 2029-31," worse than the 4-6yr prior.
+- **SECOND binding constraint (NEW):** electrical gear — transformers 3-5yr (was 24-30mo pre-2020), **>50% of planned 2026 US DC builds delayed/cancelled** for lack of transformers + switchgear; only ~1/3 of 2026 planned capacity under construction. The gear that converts MW→energized racks is as binding as generation. Validates the RESILIENCE leg.
+- **Bypass-route name map (expanded, by what each COMPRESSES):**
+  - Bridge / fast-deploy (purest time-to-power): **Solaris (SEI)** mobile turbines power-as-a-service (PUREST, but fragile small-cap neg-FCF-to-2028); **Bloom (BE)** SOFC queue-skip (deploys in weeks; Oracle 2.8GW + $20B backlog); GE Vernova (GEV, diluted — also IS the bottleneck); CAT/CMI gensets (diluted, sold out through 2027).
+  - Resilience (gear): **Vertiv (VRT)** + **Powell (POWL)** switchgear pure-play; Eaton (ETN, diluted); Siemens Energy (ENR, transformers — also EU-sovereign).
+  - **NOT bypass (firm-but-compress-nothing):** Constellation (CEG)/Vistra (VST)/Talen (TLN) sell EXISTING power; Oklo/NuScale (OKLO/SMR) firm but SLOWEST (2027-2032) — separate "firm-baseload-later" bucket, not time-to-power.
+- **Key discipline:** do NOT conflate "owns/sells power" (VST/CEG) with "compresses time-to-power" (SEI/BE/GEV). The bypass edge is energization-latency compression, not MW ownership.
+
 ---
 
 ## How to use this framework systematically

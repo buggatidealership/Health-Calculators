@@ -1,5 +1,8 @@
 # Vistra (VST) — Thesis (Compact)
 
+**🟡 2026-06-30 time-to-power reframe — RECLASSIFIED as "firm-but-compress-nothing" (NOT a time-to-power bypass):** Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md` (1 Opus 4.8). Key discipline from the reframe: do NOT conflate "owns/sells power" with "compresses time-to-power." VST (like CEG/TLN) monetizes EXISTING generation — fast for *existing* fleet but compresses no energization latency for *new* load. Distinct (thinner, for the time-to-power thesis specifically) from the SEI/BE/GEV queue-skip/bridge names. **Position implication: 🟡 WATCHLIST — no change — reclassified within the power framework as firm-baseload (existing-power monetization), NOT a time-to-power bypass name; reallocation on hold.**
+
+
 **Last updated:** 2026-05-21
 **Tier:** Active candidate (consensus power-binds winner)
 **Position target:** 3–5% if entered (user holds 0%)

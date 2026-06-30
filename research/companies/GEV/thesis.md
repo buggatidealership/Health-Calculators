@@ -1,5 +1,8 @@
 # GE Vernova (GEV) — Thesis (Compact)
 
+**🟢 2026-06-30 time-to-power reframe — highest-quality but most DILUTED bypass; also IS the bottleneck:** Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md` (1 Opus 4.8). GEV both sells the time-to-power solution (aeroderivative + heavy turbines, firming) AND IS the bottleneck — turbines **sold out through 2029, orders into 2031, pricing +300%/3yr** (T1/T2); $2.4B DC orders Q1. Best risk-adjusted but least "sharp/pure" of the time-to-power names (conglomerate). **Position implication: 🟡 WATCHLIST — no change — reframe confirms GEV as the quality/diluted time-to-power+firming expression; sold-out backlog = pricing power but it's the constraint, not the queue-skip; reallocation on hold.**
+
+
 **Last updated:** 2026-05-21
 **Tier:** Active candidate (large-cap power-generation infrastructure)
 **Position target:** 2–4% if entered (user holds 0%)

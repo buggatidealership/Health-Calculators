@@ -1749,3 +1749,22 @@ Per `signals/cross-source-log/2026-06-30-inference-connectivity-magnitude-value-
 | Optics components / lasers / CPO | Coherent (COHR), Lumentum (LITE), Fabrinet (FN), AXT (AXTI) | YES | US-listed ✅ |
 
 **Key reads:** (1) AVGO = DUAL rent-capturer (scale-out Ethernet + #1 optical-DSP + custom-ASIC) = the cleanest single merchant connectivity expression. (2) The held memory book is COMPLEMENTED not competed by connectivity (KV-cache can't leave HBM without a decode-latency tax). (3) **Falsifier-watch on the whole optical-DSP tier: CPO/co-packaged optics mass-adoption ~2028-29 (SemiAnalysis 2026-06-09) could disintermediate pluggable-DSP rent (MRVL/CRDO) long-term — benign through ~2027** (LPO fails physics at 200G/lane; DSP survives 1.6T/3.2T). **Investability: all US-listed = DeGiro-accessible. NOT promoted to P1/P2** — surfaced as the map for a deliberate connectivity-theme decision; no current cash-allocation recommendation (reallocation on hold pending the Kioxia-fork + NBIS-trim).
+
+**🟡 2026-06-30 connectivity-INNOVATION refinement** (per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md`): **ALAB is the PUREST connectivity-innovation boundary-pusher** (Scorpio 320-lane = new merchant category; protocol-agnostic across NVLink Fusion/UALink/PCIe = scenario-robust; owns short-reach electrical scale-up). MRVL pushes the OPTICAL boundary but half its DSP base is the CPO-threatened standard-server tier; its connectivity-bull leg is specifically Celestial/optical-multi-rack-scale-up (2027-28). For a connectivity-theme entry: **ALAB = cleanest scenario-robust; AVGO = dual rent-capturer; MRVL = leveraged optical-scale-up call.** ALAB SKIP-SIZE caveat persists (>$50B cap + ~70% AWS concentration).
+
+---
+
+## Time-to-power — the bypass-route name map (2026-06-30)
+
+Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md` (1 Opus 4.8) + `meta/time-to-x-framework.md` §Power. User reframe (verified): power's binding variable = **TIME-TO-POWER not quantity** (grid interconnection ~7-8yr PJM; gas turbines sold out 2029-31; transformers/switchgear 3-5yr, >50% of 2026 US DC builds delayed). The bypass-route edge = whoever COMPRESSES energization latency. **Net-new names not yet in the universe** (extend the existing EU power basket: Siemens Energy ENR / Schneider SU / ABB / Prysmian / Nexans):
+
+| Name | Ticker | Bucket | Compresses | Pure-play | EU-access |
+|---|---|---|---|---|---|
+| Solaris Energy Infra | **SEI** | bridge/fast-deploy | mobile-turbine power-as-a-service (PUREST) | YES (fragile small-cap, neg FCF to 2028) | US ✅ |
+| Caterpillar | CAT | queue-skip | gas gensets prime power (sold out through 2027) | conglomerate-diluted | US ✅ |
+| Cummins | CMI | queue-skip | gensets prime power | diluted | US ✅ |
+| Fluence Energy | FLNC | firming | BESS firming (compresses interconnection speed) | YES (thinner thesis) | US ✅ |
+| ProEnergy | private | bridge | repurposed jet-engine turbines (~50MW/unit) | n/a | — |
+| VoltaGrid | private | bridge | reciprocating microgrids (up to 200MW prime) | n/a | — |
+
+**Already-in-universe with theses (re-ranked by the reframe):** BE (purest queue-skip), GEV (quality/diluted + IS the bottleneck), VRT/POWL/ETN (resilience gear), ENR (transformers — double-counts w/ EU basket). **Firm-but-compress-nothing (NOT time-to-power bypass):** VST/CEG/TLN (existing-power monetization); OKLO/SMR (firm but slowest 2027-32). **Sharpest pure-plays: SEI > BE > GEV.** Power = the underweight gap leg of the memory/connectivity/power triad. NOT promoted to P1/P2 — surface-map; reallocation on hold (Kioxia-fork + NBIS-trim pending). SEI/CAT/CMI/FLNC = candidate thesis-stubs IF the power leg is activated.
