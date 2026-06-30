@@ -7,7 +7,8 @@
 
 **Market (T2 unless noted):**
 - Stock June-30-2026 close ~$82.30 (+22.8% / +$15.29 on the day; intraday high $80.10 per source) — vs ~$72 baseline 2026-06-01 = ~+14% on the month; path was V-shaped (June-29 close $63.16 → June-30 ~$82.30). [gurufocus/stockstotrade/timothysykes T2]
-- The June-30 +22.8% single-day move had NO confirmed hard catalyst; nearest event = KeyBanc-hosted non-deal roadshow (Boston/Baltimore, June 23–24). Cause UNCONFIRMED (possible low-float/squeeze mechanics or unsurfaced catalyst). [T2/T3]
+- The June-30 +22.8%-to-+32% single-day move CATALYST = **Rosenblatt Securities named AMBA a top pick for 2H-2026, "Physical AI pure play," PT raised to $120 (Buy), published 2026-06-30** (analyst Kevin Cassidy). [CNBC 2026-06-30 T1; Stocktwits "AMBA Rockets 32%" attributes the move directly to it; Rosenblatt note] — a SOFT catalyst (analyst re-rating), likely amplified by squeeze/technical mechanics (breakout from $63.16 prior close; no explicit SI/gamma reporting found, inferred). NOT M&A. The KeyBanc roadshow (Jun 23-24) cited by momentum blogs is too stale/weak — demoted to noise.
+- Prior close 2026-06-29 = $63.16; intraday 2026-06-30 ~$80-82 (gurufocus +22.8%→$82.30; Stocktwits +32%); the move is IDIOSYNCRATIC (AMBA alone on its own analyst note; no peer/sector print explains it). [gurufocus/Stocktwits T2, direction T1]
 - Northland Securities reiterated Outperform, PT $101, 2026-06-17. [Yahoo/SimplyWallSt T2]
 - Consensus (mid/late June): Buy, avg PT ~$93–95 (range $80–$120, ~14 analysts); 3-mo PT trend revised down ~3.85%. [MarketBeat T2]
 - CEO Feng-Ming Wang sold 6,204 sh @ $67.87 (~$421K) 2026-06-18 (RSU-tax / routine); also gifted 10,000 sh to a donor-advised fund. [Form 4 / StockTitan, T1-grade]

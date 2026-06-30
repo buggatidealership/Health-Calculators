@@ -34,6 +34,16 @@ None fired. #1 (Tier-1 → NVDA DRIVE/MBLY EyeQ7) stable. #3 (Hanwha conversion)
 - ledger: 2 Opus fires.
 
 ## LEAST-CONFIDENT
-1. The June-30 +22.8% cause (roadshow weak explanation; squeeze vs unsurfaced catalyst vs M&A whisper) — re-check for a confirming 8-K.
+1. ~~The June-30 +22.8% cause~~ — RESOLVED, see addendum below.
 2. "No AMBA-direct June news" not airtight (IR 403; relied on aggregation).
 3. Q2 FY2027 exact date (est late-Aug) + Wells Fargo CV3-win note date unconfirmed.
+
+---
+
+## ADDENDUM 2026-06-30 — CATALYST CONFIRMED (3rd Opus 4.8 fire; user flagged stock +29%)
+**The June-30 +22.8%-to-+32% move CATALYST = Rosenblatt Securities named AMBA a top pick for 2H-2026, "Physical AI pure play," PT raised to $120 (Buy), 2026-06-30** (analyst Kevin Cassidy). [CNBC 2026-06-30 T1; Stocktwits "AMBA Rockets 32%" direct attribution; Rosenblatt note]. Confidence ~80% primary driver, with squeeze/technical amplification (breakout from $63.16 prior close; no explicit SI/gamma reporting — inferred from magnitude vs soft catalyst).
+- **NOT M&A** — no 2026 takeover report; only the year-stale 2025-06-25 Bloomberg "exploring a sale." **🔴 my main-loop M&A lead-prior was WRONG (self-correction).**
+- **Idiosyncratic** (AMBA alone on its own note; SOXX hot but no peer/sector print explains a 29% single-name spike). June-2026 described as a "stock-specific market."
+- **Rule #18 irony:** Rosenblatt's "Physical AI pure play" bull framing rests on AMBA's WEAKEST vector (V3 robotics = unproven optionality; NVDA GR00T + QCOM/NEURA raised the bar in the SAME month). Re-rating is a narrative bet on the leg with least evidence.
+- **N-th order:** 1st (P>80%) note→1-day re-rate+squeeze, no fundamental change; 2nd (P~40%) sentiment multiple-expansion if followers pile in; 3rd (P~30%) Aug Q2 FY2027 print reconciles — no CV3 revenue/2nd-Tier-1 → spike round-trips. Today = sentiment; August = substance.
+- Position: 🟡 NO ACTION (candidate, not held; entry window closed at $82; Q2 FY2027 trigger). Cascade: AMBA thesis June-delta-spike row + Rule#18 + position line updated; facts.md catalyst line corrected.
