@@ -1,5 +1,7 @@
 # Broadcom (AVGO) — Thesis
 
+**🟡 2026-06-30 connectivity-for-inference verification — AVGO = the merchant scale-out rent-capturer (not held; watchlist-texture):** Per `signals/cross-source-log/2026-06-30-inference-connectivity-magnitude-value-capture-mrvl-cpo-memory-readthrough.md` (1 Opus 4.8, Workflow #9). As connectivity rises to co-1st-order for inference, the MERCHANT-investable rent concentrates one tier out from NVIDIA's proprietary scale-up NVLink → **scale-out Ethernet** (AI scale-out Ethernet >$100B by 2030, majority of future growth T2 650 Group): Broadcom Tomahawk 6 (102.4 Tbps, native UEC 1.0 T1 Broadcom IR) + Jericho 4 inter-DC + Thor Ultra 800G NIC = the silicon layer (Arista the systems layer). PLUS Broadcom = ~55-60% optical-DSP/custom-ASIC share (#1, ahead of Marvell). So AVGO double-captures: custom-ASIC compute rent (the TPU-roadmap read) AND scale-out connectivity rent. Not held — no position action. **Position implication: 🟡 NO ACTION — not held — connectivity verification CONFIRMS AVGO as the dual rent-capturer (scale-out Ethernet + optical-DSP #1); watchlist-texture for a potential connectivity-theme expression; CPO 2028-29 the long-term rent-rate watch.**
+
 **Last updated:** 2026-06-04 PM (Apple-Blackwell competitive context added; Q2 FY26 print resolved earlier today)
 
 ## 2026-06-04 PM — Apple chose Blackwell not TPU (mild competitive context)

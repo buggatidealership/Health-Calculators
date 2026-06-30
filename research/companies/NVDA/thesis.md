@@ -1,5 +1,7 @@
 # NVDA — Thesis
 
+**🟡 2026-06-30 connectivity-for-inference verification — NVLink scale-up = the highest-value connectivity layer, NVIDIA-captured (not held; moat-reinforce note):** Per `signals/cross-source-log/2026-06-30-inference-connectivity-magnitude-value-capture-mrvl-cpo-memory-readthrough.md` (1 Opus 4.8, Workflow #9). The single most-valuable interconnect layer for rack-scale inference — **scale-up NVLink** (NVLink 5 = 1.8 TB/s, proprietary; NVLink Fusion only licenses the slow C2C IP and still requires an NVIDIA GPU/CPU) — is effectively a NVIDIA MOAT, NOT merchant-investable. UALink (the open challenger) first commercial silicon ~end-2026 + Broadcom de-emphasized it. This is the "important-but-not-investable" crux: connectivity's importance is 1st-order but the highest-rent slice is captured inside NVDA. Not held — no action. **Position implication: 🟡 NO ACTION — not held — connectivity verification reinforces the NVLink scale-up moat as a NVIDIA-captured value layer (the rack-scale-inference rent the merchant names can't reach); orientation/moat-map note, no position implication.**
+
 **Last updated:** 2026-06-04 PM (Apple-Blackwell marquee customer confirmation + Rubin LPDDR cut BOM optimization)
 
 ## 2026-06-04 PM — Apple-Blackwell marquee customer + Rubin LPDDR BOM optimization

@@ -1732,3 +1732,20 @@ Per `signals/cross-source-log/2026-06-27-DEEP-DIG-agentic-enterprise-cost-govern
 - Gateways mostly PRIVATE: LiteLLM (OSS), Portkey (now PANW), Kong, TrueFoundry. Not directly investable.
 
 **Implication:** the richest part of T5 Axis B (L3 enforcement) is NOT a DDOG/NOW opportunity — it accrues to gateways + security platforms. PANW/NET/CRWD are the investable expressions of the L3 enforcement rent + the competitive vector against the DDOG/NOW Axis-B re-entry. Investability: all US-listed (Nasdaq/NYSE) = DeGiro-accessible.
+
+---
+
+## Connectivity-for-inference — merchant value-capture map (2026-06-30)
+
+Per `signals/cross-source-log/2026-06-30-inference-connectivity-magnitude-value-capture-mrvl-cpo-memory-readthrough.md` (1 Opus 4.8, Workflow #9). Connectivity verified as **co-1st-order-with-memory for inference** — but the most-valuable layer (scale-up NVLink) is NVIDIA-proprietary, so merchant rent lives one tier out. This node synthesizes the connectivity names already scattered above (ALAB, CRDO, optical-laser tier, Coherent/Lumentum) into one value-capture map for if/when the user wants inference-layer exposure that is NOT memory.
+
+| Layer | Rent-capturer | Merchant-investable | DeGiro-access |
+|---|---|---|---|
+| Scale-up fabric (NVLink, highest BW) | NVIDIA (proprietary) | NO — captured in NVDA | N/A |
+| Scale-out switch silicon (Ethernet) | **Broadcom (AVGO)** Tomahawk 6 / Jericho 4 | YES | US-listed ✅ |
+| Switch systems | **Arista (ANET)** Etherlink | YES | US-listed ✅ |
+| Optical DSP / retimers / AEC | **Marvell (MRVL, exited)** ~70% PAM4 share + **Credo (CRDO)** | YES | US-listed ✅ (CRDO ~$50B = cap-edge per prior SKIP-SIZE note) |
+| PCIe/CXL connectivity | **Astera Labs (ALAB)** | YES | US-listed ✅ (>$50B cap + prior-held SKIP-SIZE flag) |
+| Optics components / lasers / CPO | Coherent (COHR), Lumentum (LITE), Fabrinet (FN), AXT (AXTI) | YES | US-listed ✅ |
+
+**Key reads:** (1) AVGO = DUAL rent-capturer (scale-out Ethernet + #1 optical-DSP + custom-ASIC) = the cleanest single merchant connectivity expression. (2) The held memory book is COMPLEMENTED not competed by connectivity (KV-cache can't leave HBM without a decode-latency tax). (3) **Falsifier-watch on the whole optical-DSP tier: CPO/co-packaged optics mass-adoption ~2028-29 (SemiAnalysis 2026-06-09) could disintermediate pluggable-DSP rent (MRVL/CRDO) long-term — benign through ~2027** (LPO fails physics at 200G/lane; DSP survives 1.6T/3.2T). **Investability: all US-listed = DeGiro-accessible. NOT promoted to P1/P2** — surfaced as the map for a deliberate connectivity-theme decision; no current cash-allocation recommendation (reallocation on hold pending the Kioxia-fork + NBIS-trim).
