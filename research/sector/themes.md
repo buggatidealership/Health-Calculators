@@ -1,6 +1,26 @@
 # Active Investable Themes
 
-**Last updated:** 2026-05-20
+**Last updated:** 2026-06-30 (added: the 3 Unbypassable Physical Layers of Agentic Inference framework lens)
+
+---
+
+## 🔭 FRAMEWORK LENS — The 3 Unbypassable Physical Layers of Agentic Inference (codified 2026-06-30)
+
+**Origin:** user question 2026-06-30 — "if inference demand is continuously growing, what does that mean for the connectivity layer? what are the 3 unbypassable critical must-haves for agentic inference?" Research-anchored on `signals/cross-source-log/2026-06-30-inference-connectivity-magnitude-value-capture-mrvl-cpo-memory-readthrough.md` (1 Opus 4.8, Workflow #9) + the verified three-wall data.
+
+**The thesis:** agentic inference (long-horizon, multi-step, tool-using, stateful, many concurrent agents) makes demand a **multiplier stack** — fabric/memory demand ≈ users × tokens-per-task × context-length × parallelism — so it grows **super-linearly**, not in step with user count (my model, ~65% the super-linear read holds vs the efficiency-compression tail). Three requirements are **set by physics (data movement + thermodynamics), not model cleverness — so efficiency gains cannot bypass them.** A fourth (compute/FLOPs) IS bypassable (distillation/sparsity/routing/quantization) — which is precisely why efficiency-deflation (L28 Jevons / U8 / F13) rotates value AWAY from compute and TOWARD these three.
+
+| # | Unbypassable layer | Why no bypass exists (Critical Rule #9) | Investable expression | Portfolio status |
+|---|---|---|---|---|
+| 1 | **MEMORY** — HBM bandwidth + capacity (KV-cache wall) | Decode reads the ENTIRE KV-cache per token; agentic long-context makes it enormous + persistent; offload to fabric/CXL/NAND collapses bandwidth → decode stalls (verified Samsung CMM-D Jun-2026 + arXiv) | SK Hynix, Micron, Samsung | **HELD overweight (HYNIX #1)** |
+| 2 | **INTERCONNECT** — low-latency fabric (distribution wall) | Frontier MoE models are physically sharded across chips; every token = all-to-all expert routing + tensor-parallel collectives at sub-µs latency (MoE all-to-all up to 79.2% of inference time T2) | NVLink (NVDA, proprietary) / scale-out Ethernet (AVGO/ANET) / optical DSP (MRVL/CRDO) | **MAPPED (watchlist value-capture map); MRVL exited w/ re-entry lens** |
+| 3 | **POWER** — energy delivery + thermal (joule wall) | Every token costs joules; 10-100× agentic tokens = 10-100× energy + heat; no compute without power; gigawatt-scale delivery is the increasingly-binding constraint (TC-13 + xAI Colossus 2 gigawatt) | Siemens Energy/Schneider/ABB (EU) / CEG/VST/GEV (US) | **UNDERWEIGHT — the gap leg** |
+
+**The payoff read:** the book is concentrated in the two unbypassables with cleanest pricing power (memory held; connectivity mapped) and LIGHT on the third — **power is the most physically unbypassable AND the harness-flagged next bottleneck (TC-13), yet the underweight leg.** This is the framework that makes the memory+connectivity+power triad the durable thesis spine and surfaces power as the priority gap-fill (co-located with the EU-sovereign-AI-infra research gap todo).
+
+**🔴 Rule #18 falsifier:** the super-linear curve (and the whole lens) weakens if algorithmic efficiency defeats context²-KV-scaling (sparse/linear attention, aggressive KV-compression) — that is the U8/F13 efficiency-deflation tail. It bites compute hardest, the three physical layers least; monitored, not firing. **Re-eval:** fold into the 2026-07-11 signal-density + bottleneck-forecast cycle.
+
+---
 
 ## TL;DR
 
