@@ -96,6 +96,20 @@
 
 ## Entries (most recent first)
 
+### [2026-06-30 AM — Rubin CPX HBM-demand verification (AI brief)] 1 Opus 4.8; HIGH/FRAMING-ERROR-CAUGHT — caught the brief's ~3mo STALENESS (CPX removed GTC March-2026) + isolated the durable signal (prefill-off-HBM architecture survives via Groq SRAM = 12-24mo 2nd-derivative HBM-growth-rate watch)
+
+**Trigger source:** AI brief 2026-06-30 "NVIDIA unveils Rubin CPX" (the one genuinely-new technical item triaged from an 81-source brief; rest = no spend). First 2 attempts hit transient server rate-limit; 3rd succeeded.
+**Subagents fired:** 1 (Opus 4.8).
+**Estimated token cost:** ~22.0k actual (+2 null rate-limited).
+**Per-subagent yield:** HIGH — the brief's premise is STALE (B40): Rubin CPX (128GB GDDR7 prefill) was REMOVED from NVIDIA's roadmap at GTC March-2026, replaced by Groq SRAM LPUs (~$20B). The feared GDDR7-prefill HBM-dilution DID NOT happen → SK Hynix mild-REINFORCE/NEUTRAL (~60-70% Rubin HBM4 intact; GDDR7 commodity-margin). BUT the prefill-off-HBM ARCHITECTURE survives via Groq = a genuine 12-24mo 2nd-derivative HBM-growth-RATE dampener (bottleneck-of-tomorrow flag, not absolute-demand).
+**Brief-framing errors caught:** (1) B40 — "Rubin CPX unveiled" was ~3 months stale (chip pulled March-2026); (2) separated the cancelled PRODUCT from the surviving ARCHITECTURE; (3) B45 — it dampens the growth RATE, not the level.
+**Thesis cascade triggered:** HYNIX (mild-reinforce on cancellation + the new 2027+ prefill-offload bottleneck-of-tomorrow watch).
+**Position implication delta:** NONE — HOLD; new 2nd-derivative watch logged.
+**Material yield class:** HIGH — caught a staleness that would have propagated as a live HBM-headwind + extracted a real durable 2027+ flag; exactly the anti-confirmation/B40 payoff.
+**Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-06-30-ai-brief-morning-triage-rubin-cpx.md`
+**Commit:** [lag-1]
+
 ### [2026-06-30 PM — Memory physical-state + technical-state deep read (user "physical wins" thesis)] 2 Opus 4.8 (TrendForce + technical roadmap, EN+KO+JP); HIGH — validated the thesis on both axes + surfaced the SK Hynix ANTI-FRAGILITY reframe (DDR5 margin inversion) + HBF-keep-hinge-on-track
 
 **Trigger source:** User thesis ("physical wins / narrative catches up to fundamentals") + request for broader TrendForce + technical sweep.

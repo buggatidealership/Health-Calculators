@@ -16,7 +16,11 @@ A prefill-optimized accelerator emphasizing FLOPS over memory bandwidth could mo
 - H2 (~30%) mild HBM HEADWIND — prefill compute moving off HBM to GDDR → HBM bit-demand grows slightly slower than the all-HBM model.
 - H3 (~20%) noise — niche prefill SKU; decode+training dominate HBM demand.
 
-[VERIFICATION RESULT — appended on subagent return; first 2 attempts hit transient server rate-limit]
+## ✅ RUBIN-CPX VERIFICATION RESULT (Opus 4.8) — 🟡 B40 STALENESS CAUGHT + mild-REINFORCE/NEUTRAL for SK Hynix; the *architecture* (prefill-off-HBM) survives as a 12-24mo second-derivative watch
+**The brief's premise is ~3 months STALE (B40):** Rubin CPX (128GB **GDDR7** prefill chip, announced 2025-09-09 T1) was **REMOVED from NVIDIA's roadmap at GTC 2026 (March 2026)** — reportedly *because GDDR7 sourcing was too hard / memory makers reluctant to ramp a low-visibility GDDR7 line* (they prefer HBM economics). **Replaced by Groq 3 LPX (SRAM-based) via a ~$20B Groq licensing deal**; may return with Feynman (~2028). 3+ sources converged on the removal (Tom's/wccftech/TheElec, T2); permanence vs deferral NOT CONFIRMED (NVIDIA VP hedged).
+- **Immediate HBM-headwind (H2) DID NOT HAPPEN** — the GDDR7-prefill dilution vector was cancelled. Decode stays HBM4-heavy (R200 288GB). **SK Hynix ~60-70% of NVIDIA Rubin HBM4 intact** (TrendForce T2); GDDR7 = commodity-margin anyway (vs HBM ~71.8% OM Q1'26) so the lost CPX-GDDR7 socket costs SK Hynix little. The supply chain effectively *rejected* the headwind — mildly POSITIVE read (HBM remains the indispensable, margin-rich layer).
+- **🔭 THE REAL SIGNAL (lateral, survives the cancellation):** the *architectural thesis* — "prefill doesn't need HBM bandwidth" — is **validated and shipping via Groq SRAM LPUs.** Over a 12-24mo horizon, ANY successful prefill-offload (CPX/Groq/Feynman) is a genuine **MILD dampener on the HBM bit-demand GROWTH RATE (second derivative), NOT absolute demand** (decode + training keep expanding). B45: dampens the rate, not the level — do NOT call it "extreme." **= a bottleneck-of-tomorrow / next-bottleneck flag** for the 2027+ HBM-growth-durability watch (co-located with the end-demand-durability gap + the 2028 rebalance).
+- **Net SK Hynix: mild-REINFORCE / NEUTRAL** — CPX cancellation removes a small HBM-dilution risk + preserves HBM4-decode TAM; the prefill-off-HBM architecture is a 12-24mo growth-RATE watch, not a today-trade.
 
 ## CASCADE
 - No held-name change from the brief itself (confirming/noise). DRAM-lawsuit = TRACK (low). 
