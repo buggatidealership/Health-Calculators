@@ -96,6 +96,34 @@
 
 ## Entries (most recent first)
 
+### [2026-06-30 AM — OpenAI leaked-financials Tier-2 verification] 1 Opus 4.8; HIGH — leak VERIFIED REAL (FT) + the key crux (2026 financial buffer ≠ 2027 demand-fundamental buffer; OpenAI+Anthropic ~85% of compute consumption) → SK Hynix 2026-intact / 2027-EARLY-WARNING + NBIS-trim reinforced + new 2027 capex tripwire
+
+**Trigger source:** KJ Leg B 2026-06-30 surfaced the leaked OpenAI financials (highest-value dot); fired per Rule #16 (new, specific, market-moving — not a restatement).
+**Subagents fired:** 1 (Opus 4.8, EN+KO).
+**Estimated token cost:** ~21.8k actual.
+**Per-subagent yield:** HIGH — leak confirmed real (FT-verified: $13.07B rev / $20.92B op-loss / $1.60-per-$1); reframed the cushion (hyperscalers fund the 2026 iron, but OpenAI+Anthropic ≈85% of compute CONSUMPTION → 2027+ duration risk); precursor=EARLY-WARNING not noise (contract-side intact); defined the 2027 capex-guide tripwire.
+**Brief-framing errors caught:** the "OpenAI = 3% of capex" easy-bull OVERSTATES the cushion (funding-share ≠ consumption-share); the "can't pay bills" framing = amplification, not a literal CFO quote; the $38.5B net loss = non-cash, op-loss $20.9B is the real number.
+**Thesis cascade triggered:** HYNIX (2026-intact / 2027-early-warning + crux + 2027 tripwire); NBIS (leak reinforces the trim — neocloud most circular-exposed); todo (end-demand-durability model gets the specific crux + tripwire).
+**Position implication delta:** NONE on SK Hynix (HOLD, 2027 watch); NBIS trim REINFORCED (user-gated).
+**Material yield class:** HIGH — verified a market-moving leak as real, separated 2026-financial from 2027-demand risk, reinforced the NBIS trim, installed the 2027 capex tripwire.
+**Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-06-30-morning-feed-korea-japan-2leg-sentiment-vs-physical.md` (verification-result section)
+**Commit:** [lag-1]
+
+### [2026-06-30 AM — Korea+Japan 2-leg morning-feed] 2 Opus 4.8 subagents (KO+JP); MEDIUM-HIGH — resolved the week's tension as a LAYER DECOUPLING (demand-doubt at narrative/funding layer, NOT physical/contract) + surfaced the end-demand-durability FRAMEWORK GAP + power-bottleneck-sharpens-to-transmission
+
+**Trigger source:** User `good morning Korea and Japan` (2026-06-30). (Both legs hit a transient server rate-limit on first attempt; clean re-fire — flagged, not a usage/data issue.)
+**Subagents fired:** 2 (Opus 4.8, KO+JP native) — Leg A anchored, Leg B discovery. (+1 OpenAI-leak Tier-2 verification pending — separate entry.)
+**Estimated token cost:** ~93.7k actual (Leg A 67.3k + Leg B 26.4k) + 2 rate-limited null attempts (~0).
+**Per-subagent yield:** Leg A MEDIUM — no idiosyncratic held event; systemic dip; **bit-demand falsifier UN-FIRED (contract +58-75% QoQ, sold-out, util >85%)**; July stack; HBM-vs-DDR5-margin nuance. Leg B HIGH — leaked OpenAI financials (3rd demand precursor), yen-162, BIS circular-financing, power-bottleneck-sharpens-to-transmission, TEL/Screen-vs-Samsung equity-level bifurcation; surfaced the end-demand-durability framework gap.
+**Brief-framing errors caught:** the reconciliation — demand-DOUBT firing at narrative/funding layer is NOT the same as physical demand cracking; falsifier needs CONTRACT rollover (un-fired). Avoided over-reading the systemic dip (B45).
+**Thesis cascade triggered:** HYNIX (systemic dip / falsifier-un-fired / 3rd soft precursor / July stack / HBM-DDR5 nuance). 
+**Position implication delta:** NONE — HOLD; demand-durability = 2027 watch.
+**Material yield class:** MEDIUM-HIGH — no trade, but resolved the sentiment-vs-physical question + opened a real framework gap (end-demand-durability model) + sharpened the power-infra leg (transmission/LS Electric).
+**Audit-day classification:** POSITIVE-LITE.
+**Cross-source-log:** `signals/cross-source-log/2026-06-30-morning-feed-korea-japan-2leg-sentiment-vs-physical.md`
+**Commit:** [lag-1]
+
 ### [2026-06-29 PM — AI brief "RAMageddon-permanent" + Micron-"next-NVIDIA" (cycle-top adjudication)] 1 Opus 4.8; HIGH — caught a FRESH counter-signal the brief didn't headline (DDR5 retail pullback) + clustered 2 soft cycle precursors + base-rate cycle-psychology read; REINFORCE structural floor, EARLY-WARNING on the 2nd derivative
 
 **Trigger source:** User-shared AI brief (2026-06-28 evening); 2 memory items triaged as relevant (Lenovo RAMageddon + Micron next-Nvidia).
