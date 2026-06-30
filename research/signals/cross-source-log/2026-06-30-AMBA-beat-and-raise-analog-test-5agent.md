@@ -51,4 +51,12 @@ The user's MECHANISM intuition (analyst-chase = B28 analyst-lag) is RIGHT; AMBA'
 ## LEAST-CONFIDENT / FLAGS
 1. IoT re-acceleration (the one near-term path to an Aug surprise) is the hardest variable to forecast — the genuine swing factor.
 2. Whether the +35%-in-weeks re-rating exhausts or extends (B45: don't reflexively call it stretched, but the cause is opinion-not-fundamentals).
-3. ⚠️ HARNESS FLAG: A1 found SanDisk IPO'd/spun ~Feb-2025 (not Feb-2026 as some harness refs imply) — possible held-SNDK fact-error to reconcile separately. AMBA robotics revenue % is inferred (not disclosed).
+3. AMBA robotics revenue % is inferred (not disclosed).
+
+---
+
+## ADDENDUM 2026-06-30 — SanDisk analog PRIMARY-VERIFIED + spin-date SELF-CORRECTION (6th Opus 4.8 fire)
+User asked to "ensure" the SanDisk + Micron patterns were verified. Micron = already T1 (SEC 8-Ks: GM −9.1%→23.7%→~44.5%; ~7 beats; PT-chase Phillip $530→$1,870). SanDisk firmed up via a focused primary-source fire:
+- **Beat-and-raise + margin inversion CONFIRMED:** non-GAAP GM **22.5%→26.2%→29.9%→51.1%→78.4%** over 5 standalone quarters (Q3 FY25→Q3 FY26); ASP/commodity-driven (DC rev +233% QoQ, "higher pricing"); every quarter beat its own guide + sequential guide-raises; **$42B minimum-revenue LTAs (>1/3 FY27 NAND bits, >$11B guarantees)**; PT-chase (MS $690→$1,100→$1,750; Bernstein →$3,000). Source tier: 8-K exhibits LOCATED but SEC/IR hosts 403-blocked this session → figures at strong T2 (4+ independent outlets), not direct-primary. The held-SNDK thesis already carries the $42B/$11B (10-Q-confirmed line) so the analog is harness-consistent.
+- **🔴 SELF-CORRECTION (spin date):** the "~Feb 2026" framing was MY OWN ERROR in the subagent prompts, NOT a harness fact-error. SanDisk separated from Western Digital **2025-02-21** (first Nasdaq trade 2025-02-24). The held-SNDK thesis was ALREADY CORRECT ("spun back out... early 2025", lines 240/250; watchlist "Feb 2025"). The "Feb 25 2026" dates in the SNDK file are the HBF OCP-standardization announcement (a different event). NO harness correction needed; the prior turn's "possible held-SNDK fact-error" flag is WITHDRAWN.
+- Net: the memory beat-and-raise→analyst-chase analog is now PRIMARY-verified (Micron T1, SanDisk T1-structural/T2-figures), and the commodity-ASP-vs-design-win disanalogy for AMBA stands.
