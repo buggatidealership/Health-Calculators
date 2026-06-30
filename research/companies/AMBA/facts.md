@@ -3,6 +3,26 @@
 **Created:** 2026-06-01 (4 parallel LLM-native subagents: A1 financials, A2 competitive, A3 chart/valuation, A4 TAM/unit economics)
 **Discipline:** Every line dated + sourced. T1 = SEC filings, earnings calls, mgmt; T2 = analyst/trade press; T3 = aggregators/opinion. NO interpretation here — see `interpretations.md`.
 
+## June 2026 delta facts (added 2026-06-30, 2 Opus 4.8 subagents)
+
+**Market (T2 unless noted):**
+- Stock June-30-2026 close ~$82.30 (+22.8% / +$15.29 on the day; intraday high $80.10 per source) — vs ~$72 baseline 2026-06-01 = ~+14% on the month; path was V-shaped (June-29 close $63.16 → June-30 ~$82.30). [gurufocus/stockstotrade/timothysykes T2]
+- The June-30 +22.8% single-day move had NO confirmed hard catalyst; nearest event = KeyBanc-hosted non-deal roadshow (Boston/Baltimore, June 23–24). Cause UNCONFIRMED (possible low-float/squeeze mechanics or unsurfaced catalyst). [T2/T3]
+- Northland Securities reiterated Outperform, PT $101, 2026-06-17. [Yahoo/SimplyWallSt T2]
+- Consensus (mid/late June): Buy, avg PT ~$93–95 (range $80–$120, ~14 analysts); 3-mo PT trend revised down ~3.85%. [MarketBeat T2]
+- CEO Feng-Ming Wang sold 6,204 sh @ $67.87 (~$421K) 2026-06-18 (RSU-tax / routine); also gifted 10,000 sh to a donor-advised fund. [Form 4 / StockTitan, T1-grade]
+- Cash + ST investments ~$278M, minimal debt (carryover; no June capital-structure change found). [T2]
+- Q2 FY2027 NOT yet formally dated (quarter ends 2026-07-31; guide $105–111M rev per Q1 print); prior-year cadence (Q2 FY2026 = 2025-08-28) → est. late-Aug 2026. [Ambarella IR Q1 FY2027 T1 + cadence inference]
+- M&A: "Ambarella exploring a potential sale" Bloomberg report is dated 2025-06-24 — STALE (~1yr old); NO new June-2026 takeover chatter or activist filing found. [Bloomberg 2025-06-24, flagged stale]
+
+**Product / competitive / regulatory (T1/T2):**
+- NO AMBA-direct design win, product launch, or Hanwha LTA order-conversion milestone surfaced in June 2026 (AMBA IR/newsroom returned HTTP 403 → "nothing happened" is moderate, not high, confidence). [search-aggregation]
+- NVIDIA: Isaac GR00T humanoid robot reference design on Jetson Thor announced 2026-06-01 (GTC Taipei); Jetson Thor T5000 ~2,070 FP4 TFLOPS. GR00T reference robot built on Unitree H2 Plus. [nvidianews T1 / TechTimes T2]
+- Qualcomm: backed NEURA Robotics $1.4B Series C @ ~$7B valuation, 2026-06-10; humanoid collaboration reaffirmed. [CNBC T2]
+- DoD Section 1260H "Chinese Military Companies" list expanded 2026-06-10; direct DoD procurement prohibition effective 2026-06-30 (broad supply-chain prohibition 2027-06-30). New adds incl. BYD, NIO, Alibaba, Baidu, Unitree, TP-Link, WuXi; Hikvision/Dahua remain on 889 + 1260H. [WilmerHale / Cleary, T1 federal + T2 — triangulated]
+- Mobileye: no new EyeQ7 / Tier-1 platform-switch event in June (prior EyeQ6H ~9M-vehicle US OEM win is pre-window). [Yahoo T2]
+- Wells Fargo "AMBA 1st CV3 Win" note exists but DATE UNCONFIRMED (possibly pre-window — do not treat as a June event without date-anchoring). [StreetInsider T3]
+
 ---
 
 ## Identity & Exchange

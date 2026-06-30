@@ -1,7 +1,8 @@
 # Ambarella (AMBA) — Thesis
 
-**Last updated:** 2026-06-01 (4-subagent LLM-native deep-dive + framework synthesis)
+**Last updated:** 2026-06-30 (June delta refresh — 2 Opus 4.8 subagents; see bottom section. Prior full build 2026-06-01.)
 **Tier:** Active candidate (1.5-2% sizing on entry — NOT Core)
+**Position status:** NOT held (no AMBA in canonical `portfolio/holdings.md`/`changes.md` as of 2026-06-30 — thesis is a researched candidate, not a position-of-record; the "held"/bold framing in `themes.md` + June-2/3 cross-source-logs is stale/aspirational, pending user reconciliation)
 **Position target:** 1.5-2% initial → 3-4% on Q2 FY2027 confirmation trigger
 **Anti-fragility:** 3/5 scenarios (verified across 3 independent subagents)
 **Foundation:** 4 parallel subagents (A1 financials, A2 competitive, A3 chart/valuation, A4 TAM)
@@ -189,3 +190,27 @@ Per `wiki/edge-hardware-ai-primer.md` (created 2026-06-03 PM) + `signals/cross-s
 **AMBA-specific implication:** AMBA is tagged in the primer as edge SoC silicon beneficiary at endpoint silicon CPU+NPU sub-layer. T8 promotion VALIDATES the broader edge AI structural narrative AMBA participates in via ADAS/security/robotics SoC positioning. However, Microsoft full edge stack focuses on PC + M365 endpoint tier — distinct from AMBA's ADAS/security/robotics tier. T8 thesis is **directionally supportive but NOT specific positive catalyst** for AMBA's discrete CV3 + N1 SoC roadmap.
 
 **Position implication:** HOLD at 1.5-2% Active sizing UNCHANGED — T8 promotion strengthens edge AI category broadly but Q2 FY2027 print (Aug 2026) remains the specific AMBA trigger for discrete CV3 revenue attribution + 2nd Tier-1 OEM design win. No sizing change today.
+
+---
+
+## June 2026 DELTA REFRESH (added 2026-06-30 — 2 Opus 4.8 subagents; per `signals/cross-source-log/2026-06-30-AMBA-june-delta-refresh.md`)
+
+**What changed since the file was last built (2026-06-01). Net: thesis INTACT, NO falsifier fired; falsifier posture slightly IMPROVED (NDAA) but the softest vector (robotics-optionality) marginally WEAKENED. Month was narrative-supportive but fundamentally QUIET (no AMBA-direct wins). Facts + sources in `facts.md` June-2026 block.**
+
+**Joint-state delta matrix:**
+
+| Dimension | 2026-06-01 baseline | 2026-06-30 state | Read |
+|---|---|---|---|
+| Price | ~$72 | **~$82.30** (close; +~14% MoM; +22.8% on June-30 alone) | Entry window NARROWED — ran above the thesis's "<$75 preferred limit" |
+| June-30 spike cause | — | KeyBanc non-deal roadshow (Jun 23-24) only visible catalyst | 🚩 **low-confidence cause** — 20%+ on a roadshow smells like squeeze/momentum, NOT fundamentals (B45: don't read as validation) |
+| Analyst | — | Northland reiterate Outperform $101 (Jun 17); consensus Buy ~$93-95 | Stable-positive; no fresh initiation |
+| M&A | (perennial-target framing) | **NO new June chatter** — the "explore sale" Bloomberg is 2025-06-24 STALE (B40) | Dormant; do NOT re-promote the year-old report |
+| AMBA-direct catalysts (wins/product/Hanwha conversion) | Hanwha LTA (May), CV3 (prior) | **NONE in June** (IR 403 → moderate confidence) | Quiet; Q2 FY2027 (~late-Aug) is the next real read |
+| V2 Security (NDAA) | structural tailwind | **DoD 1260H expanded Jun-10, procurement ban eff. Jun-30** (BYD/Unitree/Alibaba/+; Hikvision/Dahua remain) | 🟢 falsifier #7 moved AWAY from firing — durable V2 tailwind |
+| V3 Robotics optionality (H4 tail) | low-medium, pre-revenue | NVIDIA GR00T humanoid ref-design on Jetson Thor (Jun-1) + Qualcomm/NEURA $1.4B @ $7B (Jun-10) | 🔴 competitive bar RAISED — humanoid edge-compute routed to NVDA/QCOM, NOT AMBA N1; H4 tail weaker |
+
+**Falsifier-watch (June):** none fired. #1 (Tier-1 platform switch to NVDA DRIVE / MBLY EyeQ7) — stable, no June advance. #3 (Hanwha conversion) — neutral, unconfirmed, watch Q2. #7 (NDAA waiver) — IMPROVED (1260H tightened). Robotics-optionality (informal) — marginally eroded by NVDA/QCOM June moves.
+
+**🔴 Rule #18 dissent (kept):** the +22.8% June-30 spike is the strongest "thesis is working" temptation — and it is the LEAST fundamentally-grounded datapoint of the month (no hard catalyst; possible squeeze). Do NOT re-rate conviction on it. The fundamentally meaningful June news was mixed: NDAA-positive (V2) but competitive-negative on robotics (V3/H4). The entry-window thesis ("post-flush dip below $75") has partially CLOSED at $82.
+
+**Position implication: 🟡 NO ACTION — remains Active-CANDIDATE, NOT held — no falsifier fired (posture net-neutral: NDAA-improved vs robotics-optionality-eroded); the <$75 entry window the prior thesis flagged has narrowed at ~$82 so do NOT chase the post-roadshow spike (B45-aware but cause is squeeze-suspect); Q2 FY2027 (~late-Aug 2026) remains THE upgrade trigger (discrete CV3 revenue + 2nd Tier-1 win); reallocation on hold (Kioxia-fork + NBIS-trim) so no entry contemplated regardless.**
