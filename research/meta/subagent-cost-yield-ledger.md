@@ -96,6 +96,20 @@
 
 ## Entries (most recent first)
 
+### [2026-06-30 PM — Memory physical-state + technical-state deep read (user "physical wins" thesis)] 2 Opus 4.8 (TrendForce + technical roadmap, EN+KO+JP); HIGH — validated the thesis on both axes + surfaced the SK Hynix ANTI-FRAGILITY reframe (DDR5 margin inversion) + HBF-keep-hinge-on-track
+
+**Trigger source:** User thesis ("physical wins / narrative catches up to fundamentals") + request for broader TrendForce + technical sweep.
+**Subagents fired:** 2 (Opus 4.8) — Thread 1 physical (contract/supply/inventory), Thread 2 technical roadmap.
+**Estimated token cost:** ~56.1k actual (25.8k + 30.3k).
+**Per-subagent yield:** Thread 1 HIGH — order book FULL + CONSTRAINED (contract still rising Q3/Q4, inventory 2-4wk, supply catches late-2027/2028); no contract rollover. Thread 2 HIGH — all-3 Rubin-qualified (HBM-die moat narrowing); **the HBM-vs-DDR5 margin inversion = SK Hynix anti-fragile**; HBF on-track H2-2026 (SNDK keep-hinge); wafer revisions up (Sumco); moat migrating up-stack.
+**Brief-framing errors caught:** "HBM-share king" is the wrong lens — the supercycle is broad-DRAM (diversified demand floor), and SK Hynix wins fast-OR-slow HBM4 ramp via portfolio pricing.
+**Thesis cascade triggered:** HYNIX (anti-fragility reframe — the key structural update), SNDK (HBF keep-hinge validated), SUMCO (wafer-input reinforced).
+**Position implication delta:** NONE (HOLD all) — but a genuine RISK-PROFILE upgrade on SK Hynix (anti-fragile to HBM-ramp-pace; broad-DRAM demand floor).
+**Material yield class:** HIGH — validated the user's macro thesis with date-anchored data on 2 axes + reframed the #1 holding's risk profile + reinforced 2 other held names; the 2028 rebalance correctly bounded as the cycle-clock.
+**Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-06-30-trendforce-physical-plus-technical-state-physical-wins.md`
+**Commit:** [lag-1]
+
 ### [2026-06-30 AM — OpenAI leaked-financials Tier-2 verification] 1 Opus 4.8; HIGH — leak VERIFIED REAL (FT) + the key crux (2026 financial buffer ≠ 2027 demand-fundamental buffer; OpenAI+Anthropic ~85% of compute consumption) → SK Hynix 2026-intact / 2027-EARLY-WARNING + NBIS-trim reinforced + new 2027 capex tripwire
 
 **Trigger source:** KJ Leg B 2026-06-30 surfaced the leaked OpenAI financials (highest-value dot); fired per Rule #16 (new, specific, market-moving — not a restatement).
