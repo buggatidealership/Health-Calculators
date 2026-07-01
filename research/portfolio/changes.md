@@ -634,3 +634,26 @@ User has explicitly stated narrative-driven-momentum framing trumps wait-for-pul
 - `signals/cross-source-log/2026-07-01-BE-ALAB-initiation-deepdives-4agent.md` — 4-agent consolidated verdict
 - `portfolio/changes.md` — this entry
 - `meta/subagent-cost-yield-ledger.md` — 4 Opus 4.8 fires logged (Critical Rule #16 instrumentation)
+
+---
+
+## 2026-07-01 PM — EXECUTED: SK HYNIX TRIM 18→16 GDR + NBIS TRIM 58→30 (screenshot-confirmed true-up)
+
+**Source:** user DeGiro screenshot 2026-07-01 PM (broker total €101.646,17) + verbal "~10k kioxia in N26". Canonical `holdings.md` FULL-REFRESHED same commit.
+
+**Trades confirmed executed (vs prior canonical 18 GDR / 58 sh):**
+
+| Leg | Action | Est. proceeds | Result |
+|---|---|---|---|
+| **SK Hynix (HY9H)** | SOLD 2 GDR (18→16) | ~€2.8-3.1k (fill price unknown; screenshot price €1.420,00, prior €1.530,00) | €22.720,00 = **20,3%** (was 23.1%) — the "~€3k SKH trim" leg of the 2026-07-01 reallocation EXECUTED |
+| **NBIS (YDX)** | SOLD 28 sh (58→30) | ~€5.6-6.1k (fill unknown; screenshot price €201,35) | €6.040,50 = **5,4%** — the 2026-06-29 3/3-ensemble TRIM ~10%→~5% EXECUTED, landing ON target |
+
+**Cash after fills:** DeGiro cash ~€19.967 (derived) — fully explains the rise from ~€11,083 (prior) via the two trim proceeds; N26 ~€8,000 freed cash (prior record) UNCONFIRMED this update.
+
+**Notable price moves same window (no trades):** SUMCO €20.625→€25.005 (+21.2%); MURATA €59.27→€63.00 (+6.3%); SKH price itself −7.2% (€1,530→€1,420); SNDK $2,092→$2,035.36.
+
+**⚠️ Honest de-concentration accounting:** memory-cluster share is ~57,7% (vs ~56.7% prior) — the trims cut ABSOLUTE € memory exposure but the RELATIVE % is flat-to-up because Sumco rallied +21.2%, the non-memory NBIS leg was halved, and proceeds sit in cash. **The de-concentration completes when the ALAB + BE initial tranches deploy** (intent above; ~€13-15k → memory ~46-48% of redeployed book, my calc).
+
+**Remaining open legs of the 2026-07-01 reallocation:** ALAB ~€6-7k + BE ~€7-8k initial tranches (NOT yet executed; cash available); second tranches staged around BE Q2 ~Jul-30 / ALAB Q2 ~Aug-11.
+
+**Position implication: 🟢 EXECUTED (user) — SKH trim + NBIS trim confirmed by screenshot; holdings.md canonical refreshed; ALAB/BE entries remain the open user-gated legs.**
