@@ -159,6 +159,16 @@
   - Falsifier: If SNDK Q2 FY27 only +5-10% despite CATEGORY markers, L17 forward-application falsified — L14 only applies backward
   - Linked: `companies/SNDK/thesis.md`, `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md`, `predictions/lessons.md` L14 codification + L17 candidate
 
+- [ ] **P2 / research / 2026-09-15** [INDP, CAL] — Cloudflare AI-crawler enforcement deadline (PD-3 data-enclosure catalyst)
+  - Origin: 2026-07-01 evening-brief Leg B discovery pass (`signals/cross-source-log/2026-07-01-evening-brief-LEGB-discovery-pass-5-patterns.md`). Cloudflare forces AI companies to separate search vs training/agent crawlers by 2026-09-15 or face default blocking on publisher sites.
+  - Scope: (a) at the deadline, verify enforcement actually happened + which labs complied vs got blocked; (b) does agent-crawler blocking create paid-rails demand for agentic browsing (new surface)?; (c) accrue PD-3 data-enclosure N-count (arXiv patronage exit = N=2 candidate).
+  - Linked: `signals/cross-source-log/2026-07-01-evening-brief-LEGB-discovery-pass-5-patterns.md`
+
+- [ ] **P2 / research / 2026-07-15** [INDP, POS, BOT] — Agent-security investable-surface scan (PD-4 watchlist GAP)
+  - Origin: same Leg B pass. Agents gaining OS/terminal access (Gemini Spark, ZCode) while being weaponized (Claude Desktop double-agent, DeepSeek ransomware) = CrowdStrike-shaped nascent category; NO public pure-play identified.
+  - Scope: map the emerging agent-security/identity/sandboxing landscape (startups, incumbent bolt-ons, funding rounds); identify any investable expression (public adjacents included); trigger-watch = first enterprise agent-breach headline.
+  - Linked: `signals/cross-source-log/2026-07-01-evening-brief-LEGB-discovery-pass-5-patterns.md`, `watchlist/candidates.md`
+
 - [ ] **P1 / research / 2026-Q4** [INDP, AF, POS, CAL] — BE (Bloom Energy) gas-supply TRIPWIRE — time-to-power falsifier checkpoint (REFRAMED 2026-07-01 PM after 2-agent verify)
   - Origin: 2026-07-01 BE+ALAB deep-dives + a 2-agent pipeline-vs-turbine verify (`signals/cross-source-log/2026-07-01-gas-pipeline-vs-turbine-time-to-power-2agent.md`). **CORRECTION: the original "~24-inch pipeline live ~2026-08-15" spec was UNVERIFIED — struck.** The real marquee gas-gated build is Oracle/BorderPlex "Project Jupiter" (NM, 2.45GW Bloom fuel cells) fed by the ~16-18mi "Green Chile" lateral off an EXISTING El Paso Natural Gas trunk. The lateral itself is fast (14-day BLM emergency review); the gate is permitting/legal.
   - Scope: (a) Track Project Jupiter's gas-connection gating items — Transwestern's Jan-2026 FERC application, the NM State Land Office denial on state trust land, the environmental protest; (b) if these BLOCK or materially delay the gas connection OR any marquee DC customer cites gas-supply as the binding constraint → "weeks not years" weakened → re-examine BE bull + hold/trim; (c) if the gas connection clears → speed-edge CONFIRMED → clears the staged remainder of the BE entry
