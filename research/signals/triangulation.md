@@ -123,7 +123,9 @@ Signals confirmed by ≥3 independent same-segment same-direction sources within
 - 🟡 DIRECTIONAL: Murata ~70% AI-server MLCC share (T2-3 163.com tier-split — directional, not company-disclosed); 0.3µm dielectric vs Three-Circle 1µm 8-10yr gap (T2 quantification); Walsin "AI PCs/edge LARGER than AI servers" TAM datapoint (T1 verbatim but novel framing — directional read on T9 sub-leg); DOUBLE-moat thesis (proprietary equipment IP + 20% MF Material JV stake — my model per 2026-06-14 PM deep-dig)
 - 🔴 SPECULATIVE: Three-Circle qualifies sub-0.3µm in volume (falsifier candidate); SEMCO takes named AI-server share from Murata at Rubin-next (falsifier candidate); Japanese equipment vendor lead times collapse <6mo (falsifier candidate); Walsin "Japanese vendor 6-12mo" attribution B40.3 garble flag (partially resolved at AGM T1, residual ambiguity — pending T1 transcript verification)
 
-**Instances (N=5):**
+**Instances (N=6):**
+6. **Citi upgrade Murata Neutral→Buy PT ¥3,900→¥15,000 (2026-06-29 T1) + 5-node independent ASP corroboration** (per `signals/cross-source-log/2026-07-01-morning-feed-korea-japan-2leg-scan.md`, Tier-2 verified). SUBSTANCE (not the PT, per B28): Murata confirmed Apr-1 hike +15-35% (T1); Walsin high-cap AI-MLCC +50-60%; Yageo +10-20%; SEMCO joined industry hike; Goldman/BofA flag MLCC as AI's "next bottleneck." Murata OP raised (FY3/27 ¥440bn +56% / FY3/28 ¥630bn / new FY3/29 ¥800bn); AI-GPU board ~11,000 MLCCs vs ~2,000 regular. **DISCOUNT: Citi is a LATE catch-up voice (¥3,900 was a stale target the stock 5×'d past) — small confirming increment, not step-change.** Tier-bifurcation + ASP-durability thesis reinforced.
+**Instances (N=5→6):**
 1. MLCC sold-out deep research (2026-06-08 cross-source-log)
 2. Murata Izumo new building ¥47B April 2026 + CEO "tight supply persisting" (T1/T2 native-jp Nikkei/dempa/EETimes, 2026-06-11)
 3. **Yageo May revenue record NT$15.06B +47.5% YoY** (T1 [工商時報 6/9](https://www.ctee.com.tw/news/20260609700904-430201))

@@ -1764,6 +1764,8 @@ Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-an
 | Caterpillar | CAT | queue-skip | gas gensets prime power (sold out through 2027) | conglomerate-diluted | US ✅ |
 | Cummins | CMI | queue-skip | gensets prime power | diluted | US ✅ |
 | Fluence Energy | FLNC | firming | BESS firming (compresses interconnection speed) | YES (thinner thesis) | US ✅ |
+| DTE Energy | DTE | grid/firming | US utility scaling utility-scale BESS (~$1.6B/1.5GW/6GWh deal w/ LGES-Vertech, 2026-07-01) | conglomerate-utility | US ✅ |
+| LG Energy Solution / Vertech | 373220.KS | BESS supply | NA grid-storage supply (DTE deal); rides the transmission-bottleneck bypass | KRX = reference-only (no direct access) | ❌ KRX |
 | ProEnergy | private | bridge | repurposed jet-engine turbines (~50MW/unit) | n/a | — |
 | VoltaGrid | private | bridge | reciprocating microgrids (up to 200MW prime) | n/a | — |
 
