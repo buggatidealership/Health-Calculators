@@ -597,3 +597,40 @@ User has explicitly stated narrative-driven-momentum framing trumps wait-for-pul
 **Portfolio effect:** DeGiro cash +~€4K → ~€11,083; memory cluster concentration rose 58.9%→63.6% (MRVL was the lone non-memory/non-supply name).
 **Also confirmed this session:** KIOXIA broker = N26 (€18,500); the long-standing "separate broker TBD" resolved.
 **Canonical:** holdings.md fully refreshed 2026-06-27 PM (combined total €118,704.20).
+
+---
+
+## 2026-07-01 — DE-CONCENTRATION REALLOCATION: TRIM SK Hynix → INITIATE ALAB + BE (INTENT — PENDING USER EXECUTION)
+
+**User directive (verbatim):** *"alab and Bloom energy seems like buys in this instance. free up some more capital from SKH and move the remaining 17k cash + 3k cash from school trim into a 10k + 10k into Alab and BE. before acting, you must run deep dives into BE and Alab so their respective thesis files are the most up to date possible."* + clarification *"1. trim from SKH"* (resolves the "€3k school trim" garble = an SK Hynix trim).
+
+**Strategic frame:** portfolio is memory-overweight (~57% memory book; SK Hynix #1 ~23%). This trade simultaneously hits (a) memory de-concentration, (b) the 2028-29 Jevons/U8-F13 memory-efficiency second-derivative risk, and (c) the SKH China-fab-stranding tail-risk — all via ONE SKH trim rotated into the two mapped non-memory legs the harness wants: **connectivity (ALAB)** + **time-to-power (BE)**. Sound de-risking direction.
+
+**Pre-trade requirement satisfied:** 4 Opus 4.8 deep-dives fired (2 per name) per Critical Rule #16 before acting. Full conviction blocks + falsifiers written into `companies/ALAB/thesis.md` + `companies/BE/thesis.md` INITIATION DEEP-DIVE (2026-07-01) sections. Consolidated verdict: `signals/cross-source-log/2026-07-01-BE-ALAB-initiation-deepdives-4agent.md`.
+
+**Legs:**
+
+| Action | Ticker | User directive | My sizing rec (Rule #11, user-gated) | Tier |
+|---|---|---|---|---|
+| TRIM | HYNIX (SK Hynix GDR) | "free up some more capital from SKH" | trim enough to fund ~€3k+ leg; de-concentration + fund | CORE → trimmed CORE |
+| BUY (NEW) | ALAB (Astera Labs) | €10,000 | **START ~€5-7k, stage rest post-Aug-11 Q2 / on pullback** | ACTIVE (initiating) |
+| BUY (NEW) | BE (Bloom Energy) | €10,000 | **~€7-8k or stage around Jul-30 Q2 + Aug-15 pipeline** | ACTIVE (initiating) |
+
+**Funding:** ~€17k existing cash + ~€3k SKH trim (the clarified "school trim") + a further SKH de-concentration trim (per the prior 2026-07-01 SKH priority-trim mandate) = ~€20k for the two €10k legs.
+
+**Honest sizing recommendation (why below full €10k each):** both are HIGH-QUALITY but RICHLY-VALUED, single-regime, high-beta names (~3.5/6 anti-fragility each), trading at/near ATHs on priced-for-perfection tapes (ALAB ~50-55x fwd P/S, +200%/3mo, ~70% above avg PT; BE ~23-27x sales, +155% YTD, avg PT BELOW spot). Deploying €20k into two momentum names funded partly by trimming the #1 QUALITY position (SKH) is a meaningful RISK-ON, low-quality tilt vs the memory book. Both cleared to initiate ACTIVE on thesis, but the entry geometry favors staging: **~€6-7k ALAB + ~€7-8k BE now, remainder staged around the near-term prints** (BE Q2 ~Jul-30; ALAB Q2 ~Aug-11; BE gas-pipeline falsifier ~Aug-15). User's €10k/€10k directive is documented; final sizing is user-gated.
+
+**Key deep-dive findings:**
+- **🟢 ALAB positive correction:** the "~70% single-customer" fear is STALE. Q1 FY2026 10-Q shows top customer 29%, five customers ≥12% (29/21/16/12/12). Concentration RESOLVED → the SKIP-SIZE concentration leg downgraded to REDUCED-SIZE on VALUATION only. Q1 rev $308.4M (+93%), GM 76.3%, EPS $0.44; Q2 guide $355-365M; Scorpio → #1 product line by end-FY2026. Conviction bull ~35% / base ~40% / bear ~25% (−45-60%).
+- **🚩 BE load-bearing falsifier:** the "weeks-not-years" time-to-power pitch hinges on a ~2026-08-15 24-inch gas pipeline; if gas hookup is the real bottleneck the speed-edge partly transfers to a gas queue. Also: VoltaGrid won Oracle 2.3GW (same-customer dual-sourcing). Q1 2026 rev $751.1M (+130%), FIRST GAAP profit +$70.7M, OCF +$73.6M, GM 30%; FY26 guide $3.4-3.8B; cash $2.52B (going-concern/dilution bear largely retired). Backlog ~$20B (~$6B firm). Conviction bull ~40% / base ~25% / bear ~35% (−45-60%).
+
+**Position implication:** 🟡 ENTER (initiate ALAB + BE at ACTIVE; SKH trim) — user-gated sizing per Critical Rule #11.
+
+**STATUS: INTENT RECORDED — PENDING USER EXECUTION.** No positions changed. `portfolio/holdings.md` NOT touched (canonical; updates only on user post-trade screenshot). SKH trim size + ALAB/BE fills true-up on the next Degiro screenshot.
+
+**Files updated same commit:**
+- `companies/ALAB/thesis.md` — INITIATION DEEP-DIVE (2026-07-01) section (conviction + falsifiers + concentration correction + entry rec)
+- `companies/BE/thesis.md` — INITIATION DEEP-DIVE (2026-07-01) section (conviction + falsifiers + gas-pipeline binary + entry rec)
+- `signals/cross-source-log/2026-07-01-BE-ALAB-initiation-deepdives-4agent.md` — 4-agent consolidated verdict
+- `portfolio/changes.md` — this entry
+- `meta/subagent-cost-yield-ledger.md` — 4 Opus 4.8 fires logged (Critical Rule #16 instrumentation)

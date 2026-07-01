@@ -1,5 +1,25 @@
 # Bloom Energy (BE) — Thesis
 
+---
+## ⭐ INITIATION DEEP-DIVE (2026-07-01 — 2 Opus 4.8 agents; user-directed pre-entry refresh)
+Per `signals/cross-source-log/2026-07-01-BE-ALAB-initiation-deepdives-4agent.md`. **Tier: ACTIVE (initiating) · Target: user-directed €10k (my rec: ~€7-8k or stage) · Anti-fragility ~3.5/6** (research-verified 2026-07-01, T1/T2).
+
+**TL;DR:** Bloom sells natural-gas solid-oxide fuel cells (SOFC) giving AI datacenters on-site power in weeks vs a multi-year grid queue = the "queue-skip" time-to-power bypass. **The business has GRADUATED:** Q1 2026 rev **$751.1M +130% YoY**, **first GAAP profit +$70.7M**, OCF **+$73.6M** (turned positive), GM 30%; FY2026 guide raised to **$3.4-3.8B** (~80% YoY), OCF >$200M; cash $2.52B (T1). The old going-concern/dilution bear is largely RETIRED (2 consec yrs FCF+, +$184M YoY OCF swing). Real demand book: **Oracle 2.8GW** (1.2GW contracted, ~2026-04-14), **AEP $2.65B** (~2026-01), **Brookfield $25B financing framework** (2026-06-30, 5× expansion — NOTE: a build-and-finance framework, NOT a purchase-order backlog), ~$20B total backlog (~$6B firm product orders).
+
+**Valuation / entry:** price feeds conflicted this session ($252-$345); anchor ~$72-86B cap, **~23-27x sales, +155% YTD** (some +1,247%/52wk), **avg analyst PT BELOW spot**, RSI ~72. Right company, rich entry — the visible book is priced.
+
+**Conviction (my model):** P(bull) ~40% (+80-120%/18-24mo — backlog converts, 2GW→5GW scale, SOFC = default DC prime-power) · P(base) ~25% (round-trips ±25% growing into valuation) · P(bear) ~35% (−45-60% — 27x-sales multiple de-rate + one execution/margin miss). Anti-fragility ~3.5/6. ACTIVE, not Core (concentrated bet on the AI-power regime persisting).
+
+**Competitive:** wins on speed-to-power (weeks vs 3-5yr turbine queue) + efficiency (~10-30% over open-cycle turbines) + emissions/permitting + fuel flexibility. Loses on raw $/kW vs commoditized gensets as turbines/gensets scale 2027+. 🚩 **VoltaGrid won Oracle 2.3GW (modular gas gensets) — the SAME customer as Bloom's 2.8GW = Oracle is DUAL-SOURCING power.** GE Vernova/CAT/Cummins/Solaris/ProEnergy all scaling; SMR (Oklo/NuScale) = the 2028+ terminal threat.
+
+**🚩 The load-bearing bear (Rule #18) — gas-supply undercuts the "weeks not years" pitch:** ~all units run on natural gas; a marquee build reportedly hinges on a 24-inch pipeline live by **~2026-08-15**. If gas hookup is the real bottleneck, Bloom's speed edge partly transfers to a *gas* queue, and rivals (VoltaGrid) arrive with firm pipeline gas pre-arranged. Plus ITC/48E subsidy dependence (~30% of customer economics) + hype-cycle beta (10% short float).
+
+**Falsifiers (dated):** (1) by ~2026-09-30 the ~Aug-15 gas pipeline slips OR a marquee DC customer cites gas-supply as the binding constraint → kills "weeks not years"; (2) by Q3'26 (~Nov) GM <~30% (vs 34% guide) → scaling-with-margin breaks; (3) within 12mo a named hyperscaler picks turbines/gensets over Bloom for a >500MW prime-power award it was expected to win; (4) any quarter, a backlog cancellation/deferral >$500M.
+
+**Position implication: 🟡 ENTER (initiate ACTIVE) — user-directed €10k; MY RECOMMENDATION = ~€7-8k or stage, with a hard-stop tied to falsifiers #1 (Aug-15 gas pipeline) + #2 (GM) (research-verified 2026-07-01, T1/T2) — the business has graduated (FCF+, real backlog) so it's Active-grade, but ~27x sales + avg-PT-below-spot + the near-term Aug-15 gas-pipeline binary argue against full €10k at the top; the Jul-30 Q2 print + the Aug-15 pipeline date are the near-term catalysts to size around. Sizing user-gated (Rule #11); holdings.md updates on post-trade screenshot.**
+
+---
+
 **🟢 2026-06-30 time-to-power reframe — purest QUEUE-SKIP bypass name:** Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-and-time-to-power-reframe.md` (1 Opus 4.8). User reframe: power's binding variable = TIME-TO-POWER not quantity (grid ~7-8yr PJM, turbines sold out 2029-31). BE = purest behind-the-meter QUEUE-SKIP (SOFC deploys in weeks, fully bypasses interconnection; Oracle 2.8GW + $20B backlog + $5B Brookfield, T2). Bear = gas-supply/pipeline access (the "full bypass" is slightly optimistic) + margins. **Position implication: 🟡 WATCHLIST — no entry — confirmed as a top-tier time-to-power bypass name; power = the underweight gap leg; reallocation on hold (Kioxia-fork + NBIS-trim pending).**
 
 
