@@ -50,6 +50,18 @@ Raw numerical facts only. Every line dated + sourced. No interpretation (interpr
 
 ## Next print
 - ~2026-07-30 (Q2 2026) [T2 MarketBeat/TipRanks — confirm vs IR]; consensus ~$820M rev / ~$0.39 non-GAAP EPS [T2]
+- Management framed Q2'26 as "at least as strong as Q1" (~$751M) on the Q1 call [T2 call summary]
+
+## FY guidance history (verified 2026-07-01; `signals/cross-source-log/2026-07-01-BE-Q2-FY26-guide-inference-3research-5ensemble-8agent.md`)
+- FY2026 guide set at Q4'25 (2026-02-05): rev $3.1-3.3B, non-GAAP EPS $1.33-1.48, GM ~32%, op income $425-475M [T1-via-search]
+- FY2026 guide RAISED at Q1'26 (2026-04-28): rev $3.4-3.8B, non-GAAP EPS $1.85-2.25, GM ~34%, op income $600-750M, OCF >$200M [T1-via-search] — raise = rev mid +12.5%, EPS mid +46%, new floor above old ceiling
+- FY2025 sandbag proof: initially guided $1.65-1.85B, DELIVERED $2.02B (+15% over midpoint) [T2]
+- FY2026 street consensus (as of 2026-07-01): EPS ~$2.21 (range $1.72-2.65, inside guide near top); rev ~$3.6B (guide midpoint) [T2] — consensus NOT above guide
+- FY2027 street consensus: rev ~$5.3B (~68% growth) [T2]
+- Analyst PTs post-Brookfield: UBS $350 Buy (from $322), BMO $279 MP, Barclays $276 EW, Bernstein $276 init; mean ~$262-268 across ~25 analysts [T2]. Stock ~$300-330 = ~14-25% above mean PT.
+- Capacity: Fremont 1GW→2GW by end-2026 (~$100M capex); mgmt cites ~5GW effective shipment capacity, "not capacity constrained" [T2]
+- Product ASP ~$2,950-3,000/kW ≈ ~$3B revenue/GW [T2]
+- 48E/OBBBA: 30% base ITC codified for natural-gas SOFC in 2026 (PWA waived post-2025) = tailwind [T2]
 
 ## Financing / capital structure (verified 2026-07-01; `signals/cross-source-log/2026-07-01-BE-brookfield-25B-financing-nondilutive-2agent.md`)
 - Brookfield financing framework: ~$5B (2025-10-13) → "up to $25B" (2026-06-30, 5×); NON-DILUTIVE project finance (off BE balance sheet; funds the power projects, not BE equity) [T2]
