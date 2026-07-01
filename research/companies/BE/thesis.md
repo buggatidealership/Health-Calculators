@@ -1,5 +1,7 @@
 # Bloom Energy (BE) — Thesis
 
+**📌 POSITION-STATE (canonical 2026-07-01 PM):** **NOT yet held** — ACTIVE (initiating); OPEN INTENT ~€7-8k initial tranche from DeGiro cash ~€19,967 (user directive €10k; my rec stage below full size), remainder staged around Q2 print ~Jul-30 + Project Jupiter gas-permitting. Per `portfolio/changes.md` 2026-07-01.
+
 **🟡 2026-07-01 Meta power mix (Hyperion/Prometheus superclusters) = gas-turbine + nuclear, NO Bloom fuel-cell deal — theme-positive, name-neutral:** Per `signals/cross-source-log/2026-07-01-META-compute-cloud-launch-capex-memory-power-NBIS-3agent.md` (3 Opus 4.8). Meta's ~5GW Hyperion (LA, 10 Entergy gas plants >7GW) + ~1GW Prometheus (OH, Williams "Socrates" 200MW gas) + 6.6GW nuclear (Vistra/Oklo/TerraPower/Constellation) — CONFIRMS the gas-turbine-sold-out / time-to-power theme (macro-positive for BE's window) but Meta chose turbines+nuclear over fuel cells (no Meta-Bloom deal found — a datapoint that hyperscalers dual-source power AWAY from Bloom, consistent with the VoltaGrid/Oracle observation). **Position implication: 🟡 HOLD — no size change — reinforces the time-to-power macro theme but is a mild relative-negative on BE-at-hyperscalers specifically (turbines+nuclear chosen); no falsifier fired; sizing rec unchanged (~€7-8k or stage, user-gated).**
 
 ---

@@ -1,5 +1,7 @@
 # Astera Labs (ALAB) — Thesis (Compact)
 
+**📌 POSITION-STATE (canonical 2026-07-01 PM):** **NOT yet held** — ACTIVE (initiating); OPEN INTENT ~€6-7k initial tranche from DeGiro cash ~€19,967 (user directive €10k; my rec stage below full size), remainder post-Aug-11 Q2. Per `portfolio/changes.md` 2026-07-01.
+
 ---
 ## ⭐ INITIATION DEEP-DIVE (2026-07-01 — 2 Opus 4.8 agents; user-directed pre-entry refresh)
 Per `signals/cross-source-log/2026-07-01-BE-ALAB-initiation-deepdives-4agent.md`. **Tier: ACTIVE (initiating) · Target: user-directed €10k (my rec: START ~€5-7k, stage rest) · Anti-fragility ~3.5/6** (research-verified 2026-07-01, T1/T2).

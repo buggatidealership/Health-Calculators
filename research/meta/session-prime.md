@@ -125,18 +125,20 @@ _Note: L24 removed (placeholder, never verified). Current lesson tail is L25. Ne
 - **TC-5** CoPoS / glass-core packaging firming (advanced-packaging) [ACTIVE N=5]
 - **TC-6, TC-7, TC-8** — see `signals/triangulation.md` for current status and N counts
 
-## §6. HELD COHORT (per `portfolio/holdings.md` — REFRESHED 2026-06-27 PM; combined €118,704.20)
+## §6. HELD COHORT (per `portfolio/holdings.md` — REFRESHED 2026-07-01 PM screenshot; combined ~€111,646 excl. unconfirmed ~€8k N26 cash)
 
 **6 held names (5 DeGiro + 1 N26); re-verify at session start against holdings.md:**
-1. HYNIX 18 GDR (HY9H) — €27,540 — **23.2%** (L3 Core EXCEPTION)
-2. MURATA 336sh (MUR1) — €19,915 — **16.8%** Core
-3. KIOXIA — €18,500 — **15.6%** Core — **broker = N26** (separate)
-4. SNDK 9sh — €16,517 — **13.9%** Core
-5. SUMCO 626sh (S3X) — €12,911 — **10.9%**
-6. NBIS 58sh — €12,238 — **10.3%** Active
-+ DeGiro cash ~€11,083 (9.3%)
+1. HYNIX **16 GDR** (HY9H) — €22.720,00 — **20,3%** (L3 Core EXCEPTION; **trimmed 18→16 on 2026-07-01**)
+2. MURATA 336sh (MUR1) — €21.168,00 — **19,0%** Core
+3. SNDK 9sh — €16.097,51 — **14,4%** Core
+4. SUMCO 626sh (S3X) — €15.653,13 — **14,0%** (+21.2% price move in the 06-27→07-01 window; L24 ATH-break monitor)
+5. KIOXIA — ~€10.000 — **~9,0%** Core — **broker = N26** (separate; further derisk parked on N26 access)
+6. NBIS **30sh** — €6.040,50 — **5,4%** Active (**trimmed 58→30 on 2026-07-01 — 3/3-ensemble ~5% target REACHED**)
++ DeGiro cash ~€19.967 (17,9% — SKH+NBIS trim proceeds; earmarked for the ALAB + BE initial tranches per `portfolio/changes.md` 2026-07-01)
 
-**Memory cluster (HYNIX+KIOXIA+SNDK+SUMCO) = 63.6%.**
+**Memory cluster (HYNIX+KIOXIA+SNDK+SUMCO) = ~57,7%** — flat vs prior DESPITE the trims (Sumco rally + NBIS non-memory halving + proceeds-in-cash); relative de-concentration completes when ALAB/BE deploy.
+
+**OPEN INTENT (user-gated, NOT yet executed):** INITIATE ALAB ~€6-7k + BE ~€7-8k initial tranches (both ACTIVE-initiating; theses current as of 2026-07-01 deep-dives); second tranches staged around BE Q2 ~Jul-30 / ALAB Q2 ~Aug-11.
 
 **🔴 EXITED (do NOT reference as held — watchlist-reference only):** MRVL (full exit 2026-06-27, was 8.0%), DDOG (sold 2026-06-22), NOW (sold 2026-06-22), ARM/AGC/Hirano/MongoDB (exited Jun rotation).
 

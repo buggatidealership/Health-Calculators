@@ -1,27 +1,29 @@
 # Harness Index — single-file retrieval entry point
 
 **Created:** 2026-06-11 (per signal-density-detection optimization directive)
-**Last refreshed:** 2026-06-24 (monthly audit #1 — held cohort updated DDOG/NOW SOLD + SUMCO/MURATA tranche-2 additions confirmed; calendar refreshed MU print today + forward catalysts; tag tails updated; new artifact entries added)
+**Last refreshed:** 2026-07-01 PM (holdings true-up: SKH 18→16 GDR + NBIS 58→30 trims EXECUTED per screenshot; MRVL exit reflected; ALAB/BE ACTIVE-initiating intent added; cash ~€19,967 earmarked)
 **Refresh cadence:** monthly + on major thesis/scenario changes
 **Function:** answer "where did we cover X?" without grep
 
-## Held positions (entry points) — canonical 2026-06-24 (updated from 2026-06-18 PM33)
+## Held positions (entry points) — canonical 2026-07-01 PM (user DeGiro screenshot; holdings.md refreshed same day)
 
-Read `portfolio/holdings.md` for canonical positions + sizing. **NOTE:** holdings.md is STALE on DDOG + NOW lines pending next user screenshot (DDOG + NOW SOLD 2026-06-22 per user disclosure 2026-06-23 AM). Held cohort as of 2026-06-24:
+Read `portfolio/holdings.md` for canonical positions + sizing. Held cohort as of 2026-07-01 (combined ~€111,646 excl. unconfirmed ~€8k N26 cash):
 
-- **HYNIX** (held, direct HBM compounder, 15sh GDR) — `companies/HYNIX/thesis.md`
-- **SNDK** (held, NAND + HBF JV optionality, 6sh) — `companies/SNDK/thesis.md`
-- **SUMCO** (held, direct wafer upstream, 626sh — tranche add 2026-06-18) — `companies/SUMCO/thesis.md`
-- **MURATA** (held ~336sh, double-moat MLCC — tranche-2 add 2026-06-18 bringing total to 336sh) — `companies/MURATA/thesis.md`
-- **MRVL** (held 44sh, custom Si + NVLink Fusion) — `companies/MRVL/thesis.md`
-- **NBIS** (held 58sh NEW 2026-06-18, sovereign-AI compute bypass — ACTIVE tier) — `companies/NBIS/thesis.md`
-- **KIOXIA** (held ~€10K via N26, NAND structural + VLSI Symposium catalyst) — `companies/KIOXIA/thesis.md`
-- **DDOG SOLD 2026-06-22** — user self-flagged Critical Rule #8 violation (emotional sell on narrative shift; thesis NOT falsified); `companies/DDOG/thesis.md` carries EXIT banner + 3-layer GRADE
+- **HYNIX** (held **16 GDR** — trimmed 18→16 on 2026-07-01; €22.720,00 = **20,3%**; L3 Core EXCEPTION) — `companies/HYNIX/thesis.md`
+- **MURATA** (held 336sh; €21.168,00 = **19,0%** Core) — `companies/MURATA/thesis.md`
+- **SNDK** (held 9sh; €16.097,51 = **14,4%** Core; NAND + HBF JV optionality) — `companies/SNDK/thesis.md`
+- **SUMCO** (held 626sh; €15.653,13 = **14,0%**; +21.2% price move 06-27→07-01; L24 ATH-break monitor) — `companies/SUMCO/thesis.md`
+- **KIOXIA** (held **~€10.000** via N26 = **~9,0%** Core; further derisk parked on N26 access) — `companies/KIOXIA/thesis.md`
+- **NBIS** (held **30sh** — trimmed 58→30 on 2026-07-01, 3/3-ensemble ~5% target REACHED; €6.040,50 = **5,4%** Active) — `companies/NBIS/thesis.md`
+- **Cash:** ~€19.967 DeGiro (17,9%) — earmarked for the ALAB + BE initial tranches (OPEN INTENT per `portfolio/changes.md` 2026-07-01)
+- **ALAB + BE** — ACTIVE (initiating), NOT yet held; theses current per 2026-07-01 deep-dives — `companies/ALAB/thesis.md`, `companies/BE/thesis.md`
+
+**Exited (watchlist-reference only):**
+- **MRVL FULLY EXITED 2026-06-27** (verified Trainium die-design-loss bear; re-entry trigger = die-design-minority disclosure OR Trainium-4 win; Aug-26 Q2 FY27 print) — `companies/MRVL/thesis.md`
+- **DDOG SOLD 2026-06-22** — user self-flagged Critical Rule #8 violation; `companies/DDOG/thesis.md` carries EXIT banner + 3-layer GRADE
 - **NOW SOLD 2026-06-22** — same event as DDOG; `companies/NOW/thesis.md` carries EXIT banner + 3-layer GRADE
-- ARM **EXITED** 2026-06-14 — `companies/ARM/thesis.md` carries historical-artifact banner
-- AGC **EXITED** 2026-06-14 — `companies/AGC/thesis.md` carries historical-artifact banner
-- AXTI **EXITED** 2026-05-29 — see `companies/AXTI/thesis.md` for re-entry conditions
-- HDS **EXITED** 2026-06-09 — see `companies/HDS/thesis.md`
+- ARM **EXITED** 2026-06-14 — `companies/ARM/thesis.md`; AGC **EXITED** 2026-06-14 — `companies/AGC/thesis.md`
+- AXTI **EXITED** 2026-05-29 — `companies/AXTI/thesis.md`; HDS **EXITED** 2026-06-09 — `companies/HDS/thesis.md`
 
 **Active-candidate (not held):** IBIDEN (TIER S+ deep-dig priority; ABF bear-case inverted; glass-core medium-term displacement risk surfaces); CAMT (TIER S equipment vector at PLP layer); BESI (TIER S equipment vector at PLP die-attach layer)
 
