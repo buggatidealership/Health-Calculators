@@ -1,5 +1,7 @@
 # Sandisk (SNDK) — Thesis
 
+**🟡 2026-07-01 US session −10% (with Micron −10%+, SOX −6.27%) — cohort-systemic valuation rout, no falsifier:** Per `signals/cross-source-log/2026-07-02-kr-jp-selloff-TIER2-verification-addendum.md`. DRAM-pricing/AI-sustainability fears + profit-taking; the underlying week's real news is SUPPLY-side bullish (SKH prioritizing DDR5 = NAND-adjacent pricing power intact). **Position implication: 🟡 HOLD 9sh / 14,4% — no size change — systemic drawdown; DON'T-ADD-NOW ensemble stands (a deeper pullback would meet its flip-condition ~10-15% — track).**
+
 **📌 POSITION-STATE (canonical 2026-07-01 PM screenshot):** held 9sh (NDQ) @ BEP $1,962.35 · €16.097,51 · **14,4%** of ~€111,646 · Core · no trade this window (price $2,092→$2,035.36); 3/3-ensemble DON'T-ADD-NOW stands. Older in-body position %s (13.1%/13.9%) are historical.
 
 **🟢 2026-07-01 Meta capex hike blamed on higher memory prices = demand-side confirmation (NAND read-through):** Per `signals/cross-source-log/2026-07-01-META-compute-cloud-launch-capex-memory-power-NBIS-3agent.md` (3 Opus 4.8). Meta 2026 capex raised to $125-145B naming higher memory prices (T2); AI-DC pull on NAND/storage + MTIA 500 512GB-HBM (2027) = memory-content growth. Top-hyperscaler demand confirmation supports the NAND leg. **Position implication: 🟢 HOLD — no size change — demand-side confirmation; no falsifier fired; consistent with the DON'T-ADD-into-melt-up sizing read (this is thesis-supportive, not an add trigger).**
