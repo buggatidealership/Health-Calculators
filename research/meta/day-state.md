@@ -22,3 +22,6 @@ NONE. (Inbox empty — user's watch-list decision stands; nothing proposed.)
 
 ## Yesterday/today digest (2026-07-02 — written at arm time; EOD wake takes over from tomorrow)
 Full-day summary lives in the session commits `99cf1a7d`..`e489204d`: enabling-layer map, two discovery programs (both falsifiers fired honestly), earnings-prediction board complete (10 names), evening-brief cascades (SKH long-horizon plan / Meta-Compute confirmed / Nvidia buyback / PD-8 candidate).
+
+## WAKE-1 TEST PRE-REGISTRATION (2026-07-02 PM, before first fire)
+First autonomous wake = KR/JP 02:22 CEST 2026-07-03. **PASS** = git commit ~02:22-03:15 containing: KR/JP scan artifact + day-state update + ledger entry, with <=2 agents, no position/target files touched, notification only if materiality gate passed (silent-small output = valid PASS: US closed Jul-3, no catalysts due). **PARTIAL** = fired but protocol incomplete -> 3-layer diagnose. **FAIL** = no evidence -> infrastructure (session reclaimed) — expected-most-likely failure mode (🟡 my model); remedy = platform-level scheduled trigger (user-side, one-time; see Workflow #11 perpetuity conditions). Full-cycle test: by ~22:30 Jul-3, four wake commits + an EOD-written day-state for Jul-4 (the self-feeding proof). User verification method: branch commit log timestamps — no trust in session claims required.
