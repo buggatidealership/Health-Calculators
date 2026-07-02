@@ -96,6 +96,25 @@
 
 ## Entries (most recent first)
 
+### [2026-07-02 PM — US morning scan (2-leg): Leg A anchored + Leg B discovery (rates-regime blind spot)] 2 Opus 4.8; HIGH — Leg B surfaced the macro module the harness lacks (Fed-hike regime + leverage hard data = the user's over-leverage read quantified); Leg A caught the NBIS −17%-vs−12% discrepancy + Apple/CXMT thread + the half-day/holiday schedule
+
+**Trigger source:** User "good morning US" (Workflow #10).
+**Subagents fired:** 2 (Opus 4.8) — Leg A anchored; Leg B discovery.
+**Estimated token cost:** ~52.5k (actual subagent_tokens: A 24.2k + B 28.4k).
+**Items verified/surfaced:** held-name state post-rout (SNDK −10% + Bernstein $3,000 PT into the rout; NBIS closed −17% $229.18 with $27B contract + guidance UNCHANGED); Asia-close conflict flagged for reconciliation; Apple/CXMT-YMTC talks; DRAM antitrust suit; Citrini 2nd instance; margin-debt record $1.28T/4.1% GDP; ~$120B SPV debt; H100 rentals −70-90%; ~54-60% hike pricing + Warsh; June jobs TODAY 8:30 ET; US half-day today + Fri closed.
+
+**Per-subagent yield:**
+- Leg A: HIGH — NBIS close correction caught (−17% vs the −12% in-file → correction queued); Bernstein-against-price datapoint; Apple/CXMT new thread; schedule corrections (half-day/holiday → Samsung prelim = re-open driver); honest gaps flagged (no clean pre-market marks).
+- Leg B: HIGH — the flagship absence-question hit: the RATES module gap + the leverage hard-data layer (margin debt, SPV debt, GPU-collateral marks); PD-6 cost-of-capital bottleneck candidate; antitrust suit as a discipline-loosening vector; CW $4.2B maturity canary; Leg-B-vs-A delta explicit.
+**Brief-framing errors caught:** NBIS "−12%" (in-file) vs −17% close — flagged for reconciliation-then-correction rather than silent overwrite; Asia closes (TradingKey −14.57% SKH) conflict with the morning Tier-2 verification → reconciliation queued, NOT propagated.
+**Thesis cascade triggered:** deferred to the verification gate (per protocol): Tier-2 queue = Asia-close reconciliation → NBIS/HYNIX corrections; Apple/CXMT; Meta-Compute 2nd-order TRACE; Nebius-Bloom 328MW freshness. todo AI-funding-shock item UPGRADED with the rates-driver module + hard-data layer.
+**Position implication delta:** NONE — and one standing note: DO NOT deploy the ALAB/BE tranches into a half-day pre-holiday session with a jobs print at 8:30 ET; reassess Monday post-Samsung-prelim (my model; sizing user-gated).
+**Material yield class:** HIGH — a genuine framework gap identified with its hard-data layer attached, plus two file-corrections caught before propagation.
+**Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-07-02-morning-feed-us-legA-anchored-scan.md` + `2026-07-02-morning-feed-us-legB-discovery-rates-regime.md`
+**Commit:** (this commit)
+
+
 ### [2026-07-02 — Earnings-prediction program wave-1 data layer (calendar + consensus + 2 hard-data packs)] 4 Opus 4.8; HIGH — built the verified factual substrate for the standing earnings-prediction program + caught 4 framing errors before they entered predictions
 
 **Trigger source:** User directive — standing AI-supply-chain earnings-prediction program (consensus → hard data → LLM-native calls).
