@@ -44,5 +44,8 @@
 - TC-5 increment (Intel glass-core panel first) noted here; register N-tick at next register touch.
 - `meta/subagent-cost-yield-ledger.md` — 1 targeted fire (cross-claims).
 
-## PENDING (agent in flight — addendum on return)
-Feynman-custom-HBM confirmation; Marvell-Celestial close status/price; AMD MI450 LPDDR; TPU-v9-on-EMIB-T second source.
+## ADDENDUM — cross-claim verdicts (agent returned 2026-07-02 PM)
+1. **Feynman custom HBM: CONFIRMED (T1)** — Nvidia GTC 2026 keynote (~2026-03-24): Feynman (post-Rubin, 2028) with custom HBM + 3D die-stacking + Rosa CPU [heise/wccftech/Tom's HW]. **Sharper read than the roundup's framing: the base die is NOT attributed to one supplier — it's BASE-DIE DISAGGREGATION** (base-die logic moving off DRAM-maker processes onto logic foundry, spanning SKH/Samsung/Micron + controller designers like Marvell). That IS the value-migration mechanism now T1-anchored.
+2. **Marvell-Celestial AI: CONFIRMED (T1)** — announced 2025-12-02, **closed 2026-02-02; $3.25B at close ($1B cash + ~27.2M shares) + earnout up to $5.5B** [Marvell newsroom]. Caveat: the "OMIB" term itself appears only in the SemiAnalysis roundup — single-source label on the branding, not the deal.
+3. **AMD MI455X + LPDDR-on-module: SINGLE-SOURCE (T2)** — reported (HotHardware echoing SemiAnalysis), NOT AMD-confirmed; note it's MI455X specifically, not literally "MI450"; MI500 LPDDR = speculative. LPDDR-attach demand vector stays at single-source conviction pending a second confirm.
+4. **TPU-v9-on-EMIB-T: LOOSE** — Google-Intel EMIB packaging relationship is multi-source (incl. reported 3M+ TPUs booked for 2028, T2), but the exact v9 SKU mapping is single-analyst (Kuo ties EMIB-T to TPU v8e "Humufish"). Packaging-relationship = solid; SKU label = don't cite as fact.

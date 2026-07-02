@@ -100,7 +100,7 @@
 
 **Trigger source:** User-shared full text (SemiAnalysis ECTC-2026 roundup, paid, 2026-07-02 — fresh; B40 pass; T2 with T1-underlying conference papers).
 **Subagents fired:** 1 (Opus 4.8) — targeted verification of the 3 embedded cross-claims (Feynman custom-HBM; Marvell-Celestial close; MI450 LPDDR; TPU-v9/EMIB-T bonus) — IN FLIGHT, addendum on return. Rationale for N=1: the artifact is primary reporting provided in full; Rule #16 verification scoped to the cascade-bearing embedded claims only.
-**Estimated token cost:** pending agent return (~20-30k est).
+**Estimated token cost:** 14.7k (actual subagent_tokens).
 **Items ingested:** custom HBM (Marvell/Samsung/Nvidia-pending); HBM4E packaging difficulty (2× layers, +86% power); EMIB-T roadmap + Intel glass-core 24-layer panel first; TSMC/Microsoft direct-to-silicon cooling (5.3 kW; −50% thermal resistance on live GH200); OMIB/Lightmatter photonics; hybrid bonding 450 nm/98%; RDL 2/2→1/1 µm; Samsung VCS.
 
 **Per-item yield (main):**
