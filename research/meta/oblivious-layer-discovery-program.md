@@ -58,3 +58,4 @@ Each candidate layer/name scored 0-5 per dimension (higher = more oblivious):
 
 ## Status log
 - **2026-07-02:** Program codified (user authority granted). Wave 1 fired: 6 Opus-tier agents in parallel. Wave 2 pending wave-1 synthesis.
+- **2026-07-02 PM (later):** Wave 1 COMPLETE — all 6 returned. 13 candidates (C-1..C-13) registered at `signals/cross-source-log/2026-07-02-oblivious-layer-program-wave1-nominations.md`; 9 killed/demoted at wave-1 with auditable reasons. Meta-finding: obliviousness survives only where exposure is structurally un-modelable (private, or buried sub-segment covered by the wrong analyst community) — pattern-register candidate. Wave 2 FIRED: D1 scorer + R1 (already-discovered) + R2 (physics/bypass) + R3 (value-capture) in parallel on C-1..C-13. Kill rule: >=2 of 3 refuter attacks land.
