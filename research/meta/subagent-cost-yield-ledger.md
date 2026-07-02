@@ -96,6 +96,25 @@
 
 ## Entries (most recent first)
 
+### [2026-07-02 PM — Anthropic-Samsung custom-chip headline (user check request)] 2 Opus 4.8; HIGH — CONFIRMED-CURRENT but correctly bounded as EMBRYONIC/single-root; prevented both over-trading a soft "in talks" report AND conflation with the March OpenAI-HBM4 memory story; SKH HBM-attach watch-line established
+
+**Trigger source:** User headline check ("ANTHROPIC IN TALKS WITH SAMSUNG... : INFORMATION").
+**Subagents fired:** 2 (Opus 4.8) — attribution/corroboration (incl. Korean-native); compute-stack/custom-silicon context pack.
+**Estimated token cost:** ~42.0k (actual subagent_tokens: 17.6k + 24.4k).
+**Items verified:** report authenticity + date; specifics (2nm + advanced packaging, spec undefined); corroboration structure (multi-outlet, single root); the 5-week build-up chain (Series H investors, Digitimes bridge, Clive Chan hire); distinctness from the March OpenAI-Samsung HBM4 story; Anthropic baseline stack; lab-silicon precedent set; Taylor timing; ASIC design-to-volume physics (2028-29).
+
+**Per-subagent yield:**
+- Attribution: HIGH — CONFIRMED-CURRENT (The Information 07-02 + Bloomberg same-day); firmness correctly graded soft ("may not proceed," no Samsung comment); NOT a recycle/garble; single-root structure flagged.
+- Context: HIGH — additive-not-replacement framing established (Trainium/TPU/NVIDIA "remain central," >$100B AWS + 1M-TPU baseline); Samsung pivot motive (OpenAI logic project stalled); volume-silicon timing 2028-29 (kills any near-term P&L read); Broadcom/Marvell ~95% design + TSMC-fabs-all pattern = this would be the fab-side breaker; HBM-attach question isolated as the SKH-relevant open item.
+**Brief-framing errors caught:** none in the headline itself (clean attribution) — the risk-managed items were pre-emptive: (1) conflation risk with the March Samsung-OpenAI HBM4 MEMORY story (different scope) named and blocked; (2) any "2027 Anthropic-Samsung volume" framing pre-flagged as non-credible.
+**Thesis cascade triggered:** `companies/HYNIX/thesis.md` (HBM-attach watch-line, ⚪ NO ACTION). Samsung Jul-7 prediction NOT revised (zero Q2 relevance). PD-2 increment deferred (single-root; N-count discipline).
+**Position implication delta:** NONE — no falsifier touched anywhere; watch-trigger = Anthropic HBM-supplier reporting.
+**Material yield class:** HIGH — a soft single-root headline correctly bounded before it could masquerade as a hard catalyst; one genuinely new watch-line under the #1 position.
+**Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-07-02-anthropic-samsung-custom-chip-talks-2agent.md`
+**Commit:** (this commit)
+
+
 ### [2026-07-02 PM — Samsung Foundry "allocation" article (user Twitter input)] 2 Opus 4.8; HIGH + FRAMING-ERROR-CAUGHT — full B40 catch: recycled May-2 ZDNet article presented as fresh, with a misattributed TSMC price figure + a management-superseded profit-turn claim; the REAL current core (foundry demand-rationing, TSMC booked-to-2028) logged as demand-scare counter-evidence; Samsung Jul-7 prediction explicitly NOT revised
 
 **Trigger source:** User Twitter share (translated Korean article).
