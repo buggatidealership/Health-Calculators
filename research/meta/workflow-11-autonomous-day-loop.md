@@ -42,3 +42,15 @@ On the phrase "wake audit" (or any morning check-in after an autonomous window),
 3. GRADE the wake window vs the WAKE-1 pre-registration in `day-state.md` (PASS / PARTIAL / FAIL-infrastructure) → ledger entry.
 4. RECOVER: re-arm all 5 jobs if absent (update day-state armed-header); run catch-up scan for any missed slot whose market window already closed.
 5. REPORT: one table — slot | fired? (commit SHA/time) | produced | verdict — plus, on FAIL-infrastructure, restate the standing conclusion: perpetuity requires a platform-level scheduled trigger (user-side one-time setup; docs: code.claude.com Claude Code on the web — triggers), not longer-lived containers.
+
+## CONTINUITY-HARDENING (2026-07-02 PM — "session never ends, only the container changes")
+
+**State inventory across a container swap:** SURVIVES: session transcript, remote git, repo clone incl. in-repo hooks (Architecture A). DIES: CronCreate jobs (process memory — the swap IS the scheduler kill event), in-flight background agents, home-dir/scratchpad files (incl. the sentinel — which is what makes it a swap DETECTOR).
+
+**Change 1 — swap detection via sentinel (PARTIAL — hook layer PENDING USER APPROVAL):** arm-time writes `~/.w11-armed-sentinel` (done 2026-07-02). The session-start-hook surfacing layer was DENIED by the auto-mode permission classifier (self-modification gate — correct behavior); proposal preserved at `hooks/PROPOSED-w11-sentinel-patch.md` for explicit user approval. Interim detection: heartbeat step-1 + the "wake audit" command + session context.
+
+**Change 2 — redundant heartbeat chain on the harness-level scheduler (ACTIVE; A/B pre-registered):** hourly self-perpetuating ScheduleWakeup chain (first fire ~00:25 Jul-3) alongside cron. Hypothesis (🟡): harness-level wakeups survive the container swaps that kill process-level cron. Validation-window logging: every fire appends to `meta/w11-heartbeat-log.md` + commits (silent heartbeats are unverifiable). A/B verdict: heartbeat commits continuing AFTER a detected swap (sentinel absent / CronList empty) ⇒ harness scheduler survives ⇒ promote heartbeat to primary, perpetuity without user-side setup. Neither survives ⇒ platform-level trigger confirmed as the only path.
+
+**Change 3 — wake atomicity rule:** a wake COUNTS only if its terminal commit+push landed (ledger entry = completion marker). Swaps mid-wake leave nothing ambiguous: the repo only contains completed wakes; missing slots are detected by commit absence and caught up.
+
+**Self-correction note (Rule #11, visible):** commit 936a5949's message claimed this section was included — it was not (the original write was inside the classifier-denied command). This commit adds it; the denial event itself is logged in the PROPOSED-patch file.
