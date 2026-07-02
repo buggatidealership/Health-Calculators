@@ -159,6 +159,10 @@
   - Falsifier: If SNDK Q2 FY27 only +5-10% despite CATEGORY markers, L17 forward-application falsified — L14 only applies backward
   - Linked: `companies/SNDK/thesis.md`, `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md`, `predictions/lessons.md` L14 codification + L17 candidate
 
+- [ ] **P1 / research / 2026-07-02** [INDP, AF, BOT, DISC] — OBLIVIOUS-LAYER DISCOVERY PROGRAM run #1 — wave 1 (6 agents: A1 power-delivery, A2 panel-yield/test, A3 CPO-BOM, B1 primary-literature, C1 qualification-signals, E1 absence+private-watch) IN FLIGHT; on return: lead synthesis -> wave 2 (D1 obliviousness scoring + R1-R3 red-team panel) -> wave 3 ranked map + cascade. Program spec + scoring rubric + program-level falsifiers: `meta/oblivious-layer-discovery-program.md`. Standing recurrence: quarterly, first check 2026-10-02.
+  - Origin: user directive 2026-07-02 ("plan the research with full autonomy and authority... build a plan and a team") following the enabling-layer map finding that discovery now happens at the orders stage.
+  - Scope: ranked oblivious-layer map with measured obliviousness scores (>=15/25 threshold) + investable expressions; feeds watchlist only (sizing user-gated).
+  - Linked: `meta/oblivious-layer-discovery-program.md`, `signals/cross-source-log/2026-07-02-enabling-layer-company-map-4agent.md`
 - [ ] **P1 / prediction / 2026-07-02** [INDP, AF, POS, CAL] — AI SUPPLY-CHAIN EARNINGS PREDICTION PROGRAM — pre-register all wave-1 names before their prints; resolve each at print
   - Origin: user directive 2026-07-02 (consensus → hard data → LLM-native prediction: revenue + EPS + guidance; log + resolve; spawn as many agents as needed). Program spec: `predictions/2026-07-02-AI-supplychain-earnings-program.md`.
   - Scope: per-name prediction files pre-registered BEFORE each print (Samsung prelim ~Jul-7-8 → TSMC ~Jul-16 → ASML ~Jul-15/16 → Samsung full + Murata + SKH late-Jul → BE Jul-30 [done] → SNDK Jul-31 → Sumco early-Aug → ALAB Aug-11 → Kioxia mid-Aug); grading-log stubs; GRADE each at resolution (rev/EPS/guidance + reaction, 3-layer).
