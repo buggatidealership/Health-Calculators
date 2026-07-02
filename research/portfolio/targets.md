@@ -73,3 +73,5 @@ Macro anchor (2026-07-02): selloff = positioning not demand (`signals/cross-sour
 NOT-buy despite today's work (Rule #18): Camtek/BESI/Resonac/Ajinomoto/TOK/Ibiden (re-rated to ATHs — staged-entry conditions only); Mistras/Sims SLS (watch-tier, thin); Kyocera (0.9×-book premise failed — actual P/B 1.38-1.48x per R3); Genpact/Cognizant (outside mandate, clawback risk); more SKH/memory (cluster ~57,7% — steps 1-4 ARE the de-concentration).
 
 Timing: reassess Monday with Samsung prelim (~Jul-7 keystone, `predictions/2026-07-02-SAMSUNG-Q2-prelim-prediction.md`); staged tranches given rates backdrop. All execution user-gated.
+
+**2026-07-02 PM addendum:** user challenged the list as 'at or close to peak' — verified FALSE for all five (BE ≈14.7% / ALAB ≈19-22% / ONTO ≈31% primary-reading / AVGO ≈23-27% / 4203 ≈6.7%-stale below ATHs; per `signals/cross-source-log/2026-07-02-buylist-ATH-distance-verification.md`). ONTO pre-entry condition added: resolve the conflicting quote readings ($266.89 vs ~$336-351) before the starter tranche. Meta capacity-resell headline queued for Tier-2 verification before any thesis touch.
