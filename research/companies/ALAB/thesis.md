@@ -1,5 +1,7 @@
 # Astera Labs (ALAB) — Thesis (Compact)
 
+**🟡 2026-07-02 DATED BEAR-WATCH (pre-entry honesty): on-package optical = late-decade copper-retimer displacement vector:** Per `signals/cross-source-log/2026-07-02-ectc-2026-packaging-roundup-semianalysis-ingest.md` (SemiAnalysis ECTC T2). Optical interconnects moving ONTO the package (Marvell OMIB 1.8 Tbps/mm² via Celestial; Lightmatter photonic interposers; TSMC COUPE-class stacked engines) is the structural long-run threat to copper PCIe retimer/plumbing economics. TIMING per the same source's own doubts (EAM manufacturability, photonic-interposer yield/stitching): LATE-DECADE, not 2026-27 — Scorpio/PCIe-6/UCIe demand is untouched near-term (UCIe 3.0 64 GT/s is a copper-first roadmap). Watch: first hyperscaler DESIGN WIN replacing retimer sockets with on-package optics = the dated tripwire. **Position implication: 🟡 ENTER-intent unchanged — bear-watch logged pre-tranche so the entry is made with the terminal-risk clock visible; no near-term falsifier.**
+
 **📌 POSITION-STATE (canonical 2026-07-01 PM):** **NOT yet held** — ACTIVE (initiating); OPEN INTENT ~€6-7k initial tranche from DeGiro cash ~€19,967 (user directive €10k; my rec stage below full size), remainder post-Aug-11 Q2. Per `portfolio/changes.md` 2026-07-01.
 
 ---

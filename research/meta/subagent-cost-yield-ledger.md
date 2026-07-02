@@ -96,6 +96,27 @@
 
 ## Entries (most recent first)
 
+### [2026-07-02 PM — ECTC 2026 packaging roundup ingest (user-shared SemiAnalysis full text)] 1 Opus 4.8 (targeted cross-claims; article itself = source-in-hand); HIGH — richest technical input of the week: custom-HBM mechanism for the SKH watch-line, dated ALAB optical bear-watch pre-entry, MRVL re-entry evidence, TC-5 glass increment, cooling power-density datapoint
+
+**Trigger source:** User-shared full text (SemiAnalysis ECTC-2026 roundup, paid, 2026-07-02 — fresh; B40 pass; T2 with T1-underlying conference papers).
+**Subagents fired:** 1 (Opus 4.8) — targeted verification of the 3 embedded cross-claims (Feynman custom-HBM; Marvell-Celestial close; MI450 LPDDR; TPU-v9/EMIB-T bonus) — IN FLIGHT, addendum on return. Rationale for N=1: the artifact is primary reporting provided in full; Rule #16 verification scoped to the cascade-bearing embedded claims only.
+**Estimated token cost:** pending agent return (~20-30k est).
+**Items ingested:** custom HBM (Marvell/Samsung/Nvidia-pending); HBM4E packaging difficulty (2× layers, +86% power); EMIB-T roadmap + Intel glass-core 24-layer panel first; TSMC/Microsoft direct-to-silicon cooling (5.3 kW; −50% thermal resistance on live GH200); OMIB/Lightmatter photonics; hybrid bonding 450 nm/98%; RDL 2/2→1/1 µm; Samsung VCS.
+
+**Per-item yield (main):**
+- Custom HBM: the MECHANISM for the SKH HBM-attach watch-line (two-sided: content-bull vs value-migration watch + LPDDR-attach demand vector).
+- Photonics: DATED ALAB bear-watch established PRE-entry-tranche (late-decade per the source's own EAM/yield doubts) — entry made with terminal-risk clock visible.
+- MRVL: two non-Trainium vectors accruing toward the re-entry window (no trigger fire).
+- TC-5: Intel glass-core panel first = increment. Cooling: power-DENSITY compounding = time-to-power feed.
+**Brief-framing errors caught:** none — the source itself carries honest flags (booth warpage, EAM-scale doubts, glass immaturity) which were PRESERVED rather than stripped (anti-cherry-pick).
+**Thesis cascade triggered:** HYNIX (mechanism onto watch-line) + ALAB (dated bear-watch) + MRVL (watchlist evidence) + TC-5 note.
+**Position implication delta:** NONE — ALAB enter-intent explicitly unchanged; all watch-lines, no falsifiers.
+**Material yield class:** HIGH.
+**Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-07-02-ectc-2026-packaging-roundup-semianalysis-ingest.md`
+**Commit:** (this commit; addendum commit on agent return)
+
+
 ### [2026-07-02 PM — Anthropic-Samsung custom-chip headline (user check request)] 2 Opus 4.8; HIGH — CONFIRMED-CURRENT but correctly bounded as EMBRYONIC/single-root; prevented both over-trading a soft "in talks" report AND conflation with the March OpenAI-HBM4 memory story; SKH HBM-attach watch-line established
 
 **Trigger source:** User headline check ("ANTHROPIC IN TALKS WITH SAMSUNG... : INFORMATION").
