@@ -159,6 +159,11 @@
   - Falsifier: If SNDK Q2 FY27 only +5-10% despite CATEGORY markers, L17 forward-application falsified — L14 only applies backward
   - Linked: `companies/SNDK/thesis.md`, `signals/cross-source-log/2026-06-02-kioxia-nand-volume-shock-verification.md`, `predictions/lessons.md` L14 codification + L17 candidate
 
+- [ ] **P1 / prediction / 2026-07-02** [INDP, AF, POS, CAL] — AI SUPPLY-CHAIN EARNINGS PREDICTION PROGRAM — pre-register all wave-1 names before their prints; resolve each at print
+  - Origin: user directive 2026-07-02 (consensus → hard data → LLM-native prediction: revenue + EPS + guidance; log + resolve; spawn as many agents as needed). Program spec: `predictions/2026-07-02-AI-supplychain-earnings-program.md`.
+  - Scope: per-name prediction files pre-registered BEFORE each print (Samsung prelim ~Jul-7-8 → TSMC ~Jul-16 → ASML ~Jul-15/16 → Samsung full + Murata + SKH late-Jul → BE Jul-30 [done] → SNDK Jul-31 → Sumco early-Aug → ALAB Aug-11 → Kioxia mid-Aug); grading-log stubs; GRADE each at resolution (rev/EPS/guidance + reaction, 3-layer).
+  - Linked: `predictions/2026-07-02-AI-supplychain-earnings-program.md`, `predictions/grading-log.md`
+
 - [ ] **P1 / research / 2026-07-08** [INDP, AF, POS, CAL] — Samsung Q2 PRELIMINARY results (~Jul-7-8) — first hard demand read post-07-02 selloff
   - Origin: 2026-07-02 KR/JP selloff Tier-2 verification (`signals/cross-source-log/2026-07-02-kr-jp-selloff-TIER2-verification-addendum.md`). The 07-02 drawdown was verified sentiment/valuation, NOT demand; Samsung's preliminary (revenue/OP guidance-level) is the first hard test of whether HBM/memory demand is cracking or the drawdown was pure positioning.
   - Scope: (a) capture prelim numbers + HBM commentary; (b) test vs the falsifier gate — TRIPWIRE: primary-sourced Nvidia BASE-Rubin HBM order-volume cut OR hyperscaler capex cut = the real demand signal (neither exists as of 07-02); (c) cohort reaction read-through to HYNIX (#1 position) + KIOXIA + SNDK.
