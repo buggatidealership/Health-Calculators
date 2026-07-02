@@ -37,3 +37,4 @@ Run #1 now. Standing: semi-annual OR on a major model-capability release (label-
 
 ## Status log
 - **2026-07-02:** Codified; wave 1 fired (6 agents parallel).
+- **2026-07-02 PM:** Wave 1 COMPLETE (~451k tokens). Shortlist A-1..A-13 at `signals/cross-source-log/2026-07-02-hidden-ai-apps-program-wave1-COMPLETE-register.md`; 2 cross-agent conflicts flagged (RWS, Concentrix). Wave 2 FIRED: G1 materiality/valuation + S1 discovery / S2 attribution / S3 commoditization-clawback attackers (kill >=2 of 3); S2 carries 8 pre-assigned tests incl. both conflicts + Enova macro-confound + Karnov divestment bridge.
