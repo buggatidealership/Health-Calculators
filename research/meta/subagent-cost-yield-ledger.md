@@ -96,6 +96,25 @@
 
 ## Entries (most recent first)
 
+### [2026-07-02 PM — Samsung Foundry "allocation" article (user Twitter input)] 2 Opus 4.8; HIGH + FRAMING-ERROR-CAUGHT — full B40 catch: recycled May-2 ZDNet article presented as fresh, with a misattributed TSMC price figure + a management-superseded profit-turn claim; the REAL current core (foundry demand-rationing, TSMC booked-to-2028) logged as demand-scare counter-evidence; Samsung Jul-7 prediction explicitly NOT revised
+
+**Trigger source:** User Twitter share (translated Korean article).
+**Subagents fired:** 2 (Opus 4.8) — attribution/corroboration (Korean-native); P&L/timing/wafer hard data.
+**Estimated token cost:** ~51.2k (actual subagent_tokens: 24.5k + 26.8k).
+**Items verified:** article attribution + date; 6 claims (allocation, 4nm sold-out, customers, price hike, TSMC overflow, profit turn); foundry loss band vs Q2 consensus OP; utilization/Taylor timing; Sumco wafer mix.
+
+**Per-subagent yield:**
+- Attribution: HIGH + FRAMING-ERROR-CAUGHT — pinned the article to ZDNet 2026-05-02 ("the 2nd" = May); 15-20% = TSMC's figure misattributed (Samsung ~10%); profit-turn superseded by foundry chief's 2026-06-12 ~2028 guidance (B46: newest institutional signal outranks); "NVIDIA acquired Groq" error; the TSMC-overflow core = strongest-corroborated current fact.
+- P&L/timing: HIGH — foundry loss band ₩0.6-2.7tn/qtr vs ~₩86.8-92tn Q2 OP consensus → <1.5% swing → prediction unrevised (logged in the prediction file for grading integrity); H2/2027-weighting established; HBM4 logic-die +40-50% = the real Samsung price story; ~10% DS bonus provision drag confirmed in consensus mechanics.
+**Brief-framing errors caught:** (1) two-month date-shift recycle; (2) TSMC price figure pinned on Samsung; (3) profit-turn claim superseded by newer management guidance; (4) acquisition-vs-licensing error; (5) Google "win" is under-review not signed.
+**Thesis cascade triggered:** Samsung prelim prediction file (NO-REVISION note) + SUMCO (confirmation-tier note) + B40.1 instance appended to biases-watchlist.
+**Position implication delta:** NONE — the surviving signal (foundry demand-rationing) is counter-evidence supporting existing holds; no falsifier fired.
+**Material yield class:** HIGH + FRAMING-ERROR-CAUGHT — five garbles in one shared article stopped pre-cascade; the no-revision decision on a registered prediction is itself a logged, gradeable judgment.
+**Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-07-02-samsung-foundry-allocation-RECYCLED-may2-article-2agent.md`
+**Commit:** (this commit)
+
+
 ### [2026-07-02 PM — morning AI brief two-leg ingest: Meta token-cap + Fable5/Mythos5 export episode + Henrico + SMCI (user-shared T3 brief)] 2 Opus 4.8; HIGH + FRAMING-ERROR-CAUGHT — the gate stripped 3 non-signals (hygiene/recycled/duplicate) from the demand cluster while the policy cluster verified a PC-14 refinement + promoted PD-5 to N=3
 
 **Trigger source:** User-shared morning AI brief (62 sources, T3).

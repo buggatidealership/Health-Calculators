@@ -1,5 +1,7 @@
 # Sumco Corporation (3436.T) — Thesis
 
+**⚪ 2026-07-02 PM Samsung-foundry wafer read-through — additive but memory/HBM-led (no change):** Per `signals/cross-source-log/2026-07-02-samsung-foundry-allocation-RECYCLED-may2-article-2agent.md`. Verified Samsung foundry utilization step-up (4-7nm >90%, HBM4 base-die ramp) = incremental 300mm logic pulls, but the wafer mix story remains memory/HBM-led per Sumco's own Q1-call commentary + SEMI Q1 3,275 MSI +13.1% YoY. **Position implication: ⚪ NO ACTION — confirmation-tier, no falsifier, no sizing input.**
+
 **🟡 2026-07-02 note — 07-01 LIMIT-UP +17.3% (¥4,729) VERIFIED REAL; 07-02 close UNCONFIRMED (likely down with cohort):** Per `signals/cross-source-log/2026-07-02-kr-jp-selloff-TIER2-verification-addendum.md`. The Tier-2 closes agent confirmed the limit-up was the 07-01 rally day (resolving the scan's date-confusion; the "Sumco −10% today" claim was FALSE/conflated). Extreme two-way volatility = B45 regime-normal; L24 ATH-break monitor continues. **Position implication: 🟡 HOLD 626sh / 14,0% — no size change — no falsifier; confirm the 07-02 close next scan.**
 
 **📌 POSITION-STATE (canonical 2026-07-01 PM screenshot):** held 626sh (S3X) @ BEP €22.31 · €15.653,13 · **14,0%** of ~€111,646 · no trade this window but **price €20.625→€25.005 (+21.2%) 06-27→07-01** — L24 ATH-break monitor (17-yr sideways, 2007 ATH trigger). Older in-body position %s (9.5%/10.8%) are historical.
