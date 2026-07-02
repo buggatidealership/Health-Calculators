@@ -1,0 +1,38 @@
+# HIDDEN-AI-APPLICATIONS PROGRAM — run #1 FINAL ADJUDICATION (2026-07-02)
+
+**Program:** `meta/hidden-ai-applications-program.md`. Inputs: wave-1 register + `...wave2-attacker-returns.md` (S1/S2/S3) + G1 materiality/valuation pass (agent output; ~403k wave-2 actual: G1 100.7k / S1 84.8k / S2 88.8k / S3 129.0k). Kill rule ≥2 of 3 attacker refutes; G1 overlays, cannot resurrect. All figures subagent-verified 2026-07-02, sources in agent outputs.
+
+## FINAL BOARD
+
+| Final | Name | S1/S2/S3 | Adjudication |
+|---|---|---|---|
+| ❌ DEAD | EXLS, Otsuka 4768.T, Concentrix, Morgan Stanley, Travelers+Progressive, RWS, Bureau Veritas, Verizon | 3R / 3R / 3R / 3R / ≥2R / ~2R / ~2R / 2R | Named non-AI causes: PC-refresh (Nikkei), tort reform + cat normalization, offshoring/severance, comp-plan absorption, rented models (Cohere/Adobe), bundled cost programs. RWS: G1's +38% P/S math noted but S2 (GM 43.3%→41.6% falling THROUGH the AI mix-shift; Generate +52% = one lumpy client project) + S3 (rented model) override — value-trap presumption |
+| 🟡 SOLE PROGRAM SURVIVOR | **Mistras (MG)** | S1 SURVIVES / S2 W / S3 W — 0 refutes | Only name with zero kills AND zero discovery. But: no $ disclosure of the software/AI mix (G1: re-rate not computable on the AI slice), EBITDA margin +110bps to 8.5% Q1-26 attributed to mix, and an erosion clock (SGS/BV/Intertek deploying equivalent inspection AI; day-rate volume clawback). **WATCHLIST P3 — thin thesis, honest label: TIC-discount + possible AI kicker, NOT a confirmed hidden AI winner.** Falsifier: GM <25% two consecutive quarters (per F2 register) or a TIC major wins a flagship autonomous-inspection contract in MG's O&G niche |
+| 🟡 RECLASSIFIED (real, but NOT the program's mandate — labeled honestly) | **Genpact + Cognizant** — "discovered-but-contested-value" | S1 R / S2 W / S3 W each | The market KNOWS the thesis and disbelieves it — that's contested value, not obliviousness. G1: Genpact fwd P/E 6.63x, ATS 27% of revenue driving ~77% of group growth (G1 calc), SOTP ~+62% (my model, multiple-sensitive); Cognizant fwd EV/EBITDA 4.81x lowest of its peer set, half-convergence ~+39% (my model). Risks per S2/S3: forward margin leans on India layoffs (reverses with wage inflation); capability parity on the same Copilot stack as TCS/Infosys/Wipro; renewal-cycle clawback. Class: value idea requiring its own thesis work — logged, NOT promoted as hidden-AI |
+| 🟡 RECLASSIFIED | **Karnov** — "real delta, not hidden" | S1 R / S2 SURVIVES / S3 W | The run's best attribution result: like-for-like adj EBITA margin 26.0%→28.6-29% (+260-300bps) with the HIGHER-margin EHS unit divested (should have been a headwind) — the delta is real. But fully discovered AND litigated (Nordic listicle + SB1 Markets AI-competition sell note + Feb-2026 crash on Anthropic legal-AI launch) = a two-sided public bet on content-moat vs LexisNexis-Protégé/CoCounsel entry. Q2 print 2026-08-20. Watch-only |
+| 🟡 SPECIAL SITUATION (different thesis) | **HCI/Exzeo SOTP** | S2 REFUTED the AI thesis (Florida tort reform SB 2-A/HB 837 explains the CR trajectory; litigation −36% since 2021) | The AI-efficiency thesis is dead. What G1 found instead: Exzeo standalone value ~$1.5B (mgmt, Q1-26 commentary) vs HCI mkt cap ~$2.3B → core 57%-CR Florida book residually ~$0.8B at P/E 7.17x vs peer 12.38x. That's a SOTP note, not an AI thesis — and it carries the S3 erosion evidence (FL soft market: Citizens −8.7%, State Farm −10%, 17 new entrants; Exzeo selling to competitors). Logged as a non-program flag only |
+| 🟡 TEST-TRACKING | **Enova** | S2 divergence test PASSED-weak | NCO 7.6% (lowest since Q2-23) while World Acceptance WORSENED 17.5%→18.5% and OneMain stayed flat — rules out pure credit cycle; does not prove ML causation. Track 2 more quarters of the peer spread before any candidacy |
+
+## PROGRAM VERDICT — falsifier FIRED (the honest result)
+**Zero of 13 candidates pass all five gates.** Listed, under-the-radar, successful AI applications essentially do not exist as an investable set as of 2026-07-02 — the discovery machine (retail listicles, Substacks, Bloomberg headlines, JP baskets) plus the leakage machine (below) clear the field. Per the program spec, this result feeds the END-DEMAND-DURABILITY model, not a forced stock list.
+
+## THE SURPLUS-LEAKAGE MAP (run #1 primary deliverable — evidence layer for the end-demand-durability model)
+Where AI application gains at listed companies actually go (each dated/verified in the attacker outputs):
+1. **To labor:** Morgan Stanley's 2026 comp-plan redesign (deferred comp halved, payouts raised) in the year AI@MS hit 98% adoption.
+2. **To clients:** BPO/IT-services renewal-cycle clawback; Concentrix margin collapse while 99% of revenue stays per-FTE; Cognizant passing 1/3 of Leap savings.
+3. **To competitors via soft markets:** FL homeowners (Citizens −8.7%, 17 entrants) and US auto (GEICO underwriting profit −35%, 5-of-top-10 cutting rates) — efficiency competed into premiums in real time.
+4. **To platform vendors:** Adobe (Otsuka), Cohere (RWS), Microsoft Copilot (the entire Indian IT set at capability parity).
+5. **Misattributed entirely:** PC-refresh cycles, catastrophe normalization, tort reform — three of the screen's best "deltas" had named non-AI causes.
+**Durable capture existed nowhere cleanly; nearest = proprietary-content/regulatory moats (Karnov's corpora, Mistras' qualifications) — both with dated erosion clocks.**
+2nd-order for the held book (🟡 my model, directional): application-layer AI is real, deflationary, and mostly consumer-surplus → supports TOKEN-VOLUME growth (deflation → adoption; Jevons-adjacent, consistent with the book's adjudicated real-mechanism-wrong-timing read on the memory-efficiency bear) while capping APPLICATION-layer equity capture. The book's infra positioning (memory/power) remains the better-capturing layer — no allocation change from this run.
+
+## PD-7 PROMOTION: N=1 → N=2 (cross-domain confirmation)
+The efficient-discovery pattern verified on the SUPPLY side this afternoon now confirms on the DEMAND side with an independent agent team and different evidence channels. Register updated: PD-7 N=2, upgraded CANDIDATE→TRACKED. Demand-side extension: discovery is even faster here because the label is text-searchable in transcripts; the surviving edges are (a) surplus-FLOW analysis (who keeps the gain — nobody else appears to model this systematically), (b) materiality mispricings, (c) disclosure-event triggers.
+
+## Standing outputs
+- Watchlist: Mistras P3 (erosion-clocked); notes: Genpact/Cognizant contested-value pair, Karnov real-delta watch, HCI SOTP flag (all user-gated, correctly labeled).
+- Triggers pre-registered: Karnov Q2 2026-08-20 (does the like-for-like margin hold as Protégé/CoCounsel land?); Cognizant Q2 2026-07-29 (realized Leap savings split); Enova peer-spread quarters; Mistras GM gate.
+- END-DEMAND-DURABILITY model (P1 todo): surplus-leakage map = its first hard evidence layer; the model should now distinguish token-volume durability (supported) from application-equity capture (weak).
+- Run #2: semi-annual or next major model-capability release; add G1's finding as a rubric note — 7 of 13 candidates had NO computable materiality math because the AI line is undisclosed; absence-of-disclosure is both the mispricing mechanism AND the reason most candidates can't be sized honestly.
+
+**Position implication: NO ACTION — 🟡 — one P3 watch add (Mistras, thin, erosion-clocked), reclassified notes only, all sizing user-gated; held book unchanged; the run's second-order read REINFORCES the existing infra-over-application positioning.**
