@@ -12,6 +12,9 @@ Index of every prediction made by the system. Each row resolves to "pending" or 
 |---|---|---|---|---|
 | 2026-06-12 | T+24h ~2026-06-19 to 22 (paper-dependent); T+72h ~06-22 to 25 | KIOXIA | VLSI Symposium 2026 joint Kioxia/SanDisk MSA-CBA paper (L14/L14-v2 forward-application test, L17 candidate N=1) | `2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md` |
 | **2026-06-19** | **T+5 ~2026-06-27 / T+15 ~2026-07-07 / T+30 ~2026-07-22 (primary adjudicator)** | **NBIS** | **Nasdaq-100 inclusion effective 2026-06-22 — B48 candidate "event-marker historical-pullback bias" adjudicator test + user R2 hypothesis empirical-verification** | `2026-06-19-NBIS-nasdaq-100-inclusion-pre-registration.md` |
+| 2026-07-02 | 2026-07-07 prelim (+ full ~Jul-23) | Samsung 005930 | Q2 prelim: rev ₩175-182tn (pt ₩178tn) / OP ₩88-97tn (pt ₩92tn) vs cons ₩171.37tn/₩84.98tn; cohort-barometer reaction bands | `2026-07-02-SAMSUNG-Q2-prelim-earnings-prediction.md` |
+| 2026-07-02 | 2026-07-15 | ASML | Q2: rev pt €8.95B / EPS pt €8.15 / BOOKINGS €11-14bn (pt €12.5bn) / FY26 reaffirm-upper-half P~60% | `2026-07-02-ASML-Q2-earnings-prediction.md` |
+| 2026-07-02 | 2026-07-16 (checkpoint Jul-10) | TSMC | Q2: rev pt ~$40.8B (above guide high-end; monthly-math-anchored) / EPS pt ~$4.05/ADR / Q3 guide pt ~$44B | `2026-07-02-TSMC-Q2-earnings-prediction.md` |
 | **2026-07-01** | **T+0 ~2026-07-30 (Q2 print) + T+24h reaction** | **BE** | **FY2026 guidance revision at Q2 print — ensemble (N=5) modal RAISE (floor-lift) rev $3.6-3.9B / EPS $2.05-2.35 / GM ~34-35% / Q2 ~$800M; L22 read = raise ≈ MEET vs consensus. Tests Rule #17 ensemble spread-vs-outcome + L22 + L13 vintage + L19 reaction** | `2026-07-01-BE-Q2-FY26-guide-prediction.md` |
 
 **KIOXIA T+24h grade WINDOW OPEN as of 2026-06-19 (today):** VLSI Symposium Day 5 (June 18) likely contains MSA-CBA paper presentation; T+24h stock-reaction grade actionable today through 2026-06-22. **GRADE PREP CHECKLIST:**
