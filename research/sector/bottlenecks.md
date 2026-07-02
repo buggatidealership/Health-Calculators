@@ -90,3 +90,8 @@ Per `signals/cross-source-log/2026-06-02-computex-2026-day1-synthesis.md`:
 - Rubin Ultra 600kW per-rack infrastructure (H2 2027)
 
 last_review: 2026-06-02 (Computex Day 1 INGEST)
+
+
+---
+## CANDIDATE INPUT for next BOTTLENECK-FORECAST run (logged 2026-07-02; NOT a forecast run — last_review unchanged)
+**Packaging MATERIALS + assembly-equipment as the next-next bottleneck (INF-1, P~65% my model):** per `signals/cross-source-log/2026-07-02-ectc-INFERENCE-pass-8-second-order-reads.md` — every post-CoWoS scaling path (sub-25µm bumps, panel warpage/overlay, sub-2µm damascene RDL, microfluidic sealants, glass edge-chemistry) gates on a materials/equipment layer dominated by TSE-listed Japanese chemistry names + bonding-tool vendors (BESI Tier-S). The capacity-slot bottleneck (CoWoS) is priced and now has credible second-sources (EMIB-T cert end-2026); the enabling-layer bottleneck is not. Evaluate for the "next 12-24mo" slot at the next full forecast run alongside the existing power/HBM entries.

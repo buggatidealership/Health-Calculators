@@ -1776,3 +1776,15 @@ Per `signals/cross-source-log/2026-06-30-ALAB-vs-MRVL-connectivity-innovation-an
 - Causal chain: if power binds (S3 / time-to-power thesis), firm-power + grid/nuclear EQUIPMENT suppliers win regardless of which chip wins — Doosan Enerbility (nuclear components, power-gen equipment, HVDC-adjacent) = the un-modeled second-source expression the bypass-route framework asks for. Trump May-2026 nuclear-revival EOs + K-nuclear export pull = tailwind.
 - ⚠️ INVESTABILITY: KRX-listed — user brokers cannot access directly (CLAUDE.md filter) → REFERENCE ARTIFACT; value = thesis-validation read for the power leg (BE et al.) + watch for any ADR/accessible expression.
 - Also logged same scan: **Taiyo Yuden (6976.T)** +13.3% on 07-01 (TSE-accessible, L24 origin case) — second-source read on the Murata MLCC-supercycle thesis; already tracked via L24/TC-6; increment only.
+
+
+## [2026-07-02] JAPANESE PACKAGING-MATERIALS CLUSTER (INF-1, ECTC inference pass) — TSE-investable new surface
+- Surfaced by: `signals/cross-source-log/2026-07-02-ectc-INFERENCE-pass-8-second-order-reads.md` (my model, P~65% next-next bottleneck). The same Japanese chemistry names appear at EVERY packaging frontier in the ECTC record: **Resonac (4004.T)** panel dry-film bridge + damascene RDL; **TOK (4186.T)** 150°C/10-sec bonding; **Mitsui Chemicals (4183.T)** pressure-less Cu/polymer bonding; **Sumitomo Bakelite (4203.T)** low-shrink dielectric; **Ushio (6925.T)** full-panel litho (1.5/1.5µm, 18-reticle field). + BESI (already Tier-S) and Applied/EVG at the bonding-tool layer.
+- Causal chain: packaging value migrating from capacity-slots (priced) to enabling materials/equipment as sub-25µm bumps, panel warpage, damascene CMP, and glass edge-chemistry become the gating steps (2027+ per the hybrid-bonding refinement timeline).
+- Investability: ALL TSE — passes the broker filter (unlike KRX names). Rhymes with the held Japan-materials thesis (Murata/Sumco).
+- Next step: one deep-dig on the cluster (revenue exposure % to advanced packaging per name — avoid B15 revenue-mix-anchoring by doing the BOM/qual-position work) before any P1/P2 promotion.
+
+## [2026-07-02] MICROFLUIDICS DISRUPTION WATCH (INF-4) — cooling-value-chain displacement vector, 2027-28
+- Per the same inference pass (P~50%, my model). TSMC micropillar direct-to-silicon (5.3 kW/package) + Microsoft live-GH200 microchannels (−50% package thermal resistance, 6-month reliability) = lab→deployment-path transition in 2026.
+- Watch BOTH sides: LOSERS = TIM suppliers + cold-plate specialists at the silicon interface (the consensus long-liquid-cooling trade doesn't price this); WINNERS = TSMC/OSAT integration layer (sealant/process ownership). CDUs/loops/facility-side cooling REMAIN needed either way.
+- Trigger to act: first production accelerator SKU announced with direct-to-silicon cooling.
