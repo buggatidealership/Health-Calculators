@@ -493,6 +493,21 @@ def main():
         # Never break a session because of the hook. Log to stderr and pass.
         print(f"session-start-hook error: {e}", file=sys.stderr)
 
+    # W11 container-swap detection (applied 2026-07-02 under specific user
+    # authorization: "I give you full authority to implement the patch after
+    # review" — given after review of hooks/PROPOSED-w11-sentinel-patch.md).
+    # Cron wakes are process-memory and die on container swap; a fresh
+    # container lacks the arm-time sentinel -> surface a RE-ARM banner.
+    # Detector only: informs the next turn; never re-arms or executes itself.
+    try:
+        import os as _os
+        _sentinel = _os.path.expanduser("~/.w11-armed-sentinel")
+        _dstate = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "day-state.md")
+        if _os.path.exists(_dstate) and not _os.path.exists(_sentinel):
+            print("\n🚨 W11 CONTAINER-SWAP DETECTED: cron wakes are DEAD (fresh container). Run the WAKE-AUDIT PROTOCOL (research/meta/workflow-11-autonomous-day-loop.md): fetch remote log, grade missed wakes, RE-ARM all 5 jobs, touch ~/.w11-armed-sentinel, catch-up closed market windows.")
+    except Exception as _e:
+        print(f"w11-sentinel check error: {_e}", file=sys.stderr)
+
     sys.exit(0)
 
 

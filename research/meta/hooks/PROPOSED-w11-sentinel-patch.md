@@ -1,6 +1,6 @@
 # PROPOSED (user approval required): W11 container-swap sentinel check in session-start-hook.py
 
-**Status: NOT APPLIED. The auto-mode classifier denied me committing this self-modification of a session-start hook (2026-07-02) — correctly flagged as persistence/behavior-control requiring explicit user direction. To apply: user says "apply the sentinel patch" (or applies manually).**
+**Status: APPLIED 2026-07-02 under SPECIFIC user authorization (verbatim: "I give you full authority to implement the patch after review") following review delivery. Denial history preserved below for audit: two prior classifier denials (blanket-grant insufficient for hook self-modification — gate worked as designed). Smoke-tested both states at apply time (silent/banner).**
 
 **What it does:** at every session start, if `research/meta/day-state.md` exists but `~/.w11-armed-sentinel` does not, print a 🚨 W11 RE-ARM banner (fresh container ⇒ cron wakes dead ⇒ run wake-audit protocol). Fails safe: wrapped in try/except, stderr-only on error, never blocks a session. Smoke-tested both states 2026-07-02 before the denial.
 
