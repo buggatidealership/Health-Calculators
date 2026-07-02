@@ -34,3 +34,11 @@ POSITIVE: ledger yield distribution of autonomous wakes matches user-triggered m
 
 ## Status log
 - 2026-07-02: Codified; day-state.md created; 5 jobs armed (see day-state header).
+
+## WAKE-AUDIT PROTOCOL (codified 2026-07-02 PM; user command: "wake audit")
+On the phrase "wake audit" (or any morning check-in after an autonomous window), execute deterministically:
+1. `git fetch origin` + read remote branch log since the last user-attended commit — overnight wake commits are identified by TIMESTAMP (02:22/08:23/14:52/22:17 CEST ±jitter). Remote history = ground truth (survives container swaps; user-verifiable on GitHub independently).
+2. `CronList` — empty ⇒ container swapped since arming ⇒ jobs dead (CronCreate state is PROCESS-memory, not session-transcript; a container change kills the scheduler even though the session "never closes" — user-confirmed operating reality 2026-07-02).
+3. GRADE the wake window vs the WAKE-1 pre-registration in `day-state.md` (PASS / PARTIAL / FAIL-infrastructure) → ledger entry.
+4. RECOVER: re-arm all 5 jobs if absent (update day-state armed-header); run catch-up scan for any missed slot whose market window already closed.
+5. REPORT: one table — slot | fired? (commit SHA/time) | produced | verdict — plus, on FAIL-infrastructure, restate the standing conclusion: perpetuity requires a platform-level scheduled trigger (user-side one-time setup; docs: code.claude.com Claude Code on the web — triggers), not longer-lived containers.
