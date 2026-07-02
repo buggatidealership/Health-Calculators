@@ -15,6 +15,9 @@ Index of every prediction made by the system. Each row resolves to "pending" or 
 | 2026-07-02 | 2026-07-07 prelim (+ full ~Jul-23) | Samsung 005930 | Q2 prelim: rev ₩175-182tn (pt ₩178tn) / OP ₩88-97tn (pt ₩92tn) vs cons ₩171.37tn/₩84.98tn; cohort-barometer reaction bands | `2026-07-02-SAMSUNG-Q2-prelim-earnings-prediction.md` |
 | 2026-07-02 | 2026-07-15 | ASML | Q2: rev pt €8.95B / EPS pt €8.15 / BOOKINGS €11-14bn (pt €12.5bn) / FY26 reaffirm-upper-half P~60% | `2026-07-02-ASML-Q2-earnings-prediction.md` |
 | 2026-07-02 | 2026-07-16 (checkpoint Jul-10) | TSMC | Q2: rev pt ~$40.8B (above guide high-end; monthly-math-anchored) / EPS pt ~$4.05/ADR / Q3 guide pt ~$44B | `2026-07-02-TSMC-Q2-earnings-prediction.md` |
+| 2026-07-02 | ~2026-07-07 | Samsung (prelim; cohort keystone) | rev pt ₩178tn / OP pt ₩92tn vs cons ₩84.98tn (P beat ~70%); re-open amplifier bands | `2026-07-02-SAMSUNG-Q2-prelim-prediction.md` |
+| 2026-07-02 | 2026-07-15 | ASML | rev pt €8.95B / EPS pt €8.20 / bookings pt ~€12.5bn (LOW conf, INPUT gap flagged) | `2026-07-02-ASML-Q2-earnings-prediction.md` |
+| 2026-07-02 | 2026-07-16 | TSMC | rev pt $40.1B (guide-anchored; SELF-CORRECTION logged — monthly math not held; v2 at Jul-10 June monthly) / EPS pt $3.90 / capex-raise P~55% | `2026-07-02-TSMC-Q2-earnings-prediction.md` |
 | 2026-07-02 | ~2026-07-29 | SK Hynix (HELD #1) | Q2: rev pt ₩88tn / OP pt ₩68tn (vs cons ₩63.0tn; P(beat)~75%) / NI pt ~₩51tn; 2027-HBM-language pre-registered; v2 ensemble T-5d | `2026-07-02-SKHYNIX-Q2-earnings-prediction.md` |
 | 2026-07-02 | 2026-07-31 | Murata (HELD) | Q1 FY27: rev pt ¥505bn / OP pt ¥105bn (price-hike quarter front-load) / P(FY-raise)~25%; v2 T-5d | `2026-07-02-MURATA-Q1FY27-earnings-prediction.md` |
 | 2026-07-02 | late-Jul→Aug-13 (date TBC) | SanDisk (HELD) | Q4 FY26: rev pt $8.4B (above guide high) / NG EPS pt $33.5 / Q1-FY27 guide pt ~$9.2B; v2 T-5d + L17 leg | `2026-07-02-SNDK-Q4FY26-earnings-prediction.md` |

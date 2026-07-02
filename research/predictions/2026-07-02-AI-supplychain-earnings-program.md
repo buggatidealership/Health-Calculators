@@ -38,3 +38,5 @@
 
 ## Anti-decorative falsifier (program level)
 If after one full earnings season the LLM-native calls are NOT measurably differentiated from consensus (i.e., every prediction ≈ consensus ± noise, adding no information) → the program is decorative; refine toward the components where hard-data actually gave edge (e.g., TSMC-monthly-revenue-anchored calls) or retire. Conversely, graded hits vs consensus on rev/EPS/guidance = the direct measurement of the harness's "own analytical and predictive components" the user asked to evaluate.
+
+- **2026-07-02 PM integrity note:** the three near-print calls (Samsung/ASML/TSMC) were initially chat-only — registered as files same-day (Rule #13 catch). The wave-1 foundry/equipment hard-data agent NEVER RETURNED (TSMC monthlies + ASML Q1 bookings + SEAJ billings missing) → TSMC call carries a visible Rule #11 self-correction (chat claim overstated the data held) + a pre-committed v2 checkpoint at the Jul-10 June monthly; ASML bookings call flagged LOW confidence. Re-pull these inputs at each v2.
