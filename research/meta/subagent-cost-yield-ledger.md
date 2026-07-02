@@ -96,6 +96,25 @@
 
 ## Entries (most recent first)
 
+### [2026-07-02 PM — morning AI brief two-leg ingest: Meta token-cap + Fable5/Mythos5 export episode + Henrico + SMCI (user-shared T3 brief)] 2 Opus 4.8; HIGH + FRAMING-ERROR-CAUGHT — the gate stripped 3 non-signals (hygiene/recycled/duplicate) from the demand cluster while the policy cluster verified a PC-14 refinement + promoted PD-5 to N=3
+
+**Trigger source:** User-shared morning AI brief (62 sources, T3).
+**Subagents fired:** 2 (Opus 4.8) — demand cluster; policy/power cluster.
+**Estimated token cost:** ~34.5k (actual subagent_tokens: 17.1k + 17.5k).
+**Items verified:** 7 (Meta token cap; METR-recycle; Meta-cloud dedup; Fable5/Mythos5 export controls; Kimi-in-Copilot; Henrico VA; Supermicro raids).
+
+**Per-subagent yield:**
+- Demand: HIGH + FRAMING-ERROR-CAUGHT — Meta cap = corporate hygiene on THIRD-PARTY tool opex (73.7T tokens/30d, Claudeonomics/Goodhart), NOT product-inference/capex → correctly kept OUT of U8/F13; METR study = 2025-07-10 recycled; Meta cloud = duplicate. Zero false cascades into the memory theses.
+- Policy/power: HIGH — first-ever model-tier BIS licensing episode (imposed 06-12/withdrawn 06-30; capability-parity the durable datapoint); Kimi K2.7 first open-weight model in Copilot (T1); Henrico 24.9% hike → PD-5 N=3 PROMOTION; SMCI raids = hardware-enforcement intensification. Cross-item thread verified: bifurcation binds at the physical layer.
+**Brief-framing errors caught:** (1) Meta-cap framed as demand-relevant — actually third-party-tool hygiene; (2) METR 2025 study as fresh (B40); (3) Meta-cloud re-reported as new; (4) "restores Claude Fable 5" — actually TWO models (+ Mythos 5); (5) "400+ data centers in the county" — statewide figure (Henrico = 37+17).
+**Thesis cascade triggered:** `companies/BE/thesis.md` (PD-5 N=3 BTM-push reinforcement) + `meta/cross-domain-pattern-register.md` (PC-14 hardware-layer refinement + PD-5 promotion). NO memory-thesis cascades (gate held).
+**Position implication delta:** NONE — BE intent staging unchanged; source-quality downweight logged for the MLQ aggregator.
+**Material yield class:** HIGH + FRAMING-ERROR-CAUGHT — five garbles/recycles stopped; one pattern promoted on verified N=3; one register refinement locked with T1 anchors.
+**Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-07-02-morning-brief-two-leg-meta-cap-fable5-export-henrico-smci-2agent.md`
+**Commit:** (this commit)
+
+
 ### [2026-07-02 PM — US morning scan (2-leg): Leg A anchored + Leg B discovery (rates-regime blind spot)] 2 Opus 4.8; HIGH — Leg B surfaced the macro module the harness lacks (Fed-hike regime + leverage hard data = the user's over-leverage read quantified); Leg A caught the NBIS −17%-vs−12% discrepancy + Apple/CXMT thread + the half-day/holiday schedule
 
 **Trigger source:** User "good morning US" (Workflow #10).
