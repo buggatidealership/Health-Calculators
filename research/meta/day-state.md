@@ -42,3 +42,9 @@ Per `signals/cross-source-log/2026-07-03-AM-global-overnight-queued-verification
 4. Nvidia buyback: no second vendor (AMD/Google) confirmed; PD-8 candidate status unchanged; 10-Q (~Aug) still the cleanest pending tell.
 5. Weekend calendar: reads LIGHT — no OPEC/BOJ meeting in Jul-4-6 window, US NFP already out Jul-2 (in-line), no Korea CPI in window. Samsung prelim (~Jul-7) remains the dominant post-weekend catalyst.
 **Cascade:** NBIS/thesis.md + SNDK/thesis.md updated same-commit (falsifier flag + close confirmation respectively).
+
+## 2026-07-03 PM — user Twitter input (Samsung Q3 DRAM article) ingested, 2-agent verification COMPLETE
+1. Samsung Q3 +20% = ZDNet Korea FRESH, single-source negotiating target → Jul-23 cycle input; **NO revision to the Jul-7 prelim prediction** (Q1/Q2 ASP trajectory corroborates already-modeled inputs).
+2. **Micron 16 LTAs 🟢 T1-CONFIRMED in Micron's own 06-24 disclosures** (16 SCAs, 14 carrying the $100B RPO; take-or-pay CY2026-2030; floor set to guarantee GM above any prior cycle peak; ~20% DRAM / ~33% NAND volume; $22B collateral).
+3. **SNDK GLUT-DIVERGENCE ADJUDICATED (Monday task RESOLVED EARLY): LTA-floor framing WINS for 2026-2028.** The glut narrative has no single seed — three fresh-but-mismatched triggers (Korea ₩800tn plan = DRAM/HBM-packaging-side not NAND; Burry short = psychology; Morningstar's quantified warning explicitly dates the downturn to 2029-2030). Market priced a 2029-30 risk into a Jul-1/2 tape = DURATION MISMATCH. Glut → out-year falsifier list, not a current-price input. SNDK + KIOXIA: HOLD, no falsifier fired, thesis cascades written by agent.
+Ledger: +2 fires (171.2k + 131.6k ≈ 302.8k), both HIGH. Artifacts: `2026-07-03-samsung-q3-dram-asp-20pct-verification.md` + `2026-07-03-mu-16lta-verify-plus-sndk-glut-narrative-source-adjudication.md`.
