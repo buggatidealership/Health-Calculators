@@ -54,3 +54,26 @@ On the phrase "wake audit" (or any morning check-in after an autonomous window),
 **Change 3 — wake atomicity rule:** a wake COUNTS only if its terminal commit+push landed (ledger entry = completion marker). Swaps mid-wake leave nothing ambiguous: the repo only contains completed wakes; missing slots are detected by commit absence and caught up.
 
 **Self-correction note (Rule #11, visible):** commit 936a5949's message claimed this section was included — it was not (the original write was inside the classifier-denied command). This commit adds it; the denial event itself is logged in the PROPOSED-patch file.
+
+## SOURCE ROSTER (codified 2026-07-03 per user directive — the TrendForce-every-day requirement generalized)
+
+**Design principle:** discovery legs (B60) stay unanchored, but the ANCHORED leg of every wake must sweep a NAMED roster deterministically — a human investor's "check my sources" morning ritual, made enumerable and auditable. Generic "scan the news" prompts under-sample specific sources; only an explicit checklist + coverage log guarantees daily coverage.
+
+### Roster v1 (per-wake assignments)
+| Source | Wake | Method (fetch often 403s — fallbacks mandatory) | Why |
+|---|---|---|---|
+| **TrendForce** (trendforce.com press center + insights) | KR/JP wake daily | Search "TrendForce" news sweep + site:trendforce.com + TW/KR relays (經濟日報, DigiTimes, ETNews) | THE contract-price data layer under the whole memory prediction board |
+| THE ELEC / ETNews / 조선비즈 | KR/JP wake daily | Native search | KR memory/HBM primary trade press |
+| kabutan/日経 market wrap | KR/JP wake daily | Native search | Held-JP-name session attribution |
+| DigiTimes | KR/JP wake daily | Search relay | TW supply-chain |
+| Exchange filings (SEC 8-K/6-K for held/watch ADRs; TDnet for TSE names) | US + EOD wakes | Search per name | T1 event layer |
+| SemiAnalysis (public posts) | US wake daily | Search (paywall = headline-level) | Aggregator tier — read as T2, one step behind our own upstream program |
+| FnGuide consensus moves (held-KR names) | KR/JP wake, T-7 to print | Search via KR press | L22 consensus-bar tracking |
+
+### The five conditions (what must be true)
+1. **Named enumeration** — the roster above IS the wake checklist; "TrendForce" appears by name in the anchored-leg prompt of every KR/JP wake. (Was missing: prompts said "two-leg scan" generically.)
+2. **Coverage instrumentation** — every wake's artifact ends with a `SOURCE-COVERAGE:` line (roster hits/misses + last-seen date per source). The wake-audit + EOD hygiene catch "TrendForce not swept in N days" as a protocol failure, same class as a missed slot. (Was missing.)
+3. **Fetch-reality fallbacks** — direct fetches 403 in this sandbox; each roster entry carries its search-relay path (verified working today: TrendForce data reached via relays three times this week). (Existed de facto; now codified.)
+4. **Dedup registry** — `day-state.md` carries a last-seen line per roster source (survey date/ID) so daily sweeps diff instead of re-ingest; TrendForce publishes rolling updates — the diff IS the signal. (Was missing.)
+5. **Wake reliability** — all of the above only runs if wakes fire: the standing platform-trigger dependency (WAKE-1 conclusion) is unchanged and remains the binding constraint on "every day" being literal.
+**Anti-decorative falsifier:** if 30 days of coverage logs show a roster source swept daily with ZERO new-datapoint yield, demote it to weekly — the roster must earn its slots like everything else.
