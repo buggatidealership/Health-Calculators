@@ -1,6 +1,6 @@
 # ASMPT (0522.HK) — Thesis
 
-**Created:** 2026-07-03 (4-agent deep dive; artifact `signals/cross-source-log/2026-07-03-asmpt-4agent-deep-dive.md`)
+**Last updated:** 2026-07-03 — FULL REBUILD via 4-agent deep dive (artifact `signals/cross-source-log/2026-07-03-asmpt-4agent-deep-dive.md`), SUPERSEDING the 2026-05-25 Phase-1 stub (git history: 3026a6f1 → a49337a7). Material revisions vs the stub: (1) the stub's headline '35-40% TCB share' carried WITHOUT the HBM-specific 5.6% reconciliation — now corrected; (2) stub's anti-fragility 4/5 assumed 'all 3 HBM vendors' breadth — cut to 3/5 (Samsung=Semes, Micron closed); (3) stub's 2-4% entry framing replaced by catalyst-gated no-entry; (4) stub's ASML-entering-HB bear point (TrendForce Mar-2026) RETAINED as a watch item the new dive did not re-check — carry forward.
 **Tier:** WATCHLIST-P1 (investable — user-confirmed DeGiro HK access 2026-07-03)
 **Position target:** none pre-registered — entry user-gated
 **Anti-fragility: 3/5** (wins: HBM-capex boom [TCB demand]; custom-ASIC/logic-packaging boom [sole-POR franchise — its cleanest leg]; partial: HCB transition [bridge #2]. Loses: capex-digestion; AI-funding-shock.)
