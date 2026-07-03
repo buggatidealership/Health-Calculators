@@ -54,3 +54,7 @@ Ledger: +2 fires (171.2k + 131.6k ≈ 302.8k), both HIGH. Artifacts: `2026-07-03
 - THE ELEC: HBM4E 12-hi pull-forward (seen 07-03 KR leg). FnGuide: Samsung OP cons ₩84.98tn (seen 07-03). SemiAnalysis: Meta-Compute rebuttal (seen 07-03). Others: baseline as of 07-03 scans.
 
 Ledger 07-03 running total: +1 TrendForce verify (98.3k, HIGH) → day now 13 fires ≈ 1.03M, zero ZERO-yield.
+
+## 2026-07-03 EVE — NBIS SOLD (user-reported) + new sell-side pricing datapoint
+1. **NBIS: SOLD ALL 30sh per user (verbal).** changes.md updated; holdings.md awaits screenshot (canon); NBIS thesis transitions to WATCHLIST-REFERENCE per its exit banner; T+15/T+30 inclusion grades still resolve on schedule. Monday-execution item in the package is SUPERSEDED — done early.
+2. **New broker note (screenshot, source unidentified — verification in flight):** DDR contract +32% QoQ 3Q26 (raised from +17%) / +18% 4Q26, after +67% 2Q26; DRAM undersupplied to ≥2Q28 (2027 demand +36.2% vs supply +19.3%, sufficiency −13.6%); NAND +30% 3Q26 / +12% 4Q26, upcycle ≥4Q27; memory industry revenue $992bn 2026 / $1,763bn 2027; MAIN RISK = customer affordability, hyperscalers tapping capital markets (→ funding-shock node input). **Q3 DRAM DISPERSION NOW WIDE: TrendForce +13-18% vs Samsung-ask +20% vs this note +32% — the spread is the signal; reconciliation agent fired (basket/definition differences suspected). NO prediction revisions pending source-ID + reconciliation.**
