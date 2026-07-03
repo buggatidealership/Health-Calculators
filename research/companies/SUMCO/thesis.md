@@ -1,3 +1,6 @@
+**📌 [2026-07-03] WAFER PRICE-HIKE CYCLE MATERIALIZING — thesis-confirming tape.** +9.26% to ¥5,001 (14:57 JST) ON TOP of the 07-01 +17.37% limit-up (cumulative ~+23%/3 sessions, my calc; B45: reported neutrally). Structural driver T1/T2-verified: Shin-Etsu/SUMCO/GlobalWafers June 12-inch hikes (2nd this year, cumulative >15%; general +5-8%, AI/HPC +18-22% as 3-yr LTAs roll off; AI-server 12" demand 3.8× general-server). This is the held thesis's pricing-power leg materializing. Q2 prediction (Aug-12, op result better-than-guided) UNCHANGED — the hikes land mostly H2+. Per `signals/cross-source-log/2026-07-03-kr-jp-morning-fullteam-scan.md`.
+**Position implication: HOLD — no size change — 🟡 — thesis reinforced; no add at +23%/3-sessions without a pullback or the Aug-12 print confirming.**
+
 # Sumco Corporation (3436.T) — Thesis
 
 **⚪ 2026-07-02 PM Samsung-foundry wafer read-through — additive but memory/HBM-led (no change):** Per `signals/cross-source-log/2026-07-02-samsung-foundry-allocation-RECYCLED-may2-article-2agent.md`. Verified Samsung foundry utilization step-up (4-7nm >90%, HBM4 base-die ramp) = incremental 300mm logic pulls, but the wafer mix story remains memory/HBM-led per Sumco's own Q1-call commentary + SEMI Q1 3,275 MSI +13.1% YoY. **Position implication: ⚪ NO ACTION — confirmation-tier, no falsifier, no sizing input.**
