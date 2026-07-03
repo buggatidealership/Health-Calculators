@@ -1,3 +1,5 @@
+**STATUS: APPROVED — OPTION A (user reply "a", 2026-07-03). Execute: SELL 30 sh NBIS Monday 2026-07-06. holdings.md updates ONLY on post-trade screenshot per canon.**
+
 # DECISION PACKAGE — NBIS falsifier adjudication (issued 2026-07-03; the W11 protocol's first live package)
 
 **Trigger:** written trim-falsifier (2026-06-26: "−15% from $275.50 ≈ $234.18 by 2026-07-22") BREACHED — verified Jul-2 close $211.12 = −23.37% from reference (5-source convergence 2026-07-03; strict-T1 blocked by sandbox fetch limits). Position: 30 shares ≈ 5,4% of book (trimmed 58→30 on 07-01 pre-crash).

@@ -657,3 +657,5 @@ User has explicitly stated narrative-driven-momentum framing trumps wait-for-pul
 **Remaining open legs of the 2026-07-01 reallocation:** ALAB ~€6-7k + BE ~€7-8k initial tranches (NOT yet executed; cash available); second tranches staged around BE Q2 ~Jul-30 / ALAB Q2 ~Aug-11.
 
 **Position implication: 🟢 EXECUTED (user) — SKH trim + NBIS trim confirmed by screenshot; holdings.md canonical refreshed; ALAB/BE entries remain the open user-gated legs.**
+
+- **2026-07-03 — PLANNED (user-approved decision package A): SELL 30 sh NBIS on Monday 2026-07-06** — falsifier-fired exit (verified $211.12 Jul-2 close vs $234.18 pre-registered line; ensemble 2/3 TRIM; package `decision-packages/2026-07-03-NBIS-falsifier-adjudication.md`). Est. proceeds ~$6.3k (~€5.4-5.8k FX-dependent, estimate) → joins parked cash pool (BE/ALAB earmarks unchanged, all entries still user-gated at watch-list). EXECUTED status + actuals ONLY on post-trade screenshot.

@@ -18,7 +18,7 @@
 5. Discovery programs closed (run #1 both); next: oblivious-layer run #2 2026-10-02 or roadmap event; hidden-AI-apps semi-annual or model release.
 
 ## Pending decision packages
-**1 OPEN: `portfolio/decision-packages/2026-07-03-NBIS-falsifier-adjudication.md`** — TRIM/EXIT 30sh recommended (ensemble 2/3 A, spread reported); expiry Monday 2026-07-06 US close; user decides.
+**RESOLVED: NBIS package → APPROVED A (2026-07-03).** Execute SELL 30sh Monday 2026-07-06; confirm via screenshot; then holdings/INDEX/session-prime cascade. Inbox otherwise empty.
 
 ## Yesterday/today digest (2026-07-02 — written at arm time; EOD wake takes over from tomorrow)
 Full-day summary lives in the session commits `99cf1a7d`..`e489204d`: enabling-layer map, two discovery programs (both falsifiers fired honestly), earnings-prediction board complete (10 names), evening-brief cascades (SKH long-horizon plan / Meta-Compute confirmed / Nvidia buyback / PD-8 candidate).
