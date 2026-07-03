@@ -17,3 +17,5 @@ Q3 FY26 actual $5.95B +97% QoQ (T1) — the guide embeds ~+30-39% QoQ; the quart
 1. Rev <$7.75B (guide miss in a sold-out quarter = acceptance/timing problem — serious)
 2. GM <79% (pricing not flowing = LTA cap tighter than modeled)
 3. Backlog shrinks or NCNR framework weakens under audit (the L17 test leg)
+
+**[2026-07-03 input note] TrendForce Q3 NAND +10-15% QoQ (verified, `signals/cross-source-log/2026-07-03-trendforce-q3-price-survey-verification.md`): the Q1-FY27 guide point ~$9.2B implies ~+9.5% QoQ — below/in-line with the band → REINFORCING, no revision. NAND deceleration profile (Q2 +70-75% peak → Q3 +10-15%) now on file for the reaction-band read.

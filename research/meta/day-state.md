@@ -50,5 +50,7 @@ Per `signals/cross-source-log/2026-07-03-AM-global-overnight-queued-verification
 Ledger: +2 fires (171.2k + 131.6k ≈ 302.8k), both HIGH. Artifacts: `2026-07-03-samsung-q3-dram-asp-20pct-verification.md` + `2026-07-03-mu-16lta-verify-plus-sndk-glut-narrative-source-adjudication.md`.
 
 ## SOURCE-ROSTER LAST-SEEN REGISTRY (dedup layer, codified 2026-07-03)
-- TrendForce: Q3-2026 contract-price survey (DRAM +13-18% / NAND +10-15% QoQ) — user-shared 2026-07-03, verification in flight; prior seen: Q2 bands (DDR5 +58-63% guided) via prediction files.
+- TrendForce: Q3-2026 survey VERIFIED 2026-07-03 (DRAM +13-18% / NAND +10-15%; full Q1→Q3 deceleration table in `2026-07-03-trendforce-q3-price-survey-verification.md`). Next expected: Q3 revision ~Aug / Q4 forecast ~Sep-30 per cadence.
 - THE ELEC: HBM4E 12-hi pull-forward (seen 07-03 KR leg). FnGuide: Samsung OP cons ₩84.98tn (seen 07-03). SemiAnalysis: Meta-Compute rebuttal (seen 07-03). Others: baseline as of 07-03 scans.
+
+Ledger 07-03 running total: +1 TrendForce verify (98.3k, HIGH) → day now 13 fires ≈ 1.03M, zero ZERO-yield.

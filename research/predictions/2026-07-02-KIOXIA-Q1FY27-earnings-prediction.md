@@ -17,3 +17,5 @@ Q4 FY26 actual ¥1,002.9bn rev (+84.5% QoQ) / NI ¥407.7bn (T1 via Blocks&Files)
 ## Falsifiers
 1. Rev <¥1.1tn (repricing failing to flow — would contradict the sold-out + contract-price data)
 2. Bit-shipment guidance CUT (volume, not price, cracking = real demand signal for the NAND pair)
+
+**[2026-07-03 input note] TrendForce Q3 NAND +10-15% (verified, same artifact): REINFORCES the conservative-initial-FY-guide call (P~70% (my model)) — management guiding off the decelerating Q3 trend rather than Q2's +70-75% peak mechanically yields the predicted pattern. No revision.
