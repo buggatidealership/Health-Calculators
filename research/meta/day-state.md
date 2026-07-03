@@ -1,7 +1,6 @@
 # DAY-STATE — the autonomous-loop working memory (Workflow #11)
 
-**ARMED SCHEDULE (session cron; armed 2026-07-02 PM; session-scoped + 7-day expiry — re-arm per Workflow #11 if this header is >6 days old or CronList is empty):**
-KR/JP 02:22 daily · EU 08:23 daily · US pre-market 14:52 daily · EOD synthesis 22:17 daily · Weekend deep-work Sat 10:03.
+**ARMED SCHEDULE (re-armed 2026-07-03 ~10:10 UTC after WAKE-1 FAIL-infrastructure — process death overnight, see `signals/cross-source-log/2026-07-03-WAKE1-audit-FAIL-infrastructure-process-death.md`): MINIMAL TWO-SLOT SET, UTC-explicit: KR/JP 00:22 UTC daily + EOD 20:17 UTC daily. EU/US slots restored only if today's process survives to EOD. STANDING CONCLUSION: all in-session scheduling is best-effort; perpetuity requires the user-side platform trigger.**
 
 ## Catalyst clock (next 7 days)
 - **~2026-07-07: SAMSUNG Q2 PRELIM — THE KEYSTONE.** Pre-registered: OP pt ₩92tn vs cons ₩84.98tn (`predictions/2026-07-02-SAMSUNG-Q2-prelim-prediction.md`). First prediction-board resolution; adjudicates positioning-vs-fundamentals for the whole correlated board. Lands in the KR/JP 02:22 wake. GRADE + cascade + notify (materiality gate (c) likely passes either way on the keystone).
