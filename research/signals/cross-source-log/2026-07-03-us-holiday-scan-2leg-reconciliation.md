@@ -14,3 +14,18 @@ EN-side agent claimed "Samsung Q2 prelim = 2026-07-23 (full report), not Jul-7."
 ## Leg B
 Top-5 pattern: every major story = "AI capex/financialization meets a skeptical tape" (soft jobs +57K, Meta Compute, OpenAI 5% govt stake, Dow-record-vs-Nasdaq-down divergence, Warsh hold) — converging on WHO BEARS AI-INFRA RISK (neocloud debt / taxpayers / hyperscaler balance sheets) = PD-8 confirmation-in-tone (no N increment; same-week sources).
 **Absence question (novel, logged as discovery note):** nobody has written the supply-chain-allocation implication of GOVERNMENT EQUITY in AI labs — if Washington holds stakes, does NAND/DRAM/power allocation get politically prioritized in a shortage? Touches held memory names + BE. Parked as a PC-14-adjacent watch question — no vehicle, no action.
+
+## CLOSES RECONCILIATION (agent 2 returned; 70.4k tokens; URLs in output)
+| Ticker | Jul-2 close | Daily % | Verdict |
+|---|---|---|---|
+| NVDA | $194.83 | −1.39% (calc) | VERIFIED |
+| ALAB | $402.48 | −6.59% | VERIFIED (→ −19.4% below ATH $499.48) |
+| CRWV | $81.75 | −4.6% | VERIFIED — the "−14%" headlines were JUL-1's move mislabeled onto Jul-2 (day-conflation garble, same pattern as NBIS) |
+| SNDK | $1,745.00 | mode ≈ −14.13% (quoted range −13.35 to −15.79%) | PRICE VERIFIED / % noisy → SNDK thesis updated with price only |
+| MU | ~$975.6-978.6 | ≈ −5.5% after −10.57% Jul-1 | VERIFIED-lean — memory ground-truth confirms a TWO-DAY cohort skid (Bloomberg framing), catalysts = AVGO muted guide (Jun) + Meta Compute |
+| ONTO | $307.58 | −12.46% single-lineage | STILL-CONFLICTING (→ ~−20.4% below ATH if it holds) — the pre-entry quote-resolution condition on ONTO REMAINS OPEN |
+| BE | **$299.71 (lean)** — the $270.89 datum is IMPOSSIBLE (below the day's own reported low $283.50) and is DISCARDED | ≈ −1% | LEAN-VERIFIED — matches yesterday's ATH-distance table figure (−14.7% below $351.28); the global-overnight leg's $270.89 was bad data, corrected here |
+| AVGO | $360.45/$377.75 pairing (lean) | ≈ −4.6% | STILL-CONFLICTING (→ ~−27.2% below ATH on lean) |
+**Cohort read:** watch-name ATH distances (ALAB −19.4%, ONTO ~−20.4%, BE −14.7%, AVGO ~−27.2%) reconfirm the 07-02 "not near peaks" verification — the watch-list waits at deeper discounts than when the user asked. Day-conflation (multi-day %s pinned on single days) is now a CONFIRMED cohort-wide garble pattern this week — treat ALL single-day % headlines from 07-01/02 as suspect without close-pair math.
+
+## LEDGER (2026-07-03 total): 10 fires — KR/JP team 4 (~330.2k) + NBIS close verify 1 (62.7k) + Rule #17 judges 3 (~125.5k) + US 2-leg 2 (~111.7k) ≈ 630k actual. Yield: HIGH throughout (falsifier adjudication executed end-to-end; reconciliation ×2 settled; Samsung date-garble caught; 3 decision-relevant corrections). Zero ZERO-yield fires.

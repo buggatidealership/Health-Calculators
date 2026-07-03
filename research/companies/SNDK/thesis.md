@@ -1,3 +1,6 @@
+**📌 [2026-07-03] Jul-2 close VERIFIED $1,745.00 (price 5-source convergent; daily % noisy, mode ≈ −14.13%).** Two-day cohort skid confirmed via MU ground-truth (−10.57% Jul-1 / ~−5.5% Jul-2). STANDING TENSION TO RECONCILE MONDAY: BofA $2,500 + Bernstein $3,000 (fixed-price LTAs + prepayments, base FY28 EPS $272 per Bernstein T2) landed the SAME window as the "supply-glut fear" selloff — one framing is wrong; the Q4 FY26 prediction (rev above guide-high) rests on the LTA side. No revision; DON'T-ADD-NOW stands. Per `signals/cross-source-log/2026-07-03-us-holiday-scan-2leg-reconciliation.md`.
+**Position implication: HOLD — no size change — 🟡 — divergence reconciliation before any conviction change.**
+
 # Sandisk (SNDK) — Thesis
 
 **🟡 2026-07-01 US session −10% (with Micron −10%+, SOX −6.27%) — cohort-systemic valuation rout, no falsifier:** Per `signals/cross-source-log/2026-07-02-kr-jp-selloff-TIER2-verification-addendum.md`. DRAM-pricing/AI-sustainability fears + profit-taking; the underlying week's real news is SUPPLY-side bullish (SKH prioritizing DDR5 = NAND-adjacent pricing power intact). **Position implication: 🟡 HOLD 9sh / 14,4% — no size change — systemic drawdown; DON'T-ADD-NOW ensemble stands (a deeper pullback would meet its flip-condition ~10-15% — track).**
