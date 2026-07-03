@@ -16,3 +16,5 @@ Conventional/DDR5 DRAM contract +58-63% QoQ (TrendForce 03-31) is SAMSUNG-SKEWED
 ## Falsifiers
 1. OP <₩85tn — the DRAM-repricing flow-through model failed at the largest conventional book → forces re-examination of the whole correlated prediction board (this is the board's keystone print)
 2. Rev <₩170tn — volume/bit softness beneath the price story
+
+**[2026-07-03 GRADE-checklist addition] Three-way Q2 ASP source dispute rides on this print (per `signals/cross-source-log/2026-07-03-broker-ddr-note-reconciliation.md`): blended Q2 DRAM ASP >~63% QoQ = corroborates the aggressive-checks camp (unidentified broker's +67% base and its +32% Q3 fcst gain credibility → H2 inputs board-wide get upside review); inside 58-63% = screenshot is an outlier bull note. Sourced context: TrendForce in-quarter guides undershot reported prints all cycle (Q1: guide ~50-55% vs Samsung reported ~90-146%). Grade this alongside the OP number.**
