@@ -61,3 +61,5 @@ Ledger 07-03 running total: +1 TrendForce verify (98.3k, HIGH) → day now 13 fi
 
 ## 2026-07-03 NIGHT — ASMPT deep dive COMPLETE (4 agents, ~298k, all HIGH)
 `companies/ASMPT/` created (thesis WATCHLIST-P1 investable / facts / interpretations). Core reconciliation: broad-TCB 35-40% target vs HBM-specific 5.6% share — thesis framed as logic-POR-franchise + HBM optionality. Open items: live-quote dispersion (HK$176-238), SKH fluxless tension, print date confirmation (~Jul-22/24) → PRE-REGISTER ASMPT Q2 prediction before print (P2, earnings program). Catalysts: Hang Seng TECH re-inclusion Aug/Nov reviews. NO ENTRY — catalyst-gated, user-gated.
+
+- 2026-07-03 late: SKH "full-stack AI memory" X item verified = B40 REPACKAGE (no cascade). Keeper: Solidigm-245TB-vs-SNDK-256TB ship-timing checkpoint (end-2026) added to watch items; SK-Group-twice-in-NAND structural note logged. Artifact: `2026-07-03-skh-fullstack-ai-memory-newsroom-repackage.md`.

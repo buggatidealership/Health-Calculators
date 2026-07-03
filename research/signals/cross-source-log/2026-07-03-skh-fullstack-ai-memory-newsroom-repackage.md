@@ -1,0 +1,8 @@
+# 2026-07-03 — SKH newsroom "full-stack AI memory" piece (user X input) — VERDICT: B40 REPACKAGE, no cascade
+
+**Source:** news.skhynix.com "Why advanced memory matters in the AI infrastructure era" (T1 corporate newsroom, marketing-synthesis class; pub date ~07-02 LOW-CONFIDENCE — direct fetch 403'd on all three hosts incl. Wayback; content reconstructed from search index + secondaries, agent 37.5k, URLs in output).
+
+**Verdict: REPACKAGE.** Every named item pre-announced Oct-2025→Jun-2026: HBM4/HBM4E (sampled 06-18), SOCAMM2/GDDR7/DDR5 (CES-26), 245TB QLC eSSD PS1101 (Aug-25), AIN family (AIN-P 25M IOPS gen-1 / AIN-D petabyte-QLC-at-HDD-cost / AIN-B "HBF" stacked flash — OCP Oct-25), "AI-D/AI-N" pillar slogan (SK AI Summit late-25). Market-sizing quotes = Gartner/Omdia citations, not company data. NO new capacity/timeline/roadmap items → NO thesis cascade (HYNIX brand-reinforcement only; watch the next NUMBERS event: HBM4E qual results, AIN-D ship dates).
+
+**The one keeper (structural, not from the article): SK GROUP APPEARS TWICE in the enterprise-NAND competitive set** — SK hynix (NAND maker) + Solidigm (its subsidiary) both race SanDisk/Kioxia in high-capacity QLC eSSD. Monitorable pre-registered: **Solidigm 245TB guided to ship "before end of 2026" (Solidigm roadmap commentary T2) vs SanDisk's 256TB timeline** — a dated competitive checkpoint for the held SNDK thesis (and Kioxia's 218-vs-321-layer cost-per-TB gap as the standing structural watch). Consistent with the M17 NAND fab (1H2029) leg of the verified ₩1,100tn plan — SKH's NAND commitment is real; this piece just re-narrates it.
+**Ledger:** +1 fire (37.5k), MEDIUM (repackage-verdict + one watch item; no cascade). Day total 2026-07-03: 21 fires ≈ 1.5M (est. running).
