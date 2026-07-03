@@ -7,7 +7,8 @@
 - ~2026-07-07: NBIS T+15 inclusion grade (`predictions/2026-06-19-NBIS-nasdaq-100-inclusion-pre-registration.md`) — US pre-market wake; note the Meta-Compute −15% confound in the grade.
 - 2026-07-03: US markets CLOSED (Jul-4 observed). KR/JP + EU wakes only; US wake = skip-fast.
 - 2026-07-10: TSMC June monthly — TSMC prediction v2 checkpoint (pre-committed).
-- Watch-state (no dates): ONTO quote-conflict resolution; Meta-Compute 2nd-order TRACE queue; SB-Neo-vs-Stargate overlap follow-up; Asia-close reconciliation queue.
+- Watch-state (no dates): ONTO quote-conflict resolution; Asia-close reconciliation queue.
+- **🚨 P0 2026-07-03: NBIS falsifier-arithmetic flag** — Jul-2 close reports ($211-229, unverified T2/T3) fall BELOW the $234 (-15% from $275.50) 2026-06-26 trim-trigger threshold, ~3wk ahead of the 2026-07-22 deadline. NOT actioned (T1 close-price gap this session). **First priority next session: get a T1-verified NBIS close and re-check against the falsifier before Samsung-prelim wake.** See `companies/NBIS/thesis.md` + `signals/cross-source-log/2026-07-03-AM-global-overnight-queued-verification-jul2-close-metacompute-2nd-order-sbneo-nvidia-buyback-weekend-calendar.md`.
 
 ## Open threads (carried into wakes)
 1. Buy-list = WATCHLIST by user decision 2026-07-02 (`portfolio/targets.md`) — BE/ALAB/ONTO/AVGO/4203; re-triggers listed there; any trigger firing → decision package, NOT entry.
@@ -32,3 +33,12 @@ First autonomous wake = KR/JP 02:22 CEST 2026-07-03. **PASS** = git commit ~02:2
 
 ## 2026-07-03 mid-day update (full-team scan, legs 1-3)
 Catalyst clock ADDITIONS: **Jul-10 SKH Nasdaq ADR listing + raise up to ₩45.4tn/$29.4bn (DECOMPOSE BEFORE — assigned next wake/global agent)**; Jul-16 BOK rate decision LIVE (June CPI 3.2%). Samsung prelim CONFIRMED Jul-7; FnGuide bar ₩84.98tn unchanged. SKH 07-02 close corrected to −14.57% across files. KR flow overhang (NPS ₩37-74tn est. + foreign 10-session selling + won 17-yr low) = standing SKH context. JP: SUMCO wafer-hike continuation +9.26%; Murata MLCC hikes live Jul-1. Global-overnight agent still pending — US half-day closes + Meta-Compute follow-ups + SB-Neo overlap land on its return.
+
+## 2026-07-03 global-overnight + queued-verification scan (5-item docket, COMPLETE)
+Per `signals/cross-source-log/2026-07-03-AM-global-overnight-queued-verification-jul2-close-metacompute-2nd-order-sbneo-nvidia-buyback-weekend-calendar.md`:
+1. Jul-2 half-day closes: WORSENED not recovered (NBIS/CRWV 2nd leg down; SNDK/memory-cohort separate glut-fear leg) — all T2/T3, WebFetch blocked on every direct data-vendor endpoint tried (stooq/marketwatch/cnbc/investing.com/etc — host-level blocks, not org policy per proxy status).
+2. Meta-Compute 2nd-order: SemiAnalysis rebuttal (NEW, post-Jul-2) argues against oversupply read, reinforces NBIS/CRWV bull case; Meta still no official confirm/deny; analyst split now named (Rosenblatt/Roth bull vs Bernstein/DA Davidson bear).
+3. SB-Neo-vs-Stargate: OVERLAP SUSPECTED not confirmed — SB Neo (neocloud layer, ~10GW by 2030) vs SB Energy (Stargate power/site layer, ~10GW gas-heavy) share the same headline figure; no disambiguating source found; JP-native pass still needed (gap).
+4. Nvidia buyback: no second vendor (AMD/Google) confirmed; PD-8 candidate status unchanged; 10-Q (~Aug) still the cleanest pending tell.
+5. Weekend calendar: reads LIGHT — no OPEC/BOJ meeting in Jul-4-6 window, US NFP already out Jul-2 (in-line), no Korea CPI in window. Samsung prelim (~Jul-7) remains the dominant post-weekend catalyst.
+**Cascade:** NBIS/thesis.md + SNDK/thesis.md updated same-commit (falsifier flag + close confirmation respectively).
