@@ -46,3 +46,5 @@ Peak capex ~$120B (2000$, ~$213B today); >$500B US telecom bonds 1996-2001; HY d
 **Node-retirement falsifier:** if by 2027Q1 the S-A path has held through ≥2 hikes AND the maturity wall refinanced without a single failure, demote the node to quarterly review — do not let it become a permanent bear ornament.
 
 **Position implication: NO ACTION — 🟡 — the node validates existing construction (self-funded-supplier book, rental-layer exited, BE watch as bypass beneficiary, cash buffer); it adds monitoring structure, not trades. Sizing changes only via its tells firing, user-gated.**
+
+**GEOGRAPHIC SCOPE NOTE (added 2026-07-04 PM, per the EU-financing probe in `signals/cross-source-log/2026-07-04-all-regions-weekend-consolidation.md`):** EU exposure = "same private lenders, smaller book" — transmission channel is the sponsor linkage (KKR/Blue Owl/EQT run both the US SPV playbook and the nascent €3-5bn 2026 EU DC-ABS market), NOT a distinct EU sovereign-debt channel (InvestAI is small + grant-heavy). Contagion = narrower but NOT walled off; canary-basket watch extends to EU DC-ABS pricing as issuance grows.

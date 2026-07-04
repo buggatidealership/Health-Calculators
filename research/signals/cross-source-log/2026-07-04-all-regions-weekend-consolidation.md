@@ -1,0 +1,17 @@
+# 2026-07-04 — ALL-REGIONS WEEKEND CONSOLIDATION (user-directed: book + discovery equally weighted)
+
+**Inputs:** KR/JP reconciliation (complete, `2026-07-04-weekend-reconciliation-jul3-finals-adr-decomposition.md`) + EU/US weekend 2-leg (Leg B returned 49.6k; Leg A pending — appended on return). URLs in agent outputs.
+
+## EU/US LEG B (unanchored discovery) — returned
+**Top finding (the weekend's real story per the fresh-reader pass): capital rotated OUT of the AI trade INTO European rearmament on Jul-2 (Thales +4.8%/Saab +8.6%/Hensoldt +8.6%/Dassault +5.1%, explicit "rotation from semiconductors" language in FR coverage) — while KNDS pulled its >€12bn IPO the SAME WEEK citing the volatility the rotation itself created.** The absence-question catch: no outlet connects the two — a self-defeating-dynamic read (retail chases public defense names while the primary market won't clear) that nobody is writing. Bear-tell inside the theme: Germany scrapped the ~€12bn F126 frigate program (Rheinmetall −23.5% June) = execution/political risk inside "guaranteed" backlogs.
+**Discovery-state verdicts (all honest kills):** Rheinmetall/RENK/Saab-basket/CoreWeave-Nebius = ALL DISQUALIFIED (retail-discovered, forum-active, thematic-fund crowded; RENK short-squeeze chatter = classic late-cycle retail tell). KNDS = watch-not-investable (unlisted). Commerzbank = marginal special-situation, dated follow-up post-Jul-8 UniCredit result. **Zero fresh undiscovered EU/US names cleared the gate this weekend — consistent with PD-7 (efficient discovery), logged as such.**
+**Macro state:** Warsh hawkish hold w/ 9/18 dots showing a 2026 hike; US CPI 4.2% (3-yr high, Iran-war energy pass-through); Dow records WITH mixed AI action (breadth divergence); Iran ceasefire fragile, Brent ~$73; ECB June +25bp, HICP path 3.0/2.3/2.0.
+**Brief-hygiene catch:** the "record EU/Asia rate moves this weekend" framing in circulation = STALE anchor (BOJ's hike-to-1% was Jun-16; RBA next Jul-8) — false-freshness flagged.
+
+## EU-FINANCING PROBE (the node's scope answer)
+Two disconnected channels, neither well-covered: (1) EU public vehicle = SMALL + grant-heavy (InvestAI €20bn facility for ≤5 gigafactories + €2.4bn Apr tranche; EIB "exploring" loans) — an order of magnitude below single-US-hyperscaler annual capex; (2) the REAL financing = the SAME Anglo-American private-credit sponsors running the US playbook in Europe at smaller scale (€3-5bn 2026 DC-ABS expected: KKR/CyrusOne, Blue Owl/Stack, EQT/EdgeConneX per Bloomberg Jan-26). **NODE SCOPE NOTE (cascaded): a US AI-debt shock transmits to Europe via the SPONSOR LINKAGE (KKR/Blue Owl/EQT books), not via a distinct EU sovereign channel — 'same lenders, smaller book,' NOT geographically walled off.** Second absence-catch: nobody applies the regulator-as-shareholder conflict frame (raised on the OpenAI-5% proposal) to the EIB's dual financier/policy role — the EU parallel is unasked.
+
+## KR/JP (consolidated from this morning — full detail in the weekend-reconciliation artifact)
+Friday finals all 🟢 (KOSPI +5.76% 8,088.34 / Samsung +8.22% ₩309,500 / SKH +10.88% ₩2,425,000 / SUMCO ¥5,094 new 52w high / Kioxia V +9.23%); positioning adjudication confirmed at full scale; SKH ADR = primary ~2.5% dilution, GDRs mechanically unaffected, proceeds 100% capex; Samsung prelim T-3 with bonus-provision GRADE context pinned; KR flow overhang (NPS/won/foreign selling) standing.
+
+## LEG A (EU/US anchored + sovereign-AI expressions) — PENDING; appended on return.
