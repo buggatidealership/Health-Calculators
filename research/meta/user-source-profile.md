@@ -30,4 +30,4 @@
 - Reads EVERYTHING, every output, same-day. When too technical: skims → jumps to Position implication (= conclusion without reasoning — the conviction-evaporation mechanism; see the two-layer output doctrine in `meta/methodology.md` output-preferences, codified same day).
 - His stated model of himself, adopted as design input: output must be plain enough to become an input to HIS reasoning — the "February register" (pre-harness Claude chats: concept explained → he highlights 5-7 items → asks follow-ups → real understanding). Restore that teaching layer in chat; rigor stays in files.
 - Correction phrase "too technical" = fired falsifier on that output; rewrite.
-- Remaining sliver of #7 (minor, open): package action latency — same-day yes/no realistic, or default packages to next-morning expiry?
+- #7 CLOSED (user 2026-07-05 late): same-day reading AND same-day yes/no confirmed — decision packages carry SAME-DAY expiry windows by default.
