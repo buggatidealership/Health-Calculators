@@ -3069,3 +3069,21 @@
 **Audit-day classification:** POSITIVE.
 **Cross-source-log:** `signals/cross-source-log/2026-07-05-morning-brief-ingest-2leg.md`
 **Commit:** (this commit)
+
+### [2026-07-05 PM — YMTC-in-global-Lenovo X post (@jukan05/Notebookcheck)] 1 Opus; HIGH — confirmed the first Western-OEM YMTC pre-install at T1, killed the policy-block worry (Entity List ≠ import bar), bounded the threat to the QLC client tier, and delivered the N=3 promotion of TC-14 with a pre-registered regime-change tell
+
+**Trigger source:** User-shared X post (Jukan relay of Notebookcheck review), tagged $SNDK $MU.
+**Subagents fired:** 1 (Opus) — single-source single-claim item per Rule #16.3.
+**Estimated token cost:** ~25.5k (actual subagent_tokens).
+**Items verified:** Notebookcheck review existence + drive details; first-global framing attribution; B40 freshness (Zhitai aftermarket vs OEM pre-install distinction); Entity List/1260H/MATCH Act applicability; YMTC share trajectory + multi-OEM status; CN-native parallel.
+
+**Per-subagent yield:**
+- Verifier: HIGH — T1 confirmation + the load-bearing nuance the tweet lacks (multi-sourcing caveat: qualified supplier ≠ sole BOM line); policy CONTRADICTED the intuitive "Entity List blocks this" read; bounded the threat honestly (QLC client tier only, zero datacenter part); flagged that the multi-OEM wave is CXMT-DRAM-only so far — making the 2nd/3rd YMTC-SSD win a clean pre-registered tell.
+
+**Brief-framing errors caught:** none in the post itself (accurate relay); nuance added: "first time global" = one SKU/one OEM/lot-variance possible.
+**Thesis cascade triggered:** `signals/triangulation.md` TC-14 PROMOTED [ACTIVE] N=3; SNDK + KIOXIA YMTC-watch escalation entries; MU cross-ref; `sector/ai-funding-shock-node.md` affordability-bypass observed line; day-state digest.
+**Position implication delta:** NONE (HOLD/NO ACTION unchanged; tell pre-registered).
+**Material yield class:** HIGH.
+**Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-07-05-ymtc-lenovo-global-ssd-verification.md`
+**Commit:** (this commit)
