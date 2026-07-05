@@ -838,3 +838,10 @@ In the current AI-supercycle regime (B45 codified 2026-06-12), the per-quarter b
 - `predictions/2026-06-12-KIOXIA-VLSI-symposium-pre-registration.md`
 
 **Status:** CANDIDATE N=1 origin 2026-06-26; next empirical resolution = next Stage 3-4 supercycle CATEGORY-EVENT prediction.
+
+[2026-07-05] HARNESS-LEVEL (not a graded prediction) — the conversion-layer gap made explicit
+Predicted/held: HYNIX + SNDK HOLD 🟢/🟡 throughout the Jul-1/2 cohort drawdown; positioning adjudication subsequently CONFIRMED by the Jul-3 full-scale rebound (files on record).
+Actual: user emotionally liquidated BOTH positions into the drawdown (~Jul-1/2, before the rebound), disclosed 2026-07-05 with explicit self-identification of the emotional driver.
+Layer that failed: REASONING (harness-design tier) — the analysis was correct but the system had no mechanism at the human interface: no codified risk envelope, no pre-committed drawdown protocol, no real-time "this is B9/Rule-#8 territory, here is the falsifier state" touchpoint available to the user at the moment of maximum felt pressure. Being right in files ≠ converting to held conviction.
+Generalizable lesson: an analytically-correct HOLD that the principal cannot emotionally carry is a SIZING error upstream, not a discipline error downstream — position sizes must be set against REVEALED drawdown tolerance (now observed: two days of cohort-wide −14%-class moves on a concentrated book exceeded it), not stated tolerance.
+Calibration adjustment: (1) risk-envelope file (in progress, missing-inputs #1) becomes binding input to every sizing proposal; (2) concentration ceilings derived from revealed tolerance; (3) candidate protocol: pre-committed "drawdown card" the user can open on red days — falsifier state + pre-registered do-nothing rule + who-to-ping; (4) L-candidate pending N=2 (NBIS approved-exit was falsifier-adjacent, different class — this is N=1 of pure emotional override).

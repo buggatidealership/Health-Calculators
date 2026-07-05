@@ -125,20 +125,14 @@ _Note: L24 removed (placeholder, never verified). Current lesson tail is L25. Ne
 - **TC-5** CoPoS / glass-core packaging firming (advanced-packaging) [ACTIVE N=5]
 - **TC-6, TC-7, TC-8** — see `signals/triangulation.md` for current status and N counts
 
-## §6. HELD COHORT (per `portfolio/holdings.md` — REFRESHED 2026-07-01 PM screenshot; combined ~€111,646 excl. unconfirmed ~€8k N26 cash)
+## §6. HELD COHORT (per `portfolio/holdings.md` — REFRESHED 2026-07-05 EVE screenshots; FRESH-START baseline; DeGiro €95.406,73 = the whole book, N26 = bank only)
 
-**6 held names (5 DeGiro + 1 N26); re-verify at session start against holdings.md:**
-1. HYNIX **16 GDR** (HY9H) — €22.720,00 — **20,3%** (L3 Core EXCEPTION; **trimmed 18→16 on 2026-07-01**)
-2. MURATA 336sh (MUR1) — €21.168,00 — **19,0%** Core
-3. SNDK 9sh — €16.097,51 — **14,4%** Core
-4. SUMCO 626sh (S3X) — €15.653,13 — **14,0%** (+21.2% price move in the 06-27→07-01 window; L24 ATH-break monitor)
-5. KIOXIA — ~€10.000 — **~9,0%** Core — **broker = N26** (separate; further derisk parked on N26 access)
-6. NBIS **30sh** — €6.040,50 — **5,4%** Active (**trimmed 58→30 on 2026-07-01 — 3/3-ensemble ~5% target REACHED**)
-+ DeGiro cash ~€19.967 (17,9% — SKH+NBIS trim proceeds; earmarked for the ALAB + BE initial tranches per `portfolio/changes.md` 2026-07-01)
+**2 held names (both DeGiro); re-verify at session start against holdings.md:**
+1. MURATA 336sh (MUR1) — €19.656,00 — **20,6%** (BEP €53,67; Q1 FY27 print ~late July, L22 test)
+2. SUMCO 626sh (S3X) — €17.058,50 — **17,9%** (BEP €22,31; wafer-hike thesis materializing)
++ Cash €58.692,23 — **61,5%** — LOCKED until `portfolio/risk-envelope.md` exists; ALAB/BE intents SUPERSEDED.
 
-**Memory cluster (HYNIX+KIOXIA+SNDK+SUMCO) = ~57,7%** — flat vs prior DESPITE the trims (Sumco rally + NBIS non-memory halving + proceeds-in-cash); relative de-concentration completes when ALAB/BE deploy.
-
-**OPEN INTENT (user-gated, NOT yet executed):** INITIATE ALAB ~€6-7k + BE ~€7-8k initial tranches (both ACTIVE-initiating; theses current as of 2026-07-01 deep-dives); second tranches staged around BE Q2 ~Jul-30 / ALAB Q2 ~Aug-11.
+**⚠️ 2026-07-05 STATE CHANGE (read before ANY position talk):** SKH 16 GDR + SNDK 9sh + KIOXIA ~€10k(N26) FULL-EXITED ~Jul-1/2 by user — EMOTIONAL exits, NOT falsifier fires, disclosed 2026-07-05; NBIS exited Jul-3. All four theses intact → watchlist-reference. Conversion-layer lesson in `predictions/lessons.md` (2026-07-05): sizing must track REVEALED drawdown tolerance; re-entries only via fresh envelope-gated decision packages. Do NOT propose redeployment before the risk envelope exists.
 
 **🔴 EXITED (do NOT reference as held — watchlist-reference only):** MRVL (full exit 2026-06-27, was 8.0%), DDOG (sold 2026-06-22), NOW (sold 2026-06-22), ARM/AGC/Hirano/MongoDB (exited Jun rotation).
 

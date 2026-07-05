@@ -5,20 +5,20 @@
 **Refresh cadence:** monthly + on major thesis/scenario changes
 **Function:** answer "where did we cover X?" without grep
 
-## Held positions (entry points) — canonical 2026-07-01 PM (user DeGiro screenshot; holdings.md refreshed same day)
+## Held positions (entry points) — canonical 2026-07-05 EVE (user DeGiro screenshots ×3 — FRESH-START baseline; holdings.md rewritten same day)
 
-Read `portfolio/holdings.md` for canonical positions + sizing. Held cohort as of 2026-07-01 (combined ~€111,646 excl. unconfirmed ~€8k N26 cash):
+Read `portfolio/holdings.md` for canonical positions + sizing. Held cohort as of 2026-07-05 (DeGiro total €95.406,73; DeGiro = ONLY positions platform per user):
 
-- **HYNIX** (held **16 GDR** — trimmed 18→16 on 2026-07-01; €22.720,00 = **20,3%**; L3 Core EXCEPTION) — `companies/HYNIX/thesis.md`
-- **MURATA** (held 336sh; €21.168,00 = **19,0%** Core) — `companies/MURATA/thesis.md`
-- **SNDK** (held 9sh; €16.097,51 = **14,4%** Core; NAND + HBF JV optionality) — `companies/SNDK/thesis.md`
-- **SUMCO** (held 626sh; €15.653,13 = **14,0%**; +21.2% price move 06-27→07-01; L24 ATH-break monitor) — `companies/SUMCO/thesis.md`
-- **KIOXIA** (held **~€10.000** via N26 = **~9,0%** Core; further derisk parked on N26 access) — `companies/KIOXIA/thesis.md`
-- **NBIS** (held **30sh** — trimmed 58→30 on 2026-07-01, 3/3-ensemble ~5% target REACHED; €6.040,50 = **5,4%** Active) — `companies/NBIS/thesis.md`
-- **Cash:** ~€19.967 DeGiro (17,9%) — earmarked for the ALAB + BE initial tranches (OPEN INTENT per `portfolio/changes.md` 2026-07-01)
-- **ALAB + BE** — ACTIVE (initiating), NOT yet held; theses current per 2026-07-01 deep-dives — `companies/ALAB/thesis.md`, `companies/BE/thesis.md`
+- **MURATA** (held 336sh @ €58,50 = €19.656,00 = **20,6%**; BEP €53,67) — `companies/MURATA/thesis.md`
+- **SUMCO** (held 626sh @ €27,25 = €17.058,50 = **17,9%**; BEP €22,31; wafer-hike thesis materializing) — `companies/SUMCO/thesis.md`
+- **Cash:** €58.692,23 = **61,5%** — NO deployment until `portfolio/risk-envelope.md` exists (missing-inputs #1); ALAB/BE initiation intents SUPERSEDED
+- **⚠️ 2026-07-05 state change:** SKH (16 GDR), SNDK (9sh), KIOXIA (~€10k N26) all FULL-EXITED ~Jul-1/2 by user (emotional, non-falsifier; disclosed 2026-07-05; conversion-layer lesson in `predictions/lessons.md`); NBIS exited Jul-3. All four = watchlist-reference with intact theses.
 
 **Exited (watchlist-reference only):**
+- **SK HYNIX FULL EXIT ~2026-07-01/02** (emotional, screenshot-confirmed 07-05; Jul-29 print prediction still resolves) — `companies/HYNIX/thesis.md`
+- **SNDK FULL EXIT ~2026-07-01/02** (same event; Q4 FY26 print watch + TC-14 YMTC tell stand) — `companies/SNDK/thesis.md`
+- **KIOXIA CLOSED by 2026-07-05** (N26 has no positions per user; details pending) — `companies/KIOXIA/thesis.md`
+- **NBIS FULL EXIT 2026-07-03** (T+15/T+30 inclusion grades still resolve) — `companies/NBIS/thesis.md`
 - **MRVL FULLY EXITED 2026-06-27** (verified Trainium die-design-loss bear; re-entry trigger = die-design-minority disclosure OR Trainium-4 win; Aug-26 Q2 FY27 print) — `companies/MRVL/thesis.md`
 - **DDOG SOLD 2026-06-22** — user self-flagged Critical Rule #8 violation; `companies/DDOG/thesis.md` carries EXIT banner + 3-layer GRADE
 - **NOW SOLD 2026-06-22** — same event as DDOG; `companies/NOW/thesis.md` carries EXIT banner + 3-layer GRADE

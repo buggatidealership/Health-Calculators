@@ -661,3 +661,16 @@ User has explicitly stated narrative-driven-momentum framing trumps wait-for-pul
 - **2026-07-03 — PLANNED (user-approved decision package A): SELL 30 sh NBIS on Monday 2026-07-06** — falsifier-fired exit (verified $211.12 Jul-2 close vs $234.18 pre-registered line; ensemble 2/3 TRIM; package `decision-packages/2026-07-03-NBIS-falsifier-adjudication.md`). Est. proceeds ~$6.3k (~€5.4-5.8k FX-dependent, estimate) → joins parked cash pool (BE/ALAB earmarks unchanged, all entries still user-gated at watch-list). EXECUTED status + actuals ONLY on post-trade screenshot.
 
 - **2026-07-03 — EXECUTED (user-reported verbally: "sold all NBIS"): SOLD 30 sh NBIS — position CLOSED (30 → 0).** Execution price/venue/date NOT yet confirmed (note: US cash session closed Jul-3 for the holiday — fill may be Jul-2 late session, OTC/European venue, or a queued order; do not infer). Proceeds unknown pending screenshot. **holdings.md truth-up ON SCREENSHOT ONLY per canon — REQUESTED.** Decision trail: falsifier-fired exit, package `decision-packages/2026-07-03-NBIS-falsifier-adjudication.md` APPROVED A; executed ahead of the planned Monday window per user discretion.
+
+## 2026-07-05 — USER-REPORTED (verbal): FULL EXIT of SK hynix GDR position + FULL EXIT of SNDK position, executed ~Jul-1/Jul-2 (Wed/Thu selloff days)
+- User disclosure 2026-07-05 verbatim intent: emotional sale into the two-day cohort drawdown "to at least lock in the last profits" — NOT a falsifier-driven exit (no written falsifier had fired; harness state was HOLD on both through the drawdown, per `companies/HYNIX/thesis.md` + `companies/SNDK/thesis.md`).
+- Context on file: SKH Jul-2 close −14.57% (verified); Friday Jul-3 rebound SKH +10.88% ₩2,425,000 / Samsung +8.22% (per `2026-07-04-weekend-reconciliation-jul3-finals-adr-decomposition.md`) — exits preceded the rebound. Profits locked were substantial (long-held winners); exact fills/dates/sizes PENDING SCREENSHOT.
+- DeGiro = user's ONLY positions platform (user statement; N26 = bank, no positions). The forthcoming DeGiro screenshot = the NEW CANONICAL BASELINE for holdings.md (truth-up on screenshot only, per standing rule).
+- Classification: user-level emotional override of an analytically-intact HOLD — the conversion-layer failure mode the 2026-07-05 missing-inputs assessment flagged as item #1/#7 (no risk-envelope + no drawdown pre-commitment protocol existed). Harness lesson logged in `predictions/lessons.md`.
+
+## 2026-07-05 EVE — SCREENSHOT TRUTH-UP (3× DeGiro screenshots = new canonical baseline; holdings.md rewritten)
+- CONFIRMED: account total €95.406,73; only MURATA (336 @ €58,50 = €19.656,00, BEP 53,669443) + SUMCO (626 @ €27,25 = €17.058,50, BEP 22,310191); cash derived €58.692,23 (~61,5%).
+- CONFIRMS the verbal report above (SKH + SNDK full exits) AND surfaces one position the user did not name: **KIOXIA (N26 ~€10k) also CLOSED** — user states N26 holds no positions; closure date/proceeds pending confirmation.
+- NBIS exit (user-reported Jul-3) also reflected: no NBIS line in screenshot.
+- User statement: "willing to play with all the money that is currently in the account" → investable envelope = DeGiro €95.406,73 (N26 bank balances EXCLUDED unless user says otherwise).
+- ALAB/BE initiation intents (2026-07-01) formally SUPERSEDED — no deployment until risk-envelope exists.
