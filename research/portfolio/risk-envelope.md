@@ -37,6 +37,24 @@
 ## 4. Kioxia classification correction (user 2026-07-05)
 - User: Kioxia was closed in the same Wed/Thu window, **but it was the already-agreed sale** ("a sell that was already agreed upon between both of us") — consistent with the standing derisk mandate carried in prior holdings.md ("further derisk parked on N26 access"). Recorded as: **agreed-derisk executed in full within the emotional window** — pre-authorized in direction, unpackaged in magnitude. Distinct classification from the SKH/SNDK exits (pure emotional override, N=1 of the conversion-layer lesson).
 
-## 5. Benchmark & success definition — PENDING (next intake, missing-inputs #2)
+## 5. Benchmark & success definition (user answers 2026-07-05; missing-inputs #2 CLOSED)
+
+**User's words (condensed, faithful):** 100%/yr "would be amazing" but acknowledged as requiring more risk; "we might live in a world where fifty percent is actually achievable... if done right"; "I definitely wanna beat the Nasdaq, the S&P — the best performing indexes"; "I definitely want to beat the obvious trade"; holistically: "I just wanna find undervalued companies, and I'm happy to hold them for a couple of months before they actually move. I know it's all probabilities."
+
+### The benchmark ladder (codified)
+| Tier | Bar | Type | Judged |
+|---|---|---|---|
+| 1 — PRIMARY (hard pass/fail) | Beat the better of Nasdaq-100 TR and S&P 500 TR | Relative | Rolling 12-mo checkpoints; primary verdict at 24 months |
+| 2 — SECONDARY (hard) | Beat the "obvious trade": buy-and-hold NVDA, and an equal-weight mega-AI basket (NVDA/AMD/AVGO/TSM, my model definition — user may amend), both frozen at the same baseline date | Relative | Same cadence |
+| 3 — ASPIRATION (soft, design input not pass/fail) | ~50%/yr; 100%/yr acknowledged stretch | Absolute | Informs sizing philosophy (justifies concentration WITHIN the envelope), never justifies breaking Phase caps |
+
+**Baseline anchor:** 2026-07-05, account €95.406,73 (screenshot T1, `holdings.md` canonical). Later deposits/withdrawals adjust the base (money-weighted). **Baseline index/benchmark closes (Nasdaq-100, S&P 500, NVDA, basket legs as of the Jul-3 close) are NOT yet on file — capture task assigned to the next wake/scan with T1 sourcing; no baseline levels are to be invented retroactively.**
+
+### ⚠️ The tension this creates (Rule #18, stated at codification)
+A 50-100%/yr aspiration and the Phase-1 envelope (≤35% cluster, ≥20% cash floor, staged tranches) pull in opposite directions: with a large cash floor, the deployed book must dramatically outperform for the account to hit tier-3 numbers (arithmetic, my model). Resolution adopted: **the return unlock IS the phase ladder** — Phase-1 exists because last week showed the binding constraint on returns was never pick quality (the regime base rate B45 is on file: 6 of 15 basket names >+200% Jan-25→Jun-26), it was SEAT-TIME: the exits realized taxes and missed the on-file Jul-3 rebound. Beat-the-index compounds through staying seated at survivable sizes, then earning Phase 2. If after 2 rolling checkpoints the envelope itself (not picks) is demonstrably the reason tier-1 is missed, the envelope gets re-negotiated with the user — explicitly, not by drift.
+
+**Success definition (one line):** tier-1 and tier-2 beaten at the 24-month verdict, with zero envelope-breaking interventions along the way — that last clause is part of winning, not decoration.
+
 ## 6. Change log
 - 2026-07-05: file born; sections 1-4 filled from user answers; derived rules PROPOSED pending user approval.
+- 2026-07-05 EVE: §5 benchmark ladder codified from user answers; baseline-close capture assigned to next wake; missing-inputs #2 CLOSED.
