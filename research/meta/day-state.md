@@ -96,3 +96,6 @@ User disclosed emotional full exits (~Jul-1/2, pre-rebound): SKH 16 GDR + SNDK 9
 
 ## 2026-07-05 SUN NIGHT — benchmark ladder codified (`portfolio/risk-envelope.md` §5)
 Tiers: beat best-of NDX/SPX (primary, 24-mo verdict, rolling 12-mo checkpoints) > beat obvious-trade (NVDA + equal-weight NVDA/AMD/AVGO/TSM basket, my-model definition open to user amendment) > ~50%/yr aspiration (soft). Baseline 2026-07-05 €95.406,73. **NEXT-WAKE TASK (Jul-7 00:22 UTC, add to docket): capture T1 baseline closes (Jul-3 session) for Nasdaq-100, S&P 500, NVDA, AMD, AVGO, TSM → append to risk-envelope.md §5. Do not backfill from memory.** First rolling checkpoint ~2026-10-05.
+
+## 2026-07-05 NIGHT — platform-trigger setup guide WRITTEN (`meta/platform-trigger-setup.md`); user committed to setup this week
+Key doc-verified facts: routines = cloud-scheduled, survive container recycles; creation requires DESKTOP browser (claude.ai/code/routines) — NOT mobile; two routines specified (KR/JP 02:22 German time ≈ 00:22 UTC + EOD 22:17); prompts are paste-ready incl. branch checkout; user signal "routines are live" → retire in-session cron arming + update Workflow #11.
