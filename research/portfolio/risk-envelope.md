@@ -58,3 +58,23 @@ A 50-100%/yr aspiration and the Phase-1 envelope (≤35% cluster, ≥20% cash fl
 ## 6. Change log
 - 2026-07-05: file born; sections 1-4 filled from user answers; derived rules PROPOSED pending user approval.
 - 2026-07-05 EVE: §5 benchmark ladder codified from user answers; baseline-close capture assigned to next wake; missing-inputs #2 CLOSED.
+
+## 7. CONVICTION FAST-LANE (PROPOSED 2026-07-05, from user's edge-case articulation — the lawful path for "deploy a big chunk")
+**User scenario (faithful):** an ingested datapoint, after verification + cascade, connects with 4-5 prior independently-shared datapoints into a pattern; an additional validation agent confirms; confidence high; most analysts still misreading it → could that justify deploying a big chunk of cash? **Answer codified: YES — through this lane, never around the envelope.**
+
+### The four gates (ALL required before a fast-lane package can be written)
+1. **Independence-verified N≥4-5:** same-direction datapoints in a triangulation cluster (Rule #14/TC machinery) with ≥1 T1 primary — AND an explicit dedup pass proving they are not one story relayed through several channels (the standing failure mode: Samsung-+20% arrived via 4 channels = 1 datapoint, per `2026-07-05-zerohedge-samsung-20pct-recycle-adjudication.md`; B40).
+2. **Refuter pass survived:** dedicated adversarial agents attempt to kill the pattern (Rule #18; discovery-program method); pattern survives with the strongest bear case stated.
+3. **Ensemble conviction:** Rule #17 N≥5 independent runs on direction + entry; ≥4/5 agreement required; the SPREAD is the confidence number — felt-90% never substitutes.
+4. **Obliviousness verified, not assumed:** retail/listicle/native-language sweep (discovery-gate method) shows the interpretation gap actually exists — respecting PD-7 (efficient-discovery regime, N=2): most patterns are already found; the lane expects to fire RARELY.
+
+### What clearing the gates unlocks
+- The decision package may propose the FULL single-position cap in ONE tranche (staged-deployment rule waived for this entry).
+- The package may explicitly request a TEMPORARY cap raise (named %, named review date) — user approves/vetoes; silence = standard cap.
+- What never bends: it always arrives as a user-approved package (Rule #11); the lane accelerates ENTRIES only — exits remain falsifier-gated; no fast-lane package is written on a red-day impulse (drawdown card first).
+
+### Honest expectations (Rule #18 at codification)
+Given PD-7, gates 1-4 clearing together should be RARE (my model: a few times a year, not monthly). If the lane fires often, that itself is the falsifier — it means gate 1's independence test has degraded into decoration; audit at the envelope's first rolling checkpoint (~2026-10-05).
+
+## Change log (cont.)
+- 2026-07-05 NIGHT: §7 conviction fast-lane PROPOSED from user edge-case articulation; user also affirmed veto + open-renegotiation rights (§2 red-day protocol unchanged). Awaiting same approval as the Phase-1 rules table.
