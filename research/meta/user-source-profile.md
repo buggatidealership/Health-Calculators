@@ -25,3 +25,9 @@
 - #7 reading/decision rhythm (when packages get read, action latency) — OPEN.
 - Phase-1 envelope rules — awaiting user yes/adjust.
 - Platform routines — guide on file, awaiting "routines are live".
+
+## §5. Reading & comprehension profile (user disclosure 2026-07-05 — closes most of intake #7)
+- Reads EVERYTHING, every output, same-day. When too technical: skims → jumps to Position implication (= conclusion without reasoning — the conviction-evaporation mechanism; see the two-layer output doctrine in `meta/methodology.md` output-preferences, codified same day).
+- His stated model of himself, adopted as design input: output must be plain enough to become an input to HIS reasoning — the "February register" (pre-harness Claude chats: concept explained → he highlights 5-7 items → asks follow-ups → real understanding). Restore that teaching layer in chat; rigor stays in files.
+- Correction phrase "too technical" = fired falsifier on that output; rewrite.
+- Remaining sliver of #7 (minor, open): package action latency — same-day yes/no realistic, or default packages to next-morning expiry?

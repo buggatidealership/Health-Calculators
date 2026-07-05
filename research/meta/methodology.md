@@ -662,6 +662,13 @@ A thesis is NOT complete unless:
 - Show reasoning, don't just give conclusion
 - User is logically sharp but not technically deep — explain "why" but not "how" at engineering level
 
+**TWO-LAYER OUTPUT DOCTRINE (codified 2026-07-05 from user brain-dump — load-bearing, tied to the conversion-layer lesson):** User disclosure: he reads ALL output, but when it's too technical he skims to the Position implication line — meaning he receives conclusions WITHOUT the reasoning, and un-reasoned conclusions are exactly the conviction that evaporates under drawdown pressure (`predictions/lessons.md` 2026-07-05: the SKH/SNDK seat-break). His own hypothesis, adopted: output must be understandable enough for him to take it as an input to HIS OWN reasoning — the "February register" (his pre-harness Claude chats that explained concepts plainly enough that he could highlight 5-7 items and ask the right follow-ups).
+1. **CHAT = February register.** Plain language, concepts unpacked, every sentence readable by him, structured so items are highlightable/askable. If it can't be said simply, it isn't understood well enough yet.
+2. **FILES = rigor layer.** Tier tags, TC/B/L/P shorthand, probability scaffolding live in the repo (audit trail unchanged). Chat cites files; it does not imitate their register.
+3. **Shorthand translated on contact.** Any harness code that appears in chat arrives with its plain-word meaning in the same sentence.
+4. **Failure signal:** user needing to skip to Position implication = the output failed. User correction phrase "too technical" = treated as a fired falsifier on that output; rewrite immediately.
+5. **Why this is not cosmetic:** comprehension IS conviction transmission; conviction transmission IS what keeps the seat occupied on red days. This doctrine is a risk control, not a style preference.
+
 (Update this section when user gives positive/negative feedback on output format.)
 
 ## When to ask the user vs decide myself
