@@ -39,7 +39,7 @@ Every codification has FLUIDITY METADATA (codified date, last review, re-eval tr
 Trading horizon: primarily 6–24 month positions, opportunistic swings ≥1 month.
 Output style: TL;DR first, structured, tight. User is not an engineer. Adapt format based on feedback.
 
-**Investability filter (added 2026-05-28):** user's brokerage platforms do NOT support direct KRX (Korean) exchange access; no sponsored ADRs for LGI or SEMCO. KRX names are REFERENCE ARTIFACTS only (still valuable for harness — e.g., SEMCO is N=1 origin case for candidate Principle #34). Japan TSE (Ibiden, Murata) accessible via direct or pink-sheet ADRs. Before flagging any new candidate as P1/P2 research, run the investability check.
+**Investability filter (added 2026-05-28; SUPERSEDED 2026-07-05 by user directive):** accessibility is NO LONGER a research gate. User verbatim-adjacent: *"it doesn't matter if a name is or isn't accessible... you surface names, I will manually check availability."* Surface every name on merit; attach the exchange/ticker/ISIN tag as a courtesy; the user checks tradability on DeGiro/N26 himself before any entry package executes. Entry packages for untradable names simply lapse (logged). Historical context (KRX no-access, HK user-verified-for-ASMPT) retained in `meta/user-source-profile.md` §1 as reference, not as gate.
 
 When in doubt, read `meta/methodology.md`.
 
