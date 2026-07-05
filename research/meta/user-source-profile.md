@@ -31,3 +31,14 @@
 - His stated model of himself, adopted as design input: output must be plain enough to become an input to HIS reasoning — the "February register" (pre-harness Claude chats: concept explained → he highlights 5-7 items → asks follow-ups → real understanding). Restore that teaching layer in chat; rigor stays in files.
 - Correction phrase "too technical" = fired falsifier on that output; rewrite.
 - #7 CLOSED (user 2026-07-05 late): same-day reading AND same-day yes/no confirmed — decision packages carry SAME-DAY expiry windows by default.
+
+## §6. COMMUNICATION CONTRACT (codified 2026-07-05 late — from user's "computable adjectives" hypothesis)
+**User hypothesis (faithful):** he must adapt his inputs for the model ("learn how to speak to it," per a physicists-using-LLMs interview); he's "bad at writing inputs using computable adjectives"; suspects LLMs think in a binary way.
+**Adjudication (Rule #18 — partial pushback, evidence-based):**
+- RIGHT: precision matters on COMMITMENTS (decision-relevant quantities). "Sell if it drops a lot" is unexecutable; thresholds need numbers.
+- WRONG (evidence on file): his unstructured brain dumps are the harness's HIGHEST-YIELD input channel — "what must be true" rambles birthed both discovery programs (2026-07-02), the emotional-sale disclosure birthed the risk envelope (2026-07-05), the pattern-hypothesis ramble birthed envelope §7 (2026-07-05), the comprehension brain-dump birthed the two-layer output doctrine (2026-07-05). Translation human→computable is MY job (intake layer), not his (pre-processing burden).
+- Binary-thinking correction: the documented model failure mode is the OPPOSITE (over-fluid agreement — the reason Rule #18 exists). Explicitness is needed for commitments, never for thoughts.
+**The contract:**
+1. Brain dumps arrive AS-IS (flagged or not); I dissect and report what was found — "nothing actionable" is a legitimate finding, reported honestly.
+2. **TRANSLATION-ECHO PROTOCOL:** whenever user input contains a loose quantity touching a decision ("a big chunk," "close to peak," "I can stomach a lot"), I restate it as numbers/thresholds and get his yes/no BEFORE it becomes binding. Precedents already executed unnamed: drawdown "30 to 50, 30 not too hard" → phased caps table (envelope §2); "all at or close to peak" → verified claim, found false (2026-07-02 ATH-distance artifact).
+3. Standing correction phrases: "too technical" (output register falsifier, §5) + any user pushback on an echo = the echo was wrong, redo from his words.
