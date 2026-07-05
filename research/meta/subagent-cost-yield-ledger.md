@@ -3087,3 +3087,15 @@
 **Audit-day classification:** POSITIVE.
 **Cross-source-log:** `signals/cross-source-log/2026-07-05-ymtc-lenovo-global-ssd-verification.md`
 **Commit:** (this commit)
+
+### [2026-07-05 PM #2 — ZeroHedge "DRAMageddon/Samsung +20%" link] 1 Opus; MEDIUM — B40 recycle catch (same Jul-3 ZDNet story), prevented re-booking a T3 re-wrap as fresh acceleration; one incremental shade logged (verbal customer notification per CN-media relay)
+
+**Trigger source:** User-shared ZeroHedge URL (T3 aggregator).
+**Subagents fired:** 1 (Opus). **Estimated token cost:** ~18.1k (actual).
+**Items verified:** ZH article source chain; B40 freshness vs Jul-3 ZDNet Korea log; KR-native 48h sweep for target→agreed status change; embellishment scan.
+**Per-subagent yield:** MEDIUM — dedup positive (recycle confirmed); status NOT upgraded (target, not agreed); "+50%" outlier killed; ZH consumer-pain framing flagged as editorial; dispersion open-item reaffirmed.
+**Brief-framing errors caught:** "DRAMageddon"/consumer framing = aggregator embellishment; presented-as-fresh = 2-day-old story.
+**Thesis cascade triggered:** NONE (artifact + day-state only). **Position implication delta:** NONE.
+**Material yield class:** MEDIUM. **Audit-day classification:** POSITIVE (dedup discipline working).
+**Cross-source-log:** `signals/cross-source-log/2026-07-05-zerohedge-samsung-20pct-recycle-adjudication.md`
+**Commit:** (this commit)
