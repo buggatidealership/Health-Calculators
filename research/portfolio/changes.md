@@ -674,3 +674,8 @@ User has explicitly stated narrative-driven-momentum framing trumps wait-for-pul
 - NBIS exit (user-reported Jul-3) also reflected: no NBIS line in screenshot.
 - User statement: "willing to play with all the money that is currently in the account" → investable envelope = DeGiro €95.406,73 (N26 bank balances EXCLUDED unless user says otherwise).
 - ALAB/BE initiation intents (2026-07-01) formally SUPERSEDED — no deployment until risk-envelope exists.
+
+## 2026-07-05 EVE #2 — envelope answers received; KIOXIA classification corrected
+- Risk envelope BORN (`portfolio/risk-envelope.md`): drawdown 30-50% stated (conviction-conditional per user framing) + revealed-preference reconciliation; Germany tax (user: income treatment, advisor confirmation flagged); envelope = DeGiro €95.406,73 only.
+- KIOXIA: user confirms same-window closure AND corrects classification — it was the ALREADY-AGREED derisk executed in full (standing "further derisk" mandate on file), not a pure emotional exit like SKH/SNDK. changes.md 2026-07-05 entry + KIOXIA thesis banner amended accordingly.
+- Still open (non-blocking): fill prices/dates for SKH/SNDK/NBIS/KIOXIA sales.
