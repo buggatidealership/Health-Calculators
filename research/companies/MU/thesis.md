@@ -75,3 +75,5 @@ Per `signals/cross-source-log/2026-06-11-pm2-moat-sharedelta-fabrace-2subagent.m
 
 ## Position implication
 **Position implication:** NO ACTION — 0% size; Watchlist P3; pre-thesis-development. Re-examine if (a) Q3 FY26 print (June 2026 timing) shows LTA contract-liability detail at T1 level + HBM4 ramp pace + capex update, OR (b) Stage 4 transition triggers a multiple compression event that creates entry asymmetry. Cleanest US-listed memory-cycle exposure with differentiated LTA + US-policy moat from HYNIX.
+
+**🟡 2026-07-05 cross-ref — consumer-tier price-resistance (dedup'd TrendForce relay):** Per `signals/cross-source-log/2026-07-05-morning-brief-ingest-2leg.md`. Same Q3 survey as the Jul-3 ingest; new qualitative consumer-tier resistance evidence (OEM pushback, supplier concessions). For MU this cuts both ways: 16 LTAs insulate the AI/enterprise book, while the consumer tail decelerates first — the LTA differentiation IS the watch-item this entry tracks. **Position implication: 🟡 NO ACTION — 0%, Watchlist P3 unchanged — consumer-tier deceleration strengthens the LTA-differentiation lens for the next print.**

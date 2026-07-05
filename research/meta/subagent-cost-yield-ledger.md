@@ -3050,3 +3050,22 @@
 **Audit-day classification:** POSITIVE — high-value DEEP-DIG that sharpened the DDOG/NOW re-entry thesis + surfaced PANW competitive vector; the numerical-accuracy mandate was honored (explicit data gaps)
 **Cross-source-log:** `signals/cross-source-log/2026-06-27-DEEP-DIG-agentic-enterprise-cost-governance-axisB-defensibility.md`
 **Commit:** (this commit)
+
+### [2026-07-05 AM — morning AI brief ingest (B60 2-leg)] 2 Opus; HIGH + FRAMING-ERROR-CAUGHT — Leg A caught the TrendForce dedup (prevented double-counting the Q3 survey) + 3 Anthropic-item garbles; Leg B surfaced the Meta-neocloud relay intersecting the open Meta Compute binary + the brief class's structural capital-flow blind spot
+
+**Trigger source:** User-shared "AI Intelligence Brief" Jul-05 morning edition (T3 aggregator).
+**Subagents fired:** 2 (Opus) — Leg A anchored verification; Leg B unanchored discovery.
+**Estimated token cost:** ~53.6k (actual subagent_tokens: A 23.0k + B 30.6k).
+**Items verified:** TrendForce/Tom's Hardware affordability item (dedup vs Jul-3 survey); Venice AI raise; Anthropic Sonnet-5 item; Kutcher fund; Cloudflare Sep-15 policy; Leg B garble scan across all 11 brief items + absence sweep.
+
+**Per-subagent yield:**
+- Leg A: HIGH + FRAMING-ERROR-CAUGHT — dedup positive on the headline memory item (numbers NOT re-booked; B40 working as designed); extracted the genuinely-new consumer-tier price-resistance evidence → funding-node affordability +1; corrected 3 garbles in the Anthropic item + Cloudflare mechanics overstatement.
+- Leg B: HIGH — no fabrications across 11 items (2 naming garbles, 1 unverifiable metric); absence list exposed the HN/ArXiv-weighted brief class's structural miss of capital-flow/government stories; Meta-neocloud relay flagged against the open Meta Compute binary; lateral surplus-migration read (cross-segment, log-only) → NET P3 add.
+
+**Brief-framing errors caught:** (1) TrendForce item presented as fresh data = same Jul-3 survey; (2) "Claude Sonnet 5.0"/"safety-first"/"avoiding cybersecurity" = 3 garbles; (3) Cloudflare "separate-or-be-blocked" = overstated (new-onboarding defaults); (4) "GPT-5.5 Codex degraded" = naming garble + overstated claim.
+**Thesis cascade triggered:** `sector/ai-funding-shock-node.md` (affordability +1 consumer-tier unit); SNDK/KIOXIA/MU one-line cross-refs; `watchlist/candidates.md` NET P3; `meta/day-state.md` digest + TrendForce registry.
+**Position implication delta:** NONE (all HOLD/NO ACTION unchanged).
+**Material yield class:** HIGH + FRAMING-ERROR-CAUGHT (aggregate).
+**Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-07-05-morning-brief-ingest-2leg.md`
+**Commit:** (this commit)
