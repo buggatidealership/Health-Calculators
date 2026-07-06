@@ -99,3 +99,6 @@ Tiers: beat best-of NDX/SPX (primary, 24-mo verdict, rolling 12-mo checkpoints) 
 
 ## 2026-07-05 NIGHT — platform-trigger setup guide WRITTEN (`meta/platform-trigger-setup.md`); user committed to setup this week
 Key doc-verified facts: routines = cloud-scheduled, survive container recycles; creation requires DESKTOP browser (claude.ai/code/routines) — NOT mobile; two routines specified (KR/JP 02:22 German time ≈ 00:22 UTC + EOD 22:17); prompts are paste-ready incl. branch checkout; user signal "routines are live" → retire in-session cron arming + update Workflow #11.
+
+## 2026-07-06 — SUMCO 3-agent deep dive COMPLETE (`2026-07-06-sumco-3agent-deep-dive.md`; ~105.2k, all HIGH)
+Hike-timing premise CORRECTED at T1 (management: LTA expiry "still some way away") — rally leg was part-T3-narrative + Nomura PT event; demand leg intact/strengthened (Yongin 360K etc.); ¥5,094 = 18.5-yr high, above street-high PT. NEW WATCH: SK Siltron Gumi startup (July), NSIG escalation, **Q2 print date CONFLICT Aug-6 vs Aug-12 (verify before earnings-program pre-registration)**, third-hike (~+10% Q3) acceptance, MS post-rally reiteration risk. Falsifier pre-registered on the Q2 print LTA language. SUMCO HOLD; 17,9% > proposed 15% Phase-1 cap flagged (envelope approval pending). Next-wake additions: Jul-6/7 SUMCO tape catch-up alongside the Samsung-prelim escalation.

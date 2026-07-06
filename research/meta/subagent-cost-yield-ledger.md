@@ -3099,3 +3099,17 @@
 **Material yield class:** MEDIUM. **Audit-day classification:** POSITIVE (dedup discipline working).
 **Cross-source-log:** `signals/cross-source-log/2026-07-05-zerohedge-samsung-20pct-recycle-adjudication.md`
 **Commit:** (this commit)
+
+### [2026-07-06 — SUMCO 3-agent deep dive (user-directed, held name 17,9%)] 3 Opus; HIGH + FRAMING-ERROR-CAUGHT — caught the harness's OWN mis-tiered premise (June hike "executed" was T3-origin, contradicted by T1 management quotes 2 independent agents converged on); 18.5-yr-high reframe; third-hike signal; SK Siltron/NSIG watch escalations; falsifier sharpened to the Q2 print
+
+**Trigger source:** User request ("deep dive on Sumco, team of analysts, explain in layman terms").
+**Subagents fired:** 3 (Opus, parallel) — JP-native news / industry+alt-data / adversarial bear.
+**Estimated token cost:** ~105.2k (actual: 41.7 + 34.5 + 29.0).
+**Items verified:** Jul-3 close + rally anatomy; LTA-repricing state at primary level; demand/supply-side updates; China substitution; analyst actions; Q2 print date (CONFLICT found); capex state.
+**Per-subagent yield:** A1 HIGH (Nomura catalyst + 18.5-yr-high + third-hike signal + date conflict); A2 HIGH + FRAMING-ERROR-CAUGHT (T1 contradiction of carried hike premise; SK Siltron; CoWoS-not-wafers pinch); A3 HIGH (management kill-shot quotes; Shin-Etsu-vs-SUMCO profitability gap; NSIG escalation; 60-day falsifier design).
+**Brief-framing errors caught:** the harness's own Jul-3 banner over-tiered a T3 hike claim as materialized — corrected with visible banner (self-correction per Rule #11).
+**Thesis cascade triggered:** SUMCO thesis correction banner; day-state watch items; artifact.
+**Position implication delta:** NONE today (HOLD; trim-option flagged pending envelope approval).
+**Material yield class:** HIGH + FRAMING-ERROR-CAUGHT. **Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-07-06-sumco-3agent-deep-dive.md`
+**Commit:** (this commit)
