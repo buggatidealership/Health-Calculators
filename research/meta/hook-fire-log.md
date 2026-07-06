@@ -250,3 +250,5 @@ Baseline before instrumentation (from transcript archaeology, deduped — see `r
 - 2026-07-06 00:41:46Z session-prime-hook event=resume injected=False (skipped non-startup)
 - 2026-07-06 00:43:35Z structural-output-hook FIRE (structural-markers-missing)
 - 2026-07-06 09:55:29Z session-prime-hook event=resume injected=False (skipped non-startup)
+- 2026-07-06 15:44:58Z structural-output-hook FIRE (structural-markers-missing)
+- 2026-07-06 15:51:34Z session-prime-hook event=resume injected=False (skipped non-startup)
