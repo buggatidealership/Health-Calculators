@@ -3113,3 +3113,11 @@
 **Material yield class:** HIGH + FRAMING-ERROR-CAUGHT. **Audit-day classification:** POSITIVE.
 **Cross-source-log:** `signals/cross-source-log/2026-07-06-sumco-3agent-deep-dive.md`
 **Commit:** (this commit)
+
+### [2026-07-06 — "good morning Korea and Japan" (Workflow #10, prelim-eve)] 2 Opus; HIGH both — bar-creep caught (₩85.59tn) + prelim timing pinned (23:40 UTC) + SUMCO date resolved (Aug-6) + benchmark baseline frozen + JGB 30-yr-high macro catch + JP-financials discovery clear; AVGO attribution garble-flagged
+**Trigger source:** User "good morning Korea and Japan". **Subagents fired:** 2 (Opus, parallel). **Estimated token cost:** ~81.1k (actual 54.0 + 27.1).
+**Per-subagent yield:** Leg A HIGH (bar-update = grading-critical; date resolution; baseline task closed; SKHY state; roster incl. TrendForce dedup) / Leg B HIGH (JGB 2.830% 30-yr high T1 → funding-node cascade; won-24h launch; BOK hawkish-tilt; one discovery partial-clear + three honest kills + two garble flags).
+**Brief-framing errors caught:** AVGO "−17% post-guide Jul-2" = suspected date-garble (flagged, not booked); "national shipyard" recycle flagged; mixed-vintage Nikkei levels flagged.
+**Thesis cascade triggered:** prediction addendum (bar) / envelope §5 (baseline) / SUMCO thesis+todo (date) / funding node (rates leg) / candidates (JP financials theme) / day-state.
+**Position implication delta:** NONE. **Material yield class:** HIGH. **Audit-day classification:** POSITIVE.
+**Cross-source-log:** `signals/cross-source-log/2026-07-06-kr-jp-morning-scan-prelim-eve.md` **Commit:** (this commit)

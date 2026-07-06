@@ -15,7 +15,7 @@
 
 - [ ] **P1 / prediction / 2026-07-06** [INDP, AF, POS, CAL] — SUMCO Q2 FY2026 FULL COMPONENT-LEVEL PRE-REGISTRATION (upgrade of the directional earnings-program entry, per user directive 2026-07-06: build OWN forecast — revenue / OP / net / guidance-language incl. LTA-commentary probability — bottoms-up (volume x ASP x LTA-mix + forex + Saga depreciation), THEN compare vs consensus; the three-outcome table adjudicates the analysts-will-chase vs price-ahead question)
   - Origin: user pushback on the 2026-07-06 deep dive's PT framing (correct B28 application) + explicit self-prediction directive
-  - Scope: prediction file locked BEFORE the print; SEQUENCE: (1) Samsung Jul-7 prelim demand read, (2) confirm print date (Aug-6 vs Aug-12 CONFLICT per `signals/cross-source-log/2026-07-06-sumco-3agent-deep-dive.md`), (3) build + pre-register this week
+  - Scope: prediction file locked BEFORE the print; SEQUENCE: (1) Samsung Jul-7 prelim demand read, (2) print date RESOLVED Aug-6 per `2026-07-06-kr-jp-morning-scan-prelim-eve.md`, (3) build + pre-register this week
   - Linked: predictions/2026-07-02-AI-supplychain-earnings-program.md, companies/SUMCO/thesis.md
 - [ ] **P1 / USER-ACTION / 2026-06-27** [POS] — DeGiro/M26 availability check on REIA-surfaced investable names (do tonight when time allows)
   - Origin: 2026-06-27 REIA Batch #2-4 (power / CPU-server / CXMT) per `signals/cross-source-log/2026-06-27-REIA-batch-power-cpuserver-cxmt-investable-list.md`. All are watchlist-level / PRE-THESIS — availability check gates whether they're worth a Workflow #9 thesis build.
