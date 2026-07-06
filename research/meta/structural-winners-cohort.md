@@ -1,0 +1,314 @@
+# Structural Winners Cohort — 4-Way Theme Beneficiary × Architectural Resilience Synthesis
+
+**Created:** 2026-06-08 PM
+**Last updated:** 2026-06-09 (CORRECTION — Nidec downgrade + Harmonic Drive/Nabtesco upgrade per bypass-route test)
+
+---
+
+## ⚠️ 2026-06-09 CORRECTION — Nidec downgrade + HD/Nabtesco upgrade (Critical Rule #11 visible self-correction)
+
+**Trigger:** User-articulated lateral question 2026-06-09: *"look at what it serves today. Is it a crucial bottleneck for robotics? And is there any bypass route that companies can take to avoid going through a Nidec?"* This forced application of Critical Rule #9 bypass-route test that I skipped at original ranking.
+
+### Tier corrections
+
+| Name | 2026-06-08 ranking | 2026-06-09 corrected ranking | Reason |
+|---|---|---|---|
+| **Nidec (6594.T)** | TIER 1 (21/22) — "TOP NEW; only robotics-direct anchor" | **TIER 3 (18/22) — turnaround candidate, NOT structural compounder** | FAILS bypass-route test for robotics (in-house design by Tesla/Figure/Apptronik/1X + Maxon/Faulhaber/Inovance alternatives); FAILS for AI cooling (Vertiv dominant); EV segment in crisis (-82.5% OP H1 FY26 on write-downs); AI-theme revenue ~10-15% (my model — not dominant story) |
+| **Harmonic Drive Systems (6324.T)** | TIER 4 (16/22) | ~~TIER 2 (20/22)~~ **→ RE-CORRECTED 2026-06-09 PM to ~17/22** | ⚠️ The "PASSES bypass-route" call was WRONG (verified) — see correction below. Also: HDS is **already HELD on N26** (mis-classified as "NOT held/TOP NEW"); not a new candidate. |
+| **Nabtesco (6268.T)** | TIER 4 (16/22) | **TIER 2 (19-20/22) — UPGRADE** | RV reducer duopoly with HD; same bypass-route logic |
+
+### ⚠️ 2026-06-09 PM SECOND CORRECTION — Harmonic Drive humanoid bypass-route FAILS (6-subagent verified)
+
+Directed 6-subagent per-criterion verification of HDS + 2 self-confirmations (English + Japanese). Findings:
+- **HDS is ALREADY HELD on N26** (€10K entry 2026-05-25; existing `companies/HDS/thesis.md`) — I mis-classified it as "NOT held / TOP NEW" because the canonical `holdings.md` is Degiro-only. **Harness-amnesia: I didn't read the existing HDS thesis before scoring it as new.** Held-status post-June-rotation needs user reconciliation.
+- **Humanoid bypass-route FAILS, not PASSES.** Tesla Optimus uses Chinese Suzhou Green Harmonic (~25%→60% target 2026), 40-60% cheaper than HDS; Leaderdrive +210% YoY humanoid orders; Goldman sees HDS humanoid share → 50/50 by 2030. Figure/Apptronik/1X/Unitree/Fourier/BD all in-house or alternative. HDS has NO confirmed Western humanoid flagship win.
+- HDS moat is DURABLE in industrial-robot wrist axes + semi-cap-equipment, NOT in humanoid. Combined score corrected ~17/22 (industrial/semi strength; humanoid contested). NOT the "Sandisk/Micron of robotics."
+
+### META-PATTERN (codifiable) — recurring robotics bypass-route mis-assessment
+
+**FIVE robotics-name bypass-route mis-assessments in 48 hours** (Nidec 2026-06-09 AM, Harmonic Drive 2026-06-09 PM, **Sony 2026-06-09 PM, Renishaw 2026-06-09 PM, Nabtesco 2026-06-09 PM**). In each, I asserted bypass-route-PASS / multi-form-factor-resilience from memory WITHOUT verifying current Chinese competitive status AND/OR without auditing whether the candidate's actual product matches the humanoid joint architecture. **TWO distinct failure modes now confirmed across the cohort:**
+
+1. **Chinese-parity-arrived-faster-than-expected** (Nidec EV motors, HD harmonic, Sony CIS) — moat product CORRECT for the application, but China caught up faster than premium pricing assumes. Enforcement gate: **native-zh search before any PASS**.
+2. **Wrong-product-category trap** (Renishaw optical-grating-vs-magnetic-IC, Nabtesco RV-vs-harmonic+planetary) — moat is REAL and intact in the LEGACY business, but narrative premium is for a humanoid socket that doesn't structurally exist because humanoids use different tech. **MORE DANGEROUS failure mode** because legacy moat passes Chinese-localization-first AND keeps sell-side framework intact. Enforcement gate: **BOM-line-specific tech audit + disclosed T1 design-win**.
+
+Candidate bias B-new for monthly audit 2026-06-24: "robotics-localization-blind-spot" + sub-mode "humanoid-architecture-mismatch trap." Mandatory fix: any robotics supplier scored for bypass-route MUST fire (a) native-Chinese search on domestic-alternative qualification status AND (b) BOM-line-specific tech audit to confirm the moat product matches the humanoid-joint product BEFORE assigning a PASS — AND (c) require a disclosed T1 humanoid design-win, not narrative/sell-side framework attribution.
+
+### ⚠️ 2026-06-09 PM THIRD CORRECTION — Sony (6758.T) robotics-vision bypass-route FAILS (6-subagent Fable-5 verified)
+
+Directed 6 parallel Fable-5 subagents (CIS share/competition; robot-vision bypass-route; financials/SOTP ×2; physical-AI demand vectors; capacity/pricing; valuation/ATH). Findings:
+- **Robotics-vision bypass-route FAILS.** Sony is the quality/value leader, NOT a chokepoint. Every imaging socket has ≥2 qualified substitutes: OmniVision OV50X won the Xiaomi 17 Ultra MAIN camera (first Chinese sensor in a halo flagship); Samsung broke the 18-yr iPhone-sensor monopoly (48MP ultrawide, Austin TX, MP ~Mar 2026); auto Sony only #3 (onsemi/OmniVision lead); Optimus modules via Samsung E-M, Unitree G1 via OmniVision — **no T1 humanoid Sony win.** Humanoid CIS is a 2030s narrative (~$60–200M bull-case 2028 ≈ ~1% of I&SS).
+- **"Sandisk/Micron of robotics-vision" = WEAK fit.** Matches cost side (sunk capex, record 16.6% margin, capex discipline) but NOT revenue side (no LTAs/prepays; Apple concentration eroding; mix-led ASP not shortage-pricing). The memory crunch is a *headwind* for Sony mobile CIS, not a tailwind.
+- **BUT Sony ≠ HD.** Fwd ~17x (vs HD ~139x), EV/EBITDA ~7–8x, ¥12.5T diversified conglomerate, record FY25 OI ¥1.45T, ¥500B buyback, ~25–35% SOTP discount, active crystallization (FS spun Oct-2025, Bravia JV, TSMC sensor-JV MOU May-2026). The robotics thesis fails but a **separate cheaper value-catalyst thesis survives** (premium-imaging + auto content growth 37→43% + SOTP).
+- **Net: Sony is NOT a robotics-bottleneck cohort name.** Reclassify from "Physical AI universal-vision-supplier" → watchlist value/catalyst play. Full verdict: `companies/SONY/thesis.md` (2026-06-09 revision).
+
+### ⚠️ 2026-06-09 PM FOURTH CORRECTION — Renishaw (RSW.L) robotics-encoder bypass-route FAILS (6-subagent Fable-5 verified)
+
+Directed 6 parallel Fable-5 subagents (encoder share/competition; bypass-route deep-test; financials/segment-split; physical-AI demand vectors; capacity/pricing; valuation/ATH). Mandatory native-Chinese discipline applied. Findings:
+- **Wrong-tech error.** Humanoid joints use off-axis MAGNETIC absolute encoders (AMS AS5047P-class, $5–15 commodity ICs), NOT Renishaw's optical/inductive grating-scale moat. Encoders are ~4.45% of Optimus third-party BOM (T2). The optical-encoder moat is in the wrong product category for humanoids.
+- **Chinese-localization error.** Unitree G1 uses self-developed dual encoders (T2 native-zh CSDN teardown); **Inovance 汇川 shipped first-gen self-developed encoders + joint modules in 2025** (T1 native-zh 2025 AR); Aopu/Yuheng told investors March 2025 their high-end encoders are "暂未直接给人形机器人厂家供货" (T1 native-zh 财联社) — yet pre-qualified at joint-module tier via Inovance.
+- **Verified Renishaw humanoid wins:** only **PAL Robotics REEM-C** via RLS magnetic. **NO Tesla/Figure/Apptronik/Unitree/XPeng design-win.**
+- **BUT the SEMICAP encoder thesis is REAL and is the actual driver.** FY2026 re-segmentation made it visible: Position Measurement £179.4m (9M FY26, ~31% of group, +21.6% cc) vs group +13.5% — encoders doing ~1.7× group growth on AI-chip / semicap demand. One disclosed ASML RLE21 LTA. Capex rolling off (£73.8m → £46.3m), 20% margin target reiterated, Q3 record £206m +14%, guidance raised TWICE in FY26.
+- **Problem: already priced for humanoid narrative (~32–35x fwd, top of 5-yr band), NOT semicap (~22–25x peers).** UBS Nov-2025 "favored humanoid exposure" note drove +100–115% TTM rally — but humanoid revenue ~$30m of ~£790m = ~3.8% of group. Wrong narrative for the right name. Multiple compression risk ~20–30% if CMD 16-Jun-2026 fails to deliver humanoid disclosure.
+- **Net: Renishaw is NOT a robotics-bottleneck cohort name.** Reclassify from "Tier 2 robotics-direct" → watchlist semicap-encoder compounder priced for the wrong narrative. Full verdict: `companies/RENISHAW/thesis.md` (2026-06-09 initial).
+
+### META-PATTERN — 4 dissections, 4 bypass-route FAILS → framework needs correction
+
+Pattern is now too robust to attribute to per-name error. The **"Sandisk/Micron of Robotics" framework doesn't generalize from memory to robotics-components by analogy.** Reasons:
+- Robotics has no NAND/DRAM-style shared specification → OEMs design proprietary actuators → no industry-wide bottleneck
+- No take-or-pay norm; design-win-per-program economics
+- Chinese parity arrives in months, not years (Inovance shipped first-gen joint modules 2025; Suzhou Green Harmonic captured Tesla Optimus)
+- Magnetic-IC commodity ($5–15) is the dominant feedback substrate, not premium optical
+
+**Cohort-wide framework correction action (P2 priority, before 2026-06-24 monthly audit):** re-score every robotics-supplier candidate (Nabtesco, Panasonic-robotics-angle, Murata-as-robotics-MLCC, AGC/Hirano robotics adjacency) with the new gate: **Chinese-localization-first native-search + BOM-line-specific tech audit + disclosed T1 design-win**. The structural-winners framework conflated "resilience-style criteria" (architecture-agnostic) with "bypass-route" (chokepoint) — these are different signals.
+
+**Real investable bypass-route-FAILS layer remains:** NVDA (Orin/Thor compute), TSM 台積電 / 2330.TW (below-5nm wafers), HBM (memory cohort already held), advanced packaging (ABF substrate cohort — IBIDEN already in dissection queue). Robotics-precision-component cohort de-prioritized pending framework re-validation.
+
+### ⚠️ 2026-06-09 PM FIFTH CORRECTION — Nabtesco (6268.T / ナブテスコ) RV-reducer bypass-route FAILS (6-subagent Fable-5 verified)
+
+Directed 6 parallel Fable-5 subagents (RV share/competition; bypass-route deep-test; financials/segment-split; physical-AI demand vectors; capacity/pricing/Sandisk-archetype; valuation/ATH/L24). Mandatory native-jp + native-zh discipline applied. Findings:
+
+- **Wrong-tech-category trap (same shape as Renishaw).** Humanoid joints do NOT use RV reducers — 10-platform architecture survey (Tesla Optimus, Figure, Apptronik, Unitree, XPeng, Fourier, 1X, BD, Sanctuary, UBTech): **ZERO RV across all platforms.** Humanoids use harmonic+planetary+roller-screw+direct-drive. RV cycloidal multi-stage is structurally too heavy/bulky for humanoid weight budget. Chinese sell-side itself (T2 中邮证券) calls RV "a *potential* component for heavy-load joints" — not in any current BOM. Viral 双环-supplies-Optimus-6-RVs claim is **stock-promotion content REJECTED by every teardown.**
+- **Chinese parity arrived in industrial RV (same shape as Nidec/HD/Sony).** Huandong 环动科技 (Shuanghuan 双环 spinoff, IPO pending as "RV第一股"): 117k units 2024, 25% domestic share, IPO-funded 320k/yr capacity at 30-50% lower price (T1 native-zh SSE filings). China RV domestic share 18.89% (2023)→24.98% (2024). Nabtesco China share 61%→52%→~40% (T2 native-zh caifuhao). Bypass via Chinese-OEM-share-gain (Estun closing on Fanuc, sources Huandong not Nabtesco).
+- **Counter-cycle capacity blunder.** Hamamatsu plant ¥47bn 2022-26 brings capacity from 1.15M→2.26M units/yr by 2030 — doubling into Chinese oversupply; ramp already delayed on soft demand (T2 Nikkan). OPPOSITE of Sandisk/Micron capex-discipline criterion.
+- **Multi-vector dilution + no AI reframe path.** Component (RV) only 26% rev / 18% group OP; Accessibility (auto doors) 36% rev / 30% seg-OP, Transport (rail brakes) 33% rev / 45% seg-OP dominate. **Hydraulics (Komatsu OEM) DIVESTED Oct-2025 → kills the data-center-construction reframe path** before it could be tested. WORSE dilution than Sony I&SS.
+- **Live L24 technical setup.** Broke 8-year ATH May 8-9 (¥5,598 post Q1 +394.5% CMP OP beat), ran to ¥6,113, now -22% at ¥4,793 retesting prior 2018 ATH zone (~¥4,990). Fwd ~24x vs own 5-yr ~18-25x. Sell-side bull-narrative-priced (JP brokers PT ¥6,200). Nabtesco SOLD entire HD stake (T2 東洋経済) — cross-shareholding exit signal.
+- **Net: Nabtesco is NOT a robotics-bottleneck cohort name.** Reverted from "Tier 2 (19-20/22) RV duopoly with HD" → watchlist "automatic-doors + railway-brakes conglomerate with RV-reducer kicker priced for non-existent humanoid socket." Worst-of-pattern in the 5 dissections because BOTH failure modes layered + no AI reframe path survives. Full verdict: `companies/NABTESCO/thesis.md` (2026-06-09 revision).
+
+**Cohort gap discovered**: structural-winners-cohort.md contains **ZERO Chinese A-share names** — yet 5 of 5 robotics-supplier dissections identified Chinese names as the bypass-route beneficiary (绿的谐波 Suzhou Green Harmonic 2348.HK, OmniVision 韦尔股份 603501.SH, Inovance 002367.SZ, Huandong 环动科技 002040.SH pending IPO, Leaderdrive 来福谐波). **Chinese A-share access path workstream**: Degiro likely doesn't route Shanghai/Shenzhen directly; HK-listed proxies (Green Harmonic 2348.HK) + HK-Stock-Connect-via-broker workarounds need investigation. This is the actionable insight from the 5-for-5 pattern.
+
+### Framework refinement (codifiable insight)
+
+**"Multi-form-factor exposure" (resilience signal) ≠ "Critical bottleneck" (bypass-route signal). These are DIFFERENT signals and should NOT compound additively without independent bypass-route verification.**
+
+My original 10-criteria scoring applied resilience-style criteria (architecture-agnostic, form-factor agnostic, customer-agnostic) without separately verifying whether each candidate could be BYPASSED by customers. Nidec satisfies multi-form-factor diversification BUT does not pass bypass-route test for any of its segments. Yesterday's framework conflated these signals.
+
+### Net effect on dissection queue priority
+
+**Revised priority for future deep-dive sessions:**
+
+1. **Shin-Etsu Chemical (4063.T)** — TIER 1 22/22 — UNCHANGED top priority (multi-layer chemicals oligopoly passes both filters)
+2. **Harmonic Drive Systems (6324.T)** — UPGRADED to high-priority robotics-bottleneck candidate
+3. **Nabtesco (6268.T)** — UPGRADED to high-priority robotics-bottleneck candidate
+4. Tier 2 semi equipment + connector + analog clusters (unchanged)
+5. **Nidec (6594.T)** — DOWNGRADED to turnaround / segment-mix story; lower priority
+
+### Detail backing the correction
+
+Full bypass-route analysis: see `signals/cross-source-log/2026-06-09-nidec-deep-dive-bypass-route-correction.md` (when written) OR refer to chat transcript 2026-06-09 (this is a tier reranking summary; full analysis preserved in chat context).
+
+---
+
+**Purpose:** Persistent reference of structural-winner candidates ranked by combined score across (a) 10-criteria 4-way beneficiary filter (AI Robotics + Edge AI + AI Chip + AI DC build-out) AND (b) 12-architecture resilience scoring. To be dissected name-by-name across future sessions.
+**Origin:** User-articulated discovery question 2026-06-08 PM: "what must be true for a company to benefit from AI robotics, Edge AI, AI chip and AI data center build out" + follow-up "what must be true for newly listed companies to be resilient against changes within the AI sector's architecture" + "when you combine the companies based on resilience but also on the category winners... what companies emerged?"
+
+**All scores are (my model) estimates — directional ranking, not precise numerics. Methodology below.**
+
+---
+
+## Methodology
+
+### Framework 1 — 10-criteria 4-way structural winner filter (max 10)
+
+A name that wins across AI Robotics + Edge AI + AI Chip + AI DC build-out must satisfy:
+
+1. **Architecture-agnostic** — wins regardless of which silicon vendor dominates (TSMC vs Intel vs Samsung; NVDA vs AMD; Apple vs QCOM)
+2. **Topology-agnostic** — wins regardless of which optical/packaging scheme dominates (CPO vs NPO vs LPO; CoWoS vs EMIB)
+3. **Form-factor agnostic** — wins per-unit at SERVER + PC + PHONE + ROBOT scale
+4. **Customer-agnostic** — wins regardless of which hyperscaler / OEM / robot maker dominates
+5. **End-application agnostic** — wins regardless of training vs inference; agentic vs traditional; consumer vs enterprise
+6. **Geography-agnostic** — wins across US + China + EU + Japan + Korea sovereign AI tilts
+7. **Production-scale today** — actual production-scale offering NOW (not just research/demo)
+8. **Oligopoly pricing power** — ~85%+ market share concentrated; not commodity
+9. **Volume capacity scaling** — manufacturing capacity to absorb demand at all 4 themes simultaneously
+10. **Sunk capex / operating leverage** — capex already committed; incremental volume = high-margin
+
+### Framework 2 — 12-architecture resilience scoring (max 12)
+
+A name's resilience against AI sector architectural shifts measured against 12 identified shifts:
+
+- A. Transformer → SSM/RNN/Memory-Caching
+- B. CPO → NPO → LPO (optical interconnect topology)
+- C. Chiplet → SoIC → hybrid bonding (packaging)
+- D. HBM → HBF (compute-near NAND)
+- E. TSMC CoWoS → Intel EMIB (foundry diversification)
+- F. Leading-edge node → SRAM-based at mature node (Groq 14nm path)
+- G. NVDA GPU → custom ASIC (TPU + Trainium + MTIA)
+- H. Cloud → edge inference
+- I. Western foundry → Chinese indigenous (CXMT, SMIC)
+- J. AI PC → AI smartphone → ambient AI (form factor migration)
+- K. Standalone PCB → integrated SOCAMM/UCIe
+- M. Centralized datacenter → distributed/tent-mode (Meta)
+
+### Combined score
+
+10-criteria score + 12-architecture resilience score = max 22.
+
+---
+
+## TIER 1 — MAXIMUM combined score (21-22/22) — TOP STRUCTURAL COHORT
+
+| # | Name | Ticker | 4-way | Resilience | Combined | Status | Load-bearing condition |
+|---|---|---|---|---|---|---|---|
+| 1 | **Shin-Etsu Chemical** | 4063.T (Japan TSE) | 10 | 12 | **22/22** | **NOT held / NOT watchlisted — TOP NEW** | Silicon-based computing remains dominant |
+| 2 | **Nidec** | 6594.T (Japan TSE) | 9 | 12 | **21/22** | **NOT held / NOT watchlisted — TOP NEW (only robotics-direct anchor at top tier)** | Multi-form-factor compensates any single shift; physical-world apps universal |
+| 3 | **Murata Manufacturing** | MUR1 / 6981.T | 9 | 12 | **21/22** | **HELD 201 sh** | MLCC needed everywhere; oligopoly intact |
+| 4 | **SUMCO Corporation** | S3X / 3436.T | 9 | 12 | **21/22** | **HELD 415 sh** | Wafers needed for all silicon paths |
+| 5 | **Sakai Chemical Industry** | 4078.T | 9 | 12 | **21/22** | Watchlist (added 2026-06-08 PM) | BaTiO3 dielectric powder needed for ANY MLCC |
+| 6 | **ARM Holdings** | ARM | 10 | 11 | **21/22** | **HELD 20 sh** | CPU/NPU IP universal; vulnerable to RISC-V long-term |
+
+## TIER 2 — STRONG combined score (20/22) — TOP CLUSTER
+
+| # | Name | Ticker | 4-way | Resilience | Combined | Status | Load-bearing condition |
+|---|---|---|---|---|---|---|---|
+| 7 | **Tokyo Electron** | 8035.T (Japan TSE) | 9 | 11 | **20/22** | NOT in user universe | Chip volume keeps compounding |
+| 8 | **Applied Materials** | AMAT | 9 | 11 | **20/22** | NOT in user universe | Same as TEL |
+| 9 | **Lam Research** | LRCX | 9 | 11 | **20/22** | NOT in user universe | Same as TEL |
+| 10 | **KLA Corp** | KLAC | 9 | 11 | **20/22** | NOT in user universe | Inspection complexity rises with each architectural shift |
+| 11 | **Amphenol** | APH | 9 | 11 | **20/22** | NOT in user universe | Physical interconnect remains universal |
+| 12 | **Hirose Electric** | 6806.T (Japan TSE) | 9 | 11 | **20/22** | NOT in user universe | Same as APH (premium tier) |
+| 13 | **Texas Instruments** | TXN | 9 | 11 | **20/22** | NOT in user universe | Analog signal-chain remains required (universal) |
+| 14 | **Analog Devices** | ADI | 9 | 11 | **20/22** | NOT in user universe | Same as TXN (high-perf tier) |
+| 15 | **Sumitomo Electric** | 5802.T (Japan TSE) | 9 | 11 | **20/22** | Watchlist P1 elevated (NPO + CPO cascade) | Lasers needed regardless of optical topology |
+| 16 | **ASML** | ASML | 10 | 10 | **20/22** | Universe / not held | EUV stays dominant lithography through 2030+ |
+
+## TIER 3 — HIGH combined score (18-19/22) — single-condition dependency
+
+| # | Name | Ticker | 4-way | Resilience | Combined | Status | Load-bearing condition |
+|---|---|---|---|---|---|---|---|
+| 17 | **Daikin Industries** | 6367.T (Japan TSE) | 9 | 10 | **19/22** | NOT in user universe | PTFE not substituted by LCP at scale; immersion cooling doesn't displace traditional DC AC |
+| 18 | **Micron Technology** | MU | 9 | 10 | **19/22** | Universe / not held | HBM-tier moat + commodity CXMT erosion contained |
+| 19 | **SK Hynix** | HY9H / 000660.KS | 8 | 10 | **18/22** | **HELD 8 sh** | HBM-tier moat; CXMT threat at commodity |
+| 20 | **Sandisk** | SNDK | 8 | 10 | **18/22** | **HELD 4 sh** | NAND-tier moat; CXMT/Yangtze threat |
+| 21 | **TSMC** | TSM | 9 | 9 | **18/22** | Universe / not held | Foundry monopoly intact at advanced node despite Intel share |
+| 22 | **Lasertec** | 6920.T (Japan TSE) | 8 | 10 | **18/22** | NOT in user universe | EUV mask inspection ~100% market share; EUV stays dominant |
+| 23 | **HOYA Corporation** | 7741.T (Japan TSE) | 8 | 10 | **18/22** | NOT in user universe | EUV mask blanks duopoly with AGC (held); EUV stays dominant |
+
+## TIER 4 — MEDIUM combined score (16-17/22) — concentrated risk
+
+| # | Name | Ticker | 4-way | Resilience | Combined | Status | Load-bearing condition |
+|---|---|---|---|---|---|---|---|
+| 24 | **AGC Inc** | 5201.T / AGCRY | 7 | 10 | **17/22** | **HELD 100 sh** | PTFE CCL alternative threats; EUV blanks dependent on EUV path |
+| 25 | **Harmonic Drive Systems** | 6324.T (Japan TSE) | 8 | 8 | **16/22** | NOT in user universe | Humanoid robotics scales 2027-2028 commercially |
+| 26 | **Nabtesco** | 6268.T (Japan TSE) | 8 | 8 | **16/22** | NOT in user universe | Same as Harmonic Drive |
+| 27 | **NVIDIA** | NVDA | 8 | 8 | **16/22** | Universe / not held | CUDA ecosystem + training-tier dominance + Mag 7 in-house silicon contained |
+
+---
+
+## Tier breakdown observation
+
+**TIER 1 (21-22/22) = 6 names:**
+- 3 already HELD (MUR + SUMCO + ARM)
+- 1 already on watchlist (Sakai Chemical)
+- **2 NEW additions emerge:** Shin-Etsu Chemical + Nidec
+
+**TIER 2 (20/22) = 10 names:**
+- 0 held
+- 1 on watchlist (Sumitomo Electric)
+- 9 not in user universe: TEL + AMAT + LRCX + KLA + Amphenol + Hirose + TXN + ADI + ASML
+
+**TIER 3 (18-19/22) = 7 names:**
+- 2 held (HYNIX + SNDK)
+- 0 on watchlist
+- 5 not in user universe: Daikin + MU + TSM + Lasertec + HOYA
+
+**TIER 4 (16-17/22) = 4 names:**
+- 1 held (AGC)
+- 0 on watchlist
+- 3 not in user universe: Harmonic Drive + Nabtesco + NVDA
+
+---
+
+## Geographic concentration observation
+
+Of top 23 (TIER 1-3) names:
+- **Japan TSE: 12 names** (Shin-Etsu + Nidec + MUR + SUMCO + Sakai + Sumitomo Electric + TEL + Hirose + Daikin + Lasertec + HOYA + AGC)
+- **US NASDAQ/NYSE: 9 names** (ARM ADR + AMAT + LRCX + KLA + APH + TXN + ADI + MU + SNDK)
+- **EU / Asia other: 2 names** (ASML + TSMC ADR)
+
+User's held cohort already heavily Japan TSE (MUR + SUMCO + AGC + Hirano = 4 held). Adding Shin-Etsu + Nidec deepens but doesn't fundamentally shift Japan TSE concentration.
+
+---
+
+## Investability filter
+
+All TIER 1-2 names are accessible per user brokerage filter:
+- US NASDAQ/NYSE ✓
+- Japan TSE ✓ (per Murata/Sumco/AGC/Hirano precedent)
+- ASML (Euronext + US ADR) ✓
+
+**Confirmed NOT accessible per filter (excluded from synthesis above):**
+- KRX (Korea) — Samsung Electronics + Samsung EM
+- Taiwan TWSE — TSMC primary listing (but TSM ADR ✓); Yageo; GlobalWafers; Co-Tech
+
+---
+
+## Dissection queue (for upcoming sessions)
+
+Priority order for deep-dive (per user 2026-06-08 PM directive: "we can talk about this list tomorrow and... go through them one by one"):
+
+**Highest priority (NEW Tier 1 surfaces):**
+1. **Shin-Etsu Chemical (4063.T)** — 22/22; SINGLE highest-ranked non-held / non-watchlisted name; multi-layer oligopoly (wafers + EUV photoresist + silicones)
+2. **Nidec (6594.T)** — 21/22; ONLY robotics-direct top-tier anchor; multi-form-factor cross-vector
+
+**Tier 2 cluster (similar 20/22 scores; could group dissection):**
+3. Semi equipment cluster: **Tokyo Electron + AMAT + LRCX + KLA + ASML** — well-known but absent from user universe
+4. Connector cluster: **Amphenol + Hirose Electric**
+5. Analog/PMIC cluster: **TXN + ADI**
+
+**Tier 3 single-condition dependencies:**
+6. **Daikin Industries** — PTFE + DC cooling
+7. **Lasertec + HOYA** — EUV ecosystem (pair with held AGC)
+8. **Micron** — HYNIX equivalent US-listed
+
+**Tier 4 robotics-specific:**
+9. **Harmonic Drive + Nabtesco** — humanoid scaling dependent
+
+---
+
+## Parallel hypotheses on synthesis outcome (my model)
+
+- **H1 (P=55%)** The held cohort is already at TOP TIER — only marginal adds Shin-Etsu Chemical + Nidec are non-redundant additions. User's existing positioning captures ~80% of top-tier structural-resilience cohort globally.
+- **H2 (P=30%)** Held cohort plus current watchlist (Sakai + Sumitomo Electric + Fabrinet + Kioxia + Mitsui + Furukawa) covers ~90% of top tier — minimal value-add from further watchlist expansion beyond Shin-Etsu + Nidec.
+- **H3 (P=10%)** Semi equipment Big 4 (TEL + AMAT + LRCX + KLA) + ASML form a parallel "AI infrastructure utility" cluster worth direct exposure — could be ETF-style allocation (SOXX) rather than per-name positions.
+- **H4 (P=5%)** Robotics-deep cluster (Harmonic Drive + Nabtesco) underperforms because humanoid commercial deployment slips beyond 2028; Nidec captures robotics value safely via diversified form-factor.
+
+## Lateral / falsification
+
+- **What would invalidate the synthesis?** If 10-criteria filter weighs MORE than resilience (or vice versa), rankings shift. Unweighted 10+12 = 22 max. For long-horizon (24-36mo) positions, could argue resilience weight = 1.5×, which would elevate Shin-Etsu + Nidec further and push Tier 3 names down.
+- **Convex hull:** Top tier (≥20/22) is ~15 global names; user holds 5; watchlist captures 3-4 more; gap = Shin-Etsu + Nidec + semi equipment cluster + connector/analog cluster.
+- **Concentration risk:** Top tier is JAPAN TSE-HEAVY (8 of top 15 are Japan TSE). User's Japan TSE exposure already strong (4 held). Adding Shin-Etsu + Nidec would deepen but not break diversification.
+
+## Net actionable read
+
+**Two clear adds emerge from the synthesis as truly non-consensus opportunities:**
+1. **Shin-Etsu Chemical (4063.T)** — 22/22; SINGLE highest-ranked non-held / non-watchlisted name
+2. **Nidec (6594.T)** — 21/22; ONLY robotics-direct top-tier anchor missing from held cohort
+
+**Tier 2 well-known cluster (TEL + AMAT + LRCX + KLA + APH + Hirose + TXN + ADI + ASML)** could be considered for completeness or via ETF allocation, but are higher-consensus / less under-covered.
+
+---
+
+## Maintenance protocol
+
+- Update scores when new architectural-shift evidence emerges
+- Re-evaluate combined ranking monthly (during H1 monthly cycle 2026-06-25)
+- Move names UP tiers when verified at deeper level (e.g., investability confirmed + native-language verified + deep-dive thesis built)
+- Move names DOWN tiers if falsifier conditions fire (e.g., CXMT achieves DDR5-8400 commodity-tier; CPO architecture shifts dominate)
+- ARCHIVE names that become inert (no signal density updates over 6 months)
+
+**Last reviewed:** 2026-06-08 PM (synthesis creation)
+**Next review:** 2026-06-25 (H1 monthly cycle) OR earlier if user requests dissection session
+
+---
+
+## Cross-references
+
+- `meta/methodology.md` — Principle #29 (segment-classify) + Principle #36 (multilingual parallel)
+- `signals/cross-source-log/2026-06-08-mlcc-sold-out-deep-research.md` — MLCC sold-out substrate
+- `signals/cross-source-log/2026-06-08-google-intel-tpu-6m-verification.md` — Foundry diversification anchor
+- `signals/cross-source-log/2026-06-08-intel-cpo-verification-structural-winners.md` — CPO competitive landscape
+- `signals/cross-source-log/2026-06-08-korean-insider-tweet-socamm-selloff-7th-tier.md` — Memory cohort 7th-tier convergence
+- `signals/cross-source-log/2026-06-06-mag7-capex-burn-vs-net-cash-correction.md` — Supplier-side joint-regime framework origin
+- `watchlist/candidates.md` — All current watchlist candidates
+- `portfolio/holdings.md` — Current 10 held positions
+- `meta/todo.md` — H1 monthly cycle 2026-06-25 (will incorporate this synthesis)

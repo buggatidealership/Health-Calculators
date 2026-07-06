@@ -1,0 +1,96 @@
+{
+    "$schema": "https://json.schemastore.org/claude-code-settings.json",
+    "_comment": "PROJECT-LEVEL hook config (Architecture A, codified 2026-06-26). All hooks point to in-repo paths so that container resets do NOT wipe hook activation. Survives across sessions and machines because it's version-controlled. See research/meta/hooks/DURABLE-ACTIVATION.md for full rationale. ~/.claude/settings.json is intentionally emptied to prevent merge-duplication of hook fires (Claude Code merges settings files per launcher-precedent).",
+    "hooks": {
+        "SessionStart": [
+            {
+                "matcher": "",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/session-start-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/session-prime-hook.py"
+                    }
+                ]
+            }
+        ],
+        "UserPromptSubmit": [
+            {
+                "matcher": "",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/llm-native-priming-hook.py"
+                    }
+                ]
+            }
+        ],
+        "Stop": [
+            {
+                "matcher": "",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/anti-fabrication-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/cascade-enforcement-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/segment-trajectory-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/nth-order-cascade-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/bypass-route-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/bottoms-up-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/antifragility-mn-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/analyst-pt-context-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/signal-ingest-cascade-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/reasoning-tagging-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/llm-native-reasoning-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/structural-output-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "/home/user/Health-Calculators/research/meta/hooks/macro-anchor-hook.py"
+                    }
+                ]
+            }
+        ]
+    },
+    "permissions": {
+        "allow": [
+            "Skill"
+        ]
+    }
+}

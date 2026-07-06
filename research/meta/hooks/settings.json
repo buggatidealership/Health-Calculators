@@ -1,0 +1,99 @@
+{
+    "$schema": "https://json.schemastore.org/claude-code-settings.json",
+    "hooks": {
+        "SessionStart": [
+            {
+                "matcher": "",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "~/.claude/session-start-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/session-prime-hook.py"
+                    }
+                ]
+            }
+        ],
+        "UserPromptSubmit": [
+            {
+                "matcher": "",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "~/.claude/llm-native-priming-hook.py"
+                    }
+                ]
+            }
+        ],
+        "Stop": [
+            {
+                "matcher": "",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "~/.claude/stop-hook-git-check.sh"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/anti-fabrication-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/cascade-enforcement-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/segment-trajectory-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/nth-order-cascade-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/bypass-route-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/bottoms-up-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/antifragility-mn-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/analyst-pt-context-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/signal-ingest-cascade-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/reasoning-tagging-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/llm-native-reasoning-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/structural-output-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/macro-anchor-hook.py"
+                    }
+                ]
+            }
+        ]
+    },
+    "permissions": {
+        "allow": [
+            "Skill"
+        ]
+    }
+}
